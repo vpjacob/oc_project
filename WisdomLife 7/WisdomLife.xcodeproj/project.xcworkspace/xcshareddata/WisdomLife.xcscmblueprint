@@ -1,0 +1,32 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "69142205A38A4BD85EA5CACC53DB44BAC71133CF",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "0e1a2743-8d03-4e5a-a60c-7e26af42b145++1837" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "0e1a2743-8d03-4e5a-a60c-7e26af42b145++1837" : 9223372036854775807,
+    "69142205A38A4BD85EA5CACC53DB44BAC71133CF" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "97345E69-AFBF-472B-987D-04F1F28303D4",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "0e1a2743-8d03-4e5a-a60c-7e26af42b145++1837" : "WisdomLife\/WisdomLife\/widget\/",
+    "69142205A38A4BD85EA5CACC53DB44BAC71133CF" : "WisdomLife\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "WisdomLife",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "WisdomLife.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/svn5.apicloud.com\/A6921550712789",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0e1a2743-8d03-4e5a-a60c-7e26af42b145++1837"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/vpjacob\/go.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "69142205A38A4BD85EA5CACC53DB44BAC71133CF"
+    }
+  ]
+}

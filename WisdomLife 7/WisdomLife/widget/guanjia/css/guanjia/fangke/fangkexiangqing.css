@@ -1,0 +1,75 @@
+body {
+	font-family: "微软雅黑";
+}
+img {
+	display: block;
+}
+input {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border: none;
+}
+.clearfix {
+	clear: both;
+}
+.fangwu_box{
+	
+}
+.fangwu_list{
+	width:100%;
+	margin:auto;
+	
+}
+.fangwu{
+	background:#FFFFFF;
+	padding:0 0 0 14px;
+	font-size:15px;
+	margin-bottom:10px;
+}
+.fangwu:nth-child(1) div{
+	line-height:48px;
+}
+.fangwu:nth-child(1) div span{
+	color:#0d0d0d;
+}
+.fangwu:nth-child(1) div input{
+	float:right;
+	line-height:48px;
+	text-align:right;
+	margin-right:4%;
+}
+.fangwu:nth-child(2) div{
+	line-height:48px;
+}
+.fangwu:nth-child(2) div input{
+	width:96%;
+	text-indent:2em;
+}
+.fangwu:nth-child(3) div{
+	line-height:48px;
+}
+.fangwu:nth-child(3) div span{
+	color:#0d0d0d;
+}
+.fangwu:nth-child(3) div input{
+	float:right;
+	line-height:48px;
+	text-align:right;
+	margin-right:4%;
+}
+.fangwu_box button{
+	width:92%;
+	height:40px;
+	border-radius:5px;
+	background:#0eaae3;
+	color:#FFFFFF;
+	font-size:15px;
+	margin: 12px 4%;
+}
+
+
+
+
+
+

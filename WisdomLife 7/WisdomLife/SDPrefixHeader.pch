@@ -1,0 +1,223 @@
+//
+//  SDPrefixHeader.pch
+//  SmartDoor
+//
+//  Created by 朱攀峰 on 16/10/29.
+//  Copyright © 2016年 朱攀峰. All rights reserved.
+//
+
+#ifndef SDPrefixHeader_pch
+#define SDPrefixHeader_pch
+
+#import "GlobalTool.h"
+
+#define isIphone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+#define isIphone4 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) : NO)
+#define isIphone6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) : NO)
+#define isIphone6p ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)
+#define IS_IPAD   (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad)
+
+
+#define IOS9_OR_LATER ([[[UIDevice currentDevice] systemVersion] compare:@"9.0"] != NSOrderedAscending)
+#define IOS8_OR_LATER ([[[UIDevice currentDevice] systemVersion] compare:@"8.0"] != NSOrderedAscending)
+#define IOS7_OR_LATER ([[[UIDevice currentDevice] systemVersion] compare:@"7.0"] != NSOrderedAscending)
+#define IOS6_OR_LATER ([[[UIDevice currentDevice] systemVersion] compare:@"6.0"] != NSOrderedAscending)
+#define IOS5_OR_LATER ([[[UIDevice currentDevice] systemVersion] compare:@"5.0"] != NSOrderedAscending)
+#define IOS4_OR_LATER ([[[UIDevice currentDevice] systemVersion] compare:@"4.0"] != NSOrderedAscending)
+#define IOS3_OR_LATER ([[[UIDevice currentDevice] systemVersion] compare:@"3.0"] != NSOrderedAscending)
+
+#define IOS_SYSTEM_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
+
+
+//获取当前语言
+#define CurrentLanguage  ([[NSLocale preferredLanguages ] objectAtIndex:0])
+
+//判断是否为空(注意：判断为空这里再加一个   <null>     数组字符串也像第一个那样做“null”的判断)
+#define IsNilOrNull(_ref)  (((_ref) == nil) || ([(_ref) isEqual:[NSNull null]]) || ([(_ref) isEqual:@"null"]) || ([(_ref) isEqual:@"(null)"]))
+
+#define IsStrEmpty(_ref)  (((_ref) == nil) || ([(_ref) isEqual:[NSNull null]]) || ([(_ref) isEqualToString:@""]))
+
+#define IsArrEmpty(_ref)  (((_ref) == nil) || ([(_ref) isEqual:[NSNull null]]) || ([(_ref) count] == 0))
+
+#define kDeviceWidth  ([UIScreen mainScreen].bounds.size.width)
+#define kDeviceHeight  ([UIScreen mainScreen].bounds.size.height)
+#define kNavBarHeight  64.0
+#define kStateBarHeight  20.0
+#define kCurrentWidth(x) ([UIScreen mainScreen].bounds.size.width/320.0)*x
+#define kCurrentHeight(x) ([UIScreen mainScreen].bounds.size.height/480.0)*x
+#define jjSCREENW(x) ([UIScreen mainScreen].bounds.size.width/375.0)*x
+#define jjSCREENH(x) ([UIScreen mainScreen].bounds.size.height/667.0)*x
+
+#define kClearColor       [UIColor clearColor]
+#define kWhiteColor       [UIColor whiteColor]
+#define kBlackColor       [UIColor blackColor]
+#define kDarkGrayColor    [UIColor darkGrayColor]
+#define kLightGrayColor   [UIColor lightGrayColor]
+#define kGrayColor        [UIColor grayColor]
+#define kRedColor         [UIColor redColor]
+#define kGreenColor       [UIColor greenColor]
+#define kBlueColor        [UIColor blueColor]
+#define kCyanColor        [UIColor cyanColor]
+#define kYellowColor      [UIColor yellowColor]
+#define kMagentaColor     [UIColor magentaColor]
+#define kOrangeColor      [UIColor orangeColor]
+#define kPurpleColor      [UIColor purpleColor]
+#define kBrownColor       [UIColor brownColor]
+
+#define kBackgroundColor    [UIColor colorWithHexString:@"eeeeee"]
+#define kSepparteLineColor  [UIColor colorWithHexString:@"c8c8c8"]
+
+typedef enum {
+    DEV_TYPE_RD100 = 1, // 门禁读头
+    DEV_TYPE_AM100 = 2, // 门禁一体机
+    DEV_TYPE_LC100 = 3, // 梯控读头
+    DEV_TYPE_BL100 = 4, // 无线锁
+    DEV_TYPE_BC100 = 5, // 蓝牙遥控模块
+    DEV_TYPE_ACCESS_CONTROL = 6, // 门禁控制器
+    DEV_TYPE_TC100 = 7, // 触摸开关门禁
+    DEV_TYPE_QC200 = 8, // 二维码一体机
+    DEV_TYPE_QD100 = 9, // 二维码读头
+    DEV_TYPE_AM160 = 10, // 写卡一体机
+    DEV_TYPE_TC200 = 11, // WiFi触摸门禁
+    DEV_TYPE_AM260 = 12, // WiFi写卡一体机
+    DEV_TYPE_AM200 = 13, // wifi门禁一体机
+    
+}DevTypeE;
+
+typedef enum {
+    SUPER_ADMIN_USER = 1, // 超级管理员用户
+    ADMIN_USER = 2, // 管理员用户
+    GENERAL_USER = 4, // 普通用户
+}PrivilegeE;
+
+#define RGB_COLOR(r, g, b, a) ([UIColor colorWithRed: (r)/ 255.0 green:(g) / 255.0 blue:(b) / 255.0 alpha:(a)])
+
+//主页按钮的宽度
+#define kHomeButtonWidth (kDeviceWidth - 1.5) / 4.0
+
+#define RGBCOLOR(r,g,b)  [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
+#define RGB1COLOR(r,g,b,a)  [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
+
+//rgb颜色转换（16进制->10进制）
+#define UIColorFromRGB(rgbValue)  [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0f green:((float)((rgbValue & 0xFF00) >> 8))/255.0f blue:((float)(rgbValue & 0xFF))/255.0f alpha:(a)]
+
+#define kSystem(size)  [UIFont systemFontOfSize:size]
+#define kSystemBold(size) [UIFont boldSystemFontOfSize:size]
+
+#define IOS8 [[[UIDevice currentDevice]systemVersion] floatValue] >= 8.0
+#define IOS9 [[[UIDevice currentDevice]systemVersion] floatValue] >= 9.0
+#define kString(a,b) [NSString stringWithFormat:@"%@%@",a,b]
+
+#define kRequestError NSLocalizedString(@"RequestError", @"")
+
+#define USERSTATUSCHANGEDNO @"USERSTATUSCHANGED"//重新登录
+
+#define SetStartDateValue @"SetStartDateValue"
+#define SetEndDateValue @"SetEndDateValue"
+
+#define StartShakeMonitor @"StartShakeMonitor"
+#define NearOpenDoorReceved @"NearOpenDoorReceved"
+#define ScanOpenDoorReceved @"ScanOpenDoorReceved"
+#define OpenDoorReceved @"OpenDoorReceved"
+#define SendEKeyAlertDatePicker @"SendEKeyAlertDatePicker"
+#define BackToEkeyManageView @"BackToEkeyManageView"
+
+#define USER_IS_LOGOUT 1028
+#define SettingMsgReceved @"SettingMsgReceved"
+#define SettingReLogin @"SettingReLogin"
+#define DevListMsgReceved @"DevListMsgReceved"
+#define MessageReceved @"MessageReceved"
+#define OpenLogUpdate @"OpenLogUpdate"
+
+extern NSTimer * gNSTimer;
+
+#ifdef ERROR_LOG
+
+#define ERROR_PRINT(FORMAT, ...)  {\
+NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];\
+[dateFormatter setDateStyle:NSDateFormatterMediumStyle];\
+[dateFormatter setTimeStyle:NSDateFormatterShortStyle];\
+[dateFormatter setDateFormat:@"HH:mm:ss:SSSSSS"]; \
+NSString *str = [dateFormatter stringFromDate:[NSDate date]];\
+fprintf(stderr,"[ERROR] %s:[%s] [%s:%s:%d]\n",[str UTF8String], [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String],[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],[[[NSString stringWithUTF8String:__FUNCTION__] lastPathComponent] UTF8String] ,__LINE__);\
+}
+#else
+
+#define ERROR_PRINT(FORMAT, ...)
+
+#endif
+
+/*SN_EXTERN*/
+#if !defined(SN_EXTERN)
+#  if defined(__cplusplus)
+#    define SN_EXTERN extern "C"
+#  else
+#    define SN_EXTERN extern
+#  endif
+#endif
+
+// Logo设置
+#define ISOEM @"NO"
+#define OEM_COMPANY @"ZHIGUO"
+
+#endif /* SDPrefixHeader_pch */
+
+typedef enum {
+    VOIP_DOOR = 0,
+    ACCESS_DEVICE = 1,
+}DeviceType;
+
+typedef enum {
+    REMOTE_OPEN = 0,
+    REMOTE_CLOSE = 1,
+    REMOTE_CALCEL = 2
+}RemoteDeviceE;
+
+// controlDevice操作
+typedef enum {
+    CTRL_OPEN_DOOR = 0x00, // 开门
+    CTRL_DEVICE_MANGE_ID = 0x01, // 管理员登记模式 --废除
+    CTRL_SET_CONFIG_ID = 0x02, // 退出管理员登记模式 --废除
+    CTRL_USER_AUTH = 0x03, // 添加设备
+    CTRL_SET_DEV_TIME = 0x04, // 设置设备时间
+    CTRL_MODIFY_ADMIN_PWD = 0x05, // 修改管理员密码
+    CTRL_ENTER_CARD_REGISTER_MODE = 0x06, // 进入登记卡模式
+    CTRL_ENTER_CARD_DEL_MODE = 0x07, // 进入删除卡模式
+    CTRL_EXIT_CARD_REGISTER_MODE = 0x08, // 退出卡登记模式
+    CTRL_EXIT_CARD_DEL_MODE = 0x09, // 退出卡删除模式
+    CTRL_SET_DEV_INFO = 0x0a, // 设置设备信息
+    CTRL_GET_DEV_INFO = 0x0b, // 获取设备信息
+    CTRL_DEL_ALL_CARD_USER = 0x0c, // 删除所有卡、用户信息
+    CTRL_INIT_DEV_OPTION = 0x0d, // 系统初始化--参数恢复出厂设置
+    CTRL_GET_DEV_CARD_INFO = 0x0e, // 获取设备卡登记信息
+    CTRL_UPDATE_DEV_CARD_INFO = 0x0f, // 更新设备卡登记信息
+    CTRL_DEL_DEV_CARD_INFO = 0x10, // 删除设备卡登记信息
+    CTRL_GET_DEV_USER = 0x11, // 获取设备用户信息
+    CTRL_GET_DEV_RECORD = 0x12, // 获取记录信息
+    CTRL_OPEN_DOOR_EXTEND = 0xff // 开门接口扩展：传入序列号直接开门
+}CONTROL_DEVICE_E;
+
+#ifdef __OBJC__
+#import <Availability.h>
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "UIImage+Addition.h"
+#import "Category.h"
+#import "Constant.h"
+#import "NSArray+SNFoundation.h"
+#import "HomeData.h"
+//#import "MineData.h"
+#import "AFNetworking.h"
+#import "CommonHttpClient.h"
+#import "Config.h"
+//#import "LinphoneManager.h"
+//#import "CallManager.h"
+//#import "Utils.h"
+#import <DoorMasterSDK/DoorMasterSDK.h>
+#import <DMVPhoneSDK/DMVPhoneSDK.h>
+#import "UploadOpenDoorService.h"
+#import "OpenSound.h"
+#import "CommonSystemInfo.h"
+#import "GlobalTool.h"
+#import "ContentUtils.h"
+#endif

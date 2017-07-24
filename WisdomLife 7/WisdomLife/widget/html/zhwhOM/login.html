@@ -1,0 +1,243 @@
+<div data-page="login" class="page no-toolbar">
+	<div class="page-content" style="padding-top: 0px;background:url(image/pic_index_background.png)  no-repeat center center;">
+
+		<div class="login-screen" style="background: rgba(0, 0, 0, 0.4);  position: fixed;">
+			<div id="user_login" style="display: none;">
+				<div class="navbar" style="background: none !important;">
+					<div class="navbar-inner">
+						<div class="left sliding">
+							<a href="#" class="close-login-screen link">
+								<i class="icon icon-angle-left"></i>
+								<span>返回</span>
+							</a>
+						</div>
+						<div class="center sliding" style="color: rgb(255, 255, 255); font-size: 17px; text-align: center;">登录</div>
+						<div class="right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+					</div>
+				</div>
+				<br>
+				<br>
+				<br>
+				<br>
+				<form id="login-form">
+					<div class="list-block">
+						<div class="item-inner">
+							<div class="item-title label">
+								<span class="icon-mobile-phone" style="font-size: 35px;color:white; padding-left:22px ;"></span>
+							</div>
+							<div class="item-input">
+								<input id="l_username" type="text" name="username" placeholder="输入手机号" style="color: #FFFFFF; ">
+							</div>
+						</div>
+						<br>
+
+						<div class="item-inner">
+							<div class="item-title label">
+								<span class="icon-lock" style="font-size: 30px;color:white; padding-left:20px ;"></span>
+							</div>
+							<div class="item-input">
+								<input id="l_password" type="password" name="password" placeholder="输入密码" style="color: #FFFFFF;">
+							</div>
+						</div>
+						<br>
+						<br>
+						<a href="#" id="login-button" class="button button-big loginbutton" style="border: 1px solid #FF4040;"><span style="color: #FFFFFF;">登录</span></a>
+						<br>
+						<br><span id="findpwd_button" class="open-login-screen my_modal-button">忘记密码？</span>
+					</div>
+				</form>
+			</div>
+			<!--找回密码-->
+			<div id="user_findpwd" style="display: none;">
+				<div class="navbar" style="background: none !important;">
+					<div class="navbar-inner">
+						<div class="left sliding">
+							<a href="#" class="close-login-screen link">
+								<i class="icon icon-angle-left"></i>
+								<span>返回</span>
+							</a>
+						</div>
+						<div class="center sliding" style="color: rgb(255, 255, 255); font-size: 17px; text-align: center;">找回密码</div>
+						<div class="right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+					</div>
+				</div>
+				<br>
+				<br>
+				<br>
+				<br>
+				<form id="pwd-form">
+					<div class="list-block">
+						<div class="item-inner">
+							<div class="item-title label" style="width: 20%;">
+								<span class="icon-mobile-phone" style="font-size: 35px;color:white; padding-left:22px ;"></span>
+							</div>
+							<div class="item-input">
+								<input id="f_username" type="text" name="username" placeholder="输入注册的手机号" style="color: #FFFFFF;">
+							</div>
+						</div>
+						<br>
+						<div class="item-inner">
+							<div class="item-title label" style="width: 20%;">
+								<span class="icon-exclamation-sign" style="font-size: 25px;color:white; padding-left:20px ;"></span>
+							</div>
+							<div class="item-input">
+								<input id="f_smscode" type="text" name="smscode" placeholder="输入验证码" style="color: #FFFFFF;">
+							</div>
+
+							<div class="item-title label" style="width: 50%;">
+								<input type="button" id="btnSendCode" class="button" style="border: 1px solid lightgray; color: #FFFFFF;" value="获取验证码" onclick="sendMessage(2)" />
+							</div>
+						</div>
+						<br>
+						<div class="item-inner">
+							<div class="item-title label" style="width: 20%;">
+								<span class="icon-lock" style="font-size: 30px;color:white; padding-left:20px ;"></span>
+							</div>
+							<div class="item-input">
+								<input id="new_pwd" type="password" name="new_pwd" placeholder="输入新密码" style="color: #FFFFFF;">
+							</div>
+						</div>
+						<br>
+						<div class="item-inner">
+							<div class="item-title label" style="width: 20%;">
+								<span class="icon-lock" style="font-size: 30px;color:white; padding-left:20px ;"></span>
+							</div>
+							<div class="item-input">
+								<input id="renew_pwd" type="password" name="renew_pwd" placeholder="再次输入新密码" style="color: #FFFFFF;">
+							</div>
+						</div>
+						<br>
+						<br>
+						<a id="renew_btn" class="button button-big loginbutton" style="border: 1px solid #FF4040;"><span style="color: #FFFFFF;">完成</span></a>
+					</div>
+				</form>
+			</div>
+
+			<div id="user_register" style="display: none;">
+				<div class="navbar" style="background: none !important;">
+					<div class="navbar-inner">
+						<div class="left sliding">
+							<a href="#" class="close-login-screen link" id="register_back"> <i class="icon icon-back"></i> <span>返回</span>
+							</a>
+						</div>
+						<div class="center sliding" style="color: rgb(255, 255, 255); font-size: 17px; text-align: center; left: -26.5px!important;">注册</div>
+						<div class="right"></div>
+					</div>
+				</div>
+				<br>
+				<form id="register-form">
+					<div class="list-block">
+						<div class="item-inner">
+							<div class="item-title label" style="width: 20%;">
+								<span class="icon-mobile-phone" style="font-size: 35px;color:white; padding-left:22px ;"></span>
+							</div>
+							<div class="item-input">
+								<input id="r_username" type="text" name="username" placeholder="输入手机号" style="color: #FFFFFF;">
+							</div>
+						</div>
+						<br>
+						<div class="item-inner">
+							<div class="item-title label" style="width: 20%;">
+								<span class="icon-lock" style="font-size: 30px;color:white; padding-left:20px ;"></span>
+							</div>
+							<div class="item-input">
+								<input id="r_password" type="password" name="password" placeholder="输入密码" style="color: #FFFFFF;">
+							</div>
+						</div>
+						<br>
+						<div class="item-inner">
+							<div class="item-title label" style="width: 20%;">
+								<span class="icon-exclamation-sign" style="font-size: 25px;color:white; padding-left:20px ;"></span>
+							</div>
+							<div class="item-input">
+								<input id="r_smscode" type="text" name="smscode" placeholder="输入验证码" style="color: #FFFFFF;">
+							</div>
+							<div class="item-title label" style="width: 50%;">
+								<input type="button" id="btnSendCode" class="button" style="border: 1px solid lightgray; color: #FFFFFF;" value="获取验证码" onclick="sendMessage(1)" />
+							</div>
+						</div>
+						<br>
+						<div class="item-inner">
+							<div class="item-title label" style="width: 20%;">
+								<span class="icon-venus-mars" style="font-size: 25px;color:white; padding-left:20px ;"></span>
+							</div>
+							<div class="item-input">
+								<select style="color: #FFFFFF;" id="r_gender" name="r_gender">
+									<option value="0">选择真实性别，注册后不能修改</option>
+									<option value="1">帅哥</option>
+									<option value="2">美女</option>
+								</select>
+							</div>
+						</div>
+						<br>
+						<br>
+						<a id="register-button" class="button button-big loginbutton" style="border: 1px solid #FF4040;"><span style="color: #FFFFFF;">下一步</span></a>
+					</div>
+				</form>
+
+			<!--用户设置头像-->
+				<form id="headerImg-form" style="display:none;">
+					<a class="user-header">
+						<div id="user-defalt-img">
+						<br>
+						<span class="icon-camera" style="font-size: 30px;color:white;"></span>
+						<br>
+						<span style="color:white;">添加头像</span>
+						</div>
+						<img id="user-real-header" src="" style="width: 100px;height:100px;border-radius: 7px;display:none;">
+					</a>
+					<br><br><br><br><br><br><br><br><br><br>
+					<a id="headerImg-button" class="button button-big loginbutton" style="border: 1px solid #FF4040;"><span style="color: #FFFFFF;">下一步</span></a>
+				</form>
+
+				<form id="keyword-form" style="display:none;">
+					<div class="list-block">
+						<div class="item-inner">
+							<div class="item-title label" style="width: 25%;color:white;">关键词1:</div>
+							<div class="item-input">
+								<input id="keyword1" type="text" name="keyword1" style="color: #FFFFFF;">
+							</div>
+						</div>
+						<div class="item-inner">
+							<div class="item-title label" style="width: 25%;color:white;">关键词2:</div>
+							<div class="item-input">
+								<input id="keyword2" type="text" name="keyword2" style="color: #FFFFFF;">
+							</div>
+						</div>
+						<div class="item-inner">
+							<div class="item-title label" style="width: 25%;color:white;">关键词3:</div>
+							<div class="item-input">
+								<input id="keyword3" type="text" name="keyword3" style="color: #FFFFFF;">
+							</div>
+						</div>
+						<div class="item-inner">
+							<div class="item-title label" style="width: 25%;color:white;">关键词4:</div>
+							<div class="item-input">
+								<input id="keyword4" type="text" name="keyword4" style="color: #FFFFFF;">
+							</div>
+						</div>
+						<div class="item-inner">
+							<div class="item-title label" style="width: 25%;color:white;">关键词5:</div>
+							<div class="item-input">
+								<input id="keyword5" type="text" name="keyword5" style="color: #FFFFFF;">
+							</div>
+						</div>
+
+						<br>
+						<br>
+						<a id="keyword-button" class="button button-big loginbutton" style="border: 1px solid #FF4040;"><span style="color: #FFFFFF;">完成</span></a>
+					</div>
+				</form>
+
+			</div>
+		</div>
+
+	</div>
+
+	<div class="my_modal_in">
+		<a href="#" id="login_button" class="open-login-screen">
+			<span class="my_modal-button" style="background: #FF4040;">登录</span>
+		</a>
+		<br> <span id="register_button" class="open-login-screen my_modal-button">创建账号</span>
+	</div>
+</div>

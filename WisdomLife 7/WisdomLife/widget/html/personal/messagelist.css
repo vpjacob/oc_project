@@ -1,0 +1,69 @@
+body, h1, h2, h3, h4, h5, h6, hr, p,
+ blockquote, /* structural elements ½á¹¹ÔªËØ */
+ dl, dt, dd, ul, ol, li, /* list elements ÁÐ±íÔªËØ */
+ pre, /* text formatting elements ÎÄ±¾¸ñÊ½ÔªËØ */
+ form, fieldset, legend, button, input, textarea, /* form elements ±íµ¥ÔªËØ */
+ th, td, /* table elements ±í¸ñÔªËØ */
+ img/* img elements Í¼Æ¬ÔªËØ */{
+     border:medium none;
+     margin: 0;
+     padding: 0;
+ }
+/** ÉèÖÃÄ¬ÈÏ×ÖÌå **/
+body,input,p{
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: 'Microsoft YaHei';
+}
+/*h1, h2, h3, h4, h5, h6 { font-size: 100%; }*/
+/*em{font-style:normal;}*/
+/** ÖØÖÃÁÐ±íÔªËØ **/
+ul, ol { list-style: none; }
+/** ÖØÖÃ³¬Á´½ÓÔªËØ **/
+a { text-decoration: none; color:#000;}
+a:hover { text-decoration: underline; color:#3363a7; }
+/** ÖØÖÃÍ¼Æ¬ÔªËØ **/
+img{ border:0px;}
+/** ÖØÖÃ±í¸ñÔªËØ **/
+table { border-collapse: collapse; border-spacing: 0; }
+
+.num{
+  background-color:red;
+  position:absolute;
+  display:inline-block;
+  width:8px;
+  height:8px;
+  border-radius: 4px 4px;  
+  bottom:8px;
+  right:8px;  
+}
+
+.list-block{
+  margin:0;
+  margin-top:10px;
+}
+
+.list-block .item-content{
+   height:100px;
+   margin:0px 0px 0px 5px;
+   padding:0;
+}
+
+.title-mid{
+  width:90%;
+  padding-left:20px;
+}
+
+.title-mid h1{
+  font-size:16px;
+}
+
+.title-mid span{
+  font-size:12px;
+}
+
+.list-block .item-inner{
+  margin:0;
+  padding:0;
+}

@@ -1,0 +1,84 @@
+body{
+	margin:0;
+	background:url(../../../image/beihujiao_bg.png) no-repeat 0px -100px;
+	background-size:100%;
+}
+dl{
+	padding:0;
+	margin:0;
+}
+.clearfix{
+	clear:both;
+}
+.bar:after{
+	height:0px;
+}
+.hujiao_box{
+	position:relative;
+	top:0;
+}
+.hujiao_list{
+	width:92%;
+	margin:auto;
+}
+.hujiao_top{
+	width:100%;
+	padding-top:40px;
+	/* padding-bottom:150px; */
+}
+.hujiao_top div{
+	width:150px;
+	height:150px;
+	margin:auto;
+}
+.hujiao_top div img{
+	width:150px;
+}
+.hujiao_top dl{
+	text-align: center;
+}
+.hujiao_top dt{
+	font-size:22px;
+	margin-top:20px;
+}
+.hujiao_top dd{
+	font-size:18px;
+	margin-top:20px;
+}
+.hujiao_bottom{
+	width:100%;
+	position:absolute;
+	bottom:100px;
+}
+.huijiao_bottom .bottom{
+	width:92%;
+	
+}
+.bottom div img{
+	width:60px;
+}
+.bottom div:nth-child(1){
+	width:50%;
+	float:left;
+
+}
+.bottom div:nth-child(1) span{
+	width:60px;
+	height:60px;
+	margin:auto;
+	display:block
+}
+.bottom div:nth-child(2){
+	width:50%;
+	float:left;
+
+}
+.bottom div:nth-child(2) span{
+	width:60px;
+	height:60px;
+	margin:auto;
+	display:block
+}
+
+
+

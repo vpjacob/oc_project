@@ -1,0 +1,159 @@
+
+/*@import "menu.css";*/
+/** 清除内外边距 **/
+body, h1, h2, h3, h4, h5, h6, hr, p,
+blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
+th, td, /* table elements 表格元素 */
+img/* img elements 图片元素 */{
+    border:medium none;
+    margin: 0;
+    padding: 0;
+}
+/** 设置默认字体 **/
+body {
+	margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: '微软雅黑';
+    background-color:#fff;
+}
+/*h1, h2, h3, h4, h5, h6 { font-size: 100%; }*/
+/*em{font-style:normal;}*/
+/** 重置列表元素 **/
+ul, ol { list-style: none; }
+/** 重置超链接元素 **/
+a { text-decoration: none; color:#000;}
+a:hover { text-decoration: underline; color:#3363a7; }
+/** 重置图片元素 **/
+img{ border:0px;}
+/** 重置表格元素 **/
+table { border-collapse: collapse; border-spacing: 0; }
+
+/*表单元素样式*/
+input{
+  -webkit-appearance:none;
+}
+.bar{
+  background-color:#FFFFFF;
+}
+.content{
+   font-size:.6rem;
+}
+
+.content>.content-block{
+  padding:0px;
+ 
+}
+.content-block{
+   margin-top:15px;
+}
+select{
+   border-color:#CCCCCC;
+   height:40px;
+   background-color:#fff;
+   width:100%;
+   overflow: hidden;
+}
+
+.row .area-now{
+   margin-left:5px;
+   margin-right:-15px;
+   margin-top:10px;
+}
+
+.select-two{
+   margin-bottom:15px;
+}
+
+ .select-six{
+   width:96%;
+}
+
+.item-inner{
+ overflow: hidden;
+ margin-left:-10px;
+}
+
+.input-left{
+   float:left;
+}
+
+.input-right {
+  float:right;
+  width:12rem;
+  margin-right:10px;
+}
+
+.date{
+  width:11rem;
+}
+
+ul li{
+   height:30px;
+   line-height:30px;
+   margin-bottom:15px;
+}
+.erweima{
+   float:right;
+   margin-right:30px;
+   margin-top:-20px;
+}
+
+.content-block .sure{
+   float:right;
+   border-radius:20px;
+   padding:5px 5px;
+}
+
+.content-block .sure-y{   
+   border:1px solid #0894ec;
+   color:#0894ec;
+   background-color:#fff;
+}
+
+.content-block .sure-n{   
+   /*border:1px solid #CCCCCC;*/
+   color:#fff;
+}
+
+.select-five{
+  float:left;
+  width:40%;
+  margin-top:5px;
+  margin-left:30px;
+}
+.select-three{
+   text-align: right;
+   margin-right:5px;
+   width:13rem;
+   padding-right:17px;
+}
+.date .select-three{
+  background-color:#FFFFFF;
+}
+
+.content{
+  background-color:#FFFFFF;
+}
+.select-five input[type=text]{
+	width:70%;
+	float: left;
+}
+
+
+
+.button-success.button-fill{
+   background-color:#0894ec;
+}
+.bar .icon {
+    position:absolute;
+    z-index: 20;
+    font-size: 1rem;
+    line-height: 1.2rem;
+   padding: 0.25rem 0.0rem;
+}
+
+

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>我的房屋</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/sm.min.css">
+    <link rel="stylesheet" href="../../../css/sm-extend.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../css/iconfont.css" />
+	<link rel="stylesheet" type="text/css" href="../../../css/guanjia/familyNum/familyNum.css" /> 
+       
+</head>
+<body>
+	<header class="bar bar-nav" style="position: relative;" id="title">
+		<h1 class="title" style="background-color: white">我是成员</h1>
+		<a onclick="goBack()" class="iconfont icon-xiangzuo1 pull-left" style="font-size:20px;color:#0EAAE3;position:absolute;top:7px;"></a>	
+		<!--<a  class="iconfont icon-add " style="font-size:20px;color:#0EAAE3;position:absolute;top:7px; right: 15px;" id="addFamily"></a>	-->
+		<img src="../../../../image/scan.jpg" style="width:20px;height:20px;color:#0EAAE3;position:absolute;top:12px;right: 15px" id="scan"/>
+	</header>
+	
+	
+	<div class="Personal_box">
+		<!--<div class="Personal_title">
+			<span class="special span0 ">我是业主</span><span class="span1 ">我是租户</span>
+			<div class="clearfix"></div>
+		</div>-->
+		<div class="clearfix"></div>
+		<div class="Personal_centent">
+			<div class="list_box" id="showList">
+				<!--<div class="same">
+					<div class="sameBox">
+						<div class="top">
+							<span>王小峰</span>
+							<span>13852415632</span>
+						</div>
+						<div class="mid">
+							<span>陕西省 太原市 迎泽区 凯旋城 8栋2单元 203室</span>
+						</div>
+						<div class="last">
+							<div class="last_left">
+								<img src="../../../image/renw.png" alt="" />
+								<span>未认证</span>
+							</div>
+							<div class="last_right">
+								<img src="../../../image/bianji.png" alt="" />
+								<span>编辑</span>
+								<img src="../../../image/del.png" alt="" />
+								<span>删除</span>
+							</div>
+						</div>
+					</div>
+				</div>-->
+				<!--<div class="same">
+					<div class="sameBox">
+						<div class="top">
+							<span>王小峰</span>
+							<span>13852415632</span>
+						</div>
+						<div class="mid">
+							<span>陕西省 太原市 迎泽区 凯旋城 8栋2单元 203室</span>
+						</div>
+						<div class="last">
+							<div class="last_left">
+								<img src="../../../image/renw.png" alt="" />
+								<span>认证中</span>
+							</div>
+							<div class="last_right">
+								
+							</div>
+						</div>
+					</div>
+				</div>-->
+				<!--<div class="same">
+					<div class="sameBox">
+						<div class="top">
+							<span>王小峰</span>
+							<span>13852415632</span>
+						</div>
+						<div class="mid">
+							<span>陕西省 太原市 迎泽区 凯旋城 8栋2单元 203室</span>
+						</div>
+						<div class="last">
+							<div class="last_left">
+								<img src="../../../image/reny.png" alt="" />
+								<span>已认证</span>
+							</div>
+							<div class="last_right family">
+								<div style="float: right;">
+								<img src="../../../image/chengy.png" alt="" />
+								<span>家庭成员</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>-->
+			</div>
+			
+		</div>
+		
+		<div class="Personal_centent">
+			<div class="list_box" id="showTempList">
+				<!--<div class="same">
+					<div class="sameBox">
+						<div class="top">
+							<span>王小峰</span>
+							<span>13852415632</span>
+						</div>
+						<div class="mid">
+							<span>陕西省 太原市 迎泽区 凯旋城 8栋2单元 203室</span>
+						</div>
+						<div class="last">
+							<div class="last_left">
+								<span>关系类型</span>
+								<span>夫妻</span>
+							</div>
+						</div>
+					</div>
+				</div>-->
+				<!--<div class="same">
+					<div class="sameBox">
+						<div class="top">
+							<span>王小峰</span>
+							<span>13852415632</span>
+						</div>
+						<div class="mid">
+							<span>陕西省 太原市 迎泽区 凯旋城 8栋2单元 203室</span>
+						</div>
+						<div class="last">
+							<div class="last_left">
+								<img src="../../../image/renw.png" alt="" />
+								<span>认证中</span>
+							</div>
+							<div class="last_right">
+								
+							</div>
+						</div>
+					</div>
+				</div>-->
+				<!--<div class="same">
+					<div class="sameBox">
+						<div class="top">
+							<span>王小峰</span>
+							<span>13852415632</span>
+						</div>
+						<div class="mid">
+							<span>陕西省 太原市 迎泽区 凯旋城 8栋2单元 203室</span>
+						</div>
+						<div class="last">
+							<div class="last_left">
+								<img src="../../../image/reny.png" alt="" />
+								<span>已认证</span>
+							</div>
+							<div class="last_right family">
+								<div style="float: right;">
+								<img src="../../../image/chengy.png" alt="" />
+								<span>家庭成员</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>-->
+				
+			</div>
+				
+		</div>
+		<!--<div class="clearfix"></div>-->				
+	
+</body>
+<script type="text/javascript" src="../../../../script/api.js"></script>
+<script type="text/javascript" src="../../../../script/common.js"></script>
+<script type="text/javascript" src="../../../script/jquery.js"></script>
+<script type="text/javascript" src="../../../../script/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="../../../script/guanjia/familyNum/familyNum.js"></script>
+<script>
+function refresh() {
+	location.reload();
+	}
+</script>
+</html>

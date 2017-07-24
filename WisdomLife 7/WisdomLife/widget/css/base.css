@@ -1,0 +1,16 @@
+.top-bar-right {
+	position: absolute;
+	top: 0px;
+	right: 15px;
+	height: 44px;
+	line-height: 44px;
+	color: #646464;
+	font-size: 14px;
+}
+
+.page.page-curren,.content,body,.page{
+   background-color:#f0f0f0;
+}
+.bar {
+   background-color:#fff;
+}

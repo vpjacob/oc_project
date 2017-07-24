@@ -1,0 +1,174 @@
+	<!-- - [Page 1] ---------------------------------------- -->
+	<div data-page="communityInfo" class="page navbar-fixed no-toolbar">
+		<div class="navbar" style="background-color: white;">
+		    <div class="navbar-inner">
+		        <div class="left">
+		           <a href="#" class="link back" id="communityInfo-back">		           
+						<i class="icon icon-angle-left" style="color: #15191C;"></i> 
+						<span style="color: #15191C;">返回</span>
+					</a>
+		        </div>
+		        <div class="center"><span style="color: #15191C;" id="community-info-center-title"></span></div>
+		        <div class="right">
+		            <a href="#" class="link"></a>
+		        </div>
+		    </div>
+		</div> 
+		
+		<div class="page-content" style="overflow-x: hidden;">
+			<div class="card" style="box-shadow: none; margin: 0px;">
+			  <div class="card-content">
+			    <div class="list-block media-list"  style="font-size: 23px;font-weight: 200;">
+			      <ul>
+			        <li class="item-content">
+			           <div class="item-media"><img class="community-image-main" id="community-info-image" ></div>
+			          <div class="item-inner">
+			            <div class="item-title-row" style="height: 30px;">
+				            <div class="item-title" style="font-weight: 300;font-size: 16px;line-height: 30px;" id="community-info-title"></div>
+				          </div>
+				          <div class="item-text" style="line-height: 30px;font-size:12px;height: 30px;"><i class="icon icon-group"></i>&nbsp;<span style="color: #8e8e93;" id="community-info-person"></span></div>
+			          </div>
+			        </li>
+			      </ul>
+			    </div>
+			  </div>
+			</div>
+			
+			<div class="list-block" style="margin-top: 8px;font-size: 14px;">
+			  <!-- First group-->
+			  <div class="list-group">
+			    <ul>
+			      <li class="item-content">
+			        <div class="item-media" style="color:#8e8e93">圈号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+			        <div class="item-inner">
+			          <div class="item-title" id="community-info-code"></div>
+			        </div>
+			      </li>
+			      <li>
+				      <a href="#" class="item-link item-content">
+				        <div class="item-media" style="color:#8e8e93">圈简介&nbsp;&nbsp;&nbsp;&nbsp;</div>
+				        <div class="item-inner">
+				          <!--<div class="item-title-row">
+				            <div class="item-title" id="community-info-introduce"></div>
+				          </div>-->
+				          <div class="item-text" id="community-info-introduce" style="color:#000000"></div>
+				          
+				        </div>
+				      </a>
+				  </li>
+			      
+			      <li>
+				      <a href="#" class="item-link item-content">
+				        <div class="item-media" style="color:#8e8e93">圈等级&nbsp;&nbsp;&nbsp;&nbsp;</div>
+				        <div class="item-inner">
+				          <div class="item-title"><img style="height: 15px;width: 35px;" id="community-info-vip"/></div>
+				          <div class="item-after" style="margin-right: 15em;" id="community-info-level"></div>
+				        </div>
+				      </a>
+				  </li>
+			      
+			      <li class="item-content" id="item-content-createtime">
+			        <div class="item-media" style="color:#8e8e93">创建时间</div>
+			        <div class="item-inner">
+			          <div class="item-title" id="community-info-createtime"></div>
+			        </div>
+			      </li>
+			      <!-- 分隔元素 -->
+    				  <li class="item-divider"></li>
+			       
+			       <li>
+				      <a href="#" class="item-link item-content">
+				        <div class="item-media" style="color:#8e8e93">圈主&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+				        <div class="item-inner">
+				          		<div class="item-title"><img style="width: 40px;height: 40px;" id="community-info-mainIm"/></div>
+				          		<div class="item-text" style="color:#333333;float: left;width: calc(100% - 46px);line-height: 35px;" id="community-info-mainName"></div>
+				        </div>
+				      </a>
+				  </li>
+			       
+			      <li>
+				      <a href="#" class="item-link item-content">
+				        <div class="item-media" style="color:#8e8e93">圈名片&nbsp;&nbsp;&nbsp;&nbsp;</div>
+				        <div class="item-inner">
+				          <div class="item-title-row">
+				            <div class="item-title" id="community-info-card"></div>
+				          </div>
+				        </div>
+				      </a>
+				  </li>
+			    </ul>
+			  </div>
+			  <!-- Second group-->
+			  <div class="list-group">
+			    <ul>
+			      <li class="list-group-title"></li>
+			      <li>
+			      	<a href="#" class="item-link item-content" id="community-members-link">
+			      	<div class="item-media">
+			          <div class="item-title-row">
+			            <div class="item-title" style="color: #8e8e93;">圈成员&nbsp;&nbsp;&nbsp;&nbsp;</div>
+			            <div class="item-after" style="color: #8e8e93;font-size: 28px;margin-left:0px;" id="community-info-pnum"></div>
+			          </div>
+			        </div>
+			      	<div class="item-inner" id="community-info-pImg">
+			          	
+			        </div>
+			       </a>
+			      </li>
+			      
+			      <li id="community-dyli-link">
+			      	<a href="#" class="item-link item-content" id="community-dy-link">
+			      	<div class="item-media">
+			          <div class="item-title-row">
+			            <div class="item-title" style="color: #8e8e93;">圈动态&nbsp;&nbsp;&nbsp;&nbsp;</div>
+			            <div class="item-after" style="color: #8e8e93;font-size: 28px;margin-left:0px;" id="community-info-dnum"></div>
+			          </div>
+			        </div>
+			      	<div class="item-inner" id="community-info-dImg">
+			          	
+			        </div>
+			       </a>
+			      </li>
+			      
+			      <li id="community-info-join-li">
+			      	<a href="#" class="item-link item-content" id="community-info-join-new">
+				        <div class="item-media">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+				        <div class="item-inner">
+				          <div class="item-title"><span style="color: rgb(15, 170, 227);">＋邀请新成员<span></div>
+				        </div>
+			        </a>
+			      </li>
+			      <li id="item-content-keyword">
+				      <a href="#" class="item-link item-content">
+				        <div class="item-media" style="color:#8e8e93">关键词&nbsp;&nbsp;&nbsp;&nbsp;</div>
+				        <div class="item-inner">
+				          <div style="font-size: 14px;float: left;" id="community-info-keyword">
+				          </div>
+				        </div>
+				      </a>
+				  </li>
+				  
+				   <!-- 分隔元素 -->
+    				  <li class="item-divider"></li>
+    				   <li>
+				      <a href="#" class="item-link item-content" id="community-info-accusa">
+				        <div class="item-media" style="color:#8e8e93">举报</div>
+				        <div class="item-inner"></div>
+				      </a>
+				  </li>
+				  
+			    </ul>
+			  </div>
+			</div>
+		</div>
+			<div class="div-community-content-center">
+				<a href="#" class="item-link" style="color: #FFFFFF;text-overflow: ellipsis;text-align: center;display: none;" id="joinOneCommunity">
+					<i class="icon icon-comment" style="color: white;font-size: 15px;line-height: 44px;"></i>
+					<span style="padding-left: 5px;font-size: 15px;">进入群聊</span>
+				</a>
+				<a href="#" class="item-link" style="color: #FFFFFF;text-overflow: ellipsis;text-align: center;display: none;" id="joinOtherCommunity">
+					<i class="icon icon-plus-circle" style="color: white;font-size: 15px;line-height: 44px;"></i>
+					<span style="padding-left: 5px;font-size: 15px;">申请加入</span>
+				</a>
+			</div>
+	</div>

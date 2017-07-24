@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="../../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+    <link rel="stylesheet" href="../../css/sm-extend.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../css/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/mesIcon/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/guanjia/guanjia.css">
+    <style>
+    html, body {
+        position: relative;
+        height: 100%;
+        background-color:#efefef
+    }
+    body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color:#000;
+        margin: 0;
+        padding: 0;
+    }
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+     img {
+    	display: block;
+    	margin: auto;
+    	width: 100%;
+    	} 
+    </style>
+</head>
+<body>
+	<header class="bar bar-nav" style="position: fixed; height: 0%;" id="title">
+		<h1 class="title" style="color: white;background-color: #0EAAE3;">小客管家</h1>
+		<a onclick="goBack()" style="font-size:20px;color:#FFFFFF; position:absolute;top:7px; "></a>	
+		<i class="icon iconfont icon-xiaoxi" style="font-size: 21px;color:white;float: right"></i>
+	</header>
+	<!--<div class="tankuang_box">
+		<div class="tankuang">
+			<div><span id="telNum"></span></div>
+			<div>
+				<span id="closetankuang">取消</span><span id="telCall">呼叫</span>
+			</div>
+		</div>
+	</div>-->
+	<!--<div class="black_box"></div>-->
+	<div class="header">
+		<div class="swiper-container">
+        <div class="swiper-wrapper ">
+            <div class="swiper-slide"><img src="../../image/banner_a.png"></div>
+            <div class="swiper-slide"><img src="../../image/banner_b.png"></div>
+            <div class="swiper-slide"><img src="../../image/banner_c.png"></div>      
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+	</div>
+	<div class="business" style="height: 5.5rem">
+		<div class="wuye" style="height: 29%">
+			<div class="fuwu" style="line-height: 20px"> 
+				物业服务
+			</div>
+		</div>
+		<div class="tubiao first">
+			<span id="gonggao">
+				<img src="../../image/icon_b.png"></img>
+				<div class="leibie">小区公告</div>
+			</span>	
+			<span id="callWy">
+				<img src="../../image/icon_e.png"></img>
+				<div class="leibie">联系物业</div>
+			</span>		
+			<span id="jiaofei">
+				<img src="../../image/icon_f.png"></img>
+				<div class="leibie">生活缴费</div>
+			</span>
+			<span id="weixiu">
+				<img src="../../image/icon_g.png"></img>
+				<div class="leibie">物业维修</div>
+			</span>	
+		</div>
+	</div>
+	<div class="business" style="height: 13.5rem">
+		<div class="wuye" style="height: 16%">
+			<div class="fuwu" style="line-height: 25px"> 
+				门禁管理
+			</div>
+		</div>
+		<div class="tubiao first" style="height: 26%">
+			<span id="fangke">
+				<img src="../../image/icon_h.png"></img>
+				<div class="leibie">授权访客</div>
+			</span>	
+			<span id="fangwu">
+				<img src="../../image/icon_j.png"></img>
+				<div class="leibie">我的房屋</div>
+			</span>		
+			<span id="shipin">
+				<img src="../../image/icon_k.png"></img>
+				<div class="leibie">门口视频</div>
+			</span>
+			<span id="yaoshi">
+				<img src="../../image/icon_l.png"></img>
+				<div class="leibie">门禁钥匙</div>
+			</span>	
+		</div>
+		<div class="tubiao" style="height: 26%">
+			<span id="jilu">
+				<img src="../../image/icon_d.png"></img>
+				<div class="leibie">开门记录</div>
+			</span>	
+			<span id="linCall">
+				<img src="../../image/icon-2.png"></img>
+				<div class="leibie">邻里呼叫</div>
+			</span>	
+			<span id="customer">
+				<img src="../../image/icon-3.png"></img>
+				<div class="leibie">联系客服</div>
+			</span>	
+			<span id="familyNum">
+				<img src="../../image/familyNum.jpg"></img>
+				<div class="leibie">我是成员</div>
+			</span>	
+		</div>
+		<div class="tubiao" style="height: 26%">
+			<!--<span id="tempManage">
+				<img src="../../image/tempMan.jpg"></img>
+				<div class="leibie">租户管理</div>
+			</span>	-->
+			<span id="onceopen">
+				<img src="../../image/openDoor.jpg"></img>
+				<div class="leibie">一键开门</div>
+			</span>	
+			<span id="setting">
+				<img src="../../image/setting.jpg"></img>
+				<div class="leibie">设置</div>
+			</span>
+		</div>
+	</div>
+	<div class="business" style="height: 9.5rem">
+		<div class="wuye" >
+			<div class="fuwu"> 
+				生活服务
+			</div>
+		</div>
+		<div class="tubiao first">
+			<span id="rent">
+				<img src="../../image/icon-4.png"></img>
+				<div class="leibie">房屋租售</div>
+			</span>	
+			<span id="homeClear">
+				<img src="../../image/icon-7.png"></img>
+				<div class="leibie">家政保洁</div>
+			</span>		
+			<span id="moonMoman">
+				<img src="../../image/icon-5.png"></img>
+				<div class="leibie">保姆月嫂</div>
+			</span>
+			<span id="flower">
+				<img src="../../image/icon-6.png"></img>
+				<div class="leibie">鲜花绿植</div>
+			</span>	
+		</div>
+		<div class="tubiao">
+			<span id="decoration">
+				<img src="../../image/icon-8.png"></img>
+				<div class="leibie">房屋维修</div>
+			</span>	
+			<span id="maintain">
+				<img src="../../image/icon-9.png"></img>
+				<div class="leibie">家电维修</div>
+			</span>	
+			<span id="recycle">
+				<img src="../../image/icon-10.png"></img>
+				<div class="leibie">环保回收</div>
+			</span>	
+			<span id="moreServer">
+				<img src="../../image/icon-1.png"></img>
+				<div class="leibie">更多服务</div>
+			</span>	
+		</div>
+		
+	</div>
+	
+ <!--钥匙包不生效的情况下进行释放--> 
+	<!--<footer>
+		<div class="left special" id="gj">
+			<img src="../../image/xiaoqu.png" id="left"/>			
+			<span >智慧小区</span>
+		</div>
+		
+		<div class="right" id="ll">
+			<img src="../../image/key1.png" id="right"/>			
+			<span>钥匙包</span>
+		</div>	
+	</footer>-->
+	
+<!--	<footer>
+		<div class="left special" id="gj">
+			<img src="../../image/icon_m.png" id="left0"/>			
+			<span >管家</span>
+		</div>
+		<div class="left" id="sj">
+			<img src="../../image/icon_x.png" id="left1"/>			
+			<span>商家</span>
+		</div>
+		<div class="left" id="left2">
+			<div class="middle">
+			</div>
+		</div>
+		 <div class="right" id="my">
+			<img src="../../image/icon_z.png" id="right0"/>			
+			<span>我的</span>
+		</div>	
+		<div class="right" id="ll">
+			<img src="../../image/icon_n.png" id="left3"/>			
+			<span>邻里</span>
+		</div>
+		
+	</footer>-->
+	
+    <script type="text/javascript" src="../../script/swiper.js"></script>
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        spaceBetween: 3,
+        centeredSlides: true,
+        autoplayDisableOnInteraction: false,
+        autoplay: 2500,
+        loop: true
+    });
+    
+    </script>
+    <script type="text/javascript" src="../../../script/api.js"></script>
+    <script type="text/javascript" src="../../script/jquery.js"></script>
+	<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+	<script type="text/javascript" src="../../../script/common.js"></script>
+	<script type="text/javascript" src="../../script/guanjia/guanjia.js"></script>
+</body>
+</html>
+</html>

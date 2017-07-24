@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<title>个人中心</title>
+		<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<link rel="stylesheet" href="../../css/sm-extend.min.css">
+		<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm-extend.min.js' charset='utf-8'></script>
+		<link rel="stylesheet" type="text/css" href="../../css/all.css">
+		<link rel="stylesheet" type="text/css" href="personal.css">
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
+    <style>
+    	body{
+    		
+    	}
+    	a:active, a:link, a:visited, a:hover {
+            color: #000;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<body>
+<div class="page-group">
+    <div class="page">
+        <header class="bar bar-nav my-head" id="header">
+            <a class="icon pull-left" id="back">
+                <!--<img src="../../image/toright.png"/>-->
+                 <i  class="iconfont icon-xiangzuo1" style="font-size: 28px;color: #999"></i>
+            </a>
+            <!--<a class="icon icon-refresh pull-right"></a>-->
+            <h1 class="title">个人信息</h1>
+            <a id="regist" style="float: right; height: 44px; line-height: 44px; color:#2795c5; font-size: 14px;"></a>
+        </header>
+        <div class="content mar-top" data-distance="50" style="background-color: #f0f0f0;">
+            <div class="list-block" id="list-block">
+                <ul>
+                    <li class="item-content" style="border-bottom: 10px solid #f0f0f0;" ontouchstart="touchstart(this)">
+                        <div class="item-media">
+                            <i class="icon icon-f7"></i>
+                        </div>
+                        <div class="item-inner create-actions">
+                            <div class="item-title" >头像</div>
+                             <div style="width:60px;height:60px">
+                                <img id="headurl" src="../../image/morenpic_03.png" style="position:absolute;right:1.8rem;width:60px;height:60px">
+                             </div>
+                            <i class="icon iconfont icon-xiangyou1"></i>
+                        </div>
+                    </li>
+
+                    
+                   <li id="name_" class="item-content" style="border-bottom: 1px solid #ededed;" ontouchstart='touchstart(this)'>
+                        <div class="item-media">
+                            <i class="icon icon-f7"></i>
+                        </div>
+                        <div class="item-inner" style="position: relative;">
+                            <div class="item-title"  style="width: 100%" >真实姓名</div>
+                            <span id="realname" class="changeColor" style="white-space: nowrap;"></span>
+                            <i class="icon iconfont icon-xiangyou1"></i>
+                        </div>
+                    </li>                    
+                    
+                    <li id="name" class="item-content" style="border-bottom: 1px solid #ededed;" ontouchstart='touchstart(this)'>
+                        <div class="item-media">
+                            <i class="icon icon-f7"></i>
+                        </div>
+                        <div class="item-inner" style="position: relative;">
+                            <div class="item-title" style="width: 100%">用户名(昵称)</div>
+                            <span id="nick" class="changeColor" style="white-space: nowrap;"></span>
+                            <i class="icon iconfont icon-xiangyou1"></i>
+                        </div>
+                    </li>
+  
+                    <li class="item-content" style="border-bottom: 10px solid #f0f0f0;" ontouchstart='touchstart(this)'>
+                        <div class="item-media">
+                            <i class="icon icon-f7"></i>
+                        </div>
+                        <div class="item-inner create-sex">
+                            <div class="item-title" style="width: 100%">性别</div>
+                            <span id="sex" class="changeColor"></span>
+                            <i class="icon iconfont icon-xiangyou1"></i>
+                        </div>
+                    </li>
+                    <li class="item-content" id="aa" style="border-bottom: 1px solid #f0f0f0;" ontouchstart='touchstart(this)'>
+                        <div class="item-media">
+                            <i class="icon icon-f7"></i>
+                        </div>
+                        <div class="item-inner">
+                            <div class="item-title" style="width: 100%">生日</div>
+                            <input  type="text" id='birthday' style="text-align: right; padding-right:14px; font-size: 16px;"></input>
+                            <i class="icon iconfont icon-xiangyou1" style="margin-right:5px;"></i>
+                        </div>
+                    </li>
+                    <!--<li class="item-content" style="border-bottom: 1px solid #f0f0f0;" ontouchstart='touchstart(this)'>
+                        <div class="item-media">
+                            <i class="icon icon-f7"></i>
+                        </div>
+                        <div class="item-inner">
+                            <div class="item-title" style="width: 100%">星座</div>
+                            <span class="changeColor" style="white-space: nowrap;">狮子座</span>
+                            <i class="icon iconfont icon-xiangyou1" style="margin-right:5px;"></i>
+                        </div>
+                    </li>-->
+                    <li class="item-content" id="myAddress" style="border-bottom: 1px solid #f0f0f0;" ontouchstart='touchstart(this)'>
+                        <div class="item-media">
+                            <i class="icon icon-f7"></i>
+                        </div>
+                        <div class="item-inner">
+                            <div class="item-title" style="width: 100%">地区</div>
+                            <input type="text" id='address' disabled="true" style="text-align: right; padding-right:14px; font-size: 16px;"/>
+                            <i class="icon iconfont icon-xiangyou1" style="margin-right:5px;"></i>
+                        </div>
+                    </li>
+                    <li id="tel_li" class="item-content" style="border-bottom: 10px solid #f0f0f0;" ontouchstart='touchstart(this)'>
+                        <div class="item-media">
+                            <i class="icon icon-f7"></i>
+                        </div>
+                        <div class="item-inner">
+                            <div class="item-title" style="width: 100%">手机号<span class="colorChange">(已绑定)</span></div>
+                            <span id="telphone" class="changeColor" style="white-space: nowrap;"></span>
+                            <i class="icon iconfont icon-xiangyou1" style="margin-right:5px;"></i>
+                        </div>
+                    </li>
+                    <!--<li id="changePwd" class="item-content" style="border-bottom: 10px solid #f0f0f0;" ontouchstart='touchstart(this)'>
+                        <div class="item-media">
+                            <i class="icon icon-f7"></i>
+                        </div>
+                        <div class="item-inner">
+                            <div class="item-title" style="width: 100%">修改密码</div>
+                            <i class="icon iconfont icon-xiangyou1" style="margin-right:3px;"></i>
+                        </div>
+                    </li>-->
+                    
+                    <!-- <li class="item-content" id="gexing" style="border-bottom: 1px solid #f0f0f0;" ontouchstart='touchstart(this)'>
+                        <div class="item-media">
+                            <i class="icon icon-f7"></i>
+                        </div>
+                        <div class="item-inner">
+                            <div class="item-title" style="width: 100%">个性签名</div>
+                            <span id="c_user_sign" class="changeColor" style="white-space: nowrap;"></span>
+                            <i class="icon iconfont icon-xiangyou1" style="margin-right:5px;"></i>
+                        </div>
+                    </li>
+                    <li class="item-content keyword" id="keywods" style="border-bottom: 1px solid #f0f0f0;" ontouchstart='touchstart(this)'>
+                        <div class="item-media">
+                            <i class="icon icon-f7"></i>
+                        </div>
+                        <div class="item-inner">
+                            <div class="item-title" style="width: 100%">关键词</div>
+                            <span class="changeColor" style="white-space: nowrap;"></span>
+                            
+                            <i id="word0" class="icon iconfont" style="margin-right:5px;"></i>
+                            <i id="word1" class="icon iconfont" style="margin-right:5px;"></i>
+                            <i id="word2" class="icon iconfont" style="margin-right:5px;"></i>
+                            <i id="word3" class="icon iconfont" style="margin-right:5px;"></i>
+                            <i id="word4" class="icon iconfont" style="margin-right:5px;"></i>   
+                             <i class="icon iconfont icon-xiangyou1" style="margin-right:5px;"></i>                        
+                        </div>
+                    </li>
+                    <li class="item-content" id="couple" style="border-bottom: 10px solid #f0f0f0;" ontouchstart='touchstart(this)'>
+                        <div class="item-media">
+                            <i class="icon icon-f7"></i>
+                        </div>
+                        <div class="item-inner">
+                            <div class="item-title" style="width: 100%">婚姻状态（情感状态）</div>
+                            <span id="feelings" class="changeColor" style="white-space: nowrap;"></span>
+                            <i class="icon iconfont icon-xiangyou1" style="margin-right:3px;"></i>
+                        </div>
+                    </li> -->
+                    <li id="changeSecondPwd" class="item-content" ontouchstart='touchstart(this)'>
+                        <div class="item-media">
+                            <i class="icon icon-f7"></i>
+                        </div>
+                        <div class="item-inner">
+                            <div class="item-title" style="width: 100%">修改二级密码</div>
+                            <i class="icon iconfont icon-xiangyou1" style="margin-right:3px;"></i>
+                        </div>
+                    </li>
+                    <li class="item-content" id='changeIdentify' style="border-bottom: 1px solid #f0f0f0;" ontouchstart='touchstart(this)'>
+                        <div class="item-media">
+                            <i class="icon icon-f7"></i>
+                        </div>
+                        <div class="item-inner">
+                            <div class="item-title" style="width: 100%">身份证号</div>
+                            <span id="idcard" class="changeColor" style="white-space: nowrap;"></span>
+                            <i class="icon iconfont icon-xiangyou1" style="margin-right:5px;"></i>
+                        </div>
+                    </li>
+                   <li id="myroom" class="item-content" style="border-bottom: 1px solid #f0f0f0;" ontouchstart='touchstart(this)'>
+                        <div class="item-media">
+                            <i class="icon icon-f7"></i>
+                        </div>
+                        <div class="item-inner">
+                            <div class="item-title" style="width: 100%">我的房屋</div>
+                            <span class="changeColor" style="white-space: nowrap;"></span>
+                            <i class="icon iconfont icon-xiangyou1" style="margin-right:5px;"></i>
+                        </div>
+                    </li>
+                    <li class="item-content" style="border-bottom: 10px solid #f0f0f0;" ontouchstart='touchstart(this)'>
+                        <div class="item-media">
+                            <i class="icon icon-f7"></i>
+                        </div>
+                        <div class="item-inner" id="date">
+                            <div class="item-title" style="width: 100%">注册日期</div>
+                            <span id="createtime" class="changeColor" style="white-space: nowrap;"></span>
+                            <!--<i class="icon iconfont icon-xiangyou1" style="margin-right:3px;"></i>-->
+
+                        </div>
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            <!--<button class="quit">退出登录</button>-->
+        </div>
+        <div class="photo" id="photo">
+            <div class="photo_center">
+                <div class="photo_top">
+                    <span>头像</span>
+                    <button id="album" class="borderOne">本地相册</button>
+                    <button id="tackpic">拍照</button>
+                </div>
+                <button class="photo_bottom">取消</button>
+            </div>
+           </div>
+     
+
+          <div class="photo" id="women">
+            <div class="photo_center">
+                <div class="photo_top">
+                    <span>性别</span>
+                    <button id="sexman" class="borderOne">男</button>
+                    <button id="sexwoman">女</button>
+                </div>
+                <button class="photo_bottom">取消</button>
+             </div>
+           </div>
+    </div>
+</div>
+<script>
+</script>
+</body>
+	<script type="text/javascript" src="../../script/api.js"></script>
+	<script type="text/javascript" src="../../script/common.js"></script>
+	<script type="text/javascript" src="../../script/progressutil.js"></script>
+	<script type="text/javascript" src="content.js"></script>
+	<script>
+		function refresh(){
+			location.reload();
+//			alert('123')
+		}
+	</script>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<title>回购</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../css/sm.min.css">
+		<link rel="stylesheet" href="../css/sm-extend.min.css">
+		<script type='text/javascript' src='../script/jquery.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../script/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../script/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../script/sm-extend.min.js' charset='utf-8'></script>
+ 		<link rel="stylesheet" type="text/css" href="../css/iconfont.css"> 
+		<link rel="stylesheet" type="text/css" href="../css/zicon/iconfont.css">
+		<style>
+			body{font-family:"微软雅黑"}
+			*{font-weight:normal;}
+			.cl{clear:both;}
+			dl,dt,dd{margin:0;padding:0;}
+			.bar{background-color:#FFFFFF;position:relative;}
+			.bar a{color:white;font-size:1.rem;margin-top:3px;color:#333333;margin-top:10px;}
+			.bar h1{font-size:18px;color:#333333;}
+			.tishi{width:100%;background-color:#ffffff;}
+			.tishi-box{padding:0 4%;font-size:12px;line-height:45px;color:#333333;}
+			.tishi-box span{float:left;width:50%;text-align:center;}
+			.tishi-box .special{color:#0eaae3;}
+			.neirong{}
+			.neirong-box{width:100%;}
+			.neirong-title{font-size:12px;line-height:25px;background-color:#FFFFFF;padding:0 4%;margin-top:1px;}
+			.neirong-detailed{font-size:15px;color:#333333;height:50px;padding:0 4%;background-color:#ffffff;margin-top:2px;}
+			.neirong-detailed div{float:left;width:33.33%;text-align:center;line-height:50px;color:#333333;}
+			.neirong-detailed img{width:20px;margin-right:5px;}
+			.neirong-detailed div:nth-child(2) span{color:#0eaae3;}
+		</style>
+</head>
+<body>
+<div class="page-group">
+    <!-- 你的html代码 -->
+    <div class="page cl">
+		<header class="bar bar-nav">
+  			<a class="iconfont icon-xiangzuo1 pull-left"></a>
+  			<a class="iconfont icon-xiangxia1 pull-right"></a>
+  			<a class="pull-right" style="font-size:15px;">筛选</a>
+  			<h1 class="title">转账明细</h1>
+		</header>
+		<div class="tishi">
+			<div class="tishi-box">
+				<span class="special">转入</span><span>转出</span>
+				<div class="cl"></div>
+			</div>
+		</div>
+		<div class="neirong">
+			<div class="neirong-box">
+				<div class="neirong-list">
+					<div class="neirong-title">五月</div>
+					<div class="neirong-detailed">
+						<div><span>小猫咪</span></div>
+						<div><img src="./img/gold.png" alt="" /><span>+560</span></div>
+						<div><span>2017-05-01</span></div>
+						<div class="cl"></div>
+					</div>
+				</div>
+				<div class="neirong-list">
+					<div class="neirong-title">五月</div>
+					<div class="neirong-detailed">
+						<div><span>小猫咪</span></div>
+						<div><img src="./img/gold.png" alt="" /><span>-700</span></div>
+						<div><span>2017-06-25</span></div>
+						<div class="cl"></div>
+					</div>
+				</div>							
+			</div>
+		</div>
+    </div>
+</div>
+<script type="text/javascript">
+	$(".neirong-list").hide().first().show()
+	$(".tishi-box span").click(
+		function(){
+			$(this).addClass("special").siblings().removeClass("special")
+			$(".neirong-list").hide().eq($(this).index()).show()
+		}
+	)
+</script>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="buyback.js"></script>
+<script type="text/javascript" src="../../script/common.js"></script>
+<script type="text/javascript" src="../../script/zepto.md5.js"></script>
+<script>
+</script>

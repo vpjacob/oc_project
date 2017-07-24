@@ -1,0 +1,109 @@
+body, h1, h2, h3, h4, h5, h6, hr, p,
+ blockquote, /* structural elements ½á¹¹ÔªËØ */
+ dl, dt, dd, ul, ol, li, /* list elements ÁÐ±íÔªËØ */
+ pre, /* text formatting elements ÎÄ±¾¸ñÊ½ÔªËØ */
+ form, fieldset, legend, button, input, textarea, /* form elements ±íµ¥ÔªËØ */
+ th, td, /* table elements ±í¸ñÔªËØ */
+ img/* img elements Í¼Æ¬ÔªËØ */{
+     border:medium none;
+     margin: 0;
+     padding: 0;
+ }
+/** ÉèÖÃÄ¬ÈÏ×ÖÌå **/
+body,input,p{
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: 'Microsoft YaHei';
+}
+/*h1, h2, h3, h4, h5, h6 { font-size: 100%; }*/
+/*em{font-style:normal;}*/
+/** ÖØÖÃÁÐ±íÔªËØ **/
+ul, ol { list-style: none; }
+/** ÖØÖÃ³¬Á´½ÓÔªËØ **/
+a { text-decoration: none; color:#000;}
+a:hover { text-decoration: underline; color:#3363a7; }
+/** ÖØÖÃÍ¼Æ¬ÔªËØ **/
+img{ border:0px;}
+/** ÖØÖÃ±í¸ñÔªËØ **/
+table { border-collapse: collapse; border-spacing: 0; }
+
+.changeTog{
+	width: 100%;
+	border-top:1px solid #d3d3d3;
+	height:50px;
+	border-bottom:1px solid #d3d3d3;
+	box-shadow: 0 3px 5px -2px rgba(0,0,0,0.25);
+	background-color: white;
+}
+.changeTog div span{
+	width:100%;
+	border-right:1px solid #ddd;
+	float:left;
+	height:26px;
+	margin-top:10px;
+	text-align:center;
+	color: #c0c0c0;
+}
+.changeTog div{
+	width:25%;
+	float:left;
+	height:48px;
+	text-align:center;
+	color: #c0c0c0;
+}
+.special{
+	 color:#0eaae3;
+	 border-bottom:solid 2px #0eaae3; 
+}
+.same{
+	height: 81px;
+	border-bottom:1px solid #d3d3d3;
+	width: 100%;
+	background-color: white;
+}
+.same .sameBox{
+	height: 80px;
+	/* border:1px solid red; */
+	width: 94%;
+	margin:0 auto;
+	background-color: white;
+}
+.same .sameBox .top{
+	padding-top:5px;
+	height: 50px;
+/* 	border:1px solid red; */
+	width: 100%;
+	font-size:14px;
+	color:#797979;
+}
+
+.same .sameBox .bottom span:nth-child(1){
+	float: right;
+	font-size: 13px;
+	color: #c0c0c0;
+}
+.same .sameBox .bottom span:nth-child(2){
+	float: right;
+	font-size: 12px;
+	border:1px solid #0eaae3;
+	width: 18%;
+	text-align: center;
+	border-radius:5px;
+	margin-right: 10px;
+	color: #0eaae3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

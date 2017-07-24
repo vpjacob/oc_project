@@ -1,0 +1,165 @@
+#search_index .searchbar {
+	background: #C9C9CE;
+}
+.sex-bgc2 {
+	background-color: #FA94AA;
+	border-radius:2px;
+}
+
+.sex-bgc1 {
+	background-color: #4AAEF3;
+	border-radius:2px;
+}
+
+#personnelSearchList .list-block.media-list .item-link .item-title-row,
+#personnelSearchList .list-block li.media-item .item-link .item-title-row {
+	background-image: none;
+	padding-right: 0px;
+}
+
+#personnelSearchList .sex {
+	width: 24px;
+	height: 12px;
+	margin-top: 5px;
+}
+
+#personnelSearchList .sex span {
+	float: left;
+	width: 50%;
+	height: 12px;
+	color: white;
+	text-align: center;
+	font-size: 10px;
+}
+
+#personnelSearchList .img1 {
+	float: left;
+	width: 30%;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	margin-right: 2px;
+	margin-left: 2px;
+}
+
+#personnelSearchList .img2 {
+	width: 60%;
+	padding-left: 2px;
+	height: 100%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#personnelSearchList .list-block .item-content {
+	padding-left: 5px;
+}
+
+#personnelSearchList .list-block .item-text {
+	height: 100%;
+}
+#personnelSearchList .item-after{
+	float: right;
+	margin-left: 0px;
+}
+#personnelSearchList .item-after span {
+	font-size: 10px;
+	margin-top: 2px;
+	color: #ADADAD;
+}
+
+#personnelSearchList .item-media img {
+	border-radius: 5px;
+}
+
+#personnelSearchList .item-title span {
+	float: left;
+	font-size: 16px;
+	font-weight: 400;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 25vw;
+}
+
+#personnelSearchList .item-text span {
+	font-size: 12px;
+	color: #999999;
+	font-weight: 400;
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 90%;
+}
+
+#personnelSearchList .key-word {
+	width: 25%;
+	height: 25px;
+}
+#personnelSearchList .button{
+	background-color: #0EAAE3;
+}
+#personnelSearchList .item-inner{
+	margin-left: 10px;
+	padding-right: 5px;
+}
+#personnelSearchList .communityDetal-mars{
+	float:left;
+	background-color: #0EAAE3;
+	width: 35px;
+	height: 15px;
+	display:inline;
+	margin-top: 2px;
+	margin-left: 0px;
+	margin-right: 0px;
+	line-height: 14px;
+}
+#personnelSearchList .community-mars-icon{
+	padding-left: 2px;
+	padding-bottom: 6px;
+	margin-top: 2px;
+	margin-right: 0px;
+}
+#personnelSearchList .communityDetal-vip{
+	float:left;
+	width: 36px;
+	height: 12px;
+	display:inline;
+	margin-left: 2px;
+	margin-bottom: 4px;
+	text-align: center;
+	line-height: 1.3;
+}
+#personnelSearchList .keyword{
+	width: auto;
+	background: #FFFFFF;
+	float: left;
+	margin-right: 2px;
+	padding-left: 1px ;
+	padding-right: 1px;
+	border: 1px solid #E7E7E7;
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+#personnelSearchList .keyword span{
+	width: 100%;
+	color: #CECECE;
+}
+#personnelSearchList .keyword-search{
+	width: auto;
+	background: #0EAAE3;
+	float: left;
+	margin-right: 2px;
+	padding-left: 1px ;
+	padding-right: 1px;
+	border: 1px solid #0EAAE3;
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+#personnelSearchList .keyword-search span{
+	width: 100%;
+	color: #FFFFFF;
+}
+#personnelSearchList .list-block .item-inner:after{
+	left: -45%;
+	width: 145%;
+}

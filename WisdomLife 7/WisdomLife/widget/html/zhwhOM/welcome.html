@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>login</title>
+		<link rel="stylesheet" href="css/framework7.ios.css">
+		<link rel="stylesheet" href="css/framework7.ios.colors.css">
+		<link rel="stylesheet" href="css/toast.css">
+		<link rel="stylesheet" href="css/login.css">
+		<link rel="stylesheet" href="css/font-awesome.css">
+		<link rel="stylesheet" href="css/framework7.indexed-list.css">
+		<link rel="stylesheet" href="css/tabbarMainColor.css">
+		<link rel="stylesheet" href="css/community/community.css">
+		<link rel="stylesheet" href="css/message/styleMessage.css" />
+		<link rel="stylesheet" href="css/service/call.css" />
+		<link rel="stylesheet" href="css/service/call_detail.css" />
+		<link rel="stylesheet" href="css/service/service.css" />
+		<link rel="stylesheet" href="css/service/service_detail.css" />
+		<link rel="stylesheet" href="css/service/my_counsel.css" />
+		<!--附近 begin-->
+		<link rel="stylesheet" href="css/nearby/nearby-index.css">
+		<link rel="stylesheet" href="css/nearby/nearby-screening.css">
+		<link rel="stylesheet" href="css/nearby/nearby-dynamic.css">
+		<link rel="stylesheet" href="css/nearby/nearby-report.css">
+		<link rel="stylesheet" href="css/nearby/nearby-releaseDy.css">
+		<link rel="stylesheet" href="css/nearby/nearby-power.css">
+		<link rel="stylesheet" href="css/nearby/personnel-dynamic.css">
+		<!--附近 end-->
+		<!--搜索 begin-->
+		<link rel="stylesheet" href="css/search/search-index.css">
+		<!--end-->
+		<!--用户信息编辑页长按图片颤抖-->
+		<link rel="stylesheet" href="css/shake.css">
+		<link rel="stylesheet" href="css/iconfont.css">
+		<!--end-->
+        <style>
+			body {
+				font-family: "微软雅黑";
+			}
+		</style>
+
+
+
+	</head>
+
+	<body class="theme-green">
+	 <!--<div id="laodnow" style="background-image: url(image/loadingnow.gif);background-color:#BAE0F0;background-size: 100%;height:100%;background-repeat:no-repeat;background-position: center;"></div>
+		<div class="statusbar-overlay" style="height: 20px;background-color: white;"></div>-->
+
+		<div class="panel-overlay"></div>
+		<div class="views">
+			<div class="view view-main">
+				<div class="pages toolbar-through">
+						
+					<div data-page="neighbour-index" class="page navbar-fixed toolbar-fixed no-swipeback with-subnavbar" id="neighbour-index">
+						<div class="navbar"  style="background: white;">
+							<div class="navbar-inner">
+								<div class="left">
+									<!--<a href="#" class="link backMain">
+										<i class="icon icon-angle-left"></i> 
+										<span>返回</span>
+									</a>-->
+								</div>
+								<div class="center" style="color:#15191C;">
+									邻里
+								</div>
+					
+								<div class="right">
+									<a href="#" id="home_add" class="link">
+										<i class="icon icon-user-plus" style="color:#15191C;"></i> 
+											<span></span>
+									</a>
+										
+									<!--<a href="#" class="link" onclick="screeningDynamics(this);"><span id="rightTitle">筛选</span></a>-->
+								</div>
+								<div class="subnavbar" style="height: 60px;background-color: white;">
+									<div class="buttons-row">
+							            <a class="button bg_color" id="WX_in"  onclick="wxLogin()" style="height: 50px;border: 0px;line-height: 1;">
+								            	<div>
+								            		<img src="image/toolbarimage/addressbook_dark.png" style="width: 30px;" id = "wx_img"/>
+								            </div>
+											<span style="font-size: 11px;color: #000;">好友</span>
+							            </a>
+							            <a class="button bg_color" id="QQ_in"  onclick="_QQ_login()" style="height: 50px;border: 0px;line-height: 1;">
+							            		<div>
+							            			<img src="image/toolbarimage/mine_dark.png" style="width: 30px;"/>
+							            		</div>
+											<span style="font-size: 11px;color: #000;">动态</span>
+							            </a>
+							            <a class="button bg_color" id = "WB_in"  onclick="_weibo_isInstalled()" style="height: 50px;border: 0px;line-height: 1;">
+							            		<div>
+							            			<img src="image/toolbarimage/circle_dark.png" style="width: 30px;"/>
+							            		</div>
+											<span style="font-size: 11px;color: #000;">圈子</span>
+							            </a>
+          							</div>
+									<!--<div class="row" align="center" style="background: white;">
+								        <div class="col-33" id="WX_in"  onclick="wxLogin()">
+								        	<img src="image/toolbarimage/addressbook_dark.png" style="width: 30px;margin-top: 5px;" id = "wx_img"/><br>
+											<span style="font-size: 11px;">好友</span>
+								        </div>
+								        <div class="col-33" id="QQ_in"  onclick="_QQ_login()">
+								        	<img src="image/toolbarimage/mine_dark.png" style="width: 30px;margin-top: 5px;"/><br>
+											<span style="font-size: 11px;">动态</span>
+								        </div>
+								        <div class="col-33" id = "WB_in"  onclick="_weibo_isInstalled()">
+								        	<img src="image/toolbarimage/circle_dark.png" style="width: 30px;margin-top: 5px;"/><br>
+											<span style="font-size: 11px;">圈子</span>
+								        </div>
+								    </div>-->
+							    </div>
+							</div>
+						</div>
+						
+						<!--<div class="toolbar tabbar tabbar-labels" style="background: white;height: 60px;">
+						<div class="toolbar-inner">
+							<div class="row" style="width:100%">
+								<!-- Each "cell" has col-[widht in percents] class 
+								<div class="col-20">
+									<a href="" class="a-link item-link item-link no-animation " style="padding-top:2px;text-align: center;" onclick="showAround1(this)">
+										<div class="toolbar-foot-up">
+											<i class="icon iconfont icon-shoplight" style="font-size: 24px;"></i>
+										</div>
+										<div class="toolbar-foot-down"><span class="tabbar-label" style="text-align: center;font-size: 12px;margin-top: 3px;">周边</span></div>
+									</a>
+								</div>
+								<div class="col-20">
+									<a href="html/maillist/maillist.html" class="a-link item-link item-link no-animation " style="padding-top:2px;text-align: center;">
+										<div class="toolbar-foot-up">
+											<i class="icon iconfont icon-gouwuche" style="font-size: 24px;"></i>
+										</div>
+										<div class="toolbar-foot-down"><span class="tabbar-label" style="text-align: center;font-size: 12px;margin-top: 3px;">商城</span></div>
+									</a>
+								</div>
+								<div class="col-20">
+									<a href="html/community/communityMain.html" class="a-link item-link item-link no-animation active" style="padding-top:2px;text-align: center;">
+										<div class="toolbar-foot-up home like1">
+											<div class="blueHome icon like" style="font-size:16px;padding-top:8px;height:40px;-webkit-text-stroke-width:0;">主页</div> 
+										</div>
+									</a>
+								</div>
+								<div class="col-20">
+									<a href="html/nearby/nearbyMain.html" class="a-link item-link item-link no-animation" style="padding-top:2px;text-align: center;">
+										<div class="toolbar-foot-up">
+											<i class="icon iconfont icon-smile" style="font-size: 24px;color: #0eaae0;"></i>
+										</div>
+										<div class="toolbar-foot-down"><span class="tabbar-label" style="text-align: center;font-size: 12px;margin-top: 3px;color: #0eaae0;">邻里</span></div>
+									</a>
+								</div>
+								<div class="col-20">
+									<a href="html/user/userInfo.html" class="a-link item-link item-link no-animation" style="padding-top:2px;text-align: center;">
+										<div class="toolbar-foot-up">
+											 <i class="icon iconfont icon-shezhi" style="font-size: 24px;"></i>
+										</div>
+										<div class="toolbar-foot-down"><span class="tabbar-label" style="text-align: center;font-size: 12px;margin-top: 3px;">我</span></div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>-->
+						
+						<div class="page-content" style="margin-top:30px ;">
+							
+							<style>
+								.subnavbar:before{
+									    content: '';
+									    position: absolute;
+									    left: 0;
+									    top: 0;
+									    bottom: auto;
+									    right: auto;
+									    height: 1px;
+									    width: 100%;
+									    background-color: #c8c7cc;
+									    display: block;
+									    z-index: 15;
+									    transform-origin: 50% 0;
+								}
+								.like{
+									font-size: 16px;
+									    padding-top: 8px;
+									    height: 40px;
+									    -webkit-text-stroke-width: 0;
+									    font-family: iconfont-sm!important;
+									    font-style: normal;
+									    display: inline-block;
+									    vertical-align: middle;
+									    background-size: 100% auto;
+									    background-position: center;
+									    -webkit-font-smoothing: antialiased;
+									    margin: 1px;
+									    border: 0;
+									    padding: 5px;
+									    box-sizing: border-box;
+									    -webkit-tap-highlight-color: transparent;
+									    text-align: center;
+								}
+								.like1{
+									    background: url(./image/111_03.png) no-repeat;
+									    background-size: 100%;
+									    top: -0.35rem;
+									    position: relative;
+									    display: table-cell;
+									    width: 1%;
+									    height: 2.5rem;
+									    color: #929292;
+									    text-align: center;
+									    vertical-align: middle;
+									    margin: 0px;
+								}
+								.toolbar:before{
+									height: 0px;
+								}
+							</style>
+							
+					         <div class="list-block">
+							      <ul>
+							      	<li>
+										<a href="#" class="item-content item-link" style="padding-left: 8px;">
+											<div class="item-media"><img src="image/toolbarimage/notice.png" width="50" height="50" style="-webkit-border-radius: 6px;"></div>
+											<div class="item-inner" style="margin-left:10px;">
+												<div class="item-title-row" style="background: none;padding-right: 0px;">
+													<div class="item-title"><span style="font-weight: 300; color: #000;">物业通知</span></div>
+													<div class="item-after" style="font-size:10px;"></div>
+												</div>
+												<div class="item-title-row" style="background: none;padding-right: 0px;">
+												</div>
+											</div>
+										</a>
+									</li>
+									 <li>
+										<a href="#" class="item-content item-link" style="padding-left: 8px;">
+											<div class="item-media"><img src="image/toolbarimage/active.png" width="50" height="50" style="-webkit-border-radius: 6px;"></div>
+											<div class="item-inner" style="margin-left:10px;">
+												<div class="item-title-row" style="background: none;padding-right: 0px;">
+													<div class="item-title"><span style="font-weight: 300; color: #000;">社区活动</span></div>
+													<div class="item-after" style="font-size:10px;"></div>
+												</div>
+												<div class="item-title-row" style="background: none;padding-right: 0px;">
+												</div>
+											</div>
+										</a>
+									</li>
+							        <!--<li class="item-content">
+							          <div class="item-media"><img src="image/toolbarimage/mine_dark.png" width="20px"/></div>
+							          <div class="item-inner">
+							            <div class="item-title" style="font-size: 16px;">物业通知</div></div>
+							        </li>
+							        <li class="item-content">
+							          <div class="item-media"><img src="image/toolbarimage/mine_dark.png" width="20px"/></div>
+							          <div class="item-inner">
+							            <div class="item-title" style="font-size: 16px;">好友动态</div></div>
+							        </li>-->
+							        <!--<li class="item-content" onclick="pageTz(3)">
+							          <div class="item-media"><img src="image/toolbarimage/message_dark.png" width="20px"/></div>
+							          <div class="item-inner">
+							            <div class="item-title" style="font-size: 16px;">群聊提示</div></div>
+							        </li>
+							        <li class="item-content" onclick="pageTz(3)">
+							          <div class="item-media"><img src="image/toolbarimage/message_dark.png" width="20px"/></div>
+							          <div class="item-inner">
+							            <div class="item-title" style="font-size: 16px;">好友聊天提示</div></div>
+							        </li>
+							        <li class="item-content" onclick="pageTz(3)">
+							          <div class="item-media"><img src="image/toolbarimage/message_dark.png" width="20px"/></div>
+							          <div class="item-inner">
+							            <div class="item-title" style="font-size: 16px;">社区群聊</div></div>
+							        </li>-->
+							        <!--<li class="item-content">
+							          <div class="item-media"><img src="image/toolbarimage/circle_dark.png" width="20px"/></div>
+							          <div class="item-inner">
+							            <div class="item-title" style="font-size: 16px;">社区活动</div></div>
+							        </li>
+							        <li class="item-content" onclick="pageTz(7)">
+							          <div class="item-media"><img src="image/toolbarimage/nearby_dark.png" width="20px"/></div>
+							          <div class="item-inner">
+							            <div class="item-title" style="font-size: 16px;">附近的人</div></div>
+							        </li>-->
+							        <li onclick="pageTz(7)">
+										<a href="#" class="item-content item-link" style="padding-left: 8px;">
+											<div class="item-media"><img src="image/toolbarimage/nearby.png" width="50" height="50" style="-webkit-border-radius: 6px;"></div>
+											<div class="item-inner" style="margin-left:10px;">
+												<div class="item-title-row" style="background: none;padding-right: 0px;">
+													<div class="item-title"><span style="font-weight: 300; color: #000;">附近的人</span></div>
+													<div class="item-after" style="font-size:10px;"></div>
+												</div>
+												<div class="item-title-row" style="background: none;padding-right: 0px;">
+												</div>
+											</div>
+										</a>
+									</li>
+							      </ul>  
+							 </div>  
+							 <div class="list-block media-list" style="margin-top: -31px;">
+							 <ul class="im-messagelist-list">
+							 </ul>
+							 </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="popover popover-links-community-one">
+			<div class="popover-angle"></div>
+			<div class="popover-inner">
+				<div class="list-block">
+					<ul>
+						<li><a href="#" class="list-button item-link close-popover" style="color: black;" id="popover-community-dynamic"><i class="icon icon-edit" style="color: black;"></i>&nbsp;&nbsp;发布动态</a></li>
+						<li><a href="#" class="list-button item-link close-popover" style="color: black;" id="popover-community-info"><i class="icon icon-file-text-o" style="color: black;"></i>&nbsp;&nbsp;圈资料&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+						<li><a href="#" class="list-button item-link close-popover" style="color: black;" id="popover-community-message"><i class="icon icon-group" style="color: black;"></i>&nbsp;&nbsp;群聊&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+						<li><a href="#" class="list-button item-link close-popover" style="color: black;" id="popover-community-setting"><i class="icon icon-gear" style="color: black;"></i>&nbsp;&nbsp;设置&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="picker-modal picker-community-search" style="height: calc(100% - 88px);background-color: #DDDDDD;">
+			<div class="picker-modal-inner">
+				<div class="content-block">
+				</div>
+			</div>
+		</div>
+
+		<div class="popup popup-community-dy" id="power">
+			<div class="content-block">
+				<div class="page-content navbar-fixed">
+					<div class="navbar" style="background-color: white;">
+						<!-- Navbar page 1 -->
+						<div class="navbar-inner">
+							<div class="left">
+								<a href="#" class="link close-popup" data-force="true">
+									<span style="color:#15191C;display:block;padding-top: 5px;margin-left: 4px;">返回</span>
+								</a>
+							</div>
+							<div class="center"><span style="color:#15191C;">谁可以看</span></div>
+							<div class="right">
+								<a href="#" onclick="powerFinish();" class="link close-popup" data-force="true">
+									<span style="color:#15191C;display:block;padding-top: 5px;margin-right: 4px;">完成</span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="list-block">
+						<ul>
+							<li>
+								<label class="label-radio item-content">
+									<input type="radio" name="my-radio" value="0" checked="true">
+									<div class="item-inner">
+										<div class="item-title"><span>默认</span></div>
+										<div class="item-text"><span>在附近动态出现，所有人都能看到</span></div>
+									</div>
+								</label>
+							</li>
+							<li>
+								<label class="label-radio item-content">
+									<input type="radio" name="my-radio" value="1">
+									<div class="item-inner">
+										<div class="item-title"><span>只给好友看</span></div>
+										<div class="item-text item-subtitle-hidden"><span>只有是好友才能看到</span></div>
+									</div>
+								</label>
+							</li>
+							<li>
+								<label class="label-radio item-content">
+									<input type="radio" name="my-radio" value="2">
+									<div class="item-inner">
+										<div class="item-title"><span>只给自己看</span></div>
+										<div class="item-text item-subtitle-hidden"><span>只有自己可以看到</span></div>
+									</div>
+								</label>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--wl圈子 end-->
+		<!--附近 选谁可以看 begin-->
+		<div class="popup popup-power" id="power">
+			<div class="content-block">
+				<div class="page-content navbar-fixed">
+					<div class="navbar" style="background-color: white;">
+						<!-- Navbar page 1 -->
+						<div class="navbar-inner">
+							<div class="left">
+								<a href="#" class="link close-popup" data-force="true">
+									<span style="color:#15191C;display:block;padding-top: 5px;margin-left: 4px;">返回</span>
+								</a>
+							</div>
+							<div class="center"><span style="color:#15191C;">谁可以看</span></div>
+							<div class="right">
+								<a href="#" onclick="powerFinish();" class="link close-popup" data-force="true">
+									<span style="color:#15191C;display:block;padding-top: 5px;margin-right: 4px;">完成</span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="list-block">
+						<ul>
+							<li>
+								<label class="label-radio item-content">
+									<input type="radio" name="my-radio" value="0" checked="checked">
+									<div class="item-inner">
+										<div class="item-title"><span id="select">默认</span></div>
+										<div class="item-text"><span>在附近动态出现，所有人都能看到</span></div>
+									</div>
+								</label>
+							</li>
+							<li>
+								<label class="label-radio item-content">
+									<input type="radio" name="my-radio" value="1">
+									<div class="item-inner">
+										<div class="item-title"><span id="select">只给好友看</span></div>
+										<div class="item-text item-subtitle-hidden"><span>只有是好友才能看到</span></div>
+									</div>
+								</label>
+
+							</li>	
+							<li>
+								<label class="label-radio item-content">
+									<input type="radio" name="my-radio" value="2">
+									<div class="item-inner">
+										<div class="item-title"><span id="select">只给自己看</span></div>
+										<div class="item-text item-subtitle-hidden"><span>只有自己能看到</span></div>
+									</div>
+								</label>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--附近end-->
+
+	</body>
+	<!--BASE-->
+	<!-- <script type="text/javascript" src="../../script/common.js"></script> -->
+	<script type="text/javascript" src="../../script/common.js"></script>
+	<!-- <script type="text/javascript" src="../../script/api.js"></script> -->
+	<script type="text/javascript" src="script/api.js"></script>
+	<script type="text/javascript" src="script/common/RongIMLib-2.2.4.min.js"></script> 
+	<script type="text/javascript" src="script/common/protobuf-2.1.5.min.js"></script>
+	<script type="text/javascript" src="script/common/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="script/md5.js"></script>
+	<script type="text/javascript" src="script/framework7.js"></script>
+	<script type="text/javascript" src="script/framework7.indexed-list.js"></script>
+	<script type="text/javascript" src="script/toast.js"></script>
+	<!--插件包-->
+	    <script type="text/javascript" src="script/init.js"></script>
+		<script type="text/javascript" src="script/platform/p_init.js"></script>
+		<script type="text/javascript" src="script/platform/p_datetime.js"></script>
+		
+		
+		
+		<script type="text/javascript" src="script/platform/p_rongcloud.js"></script>
+		<script type="text/javascript" src="script/platform/p_message.js"></script>
+		<script type="text/javascript" src="script/platform/p_UIchatbox.js"></script>
+		<script type="text/javascript" src="script/platform/p_photoBrowser.js"></script>
+		<script type="text/javascript" src="script/platform/p_FNScanner.js"></script>
+		<script type="text/javascript" src="script/platform/p_bmap.js"></script>
+		<script type="text/javascript" src="script/platform/p_emotion.js"></script>
+	<!--插件包-->
+	
+	
+	<script type="text/javascript" src="script/omPluginConfig.js"></script>
+	<script type="text/javascript" src="script/hammer.min.js"></script>
+	<script type="text/javascript" src="script/index.js"></script>
+	<!--<script type="text/javascript" src="../../index.js"></script>-->
+	<!--
+    	作者：261960571@qq.com
+    	时间：2016-12-19
+    	描述：聊天
+    -->
+	<script type="text/javascript" src="script/service/service.js"></script>
+	<script type="text/javascript" src="script/service/call.js"></script>
+	
+	<script type="text/javascript" src="script/login.js"></script>
+	<script type="text/javascript" src="script/community/community.js"></script>
+	<script type="text/javascript" src="script/community/communityData.js"></script>
+	<script type="text/javascript" src="script/community/communityEvent.js"></script>
+	<script type="text/javascript" src="script/community/communityDynamic.js"></script>
+	<script type="text/javascript" src="script/community/communityJoin.js"></script>
+	<script type="text/javascript" src="script/community/communityModal.js"></script>
+	<script type="text/javascript" src="script/community/communityNew.js"></script>
+	<script type="text/javascript" src="script/community/communityAcc.js"></script>
+	<script type="text/javascript" src="script/message/message.js"></script>
+	<script type="text/javascript" src="script/until_fun.js"></script>
+	<script type="text/javascript" src="script/user/setting.js"></script>
+	<script type="text/javascript" src="script/user/setting_fun.js"></script>
+	<script type="text/javascript" src="script/user/setting_init.js"></script>
+	<script type="text/javascript" src="script/user/userInfo_init.js"></script>
+	<script type="text/javascript" src="script/user/userInfo_fun.js"></script>
+	<script type="text/javascript" src="script/user/userInfo_data.js"></script>
+	<script type="text/javascript" src="script/nearby/nearbyCommen.js"></script>
+	<script type="text/javascript" src="script/nearby/nearbyEvent.js"></script>
+	<script type="text/javascript" src="script/nearby/nearby.js"></script>
+	<script type="text/javascript" src="script/nearby/nearbyAcc.js"></script>
+	<script type="text/javascript" src="script/search/search.js"></script>
+	<script type="text/javascript" src="script/message/maillist.js"></script>
+	<script type="text/javascript" src="script/wxShare.js"></script>
+	<script type="text/javascript" src="script/omContacts.js"></script>
+	<!--<script type="text/javascript" src="script/im/common.js"></script>
+	<script type="text/javascript" src="script/im/im.js"></script>
+	<script type="text/javascript" src="script/im/data.js"></script>-->
+	<script type="text/javascript" src="script/Sortable.js"></script>
+	
+	<!--
+		该js必须放到所有加载js之后
+	-->
+	<script type="text/javascript" src="script/jsready.js"></script>
+	
+	
+</html>
+

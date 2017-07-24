@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>编辑房屋</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/sm.min.css">
+    <link rel="stylesheet" href="../../../css/sm-extend.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../css/iconfont.css" />
+	<link rel="stylesheet" type="text/css" href="../../../css/guanjia/fangwu/bianhouse.css" /> 
+	<script type="text/javascript" src="../../../script/jquery-1.10.2.js"></script>
+	<style>
+		
+	</style>
+</head>
+<body>
+	<header class="bar bar-nav" style="position: relative; background-color:white" id="title">
+		<h1 class="title" style="background-color:white">编辑房屋</h1>
+		<a onclick="goBack()" class="iconfont icon-xiangzuo1 pull-left" style="font-size:20px;color:#0EAAE3;position:absolute;top:7px;"></a>	
+	</header>
+	
+	<div class="Personal_box">
+		
+		<div class="Personal_centent">
+			<div class="list_box">
+				<div><span><b style="color: red; visibility: hidden">*</b>所在省:</span>
+				<select id="provinceTemp" onchange="queryCityByProvinceId()">
+				    <!--<option>请选择</option>-->
+				</select>
+				</div>
+				<div><span><b style="color: red; visibility: hidden">*</b>所在市:</span>
+				<select id="cityTemp" onchange="queryAreaByCityId()">
+				    <option>请选择</option>
+				</select>
+				</div>
+				<div><span><b style="color: red; visibility: hidden">*</b>所在区县:</span>
+				<select id="districtTemp" onchange="queryStreetByAreaId()">
+				    <option>请选择</option>
+				</select>
+				</div>
+				<div><span><b style="color: red; visibility: hidden">*</b>所在街道:</span>
+				<select id="streetTemp" onchange="queryAllHasEstateCommunityTemp()">
+				    <option>请选择</option>
+				</select>
+				</div>
+				<div><span><b style="color: red; visibility: hidden">*</b>所在小区:</span>
+				<select id="xiaoquTemp" onchange="queryBuildingByCommunityIdTemp()">
+				    <option>请选择</option>
+				</select>
+				</div>
+				<div class="buildingRoomTemp"><span><b style="color: red; visibility: hidden">*</b>楼栋号:</span>
+				<select id="bulidingTemp" onchange="queryUnitByComIdAndBuildIdTemp()">
+				    <option>请选择</option>
+				</select>
+				</div>
+				<div class="buildingRoomTemp"><span><b style="color: red; visibility: hidden">*</b>单元号:</span>
+				<select id="unitNameTemp" onchange="queryRoomByComIdAndBuildIdAndunitIdTemp()">
+				    <option>请选择</option>
+				</select>
+				</div>
+				<div class="buildingRoomTemp"><span><b style="color: red; visibility: hidden">*</b>房间号:</span>
+				<select id="roomIdTemp">
+				    <option value="0">请选择</option>
+				</select>
+				</div>
+				<div><span><b style="color: red; visibility: hidden">*</b>开始时间:</span>
+					<!-- <input type="number" placeholder="请选择开始时间" id="beginTime"/> -->
+					<span class="dateTime" id="beginTime">请选择开始时间</span>	
+				</div>
+				<div><span><b style="color: red; visibility: hidden">*</b>结束时间:</span>
+				    <!--<input type="number" placeholder="请选择结束时间" id="endTime"/>		-->
+				    <span class="dateTime" id="endTime">请选择结束时间</span>		
+				</div>
+				<div class="showAddressTemp" style="display: none"><span><b style="color: red; visibility: hidden">*</b>所在地址:</span>
+				<input type="text" placeholder="请输入您的楼栋 单元 房间号" id="tempAddress"/>
+				</div>
+				<div><span><b style="color: red; visibility: hidden">*</b>业主姓名:</span>
+				<input type="text" placeholder="请输入姓名" id="tempName" style="text-align: right"/>
+				</div>
+				<div><span><b style="color: red; visibility: hidden">*</b>业主手机号:</span>
+				<input type="tel" placeholder="请输入业主手机号" id="tempTel" style="text-align: right"/>
+				</div>
+			</div>
+			<div class="next">
+				<button type="button" class="step" id="zuhu">提交</button>
+			</div>	
+		</div>			
+	
+</body>
+<script type="text/javascript" src="../../../../script/api.js"></script>
+<script type="text/javascript" src="../../../../script/common.js"></script>
+<script type="text/javascript" src="../../../script/guanjia/fangwu/bianhouse.js"></script>
+</html>

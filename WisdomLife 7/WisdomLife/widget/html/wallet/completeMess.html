@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../css/aui.css" />
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<title>添加银行卡</title>
+		<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<link rel="stylesheet" href="../../css/sm-extend.min.css">
+		<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm-extend.min.js' charset='utf-8'></script>
+		<!--		<link rel="stylesheet" type="text/css" href="../../css/all.css">-->
+		<link rel="stylesheet" type="text/css" href="completeMess.css">
+		<link rel="stylesheet" type="text/css" href="../../equipmenticon/iconfont.css">
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css"/>
+		<style>
+			body {
+				font-family: "微软雅黑";
+				font-size: 16px;
+			}
+			a {
+				color: #000;
+			}
+			a:active, a:link, a:visited, a:hover {
+				color: #000;
+				text-decoration: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="page-group">
+			<div class="page">
+				<header class="bar bar-nav my-head" id="header">
+					<a class="pull-left" id="back"><i  class="iconfont icon-xiangzuo1" style="font-size: 28px;color: #999"></i></a>
+					<h1 class="title">完善资料</h1>
+				</header>
+				<div class="content">
+				  <span>基本资料</span>
+				  <div class="list-block paddingTwo">
+					   <div class="item-content">					
+						   <div class="item-title">
+						                 姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名  
+						   </div>
+						   <div class="item-input">
+							   <input type="text"  id='personName' placeholder="请输入姓名" style="padding-right:10px;font-size: 16px"/>
+					       </div>
+				       </div>
+					   <div class="item-content">					
+						   <div class="item-title">
+						                 性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别 
+						   </div>
+						   <div class="item-input">
+							   <select id='personGender'>							      
+							      <option value="0">男</option>
+							      <option value="1">女</option>
+							      <option value="2">保密</option>							      
+							   </select>
+							   <i  class="iconfont icon-down" style="float:right;margin-top:-33px;"></i>
+					       </div>
+				       </div>
+				       <div class="item-content">					
+						   <div class="item-title">
+						                 出生日期 
+						   </div>
+						   <div class="item-input">
+							   <input type="date"  id='personDate' max='2016-12-13' value='2016-12-13' placeholder="请输入日期" style="padding-right:0px;font-size: 16px"/>
+					       </div>
+				       </div>
+				        <div class="item-content">					
+						   <div class="item-title">
+						                 籍贯地区  
+						   </div>
+						   <div class="item-input">
+						       <div class="provices">
+							      <select name="proname" id="proname">
+							         <option value="">请选择省</option>
+							      </select>
+							      <i  class="iconfont icon-down" style="float:right;margin-top:-33px;"></i>
+							   </div>
+							   <div class="cities">
+							      <select name="cityname" id="cityname">
+							         <option value="">请选择市</option>
+							      </select>
+							      <i  class="iconfont icon-down" style="float:right;margin-top:-33px;"></i>
+							   </div>
+					       </div>
+				       </div>
+				       <div class="item-content">					
+						   <div class="item-title">
+						                 证件类型 
+						   </div>
+						   <div class="item-input">
+							   <select id='personIdentfy'>
+							      <option value="0">请选择证件类型</option>
+							      <option value="1">大陆身份证</option>
+							      <option value="2">境外身份证</option>
+							      <option value="3">境外护照</option>
+							      <option value="4">境外回乡证</option>
+							   </select>
+							   <i  class="iconfont icon-down" style="float:right;margin-top:-33px;"></i>
+					       </div>					       
+				       </div>
+				       <div class="item-content">					
+						   <div class="item-title">
+						                 证件号码
+						   </div>
+						   <div class="item-input">
+							   <input type="text"  id='identifyNumber' placeholder="请输入证件号码" style="padding-right:10px;font-size: 16px"/>
+					       </div>
+				       </div>
+					
+				  </div>
+				  
+				  <span>详细资料</span>
+				  <div class="list-block paddingTwo">
+					   <div class="item-content">					
+						   <div class="item-title">
+						                 行业类别
+						   </div>
+						   <div class="item-input">
+							   <select id='personWork'>
+							      <option value="请选择">请选择</option>
+							      <option value="计算机/互联网">计算机/互联网</option>
+							      <option value="通信/电子">通信/电子</option>
+							      <option value="金融">金融</option>
+							      <option value="贸易/制造">贸易/制造</option>
+							      <option value="医疗">医疗</option>
+							      <option value="广告/媒体">广告/媒体</option>
+							      <option value="房地产/建筑">房地产/建筑</option>
+							      <option value="游戏">游戏</option>
+							      <option value="旅游">旅游</option>
+							      <option value="娱乐">娱乐</option>
+							      <option value="餐饮">餐饮</option>
+							      <option value="休闲/服务业">休闲/服务业</option>
+							      <option value="物流/交通/航空">物流/交通/航空</option>
+							      <option value="能源/原材料">能源/原材料</option>
+							      <option value="政府/非盈利机构">政府/非盈利机构</option>
+							   </select>
+							   <i  class="iconfont icon-down" style="float:right;margin-top:-33px;"></i>
+					       </div>
+				       </div>
+					   <div class="item-content">					
+						   <div class="item-title">
+						                  邮箱地址
+						   </div>
+						   <div class="item-input">
+							   <input type="email" id='personEmail' placeholder='请输入邮箱地址' style="padding-right:10px;font-size: 16px"/>
+					       </div>
+				       </div>
+				       <div class="item-content">					
+						   <div class="item-title">
+						                 二级密码  
+						   </div>
+						   <div class="item-input">
+							   <input type="password" id='personKey' placeholder='请输入二级密码' style="padding-right:10px;font-size: 16px"/>
+					       </div>
+				       </div>
+				        <div class="item-content">					
+						   <div class="item-title">
+						                确认密码  
+						   </div>
+						   <div class="item-input">
+							   <input type="password" id='personKeyAgain' placeholder='请确认密码' style="padding-right:10px;font-size: 16px"/>
+					       </div>
+				       </div>
+					
+				  </div>
+				  
+				  <div class="submit" id="commit">
+				             提交
+				  </div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../script/api.js"></script>
+	<script type="text/javascript" src="../../script/zepto.md5.js"></script>
+	<script type="text/javascript" src="completeMess.js"></script>
+	<script type="text/javascript" src="../../script/city.js"></script>
+	<script type="text/javascript" src="../../script/common.js"></script>
+</html>

@@ -1,0 +1,42 @@
+body {
+	font-family: "微软雅黑";
+}
+img {
+	display: block;
+}
+input {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border: none;
+}
+.clearfix {
+	clear: both;
+}
+.jiaofei_box{
+	width: 96%;
+	margin: 0 auto;
+}
+.jiaofei_list{
+	width:100%;
+}
+.jiaofei{
+	
+}
+.jiaofei div{
+	float:left;
+	width:33%;
+	background:#FFFFFF;
+ 	padding:15px 0 15px 0 ;
+ 	margin-right:0.5%;
+ 	margin-bottom:0.5%;
+}
+.jiaofei img{
+	width:40px;
+	margin:0px auto 10px; auto;
+}
+.jiaofei span{
+	margin:auto;
+	display:block;
+	text-align:center;
+}

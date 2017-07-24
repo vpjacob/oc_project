@@ -1,0 +1,253 @@
+<!-- - [Page 1] ---------------------------------------- -->
+<div data-page="user_info_view" class="page no-toolbar navbar-fixed " style="overflow-x: hidden;" id='user_info_view'>
+	<style>
+		.div-community-content-center {
+			position: fixed;
+			bottom: 0px;
+			font-size: 20px;
+			background-color: rgb(14, 170, 227);
+			width: 100%;
+			height: 40px;
+			line-height: 40px;
+			z-index: 444;
+			text-align: center;
+			color: #fff;
+			margin: auto;
+		}
+		
+		.imageList {
+				width: 20%;
+				height: 60px;
+				float: left;
+				padding-left: 2px;
+				padding-right: 2px;
+				border-radius: 10px;
+		}
+		
+		.key-keyword-search {
+			width: auto;
+			background: #0EAAE3;
+			float: left;
+			margin-right: 2px;
+			padding-left: 1px;
+			padding-right: 1px;
+		
+		}
+		
+		.key-keyword-search span {
+			width: 100%;
+			color: #FFFFFF;
+		}
+		
+		
+	</style>
+
+	<div class="navbar" style="background-color:white;">
+		<div class="navbar-inner">
+			<div class="left">
+				<a id="user_info_view_backLink" href="#" class="link" >
+					<i class="icon icon-angle-left" style="color:#15191c;"></i>
+					<span style="color:#15191c;">返回</span>
+				</a>
+			</div>
+			<input type="hidden" id="personId"/>
+			<input type="hidden" id="userrename" />
+			<input type="hidden" id="usertype"  />
+			<div id="user_info_view_userName" class="center" style="color:#15191c;font-weight: 600;"></div>
+			<div class="right">
+				<a id="user_info_view_editLink" href="html/user/userinfo_edit.html?type=1" class="link"><span style="color:#15191c;">编辑</span></a>
+			</div>
+		</div>
+	</div>
+
+	<div class="page-content " style="overflow-x: hidden;padding-bottom: 40px;">
+		<div class="content-block" style="padding: 0px;margin: 1px;">
+			<div class="content-block-inner" style="padding: 2px;margin: 0px;">
+				<div class="swiper-container swiper-1">
+					<div class="swiper-pagination"></div>
+					<div class="swiper-wrapper" id="user_info_view_image">
+					</div>
+				</div>
+				<div>
+					<div id="user_info_view_mainDiv">
+						<img id="user_info_view_gender" style="position:absolute;left:9px;height: 10px;margin-top: 1px;" />
+						<font id="user_info_view_age" color="white" style="position: absolute;left: 25px;font-size: 10px;text-align: center;display: block;margin-top: 1px;"></font>
+						<font id="user_info_view_con" color="#8e8e93" style="position: absolute;left: 50px;font-size: 12px;text-align: center;display: block;"></font>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="user_info_view_dynamic_div" class="content-block" style="padding: 0px;margin: 1px;">
+			<div class="content-block-inner" style="margin: 1px;padding-left: 5px;padding-right: 1px;padding-bottom: 0px;padding-top: 0px;">
+				<div class="list-block" style="margin: 0px;">
+					<a id="user_info_view_dynamic_link" class="item-link">
+						<div class="item-content" style="padding-left: 0px;">
+							<div class="item-inner">
+								<div style="width: 20%;">
+									<div style="text-align: left;font-size: 15px;color: #ddd">个人动态</div>
+									<div id="user_info_view_dynamicNum" style="text-align: left;font-size: 25px;color: #ddd"></div>
+								</div>
+								<div style="width:80%; " id="user_info_view_dynamicImage">
+
+								</div>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="content-block" style="padding: 0px;margin: 1px;">
+			<div class="content-block-inner" style="padding-top: 0px;padding-bottom: 0px; margin-top: -30px;">
+				<div class="list-block media-list" style="margin-bottom: 0px;">
+					<ul>
+						<li>
+							<div class="item-inner" style="padding-left: 10px;">
+								<div class="item-title-row" style="background: none;">
+									<div class="item-title" style="color:#8e8e93;font-weight:300;font-size: 14px;">个人签名</div>
+									<div style="width: 80%; height: auto; margin-right: -5px;">
+										<font style="left: 25%;size: 14px;font-size: 14px;" id="user_info_view_sign"></font>
+									</div>
+
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-inner" style="padding-left: 10px;">
+								<div class="item-title-row" style="background: none;">
+									<div class="item-title" style="color:#8e8e93;font-weight:300;font-size: 14px;">关键词</div>
+									<div id="user_info_view_keyWord" style="width: 80%; height: auto; margin-right: 0px;">
+
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-inner" style="padding-left: 10px;">
+								<div class="item-title-row" style="background: none;">
+									<div class="item-title" style="color:#8e8e93;font-weight: 300;font-size: 14px;">情感状态</div>
+									<div style="width: 80%; height: auto; margin-right: -5px;">
+										<font style="left: 25%;size: 14px;font-size: 14px;" id="user_info_view_emstate"></font>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-inner" style="padding-left: 10px;">
+								<div class="item-title-row" style="background: none;">
+									<div class="item-title" style="color:#8e8e93;font-weight:300;font-size: 14px;">家乡</div>
+									<div style="width: 80%; height: auto; margin-right: -5px;">
+										<font style="left: 25%;size: 14px;font-size: 14px;" id="user_info_view_home"></font>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="content-block" style="padding: 1px;margin: 0px;">
+			<div class="content-block-inner" style="padding-top: 0px;padding-bottom: 0px; margin-top: -30px;">
+				<div class="list-block media-list" style="margin-bottom: 0px;">
+					<ul>
+						<li>
+							<div class="item-inner" style="padding-left: 10px;">
+								<div class="item-title-row" style="background: none;">
+									<div class="item-title" style="color:#8e8e93;font-weight: 300;font-size: 14px;">哦脉会员</div>
+									<font style="position: absolute;left: 25%; font-weight: 400;font-size: 14px;">
+											<img src="image/aboutmessage/vip.jpg"  id="vipImage" style="width:25%;"/><span id="vipSign">点亮会员标识</span></font>
+								</div>
+							</div>
+						</li>
+
+						<!--<li>
+							<div class="item-inner" style="padding-left: 10px;">
+								<div class="item-title-row" style="background: none;">
+									<div class="item-title" style="color:#8e8e93;font-weight:300;font-size: 14px;">哦脉号</div>
+									<div style="width: 80%; height: auto; margin-right: -5px;">
+										<font style="left: 25%;size: 14px;font-weight: 400;font-size: 14px;" id="user_info_view_code"></font>
+									</div>
+								</div>
+							</div>
+						</li>-->
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="content-block" style="padding: 1px;margin: 0px;">
+			<div class="content-block-inner" style="padding-top: 0px;padding-bottom: 0px; margin-top: -30px;">
+				<div class="list-block media-list" style="margin-bottom: 0px;">
+					<ul>
+						<li>
+							<div class="item-inner" style="padding-left: 10px;">
+								<div class="item-title-row" style="background: none;">
+									<div class="item-title" style="color:#8e8e93;font-weight: 300;font-size: 14px;">常出没地</div>
+									<div style="width: 80%; height: auto; margin-right: -5px;">
+										<font style="left: 25%;size: 14px;font-weight: 400;font-size: 14px;" id="user_info_view_area"></font>
+									</div>
+								</div>
+							</div>
+						</li>
+
+						<li>
+							<div class="item-inner" style="padding-left: 10px;">
+								<div class="item-title-row" style="background: none;">
+									<div class="item-title" style="color:#8e8e93;font-weight: 300;font-size: 14px;">个人说明</div>
+									<div style="width: 80%; height: auto; margin-right: -5px;">
+										<font style="left: 25%;font-size: 14px;font-weight: 400;" id="user_info_view_remark"></font>
+									</div>
+								</div>
+							</div>
+						</li>
+
+						<li>
+							<div class="item-inner" style="padding-left: 10px;">
+								<div class="item-title-row" style="background: none;">
+									<div class="item-title" style="color:#8e8e93;font-weight: 300;font-size: 14px;">关系</div>
+									<div style="width: 80%; height: auto; margin-right: -5px;">
+										<font style="left: 25%;font-size:14px;font-weight: 400;" id="user_info_view_relation"></font>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-inner" style="padding-left: 10px;">
+								<div class="item-title-row" style="background: none;">
+									<div class="item-title" style="color:#8e8e93;font-weight: 300;font-size: 14px;">注册日期</div>
+									<div style="width: 80%; height: auto; margin-right: -5px;">
+										<font style="left: 25%;font-size:14px;font-weight: 400;" id="user_inf_view_createTime"></font>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div id="user_info_view_optionDiv" class="div-community-content-center" align="center">
+		<div style="width: 32%;float: left;margin-top: -2px;" align="center">
+			<a href="" id="user_info_view_chat" style="color: #FFFFFF;text-overflow: ellipsis;text-align: inherit;">
+				<i class="icon icon-comment" style="color: white;font-size: 15px;"></i>
+				<span style="color: white;font-size: 15px;">对话</span>
+			</a>
+		</div>
+		<div style="width: 32%;float: left;margin-top: -2px;display:none" align="center" id="follow">
+			<a href="#" id="user_info_view_follow" style="color: #FFFFFF;text-overflow: ellipsis;text-align: inherit;">
+				<i class="icon icon-user-plus" style="color: white;font-size: 15px;"></i>
+				<span style="color: white;font-size: 15px;">关注</span>
+			</a>
+		</div>
+		<div style="width: 32%;float: right;margin-top: -2px;" align="center">
+			<a href="#" id="user_info_view_report" style="color: #FFFFFF;text-overflow: ellipsis;text-align: inherit;">
+				<i class="icon icon-user-plus" style="color:red;font-size: 15px;"></i>
+				<span style="color: white;font-size: 15px;">拉黑举报</span>
+			</a>
+		</div>
+
+	</div>
+</div>

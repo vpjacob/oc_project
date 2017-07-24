@@ -1,0 +1,37 @@
+body {
+	font-family: "微软雅黑";
+}
+img {
+	display: block;
+}
+input {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border: none;
+}
+.clearfix {
+	clear: both;
+}
+.fangwu_box{
+	margin-top:10px;
+}
+.fangwu_list{
+	width:100%;
+	margin:auto;
+}
+.fangwu{
+	line-height:48px;
+	background:#FFFFFF;
+	border-top:solid 1px #c7c7c7;
+	border-bottom:solid 1px #c7c7c7;
+	padding:0 0 0 14px;
+}
+.fangwu div{
+	font-size:15px;
+}
+.fangwu div span:nth-child(2){
+	color:#cfcfcf;
+	float:right;
+	margin-right:4%;
+}

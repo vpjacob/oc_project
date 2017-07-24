@@ -1,0 +1,39 @@
+<div data-page="personnel-dynamic" class="page navbar-fixed with-subnavbar no-toolbar no-swipeback" id="personnel-dynamic">
+	<div class="navbar" style="margin-bottom:0px;background: white;">
+		<div class="navbar-inner">
+			<div class="left">
+				<a href="#" class="link backMain">
+					<i class="icon icon-angle-left" style="color:#15191C;"></i> 
+					<span style="color:#15191C;">返回</span>
+				</a>
+			</div>
+			<div class="center"><span style="color: #15191C;font-weight:300;">动态</span></div>
+			<div class="right">
+				<a href="#" class="link" onclick="screeningDynamics(this);"><span style="color:#15191C;">发布</span></a>
+			</div>
+			<div class="subnavbar" style="padding-bottom:0px;width:100%;">
+	        	<div class="buttons-row">
+	            	<a href="#neighbours-dynamic" id="neighbours-dynamica" class="button tab-link active" >邻里好友动态</a>
+	            	<a href="#friend-dynamic" id="friend-dynamica" class="button tab-link" >生活好友动态</a>
+	        	</div>
+		    </div>
+		</div>
+	</div>
+	<div id="personnelDynamicRefresh" class="page-content pull-to-refresh-content infinite-scroll" style="margin-top:10%;" >
+		<div class="pull-to-refresh-layer" >
+	    	<div class="preloader"></div>
+	    	<div class="pull-to-refresh-arrow"></div>
+	    </div>
+		<div class="tabs" style="margin-bottom:5%;">
+			<div id="neighbours-dynamic" class="tab active">
+			</div>
+			<div id="friend-dynamic" class="tab">
+			</div>
+		</div>
+		<!-- 加载提示符 -->
+	 	<div id="personnelDynamicLoadMore" class="infinite-scroll-preloader">
+	        <div class="preloader" style="padding-top:20%;"></div>
+	   </div>
+	</div>
+	
+</div>

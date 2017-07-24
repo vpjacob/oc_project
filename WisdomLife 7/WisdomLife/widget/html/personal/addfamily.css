@@ -1,0 +1,148 @@
+/*@import "menu.css";*/
+/** 清除内外边距 **/
+body, h1, h2, h3, h4, h5, h6, hr, p,
+blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
+th, td, /* table elements 表格元素 */
+img/* img elements 图片元素 */{
+    border:medium none;
+    margin: 0;
+    padding: 0;
+}
+/** 设置默认字体 **/
+body {
+	margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: '微软雅黑';
+}
+/*h1, h2, h3, h4, h5, h6 { font-size: 100%; }*/
+/*em{font-style:normal;}*/
+/** 重置列表元素 **/
+ul, ol { list-style: none; }
+/** 重置超链接元素 **/
+a { text-decoration: none; color:#000;}
+a:hover { text-decoration: underline; color:#3363a7; }
+/** 重置图片元素 **/
+img{ border:0px;}
+/** 重置表格元素 **/
+table { border-collapse: collapse; border-spacing: 0; }
+.toproof{
+	width:100%;
+	height:50%;
+	background:#0eaae3 no-repeat center center;
+	position:fixed;
+}
+.touxiang img{
+	width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+	margin-top:-50px;
+    left: 50%;
+	margin-left:-50px;
+	border-radius: 50%;
+}
+.approve1{
+	position:absolute;
+	top: 62%;
+	left:50%;
+	margin-left:-40px;
+}
+.toproof2{
+	position:relative;
+	top: 70%;
+}
+.toproof2 h1{
+	color:#FFFFFF;
+	font-size:24px;
+	font-weight:normal;
+	text-align:center;
+}
+.toproof2 p{
+	color:#FFFFFF;
+	font-size:14px;
+	text-align:center;
+	line-height:30px;
+}
+.family{
+	width:100%;
+	height:30px;
+	background-color:#EFEFF4;
+	position:absolute;
+	top:50%;
+	margin-top:-15px;
+}
+.family p{
+	color:#646464;
+	font-size:14px;
+	line-height:30px;
+	margin-left:0.5rem;
+}
+.familyform{
+	position:absolute;
+	top:50%;
+	margin-top:15px;
+
+}
+.familyform,
+ul{
+	height:150px;
+	width:100%;
+
+}
+
+li{
+	float:left;
+	height:49px;
+	border-bottom: 1px solid #EFEFF4;
+	width:100%;
+	background-color:#FFFFFF;
+}
+.approve3 img{
+	width:30px;
+	height:30px;
+	float: left;
+	margin-top:10px;
+	margin-left:0.5rem;
+	border-radius:50%;
+}
+h5{
+	color:#1F1F1F;
+	font-size:16px;
+	line-height:50px;
+	float: left;
+	margin-left:10px;
+}
+.approve4 img{
+	padding-top: 17px;
+	margin-left:10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

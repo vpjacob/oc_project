@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title> 周边</title>
+		<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<!--<link rel="stylesheet" href="../../css/sm-extend.min.css">-->
+		<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+		<script type="text/javascript" src="../../script/swiper-3.3.1.jquery.min.js"></script>
+		<script type='text/javascript' src='../../script/sm.min.js' charset='utf-8'></script>
+		<!--<script type='text/javascript' src='../../script/sm-extend.min.js' charset='utf-8'></script>-->
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
+		<link rel="stylesheet" type="text/css" href="../../css/swiper-3.4.1.min.css">
+		<link rel="stylesheet" type="text/css" href="commonProvider.css">
+		<style>
+			body {
+				font-family: "微软雅黑";
+			}
+			a {
+				color: #000;
+			}
+			a:active, a:link, a:visited, a:hover {
+				color: #000;
+				text-decoration: none;
+			}
+			.infinite-scroll-preloader {
+				margin-top: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="page-group">
+			<div class="page">
+				<header class="bar bar-nav" id="header">
+					<!--<span class="allcity">全城</span>
+					<a class="icon pull-left" id="back" > <i class="icon iconfont icon-down"></i> </a>-->
+					<div class="bar-header-secondary">
+						<div class="searchbar" style="background-color: #fff;">
+							<div class="search-input">
+								<label class="icon iconfont icon-search" for="search"></label>
+								<input type="search" id='search' placeholder='输入商家、位置'/>
+							</div>
+						</div>
+					</div>
+					<!--<i class="icon iconfont icon-dizhi"></i>
+					<span class="ditu">地图</span>-->
+				</header>
+				<div class="hide">
+					<div class="chooseCity">
+						<div class="listUl">
+							<ul>
+								<li>
+									昌平区
+								</li>
+								<li>
+									昌平区
+								</li>
+								<li>
+									昌平区
+								</li>
+								<li>
+									昌平区
+								</li>
+								<li>
+									昌平区
+								</li>
+								<li>
+									昌平区
+								</li>
+								<li>
+									昌平区
+								</li>
+								<li>
+									昌平区
+								</li>
+								<li>
+									昌平区
+								</li>
+								<li>
+									昌平区
+								</li>
+								<li>
+									昌平区
+								</li>
+								<li>
+									昌平区
+								</li>
+								<li>
+									昌平区
+								</li>
+								<li>
+									昌平区
+								</li>
+								<li>
+									昌平区
+								</li>
+								<li>
+									昌平区
+								</li>
+								<li>
+									昌平区
+								</li>
+							</ul>
+						</div>
+						<div class="nowCity">
+							<span>当前城市：<span>北京</span></span><span id="changeCity">更换></span>
+						</div>
+					</div>
+				</div>
+				<div class="content  native-scroll" >
+					<div class="swiper-container">
+						<div class="swiper-wrapper" id="totalDiv"></div>
+						<div class="swiper-pagination"></div>
+					</div>
+					<div class="infinite-scroll" data-distance="50">
+						<div class="list-block media-list">
+							<ul></ul>
+						</div>
+					</div>
+					<!--加载提示符-->
+					<div class="infinite-scroll-preloader">
+						<div class="preloader"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../script/api.js"></script>
+	<script type="text/javascript" src="../../script/common.js"></script>
+	<script type="text/javascript" src="commonProvider.js"></script>
+	<script>
+		$('#back').click(function() {
+			var isTop = $('.icon-top');
+			if (isTop.length != 0) {
+				$('.icon-top').removeClass('icon-top').addClass('icon-down');
+				$('.hide').hide();
+			} else {
+				$('.hide').show();
+				$('.icon-down').removeClass('icon-down').addClass('icon-top');
+			}
+		})
+	</script>
+</html>

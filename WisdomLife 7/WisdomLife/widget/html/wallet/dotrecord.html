@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<title>我的钱包</title>
+		<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<link rel="stylesheet" href="../../css/sm-extend.min.css">
+		<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm-extend.min.js' charset='utf-8'></script>
+		<link rel="stylesheet" type="text/css" href="../../css/all.css">
+		<link rel="stylesheet" type="text/css" href="../../css/base.css">
+		<link rel="stylesheet" type="text/css" href="dotrecord.css">
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
+		<link rel="stylesheet" type="text/css" href="../../css/person/iconfont.css">
+		<style>
+			body {
+				font-family: "微软雅黑";
+			}
+			a {
+				color: #000;
+			}
+			a:active, a:link, a:visited, a:hover {
+				color: #000;
+				text-decoration: none;
+			}
+			.list-block .item-inner:after {
+				content: none;
+			}
+			.bar {
+				z-index: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="page-group">
+			<!-- 你的html代码 -->
+			<div class="page">
+				<header class="bar bar-nav" id="header">
+					<a class="icon pull-left" id="back"><i  class="iconfont icon-xiangzuo1" style="font-size: 28px;color: #999"></i></a>
+					<h1 class="title">直捐记录</h1>
+					<a class="top-bar-right" id="choose">筛选<i class="icon iconfont icon-top"></i></a>
+				</header>
+				<ul class="secondul">
+				    <li class="first"></li>
+					<li id="aboutWeek">
+						全部
+					</li>
+					<li id="aboutMonth">
+						今日
+					</li>
+					<li id="aboutQuarter">
+						近一周
+					</li>
+					<li id="halfYear">
+						近一个月
+					</li>
+				</ul>
+				<div class="content" style="background-color: #f0f0f0;">
+					<div id="tab1" class="tab">
+						<div class="imgtop">
+							<div>
+								<div>
+									<p>
+										累计公益直捐
+									</p>
+									<span>0</span>
+								</div>
+							</div>
+						</div>
+						<div class="imgbottom">
+							<img src="../../image/ring_02.png" alt="" />
+						</div>
+						<p>
+							加载到0条数据
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../script/api.js"></script>
+	<script type="text/javascript" src="../../script/common.js"></script>
+	<script type="text/javascript" src="dotrecord.js"></script>
+	<script>
+//	 $("#choose").on('click',function(){
+//  var top=$(this).children().hasClass('icon-top');
+//     if(top){
+//        $(".secondul").show();
+//        $(this).children().removeClass('icon-top').addClass('icon-down');
+//     }else{
+//        $(".secondul").hide();
+//        $(this).children().removeClass('icon-down').addClass('icon-top');
+//     }
+//  })
+	</script>

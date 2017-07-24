@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>商家主页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="../../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+    <link rel="stylesheet" href="../../css/sm-extend.min.css">
+	<link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
+    <script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='../../script/sm.min.js' charset='utf-8'></script>  
+    <style>
+    
+     img {
+    	display: block;
+    	margin: auto;
+    	width: 100%;
+    	} 
+    </style>
+</head>
+<body>
+	<header class="bar bar-nav" style=" height: 0%;position: fixed" id="title" >
+		<!--<h1 class="title" style="color: white;background: #F08200;"><input type="text" id="shuru" /></h1>-->
+		<div class="title">
+			<div class="title_div">
+				<img src="../image/fdj.png" id="topSer">
+				<input type="search" placeholder="输入商家,位置" id="search" style="text-align: left" />
+			</div>
+			<div id="nearby">
+				<span id="showCity">北京</span>
+				<i class="icon iconfont icon-down xiaobiao" style="font-size: 40px;margin-left: -11px;margin-top: -10px;"></i>
+			</div>
+			<span id="sou">搜索</span>
+		</div>
+	</header>
+	<div class="tankuang_box">
+		<div class="tankuang">
+			<img src="../image/mainText.jpg"></img>
+			<img src="../image/sjclick.jpg" class="sjimg"></img>
+			<img src="../image/sjclose.jpg" class="sjclose" alt="" />
+			<img src="../image/sjtree.jpg" class="sjtree" alt="" />
+		</div>
+	</div>
+	<div class="black_box"></div>
+	<div class="top">
+		<!--商品轮播部分-->
+		<div class="swiper-containerlrf" style="overflow: hidden;">
+	        <div class="swiper-wrapper ">
+	        	 <div class="swiper-slide"><img src="../image/sjlun4.jpg" id="lock"></div>
+	        	 <div class="swiper-slide"><img src="../image/sjlun3.jpg" id="entranceGuard"></div> 
+	        	 <div class="swiper-slide"><img src="../image/sjlun2.png" id="toothbrush"></div>  
+	             <div class="swiper-slide"><img src="../image/sjlun1.jpg" id="juicing"></div>	                 
+	        </div>
+	        <div class="swiper-pagination" style="bottom:8.23rem"></div>
+  	   </div>
+  	   <!--分类列表部分-->
+		<div class="swiper-containerss" style="overflow: hidden">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide showlist" id="showTypeInfo">
+					<!--<span>
+						<img src="../image/app-icona.png"></img>
+						<div class="leibie">美食</div>
+					</span>	
+					<span>
+						<img src="../image/icon_d.png"></img>
+						<div class="leibie">汽车</div>
+					</span>	
+					<span>
+						<img src="../image/app-iconc.png"></img>
+						<div class="leibie">酒店</div>
+					</span>
+					<span>
+						<img src="../image/app-icond.png"></img>
+						<div class="leibie">休息娱乐</div>
+					</span>
+					<span>
+						<img src="../image/icon-b.png"></img>
+						<div class="leibie">手机数码</div>
+					</span>
+					<span>
+						<img src="../image/icon-c.png"></img>
+						<div class="leibie">旅游出行</div>
+					</span>
+					<span>
+						<img src="../image/app-icong.png"></img>
+						<div class="leibie">丽人</div>
+					</span>
+					<span>
+						<img src="../image/app-iconh.png"></img>
+						<div class="leibie">周边游</div>
+					</span>
+					<span>
+						<img src="../image/app-iconi.png"></img>
+						<div class="leibie">运动健身</div>
+					</span>
+					<span>
+						<img src="../image/app-iconj.png"></img>
+						<div class="leibie">购物</div>
+					</span>-->
+				</div>
+				<div class="swiper-slide showlist" id="showTypeInfo1">
+					<!--<span>
+						<img src="../image/app-icona.png"></img>
+						<div class="leibie">美食</div>
+					</span>	-->
+				</div>
+			</div>
+			 <div class="swiper-pagination"></div>
+		</div>
+	</div>
+	<div class="deal ">
+		<div class="notice" style="overflow: hidden">
+			<div class="notice-box">
+				<span class="left">平台统计</span>
+				<ul class="left">
+					<li>
+						<div><span id="totalG">0</span><span id="totalS">0</span></div>
+						<div><span>金蛋交易总额(元)</span><span>银蛋交易总额(元)</span></div>
+					</li>
+					<li>
+						<div><span id="ytotalG">0</span><span id="ytotaly">0</span></div>
+						<div><span>金蛋昨日交易总额(元)</span><span>银蛋昨日交易总额(元)</span></div>					
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="recommend">
+			<div class="recommend-box">
+				<div class="recommend-title">推荐商家</div>
+				<div class="recommend-list cl" id="recommend" style="border-bottom:1px solid #E6E6E6;height: 100%;overflow: hidden">
+				
+					<!--<dl class="recommend-details">
+						<img src="../image/sh.png" alt="" />
+						<dt>人气招牌美食</dt>
+						<dd>品质头牌推荐</dd>
+					</dl>
+					<dl class="recommend-details">
+						<img src="../image/sh.png" alt="" />
+						<dt>招牌特价菜</dt>
+						<dd>每天都有惊喜</dd>
+					</dl>
+					<dl class="recommend-details">
+						<img src="../image/sh.png" alt="" />
+						<dt>吃货SSR卡</dt>
+						<dd>召唤千元礼包</dd>
+					</dl>
+					<dl class="recommend-details">
+						<img src="../image/sh.png" alt="" />
+						<dt>万元好礼</dt>
+						<dd>母亲节免费送</dd>
+					</dl>
+					<dl class="recommend-details">
+						<img src="../image/sh.png" alt="" />
+						<dt>张学友演唱会</dt>
+						<dd>限量快抢</dd>
+					</dl>
+					<dl class="recommend-details">
+						<img src="../image/sh.png" alt="" />
+						<dt>周杰伦演唱会</dt>
+						<dd>再不买就没了</dd>
+					</dl>-->	
+					<div class="cl"></div>																								
+				</div>
+			</div>
+		</div>	
+		<div class="businessman" id="tab1">
+    		<!--<div class="businessman-box">
+    			<div class="businessman-list">
+    				<div class="left"><img src="../image/header.png" alt=""/></div>
+    				<dl class="left">
+    					<dt>黑土印象（凯旋城店）</dt>
+    					<dd>
+	    					<img src="../image/star.png" alt="" />
+	    					<img src="../image/star.png" alt="" />
+	    					<img src="../image/star.png" alt="" />
+	    					<img src="../image/star.png" alt="" />
+	    					<img src="../image/stares.png" alt="" />
+	    					<span>441条</span>
+    					</dd>
+    					<dd>东北菜 <span class="text-right">亚运村270m</span></dd>    					
+    				</dl>
+    			</div>
+    		</div>-->
+    		
+    	</div>
+		<!--<div class="deal_bottom">
+			
+			<div class="detial" id="tab1">
+				<div class="box">
+				<i class="icon iconfont icon-xiangyou1" style=" font-size:15px;color: #cccccc;float: right"></i>
+					<div class="left">
+						<img src="../image/tu.png" alt="" />
+					</div>
+					<div class="right">
+						<span id="sjname">华堂商贸</span>
+						<div id="sjaddress">北京市朝阳区北四环东路123号 </div>
+						<ul style="margin-bottom: 2px">
+							<li class="iconfont icon-favorfill"></li>
+							<li class="iconfont icon-favorfill"></li>
+							<li class="iconfont icon-favorfill"></li>
+							<li class="other">贸易商</li>
+						</ul>
+					</div>
+				</div>
+				
+				
+			
+			</div>
+			
+			
+			<!--<div class="detial" id="tab2" >
+				<div class="box">
+				<i class="icon iconfont icon-xiangyou1" style=" font-size:15px;color: #cccccc;float: right"></i>
+					<div class="left">
+						<img src="../image/tu.png" alt="" />
+					</div>
+					<div class="right">
+						<span id="sjname">鞋子</span>
+						<div id="sjaddress">北京市朝阳区北四环东路123号 </div>
+						<ul style="margin-bottom: 2px">
+							<li class="iconfont icon-favorfill"></li>
+							<li class="iconfont icon-favorfill"></li>
+							<li class="iconfont icon-favorfill"></li>
+							<li class="other">贸易商</li>
+						</ul>
+						
+					</div>
+				</div>
+			</div>-->
+			<!--<div class="detial" id="tab3" >
+				<div class="box">
+				<i class="icon iconfont icon-xiangyou1" style=" font-size:15px;color: #cccccc;float: right"></i>
+					<div class="left">
+						<img src="../image/tu.png" alt="" />
+					</div>
+					<div class="right">
+						<span id="sjname">衣服</span>
+						<div id="sjaddress">北京市朝阳区北四环东路123号 </div>
+						<ul style="margin-bottom: 2px">
+							<li class="iconfont icon-favorfill"></li>
+							<li class="iconfont icon-favorfill"></li>
+							<li class="iconfont icon-favorfill"></li>
+							<li class="other">贸易商</li>
+						</ul>	
+					</div>
+				</div>
+			</div>-->
+		</div>
+		<div id="container" style="position: absolute;">
+    	</div>
+	</div>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ESDwG4YDWBmu8GnTVmzXIL82al8eEdi1"></script>
+    <script type="text/javascript" src="../../script/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="../js/swiper.js"></script> 
+	<script type="text/javascript" src="../../script/api.js"></script>
+	<script type="text/javascript" src="../../script/common.js"></script>
+	<script type="text/javascript" src="../js/shangjia/index.js"></script>
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        spaceBetween: 3,
+        centeredSlides: true,
+        width : 80,
+        loop:true
+        
+    });	
+    
+    var swiper = new Swiper('.swiper-containers', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        spaceBetween: 3,
+        centeredSlides: true,
+		autoplayDisableOnInteraction:false,
+		autoplay:3000
+    });	
+    
+    var swiper = new Swiper('.swiper-containerss', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        spaceBetween: 3,
+        centeredSlides: true,
+		autoplayDisableOnInteraction:false,
+    });	
+    
+    var swiper = new Swiper('.swiper-containerlrf', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        spaceBetween: 3,
+        centeredSlides: true,
+        autoplayDisableOnInteraction: false,
+        autoplay: 2500,
+        loop: true
+    });	
+   
+	function changeNews(){
+		$(".notice-box ul").animate({marginTop:-50},1000,function(){
+		$(".notice-box li:first").insertAfter($(".notice-box li:last"));
+		$(".notice-box ul").css({marginTop:0});
+		});	
+	}
+	setInterval(changeNews,3000);
+</script>
+</body>
+</html>
+</html>

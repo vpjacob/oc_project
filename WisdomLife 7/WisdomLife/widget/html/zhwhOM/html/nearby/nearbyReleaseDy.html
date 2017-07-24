@@ -1,0 +1,85 @@
+<div data-page="releaseDy" class="page no-toolbar" id="releaseDy" onclick="closeExpressionPicker();" id="releaseDy">
+	
+	<div class="page-content navbar-fixed">
+		<div class="navbar" >
+			<!-- Navbar page 1 -->
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back" id="fanhui">
+						<span style="color:#15191c;">取消</span>
+					</a>
+				</div>
+				<div class="center"><span style="color: #15191c;">发布动态</span></div>
+				<div class="right">
+					<a href="#" class="item-link" id="dy2">
+						<span style="color: #15191c;display:block;padding-top: 5px;margin-right: 4px;">发布</span>
+					</a>
+					<a href="#" id="dy1" class="link back releaseDyButton" onclick="releaseDynamic();">
+						<span style="color: #15191C;display:block;padding-top: 5px;margin-right: 4px;">发布</span>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="list-block">
+			<ul>
+				<li>
+					<textarea id="dynamic_content" placeholder="此时此地，想和大家分享什么"></textarea>
+				</li>
+				<li id="imgList">
+					<div class="tool">
+						<div id="selectImg" class="phone">
+							<i class="icon-camera" style="line-height: 40px;"></i><span>图片</span>
+						</div>
+						<div class="expression selectExpressionNy">
+							<i class="icon-meh" style="line-height: 40px;"></i><span>表情</span>
+						</div>
+					</div>
+				</li>
+			</ul>
+
+		</div>
+		<!--第二部分-->
+		<div class="list-block">
+			<ul>
+				<li>
+					<!-- Additional "smart-select" class -->
+					<a href="#" id="nearbyOpenAddress"  class="item-link smart-select" data-searchbar="true" data-searchbar-placeholder="搜索地点" data-back-text="<span  style='color:#15191c;'>确认</span>" data-page-title="<span style='color:#15191c'>选择动态地址</span>" data-back-on-select="true" data-searchbar-cancel="取消">
+					<!--<a href="#" class="item-link smart-select" data-searchbar="true" data-searchbar-placeholder="搜索地点" data-back-on-select="true" data-back-text="关闭" data-page-title="选择动态地址">-->
+						<!-- select -->
+						<select name="dyPlace">
+							
+						</select>
+						<div class="item-content" >
+							<div class="item-inner">
+								<!-- Select label -->
+								<div class="item-title"><i class='icon icon-map-marker' style="color:#000000"></i>&nbsp;&nbsp;<span>地点</span></div>
+								<!-- Selected value, not required -->
+								<!--<div class="item-after smart-select-value"></div>-->
+							</div>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" data-popup=".popup-power" class="open-popup item-link">
+						<div class="item-content ">
+							<div class="item-inner" style="content:none">
+								<div class="item-title"><i class="icon icon-globe" style="color:#000000"></i>&nbsp;&nbsp;<span>谁可以看</span></div>
+								<div class="item-after"><span id="power-text"></span><input type="hidden" id="power-value" value="0"/></div>
+							</div>
+						</div>
+					</a>
+					<!--<a href="#" class="item-link smart-select"  data-back-text="返回" data-page-title="谁可以看">
+				        <select id="dyPower">
+				        </select>
+				        <div class="item-content">
+				          <div class="item-inner">
+				            <div class="item-title"><span>谁可以看</span></div>
+				            <div class="item-after"></div>
+				          </div>
+				        </div>
+				      </a>-->
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

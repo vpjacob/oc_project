@@ -1,0 +1,173 @@
+<div data-page="maillist" id="mailist" class="page navbar-fixed toolbar-fixed with-subnavbar">
+	<style>
+		.list-block.contacts-block.blockstate {
+			font-size: 20px;
+			font-weight: 200;
+			padding-top: 44px;
+		}
+		
+		.list-group-title.fontweight {
+			font-weight: 200;
+		}
+		
+		.list-block .item-link .item-inner.paddingstate {
+			background: none;
+			padding-bottom: 0px;
+			padding-top: 0px;
+			height: 70px;
+		}
+		
+		.item-media.mediastate {
+			padding-bottom: 0px;
+			padding-top: 0px;
+		}
+		
+		.item-inner.paddingstate {
+			background: none;
+			padding-bottom: 0px;
+			padding-top: 0px;
+		}
+		
+		.item-inner.paddingstate {
+			background: none;
+			padding-bottom: 0px;
+			padding-top: 0px;
+		}
+		
+		.item-inner.paddingstate {
+			background: none;
+			padding-bottom: 0px;
+			padding-top: 0px;
+		}
+		
+		.item-inner.paddingstate {
+			background: none;
+			padding-bottom: 0px;
+			padding-top: 0px;
+		}
+		#tabmessage2 .item-media img{
+			width: 60px;
+			height: 60px;
+		}
+	/*	#tabmessage2 .item-inner:after{
+			
+		}*/
+		
+    
+	</style>
+	<div class="navbar" style="background-color: white;">
+		<!-- Navbar page 1 -->
+		<div class="navbar-inner">
+			<div class="left backMain">
+				<a href="#" class="link">
+					<i class="icon icon-angle-left" style="color:#15191C;"></i> 
+					<span style="color:#15191C;">返回</span>
+				</a>
+			</div>
+			<div class="center"><span style="color:#15191C;font-weight:300;">通讯录</span></div>
+			<div class="right" style="width: 50px;text-align: right;">
+				<a href="#" id="tianjia" class="link">
+					<i class="icon icon-user-plus" style="right: -15px;color:#15191C;"></i> 
+						<span></span>
+				</a>
+			</div>
+			<!-- Sub navbar -->
+			<div class="subnavbar" >
+				<div class="buttons-row">
+					<!-- 关联到第一个tab, 默认激活 -->
+					<a href="#tabmessage1" class="stab-link active button" id="goodfriend" style="border-color: #0eaae3;"  ></a>
+					<!-- 关联到第二个tab -->
+					<a href="#tabmessage2" class="tab-link button" id="notice" style="border-color: #0eaae3;" ></a>
+					<!-- 关联到第三个tab -->
+					<a href="#tabmessage3" class="tab-link button" id="fans" style="border-color: #0eaae3;" onclick="clickFansList();"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--<div class="toolbar tabbar tabbar-labels">
+		<div class="toolbar-inner">
+			<div class="row" style="width:100%">
+				<!-- Each "cell" has col-[widht in percents] class 
+				<div class="col-20">
+					<a href="html/service/myServiceList.html" class="a-link item-link item-link no-animation " style="padding-top:2px;text-align: center;">
+						<div class="toolbar-foot-up">
+							<img src="image/toolbarimage/message_dark.png"  width="40%"/>
+						</div>
+						<div class="toolbar-foot-down"><span class="tabbar-label" style="text-align: center;">消息</span></div>
+					</a>
+				</div>
+				<div class="col-20">
+					<a href="html/maillist/maillist.html" class="a-link item-link item-link no-animation active" style="padding-top:2px;text-align: center;">
+						<div class="toolbar-foot-up">
+							<img src="image/toolbarimage/addressbook_blue.png" width="40%" />
+						</div>
+						<div class="toolbar-foot-down"><span class="tabbar-label" style="text-align: center;">通讯录</span></div>
+					</a>
+				</div>
+				<div class="col-20">
+					<a href="html/community/communityMain.html" class="a-link item-link item-link no-animation " style="padding-top:2px;text-align: center;">
+						<div class="toolbar-foot-up">
+							<img src="image/toolbarimage/circle_dark.png" width="40%"/>
+						</div>
+						<div class="toolbar-foot-down"><span class="tabbar-label" style="text-align: center;">圈</span></div>
+					</a>
+				</div>
+				<div class="col-20">
+					<a href="html/nearby/nearbyMain.html" class="a-link item-link item-link no-animation" style="padding-top:2px;text-align: center;">
+						<div class="toolbar-foot-up">
+							<img src="image/toolbarimage/nearby_dark.png" width="40%" />
+						</div>
+						<div class="toolbar-foot-down"><span class="tabbar-label" style="text-align: center;">附近</span></div>
+					</a>
+				</div>
+				<div class="col-20">
+					<a href="html/user/userInfo.html" class="a-link item-link item-link no-animation" style="padding-top:2px;text-align: center;">
+						<div class="toolbar-foot-up">
+							<img src="image/toolbarimage/mine_dark.png" width="40%" />
+						</div>
+						<div class="toolbar-foot-down"><span class="tabbar-label" style="text-align: center;">我</span></div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>-->
+	<div class="page-content" style="overflow-x: hidden;">
+		
+		<div class="tabs">
+			<!-- Tab 1, 默认激活 -->
+			<div id="tabmessage1" class="tab active">
+				<div class="list-block contacts-block blockstate" id="friendlist">
+				</div>
+			</div>
+			<!-- Tab 2 -->
+			<div id="tabmessage2" class="tab" style=" padding-top: 40px;">
+				<div class="searchbar-overlay" style="bottom: 0; height: calc(100% - 128px);top: inherit;"></div>
+				<form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init" style="background: #E3E3E3;">
+						<div class="searchbar-input">
+							<input type="search" placeholder="输入名字快速查询" id="chaxun">
+							<a href="#" class="searchbar-clear"></a>
+						</div>
+						<a href="#" class="searchbar-cancel">取消</a>
+				</form>
+					<div class="content-block searchbar-not-found">
+						没有找到符合搜索条件的用户！
+					</div>
+					<div class="list-block media-list list-block-search searchbar-found" style="margin-top: 0px;" id="noticeList"></div>
+			</div>
+			<!-- Tab 3 -->
+			<div id="tabmessage3" class="tab" style="padding-top: 15px;">
+				<div class="content-block" style="margin-top: 0px;padding-left: 0px;padding-right: 0px;">
+					<div class="list-block" id="fanslist">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="div-yichufans" style="display: block;">
+		<i class="icon-user-times" style="color: white;font-size:10px ;"></i>
+		<span style="padding-left: 5px;font-size: small;">移除粉丝(0)</span>
+	</div>
+	<ul class="list-index transparent_class" style="color:#0eaae3;"></ul>
+	<input hidden="hidden" value="" id="fansstatus"/>
+</div>
+

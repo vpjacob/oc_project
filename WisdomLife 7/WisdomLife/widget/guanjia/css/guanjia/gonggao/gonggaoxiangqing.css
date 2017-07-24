@@ -1,0 +1,42 @@
+body {
+	font-family: "微软雅黑";
+	background:#FFFFFF;
+}
+img {
+	display: block;
+}
+input {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border: none;
+}
+.clearfix {
+	clear: both;
+}
+.wendang_box{
+	
+	margin-top:10px;
+}
+.wendang_list{
+	width:92%;
+	margin:auto;
+}
+.wendang_list .wendang_title{
+	text-align:center;
+	font-size:18px;
+	font-weight:bold;
+}
+.wendang_list .wendang_title div:nth-child(2) span{
+	font-size:15px;
+	color:#c7c7c7;
+	font-weight:normal;
+}
+.wendang_text{
+	width:98%;
+	margin:auto;
+}
+.wendang_text p{
+	text-indent:2em;
+	font-size:12px;
+}

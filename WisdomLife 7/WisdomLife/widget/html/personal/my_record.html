@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../css/aui.css" />
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>我的记录</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<link rel="stylesheet" href="../../css/sm-extend.min.css">
+		<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm-extend.min.js' charset='utf-8'></script>
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
+		<link rel="stylesheet" type="text/css" href="../../css/base.css">
+		<link rel="stylesheet" type="text/css" href="my_record.css">
+		<style>
+			body {
+				font-family: "微软雅黑";
+			}
+			a {
+				color: #000;
+			}
+			a:active, a:link, a:visited, a:hover {
+				/*color: #000;*/
+				text-decoration: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="page-group">
+			<div class="page">
+				<header class="bar bar-nav">
+					<a class="icon pull-left" onclick="goback();">
+					  <i class="iconfont icon-xiangzuo1" style="font-size: 28px;color: #999"></i>
+					</a>
+					<h1 class="title">我的记录</h1>
+					<a href="#" class="top-bar-right">编辑</a>
+				</header>
+				<div class="content">
+					<div class="buttons-tab">
+						<a href="#tab1" class="tab-link active button">开门记录</a>
+						<a href="#tab2" class="tab-link button">邀请记录</a>
+					</div>
+					<div class="content-block" style="width: 100%">
+						<div class="tabs" style="width: 100%">
+							<div id="tab1" class="tab active">
+								<div class="content-block">
+									<div>
+										<ul>
+											<li>
+												<div class="hide_y"><img src="../../image/temp/delete.png" width="25" height="25"/>
+												</div>
+												<div class="pic-header"><img src="../../image/temp/wodetouxiang.png" width="70" height="70"/>
+												</div>
+												<div class="user-name">
+													<p>
+														用户名
+													</p>
+													<span>13小时30分钟</span>
+												</div>
+												<div class="del">
+													删除
+												</div>
+												<span class="open_y">开门成功</span>
+											</li>
+											<li>
+												<div class="hide_y"><img src="../../image/temp/delete.png" width="25" height="25"/>
+												</div>
+												<div class="pic-header"><img src="../../image/temp/wodetouxiang.png" width="70" height="70"/>
+												</div>
+												<div class="user-name">
+													<p>
+														用户名
+													</p>
+													<span>13小时30分钟</span>
+												</div>
+												<div class="del">
+													删除
+												</div>
+												<span class="open_y">开门成功</span>
+											</li>
+											<li>
+												<div class="hide_y"><img src="../../image/temp/delete.png" width="25" height="25"/>
+												</div>
+												<div class="pic-header"><img src="../../image/temp/wodetouxiang.png" width="70" height="70"/>
+												</div>
+												<div class="user-name">
+													<p>
+														用户名
+													</p>
+													<span>13小时30分钟</span>
+												</div>
+												<div class="del">
+													删除
+												</div>
+												<span class="open_y">开门成功</span>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div id="tab2" class="tab">
+								<div class="content-block">
+									<div>
+										<ul>
+											<li>
+												<div class="hide_y"><img src="../../image/temp/delete.png" width="25" height="25"/>
+												</div>
+												<div class="pppp">
+													<div class="top">
+														<div class="top-left">
+															<p>
+																13325689754
+															</p>
+															<span> 1111-12-01</span>
+															<span> 10:00 前有效拜访</span>
+														</div>
+														<div class="top-mid">
+															<p>
+																电子钥匙
+															</p>
+															<span> cccccc</span>
+														</div>
+														<span>有效</span>
+													</div>
+													<div class="down">
+														<span class="reason">授权原因：</span>
+														<span class="friend">朋友拜访</span>
+														<a href="#" class="key_y">撤回电子钥匙</a>
+													</div>
+												</div>
+												<div class="del">
+													删除
+												</div>
+											</li>
+											<li>
+												<div class="hide_y"><img src="../../image/temp/delete.png" width="25" height="25"/>
+												</div>
+												<div class="pppp">
+													<div class="top">
+														<div class="top-left">
+															<p>
+																13325689754
+															</p>
+															<span> 1111-12-01</span>
+															<span> 10:00 前有效拜访</span>
+														</div>
+														<div class="top-mid">
+															<p>
+																电子钥匙
+															</p>
+															<span> cccccc</span>
+														</div>
+														<span style="color:black">已过期</span>
+													</div>
+													<div class="down">
+														<span class="reason">授权原因：</span>
+														<span class="friend">朋友拜访</span>
+														<a href="#" class="key_n">再次邀请</a>
+													</div>
+												</div>
+												<div class="del">
+													删除
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript">
+		apiready = function() {
+		};
+		$(".changeInfo").on("click", function() {
+			if ($(".changeInfo").html() == "编辑") {
+				$(".active .hide_y").css("display", "block");
+				$(".active .pppp").css("width", "90%");
+				$(this).addClass("f-color");
+				$(this).html("保存");
+			} else {
+				$(".active .hide_y").css("display", "none");
+				$(".active .del").css("display", "none");
+				$(".active .pppp").css("width", "100%");
+				$(this).removeClass("f-color");
+				$(this).html("编辑");
+			}
+		})
+		$(".hide_y").on("click", function() {
+			$(this).css("display", "none");
+			$(this).siblings().eq(2).css("display", "block");
+		})
+		$("#tab2 .hide_y").on("click", function() {
+			$(this).css("display", "none");
+			$(this).siblings().eq(1).css("display", "block");
+		})
+		$(".del").on("click", function() {
+			$(this).parent().remove();
+		})
+		$(".key_y").on("click", function() {
+			$(this).removeClass("key_y").addClass("key_n");
+			$(this).html("再次邀请");
+		})
+	</script>
+</html>

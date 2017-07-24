@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<title>回购</title>
+		<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<link rel="stylesheet" href="../../css/sm-extend.min.css">
+		<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm-extend.min.js' charset='utf-8'></script>
+		<link rel="stylesheet" type="text/css" href="../../css/all.css">
+		<link rel="stylesheet" type="text/css" href="../../css/base.css">
+		<link rel="stylesheet" type="text/css" href="buyback.css">
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
+		<link rel="stylesheet" type="text/css" href="../../css/person/iconfont.css">
+    <style>
+		body {
+			font-family: "微软雅黑";
+		}
+
+		a {
+			color: #000;
+		}
+
+		a:active, a:link, a:visited, a:hover {
+			color: #000;
+			text-decoration: none;
+		}
+		.list-block .item-inner:after {
+			content: none;
+		}
+		.bar {
+			z-index: 0;
+		}
+    </style>
+</head>
+<body>
+
+<div class="page-group">
+    <!-- 你的html代码 -->
+    
+    <div class="page">
+         <header class="bar bar-nav" id="header">
+			<a class="icon pull-left" id="back"><i  class="iconfont icon-xiangzuo1" style="font-size: 28px;color: #999"></i></a>
+			<h1 class="title">回购</h1>
+			<a class="top-bar-right" id="backrecord">回购记录</a>
+		</header>
+		<div class="tankuang_box">
+			<div class="tankuang">
+				<div><span>提示</span></div>
+				<div><span>手续费:<span id="procedureCost"></span></span></div>
+				<div><span>本次回购的金额:<span id="showAmount"></span></span></div>
+				<div>
+					<span id="closetankuang">取消</span><button id="apply">确定</button>
+				</div>
+			</div>
+		</div>
+		<div class="black_box"></div>
+        <div class="content" style="background-color: #f0f0f0;">
+            <div class="know">
+               <div>回购须知</div>
+               <ul>
+                  <li>1.目前回购仅支持中信银行，请勿使用其他银行回购</li>
+                  <li>2.每笔最多回购50000枚金币</li>
+                  <li>3.金币任意时间,允许回购</li> 
+                  <li>4.回购之日起,3个工作日内到账(节假日顺延)</li>     
+                  <li>5.1000以内回购每笔收取手续费5金币,超过1000(包括1000)每笔回购收取6‰手续费</li>                
+               </ul>
+            </div>
+             
+             <div id="addcard">
+	            <!--<div class="jia" >
+	                       <div class="left">
+	                         <img src="../../image/bank1.png" alt="" />
+	                       </div>
+	                       <div class="middle">
+	                         <div><span>中国中信银行</span></div>
+	                         <div><span>6217000010094935130</span></div>
+	                       </div>
+	                       <div class="right">
+	                         <i class="icon iconfont icon-xiangyou1"></i>
+	                       </div>            	
+	               </div>-->
+            </div>
+           
+            
+            <div class="bank">
+            	<div class="item-content" id="addBank">					
+						<div class="item-title">
+						    请选择银行卡
+						</div>
+						<div class="item-input">
+							<i class="icon iconfont icon-xiangyou1"></i>
+					    </div>
+				</div>
+                <!-- <div class="item-content">					
+                						<div class="item-title">
+                						     回购类型
+                						</div>
+                						<div class="item-input">
+                							<select>
+                							   <option value="">普通信使豆</option>
+                							   <option value="">待缴税信使豆</option>
+                							</select>
+                							<span id="normaldot">普通金币</span><i class="icon iconfont icon-top"></i>
+                							<ul class="secondul">
+                			                   <li class="first"></li>
+                			                   <li id='dot1'>普通金币</li>
+                			                   <li class="last" id="dot2">待缴税金币</li>			  
+                	                     	</ul>
+                					    </div>
+                				</div> -->
+                <div class="item-content">					
+						<div class="item-title">
+						      剩余金币
+						</div>
+						<div class="item-input" id="beancount">
+							0
+					    </div>
+				</div>
+				<div class="item-content">					
+						<div class="item-title">
+						      可回购金额
+						</div>
+						<div class="item-input" id="countmoney">
+							0.00元
+					    </div>
+				</div>
+				<div class="item-content">					
+						<div class="item-title">
+						      回购金币
+						</div>
+						<div class="item-input">
+							<input type="number" placeholder="请输入100的整数倍" id="beans"/>
+					    </div>
+				</div>
+				<div class="item-content" style="border-bottom: 1px solid #f0f0f0">					
+						<div class="item-title">
+						      二级密码
+						</div>
+						<div class="item-input">
+							<input type="password" id="password" placeholder="请输入二级密码"/>
+					    </div>
+				</div>
+				<!--<div class="item-content">					
+						<div class="item-title">
+						     回购到
+						</div>
+						<div class="item-input">
+							<input type="text" id='picker'/>
+							<i class="icon iconfont icon-down"></i>
+					    </div>
+					    
+				</div>-->
+				
+            </div>
+           <!--  <div class="bank">
+            				
+            				<div class="item-content" style="">					
+            						<div class="item-title">
+            						      持卡人姓名：
+            						</div>
+            						<div class="item-input">
+            							<input type="text" placeholder="请输入姓名" id="personName"/>
+            					    </div>
+            				</div>
+            				<div class="item-content">					
+            						<div class="item-title">
+            						      身份证号
+            						</div>
+            						<div class="item-input">
+            							<input type="text" placeholder="请输入身份证号" id="personNumber"/>
+            					    </div>
+            				</div>
+            				<div class="item-content">					
+            						<div class="item-title">
+            						     转入银行
+            						</div>
+            						<div class="item-input">
+            							<select id="selectBank">
+            								<option value="">请选择开户银行</option>
+            							</select>
+            							<i  class="iconfont icon-down" style="float:right;margin-top:-33px;"></i>
+            					    </div>
+            				</div>
+            				<div class="item-content">					
+            						<div class="item-title">
+            						      银行卡号
+            						</div>
+            						<div class="item-input">
+            							<input type="number" placeholder="请输入银行卡号" id="bankNumber"/>
+            					    </div>
+            				</div>
+            				
+            				</div> -->
+            <button class="commit" id="submit">提交</button>
+
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="buyback.js"></script>
+<script type="text/javascript" src="../../script/common.js"></script>
+<script type="text/javascript" src="../../script/zepto.md5.js"></script>
+<script type="text/javascript" src="../../script/bank.js"></script>
+<script>
+	function refresh() {
+		location.reload();
+	}
+</script>

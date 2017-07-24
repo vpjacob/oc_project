@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>业主二维码</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/sm.min.css">
+    <link rel="stylesheet" href="../../../css/sm-extend.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../css/iconfont.css" />
+	<link rel="stylesheet" type="text/css" href="../../../css/guanjia/fangwu/ownerRwm.css" /> 
+	<script type="text/javascript" src="../../../script/jquery-1.10.2.js"></script>
+	<style>
+		
+	</style>
+</head>
+<body>
+	<header class="bar bar-nav" style="position: relative; background-color:white" id="title">
+		<h1 class="title" style="background-color:white">业主二维码</h1>
+		<a onclick="goBack()" class="iconfont icon-xiangzuo1 pull-left" style="font-size:20px;color:#0EAAE3;position:absolute;top:7px;"></a>	
+	</header>
+	<div class="Personal_box">
+		<div class="Personal_centent">
+			<div class="list_box">
+				<div><span><b style="color: red; visibility: hidden">*</b>业主姓名:</span>
+				<input type="text" disabled="disabled" id="name"/>
+				</div>
+				<div><span><b style="color: red; visibility: hidden">*</b>业主手机号:</span>
+				<input type="text" disabled="disabled" value="" id="userPhone" />
+				</div>
+				<div><span><b style="color: red; visibility: hidden">*</b>所在小区:</span>
+				<input type="text" disabled="disabled" value="" id="community"/>
+				</div>
+				<div><span><b style="color: red; visibility: hidden">*</b>楼栋号:</span>
+				<input type="text" disabled="disabled" value="" id="building"/>
+				</div>
+				<div><span><b style="color: red; visibility: hidden">*</b>单元号:</span>
+				<input type="text" disabled="disabled" value="" id="unit"/>
+				</div>
+				<div><span><b style="color: red; visibility: hidden">*</b>房间号:</span>
+				<input type="text" disabled="disabled" value="" id="room"/>
+				</div>
+				<div style="width: 100%;height: 10px;background: #efefef"></div>
+				<div><span><b style="color: red; visibility: hidden">*</b>你的手机号:</span>
+				<input type="text"  value="" disabled="disabled" id="tempTel"/>
+				</div>
+				<div><span><b style="color: red; visibility: hidden">*</b>你的姓名:</span>
+				<input type="text"  value="" disabled="disabled" id="tempName"/>
+				</div>
+				<div><span><b style="color: red; visibility: hidden">*</b>身份证号:</span>
+				<input type="text"  value="" disabled="disabled" id="tempId"/>
+				</div>
+				<div><span><b style="color: red; visibility: hidden">*</b>你与业主的关系:</span>
+				<select id="relationList">
+				</select>
+				</div>
+			</div>
+			<div style="width: 100%;height:80px;background: #efefef;padding-top: 40px">
+					<div class="next">
+						<button type="button" class="step" id="apply">
+							提交
+						</button>
+					</div>
+				</div>
+				
+		</div>
+		
+				
+	
+</body>
+<script type="text/javascript" src="../../../../script/api.js"></script>
+<script type="text/javascript" src="../../../../script/common.js"></script>
+<script type="text/javascript" src="../../../script/guanjia/fangwu/ownerRwm.js"></script>
+
+</html>

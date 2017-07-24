@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<title>邮包</title>
+		<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<link rel="stylesheet" href="../../css/sm-extend.min.css">
+		<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm-extend.min.js' charset='utf-8'></script>
+		<link rel="stylesheet" type="text/css" href="parcel.css">
+    <style>
+    	body {
+            font-family: "微软雅黑";
+        }
+
+        a {
+            color: #000;
+        }
+
+        a:active, a:link, a:visited, a:hover {
+            color: #000;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div class="page-group">
+    <div class="page">
+        <header class="bar bar-nav">
+            <a class="icon pull-left" onclick="goback();"><img src="../../image/toright.png"/></a>
+            <!--<a class="icon icon-refresh pull-right"></a>-->
+            <h1 class="title">邮包</h1>
+        </header>
+        <div class="content" data-distance="50" style="background-color: #f6f6f6;">
+            <div class="change">
+                <span class="change_line">新邮包</span>
+                <span>已完成</span>
+            </div>
+            <div class="center">
+                <img src="../../image/temp/ppke.png"/>
+                <p class="centerP">亲您还没有已完成的信息</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(".change span").click(function(){
+        $(this).addClass('change_line').siblings().removeClass('change_line');
+    });
+</script>
+</body>
+</html>

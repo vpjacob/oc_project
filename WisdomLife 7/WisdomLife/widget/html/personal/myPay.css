@@ -1,0 +1,160 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements ½á¹¹ÔªËØ */
+dl, dt, dd, ul, ol, li, /* list elements ÁÐ±íÔªËØ */
+pre, /* text formatting elements ÎÄ±¾¸ñÊ½ÔªËØ */
+form, fieldset, legend, button, input, textarea, /* form elements ±íµ¥ÔªËØ */
+th, td, /* table elements ±í¸ñÔªËØ */
+img/* img elements Í¼Æ¬ÔªËØ */ {
+	border: medium none;
+	margin: 0;
+	padding: 0;
+}
+/** ÉèÖÃÄ¬ÈÏ×ÖÌå **/
+body, input, p {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	font-family: 'Microsoft YaHei';
+}
+/*h1, h2, h3, h4, h5, h6 { font-size: 100%; }*/
+/*em{font-style:normal;}*/
+/** ÖØÖÃÁÐ±íÔªËØ **/
+ul, ol {
+	list-style: none;
+}
+/** ÖØÖÃ³¬Á´½ÓÔªËØ **/
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+/** ÖØÖÃÍ¼Æ¬ÔªËØ **/
+img {
+	border: 0px;
+}
+
+.top-bar-right {
+    position: absolute;
+    top: 3px;
+    right: 12px;
+    height: 44px;
+    line-height: 46px;
+    color: #646464;
+    font-size: 14px;
+}
+.topBox{
+	width:100%;
+	height:85px;
+/* 	border:1px solid red; */
+	background: #fff;
+}
+
+.topBox .topBoxName{
+	width:92%;
+	margin:0 auto;
+	height:85px;
+ 	border-bottom:1px dashed #dddddd; 
+}
+.topBox .topBoxName span{
+	font-family: 'Microsoft YaHei';
+	margin-top:20px;
+	font-size:15px;
+	color:#797979;
+	width: 100%;
+	text-align: center;
+}
+.topBox .topBoxName span:nth-child(2){
+	margin-top:5px;
+}
+.midTop{
+	width:100%;
+	height:105px;
+ 	border-bottom:1px solid #dddddd; 
+	background: #fff;
+}
+.midTop .midBoxName{
+	width:92%;
+	margin:0 auto;
+	height:85px;
+	padding:0 5px;
+ 	position: relative;
+ 	top:10px;
+}
+.midTop .midBoxName span{
+	font-family: 'Microsoft YaHei';
+	margin-top:10px;
+	font-size:15px;
+	color:#797979;
+	width: 100%;
+}
+.midTop .midBoxName span:nth-child(2){
+	font-size:20px;
+	color:#282828;
+	margin-top:15px;
+}
+
+.next{
+	width:92%;
+	margin:auto;
+}
+.next button{
+	width:100%;
+	height:44px;
+	border-radius:10px;
+	background:#0eaae3;
+	color:#FFFFFF;
+	margin-top:40px;
+	font-size:21px;
+}
+
+.bgtop{
+	width:92%;
+	height:14.15rem;
+	margin:1rem auto;
+	background: url("../../image/mypay.jpg") no-repeat 0 0;
+	background-size: 100%;
+}
+.bgtop .topBoxName{
+	width:90%;
+	margin:0 auto;
+	height:5rem;
+}
+.bgtop .topBoxName span{
+	font-family: 'Microsoft YaHei';
+	margin-top:10%;
+	font-size:0.8rem;
+	color:#0eaae3;
+	width: 100%;
+	text-align: center;
+}
+.bgtop .topBoxName span:nth-child(2){
+	margin-top:5px;
+	color:#797979;
+}
+.bgtop .bottom{
+	width:90%;
+	margin:0 auto;
+	height:40%;
+	padding-top:20px; 
+}
+.bgtop .bottom span{
+	font-family: 'Microsoft YaHei';
+	font-size:0.75rem;
+	float:left;
+	margin-top: 1.5rem;
+	width: 20%;
+	padding-left: 1rem;
+}
+.bgtop .bottom span:nth-child(3){
+	font-family: 'Microsoft YaHei';
+	font-size:0.75rem;
+	float:right;
+	margin-left: 0;
+}
+.bgtop .bottom input{
+	width:59%;
+	font-size:1.2rem;
+	margin-top: 1.2rem;
+	text-align: center;
+}
+
+

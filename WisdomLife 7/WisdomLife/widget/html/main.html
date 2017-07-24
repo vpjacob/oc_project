@@ -1,0 +1,968 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../css/sm.min.css">
+		<link rel="stylesheet" href="../css/sm-extend.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/index.css">
+		<link rel="stylesheet" type="text/css" href="../css/iconfont.css">
+		<link rel="stylesheet" type="text/css" href="../icon/iconfont.css">
+		<link rel="stylesheet" type="text/css" href="../css/animate.css">
+		<script type='text/javascript' src='../script/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../script/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../script/sm-extend.min.js' charset='utf-8'></script>
+		<style>
+			body {
+				font-family: "微软雅黑";
+				background-color: #fff;
+			}
+			a:active, a:link, a:visited, a:hover {
+				text-decoration: none;
+			}
+			.row {
+				margin-left: 0;
+				bottom: 58%;
+			}
+			.list-block .item-media + .item-inner {
+				margin-left: 0;
+				padding-left: 0.75 rem;
+			}
+			* {
+				-webkit-tap-highlight-color: transparent;
+				-webkit-appearance: none;
+			}
+			.item-content {
+				border-bottom: 1px solid #efefef;
+			}
+			.bars {
+				background-color: #f7f7f8;
+				-webkit-backface-visibility: hidden;
+				backface-visibility: hidden;
+			}
+			.bar-tab:before {
+				content: none;
+			}
+			.showEgg{
+				float:right;
+				width: 65px;
+				height: 56px;
+				margin-right: -87px;
+				margin-top: 30px;
+				display:none;
+				-webkit-animation: flash  linear 5s infinite ;
+			}
+			.showCount{
+				float:right;
+				margin-right: 12px;
+				margin-top: 86px;
+			    font-size: 14px;
+			    color: white;
+			    display:none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="page">
+			<!--==========================================================================-->
+			<!-- content应该拥有"pull-to-refresh-content"类,表示启用下拉刷新 -->
+			<div class="backgroundImg"></div>
+			<div id="content" class="content pull-to-refresh-content" data-ptr-distance="30">
+				<!-- 默认的下拉刷新层 -->
+				<div class="pull-to-refresh-layer">
+					<div class="preloader"></div>
+					<div class="pull-to-refresh-arrow"></div>
+				</div>
+				<!--==========================================================================-->
+				<h1 class="content_address"><!--<img src="../image/temp/tianqi_03.png"/>--><i class="icon iconfont icon-dizhi" style="vertical-align:middle;"></i><span id="location">北京</span></h1>
+				<span class="mess" style="display: none" id="message"> <i class="icon iconfont icon-remind" style="font-size: 28px;color: #ffffff;"></i> <!--<span class="num" id="msgnum"></span>--> </span>
+				<div class="weather weather1">
+					<img src="../image/temp/cloud02.png" alt="" class="cloud_1"/>
+					<img src="../image/temp/cloud02.png" alt="" class="cloud_2"/>
+				</div>
+				<div class="weather weather2">
+					<img src="../image/temp/rain01.png" alt="" class="rain_1"/>
+					<img src="../image/temp/rain02.png" alt="" class="rain_2"/>
+					<img src="../image/temp/rain02.png" alt="" class="rain_3"/>
+					<img src="../image/temp/rain01.png" alt="" class="rain_4"/>
+					<img src="../image/temp/rain02.png" alt="" class="rain_5"/>
+					<img src="../image/temp/rain02.png" alt="" class="rain_6"/>
+					<img src="../image/temp/rain02.png" alt="" class="rain_7"/>
+					<img src="../image/temp/rain02.png" alt="" class="rain_8"/>
+				</div>
+				<div class="weather weather3">
+					<img src="../image/temp/snow_11.png" alt="" class="snow_1"/>
+					<img src="../image/temp/snow_15.png" alt="" class="snow_2"/>
+					<img src="../image/temp/snow_19.png" alt="" class="snow_3"/>
+					<img src="../image/temp/snow_11.png" alt="" class="snow_4"/>
+					<img src="../image/temp/snow_11.png" alt="" class="snow_5"/>
+					<img src="../image/temp/snow_15.png" alt="" class="snow_6"/>
+					<img src="../image/temp/snow_11.png" alt="" class="snow_7"/>
+					<img src="../image/temp/snow_19.png" alt="" class="snow_8"/>
+				</div>
+				<div class="weather weather4">
+					<img src="../image/temp/star.png" alt="" class="star_1"/>
+					<img src="../image/temp/star.png" alt="" class="star_2"/>
+					<img src="../image/temp/star.png" alt="" class="star_3"/>
+					<img src="../image/temp/star.png" alt="" class="star_4"/>
+					<img src="../image/temp/star.png" alt="" class="star_5"/>
+				</div>
+				<div class="temperature">
+					<div class="temperature_bg">
+						<div class="temperature_same">
+							<span class="temperature_day">今天</span>
+							<span id="todaySky"  style="font-size:12px"></span>
+							<span id="todayTemperature"></span>
+						</div>
+						<div class="temperature_same temperature_center">
+							<span class="temperature_day">明天</span>
+							<span id="tomorrowSky" style="font-size:12px"></span>
+							<span id="tomorrowTemperature"></span>
+						</div>
+						<div class="temperature_same">
+							<span class="temperature_day" id="afterTomorrow"></span>
+							<span id="afterTomorrowSky" style="font-size:12px"></span>
+							<span id="afterTomorrowTemperature"></span>
+						</div>
+					</div>
+				</div>
+				<div id="discription" class="refresh"></div>
+				<div class="key">
+					<img src="../image/lock.png" width="50" height="50"/>
+				</div>
+				<div class="openDoor">
+					<img id="mm" src="../image/n1.png"/>
+					<!--<img src="../../images/n2.png" width="200" height="200"/>-->
+					<!--<img src="../../images/n3.png" width="200" height="200"/>-->
+					<!--<img src="../../images/n4.png" width="200" height="200"/>-->
+				</div>
+				<!--金蛋显示问题-->
+				<!--<div class="showCount" id="showCount">200</div>-->
+				<span class="showCount">金蛋宝宝在等您</span>
+				<img src="../image/mainEggGraey.jpg" class="showEgg" id="mainEgg"/>
+				
+				<div id="bodycontent" style="opacity:1">
+					<div class="bottom" id="bottom">
+						<div class="hint">
+							<div class="hint_temperature">
+								<span id="currentTemperature" class="hint_nowtemperature">&nbsp;</span>
+								<div class="hint_adjust">
+									<span id="maxTemperature" class="hint_up"></span>
+									<span id="minTemperature" class="hint_down"></span>
+								</div>
+							</div>
+							<div class="hint_suggest">
+								<p class="hint_time">
+									<span id="todayDay" style="float: left;"></span>
+									<span id="todayWeek" style="float: right;"></span>
+								</p>
+								<div>
+									<i class="icon iconfont icon-water" style="color: #ffffff;vertical-align:top;"></i>
+									<span id="pm25" class="hint_one"></span>
+								</div>
+								<div>
+									<i class="icon iconfont icon-wheel" style="color: #ffffff;vertical-align:top;"></i>
+									<span id="recommend" class="hint_two"></span>
+								</div>
+								<div>
+									<i class="icon iconfont icon-wind" style="color: #ffffff;vertical-align:top;"></i>
+									<span id="wind" class="hint_three"></span>
+								</div>
+								<div>
+									<i class="icon iconfont icon-sun" style="color: #ffffff;vertical-align:top;"></i>
+									<span id="hourDescription" class="hint_four"></span>
+								</div>
+								<!--<span id="pm25" class="hint_one"><i class="icon iconfont icon-water"></i></span>-->
+								<!--<span id="recommend" class="hint_two"><i class="icon iconfont icon-wheel"></i></span>-->
+								<!--<span id="wind" class="hint_three"><i class="icon iconfont icon-wind"></i></span>-->
+								<!--<span id="hourDescription" class="hint_four"><i class="icon iconfont icon-sun"></i></span>-->
+							</div>
+						</div>
+					</div>
+					<div class="clock">
+						<div class="clock_left">
+							<span>日落</span>
+							<span id="sundown"></span>
+						</div>
+						<div class="colck_right">
+							24小时 <i class="icon iconfont icon-shizhong"></i>
+						</div>
+					</div>
+					<!-- <div class="exponent">
+						<p>
+							指数
+						</p>
+						<div class="exponent_same">
+							<div class="exponent_left" style="border-right: 1px solid #8ca9c9">
+								<div class="exponent_lc">
+									<img src="../image/tianqi_30.png"/>
+									<i class="icon iconfont icon-calendar"></i>
+								</div>
+								<div class="exponent_rc">
+									<span id="cndate" class="exponent_rsize"></span>
+									<span class="exponent_rcolor">万年历</span>
+								</div>
+							</div>
+							<div class="exponent_left">
+								<div class="exponent_lc">
+									<img src="../image/tianqi_37.png"/>
+									<i class="icon iconfont icon-clothes"></i>
+								</div>
+								<div class="exponent_rc">
+									<span id="clouthhint" class="exponent_rsize"></span>
+									<span class="exponent_rcolor">穿衣</span>
+								</div>
+							</div>
+						</div>
+						<div class="exponent_same">
+							<div class="exponent_left" style="border-right: 1px solid #8ca9c9">
+								<div class="exponent_lc">
+									<img src="../image/tianqi_40.png"/>
+									<i class="icon iconfont icon-meizhuangleimu"></i>
+								</div>
+								<div class="exponent_rc">
+									<span id="facehint" class="exponent_rsize"></span>
+									<span class="exponent_rcolor">化妆</span>
+								</div>
+							</div>
+							<div class="exponent_left">
+								<div class="exponent_lc">
+									<img src="../image/tianqi_43.png"/>
+									<i class="icon iconfont icon-yundonghuwaileimu"></i>
+								</div>
+								<div class="exponent_rc">
+									<span id="sporthint" class="exponent_rsize">闷热</span>
+									<span class="exponent_rcolor">运动</span>
+								</div>
+							</div>
+						</div>
+						<div class="exponent_same">
+							<div class="exponent_left" style="border-right: 1px solid #8ca9c9">
+								<div class="exponent_lc">
+									<img src="../image/tianqi_48.png"/>
+									<i class="icon iconfont icon-skin"></i>
+								</div>
+								<div class="exponent_rc">
+									<span id="fishhint" class="exponent_rsize"></span>
+									<span class="exponent_rcolor">钓鱼</span>
+								</div>
+							</div>
+							<div class="exponent_left">
+								<div class="exponent_lc">
+									<img src="../image/tianqi_46.png"/>
+									<i class="icon iconfont icon-qing"></i>
+								</div>
+								<div class="exponent_rc">
+									<span id="ultraviolethint" class="exponent_rsize"></span>
+									<span class="exponent_rcolor">紫外线</span>
+								</div>
+							</div>
+						</div>
+					</div> -->
+					<!--<div class="exponent">
+					<p>
+					生活
+					</p>
+					<div class="exponent_same">
+					<div class="exponent_left" style="border-right: 1px solid #8ca9c9">
+					<div class="exponent_lc">
+					<i class="icon iconfont icon-repair"></i>
+					</div>
+					<div class="exponent_rc">
+					<span class="exponent_rsize">物业服务</span>
+					</div>
+					</div>
+					<div class="exponent_left">
+					<div class="exponent_lc">
+					<i class="icon iconfont icon-moneybag"></i>
+					</div>
+					<div class="exponent_rc">
+					<span class="exponent_rsize">贷款申请</span>
+					</div>
+					</div>
+					</div>
+					</div>-->
+					
+					<div class="exponent">
+						<p>
+							指数
+						</p>
+						<div class="exponent_same">
+							<div class="exponent_left" style="border-right: 1px solid #DDDDDD">
+								<div class="exponent_lc">
+									<img src="../image/tq-rl@2x.png"/>
+									<!-- <i class="icon iconfont icon-calendar"></i> -->
+								</div>
+								<div class="exponent_rc">
+									<span id="cndate" class="exponent_rsize">四月一</span>
+									<span class="exponent_rcolor">万年历</span>
+								</div>
+							</div>
+							<div class="exponent_left" style="border-right: 1px solid #DDDDDD">
+								<div class="exponent_lc">
+									<img src="../image/tq-fz@2x.png"/>
+									<!-- <i class="icon iconfont icon-meizhuangleimu"></i> -->
+								</div>
+								<div class="exponent_rc">
+									<span id="facehint" class="exponent_rsize">防紫外线</span>
+									<span class="exponent_rcolor">化妆</span>
+								</div>
+							</div>
+							<div class="exponent_left">
+								<div class="exponent_lc">
+									<img src="../image/tq-dy@2x.png"/>
+									<!-- <i class="icon iconfont icon-skin"></i> -->
+								</div>
+								<div class="exponent_rc">
+									<span id="fishhint" class="exponent_rsize">适宜</span>
+									<span class="exponent_rcolor">钓鱼</span>
+								</div>
+							</div>														
+						</div>
+						<div class="exponent_same">
+							<div class="exponent_left" style="border-right: 1px solid #DDDDDD">
+								<div class="exponent_lc">
+									<img src="../image/tq-cy@2x.png"/>									
+									<!-- <i class="icon iconfont icon-clothes"></i> -->
+								</div>
+								<div class="exponent_rc">
+									<span id="clouthhint" class="exponent_rsize">炎热</span>
+									<span class="exponent_rcolor">穿衣</span>
+								</div>
+							</div>						
+							<div class="exponent_left" style="border-right: 1px solid #DDDDDD">
+								<div class="exponent_lc">
+									<img src="../image/tq-yd@2x.png"/>
+									<!-- <i class="icon iconfont icon-yundonghuwaileimu"></i> -->
+								</div>
+								<div class="exponent_rc">
+									<span id="sporthint" class="exponent_rsize">推荐</span>
+									<span class="exponent_rcolor">运动</span>
+								</div>
+							</div>
+
+							<div class="exponent_left">
+								<div class="exponent_lc">
+									<img src="../image/tq-zy@2x.png"/>
+									<!-- <i class="icon iconfont icon-qing"></i> -->
+								</div>
+								<div class="exponent_rc">
+									<span id="ultraviolethint" class="exponent_rsize">强</span>
+									<span class="exponent_rcolor">紫外线</span>
+								</div>
+							</div>															
+						</div>
+					</div>
+					
+					<div class="news" id="guonei" style="margin-top: 16px;">
+						<div class="clock" style="background: #386FA8">
+							<div class="clock_left">
+								<span>国内新闻</span>
+							</div>
+							<div class="change_right" onclick="newsListPage('guonei')" id="guoneiNewsPage" abbr="1" type='guonei'>
+								换一组 <i class="icon iconfont icon-shuaxin1" style="margin-left:8px;"></i>
+							</div>
+						</div>
+						<div class="news_banner"  style='position:relative;' onclick="newsdetails(this)">
+							<input type="hidden" id="guoneiNewsFid1" />
+							<div class="news_bbg">
+								<img src='../image/1.png' id="guoneiNewsImg1" width="100%" height="100%"/>
+							</div>
+							<div class="news_bline" >
+								<div class="news_btitle" id="guoneiNewsTitle1"></div>
+								<div class="news_bmessage">
+									<i class="icon iconfont icon-liuyan"></i>
+									<div  class="news_bm" id="guoneiNewBmessage1"></div>
+								</div>
+							</div>
+						</div>
+						<ul class="news_ul">
+							<li class="news_li grayAdd"   onclick='newsdetails(this)'>
+								<input type="hidden" id="guoneiNewsFid2" />
+								<img src='../image/2.png' height='63' width='63' id="guoneiNewsImg2" />
+								<div class="news_lic">
+									<div class="news_lititle" id='txt'>
+										<h1 class="titles" id="guoneiNewsTitle2"></h1>
+									</div>
+									<div class="lines">
+										<div class="lines_time">
+											<div class="lines_times" id="guoneiNewsTime2">
+												<i class="icon iconfont icon-shizhong"></i>
+											</div>
+										</div>
+										<div class="news_mes">
+											<i class="icon iconfont icon-liuyan" style="color: #acafb6;"></i>
+											<div  class="news_mcenter" style="" id="guoneiNewBmessage2"></div>
+										</div>
+									</div>
+								</div>
+								<div class="toright">
+									<a href='#' class="toright_a"> <i class="icon iconfont icon-xiangyou1" style="font-size:20px;color: #CCCCCC"></i> </a>
+								</div>
+							</li>
+							<li  class="news_li grayAdd" onclick='newsdetails(this)'>
+								<input type="hidden" id="guoneiNewsFid3" />
+								<img src='../image/2.png' height='63' width='63' id="guoneiNewsImg3"/>
+								<div class="news_lic">
+									<div class="news_lititle" id='txt'>
+										<h1 class="titles" id="guoneiNewsTitle3" ></h1>
+									</div>
+									<div class="lines">
+										<div class="lines_time">
+											<div class="lines_times" name="guoneiTime" id="guoneiNewsTime3">
+												<i class="icon iconfont icon-shizhong"></i>
+											</div>
+										</div>
+										<div class="news_mes">
+											<i class="icon iconfont icon-liuyan" style="color: #acafb6;"></i>
+											<div  class="news_mcenter" style="" id="guoneiNewBmessage3"></div>
+										</div>
+									</div>
+								</div>
+								<div class="toright">
+									<a href='#' class="toright_a"><i class="icon iconfont icon-xiangyou1" style="font-size:20px;color: #CCCCCC"></i> </a>
+								</div>
+							</li>
+							<li class="news_li grayAdd"   onclick='newsdetails(this)'>
+								<input type="hidden" id="guoneiNewsFid4" />
+								<img src='../image/2.png' height='63' width='63' id="guoneiNewsImg4"/>
+								<div class="news_lic">
+									<div class="news_lititle" id='txt'>
+										<h1 class="titles" id="guoneiNewsTitle4"></h1>
+									</div>
+									<div class="lines">
+										<div class="lines_time">
+											<div class="lines_times" id="guoneiNewsTime4">
+												<i class="icon iconfont icon-shizhong"></i>
+											</div>
+										</div>
+										<div class="news_mes">
+											<i class="icon iconfont icon-liuyan" style="color: #acafb6;"></i>
+											<div  class="news_mcenter" style="" id="guoneiNewBmessage4"></div>
+										</div>
+									</div>
+								</div>
+								<div class="toright">
+									<a href='#' class="toright_a"><i class="icon iconfont icon-xiangyou1" style="font-size:20px;color: #CCCCCC"></i> </a>
+								</div>
+							</li>
+							<li  class="news_li grayAdd" onclick='newsdetails(this)'>
+								<input type="hidden" id="guoneiNewsFid5" />
+								<img src='../image/2.png' height='63' width='63' id="guoneiNewsImg5"/>
+								<div class="news_lic">
+									<div class="news_lititle" id='txt'>
+										<h1 class="titles" id="guoneiNewsTitle5" ></h1>
+									</div>
+									<div class="lines">
+										<div class="lines_time">
+											<div class="lines_times" name="guoneiTime" id="guoneiNewsTime5">
+												<i class="icon iconfont icon-shizhong"></i>
+											</div>
+										</div>
+										<div class="news_mes">
+											<i class="icon iconfont icon-liuyan" style="color: #acafb6;"></i>
+											<div  class="news_mcenter" style="" id="guoneiNewBmessage5"></div>
+										</div>
+									</div>
+								</div>
+								<div class="toright">
+									<a href='#' class="toright_a"> <i class="icon iconfont icon-xiangyou1" style="font-size:20px;color: #CCCCCC"></i> </a>
+								</div>
+							</li>
+						</ul>
+						<a class="look_more" onclick="selectMoreNews(this)" abbr="guonei" >查看更多</a>
+					</div>
+					<div class="news"  >
+						<div class="clock" style="background: #386FA8">
+							<div class="clock_left">
+								<span>社会新闻</span>
+							</div>
+							<div class="change_right" onclick="newsListPage('shehui')" id="shehuiNewsPage" abbr="1" type='shehui'>
+								换一组 <i class="icon iconfont icon-shuaxin1" style="margin-left:8px;"></i>
+							</div>
+						</div>
+						<div class="news_banner"  style='position:relative;' onclick='newsdetails(this)'>
+							<input type="hidden" id="shehuiNewsFid1" />
+							<div class="news_bbg">
+								<img src='../image/1.png' width="100%" height="100%" id="shehuiNewsImg1"/>
+							</div>
+							<div class="news_bline" >
+								<div class="news_btitle" id="shehuiNewsTitle1"></div>
+								<div class="news_bmessage">
+									<i class="icon iconfont icon-liuyan"></i>
+									<div  class="news_bm" id="shehuiNewBmessage1"></div>
+								</div>
+							</div>
+						</div>
+						<ul class="news_ul">
+							<li class="news_li grayAdd"  onclick='newsdetails(this)'>
+								<input type="hidden" id="shehuiNewsFid2" />
+								<img src='../image/2.png' height='63' width='63' id="shehuiNewsImg2" />
+								<div class="news_lic">
+									<div class="news_lititle" >
+										<h1 class="titles" id="shehuiNewsTitle2"></h1>
+									</div>
+									<div class="lines">
+										<div class="lines_time">
+											<div class="lines_times" id="shehuiNewsTime2">
+												<i class="icon iconfont icon-shizhong"></i>
+											</div>
+										</div>
+										<div class="news_mes">
+											<i class="icon iconfont icon-liuyan" style="color: #acafb6;"></i>
+											<div  class="news_mcenter" style="" id="shehuiNewBmessage2"></div>
+										</div>
+									</div>
+								</div>
+								<div class="toright">
+									<a href='#' class="toright_a"> <i class="icon iconfont icon-xiangyou1" style="font-size:20px;color: #CCCCCC"></i> </a>
+								</div>
+							</li>
+							<li  class="news_li grayAdd" onclick='newsdetails(this)'>
+								<input type="hidden" id="shehuiNewsFid3" />
+								<img src='../image/2.png' height='63' width='63' id="shehuiNewsImg3"/>
+								<div class="news_lic">
+									<div class="news_lititle" id='txt'>
+										<h1 class="titles" id="shehuiNewsTitle3"></h1>
+									</div>
+									<div class="lines">
+										<div class="lines_time">
+											<div class="lines_times"  id="shehuiNewsTime3">
+												<i class="icon iconfont icon-shizhong"></i>
+											</div>
+										</div>
+										<div class="news_mes">
+											<i class="icon iconfont icon-liuyan" style="color: #acafb6;"></i>
+											<div  class="news_mcenter" style="" id="shehuiNewBmessage3"></div>
+										</div>
+									</div>
+								</div>
+								<div class="toright">
+									<a href='#' class="toright_a"> <i class="icon iconfont icon-xiangyou1" style="font-size:20px;color: #CCCCCC"></i> </a>
+								</div>
+							</li>
+							<li class="news_li grayAdd"  onclick='newsdetails(this)'>
+								<input type="hidden" id="shehuiNewsFid4" />
+								<img src='../image/2.png' height='63' width='63' id="shehuiNewsImg4"/>
+								<div class="news_lic">
+									<div class="news_lititle" id='txt'>
+										<h1 class="titles" id="shehuiNewsTitle4"></h1>
+									</div>
+									<div class="lines">
+										<div class="lines_time">
+											<div class="lines_times" id="shehuiNewsTime4">
+												<i class="icon iconfont icon-shizhong"></i>
+											</div>
+										</div>
+										<div class="news_mes" >
+											<i class="icon iconfont icon-liuyan" style="color: #acafb6;"></i>
+											<div  class="news_mcenter" style="" id="shehuiNewBmessage4"></div>
+										</div>
+									</div>
+								</div>
+								<div class="toright">
+									<a href='#' class="toright_a"> <i class="icon iconfont icon-xiangyou1" style="font-size:20px;color: #CCCCCC"></i> </a>
+								</div>
+							</li>
+							<li  class="news_li grayAdd" onclick='newsdetails(this)'>
+								<input type="hidden" id="shehuiNewsFid5" />
+								<img src='../image/2.png' height='63' width='63' id="shehuiNewsImg5"/>
+								<div class="news_lic">
+									<div class="news_lititle" id='txt' >
+										<h1 class="titles" id="shehuiNewsTitle5"></h1>
+									</div>
+									<div class="lines">
+										<div class="lines_time">
+											<div class="lines_times"  id="shehuiNewsTime5">
+												<i class="icon iconfont icon-shizhong"></i>
+											</div>
+										</div>
+										<div class="news_mes">
+											<i class="icon iconfont icon-liuyan" style="color: #acafb6;"></i>
+											<div  class="news_mcenter" style="" id="shehuiNewBmessage5"></div>
+										</div>
+									</div>
+								</div>
+								<div class="toright">
+									<a href='#' class="toright_a"> <i class="icon iconfont icon-xiangyou1" style="font-size:20px;color: #CCCCCC"></i> </a>
+								</div>
+							</li>
+						</ul>
+						<a class="look_more" onclick="selectMoreNews(this)" abbr="shehui">查看更多</a>
+					</div>
+					<div class="news" >
+						<div class="clock" style="background: #386FA8">
+							<div class="clock_left">
+								<span>娱乐新闻</span>
+							</div>
+							<div class="change_right" onclick="newsListPage('yule')" id="yuleNewsPage" abbr="1" type='yule'>
+								换一组 <i class="icon iconfont icon-shuaxin1" style="margin-left:8px;"></i>
+							</div>
+						</div>
+						<div class="news_banner"  style='position:relative;' onclick='newsdetails(this)'>
+							<input type="hidden" id="yuleNewsFid1" />
+							<div class="news_bbg">
+								<img src='../image/1.png' width="100%" height="100%" id="yuleNewsImg1"/>
+							</div>
+							<div class="news_bline" >
+								<div class="news_btitle" id="yuleNewsTitle1"></div>
+								<div class="news_bmessage">
+									<i class="icon iconfont icon-liuyan"></i>
+									<div  class="news_bm" id="yuleNewBmessage1"></div>
+								</div>
+							</div>
+						</div>
+						<ul class="news_ul">
+							<li class="news_li grayAdd"  onclick='newsdetails(this)'>
+								<input type="hidden" id="yuleNewsFid2" />
+								<img src='../image/2.png' height='63' width='63' id="yuleNewsImg2"/>
+								<div class="news_lic">
+									<div class="news_lititle" id='txt'>
+										<h1 class="titles" id="yuleNewsTitle2"></h1>
+									</div>
+									<div class="lines">
+										<div class="lines_time">
+											<div class="lines_times" id="yuleNewsTime2">
+												<i class="icon iconfont icon-shizhong"></i>
+											</div>
+										</div>
+										<div class="news_mes">
+											<i class="icon iconfont icon-liuyan" style="color: #acafb6;"></i>
+											<div  class="news_mcenter" style="" id="yuleNewBmessage2"></div>
+										</div>
+									</div>
+								</div>
+								<div class="toright">
+									<a href='#' class="toright_a"> <i class="icon iconfont icon-xiangyou1" style="font-size:20px;color: #CCCCCC"></i> </a>
+								</div>
+							</li>
+							<li  class="news_li grayAdd" onclick='newsdetails(this)'>
+								<input type="hidden" id="yuleNewsFid3" />
+								<img src='../image/2.png' height='63' width='63' id="yuleNewsImg3"/>
+								<div class="news_lic">
+									<div class="news_lititle" id='txt'>
+										<h1 class="titles" id="yuleNewsTitle3"></h1>
+									</div>
+									<div class="lines">
+										<div class="lines_time">
+											<div class="lines_times" id="yuleNewsTime3">
+												<i class="icon iconfont icon-shizhong"></i>
+											</div>
+										</div>
+										<div class="news_mes">
+											<i class="icon iconfont icon-liuyan" style="color: #acafb6;"></i>
+											<div  class="news_mcenter" style="" id="yuleNewBmessage3"></div>
+										</div>
+									</div>
+								</div>
+								<div class="toright">
+									<a href='#' class="toright_a"> <i class="icon iconfont icon-xiangyou1" style="font-size:20px;color: #CCCCCC"></i> </a>
+								</div>
+							</li>
+							<li class="news_li grayAdd"  onclick='newsdetails(this)'>
+								<input type="hidden" id="yuleNewsFid4" />
+								<img src='../image/2.png' height='63' width='63' id="yuleNewsImg4"/>
+								<div class="news_lic">
+									<div class="news_lititle" id='txt'>
+										<h1 class="titles" id="yuleNewsTitle4"></h1>
+									</div>
+									<div class="lines">
+										<div class="lines_time">
+											<div class="lines_times" id="yuleNewsTime4">
+												<i class="icon iconfont icon-shizhong"></i>
+											</div>
+										</div>
+										<div class="news_mes">
+											<i class="icon iconfont icon-liuyan" style="color: #acafb6;"></i>
+											<div  class="news_mcenter" style="" id="yuleNewBmessage4"></div>
+										</div>
+									</div>
+								</div>
+								<div class="toright">
+									<a href='#' class="toright_a"> <i class="icon iconfont icon-xiangyou1" style="font-size:20px;color: #CCCCCC"></i> </a>
+								</div>
+							</li>
+							<li  class="news_li grayAdd" onclick='newsdetails(this)'>
+								<input type="hidden" id="yuleNewsFid5" />
+								<img src='../image/2.png' height='63' width='63' id="yuleNewsImg5"/>
+								<div class="news_lic">
+									<div class="news_lititle" id='txt'>
+										<h1 class="titles" id="yuleNewsTitle5"></h1>
+									</div>
+									<div class="lines">
+										<div class="lines_time">
+											<div class="lines_times" id="yuleNewsTime5">
+												<i class="icon iconfont icon-shizhong"></i>
+											</div>
+										</div>
+										<div class="news_mes">
+											<i class="icon iconfont icon-liuyan" style="color: #acafb6;"></i>
+											<div  class="news_mcenter" style="" id="yuleNewBmessage5"></div>
+										</div>
+									</div>
+								</div>
+								<div class="toright">
+									<a href='#' class="toright_a"> <i class="icon iconfont icon-xiangyou1" style="font-size:20px;color: #CCCCCC"></i> </a>
+								</div>
+							</li>
+						</ul>
+						<a class="look_more" onclick="selectMoreNews(this)" abbr="yule">查看更多</a>
+					</div>
+					<div class="news" >
+						<div class="clock" style="background: #386FA8">
+							<div class="clock_left">
+								<span>财经新闻</span>
+							</div>
+							<div class="change_right" onclick="newsListPage('caijing')" id="caijingNewsPage" abbr="1" type='caijing'>
+								换一组 <i class="icon iconfont icon-shuaxin1" style="margin-left:8px;"></i>
+							</div>
+						</div>
+						<div class="news_banner"  style='position:relative;' onclick='newsdetails(this)'>
+							<input type="hidden" id="caijingNewsFid1" />
+							<div class="news_bbg">
+								<img src='../image/1.png' width="100%" height="100%" id="caijingNewsImg1"/>
+							</div>
+							<div class="news_bline" >
+								<div class="news_btitle" id="caijingNewsTitle1"></div>
+								<div class="news_bmessage">
+									<i class="icon iconfont icon-liuyan"></i>
+									<div  class="news_bm" id="caijingNewBmessage1"></div>
+								</div>
+							</div>
+						</div>
+						<ul class="news_ul">
+							<li class="news_li grayAdd"  onclick='newsdetails(this)'>
+								<input type="hidden" id="caijingNewsFid2" />
+								<img src='../image/2.png' height='63' width='63' id="caijingNewsImg2"/>
+								<div class="news_lic">
+									<div class="news_lititle" id='txt'>
+										<h1 class="titles" id="caijingNewsTitle2"></h1>
+									</div>
+									<div class="lines">
+										<div class="lines_time">
+											<div class="lines_times" id="caijingNewsTime2">
+												<i class="icon iconfont icon-shizhong"></i>
+											</div>
+										</div>
+										<div class="news_mes">
+											<i class="icon iconfont icon-liuyan" style="color: #acafb6;"></i>
+											<div  class="news_mcenter" style="" id="caijingNewBmessage2"></div>
+										</div>
+									</div>
+								</div>
+								<div class="toright">
+									<a href='#' class="toright_a"> <i class="icon iconfont icon-xiangyou1" style="font-size:20px;color: #CCCCCC"></i> </a>
+								</div>
+							</li>
+							<li  class="news_li grayAdd" onclick='newsdetails(this)'>
+								<input type="hidden" id="caijingNewsFid3" />
+								<img src='../image/2.png' height='63' width='63' id="caijingNewsImg3"/>
+								<div class="news_lic">
+									<div class="news_lititle" id='txt'>
+										<h1 class="titles" id="caijingNewsTitle3"></h1>
+									</div>
+									<div class="lines">
+										<div class="lines_time">
+											<div class="lines_times" id="caijingNewsTime3">
+												<i class="icon iconfont icon-shizhong"></i>
+											</div>
+										</div>
+										<div class="news_mes">
+											<i class="icon iconfont icon-liuyan" style="color: #acafb6;"></i>
+											<div  class="news_mcenter" style="" id="caijingNewBmessage3"></div>
+										</div>
+									</div>
+								</div>
+								<div class="toright">
+									<a href='#' class="toright_a"><i class="icon iconfont icon-xiangyou1" style="font-size:20px;color: #CCCCCC"></i> </a>
+								</div>
+							</li>
+							<li class="news_li grayAdd"  onclick='newsdetails(this)'>
+								<input type="hidden" id="caijingNewsFid4" />
+								<img src='../image/2.png' height='63' width='63' id="caijingNewsImg4"/>
+								<div class="news_lic">
+									<div class="news_lititle" id='txt'>
+										<h1 class="titles" id="caijingNewsTitle4"></h1>
+									</div>
+									<div class="lines">
+										<div class="lines_time">
+											<div class="lines_times" id="caijingNewsTime4">
+												<i class="icon iconfont icon-shizhong"></i>
+											</div>
+										</div>
+										<div class="news_mes">
+											<i class="icon iconfont icon-liuyan" style="color: #acafb6;"></i>
+											<div  class="news_mcenter" style="" id="caijingNewBmessage4"></div>
+										</div>
+									</div>
+								</div>
+								<div class="toright">
+									<a href='#' class="toright_a"> <i class="icon iconfont icon-xiangyou1" style="font-size:20px;color: #CCCCCC"></i> </a>
+								</div>
+							</li>
+							<li  class="news_li grayAdd" onclick='newsdetails(this)'>
+								<input type="hidden" id="caijingNewsFid5" />
+								<img src='../image/2.png' height='63' width='63' id="caijingNewsImg5"/>
+								<div class="news_lic">
+									<div class="news_lititle" id='txt'>
+										<h1 class="titles" id="caijingNewsTitle5"></h1>
+									</div>
+									<div class="lines">
+										<div class="lines_time">
+											<div class="lines_times"  id="caijingNewsTime5">
+												<i class="icon iconfont icon-shizhong"></i>
+											</div>
+										</div>
+										<div class="news_mes">
+											<i class="icon iconfont icon-liuyan" style="color: #acafb6;"></i>
+											<div  class="news_mcenter" style="" id="caijingNewBmessage5"></div>
+										</div>
+									</div>
+								</div>
+								<div class="toright">
+									<a href='#' class="toright_a"><i class="icon iconfont icon-xiangyou1" style="font-size:20px;color: #CCCCCC"></i> </a>
+								</div>
+							</li>
+						</ul>
+						<a class="look_more" onclick="selectMoreNews(this)" abbr="caijing">查看更多</a>
+					</div>
+					<div class="news" >
+						<div class="clock" style="background: #386FA8">
+							<div class="clock_left">
+								<span>军事新闻</span>
+							</div>
+							<div class="change_right" onclick="newsListPage('junshi')" id="junshiNewsPage" abbr="1" type='junshi'>
+								换一组 <i class="icon iconfont icon-shuaxin1" style="margin-left:8px;"></i>
+							</div>
+						</div>
+						<div class="news_banner"  style='position:relative;' onclick='newsdetails(this)'>
+							<input type="hidden" id="junshiNewsFid1" />
+							<div class="news_bbg">
+								<img src='../image/1.png' width="100%" height="100%" id="junshiNewsImg1"/>
+							</div>
+							<div class="news_bline" >
+								<div class="news_btitle" id="junshiNewsTitle1"></div>
+								<div class="news_bmessage">
+									<i class="icon iconfont icon-liuyan"></i>
+									<div  class="news_bm" id="junshiNewBmessage1"></div>
+								</div>
+							</div>
+						</div>
+						<ul class="news_ul">
+							<li class="news_li grayAdd"   onclick='newsdetails(this)'>
+								<input type="hidden" id="junshiNewsFid2" />
+								<img src='../image/2.png' height='63' width='63' id="junshiNewsImg2"/>
+								<div class="news_lic">
+									<div class="news_lititle" id='txt'>
+										<h1 class="titles" id="junshiNewsTitle2"></h1>
+									</div>
+									<div class="lines">
+										<div class="lines_time">
+											<div class="lines_times" id="junshiNewsTime2">
+												<i class="icon iconfont icon-shizhong"></i>
+											</div>
+										</div>
+										<div class="news_mes" >
+											<i class="icon iconfont icon-liuyan" style="color: #acafb6;"></i>
+											<div  class="news_mcenter" style="" id="junshiNewBmessage2"></div>
+										</div>
+									</div>
+								</div>
+								<div class="toright">
+									<a href='#' class="toright_a"><i class="icon iconfont icon-xiangyou1" style="font-size:20px;color: #CCCCCC"></i> </a>
+								</div>
+							</li>
+							<li  class="news_li grayAdd" onclick='newsdetails(this)'>
+								<input type="hidden" id="junshiNewsFid3" />
+								<img src='../image/2.png' height='63' width='63' id="junshiNewsImg3"/>
+								<div class="news_lic">
+									<div class="news_lititle" id='txt'>
+										<h1 class="titles" id="junshiNewsTitle3"></h1>
+									</div>
+									<div class="lines">
+										<div class="lines_time">
+											<div class="lines_times" id="junshiNewsTime3">
+												<i class="icon iconfont icon-shizhong"></i>
+											</div>
+										</div>
+										<div class="news_mes">
+											<i class="icon iconfont icon-liuyan" style="color: #acafb6;"></i>
+											<div  class="news_mcenter" style="" id="junshiNewBmessage3"></div>
+										</div>
+									</div>
+								</div>
+								<div class="toright">
+									<a href='#' class="toright_a"> <i class="icon iconfont icon-xiangyou1" style="font-size:20px;color: #CCCCCC"></i> </a>
+								</div>
+							</li>
+							<li class="news_li grayAdd"  onclick='newsdetails(this)'>
+								<input type="hidden" id="junshiNewsFid4" />
+								<img src='../image/2.png' height='63' width='63' id="junshiNewsImg4"/>
+								<div class="news_lic">
+									<div class="news_lititle" id='txt'>
+										<h1 class="titles" id="junshiNewsTitle4"></h1>
+									</div>
+									<div class="lines">
+										<div class="lines_time">
+											<div class="lines_times" id="junshiNewsTime4">
+												<i class="icon iconfont icon-shizhong"></i>
+											</div>
+										</div>
+										<div class="news_mes">
+											<i class="icon iconfont icon-liuyan" style="color: #acafb6;"></i>
+											<div  class="news_mcenter" style="" id="junshiNewBmessage4"></div>
+										</div>
+									</div>
+								</div>
+								<div class="toright">
+									<a href='#' class="toright_a"> <i class="icon iconfont icon-xiangyou1" style="font-size:20px;color: #CCCCCC"></i> </a>
+								</div>
+							</li>
+							<li  class="news_li grayAdd" onclick='newsdetails(this)'>
+								<input type="hidden" id="junshiNewsFid5" />
+								<img src='../image/2.png' height='63' width='63' id="junshiNewsImg5"/>
+								<div class="news_lic">
+									<div class="news_lititle" id='txt'>
+										<h1 class="titles" id="junshiNewsTitle5"></h1>
+									</div>
+									<div class="lines">
+										<div class="lines_time">
+											<div class="lines_times" id="junshiNewsTime5">
+												<i class="icon iconfont icon-shizhong"></i>
+											</div>
+										</div>
+										<div class="news_mes">
+											<i class="icon iconfont icon-liuyan" style="color: #acafb6;"></i>
+											<div  class="news_mcenter" style="" id="junshiNewBmessage5"></div>
+										</div>
+									</div>
+								</div>
+								<div class="toright">
+									<a href='#' class="toright_a"><i class="icon iconfont icon-xiangyou1" style="font-size:20px;color: #CCCCCC"></i> </a>
+								</div>
+							</li>
+						</ul>
+						<a class="look_more" onclick="selectMoreNews(this)" abbr="junshi">查看更多</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id='sys-info'></div>
+	</body>
+	<script type="text/javascript" src="../script/zepto_fx.js"></script>
+	<script type="text/javascript" src="../script/zepto_animate.js"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=DBM0bhlRpKdxdUwsO4oKoLdAyHEQTeuv"></script>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/infoutil.js"></script>
+	<script type="text/javascript" src="../script/common.js"></script>
+	<script type="text/javascript" src="./main.js"></script>
+	<script type="text/javascript" src="../script/prefsutil.js"></script>
+	<script type="text/javascript">
+		function refresh() {
+			location.reload();
+		}
+	</script>
+</html>

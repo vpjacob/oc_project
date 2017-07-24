@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>金币总数</title>
+    <link rel="stylesheet" type="text/css" href="../../css/api.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+	<link rel="stylesheet" href="../../css/sm-extend.min.css">
+	<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+	<script type='text/javascript' src='../../script/sm.min.js' charset='utf-8'></script>
+	<script type='text/javascript' src='../../script/sm-extend.min.js' charset='utf-8'></script>
+	<link rel="stylesheet" type="text/css" href="../../css/all.css">
+	<link rel="stylesheet" type="text/css" href="../../css/base.css">
+	<link rel="stylesheet" type="text/css" href="goldCount.css">	
+	<link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
+	<link rel="stylesheet" type="text/css" href="../../css/person/iconfont.css">
+    <style>
+    body {
+				font-family: "微软雅黑";
+			}
+			a {
+				color: #000;
+			}
+			a:active, a:link, a:visited, a:hover {
+				color: #000;
+				text-decoration: none;
+			}
+			.list-block {
+				margin: 0rem 0;
+			}
+			.bar {
+				z-index: 0;
+			}
+			b{
+				font-weight: 400;
+			}
+			.item-content {
+				border-bottom: 1px solid #DCDCDC;
+			}
+    </style>
+</head>
+<body>
+	<header class="bar bar-nav " id="header">
+		<a class="icon pull-left" id="back"><i  class="iconfont icon-xiangzuo1" style="font-size: 28px;color: #999"></i></a>
+		<h1 class="title">金币明细</h1>	
+			
+	</header>
+	<div class="top" id="top">
+		<div class="topFirst">
+			<div>
+				<span id="balance">0</span>
+				<span>总金币(枚)</span>
+			</div>
+		</div>
+		<div class="topSec">
+			<div class="left">
+				<span id="mayBack">0</span>
+				<span>可用金币(枚)</span>
+			</div>
+			<div class="right">
+				<span id="alreadyBack">0</span>
+				<span>已回购金币(枚)</span>
+			</div>
+		</div>
+	</div>
+	<div class="bottom">
+		<div class="same" id="jinbicount">
+			<span><img src="../../image/jin.png"/><b>金蛋金币总数</b></span>
+			<i  class="iconfont icon-xiangyou1" style="font-size: 28px;color:#CCCCCC;"></i>
+			<span id="goldAmount" class="bottom_other">0.00</span>
+			
+		</div>
+		<div class="same" id="yinbicount">
+			<span><img src="../../image/yin.png"/><b>银蛋金币总数</b></span>
+			<i  class="iconfont icon-xiangyou1" style="font-size: 28px;color:#CCCCCC;"></i>
+			<span id="silverAmount" class="bottom_other"></span>
+			
+		</div>
+		<div class="same" id="tjcount">
+			<span><img src="../../image/jinbi.png" style="width: 28px;height: 23px"><b style="position: relative;top:-5px;">推荐金币总数</b></span>
+			<i  class="iconfont icon-xiangyou1" style="font-size: 28px;color:#CCCCCC;"></i>
+			<span id="recommendAmount" class="bottom_other"></span>
+		</div>
+		<div class="same" id="buyback">
+			<span><img src="../../image/jinbi.png" style="width: 28px;height: 23px"><b style="position: relative;top:-5px;">已回购总数</b></span>
+			<i  class="iconfont icon-xiangyou1" style="font-size: 28px;color:#CCCCCC;"></i>
+			<span id="goldback" class="bottom_other">0.00</span>
+			
+		</div>
+		<div class="same" >
+			<span><img src="../../image/jin.png"/><b>已失效金蛋数</b></span>
+			<i  class="iconfont icon-xiangyou1" style="font-size: 28px;color:#CCCCCC;visibility: hidden"></i>
+			<span id="deadG" class="bottom_other">0.00</span>
+		</div>
+		<div class="same" >
+			<span><img src="../../image/yin.png"/><b>已失效银蛋数</b></span>
+			<i  class="iconfont icon-xiangyou1" style="font-size: 28px;color:#CCCCCC;visibility: hidden"></i>
+			<span id="deadY" class="bottom_other"></span>
+		</div>
+	</div>
+</body>
+
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/common.js"></script>
+<script type="text/javascript" src="goldCount.js"></script>
+</html>

@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>Hello APP</title>
+		<link rel="stylesheet" type="text/css" href="./css/api.css" />
+		<link rel="stylesheet" type="text/css" href="./css/sm.min.css">
+		<link rel="stylesheet" href="./css/sm-extend.min.css">
+		<link rel="stylesheet" type="text/css" href="./css/index.css">
+		<link rel="stylesheet" type="text/css" href="./css/iconfont.css">
+		<script type='text/javascript' src='./script/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='./script/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='./script/sm-extend.min.js' charset='utf-8'></script>
+		<style type="text/css">
+			html, body {
+				height: 100%;				
+			}
+			#wrap {
+				height: 100%;
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				-webkit-flex-flow: column;
+				 background-color:#fff;
+			}
+			#header h1 {
+				font-size: 20px;
+				height: 44px;
+				line-height: 44px;
+				margin: 0em;
+				color: #fff;
+			}
+			#main {
+				-webkit-box-flex: 1;
+				-webkit-flex: 1;
+			}
+			.con {
+				font-size: 28px;
+				text-align: center;
+			}
+			p{
+			  font-size:12px;
+			  font-weight:normal;
+			  margin-top:5px;
+			}
+			.bar-tab .changeCor{
+			   color:#0eaae3;
+			}
+			
+			.line{
+			  width:100%;
+			  height:1px;
+			  position:absolute;
+			  left:0;
+			  bottom:2.9rem;
+			  z-index:999;
+			  border-top:1px solid #eeeeee;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="main"></div>
+			<!--<div id="footer" class="bars bar-tab">
+				<a class="tab-item" href="#" id="neighbours" onclick="openNeighboursPage()"> <span class="icon"><img src="./image/tabBarMenu/simple/tabbar_icon_neighbours.png"/></span> <span class="tab-labels">邻里</span> </a>
+				<a class="tab-item" href="#" id="around" onclick="showAround()"> <span class="icon"><img src="./image/tabBarMenu/simple/tabbar_icon_around.png"></span> <span class="tab-labels">周边</span> </a>
+				<a class="tab-item" href="#" style="padding: 2px 0;" onclick="openWeatherPage()" id="weather"> <span><img class="changeImg" src="./image/tabBarMenu/simple/tabbar_icon_weather_click.png"></span></a>
+				<a class="tab-item" href="#" id="ppke" onclick="openPpkePage()"> <span class="icon"><img src="./image/tabBarMenu/simple/tabbar_icon_ppke.png"></span> <span class="tab-labels">拍拍客</span> </a>
+				<a class="tab-item" href="#" onclick="openCenterPage()" id="center" > <span class="icon"><img src="./image/tabBarMenu/simple/tabbar_icon_center.png"></span> <span class="tab-labels">我的</span> </a>
+			</div>-->
+			<div id="footer" class="bars bar-tab" >
+			   <ul class="icon_lists clear">                
+                
+                <li class="tab-item" id="around" onclick="showAround(this)">
+                <i class="icon iconfont icon-shoplight"></i>
+                <p>管家</p>
+                </li>                
+               
+                <li class="tab-item" onclick="openCommonweal()" id="shop">
+                <i class="icon iconfont icon-gouwuche"></i>
+                <p>商家</p>
+                </li> 
+
+
+                <li class="tab-item home" style="background:url('./image/111_03.png') no-repeat;background-size: 100%;top:-0.35rem;" onclick="openWeatherPage()" id="weather">
+                <div class="blueHome icon" style="font-size:16px;padding-top:8px;height:40px;-webkit-text-stroke-width:0;">主页</div>               
+                </li>
+                
+
+               <!-- <li class="tab-item" id="ppke" onclick="openPpkePage()">            
+                <i class="icon iconfont icon-journeyline"></i>
+                <p>拍拍客</p>
+                </li>-->
+                 <li class="tab-item" id="neighbours" onclick="openNeighboursPage()">             
+                <i class="icon iconfont icon-smile"></i>
+                <p>邻里</p>
+                </li>
+                         
+                <li class="tab-item" onclick="openCenterPage(this)" id="center">
+                <i class="icon iconfont icon-shezhi"></i>
+                <p>我的</p>
+                </li>         
+              </ul>
+			</div>
+			<!--<div class="line"></div>-->
+		</div>
+	</body>
+	<script type="text/javascript" src="./script/api.js"></script> 
+	<script type="text/javascript" src="./script/common.js"></script>
+	<script type="text/javascript" src="./index.js"></script>
+</html>

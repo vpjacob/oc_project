@@ -1,0 +1,28 @@
+.clearfix {
+	content:'';
+	clear:both;
+	display:block;
+	width: 0;
+	height: 0;
+	visibility:hidden;
+	overflow: auto;	
+}
+.bar{
+	position: relative;
+}
+.same{
+	width:100%;
+	height:1200px;
+	margin:1px auto;
+	background: url("../../image/zad.jpg") no-repeat 0 0;
+/* 	position: relative;
+	top:10px; */
+	background-size: 100%;
+	
+}
+.same .top span{
+	color:#f0821b;
+}
+.same .bottom span{
+	font-size:14px;
+}

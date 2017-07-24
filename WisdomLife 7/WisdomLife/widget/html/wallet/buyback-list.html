@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<title>回购</title>
+		<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<link rel="stylesheet" href="../../css/sm-extend.min.css">
+		<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm-extend.min.js' charset='utf-8'></script>
+		<link rel="stylesheet" type="text/css" href="../../css/all.css">
+		<link rel="stylesheet" type="text/css" href="../../css/base.css">
+		<link rel="stylesheet" type="text/css" href="buyback-list.css">
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
+		<link rel="stylesheet" type="text/css" href="../../css/person/iconfont.css">
+    <style>
+		body {
+			font-family: "微软雅黑";
+		}
+
+		a {
+			color: #000;
+		}
+
+		a:active, a:link, a:visited, a:hover {
+			color: #000;
+			text-decoration: none;
+		}
+		.list-block .item-inner:after {
+			content: none;
+		}
+		.bar {
+			z-index: 0;
+		}
+    </style>
+</head>
+<body>
+<div class="page-group">
+    <!-- 你的html代码 -->
+    <div class="page">
+         <header class="bar bar-nav" id="title" style="height: 50px">
+			<a class="icon pull-left" id="goback"><i  class="iconfont icon-xiangzuo1" style="font-size: 28px;color: #999"></i></a>
+			<h1 class="title">银行卡</h1>
+			<a class="top-bar-right" id="addcards" style="-webkit-transform:rotate(45deg);transform:rotate(45deg);"><i class="iconfont icon-roundclose" style="font-size: 22px;"></i></a>
+		</header>
+        <div class="content" style="background-color: #f0f0f0;">
+             
+
+            <div id="addcard">
+            
+            </div>
+             <!-- <div class="jia" id="addcard">
+                         	 <div class="left">
+                         		<img src="../../image/bank.png" alt="" />
+                         	</div>
+                         	<div class="middle">
+                         		<div><span>中国建设银行</span></div>
+                         		<div><span>6217000010094935130</span></div>
+                         	</div>
+                         	<div class="last">
+                         		<input type="checkbox"/>
+                         	</div>          	
+                         </div> -->
+            <!--  <div class="jia" id="addcard">
+                         	 <div class="left">
+                         		<img src="../../image/bank.png" alt="" />
+                         	</div>
+                         	<div class="middle">
+                         		<div><span>中国建设银行</span></div>
+                         		<div><span>6217000010094935130</span></div>
+                         	</div>	          	
+                         </div> -->
+            <div class="commit" id="add">选择要转入的银行卡</div>
+           <div class="commit" id="delt" >选择要删除的银行卡</div>
+           
+            
+
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+ <script type="text/javascript" src="buyback-list.js"></script> 
+<script type="text/javascript" src="../../script/common.js"></script>
+<script type="text/javascript" src="../../script/zepto.md5.js"></script>
+<script>
+	function refresh() {
+		location.reload();
+	}
+</script>

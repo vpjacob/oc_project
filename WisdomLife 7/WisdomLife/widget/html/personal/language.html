@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<title>语言</title>
+		<link rel="stylesheet" type="text/css" href="equipmentindex.css">
+		<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<link rel="stylesheet" href="../../css/sm-extend.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/base.css" />
+		<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm-extend.min.js' charset='utf-8'></script>	
+    <style>
+        body {
+            font-family: "微软雅黑";
+        }
+
+        a {
+            color: #000;
+        }
+
+        a:active, a:link, a:visited, a:hover {
+            color: #000;
+            text-decoration: none;
+        }
+        .list-block{
+            margin: 0;
+        }
+        .list-block .item-inner:after{
+            content:none;
+        }
+        .list-block .item-media+.item-inner{
+            margin-left: 0rem;
+        }
+        .item-title {
+            font-size: 15px;
+            font-weight: 600;
+        }
+        .bar{
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="page-group">
+    <div class="page">
+        <header class="bar bar-nav">
+            <!--<a class="icon icon-left pull-left" onclick="goback();"></a>-->
+            <!--<a class="icon icon-refresh pull-right"></a>-->
+            <h1 class="title">语言</h1>
+            <a id="regist" class="top-bar-right">保存</a>
+        </header>
+        <div class="content" data-distance="50" style="background-color: #fff;">
+            <div class="list-block" id="list-block">
+                <div class="list_btn">
+                    <label class="labels checked" class="item-title" style="width: 100%;">中文</label>
+                    <input type="radio" id="radio-1" name="needbroad" value="1" >
+                    <div class="aline_bottom"></div>
+                    <label class="labels" class="item-title" style="width: 100%;;">English</label>
+                    <input type="radio" id="radio-2" name="needbroad" value="2">
+                </div>
+            </div>
+            <div class="tips">
+                <img src="../../images/tipsRight.png"/>
+                <p>语言修改成功!</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function touchstart(o) {
+        o.style.backgroundColor = '#eaeaea';
+        var aDiv = document.getElementsByTagName('li');
+        for (var i = 0; i < aDiv.length; i++) {
+            aDiv[i].id = 'li' + i;
+            // var aa=aDiv.setAttribute("id",'li'+i);
+            if (aDiv[i].id == o.id) {
+                setTimeout(function () {
+                    test(o.id);
+                }, 1000 * 0.2);
+            }
+        }
+    }
+    function test(ss) {
+        var aa = document.getElementById(ss);
+        aa.style.background = "#fff";
+    }
+
+    $(function () {
+        $('.labels').click(function () {
+            $(this).addClass("checked").siblings("label").removeClass("checked");
+        });
+    });
+    $(document).on('click','h1',function(){
+        $('.tips').fadeIn(500).delay(500).fadeOut(500);
+    });
+</script>
+</body>
+</html>

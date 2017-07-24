@@ -1,0 +1,150 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements ½á¹¹ÔªËØ */
+dl, dt, dd, ul, ol, li, /* list elements ÁÐ±íÔªËØ */
+pre, /* text formatting elements ÎÄ±¾¸ñÊ½ÔªËØ */
+form, fieldset, legend, button, input, textarea, /* form elements ±íµ¥ÔªËØ */
+th, td, /* table elements ±í¸ñÔªËØ */
+img/* img elements Í¼Æ¬ÔªËØ */ {
+	border: medium none;
+	margin: 0;
+	padding: 0;
+}
+/** ÉèÖÃÄ¬ÈÏ×ÖÌå **/
+body, input, p {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	font-family: 'Microsoft YaHei';
+}
+/*h1, h2, h3, h4, h5, h6 { font-size: 100%; }*/
+/*em{font-style:normal;}*/
+/** ÖØÖÃÁÐ±íÔªËØ **/
+ul, ol {
+	list-style: none;
+}
+/** ÖØÖÃ³¬Á´½ÓÔªËØ **/
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+/** ÖØÖÃÍ¼Æ¬ÔªËØ **/
+img {
+	border: 0px;
+}
+
+.secondul {
+	position: absolute;
+	background-color: #25B2E7;
+	color: #fff;
+	width: 25%;
+	z-index: 150;
+	display: none;
+	right: 10px;
+	border-radius:5px;
+}
+.secondul li {
+	border-bottom: 1px solid #BBBBBB;
+	padding: 8px 8px;
+	text-align: center;
+}
+li.first {
+	width: 5px;
+	height: 5px;
+	position: absolute;
+	z-index: 200;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	top: -7px;
+	right: 15px;
+	background-color: #25B2E7;
+	border: none;
+}
+.first{
+	width:100%;
+	height: 40px;
+ 	border-bottom:1px solid #dddddd; 
+	background-color: #fff;
+}
+.first span{
+	margin-left: 6.7%;
+	font-size: 13px;
+	color: #c0c0c0;
+	line-height: 40px;
+}
+.same{
+	width:100%;
+	height: 60px;
+ 	border-bottom:1px solid #dddddd; 
+	background-color: #fff;
+
+}
+.same .sameBox{
+	width:93%;
+	margin-left: 6.7%;
+	height: 50px;
+	/* border:1px solid red; */
+	position:relative;
+	top:5px;
+}
+.same .sameBox .left{
+	width: 29%;
+	   /* border:1px solid red;   */ 
+	 float: left;
+}
+.same .sameBox .left span{
+	font-size:15px;
+	
+}
+.same .sameBox .left span:nth-child(2){
+	font-size:12px;
+}
+.same .sameBox .mid{
+	width: 20%;
+	height:45px;
+   	  /* border:1px solid red;    */
+	 float: left;
+	 border-radius:20px;
+	 margin-left:4%; 
+}
+.same .sameBox .mid span{
+	width: 100%;
+	font-size:15px;
+}
+
+.same .sameBox .right{
+	 float: right;
+	 width:41%;
+/* border:1px solid red; */
+}
+.same .sameBox .right span{
+	font-size:15px;
+	color: #282828;
+	width:100%;
+}
+.same .sameBox .right span:nth-child(2){
+	font-size:12px;
+	width:100%;
+	text-overflow :ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+	display:block;
+	margin-top:5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

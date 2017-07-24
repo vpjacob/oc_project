@@ -1,0 +1,183 @@
+[{
+    "name":"ajpush",
+    "class":"UZModuleJPush",
+    "launchClassMethod":"sdkInit",
+    "methods":["setListener","removeListener", "bindAliasAndTags","setBadge","getRegistrationId","init","onResume","onPause","clearNotification","setPushTime","setSilenceTime","stopPush","resumePush","isPushStopped"]
+}
+,{
+	 "name":"aliPay",
+	 "class":"UZAliPay",
+	 "methods":["pay","config","payOrder","auth"]
+ }
+,{
+     "name":"ble",
+     "class":"ACBle",
+     "methods":["initManager","scan","getPeripheral","getPeripheralRssi","isScanning","stopScan","connect","disconnect","getPeripheralState","stopNotify","isConnected","retrievePeripheral","retrieveConnectedPeripheral","discoverService","discoverCharacteristics","discoverDescriptorsForCharacteristic","setNotify","readValueForCharacteristic","writeValueForCharacteristic","readValueForDescriptor","writeValueForDescriptor","connectPeripherals","setSimpleNotify","getAllSimpleNotifyData","clearAllSimpleNotifyData"]
+}
+,{
+ "name":"bMap",
+ "class":"UZBMap",
+ "methods":["initMapSDK","open","getCurrentLocation","setRect","close","show","hide","getLocation","stopLocation","getLocationServices","setLocation","getCoordsFromName","getNameFromCoords","getDistance","showUserLocation","setCenter","getCenter","setZoomLevel","setZoomEnable","getZoomLevel","setRotation","setOverlook","setMapAttr","setRegion","getRegion","transCoords","zoomIn","zoomOut","addEventListener","removeEventListener","addAnnotations","getAnnotationCoords","setAnnotationCoords","annotationExist","setBubble","popupBubble","closeBubble","addBillboard","removeAnnotations","addLine","addPolygon","addCircle","addArc","addImg","removeOverlay","searchRoute","drawRoute","setRoutePlan","removeRoute","searchBusRoute","drawBusRoute","removeBusRoute","autocomplete","searchInCity","searchNearby","searchInBounds","moveAnnotation","setScaleBar","setCompass","setTraffic","setHeatMap","setBuilding","addMobileAnnotations","moveAnotation","isPolygonContantsPoint","getHotCityList","getOfflineCityList","searchCityByName","getAllUpdateInfo","getUpdateInfoByID","start","update","pause","remove","addOfflineListener","removeOfflineListener"]
+ }
+,{
+	 "name":"chatBox",
+	 "class":"UZChatBox",
+	 "methods":["open","setRecordButtonListener","setInputFieldListener","close","becomeFirstResponder","resignFirstResponder","show","hide","setMsg","getMsg","configMsg","insertMsg","setPlaceholder"]
+}
+,{
+     "name":"contacts",
+     "class":"UZContacts",
+     "methods":["select","add","delete","update","move","query","queryByKeyword","queryByPage","createGroup","deleteGroup","queryGroups","queryByGroupId"]
+ }
+,{
+	 "name":"FNScanner",
+	 "class":"UZFNScanner",
+	 "methods":["openScanner","openView","closeView","decodeImg","encodeImg","switchLight","setFrame"]
+ }
+,{
+     "name":"fs",
+     "class":"UZFileSystem",
+     "methods":["createDir","createFile","remove","copyTo","moveTo","rename","readDir","open","read","readUp","readDown","write","close","exist","getAttribute","rmdir","readByLength","writeByLength","getMD5"],
+     "syncMethods":["createDirSync","createFileSync","removeSync","copyToSync","moveToSync","renameSync","readDirSync","openSync","readSync","readUpSync","readDownSync","writeSync","closeSync","existSync","getAttributeSync","rmdirSync","readByLengthSync","writeByLengthSync","getMD5Sync"]
+ }
+,{
+    "name":"imageBrowser",
+    "class":"UZImageBrowser",
+    "methods":["openImages"]
+}
+,{
+ "name":"imageFilter",
+ "class":"UZImageFilter",
+    "methods":["open","save","filter","compress","getAttr"]
+}
+,{
+ "name":"loadingLabel",
+ "class":"UZLoadingLabel",
+ "methods":["open","start","stop","close","show","hide"]
+ }
+,{
+    "name":"logger",
+    "class":"UZLogger",
+    "launchClassMethod":"start"
+}
+,{
+    "name":"mam",
+    "class":"UZMAM",
+    "methods":["checkUpdate","addEvent","execCommand","showToastAlert","hideToastAlert"],
+    "syncMethods":["syncExecCommand"],
+    "launchClassMethod":"launch"
+}
+, {
+     "name":"MNPopups",
+     "class":"MNPopups",
+     "methods":["open","close","hide","show","reloadData","deleteItem","insertItem","updateItem"]
+ }
+, {
+    "name":"movies",
+    "class":"UZModulePlayMovie",
+    "methods":["show"],
+    "syncMethods":["get"],
+    "launchClassMethod":"launch"
+ }
+,{
+ "name":"moduleOpenDoor",
+ "class":"UZModuleOpenDoor",
+ "methods":["openDoor"],
+ "launchClassMethod":"launch"
+}
+,{
+     "name":"photoBrowser",
+     "class":"ACPhotoBrowser",
+     "methods":["open","close","show","hide","getIndex","setIndex","getImage","setImage","appendImage","deleteImage","clearCache"]
+}
+,{
+    "name":"push",
+    "class":"UZPush",
+    "methods":["bind","unbind","joinGroup","leaveGroup","leaveAllGroup","setListener","removeListener","setPreference"],
+    "launchClassMethod":"launch"
+}
+,{
+ "name":"qq",
+ "class":"UZQQ",
+ "methods":["installed","login","logout","shareText","shareImage","shareNews","shareMusic","shareVideo","getUserInfo"]
+ }
+,{
+ "name":"rongCloud2",
+ "class":"RongCloud",
+ "methods":[
+            "init", "connect","reconnect", "disconnect", "setConnectionStatusListener","logout",
+            "sendTextMessage", "sendImageMessage", "sendVoiceMessage", "sendLocationMessage",
+            "sendRichContentMessage","sendCommandNotificationMessage", "setOnReceiveMessageListener",
+            "getConversationList", "getConversation", "removeConversation",
+            "clearConversations", "setConversationToTop",
+            "getConversationNotificationStatus", "setConversationNotificationStatus",
+            "getLatestMessages", "getHistoryMessages", "getHistoryMessagesByObjectName",
+            "deleteMessages", "clearMessages",
+            "getTotalUnreadCount", "getUnreadCount", "getUnreadCountByConversationTypes",
+            "setMessageReceivedStatus","clearMessagesUnreadStatus",
+            "setMessageExtra",
+            "getTextMessageDraft", "saveTextMessageDraft", "clearTextMessageDraft",
+            "createDiscussion", "getDiscussion", "setDiscussionName", "addMemberToDiscussion",
+            "removeMemberFromDiscussion", "quitDiscussion", "setDiscussionInviteStatus",
+            "syncGroup", "joinGroup", "quitGroup",
+            "joinChatRoom", "quitChatRoom", "getConnectionStatus", "getRemoteHistoryMessages", "setMessageSentStatus", "getCurrentUserId", "addToBlacklist", "removeFromBlacklist", "getBlacklistStatus", "getBlacklist", "setNotificationQuietHours", "removeNotificationQuietHours", "getNotificationQuietHours", "sendCommandMessage", "disableLocalNotification", "startNativeSingleCall", "startNativeMultiCall", "startNativeCustomerService", "setUserInfoProvider", "refreshUserInfo", "startCustomerService", "stopCustomerService", "selectCustomerServiceGroup", "switchToHumanMode", "evaluateRobotCustomerService", "evaluateHumanCustomerService"
+            ],
+ "launchClassMethod":"launch"
+}
+
+,{
+	 "name":"scanner",
+	 "class":"UZScanner",
+	 "methods":["open","openView","closeView","decode","encode","lightSwitch"]
+ }
+,{
+  "name": "tabBarMenu",
+  "class": "UZTabBarMenu",
+  "methods": ["open", "close", "show", "hide", "setBarSelect", "setBadge", "removeBadge", "showMenu", "hideMenu"]
+}
+,{
+"name":"trans",
+"class":"UZTrans",
+"methods":["parse","saveImage","decodeImgToBase64"]
+}
+, {
+     "name":"UIActionSelector",
+     "class":"UIActionSelector",
+     "methods":["open","close","hide","show","setActive","getActive"]
+ }
+, {
+ "name":"UIChatBox",
+ "class":"UZUIChatBox",
+ "methods":["open","close","popupKeyboard","closeKeyboard","popupBoard","closeBoard","show","hide","value","insertValue","addEventListener","setPlaceholder","reloadExtraBoard"]
+ }
+,{
+ "name":"UICityList",
+ "class":"UZUICityList",
+ "methods":["open","close","hide","show"]
+ }
+, {
+     "name":"UILoading",
+     "class":"UILoading",
+     "methods":["flower","keyFrame","closeFlower","closeKeyFrame"]
+ }
+,{
+ "name":"UIMediaScanner",
+ "class":"UZUIMediaScanner",
+ "methods":["open","scan","fetch","transPath","getVideoDuration"]
+ }
+, {
+     "name":"webBrowser",
+     "class":"UZBrowser",
+     "methods":["open","openView","closeView","loadUrl","loadScript","historyBack","historyForward"]
+ }
+,{
+    "name":"weibo",
+    "class":"UZWeibo",
+    "methods":["shareText","shareImage","shareMusic","shareVideo","shareWebPage","auth","cancelAuth","getUserInfo","isInstalled"]
+}
+, {
+	 "name":"wx",
+	 "class":"UZWX",
+	 "methods":["isInstalled","shareText","shareImage","shareMusic","shareVideo","shareWebpage","shareProgram","auth","getToken","getUserInfo","refreshToken"]
+ }
+]

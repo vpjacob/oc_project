@@ -1,0 +1,196 @@
+
+#counselDetailListData {
+	background-color: #ffffff
+}
+
+.my-counsel-detail-list .list-block ul {
+    padding-top: 5px !important;
+}
+.my-counsel-details-card {
+    margin: 0 0 8px 0;
+    background: #fff;    
+    position: relative;
+    font-size: 14px;
+}
+
+.my-counsel-details-card .my-counsel-details-card-header {
+    padding: 15px 10px;
+    min-height: 44px;
+}
+
+.my-counsel-details-card .my-counsel-detail-avatar {
+    float: left;
+}
+
+.my-counsel-details-card .my-counsel-detail-avatar img {
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+}
+
+.my-counsel-detail-cardtitle {
+    line-height: 1.5;
+    margin-left: 60px;
+    font-size: 15px;
+    color: #555555;
+    line-height: 48px;
+}
+.my-counsel-detail-title-card:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: auto;
+    top: auto;
+     height: 0px; 
+    width: 100%;
+    background-color: #eeeeee;
+    display: block;
+    z-index: 15;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+}
+
+.my-counsel-detail-title-card {
+    margin: 0 !important;
+    box-shadow: none !important;
+    box-shadow: none;
+    margin: 0;
+    background: #fff;
+}
+.my-counsel-detail-card .card-detail-content {
+    position: relative;
+    padding: 10px;
+    padding-top: 0px;
+}
+
+.my-counsel-detail-card .card-bigphoto[valign="bottom"] {
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+}
+.my-counsel-detail-card .card-bigphoto {
+    min-height: 44px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.my-counsel-detail-card .img-total {
+    float: right;
+    margin-top: 200px;
+    display: block;
+    padding: 5px 10px;
+    opacity: .8;
+    background: none repeat scroll 0 0 #000;
+    transition: all .5s;
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+}
+
+.my-counsel-detail-comment-title {
+	background-color: #ffffff;
+	padding-left: 10px;
+	padding-bottom:5px;
+}
+.my-counsel-detail-card .card-detail-footer {
+    position: relative;
+    padding: 10px;
+    height: 45px;
+}
+
+.my-counsel-detail-img {
+	width: 16px;
+	height: 16px;
+	float: left;
+}
+.my-counsel-detail-portrait{
+	width: 48px;
+    height: 48px;
+    border-radius: 4px;
+}
+
+.my-counsel-detail-list-a {
+    padding-top: 10px !important;
+    height: 50px !important;
+    padding-left: 10px !important;
+}
+.my-counsel-detail-title-row {
+    font-size: 15px !important;
+    color: #333333 !important;
+    height: 50px !important;
+}
+.my-counsel-detail-row {
+    margin-left: 70px;
+    font-size: 15px;
+}
+.my-counsel-detail-tablet-50 {
+    color: #838383;
+    padding-right: 8px;   
+    padding-top: 10px;
+}
+.my-counsel-detail-comment-footer {
+    margin: 5px 0;
+    color: #999999;
+    margin-bottom: 0px !important;
+    padding-bottom: 10px !important;
+    
+}
+.my-counsel-detail-comment-time {
+    font-size: 12px;
+    margin-left: 45px;
+}
+.my-counsel-detail-comment-answer {
+    float: right;
+    font-size: 12px;
+    color: #ff2d4d;
+    padding-right: 5px;
+}
+
+.my-counsel-detail-footer {
+	color: #999999;
+	padding: 0 10px 5px;
+	min-height: 20px;
+	font-size: 12px;
+}
+
+.my-counsel-detail-footer .call-eye-icon {
+	display: block;
+	float: left;
+	color: #999999;
+	line-height: 18px;
+	font-size: 16px;
+}
+
+.my-counsel-detail-footer .footer-left{
+	float: left;
+	padding-right:2px ;
+}
+
+.my-counsel-detail-footer .my-counsel-detail-footer-data {
+	display: block;
+	float: left;
+	margin-left: 3px;
+	line-height: 1.5;
+	color: #838383
+}
+
+.my-counsel-detail-footer .footer-right {
+	float: right;
+}
+
+
+
+
+
+
+
+
+

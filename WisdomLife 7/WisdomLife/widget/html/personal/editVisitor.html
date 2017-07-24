@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>修改访客</title>
+		<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<link rel="stylesheet" href="../../css/sm-extend.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/base.css" />
+		<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm-extend.min.js' charset='utf-8'></script>
+		<link rel="stylesheet" type="text/css" href="editVisitor.css">
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
+		<style>
+			body {
+				font-family: "微软雅黑";
+			}
+			a {
+				color: #000;
+			}
+			a:active, a:link, a:visited, a:hover {
+				color: #000;
+				text-decoration: none;
+			}
+			.bar{
+			   background-color:#ffffff;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="page-group">
+			<div class="page">
+			<header class="bar bar-nav" id="header">
+					<a class="icon pull-left" id="back">
+					  <i  id="back" class="iconfont icon-xiangzuo1" style="font-size: 28px;color: #999"></i>
+					</a>
+					<!--<a class="icon icon-refresh pull-right"></a>-->
+					<h1 class="title">修改访客</h1>
+					<a id="addVisitor" class="top-bar-right">保存</a>
+
+				</header>
+			<div class="content" style="background-color: #f0f0f0;" data-distance="50">
+			<!--<div>
+				<div class="item-in">
+					<div class="item-input">
+						<input type="text" placeholder="请选择房屋信息">
+					</div>
+				</div>
+			</div>-->
+				<div class="question" style="margin-top: 10px;">
+					<div class="question_center">
+						<span>房屋信息</span>
+						<input type="text" id='roomInfo' placeholder="请选择房屋信息"  style="width: 70%;" disabled="true"/>
+						<input type="hidden" id="roomInfoHidden"/>
+					</div>
+				</div>
+				<div class="question">
+					<div class="question_center">
+						<span>访客姓名</span>
+						<input type="text" id='name' placeholder="被邀请人姓名" disabled="true"/>
+					</div>
+				</div>
+				<div class="question">
+					<div class="question_center">
+						<span>手<span style="visibility:hidden;padding-right: 0px;">手机</span>机</span>
+						<input type="text" id='telphone' placeholder="被邀请人手机号" disabled="true"/>
+					</div>
+				</div>
+				<div class="question">
+					<div class="question_center">
+						<span>到期时间</span>
+						<input type="text" data-toggle='date'  id='timeLimited' placeholder="电子钥匙到期时间"/>
+					</div>
+				</div>
+				<textarea id="memo" class="conter" cols="30" rows="8" placeholder="授权原因"></textarea>	
+			</div>
+		</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../script/api.js"></script>
+	<script type="text/javascript" src="../../script/zepto.md5.js"></script>
+	<script type="text/javascript" src="../../script/common.js"></script>
+	<script type='text/javascript' src='../../script/sm-extend.min.js'></script>
+	<script type='text/javascript' src='editVisitor.js'></script>
+</html>

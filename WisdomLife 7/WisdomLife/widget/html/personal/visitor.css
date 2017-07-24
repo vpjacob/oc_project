@@ -1,0 +1,152 @@
+/*@import "menu.css";*/
+/** 清除内外边距 **/
+body, h1, h2, h3, h4, h5, h6, hr, p,
+blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
+th, td, /* table elements 表格元素 */
+img/* img elements 图片元素 */{
+    border:medium none;
+    margin: 0;
+    padding: 0;
+}
+/** 设置默认字体 **/
+body {
+	margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: '微软雅黑';
+}
+/*h1, h2, h3, h4, h5, h6 { font-size: 100%; }*/
+/*em{font-style:normal;}*/
+/** 重置列表元素 **/
+ul, ol { list-style: none; }
+/** 重置超链接元素 **/
+a { text-decoration: none; color:#000;}
+a:hover { text-decoration: underline; color:#3363a7; }
+/** 重置图片元素 **/
+img{ border:0px;}
+/** 重置表格元素 **/
+table { border-collapse: collapse; border-spacing: 0; }
+/*
+.big-box{
+     max-width: 640px;
+     min-width: 320px;
+     margin: 0 auto;
+     height:100%;
+}
+*/
+.conter{
+    margin-top: 10px;
+    width: 100%;
+    background: #fff;
+    border-top:1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.question{
+    padding:10px;
+    background: #fff;
+    border-top:0px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+}
+.question_center #picker{
+    width: 75%;
+    background: #fff url("../../mobile/images/jiantou.png") no-repeat right center;
+}
+.question span{
+    font-size: 16px;
+    color: #0eaae3;
+    padding-right: 10px;
+    border-right: 1px solid #e6e6e6;
+}
+
+.item-in{
+   margin:20px auto;
+   background: #fff;
+}
+
+.item-in>div{
+  display:inline-block;
+  
+}
+
+.item-in .item-input{
+   border:1px solid #ccc;
+   text-align:left;
+   height:37px;
+   line-height:35px;
+   border-radius: 5px;
+   margin-right:20px;
+   margin-left:30px;
+   width:60%;
+   padding-left:11px;
+}
+
+.item-in .add{
+  border:1px solid #0EAAE3;
+  color:#0EAAE3;
+  height:37px;
+  line-height:35px;
+  padding:0px 12px;
+  border-radius: 5px;
+  font-weight:bold;
+}
+
+ul li{
+  border-bottom:1px solid #F0F0F0;
+}
+li:nth-child(1)>.item-inner>div{
+   font-size:.7rem;
+}
+
+.item-inner div{
+	font-size:.5rem;
+   text-align:center;
+}
+
+.list-block{
+	 margin: 0rem 0; 
+}
+
+.list-block .vis{
+   visibility:hidden;
+}
+.list-block .blue{
+   border:1px solid #0EAAE3;
+   padding:0px 8px;
+   border-radius:6px;
+   color:#0EAAE3;
+}
+
+.list-block .grey{
+   border:1px solid #ccc;
+   padding:0px 8px;
+   border-radius:6px;
+   color:#ccc;
+}
+
+.recordlist1{
+	width:90%;
+	height:50px;
+	border-bottom:1px solid #DCDCDC;
+	margin-top:10px;
+	margin-left:7%;
+}
+.recordlist1
+p{
+	display:inline;	
+}
+.recordlist2{
+	width:90%;
+	height:50px;
+	border-bottom:1px solid #DCDCDC;
+	margin-left:7%;
+}
+.recordlist3{
+	width:100%;
+	height:40px;
+}

@@ -1,0 +1,98 @@
+<div data-page="screening" class="page no-toolbar" id="screening">
+	<div class="page-content navbar-fixed">
+		<div class="navbar" style="background-color:white;">
+			<!-- Navbar page 1 -->
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<span> style="color:#15191c;"取消</span>
+					</a>
+				</div>
+				<div class="center"><span style="color:#15191c;">筛选</span></div>
+				<div class="right">
+					<a href="#" class="link back" id="zidingyi" >
+						<span style="display:block;padding-top: 5px;margin-right: 4px;color:#15191C">确定</span>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="content-block-title"><span>想看到的用户</span></div>
+		<div class="card">
+			<div class="card-content">
+				<div class="card-content-inner">
+					<div class="content-block">
+						<div class="row no-gutter" id="gender">
+							<div class="btnbg col-33"><span class="col-33-title">全部</span><input type="hidden" value="0" /></div>
+							<div class="btnbg col-33">
+								<img class="sex-img" src="image/nearby/ic_weibouser_male.png"/>
+								<span class="col-33-title">男</span>
+								<input type="hidden" value="1" />
+							</div>
+							<div class="btnbg-selected col-33">
+								<img class="sex-img" src="image/nearby/ic_weibouser_female.png"/>
+								<span class="col-33-title">女</span>
+								<input type="hidden" value="2" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="content-block-title"><span>出现的时间</span></div>
+		<div class="card">
+			<div class="card-content">
+				<div class="card-content-inner">
+					<div class="content-block">
+						<div class="row no-gutter" id="zdytime">
+							<div class="btnbg-selected col-25"><span class="col-25-title">15分钟</span><input type="hidden" value="15" /></div>
+							<div class="btnbg col-25"><span class="col-25-title">1小时</span><input type="hidden" value="60"/></div>
+							<div class="btnbg col-25"><span class="col-25-title">1天</span><input type="hidden" value="1440"/></div>
+							<div class="btnbg col-25"><span class="col-25-title">3天</span><input type="hidden" value="4320"/></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="content-block-title"><span>会员筛选选项</span></div>
+		<div class="card">
+			<div class="card-content">
+				<div class="card-content-inner">
+					<div class=" list-block list-block-style">
+						<ul>
+							<li>
+								<a href="#" class="item-link" >
+									<div class="item-content item-content-style">
+										<div class="item-inner item-inner-option" style="content:none">
+											<div class="item-title"  style="width:100px;"><span style="width:100px;">年龄</span></div>
+											<div class="item-text item-text-position" >
+												<div class="item-input" id="age">
+													<input type="text" placeholder="不限" readonly id="picker-deviceAge">
+												</div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="item-link">
+									<div class="item-content item-content-style">
+										<div class="item-inner item-inner-option" style="content:none">
+											<div class="item-title" style="width:100px;"><span style="width:100px;">星座</span></div>
+											<div class="item-text item-text-position">
+												<div class="item-input" id="con">
+													<input type="text" placeholder="不限" readonly id="picker-deviceCons" >
+												</div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

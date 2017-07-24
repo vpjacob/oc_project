@@ -1,0 +1,58 @@
+<div data-page="user_setting_main" class="page no-toolbar navbar-fixed" id="user_setting_main">
+	<div class="navbar" style="background-color:white;">
+			<!-- Navbar page 1 -->
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link" id="setting_back">
+						<i class="icon icon-angle-left" style="color:#15191c;"></i> 
+						<span style="color:#15191c;">返回</span>
+					</a>
+				</div>
+				<div class="center"><span style="font-weight: 600;color:#15191c;">设置</span></div>
+				<div class="right"></div>
+			</div>
+		</div>
+
+	<div class="page-content">
+		<div class="list-block" style="margin-bottom: 10px;margin-top: 0px;margin-left: 0px;font-size: 15px">
+			<ul>
+				<li>
+					<a href="html/user/setting_changePassWord.html" class="item-link">
+						<div class="item-content" style="height: 30px">
+							<div class="item-inner " style="content:none ">
+								<div class="item-title " style="font-size: 14px;">密码修改</div>
+							</div>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="list-block" style="margin-bottom: 10px;margin-top: 0px;margin-left: 0px;font-size: 15px">
+			<ul>
+				<li>
+					<a href="html/user/setting_blacklist.html" class="item-link">
+						<div class="item-content" style="height: 30px">
+							<div class="item-inner">
+								<div class="item-title" style="font-size: 14px;">黑名单</div>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" onclick="user_clear_temp_file()" class="item-link">
+						<div class="item-content" style="height: 30px">
+							<div class="item-inner">
+								<div class="item-title" style="font-size: 14px;">清理缓存</div>
+								<div id="user_setting_cacheDataSize" class="item-text " style="height: 20px;font-size: 14px; "></div>
+							</div>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="list-block" style="margin-bottom: 10px;margin-top: 0px;margin-left: 0px;font-size: 14px;">
+			<a href="#" onclick="user_login_out()" class="button button-round button-red" style="background: red;color: white;font-size: 14px;border-color: red;">退出当前用户</a>
+		</div>
+	</div>
+</div>

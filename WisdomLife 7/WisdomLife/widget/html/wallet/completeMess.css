@@ -1,0 +1,133 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements ½á¹¹ÔªËØ */
+dl, dt, dd, ul, ol, li, /* list elements ÁÐ±íÔªËØ */
+pre, /* text formatting elements ÎÄ±¾¸ñÊ½ÔªËØ */
+form, fieldset, legend, button, input, textarea, /* form elements ±íµ¥ÔªËØ */
+th, td, /* table elements ±í¸ñÔªËØ */
+img/* img elements Í¼Æ¬ÔªËØ */ {
+	border: medium none;
+	margin: 0;
+	padding: 0;
+}
+/** ÉèÖÃÄ¬ÈÏ×ÖÌå **/
+body, input, p {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	font-family: 'Microsoft YaHei';
+}
+/*h1, h2, h3, h4, h5, h6 { font-size: 100%; }*/
+/*em{font-style:normal;}*/
+/** ÖØÖÃÁÐ±íÔªËØ **/
+ul, ol {
+	list-style: none;
+}
+/** ÖØÖÃ³¬Á´½ÓÔªËØ **/
+a {
+	text-decoration: none;
+	color: #000;
+}
+a:hover {
+	text-decoration: underline;
+	color: #3363a7;
+}
+/** ÖØÖÃÍ¼Æ¬ÔªËØ **/
+img {
+	border: 0px;
+}
+/** ÖØÖÃ±í¸ñÔªËØ **/
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.item-inner label {
+	width: 32%;
+}
+label {
+	font-size: 14px;
+	color: #000;
+}
+/*
+body, html {
+	height: 100%;
+	font-size: 16px;
+	font-family: '微软雅黑';
+	background-color: #f0f0f0;
+	position: relative;
+}
+
+*/
+
+.bar{
+  background-color:#fff;
+}
+.content{
+   background-color:#f0f0f0;
+}
+
+.list-block{
+  background-color:#fff;
+  margin:0px;
+}
+
+.content>span{
+   padding:3px 10px;
+   font-size:.85rem;
+}
+
+.list-block .item-title{
+   width:40%;
+   font-size:16px;
+}
+.item-input input{
+  text-align:right;
+}
+.list-block select{
+  direction: rtl;
+  font-size:16px;
+  width:93%;
+}
+
+.list-block select option{
+  direction: ltr;
+}
+/*
+#proname,#cityname{
+   direction: ltr;
+}
+*/
+.item-content{
+  border-bottom:1px solid #f0f0f0;
+}
+
+.dizhi{
+  float:right;
+  margin-right:10px;
+}
+
+::-webkit-clear-buttonm,::-webkit-calendar-picker-indicator {
+     -webkit-appearance: none; 
+}
+
+::-webkit-inner-spin-button { visibility: hidden; }
+
+.provices,.cities{
+  width: 45%;
+  
+  display:inline-block;  
+}
+
+.cities{
+  float:right;
+}
+.provices select,.cities select{
+  padding-right:10px;
+}
+.submit{
+   width: 90%;
+   margin:20px auto;
+   border-radius:10px;
+   background-color:#0eaae0;
+   color:#FFFFFF;
+   text-align:center;
+   padding:8px 0;
+}

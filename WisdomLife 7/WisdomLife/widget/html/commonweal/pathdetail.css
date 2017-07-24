@@ -1,0 +1,143 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements ½á¹¹ÔªËØ */
+dl, dt, dd, ul, ol, li, /* list elements ÁÐ±íÔªËØ */
+pre, /* text formatting elements ÎÄ±¾¸ñÊ½ÔªËØ */
+form, fieldset, legend, button, input, textarea, /* form elements ±íµ¥ÔªËØ */
+th, td, /* table elements ±í¸ñÔªËØ */
+img/* img elements Í¼Æ¬ÔªËØ */ {
+	border: medium none;
+	margin: 0;
+	padding: 0;
+}
+/** ÉèÖÃÄ¬ÈÏ×ÖÌå **/
+body, input, p {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	font-family: 'Microsoft YaHei';
+}
+/*h1, h2, h3, h4, h5, h6 { font-size: 100%; }*/
+/*em{font-style:normal;}*/
+/** ÖØÖÃÁÐ±íÔªËØ **/
+ul, ol {
+	list-style: none;
+}
+/** ÖØÖÃ³¬Á´½ÓÔªËØ **/
+a {
+	text-decoration: none;
+	color: #000;
+}
+a:hover {
+	text-decoration: underline;
+	color: #3363a7;
+}
+/** ÖØÖÃÍ¼Æ¬ÔªËØ **/
+img {
+	border: 0px;
+}
+/** ÖØÖÃ±í¸ñÔªËØ **/
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.item-inner label {
+	width: 32%;
+}
+label {
+	font-size: 14px;
+	color: #000;
+}
+body, html {
+	height: 100%;
+	font-size: 0.65 rem;
+	font-family: '微软雅黑';
+	background-color: #fff;
+	position: relative;
+}
+/*
+.mar-top {
+	margin-top: 20px;
+}
+
+.my-head, .my-head a {
+	height: 44px;
+}
+
+.my-head h1 {
+	height: 44px;
+	line-height: 44px;
+	font-size: 20px;
+	font-weight: 600;
+	box-shadow: none;
+}*/
+/*清除浮动*/
+.clear {
+	height: 0px;
+	line-height: 0px;
+	font-size: 0px;
+	clear: both;
+}
+
+.content-block{
+   margin:0;
+   padding:0;
+}
+.navigation{
+  
+}
+
+.detail{
+  width:100%;
+  padding:10px;
+  background-color:#fff;
+  margin-top:10px;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.time{
+   overflow: hidden;
+   margin-bottom:15px;
+}
+
+.time>h3{
+  float:left;
+}
+
+.detail>p>span{
+  color:red;
+}
+
+.changeCor{
+   background-color:#0eaae0;
+   color:#fff;
+}
+
+.list-block{
+  margin:0px;
+}
+
+.list-block .item-inner{
+  border-bottom: 1px solid #dcdcdc;
+}
+.list-block  .item-content{
+  padding-left:50px;
+}
+.guide{
+   position:absolute;
+   left:10px;
+   top:.45rem;
+   width:30px;
+   height:30px;
+   line-height:30px;
+   border-radius: 50%;
+   border:1px solid #dcdcdc;
+   text-align:center;
+   background-color:#fff;
+}
+
+li:before{
+  content:'';
+  position:absolute;
+  height:100%;
+  border: 1px solid #dcdcdc;
+  left:24px;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>添加房屋</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/sm.min.css">
+    <link rel="stylesheet" href="../../../css/sm-extend.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../css/iconfont.css" />
+	<link rel="stylesheet" type="text/css" href="../../../css/guanjia/fangwu/addfangwu.css" /> 
+</head>
+<body>
+	<header class="bar bar-nav" style="position: relative; background-color:#0EAAE3 " id="title">
+		<h1 class="title" style="color: white">添加房屋</h1>
+		<a onclick="goBack()" class="iconfont icon-xiangzuo1 pull-left" style="font-size:20px;color:white;position:absolute;top:7px;"></a>	
+	</header>
+	<div class="box">
+		<div class="top">
+			<div class="same">
+				<span><b style="color: red; visibility: hidden">*</b>所在地区：</span>
+				<div data-toggle="distpicker" class="liandong">
+				<select  style="height: 30px; border:1px solid #A1A1A1; width: 32%;  font-size:13px;float: left;" ></select>
+				<select  style="height: 30px; border:1px solid #A1A1A1; width: 32%;  font-size:13px;float: left;" ></select>
+				<select  style="height: 30px; border:1px solid #A1A1A1; width: 32%;  font-size:13px;float: left;" ></select> 
+				</div>
+			</div>
+			<div class="same">
+				<span><b style="color: red">*</b>所在小区：</span>
+				<select id="xiaoqu" >                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+				    <option value="0">请选择小区</option>
+					<option value="1">小区1</option>
+					<option value="2">小区2</option>
+				</select>
+			</div>
+			<div class="same">
+				<span><b style="color: red">*</b>楼栋号：</span>
+				<select id="loudong" >
+				    <option value="0">请选择楼栋号</option>
+					<option value="1">单元1</option>
+					<option value="2">单元2</option>
+				</select>
+			</div>
+			<div class="same">
+				<span><b style="color: red">*</b>房间号：</span>
+				<select id="fangjian" >
+				    <option value="0">请选择房间号</option>
+					<option value="1">201</option>
+					<option value="2">202</option>
+				</select>
+			</div>
+		</div>
+		<div class="bottom">
+			<div class="user">
+				<span><b style="color: red">*</b>申请人</span><input type="text" placeholder="请输入您的姓名" id="name"/>
+			</div>
+			<div class="user">
+				<span><b style="color: red">*</b>手机号</span><input type="tel" placeholder="请输入您的手机号" id="tel"/>
+			</div>
+			<div class="user">
+				<span><b style="color: red">*</b>验证码</span><div class="yanzheng">获取验证码</div><input type="tel" placeholder="请输入手机验证码" id="ranzheng" style="margin-right:1%;"/>
+			</div>
+			<div class="user">
+				<button type="button" id="tj">提交</button>
+			</div>
+			<span style="float:right;font-size:13px;" id="ewm">扫同住人二维码</span>
+		</div>
+	</div>
+	
+</body>
+<script type="text/javascript" src="../../../script/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="../../../script/liandong/main.js"></script>
+<script type="text/javascript" src="../../../script/liandong/distpicker.data.js"></script>
+<script type="text/javascript" src="../../../script/liandong/distpicker.js"></script>
+
+<script type="text/javascript" src="../../../../script/api.js"></script>
+<script type="text/javascript" src="../../../../script/common.js"></script>
+<script type="text/javascript" src="../../../script/guanjia/fangwu/addfangwu.js"></script>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<title>回购</title>
+		<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<link rel="stylesheet" href="../../css/sm-extend.min.css">
+		<script type='text/javascript' src='../../script/jquery.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm-extend.min.js' charset='utf-8'></script>
+ 		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css"> 
+		<!--<link rel="stylesheet" type="text/css" href="../css/zicon/iconfont.css">-->
+		<link rel="stylesheet" type="text/css" href="../../css/mesIcon/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/person/iconfont.css">
+		<style>
+			body{font-family:"微软雅黑"}
+			*{font-weight:normal;}
+			.cl{clear:both;}
+			dl,dt,dd{margin:0;padding:0;}
+			.bar{background-color:#FFFFFF;position:relative;}
+			.bar a{color:white;font-size:1.rem;margin-top:3px;color:#333333;margin-top:10px;}
+			.bar h1{font-size:18px;color:#333333;}
+			.shuju{background-color:#0eaae3;}
+			.shuju-box{width:92%;margin:auto;padding:30px 0;}
+			.shuju-list{float:left;width:30%;color:#ffffff;text-align:center;font-size:12px;margin:0 1.5% 0 1.5%;}
+			.shuju-list div:nth-child(1){font-size:18px;}
+			.list{width:100%;}
+			.list-box{width:100%;margin:auto;}
+			.list-blocks{line-height:50px;margin-bottom:1px;background-color:#FFFFFF;padding:0 4%;}
+			.list-blocks i{float:right;color:#c8c8c8;}
+			.list-blocks img{
+				width: 24px; 
+				height: 24px;
+				position: relative;
+			    top: 6px;
+			    left: -5px;
+			}
+			.list-blocks span{
+				font-size:15px;
+			}
+		</style>
+</head>
+<body>
+<div class="page-group">
+    <!-- 你的html代码 -->
+    <div class="page cl">
+		<header class="bar bar-nav" id="title">
+  			<i class="icon iconfont icon-xiangzuo1 pull-left" style="font-size: 21px;" id="toBack"></i>
+  			<i class="icon iconfont icon-xiaoxi pull-right" style="font-size: 21px;float: right"></i>
+  			<h1 class="title">我的钱包</h1>
+		</header>
+		<div class="shuju">
+			<div class="shuju-box">
+				<div class="shuju-list">
+					<div id="dotleft">0</div>
+					<div>金蛋总数</div>
+				</div>
+				<div class="shuju-list">
+					<div id="dotmidd">0</div>
+					<div>银蛋总数</div>
+				</div>
+				<div class="shuju-list">
+					<div id="dotright">0</div>
+					<div>金币总数</div>
+				</div>
+				<div class="cl"></div>								
+			</div>
+		</div>
+		<div class="list">
+			<div class="list-box">
+				<div class="list-blocks" id="myrecord">
+					<div><img src="../../image/wallet_deal.png"/><span>我的订单</span><i class="iconfont icon-xiangyou1"></i></div>
+				</div>
+				<div class="list-blocks" id="myegg">
+					<div><img src="../../image/wallet_egg.png"/><span>我的金蛋</span><i class="iconfont icon-xiangyou1"></i></div>
+				</div>
+				<div class="list-blocks" id="wallet_buyback">
+					<div><img src="../../image/wallet_buyback.png"/><span>我要回购</span><i class="iconfont icon-xiangyou1"></i></div>
+				</div>
+				<div class="list-blocks" id="incomeInfo">
+					<div><img src="../../image/wallet_jinbi.png"/><span>金币明细</span><i class="iconfont icon-xiangyou1"></i></div>
+				</div>
+				<div class="list-blocks">
+					<div><img src="../../image/wallet_zhuan.png"/><span>我要转账</span><i class="iconfont icon-xiangyou1"></i></div>
+				</div>																	
+			</div>
+		</div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/common.js"></script>
+<script type="text/javascript" src="../../script/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="wallet.js"></script>
+<script>
+		function refresh(){
+			location.reload();
+		}
+
+	</script>

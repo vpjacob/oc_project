@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>商家详情页</title>
+    <link rel="stylesheet" type="text/css" href="../../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+    <link rel="stylesheet" href="../../../css/sm-extend.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="seller.css">
+    
+    <style>
+    	body{
+    		
+    	}
+    </style>
+</head>
+<body>
+	<header class="bar bar-nav" id="title">
+		<h1 class="title" style="color: white">详情页</h1>
+		<a id="Back" class="iconfont icon-xiangzuo1 pull-left" style="font-size:20px;color:#FFFFFF;position:absolute;top:7px;"></a>	
+	</header>
+	
+	<div class="detial">
+		<div class="box">
+			<!--<i class="icon iconfont icon-xiangyou1" style=" font-size:15px;color: #cccccc;float: right"></i>-->
+			<div class="left">
+				<img src="" alt="" id="headpic"/>
+			</div>
+			<div class="right">
+				<span id="sjname"></span>
+				<ul style="margin-bottom: 2px">
+					<li class="other" id="companytype"></li>
+				</ul>	
+			</div>
+		</div>
+	</div>
+	<div class="detial">
+		<div class="box">
+			<div class="top">
+				<div class="top-left"><img src="icon-f.png" alt="" /><span id="address"></span></div><div class="top-right"><img src="icon-h.png" alt="" /><span id="goH">去这里</span></div>
+			</div>
+			<div class="bottom">
+				<img src="icon-l.png" alt="" /><span><u></u id="tel">1</span>
+			</div>
+		</div>
+	</div>	
+	
+	<div class="product-show">
+		<div class="product-show-title">
+			<div><img src="icon-m.png" alt="" /><span>商家详情</span></div>
+		</div>
+		
+		<!--<div class="product-show-picture swiper-container ">
+			<div class="swiper-wrapper box">
+	            <div class="swiper-slide"><img src="picture.png"></div>
+	            <div class="swiper-slide"><img src="picture.png"></div>
+	            <div class="swiper-slide"><img src="picture.png"></div>      
+        	</div>	
+		</div>-->	
+		
+		<!--<div class="seller-details">
+			<div><img src="icon-n.png" alt="" />商家详情：<span></span></div>
+		</div>-->
+		
+		<div class="seller-details">
+			<div><img src="icon-o.png" alt="" />营业时间：<span id="time"></span></div>
+		</div>
+		
+		<div class="seller-details">
+			<div><img src="icon-p.png" alt="" />主营业务：<span id="mainbusiness"></span></div>
+		</div>
+		
+		<div class="seller-introduction">
+			<div><img src="icon-q.png" alt="" />简介：<span id="summary"></span></div>
+		</div>	
+		
+		<div class="seller-details">
+			<div><img src="icon-n.png" alt="" />商家类型：<span id="type"></span></div>
+		</div>													
+	</div>
+	<div class="zzc">
+		<div class="center"><img class="dt" style="width: 100%; height: auto;"></div>
+	</div>
+	<script type="text/javascript" src="../../script/common.js"></script>
+	<script type="text/javascript" src="../../script/api.js"></script>	
+</body>
+	<script type="text/javascript" src="../../script/api.js"></script>
+    <script type="text/javascript" src="../../script/jquery.js"></script>
+	<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+	<script type="text/javascript" src="../../script/common.js"></script>
+	<script type="text/javascript" src="../js/swiper.js"></script>
+	<script type="text/javascript" src="seller.js"></script>
+	<script>
+	var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        spaceBetween: 3,
+        centeredSlides: true,
+        width : 80,
+
+    });	
+    
+    
+    $('.swiper-wrapper').on('click','.swiper-slide', function() {
+		$('.zzc').show();
+		$('.zzc img').attr('src',$(this).find('img').attr('src'));
+	})
+	$('.zzc').click(function(){
+	    $('.zzc').hide();
+	});
+    
+    </script>
+</html>

@@ -1,0 +1,39 @@
+<div data-page="communityInfoList" class="page navbar-fixed no-toolbar" id="communityInfoList">
+	<div class="navbar" style="background-color: white;">
+		<div class="navbar-inner">
+			<div class="left">
+				<a href="html/community/communityMain.html" class="link back" data-force="true" id="communityInfoList-back"> <i class="icon icon-angle-left" style="color: #15191C;"></i> <span style="color: #15191C;">返回</span> </a>
+			</div>
+			<div class="center">
+				<span style="color: #15191C;">圈动态</span>
+			</div>
+			<div class="right">
+				<a href="#" data-popover=".popover-links-community-one" class="link open-popover" id="communityInfoList-right"> <i class="icon icon-bars-one" style="color: #15191C;"></i> </a>
+			</div>
+		</div>
+	</div>
+	<div class="page-content pull-to-refresh-content infinite-scroll" data-ptr-distance="30" data-distance="100" id="community-card-one" style="overflow-x: hidden;padding-top: 0px;">
+		<!--<div class="floating-button">
+			<a id="im-group-chat" class="item-link"> <img src="image/community/communityall.png" style="width: 70%;"> </a>
+		</div>-->
+		<!-- 默认的下拉刷新层 -->
+		    <div class="pull-to-refresh-layer" style="z-index: 490;position: absolute;margin-top: 0px;">
+		      <div class="preloader"></div>
+		      <div class="pull-to-refresh-arrow"></div>
+		    </div>
+		<a href="#" class="community-3">
+		<div class="card demo-card-header-pic" style="margin: auto;">
+			<input type="hidden" name="communityNameHide" />
+			<div valign="bottom" class="card-header color-white no-border" id="communityInfo-image-bg"></div>
+		</div> </a>
+		
+		<div  id="community-card-two">
+			
+		</div>
+		
+		<!-- 加载提示符 -->
+		  <div class="infinite-scroll-preloader">
+		    <div class="preloader"></div>
+		  </div>
+	</div>
+</div>

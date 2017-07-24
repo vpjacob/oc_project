@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>添加房屋</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/sm.min.css">
+    <link rel="stylesheet" href="../../../css/sm-extend.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../css/iconfont.css" />
+	<link rel="stylesheet" type="text/css" href="../../../css/guanjia/fangwu/fangwuInf.css" /> 
+</head>
+<body>
+	<header class="bar bar-nav" style="position: relative; background-color:#0EAAE3 " id="title">
+		<h1 class="title" style="color: white">房屋信息</h1>
+		<a onclick="goBack()" class="iconfont icon-xiangzuo1 pull-left" style="font-size:20px;color:white;position:absolute;top:7px;"></a>	
+	</header>
+	<div class="box">
+		<div class="left">所在地区：</div>
+		<div class="right">北京市--朝阳区</div>
+	</div>
+	<div class="box">
+		<div class="left">所在小区：</div>
+		<div class="right">凯旋城</div>
+	</div>
+	<div class="box">
+		<div class="left">楼栋号：</div>
+		<div class="right">12号楼1单元</div>
+	</div>
+	<div class="box">
+		<div class="left">房间号：</div>
+		<div class="right">1203室</div>
+	</div>
+	<div class="box">
+		<div class="left">申请人：</div>
+		<div class="right">嘉嘉</div>
+	</div>
+	<div class="box">
+		<div class="left">手机号：</div>
+		<div class="right">133123242561</div>
+	</div>
+	<div class="box">
+		<div class="left">所在地区：</div>
+		<div class="right">北京市--朝阳区</div>
+	</div>
+	
+	
+</body>
+<script type="text/javascript" src="../../../script/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="../../../../script/api.js"></script>
+<script type="text/javascript" src="../../../../script/common.js"></script>
+<!--<script type="text/javascript" src="../../../script/guanjia/fangwu/fangwuInf.js"></script>-->
+<script>
+apiready = function() {
+	var header = $api.byId('title');
+	if (api.systemType == 'ios') {
+		$api.css(header, 'margin-top:20px;');
+	}
+	}
+	function goBack() {
+		api.closeWin({
+		});
+	}
+</script>
+
+</html>

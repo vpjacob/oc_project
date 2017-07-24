@@ -1,0 +1,221 @@
+.sex-bgc2 {
+	background-color: #FA94AA;
+	border-radius: 2px;
+}
+
+.sex-bgc1 {
+	background-color: #4AAEF3;
+	border-radius: 2px;
+}
+
+#dynamicInfo .item-inner {
+	position: absolute;
+	top: 15%;
+	left: 20%;
+}
+
+#dynamicInfo .sex {
+	height: 12px;
+	width: 24px;
+}
+
+#dynamicInfo .sex span {
+	float: left;
+	width: 50%;
+	height: 12px;
+	color: white;
+	text-align: center;
+	font-size: 10px;
+}
+
+#dynamicInfo .img1 {
+	float: left;
+	width: 30%;
+	height: ;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	margin-right: 2px;
+	margin-left: 2px;
+}
+
+#dynamicInfo .img2 {
+	width: 60%;
+	padding-left: 2px;
+	height: 16px;
+	margin-top: 1px;
+	margin-bottom: 5px;
+}
+
+#dynamicInfo .list-block.media-list .item-link .item-title-row, #dynamicInfo .list-block li.media-item .item-link .item-title-row {
+	background-image: url(../../image/nearby/ic_common_arrow_bottom.png);
+	background-size: 15px 8px;
+}
+
+#dynamicInfo .title {
+	float: left;
+}
+
+#dynamicInfo .title-name {
+	width: auto;
+	float: left;
+	height: 100%;
+	margin-left: 2px;
+	position: relative;
+}
+
+#dynamicInfo .titlespan {
+	font-size: 14px;
+	font-weight: 200;
+	display: block;
+}
+
+#dynamicInfo .facebook-dateafter {
+	float: right;
+	font-size: 10px;
+	margin-bottom: 30px;
+	color: #BBBBBB;
+}
+
+#dynamicInfo .facebook-avatar {
+	width: 15%;
+}
+
+#dynamicInfo .facebook-avatar img {
+	width: 50px;
+	height: 50px;
+	border-radius: 5px;
+}
+
+#dynamicInfo .sectitle {
+	width: 100%;
+	margin-top: 1px;
+}
+
+#dynamicInfo .sectitle span {
+	width: 100%;
+	font-size: 12px;
+	color: #AEAEAE;
+}
+
+/*#dynamicInfo .afterbtn{
+ position: relative;
+ width: 12px;
+ height: 6px;
+ margin-bottom: 30px;
+ }*/
+
+#dynamicInfo .facebook-name {
+	position: relative;
+	width: 60%;
+	margin-bottom: 5px;
+}
+
+#dynamicInfo .card {
+	height: 100%;
+	margin: 0px;
+	box-shadow:none;
+}
+
+#dynamicInfo .card-header {
+	margin-top: 0px;
+	height: 20%;
+	padding-bottom: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#dynamicInfo .card-header-frist {
+	margin-top: 50px;
+}
+
+#dynamicInfo .card-header:after {
+	width: 80%;
+	left: 20%;
+}
+
+#dynamicInfo .card-content {
+	height: 70%;
+}
+
+#dynamicInfo .card-footer {
+	height: 10%;
+	padding-top: 0px;
+}
+
+#dynamicInfo .card-content-inner {
+	margin-left: 16%;
+	padding-top: 5px;
+	padding-bottom: 0px;
+}
+
+#dynamicInfo .card-content-inner p {
+	margin-bottom: 0px;
+	color: #A2A2A2;
+	font-size: 14px;
+}
+
+#dynamicInfo .card-footer span {
+	font-size: 12px;
+	color: #C4C4C4;
+}
+
+#dynamicInfo .card-footer:before {
+	height: 0px;
+}
+
+#dynamicInfo .card-footer-title {
+	margin-left: 18%;
+}
+
+#dynamicInfo .icon-angle-down {
+	color: #BBBBBB;
+	font-size: 14px;
+}
+
+#dynamicInfo .communityDetal-mars {
+	float: left;
+	background-color: #45ADF6;
+	width: 30%;
+	height: 15px;
+	display: inline;
+	margin-left: auto;
+	margin-right: auto;
+	line-height: 14px;
+}
+
+#dynamicInfo .community-mars-icon {
+	padding-left: 2px;
+	padding-bottom: 6px;
+	margin-top: 2px;
+	color: white;
+	font-size: 10px;
+	margin-right: 2px;
+	display: block;
+	float: left;
+}
+
+#dynamicInfo .communityDetal-mars span {
+	color: white;
+	font-size: 10px;
+	display: block;
+	float: left;
+	margin-top: 2px;
+	margin-left: 2px;
+}
+
+#dynamicInfo .communityDetal-vip {
+	float: left;
+	width: 36px;
+	height: 12px;
+	display: inline;
+	margin-left: 2px;
+}
+
+#dynamicInfo .card-margin {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: auto;
+	margin-bottom: 10px;
+}
+
+

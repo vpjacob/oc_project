@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../css/aui.css" />
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>房间信息</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<link rel="stylesheet" href="../../css/sm-extend.min.css">
+		<link rel="stylesheet" type="text/css" href="roominfo.css">
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
+		<style>
+			body {
+				font-family: "微软雅黑";
+			}
+			a {
+				color: #000;
+			}
+			a:active, a:link, a:visited, a:hover {
+				color: #000;
+				text-decoration: none;
+			}
+			.show-success, .show-sorry {
+				width: 100%;
+				height: 100%;
+				display: none;
+				background: rgba(0,0,0,.6);
+				position: fixed;
+				left: 0;
+				top: 0;
+				z-index: 101;
+			}
+			.hide {
+				width: 10rem;
+				height: 6rem;
+				background-color: white;
+				border-radius: 10px;
+				margin: 200px auto;
+				overflow: hidden;
+			}
+			.hide .one {
+				text-align: center;
+				margin-top: 10px;
+				font-size: 1.1 rem;
+				color: #0894ec;
+				font-weight: 600;
+			}
+			.hide .two {
+				margin-left: 10px;
+				font-size: 12px;
+				margin-top: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--<div class="page-group">-->
+		<!--<div class="page">-->
+		<header class="bar bar-nav" id="header">
+			<a class="icon pull-left" onclick="goback();"><i  id="back" class="icon iconfont icon-xiangzuo1" style="font-size: 28px;color: #999"></i></a>
+			<!--<a class="icon icon-refresh pull-right"></a>-->
+			<h1 class="title">房间信息</h1>
+		</header>
+		<div class="content">
+			<div class="buttons-tab">
+				<a href="#tab1" class="tab-link active button">我是业主</a>
+				<a href="#tab2" class="tab-link button">我是租户</a>
+			</div>
+			<div class="content-block">
+				<div class="tabs">
+					<div id="tab1" class="tab active">
+						<div class="content-block">
+							<div>
+								<div class="row select-two">
+									<div class="col-25 area-now">
+										所在地区：
+									</div>
+									<div class="col-25">
+										<select name="province" id="province" onchange="changep()">
+											<option>请选择省 </option>
+										</select>
+									</div>
+									<div class="col-25">
+										<select name="city" id="city" onchange="changec()">
+											<option>请选择市</option>
+										</select>
+									</div>
+									<div class="col-25">
+										<select name="area" id="area" onchange="changeSubd()">
+											<option>请选择区</option>
+										</select>
+									</div>
+								</div>
+								<div class="row select-two">
+									<div class="col-25 area-now">
+										所在小区：
+									</div>
+									<div class="col-80">
+										<select class="select-six" id="subDistrict" onchange="changesubDistrict()">
+											<option>请选择小区</option>
+										</select>
+									</div>
+								</div>
+								<div class="row select-two">
+									<div class="col-25 area-now">
+										楼栋号：
+									</div>
+									<div class="col-80">
+										<select class="select-six" id="subdistrictid" onchange="changeSubdistrictid()">
+											<option>请选择楼栋号</option>
+										</select>
+									</div>
+								</div>
+								<div class="row select-two">
+									<div class="col-25 area-now">
+										房间号：
+									</div>
+									<div class="col-80">
+										<select class="select-six" id="roomid" onchange="checkroom()">
+											<option>请选择房间号</option>
+										</select>
+									</div>
+								</div>
+								<ul>
+									<li>
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="input-left">
+													申请人
+												</div>
+												<div class="input-right">
+													<input class="select-three" type="text" placeholder="请输入您的姓名" id="applyPerson">
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="input-left">
+													手机号
+												</div>
+												<div class="input-right">
+													<input class="select-three" type="text" placeholder="请输入在物业预留的手机号" id="telphone" readonly="readonly">
+												</div>
+											</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="input-left">
+													验证码
+												</div>
+												<div class="input-right">
+													<input type="button" value="获取验证码" class="sure sure-y btn-yz" id="identifyingCodeBtn" onclick="sendCode(this)"/>
+													<input type="text" placeholder="请输入手机验证码" class="select-five" id="vaildCode">
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="content-block">
+								<div class="row">
+									<div class="col-100">
+										<a href="#" class="button button-big button-fill button-success" onclick="addroominfo()">提交</a>
+									</div>
+								</div>
+								</li>
+								</ul>
+							</div>
+							<div class="erweima" onclick="qrcode()">
+								<a href="#">扫同住人二维码</a>
+							</div>
+						</div>
+					</div>
+					<div id="tab2" class="tab">
+						<div class="content-block">
+							<div>
+								<div class="row select-two">
+									<div class="col-25 area-now">
+										所在地区：
+									</div>
+									<div class="col-25">
+										<select id="tenantprovince" onchange="tenantchangep()">
+											<option>请选择省 </option>
+										</select>
+									</div>
+									<div class="col-25">
+										<select id="tenantcity" onchange="tenantchangec()">
+											<option>请选择市</option>
+										</select>
+									</div>
+									<div class="col-25">
+										<select id="tenantarea" onchange="tenantchangeSubd()">
+											<option>请选择区</option>
+										</select>
+									</div>
+								</div>
+								<div class="row select-two">
+									<div class="col-25 area-now">
+										所在小区：
+									</div>
+									<div class="col-80">
+										<select class="select-six" id="tenantsubDistrict" onchange="tenantchangesubDistrict()">
+											<option>请选择小区名称</option>
+										</select>
+									</div>
+								</div>
+								<div class="row select-two">
+									<div class="col-25 area-now">
+										楼栋号：
+									</div>
+									<div class="col-80">
+										<select class="select-six" id="tenantsubdistrictid" onchange="tenantchangeSubdistrictid()">
+											<option>请选择楼栋号</option>
+										</select>
+									</div>
+								</div>
+								<div class="row select-two">
+									<div class="col-25 area-now">
+										房间号：
+									</div>
+									<div class="col-80">
+										<select class="select-six" id="tenantroomid" onchange="tenantcheckroom()">
+											<option>请选择房间号</option>
+										</select>
+									</div>
+								</div>
+								<ul>
+									<!-- Text inputs -->
+									<li>
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="input-left">
+													租户到期日
+												</div>
+												<div class="input-right">
+													<input class="select-three" type="text"  id="duetime" placeholder="请选择到期日期" >
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="input-left">
+													申请人
+												</div>
+												<div class="input-right">
+													<input class="select-three" type="text" placeholder="请输入您的姓名" id="tenantapplyPerson">
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="input-left">
+													手机号
+												</div>
+												<div class="input-right">
+													<input class="select-three" type="text" placeholder="请输入在物业预留的手机号" id="tenanttelphone" readonly="readonly">
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="input-left">
+													验证码
+												</div>
+												<div class="input-right">
+													<input type="button" value="获取验证码" class="sure sure-y btn-zh" id="tenantidentifyingCodeBtn" onclick="tenantsendCode(this)"/>
+													<input type="text" placeholder="请输入手机验证码" class="select-five" id="tenantvaildCode">
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="content-block">
+								<div class="row">
+									<div class="col-100">
+										<a href="#" class="button button-big button-fill button-success" onclick="tenantaddroominfo()">提交</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="erweima">
+							<a href="#" onclick="qrcode()">扫同住人二维码</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="show-success" id="addOwnerSuccess">
+			<div class="hide">
+				<div class="one">
+					<img src="../../image/success_03.png" alt="" width="30" height="24"/>
+					提交成功
+				</div>
+				<div class="two">
+					将在三个工作日内审核完成，并开通手机门禁及更多服务功能。请耐心等待！
+				</div>
+			</div>
+		</div>
+		<div class="show-sorry" id="addOwnerFail">
+			<div class="hide">
+				<div class="one">
+					<img src="../../image/shibai_03.png" alt="" width="30" height="24"/>
+					抱歉!
+				</div>
+				<div class="two">
+					您所居住的小区还未和物业合作，
+					更多服务，敬请期待！
+				</div>
+			</div>
+		</div>
+		<!--</div>-->
+		<!--</div>-->
+	</body>
+	<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+	<script type='text/javascript' src='../../script/sm.min.js' charset='utf-8'></script>
+	<script type='text/javascript' src='../../script/sm-extend.min.js' charset='utf-8'></script>
+	<script type="text/javascript" src="../../script/api.js"></script>
+	<script type="text/javascript" src="../../script/common.js"></script>
+	<script type="text/javascript" src="../../script/infoutil.js"></script>
+	<script type="text/javascript" src="../../script/prefsutil.js"></script>
+	<script type="text/javascript" src="../../script/progressutil.js"></script>
+	<script type="text/javascript" src="roominfo.js"></script>
+	<script type="text/javascript" src="../../script/data.js"></script>
+	<script type="text/javascript">
+		//		           成功的时候显示
+		//		$(".button-big").on("click", function() {
+		//			$(".show-success").css("display", "block");
+		//		})
+		//
+		//				$(".show-success").on("click", function() {
+		//					$(".show-success").css("display", "none");
+		//				})
+		//
+		//	    $(".btn-yz").on("click",function(){
+		//	       var count=60;
+		//	       var str="重新发送（"+count+"s)";
+		//	       if($(this).hasClass("sure-y")){
+		//	          $(this).removeClass("sure-y").addClass("sure-n");
+		//	          $(this).val(str);
+		//	       }
+		//	       var timer=setInterval(function(){
+		//	          count--;
+		//	          str="重新发送（"+count+"s)";
+		//            $(".btn-yz").val(str);
+		//	          if(count==0){
+		//	               clearInterval(timer);
+		//	               count=60;
+		//	               $(".btn-yz").removeClass("sure-n").addClass("sure-y");
+		//	               $(".btn-yz").val("获取验证码");
+		//	           }
+		//	       },1000);
+		//	    })
+		//	    $(".btn-zh").on("click",function(){
+		//	       var count=60;
+		//	       var str="重新发送（"+count+"s)";
+		//	       if($(this).hasClass("sure-y")){
+		//	          $(this).removeClass("sure-y").addClass("sure-n");
+		//	          $(this).val(str);
+		//	       }
+		//	       var timer=setInterval(function(){
+		//	          count--;
+		//	          str="重新发送（"+count+"s)";
+		//            $(".btn-zh").val(str);
+		//	          if(count==0){
+		//	               clearInterval(timer);
+		//	               count=60;
+		//	               $(".btn-zh").removeClass("sure-n").addClass("sure-y");
+		//	               $(".btn-zh").val("获取验证码");
+		//	           }
+		//	       },1000);
+		//	    })
+		//			失败的时候显示
+		//		$(".button-big").on("click", function() {
+		//			$(".show-sorry").css("display", "block");
+		//		})
+		$(".show-sorry").on("click", function() {
+			$(".show-sorry").css("display", "none");
+		})
+	</script>
+</html>

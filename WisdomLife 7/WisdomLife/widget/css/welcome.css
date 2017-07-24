@@ -1,0 +1,13 @@
+
+
+img{
+	width:200px;
+	height:30px;
+	position:fixed;
+	left:50%;
+	margin-left:-100px;
+	top:90%;
+	margin-top:-15px;
+	z-index: 999;
+	display:none;
+}

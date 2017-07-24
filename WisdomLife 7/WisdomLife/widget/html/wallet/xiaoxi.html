@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<title>我的消息</title>
+		<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<link rel="stylesheet" href="../../css/sm-extend.min.css">
+		<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm-extend.min.js' charset='utf-8'></script>
+		<link rel="stylesheet" type="text/css" href="../../css/all.css">
+		<link rel="stylesheet" type="text/css" href="../../css/base.css">
+		<link rel="stylesheet" type="text/css" href="xiaoxi.css">
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
+		<link rel="stylesheet" type="text/css" href="../../css/person/iconfont.css">
+		<style>
+			body {
+				font-family: "微软雅黑";
+			}
+			a {
+				color: #000;
+			}
+			a:active, a:link, a:visited, a:hover {
+				color: #000;
+				text-decoration: none;
+			}
+			.list-block .item-inner:after {
+				content: none;
+			}
+			.bar {
+				z-index: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="page-group">
+			<!-- 你的html代码 -->
+			<div class="page">
+				<header class="bar bar-nav" id="header">
+					<a class="icon pull-left" id="back"><i  class="iconfont icon-xiangzuo1" style="font-size: 28px;color: #999"></i></a>
+					<h1 class="title" id="title">我的消息</h1>
+				</header>
+				<div class="buttons-tab">
+						<a id="a_tab1" href="#tab1" class="tab-link button active">消费</a>
+						<a id="a_tab2"  href="#tab2" class="tab-link button">回购</a>
+						<a id="a_tab3" href="#tab3" class="tab-link button">通知</a>
+					</div>
+				<div class="content" style="background-color: #f0f0f0;">
+					<!--<div class="buttons-tab fixed-tab" data-offset="44">
+						<a id="a_tab1" href="#tab1" class="tab-link button active">消费</a>
+						<a id="a_tab2"  href="#tab2" class="tab-link button">回购</a>
+						<a id="a_tab3" href="#tab3" class="tab-link button">通知</a>
+					</div>-->
+					<div class="content-block">
+					<div class="tabs">
+						<div id="tab1" class="tab active infinite-scroll" data-distance="50">
+							<!--<div class="imgBack" id="back_tab1">
+								<img src="../../image/ring_02.png" alt="" />
+								<p>
+									加载到0条数据
+								</p>
+							</div>-->
+							<ul id="ul_tab1"><!--
+							<li class="all item-content"><div class="mess">消息内容</div><div class="time"><span>2017-2-17</span></div></li>
+							<li class="all item-content"><div class="mess">消息内容</div><div class="time"><span>2017-2-17</span></div></li>
+							<li class="all item-content"><div class="mess">消息内容</div><div class="time"><span>2017-2-17</span></div></li>
+							<li class="all item-content"><div class="mess">消息内容</div><div class="time"><span>2017-2-17</span></div></li>
+							<li class="all item-content"><div class="mess">消息内容</div><div class="time"><span>2017-2-17</span></div></li>
+							<li class="all item-content"><div class="mess">消息内容</div><div class="time"><span>2017-2-17</span></div></li>-->
+							</ul>							
+							<!-- 加载提示符 -->
+							<!--<div class="infinite-scroll-preloader a1">
+								<div class="preloader"></div>
+							</div>-->
+						</div>
+						<div id="tab2" class="tab infinite-scroll">
+							<!--<div class="imgBack" id="back_tab2">
+								<img src="../../image/ring_02.png" alt="" />
+								<p>
+									加载到0条数据
+								</p>
+							</div>-->
+							<ul id="ul_tab2"></ul>
+							<!-- 加载提示符 -->
+							<!--<div class="infinite-scroll-preloader">
+								<div class="preloader"></div>
+							</div>-->
+						</div>
+						<div id="tab3" class="tab infinite-scroll">
+							<!--<div class="imgBack" id="back_tab3">
+								<img src="../../image/ring_02.png" alt="" />
+								<p>
+									加载到0条数据
+								</p>
+							</div>-->
+							<ul id="ul_tab3"></ul>
+							<!-- 加载提示符 -->
+							<!--<div class="infinite-scroll-preloader">
+								<div class="preloader"></div>
+							</div>-->
+						</div>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../script/api.js"></script>
+	<script type="text/javascript" src="../../script/common.js"></script>
+	<script type="text/javascript" src="xiaoxi.js"></script>
+</html>

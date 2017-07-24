@@ -1,0 +1,97 @@
+body {
+	font-family: "微软雅黑";
+	background-color:#efefef;
+	overflow: hidden;
+}
+img {
+	display: block;
+}
+input {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border: none;
+	text-align: left;
+}
+button{
+	border:none;
+	padding:0;
+	margin:0;
+	outline:0;
+}
+
+.clearfix {
+	clear: both;
+}
+
+h1{
+	background: #0eaae3;
+}
+.box{
+	width: 100%;
+	height:500px;
+	margin-top:0.5rem;
+}
+.box .bottom{
+	margin:0 auto;
+	width: 100%;
+	height:44%;
+}
+.box .bottom .user{
+	width: 100%;
+	height:2.2rem;
+	border-bottom:1px solid #efefef;
+	background-color:#ffffff;
+}
+.box .bottom .same{
+	width: 92%;
+	margin:0 auto;
+}
+.box .bottom .user span{
+	 line-height:2.2rem;
+	font-size:15px;
+	float:left;
+}
+.box .bottom .user input{
+    line-height:2.2rem;
+	color:#A1A1A1;
+	font-size:15px;
+	width:6.5rem;
+	
+}
+
+.box .bottom .user select{
+	border-radius:5px;
+	color:#A1A1A1;
+	font-size:15px;
+	float:right;
+	margin-top: 3.1%;
+	height:65%;
+	width:16%;
+	background-color: white;
+	border:none;
+}
+.box .bottom .user .yanzheng{
+	border-radius:5px;
+	font-size:13px;
+	color:#A1A1A1;
+	border:1px solid #0EAAE3;
+	float:right;
+	width:4rem;
+	height: 1.45rem;
+	text-align:center;
+	line-height:1.45rem;
+	margin-top:2.5%;
+}
+.next{
+	width:92%;
+	margin:2.5rem auto;
+}
+.next button{
+	width:100%;
+	height:35px;
+	border-radius:10px;
+	background:#0eaae3;
+	color:#FFFFFF;
+	font-size:20px;
+}

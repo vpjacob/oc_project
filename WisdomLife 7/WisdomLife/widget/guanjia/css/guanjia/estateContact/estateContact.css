@@ -1,0 +1,112 @@
+body {
+	font-family: "微软雅黑";
+	background-color:#efefef;
+	overflow: hidden;
+}
+img {
+	display: block;
+}
+input {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border: none;
+	text-align: right;
+}
+button{
+	border:none;
+	padding:0;
+	margin:0;
+	outline:0;
+}
+
+.clearfix {
+	clear: both;
+}
+
+h1{
+	background: #0eaae3;
+}
+.title{
+	font-size:17px;
+}
+.Personal_box{
+	
+	overflow: hidden;
+}
+.Personal_title{
+	background:#FFFFFF;
+	width:100%;
+	margin:auto;
+	line-height:45px;
+	margin-top:10px;
+	clear:both;
+	border-bottom:solid 1px #efefef;
+}
+
+.list_box .same{
+	width: 100%;
+	height: 4.25rem;
+	border-bottom: 1px solid #DDDDDD;
+	background:#FFFFFF;
+	margin-bottom: 5px;
+}
+.list_box .same .sameBox{
+	width: 100%;
+	height: 4.25rem;
+	margin: 0 auto;
+	
+}
+.list_box .same .sameBox .top{
+	height: 2.5rem;
+	width: 100%;
+	line-height: 2.5rem;
+	border-bottom:1px solid #DDDDDD;
+}
+.list_box .same .sameBox .top span{
+	font-size:0.8rem;
+	color: #282828;
+	margin-left: 4%;
+	font-family: "微软雅黑";
+}
+.list_box .same .sameBox .top span:nth-child(1){
+	width:51%;
+	text-overflow :ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+}
+.list_box .same .sameBox .top span:nth-child(3){
+	float: right;
+	font-size:0.7rem;
+	margin-right: 2%;
+ 	line-height: 0px; 
+ 	margin-top: 1.3rem; 
+	margin-left: 0px;
+}
+.list_box .same .sameBox img{
+	width:0.9rem;
+	height: 1rem;
+	float: right;
+	margin-top: 0.8rem;
+	margin-right: 4%;
+	float: right;
+}
+.list_box .same .sameBox .bottom{
+	height: 1.75rem;
+	width: 100%;
+	line-height: 1.75rem;
+	font-family: "微软雅黑";
+}
+.list_box .same .sameBox .bottom span{
+	font-size:0.6rem;
+	color: #797979;
+	margin-left: 4%;
+	width: 95%;
+	text-overflow :ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+}
+
+
+
+

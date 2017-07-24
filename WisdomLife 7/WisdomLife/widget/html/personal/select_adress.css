@@ -1,0 +1,80 @@
+.text {
+	margin-top: 2.2 rem;
+	margin-left: 0.5 rem;
+}
+.text p {
+	font-size: 12px;
+	color: #999999;
+	line-height: 20px;
+}
+
+ul {
+	margin-bottom: -1px;
+	list-style: none;
+	padding: 0px;
+}
+a:hover {
+	text-decoration: underline;
+	color: #3363a7;
+}
+/** 重置图片元素 **/
+img {
+	border: 0px;
+}
+/** 重置表格元素 **/
+table { border-collapse: collapse; border-spacing: 0; }
+.text{
+	margin-top:2.2rem;
+
+}
+.text p{
+	font-size:12px;
+	color:#999999;
+	line-height:20px;
+	margin-left:0.5rem;
+	margin-top:56.3125px;
+}
+ul{
+	list-style: none;
+	height:50px;
+}
+.ul_adress{
+	height:75%;
+	overflow: scroll;
+}
+li {
+	float: left;
+	width: 100%;
+	background-color: #f7f7f8;
+	margin-left: 0.5 rem;
+	height:50px;
+	border-bottom:1px solid #f0f0f0;
+}
+.ul_adress p {
+	font-size: 16px;
+	float: left;
+	line-height:18px;
+	margin-left:0.5rem;
+}
+
+.manage_adress {
+	width: 90%;
+	height: 40px;
+	border-radius: 5px;
+	background-color: #0FB8F3;
+	margin: 0 auto;
+	position: fixed;
+	bottom: 5%;
+	left: 5%;
+	color: white;
+	text-align: center;
+	font-size: 18px;
+	line-height:40px;
+}
+.bar .icon {
+    position:absolute;
+    z-index: 20;
+    font-size: 1rem;
+    line-height: 1.2rem;
+   padding: 0.25rem 0.0rem;
+}

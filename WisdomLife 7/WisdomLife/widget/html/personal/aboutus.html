@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<title>关于我们</title>
+		<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<link rel="stylesheet" href="../../css/sm-extend.min.css">
+		<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm-extend.min.js' charset='utf-8'></script>
+		<link rel="stylesheet" type="text/css" href="aboutus.css">
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
+    <style>
+        body {
+            font-family: "微软雅黑";
+        }
+
+        a {
+            color: #000;
+        }
+
+        a:active, a:link, a:visited, a:hover {
+            color: #000;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div class="page-group">
+    <div class="page">
+        <header class="bar bar-nav" id="header">
+            <a class="icon pull-left" id="back">
+                <i class="iconfont icon-xiangzuo1" style="font-size: 28px;color: #999"></i>
+            </a>
+            <!--<a class="icon icon-refresh pull-right"></a>-->
+            <h1 class="title">关于我们</h1>
+        </header>
+        <!-- <div class="content" data-distance="50">
+            <div class="center">
+                <img src="../../image/temp/ppkelogo.png"/>
+                <div class="centerP life">智慧生活</div>
+                <div class="centerP">Version 1.2.6</div>
+            </div>
+            <p class="bottom">恒盛大成投资管理（北京）有限公司</p>
+        </div> -->
+        <div style="overflow: auto;height: 100%">
+        <img src="../../image/aboutus.png" alt="" id="aboutus"/>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+	<script type="text/javascript">
+	   apiready = function() {
+		  var header = $api.byId('header');
+		  var aboutus = $api.byId('aboutus');
+		  var icon = $api.dom('.bar .icon');
+		  var title = $api.dom('h1');
+	      if (api.systemType == 'ios') {
+		    var cc = $api.dom('.content');
+		    $api.css(header, 'height:3.2rem');
+		    $api.css(aboutus, 'margin-top:58px;');
+		    $api.css(icon, 'line-height: 3.2rem;');
+		    $api.css(title,'line-height: 4.2rem;');
+	      }
+	      
+	      $("#back").bind("click", function() {
+		   api.closeWin();
+	      }); 
+		
+		};
+	</script>
+</html>

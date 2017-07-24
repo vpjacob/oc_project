@@ -1,0 +1,42 @@
+#power .list-block .item-inner:after{
+	background-color: #F4F3F1;
+}
+#power .content-block-title{
+    margin-top: 15px;
+}
+#power .content-block-title span{
+    font-size: 14px;
+    color: #040404;
+    font-weight: 800;
+}
+#power .item-title span{
+	font-size: 14px;
+	font-weight: 400;
+	color: #0F0F0F;
+}
+#power .page-content{
+	background-color: #F4F3F1;
+	padding-top: 0px;
+}
+#power .list-block{
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+#power .list-block ul:before{
+	background-color：#F4F3F1;
+}
+#power .list-block ul:after{
+	background-color：#F4F3F1;
+}
+#power .item-inner{
+	display: block;
+}
+#power .item-subtitle-hidden{
+	display: none;
+}
+#power .content-block{
+    margin-top: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 0px;
+}

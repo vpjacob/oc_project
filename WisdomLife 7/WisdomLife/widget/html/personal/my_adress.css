@@ -1,0 +1,115 @@
+/*@import "menu.css";*/
+/** 清除内外边距 **/
+body, h1, h2, h3, h4, h5, h6, hr, p,
+blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
+th, td, /* table elements 表格元素 */
+img/* img elements 图片元素 */{
+    border:medium none;
+    margin: 0;
+    padding: 0;
+}
+/** 设置默认字体 **/
+body {
+	margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: '微软雅黑';
+}
+/*h1, h2, h3, h4, h5, h6 { font-size: 100%; }*/
+/*em{font-style:normal;}*/
+/** 重置列表元素 **/
+ul, ol { list-style: none; }
+/** 重置超链接元素 **/
+a { text-decoration: none; color:#000;}
+a:hover { text-decoration: underline; color:#3363a7; }
+/** 重置图片元素 **/
+img{ border:0px;}
+/** 重置表格元素 **/
+table { border-collapse: collapse; border-spacing: 0; }
+.add_adress{
+	width:100%;
+	height:40px;
+	background-color:#f7f7f8;
+	margin-top:2.2rem;
+}
+.add_adress img{
+	float: left;
+	margin-top:10px;
+	padding-left:0.5rem;
+
+}
+.add_adress p{
+	color:#0EAAE3;
+	line-height:45px;
+	font-size:14px;
+	position: absolute;
+    padding-left: 1rem;
+    margin-left: 20px;
+}
+
+.ul_adress,ul{
+	width:100%;	
+}
+li{
+	float:left;
+	width:100%;
+	height:50px;
+	background-color:#f7f7f8;
+	border-bottom: 1px solid #EFEFF4;
+	padding-left:0.5rem;
+}
+.ul_adress p{
+	font-size:16px;
+	line-height:50px;
+	float:left;
+}
+.ul_adress img{
+	position:relative;
+	float:right;
+	top:50%;
+	margin-top:-10px;
+	padding-right:0.5rem;
+}
+.bar .icon {
+    position:absolute;
+    z-index: 20;
+    font-size: 1rem;
+    line-height: 1.2rem;
+   padding: 0.25rem 0.0rem;
+}
+
+.ul_adress{
+  height:85%;
+  overflow: scroll;
+  margin-top:10px;
+}
+.xiangyou1{
+	color:#CCCCCC;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

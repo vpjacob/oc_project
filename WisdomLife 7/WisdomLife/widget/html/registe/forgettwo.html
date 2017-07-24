@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<title>忘记密码（2）</title>
+		<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<link rel="stylesheet" href="../../css/sm-extend.min.css">
+		<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm-extend.min.js' charset='utf-8'></script>
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
+		<link rel="stylesheet" type="text/css" href="../../css/all.css">
+		<style>
+        body {
+            font-family: "微软雅黑";
+            background-color: #fff;
+        }
+
+        a:active, a:link, a:visited, a:hover {
+            text-decoration: none;
+        }
+
+        .row {
+            margin-left: 0;
+            bottom: 58%;
+        }
+
+        .list-block .item-media + .item-inner {
+            margin-left: 0;
+            padding-left: 0.75rem;
+        }
+
+        * {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-appearance: none;
+        }
+
+        .item-content {
+            border-bottom: 1px solid #efefef;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!--<header class="bars bar-nav">-->
+        <!--<a class="icons wrong pull-left" id="closePage"><i class="iconfont icon-close1" style="font-size: 28px;color: #646464;position: fixed;padding: 1rem 0.5rem;"></i><a></a>-->
+        <!--onclick="window.location.href='http://manager.ppke.cn:8080/jsp/mobile/user/chooseSub'"></a>-->
+
+    <!--</header>-->
+    <header class="bar bar-nav" id="header" style="background-color:#ffffff">
+	    <a class="icon  pull-left" id="closePage">
+		  <i class="iconfont icon-close1" style="font-size: 28px;color: #646464;"></i> 
+	    </a>
+	    <h1 class="title">找回密码(2/3)</h1>
+   </header>
+    <div class="content">
+        <h1 class="contentTittle"></h1>
+        <div class="list-block" id="list-block">
+            <div class="item-content" style="padding-left:0px;">
+                <div class="item-inner" style=" margin-left: 0px; padding-right: 0;">
+                    <div class="item-input">
+                        <input type="text" maxlength="4" placeholder="请输入短息验证码" name="vaildCode" id="vaildCode"
+                               style="font-size: 14px; width:80%; display: inline-block;"/>
+                        <!--<div style="display: inline-block; height: 100%;"><img class="again" src="../../images/again.png" width="16" height="16"/></div>-->
+                    </div>
+                    <div class="resend" id="login_do" >
+                        <a href="javascript:void(0)" id="captchabeijing" disabled="false" style="color: rgb(255, 255, 255);">
+                            <input type="button" id="getCaptcha" class="code" value="获取验证码">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <p class="alinePhone">请输入<span>18811446647</span>收到的短息验证码</p>
+        </div>
+        <div>
+            <a id="login"
+               href="#"
+               class="buttong">下一步</a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../script/api.js"></script>
+<script>
+    apiready = function(){
+	var header = $api.byId('header');
+	   if(api.systemType=='ios')
+	   {	  
+	      var cc=$api.dom('.content');
+		  $api.css(header,'margin-top:20px;');
+		  $api.css(cc,'margin-top:20px;');		
+	   }
+	};
+	
+    var HEIGHT = $('body').height();
+    $(window).resize(function() {
+        $('.page').height(HEIGHT);
+    });
+    $(document).on('touchend', ' .buttong', function () {
+        $(this).css({"background-color": "#1fb8f0", "color": "#fff"});
+    });
+    $(document).on('touchstart', '.buttong', function () {
+        $(this).css({"background-color": "#fff", "color": "#1fb8f0", "border": "2px solid #0fb8f3"});
+    });
+    var wait=60;
+    function time(o) {
+        if (wait == 0) {
+            o.removeAttribute("disabled");
+            o.value="获取验证码";
+            o.style.background="#1fb8f0";
+            wait = 60;
+        } else {
+            o.setAttribute("disabled", true);
+            o.value="重新发送(" + wait + ")";
+            o.style.background="#bfbfbf";
+            wait--;
+            setTimeout(function() {
+                        time(o)
+                    },
+                    1000)
+        }
+    }
+    document.getElementById("getCaptcha").onclick=function(){time(this);};
+</script>
+
+</body>
+</html>

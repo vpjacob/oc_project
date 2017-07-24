@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>家庭成员</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/sm.min.css">
+    <link rel="stylesheet" href="../../../css/sm-extend.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../css/iconfont.css" />
+	 <link rel="stylesheet" type="text/css" href="../../../css/guanjia/fangwu/family.css" /> 
+       
+</head>
+<body>
+	<header class="bar bar-nav" style="position: relative;" id="title">
+		<h1 class="title" style="background-color:white">家庭成员</h1>
+		<a onclick="goBack()" class="iconfont icon-xiangzuo1 pull-left" style="font-size:20px;color:#0EAAE3;position:absolute;top:7px;"></a>	
+		<a  class="iconfont icon-add " style="font-size:20px;color:#0EAAE3;position:absolute;top:7px; right: 15px;" id="addPersonal"></a>	
+	</header>
+	<div class="tankuang_box">
+		<div class="tankuang">
+			<img src="" alt="" id="qr_img"/>
+			<span style="text-align: center;width: 100%">扫一扫,添加家庭成员</span>
+		</div>
+	</div>
+	<div class="black_box"></div>
+	
+	<div class="Personal_box">
+		
+		<div class="clearfix"></div>
+		<div class="Personal_centent">
+			<div class="list_box">
+				<div class="same">
+					<div class="sameBox" id="sameBox">
+					<hr style="width: 100%;border:1px solid #ECECEC;position: absolute;top:55px">
+						<div class="top">
+							<div class="topLeft">
+								<div class="topImg">
+									<img src="../../../image/familyLogo.png" alt="" id="headImage"/>
+								</div>
+							</div>
+							<div class="topRight">
+								<div class="topRightTop">
+									<span id="userName"></span>
+									<img src="../../../image/reny.png"/>
+									<span class="readyRen">已认证</span>
+									<img src="../../../../image/familyEwr.jpg" class="ewm" id="ewm"></img>
+								</div>
+								
+								<div class="topRightBottom">
+									<span id="address"></span>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+				<div style="width: 100%;height: 10px;background: #efefef"></div>
+				<div id='showList'>
+					<!--<div class="otherSame">
+						<div class="topLeft">
+							<div class="topImg">
+								<img src="../../../image/familyLogo.png"/>
+							</div>
+						</div>
+						<span>王小峰</span>
+						<span style="background-color:#FF8704;">父亲</span>
+						<span>13452967845</span>
+						 <img src="../../../image/del.png"/> 
+					</div>-->
+				</div>
+			</div>
+			
+		</div>
+		
+	
+		<!--<div class="clearfix"></div>-->				
+	
+</body>
+<script type="text/javascript" src="../../../../script/api.js"></script>
+<script type="text/javascript" src="../../../../script/common.js"></script>
+<script type="text/javascript" src="../../../script/jquery.js"></script>
+<script type="text/javascript" src="../../../../script/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="../../../script/guanjia/fangwu/family.js"></script>
+<script>
+	function refresh() {
+		location.reload();
+	}
+</script>
+</html>

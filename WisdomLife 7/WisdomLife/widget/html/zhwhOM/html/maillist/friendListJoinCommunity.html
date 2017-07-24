@@ -1,0 +1,38 @@
+<!-- - [Page 1] ---------------------------------------- -->
+<div data-page="friendListJoinCommunity" class="page navbar-fixed no-toolbar">
+	<div class="navbar" style="background-color: white;">
+	    <div class="navbar-inner">
+	        <div class="left">
+	           <a href="#" class="link back">
+					<i class="icon icon-angle-left" style="color: #15191C;"></i> 
+						<span style="color: #15191C;">返回</span>
+				</a>
+	        </div>
+	        <div class="center"><span style="color: #15191C;">好友</span></div>
+	        <div class="right">
+	            <a href="#" class="item-link community-6">
+	            		<span style="color: #15191C;">选取</span>
+	            </a>
+	        </div>
+	    </div>
+	</div> 
+	<!-- Search bar -->
+	  <form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init">
+	    <div class="searchbar-input">
+	      <input type="search" placeholder="搜索"><a href="#" class="searchbar-clear"></a>
+	    </div><a href="#" class="searchbar-cancel">取消</a>
+	  </form>
+	<!-- Search bar overlay -->
+  <div class="searchbar-overlay"></div>
+ 
+  <div class="page-content contacts-content">
+    <!-- This block will be displayed if nothing found -->
+    <div class="content-block searchbar-not-found">
+      <div class="content-block-inner">Nothing found</div>
+    </div>
+    <div class="list-block media-list contacts-block list-block-search searchbar-found">
+    		<ul id="community-friends-list">
+		</ul>
+    </div>
+   </div>
+</div>

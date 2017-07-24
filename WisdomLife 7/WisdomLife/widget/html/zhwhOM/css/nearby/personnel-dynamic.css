@@ -1,0 +1,215 @@
+#personnel-dynamic .tab-a {
+	border: 0;
+}
+/*女*/
+#personnel-dynamic .sex-bgc2 {
+	background-color: #FA94AA;
+	border-radius: 2px;
+}
+
+/*男*/
+#personnel-dynamic .sex-bgc1 {
+	background-color: #4AAEF3;
+	border-radius: 2px;
+}
+
+#personnel-dynamic .sex {
+	width: 24px;
+	height: 12px;
+	margin-left: 4px;
+	margin-top: 4px;
+}
+
+#personnel-dynamic .sex span {
+	float: left;
+	width: 50%;
+	height: 10px;
+	color: white;
+	text-align: center;
+	font-size: 10px;
+	position: relative;
+}
+
+#personnel-dynamic .img1 {
+	float: left;
+	width: 30%;
+	height: ;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	margin-right: 2px;
+	margin-left: 2px;
+}
+
+#personnel-dynamic .vip {
+	width: 36px;
+	float: left;
+	height: 12px;
+	margin-left: 2px;
+	margin-top: 2px;
+}
+
+#personnel-dynamic .img2 {
+	width: 100%;
+	padding-left: 2px;
+	height: 100%;
+	margin-bottom: 5px;
+	margin-top: 2px;
+	z-index: 1;
+}
+
+#personnel-dynamic .list-block.media-list .item-link .item-title-row, #personnel-dynamic .list-block li.media-item .item-link .item-title-row {
+	background-image: url(../../image/nearby/ic_common_arrow_bottom.png);
+	background-size: 15px 8px;
+}
+
+#personnel-dynamic .title {
+	width: 100%;
+	float: left;
+}
+
+#personnel-dynamic .title-name {
+	width: auto;
+	float: left;
+	height: 100%;
+	margin-left: 2px;
+	position: relative;
+}
+
+#personnel-dynamic .titlespan {
+	font-size: 16px;
+	font-weight: 300;
+	display: block;
+}
+
+#personnel-dynamic .facebook-dateafter {
+	font-size: 12px;
+	margin-bottom: 30px;
+	color: #BBBBBB;
+	width: 100px;
+	text-align: right;
+}
+
+#personnel-dynamic .facebook-avatar img {
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+}
+
+#personnel-dynamic .sectitle {
+	width: 100%;
+	margin-top: 1px;
+}
+
+#personnel-dynamic .sectitle span {
+	width: 100%;
+	font-size: 12px;
+	color: #AEAEAE;
+	display: block;
+	margin-left: 2px;
+}
+
+/*#personnel-dynamic,#neighbours-dynamic .afterbtn{
+ position: relative;
+ width: 12px;
+ height: 6px;
+ margin-bottom: 30px;
+ }*/
+
+#personnel-dynamic .facebook-name {
+	position: relative;
+	width: 240px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+
+#personnel-dynamic .card {
+	height: 100%;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	box-shadow:none;
+}
+
+#personnel-dynamic .card-header {
+	margin-top: 0px;
+	height: 20%;
+	padding-bottom: 0px;
+	padding-left: 2px;
+	padding-right: 5px;
+}
+
+#personnel-dynamic .card-header-frist {
+	margin-top: 50px;
+}
+
+#personnel-dynamic .card-header:after {
+	width: 83%;
+	left: 17%;
+}
+
+#personnel-dynamic .card-content {
+	height: 70%;
+}
+
+#personnel-dynamic .card-footer {
+	height: 10%;
+	padding-top: 0px;
+}
+
+#personnel-dynamic .card-content-inner {
+	margin-left: 13%;
+	padding-top: 5px;
+	padding-bottom: 0px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+#personnel-dynamic .card-content-inner img {
+	/*width: 30%;
+	 height: 90%;*/
+}
+
+#personnel-dynamic .card-content-inner p {
+	margin-bottom: 0px;
+	color: #7C7C7C;
+	font-size: 14px;
+	font-weight: 400;
+}
+
+#personnel-dynamic .card-footer span {
+	font-size: 12px;
+	color: #C4C4C4;
+}
+
+#personnel-dynamic .card-footer:before {
+	height: 0px;
+}
+
+#personnel-dynamic .card-footer-title {
+	margin-left: 14%;
+}
+
+#personnel-dynamic .icon-angle-down {
+	color: #BBBBBB;
+	font-size: 14px;
+}
+#personnel-dynamic div[class*="key-col-"] {
+	background: #0EAAE3;
+	text-align: center;
+	color: white;
+	padding: 5px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+
+/*#personnel-dynamic .infinite-scroll-preloader {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+#personnel-dynamic .infinite-scroll-preloader .preloader {
+	width: 25px;
+	height: 25px;
+}*/

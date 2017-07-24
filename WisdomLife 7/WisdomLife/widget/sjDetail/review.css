@@ -1,0 +1,142 @@
+/*@import "menu.css";*/
+/** 清除内外边距 **/
+body, h1, h2, h3, h4, h5, h6, hr, p,
+blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
+th, td, /* table elements 表格元素 */
+img/* img elements 图片元素 */{
+    border:medium none;
+    margin: 0;
+    padding: 0;
+}
+/** 设置默认字体 **/
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: '微软雅黑';
+}
+/*h1, h2, h3, h4, h5, h6 { font-size: 100%; }*/
+/*em{font-style:normal;}*/
+/** 重置列表元素 **/
+ul, ol { list-style: none; }
+/** 重置超链接元素 **/
+a { text-decoration: none; color:#000;}
+a:hover { text-decoration: underline; color:#3363a7; }
+/** 重置图片元素 **/
+img{ border:0px;}
+/** 重置表格元素 **/
+table { border-collapse: collapse; border-spacing: 0; }
+.clearfix{
+	clear:both;
+}
+.top{
+	margin-top:45px;
+}
+.top_first{
+	width:96%;
+	height: 50px;
+	margin: 0 auto;
+	line-height:50px;
+}
+/* .top_first img{
+	position:relative;
+	top:5px;
+	margin-left:10px;
+} */
+
+.top_sed{
+	width: 100%;
+	height: 200px;
+	border-top:1px solid #DDDDDD;
+	border-bottom:1px solid #DDDDDD;
+	
+}
+
+.top_sed textarea{
+	resize:none;
+	width:96%;
+	height: 150px;
+	margin-left:2%;
+}
+
+.top_sed_bot{
+	width: 100%;
+	height: 40px;
+}
+
+.top_sed_bot span{
+	float: right;
+	margin-right: 2%;
+	color: #BABABA
+}
+
+.bottom{
+	width: 100%;
+	border-top:1px solid #DDDDDD;
+	margin-top: 15px;
+	height: 100px;
+	border-bottom:1px solid #DDDDDD;
+}
+
+.bottomFirst{
+	width:96%; 
+	margin: 10px auto;
+	
+}
+.bottomFirst img{
+	width:80px;
+	height: 80px;
+	float: left;
+}
+.bottomFirst span{
+	display: block;
+	float: left;
+	margin-top: 9px;
+	width: 100%;
+}
+.bottomFirst span:nth-child(2){
+	font-size: 12px;
+	color: #BABABA;
+}
+.bottomFirst .bot_left{
+	width:180px;
+	height: 80px;
+	float: left;
+	margin-left: 8px;
+}
+
+.top_first li.on{background:url('img/stares.jpg') no-repeat}
+.top_first li{
+	position:relative;
+	top:16px;
+	margin-left:10px;
+	background:url('img/gstars.png') no-repeat;
+	float:left;width:24px;cursor:pointer;text-indent:-9999px;
+}
+
+.others{
+	width: 25%;
+	float: left;
+	margin-top:10px;
+}
+.bottomFirst .redIcon{
+	width: 16px;
+	height: 16px;
+	position: relative;
+	left: -8px;
+	top:-8px;
+}
+.others .show{
+	width: 60px;
+	height: 60px;
+}
+
+
+
+
+
+
+

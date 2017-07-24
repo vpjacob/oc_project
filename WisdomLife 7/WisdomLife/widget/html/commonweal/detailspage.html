@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<title>详情页</title>
+		<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<link rel="stylesheet" href="../../css/sm-extend.min.css">
+		<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm-extend.min.js' charset='utf-8'></script>
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
+		<link rel="stylesheet" type="text/css" href="detailspage.css">
+		<style>
+			body {
+				font-family: "微软雅黑";
+			}
+			a {
+				color: #000;
+			}
+			a:active, a:link, a:visited, a:hover {
+				color: #000;
+				text-decoration: none;
+			}
+			.swiper-container {
+				width: 100%;
+				height: auto;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="page-group">
+			<div class="page">
+				<header class="bar bar-nav" id="header">
+					<a class="icon pull-left" onclick="goback()"> <i class="iconfont icon-xiangzuo1" style="font-size: 28px;color: #999"></i> </a>
+					<!--<a class="icon icon-refresh pull-right"></a>-->
+					<h1 class="title">详情页</h1>
+				</header>
+			<div class="content">
+				<div class="detailstop">
+					<div class="businesshead">
+						<div class="headpic"><img id="headpic" src="" alt="" />
+						</div>
+						<div class="headname">
+							<p id="companyname">
+								
+							</p>
+							<ul>
+								<li class="iconfont icon-favorfill"></li>
+								<li class="iconfont icon-favorfill"></li>
+								<li class="iconfont icon-favorfill"></li>
+							</ul>
+						</div>
+					</div>
+					<div class="businessbottom">
+						<div class="adress">
+							<i class="iconfont icon-dizhi"></i>
+							<span id="address"></span>
+							<div class="gohere" id="gohere">
+								<i class="iconfont icon-plane"></i>
+								去这里
+							</div>
+						</div>
+						<div class="tel" id="">
+							<i class="iconfont icon-shouji"></i>
+							<span id="tel"></span>
+						</div>
+					</div>
+				</div>
+				<div class="detailsbottom">
+					<div class="businessshow">
+						<i class="iconfont icon-danlieliebiao"></i>
+						&nbsp;&nbsp;商品展示
+					</div>
+					<!--<div class="businesspic">
+						<div class="businesspic2">
+							<ul>
+								<li><img src="../../image/temp/play2.png" alt="" />
+								</li>
+							</ul>
+						</div>
+					</div>-->
+					<div class="swiper-container businesspic">
+						<div class="swiper-wrapper">
+							<!--<div class="swiper-slide">
+								<img src="../../image/temp/play2.png" alt="" />
+							</div>
+							<div class="swiper-slide">
+								<img src="../../image/temp/play2.png" alt="" />
+							</div>
+							<div class="swiper-slide">
+								<img src="../../image/temp/play2.png" alt="" />
+							</div>
+							<div class="swiper-slide">
+								<img src="../../image/temp/play2.png" alt="" />
+							</div>
+							<div class="swiper-slide">
+								<img src="../../image/temp/play2.png" alt="" />
+							</div>
+							<div class="swiper-slide">
+								<img src="../../image/temp/play2.png" alt="" />
+							</div>
+							<div class="swiper-slide">
+								<img src="../../image/temp/play2.png" alt="" />
+							</div>-->
+						</div>
+					</div>
+					<div class="detailstitle">
+						<i class="iconfont icon-shoplight"></i>
+						&nbsp;&nbsp;商家详情
+					</div>
+					<div class="time">
+						<p class="time1">
+							营业时间
+						</p>
+						<p class="time2" id="time">
+							
+						</p>
+					</div>
+					<div class="time">
+						<p class="time1">
+							主营业务
+						</p>
+						<p class="time2" id="mainbusiness">
+						</p>
+					</div>
+					<div class="time">
+						<p class="time1">
+							简介
+						</p>
+						<p class="time2"  id="summary">
+						</p>
+					</div>
+					<div class="time">
+						<p class="time1">
+							商家类型
+						</p>
+						<p class="time2" id="companytype">
+							零售商
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="zzc">
+				    <div class="center"><img src="" class="dt" style="width: 100%; height: auto;"/>
+				    </div>
+			</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../script/api.js"></script>
+	<script type="text/javascript" src="../../script/swiper-3.3.1.jquery.min.js"></script>
+	<script type="text/javascript" src="../../script/common.js"></script>
+	<script type="text/javascript" src="detailspage.js"></script>
+	<script type="text/javascript">
+//		var swiper = new Swiper('.swiper-container', {
+//			slidesPerView : 3,
+//			spaceBetween : 10
+//		});
+	</script>
+</html>

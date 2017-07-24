@@ -1,0 +1,268 @@
+/*@import "menu.css";*/
+/** Çå³ýÄÚÍâ±ß¾à **/
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements ½á¹¹ÔªËØ */
+dl, dt, dd, ul, ol, li, /* list elements ÁÐ±íÔªËØ */
+pre, /* text formatting elements ÎÄ±¾¸ñÊ½ÔªËØ */
+form, fieldset, legend, button, input, textarea, /* form elements ±íµ¥ÔªËØ */
+th, td, /* table elements ±í¸ñÔªËØ */
+img/* img elements Í¼Æ¬ÔªËØ */ {
+	border: medium none;
+	margin: 0;
+	padding: 0;
+}
+/** ÉèÖÃÄ¬ÈÏ×ÖÌå **/
+body, input, p {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	font-family: 'Microsoft YaHei';
+}
+/*h1, h2, h3, h4, h5, h6 { font-size: 100%; }*/
+/*em{font-style:normal;}*/
+/** ÖØÖÃÁÐ±íÔªËØ **/
+ul, ol {
+	list-style: none;
+}
+/** ÖØÖÃ³¬Á´½ÓÔªËØ **/
+a {
+	text-decoration: none;
+	color: #000;
+}
+a:hover {
+	text-decoration: underline;
+	color: #3363a7;
+}
+/** ÖØÖÃÍ¼Æ¬ÔªËØ **/
+img {
+	border: 0px;
+}
+/** ÖØÖÃ±í¸ñÔªËØ **/
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.item-inner label {
+	width: 32%;
+}
+label {
+	font-size: 14px;
+	color: #000;
+}
+body {
+	font-size: 0.65 rem;
+	font-family: '微软雅黑';
+	background-color: #f0f1f2;
+}
+.content {
+	background-color: #fff;
+}
+.title {
+	/*box-shadow: 0px 2px 4px #a3a1a3;*/
+}
+.page, .page-group {
+	background-color: #f0f0f0;
+}
+.code {
+	border-radius: 25px;
+	padding: 0 10px;
+	background-color: #1fb8f0;
+	height: 30px;
+	width: 100%;
+	font-size: 12px;
+}
+.doCode {
+	border-radius: 25px;
+	padding: 0 10px;
+	background-color: #bfbfbf;
+	height: 30px;
+	width: 100%;
+	font-size: 12px;
+}
+#phone, #applicant {
+	font-size: 14px;
+	height: 30px;
+	border: 1px solid #cfcfcf;
+}
+#phone:focus, #applicant:focus {
+	border: 1px solid #1fb8f0;
+}
+/*.list-block ul{*/
+/*padding: 0 10px;*/
+/*}*/
+.alinePhone {
+	padding: 18px 0;
+	font-size: 12px;
+	color: #bebebe;
+}
+.bars {
+	z-index: 10;
+	height: 2.2 rem;
+	padding-right: .5rem;
+	padding-left: .5rem;
+	background-color: #fff;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+.bars .icons {
+	position: fixed;
+	z-index: 20;
+	padding: 2rem .1rem;
+	font-size: 1rem;
+	line-height: 1.2 rem;
+}
+.again {
+	display: inline-block;
+	margin-bottom: -2px;
+}
+.forget {
+	position: absolute;
+	top: 2rem;
+	right: 10px;
+	color: #646464;
+	font-size: 16px;
+}
+.forgets {
+	float: right;
+	top: 0.8 rem;
+	right: 10px;
+	padding: .6rem .1rem;
+	color: #7c7c7c;
+}
+/*.wrong{
+ display:block;
+ background: url("../image/wrong.png") no-repeat center;
+ width: 20px;
+ height:20px;
+ }*/
+
+.row {
+	position: absolute;
+	bottom: 45px;
+	left: 0;
+	width: 100%;
+}
+.contentTittle {
+	font-size: 1rem;
+	text-align: center;
+	letter-spacing: 2px;
+	padding: 30px 0 10px 0;
+}
+.buttong {
+	color: #fff;
+	background-color: #1fb8f0;
+	text-decoration: none;
+	text-align: center;
+	display: block;
+	border-radius: 25px;
+	line-height: 1.7 rem;
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
+	padding: .2rem .5rem;
+	margin: 0;
+	height: 1.9 rem;
+	white-space: nowrap;
+	position: relative;
+	text-overflow: ellipsis;
+	font-size: .8rem;
+	font-family: "微软雅黑";
+	cursor: pointer;
+	border: 2px solid #0fb8f3;
+	letter-spacing: 1px;
+}
+
+.buttonBlur {
+	color: #fff;
+	background-color: #bfbfbf;
+	text-decoration: none;
+	text-align: center;
+	display: block;
+	border-radius: 25px;
+	line-height: 1.7 rem;
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
+	padding: 0 .5rem;
+	margin: 0 1rem;
+	height: 1.9 rem;
+	white-space: nowrap;
+	position: relative;
+	text-overflow: ellipsis;
+	font-size: .8rem;
+	font-family: "微软雅黑";
+	cursor: pointer;
+	border: 2px solid #bfbfbf;
+	letter-spacing: 1px;
+}
+
+#label-switch input[type=checkbox]:checked+ .checkbox {
+	background: #1fb8f0;
+}
+#item-contentnone {
+	border-bottom: none;
+}
+#bglist {
+	background-color: #EFEFF4;
+}
+.title {
+	/*box-shadow: 0px 2px 4px #a3a1a3;*/
+}
+#list-block {
+	margin: 0.75 rem 1rem;
+	font-size: 16px;
+}
+.item-border {
+	background-color: #EFEFF4;
+}
+.inner a:hover {
+	background-color: red;
+	-webkit-tap-highlight-color: rgba(255,0,0,0);
+}
+
+.buttons {
+	background-color: #1fb8f0;
+	color: #fff;
+	text-decoration: none;
+	text-align: center;
+	display: block;
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
+	padding: 0 .5rem;
+	margin: 0;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-family: inherit;
+	cursor: pointer;
+	height: 40px;
+	line-height: 40px;
+	font-size: 16px;
+	border-radius: 25px;
+}
+
+.row {
+	margin-left: 0;
+	bottom: 56%;
+}
+.col {
+	padding: 0 10px;
+}
+.tipsStyle {
+	background: url("/mobile/images/tips.png") no-repeat left center;
+	padding-left: 20px;
+}
+
+.icon-xiangyou1 {
+	color: #cccccc;
+}
+
+.bar{
+  background-color:#ffffff;
+}
+

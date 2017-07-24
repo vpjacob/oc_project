@@ -1,0 +1,231 @@
+/*@import "menu.css";*/
+/** 清除内外边距 **/
+body, h1, h2, h3, h4, h5, h6, hr, p,
+blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
+th, td, /* table elements 表格元素 */
+img/* img elements 图片元素 */{
+    border:medium none;
+    margin: 0;
+    padding: 0;
+}
+/** 设置默认字体 **/
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: '微软雅黑';
+}
+/*h1, h2, h3, h4, h5, h6 { font-size: 100%; }*/
+/*em{font-style:normal;}*/
+/** 重置列表元素 **/
+
+ul, ol {
+	list-style: none;
+}
+/** 重置超链接元素 **/
+a {
+	text-decoration: none;
+	color: #000;
+}
+a:hover {
+	text-decoration: underline;
+	color: #3363a7;
+}
+/** 重置图片元素 **/
+img {
+	border: 0px;
+}
+/** 重置表格元素 **/
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.firstInfo{
+	width:100%;
+	height: 5.2rem;
+	border-top:1px solid #ddd;
+	border-bottom:1px solid #ddd;
+	background: #fff;
+}
+.businessInfo{
+	width:96%;
+	height: 2.2rem;
+	float:right;
+	border-bottom:1px solid #ddd;
+	background: #fff;
+}
+.businessInfo span{
+	font-size: 0.75rem;
+	color: #4d4d4d;
+	line-height: 2.2rem;
+}
+.businessShow{
+	width:96%;
+	height: 3rem;
+	float:right;
+}
+.businessShow img{
+	width:1.4rem;
+	height: 1.4rem;
+	margin-top:0.8rem;
+}
+.businessShow span{
+	font-size: 0.7rem;
+	color: #282828;
+	float: right;
+	line-height: 3rem;
+	margin-right: 4%;	
+}
+.businessShow span:nth-child(3){
+	position:absolute;
+	left: 28%;
+}
+.businessShow span:nth-child(2){
+	
+}
+.choose{
+	width:100%;
+	height: 4.4rem;
+	border-top:1px solid #ddd;
+	border-bottom:1px solid #ddd;
+	background: #fff;
+	margin-top:0.75rem;
+}
+.choose .chooseColor{
+	width:96%;
+	height: 2.2rem;
+	border-bottom:1px solid #ddd;
+	float: right;
+}
+.choose .chooseColor select{
+	float: right;
+	border:none;
+	margin-top: 0.6rem;
+	margin-right: 2%;
+	font-size: 0.75rem;
+	background: #fff;
+}
+.choose  span{
+	font-size: 0.75rem;
+	color: #4d4d4d;
+	line-height: 2.2rem;
+}
+.choose .chooseAmount{
+	width:96%;
+	height: 2.2rem;
+	float: right;
+}
+.choose .chooseAmount .chooseAmountChange{
+	width:3.75rem;
+	height: 1rem;
+ 	border:1px solid #ddd; 
+	float:right;
+	margin-top: 0.6rem;
+	margin-right: 4%;
+}
+ .choose .chooseAmount .chooseAmountChange div{
+	width:33.33%;
+	height: 100%;
+	font-size:0.7rem;
+ 	float: left;
+	text-align: center;
+	background: #E5E5E5;
+	line-height: 0.9rem;
+} 
+ .choose .chooseAmount .chooseAmountChange div:nth-child(2){
+ 	background: #fff;
+ }
+ 
+.businessPay{
+	height: 2.2rem;
+	width:100%;
+	border:1px solid #ddd;
+	background: #fff;
+	margin-top: 0.75rem;
+}
+.businessPay img{
+	width:1.25rem;
+	height: 1.25rem;
+	margin-left: 4%;
+	margin-top: 0.475rem;
+}
+.buyInfo{
+	width:100%;
+	height: 9.6rem;
+	margin-top:0.75rem;
+	border-top:1px solid #ddd;
+	border-bottom:1px solid #ddd;
+	background: #fff;
+}
+.buyInfo .buySame{
+	width:96%;
+	height: 2.2rem;
+	float: right;
+	border-bottom:1px solid #ddd;
+}
+.buyInfo .buySame:nth-child(3){
+	border-bottom:none;
+}
+.buyInfo .buySame span{
+	font-size: 0.75rem;
+    color: #4d4d4d;
+    line-height: 2.2rem;
+}
+.buyInfo .buySame input{
+	margin-left: 6%;
+}
+.buyInfo .buySame .buyTel{
+	margin-left: 10%;
+}
+.buyInfo .buySame textarea{
+	resize: none;
+	float: right;
+	height: 4.5rem;
+	margin-right: 4%;
+	margin-top:0.5rem;
+	width: 68%;
+}
+footer{
+	width:100%;
+	height: 2.7rem;
+	background: #FFF;
+	position: fixed;
+	bottom: 0;
+}
+footer span{
+	font-family: '微软雅黑';
+	font-weight: 700;
+	color: #FF4E00;
+	font-size: 0.9rem;
+}
+footer span:nth-child(1){
+	margin-left: 4%;
+	line-height: 2.7rem;
+}
+footer span:nth-child(3){
+	float: right;
+	height: 2rem;
+	width: 6.3rem;
+	color: #fff;
+	background: #FF4E00;
+	text-align: center;
+	margin-top: 0.35rem;
+	margin-right: 4%;
+	line-height: 2rem;
+	border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+

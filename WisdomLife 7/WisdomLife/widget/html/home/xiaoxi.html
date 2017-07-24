@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<title>我的消息</title>
+		<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<link rel="stylesheet" href="../../css/sm-extend.min.css">
+		<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm-extend.min.js' charset='utf-8'></script>
+		<link rel="stylesheet" type="text/css" href="../../css/all.css">
+		<link rel="stylesheet" type="text/css" href="../../css/base.css">
+		<link rel="stylesheet" type="text/css" href="xiaoxi.css">
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
+		<style>
+			body {
+				font-family: "微软雅黑";
+			}
+			a {
+				color: #000;
+			}
+			a:active, a:link, a:visited, a:hover {
+				color: #000;
+				text-decoration: none;
+			}
+			.list-block {
+				margin: 0rem 0;
+			}
+			.bar {
+				z-index: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="page-group">
+			<div class="page">
+				<header class="bar bar-nav" id="header">
+					<a class="icon pull-left" onclick="goback();"> <i class="iconfont icon-cuowu" style="font-size: 22px;"></i> </a>
+					<h1 class="title">我的消息</h1>
+					<!-- <a class="top-bar-right" onclick="shezhi();"><i class="iconfont icon-shezhi" style="font-size: 24px;color:#000;"></i></a> -->
+				</header>
+				<div class="content" style="background-color: #f0f0f0;">
+					<div class="list-block" id="list-block">
+						<ul>
+							<li class="item-content" style="border-bottom: 2px solid #f0f0f0;" onclick="xiaoxi();">
+								<div class="item-media">
+									<i class="icon icon-f7"></i>
+								</div>
+								<div class="item-inner  icon iconfont icon-wodefankui" style="font-size: 18px;">
+									<div class="item-title" style="width: 100%" id="commmonweal">
+										系统消息
+									</div>
+									<i class="icon iconfont icon-xiangyou1" style="font-size: 21px;color: #cccccc"></i>
+								</div>
+							</li>
+							<!--<li class="item-content" style="border-bottom: 2px solid #f0f0f0;" onclick="xiaoxi();">
+								<div class="item-media">
+									<i class="icon icon-f7"></i>
+								</div>
+								<div class="item-inner  icon iconfont icon-pinglun" style="font-size: 18px;">
+									<div class="item-title" style="width: 100%" id="commmonweal">
+										设备消息
+									</div>
+									<i class="icon iconfont icon-xiangyou1" style="font-size: 21px;color: #cccccc"></i>
+								</div>
+							</li>
+							<li class="item-content" style="border-bottom: 2px solid #f0f0f0;" onclick="xiaoxi();">
+								<div class="item-media">
+									<i class="icon icon-f7"></i>
+								</div>
+								<div class="item-inner  icon iconfont icon-bianji" style="font-size: 18px;">
+									<div class="item-title" style="width: 100%" id="commmonweal">
+										新闻消息
+									</div>
+									<i class="icon iconfont icon-xiangyou1" style="font-size: 21px;color: #cccccc"></i>
+								</div>
+							</li>-->
+							<!--<li class="item-content" style="border-bottom: 2px solid #f0f0f0;">
+								<div class="item-media">
+									<i class="icon icon-f7"></i>
+								</div>
+								<div class="item-inner  icon iconfont icon-message" style="font-size: 18px;">
+									<div class="item-title" style="width: 100%" id="commmonweal">
+										邻里
+									</div>
+									<i class="icon iconfont icon-xiangyou1" style="font-size: 21px;color: #cccccc"></i>
+								</div>
+							</li>-->
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script></script>
+	</body>
+	<script type="text/javascript" src="../../script/api.js"></script>
+	<script type="text/javascript" src="../../script/common.js"></script>
+	<script type="text/javascript" src="xiaoxi.js"></script>
+	<script type='text/javascript' src='../../script/sm-extend.min.js'></script>
+</html>

@@ -1,0 +1,63 @@
+body {
+	font-family: "微软雅黑";
+}
+img {
+	display: block;
+	
+}
+input {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border: none;
+}
+.clearfix {
+	clear: both;
+}
+.gonggao_box{
+	margin-top:10px;
+	background:#EEEEEE;
+}
+.gonggao_list{
+	width:100%;
+	margin:auto;
+}
+.gonggao{
+	padding:10px 0 10px 14px;
+	margin-top:10px;
+	background:#FFFFFF;
+}
+.gonggao div{
+	line-height:24px;
+}
+ .gonggao div:nth-child(2){
+ 	border-bottom:solid 1px #c7c7c7;"
+ }
+.gonggao span{
+	font-size:15px;
+	color:#0d0d0d;
+}
+.gonggao div:nth-child(1) span:nth-child(1){
+	 border-radius:9px;
+	 width:48px;
+	 height:24px;
+	 text-align:center;
+	 color:#FFFFFF;
+	 margin-right:18px;
+}
+.gonggao div:nth-child(1) span:nth-child(2){
+	font-weight:bold;
+}
+.gonggao div:nth-child(2) span{
+	color:#a1a1a1;
+}
+.gonggao div:nth-child(3) span:nth-child(1){
+	color:#a1a1a1;
+	margin-top:10px;
+}
+.gonggao div:nth-child(3) span:nth-child(2){
+	float:right;
+	margin-right:4%;
+	color:#a1a1a1;
+	margin-top:10px;
+}

@@ -1,0 +1,1046 @@
+.theme-green .tabbar a.active,
+.tabbar.theme-green a.active,
+.theme-green .tabbar a.active i,
+.tabbar.theme-green a.active i,
+.theme-green a,
+.theme-green .item-link.list-button {
+	color: rgb(14, 170, 227);
+}
+
+.theme-green .navbar,
+.color-green.button:not(.button-fill).active,
+.color-green.buttons-row .button.active,
+.theme-green .button:not(.button-fill).active {
+	background-color: rgb(14, 170, 227);
+}
+
+.color-green.button:not(.button-fill),
+.color-green.buttons-row .button,
+.theme-green .button:not(.button-fill) {
+	border-color: rgb(14, 170, 227);
+}
+
+.theme-green label.label-checkbox input[type="checkbox"]:checked + .item-media i.icon-form-checkbox,
+.theme-green label.label-checkbox input[type="radio"]:checked + .item-media i.icon-form-checkbox {
+  background-color: #0EAAE3;
+}
+
+.swiper-pagination.color-green .swiper-pagination-bullet-active,
+.theme-green .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: #0EAAE3;
+}
+
+.imageList {
+	width: 20%;
+	height: 60px;
+	float: left;
+	padding-left: 2px;
+	padding-right: 2px;
+	border-radius: 10px;
+}
+
+.navbar span {
+	color: white
+}
+
+.theme-green .button:not(.button-fill).active {
+	background-color: rgb(14, 170, 227);
+	color: #fff;
+}
+
+.theme-green .button:not(.button-fill) {
+	border-color: rgb(14, 170, 227);
+}
+
+.l_float {
+	float: left;
+}
+
+.r_float {
+	float: right;
+}
+
+#mailist .list-block .media-list .item-link .item-title-row,
+#mailist .list-block li.media-item .item-link .item-title-row{
+	background-image: none;
+	padding-right: 0px;
+}
+#tabmessage1 .item-subtitle .sex {
+	width: 13%;
+	height: 15px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#tabmessage1 .sex span {
+	float: left;
+	width: 50%;
+	height: 15px;
+	color: white;
+	text-align: center;
+	font-size: 10px;
+	margin-top: 2px;
+}
+
+#tabmessage1 .img1 {
+	float: left;
+	width: 30%;
+	height: ;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	margin-right: 2px;
+	margin-left: 2px;
+}
+
+#tabmessage1 .img2 {
+	width: 60%;
+	padding-left: 2px;
+	height: 100%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#tabmessage1 .list-block .item-content {
+	padding-left: 5px;
+}
+
+#tabmessage1 .list-block .item-text {
+	height: 100%;
+}
+
+#tabmessage1 .item-after span {
+	font-size: 8px;
+	margin-top: 5px;
+	color: #BBBBBB;
+}
+
+#tabmessage1 .item-media img {
+	border-radius: 5px;
+}
+
+#tabmessage1 .item-title span {
+	float: left;
+	font-size: 10px;
+	font-weight: 200;
+}
+
+#tabmessage1 .item-text span {
+	font-size: 12px;
+	color: #BBBBBB;
+}
+
+#tabmessage1 .key-word {
+	width: 25%;
+	height: 25px;
+}
+
+#tabmessage2 .item-subtitle .sex {
+	width: 13%;
+	height: 15px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#tabmessage2 .sex span {
+	float: left;
+	width: 50%;
+	height: 15px;
+	color: white;
+	text-align: center;
+	font-size: 10px;
+	margin-top: 2px;
+}
+
+#tabmessage2 .img1 {
+	float: left;
+	width: 30%;
+	height: ;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	margin-right: 2px;
+	margin-left: 2px;
+}
+
+#tabmessage2 .img2 {
+	width: 60%;
+	padding-left: 2px;
+	height: 100%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#tabmessage2 .list-block .item-content {
+	padding-left: 5px;
+}
+
+#tabmessage2 .list-block .item-text {
+	height: 40%;
+}
+
+#tabmessage2 .item-after span {
+	font-size: 12px;
+	margin-top: 5px;
+	color: #BBBBBB;
+}
+#tabmessage2 .list-block .item-inner:after{
+	background-color: #F0F0F0;
+}
+
+#tabmessage3 .list-block .item-inner:after {
+    background-color: #F0F0F0;
+    left: 18%;
+}
+
+#tabmessage2 .item-media img {
+	border-radius: 5px;
+}
+
+#tabmessage2 .item-title div {
+	float: left;
+	font-size: 10px;
+	font-weight: 200;
+}
+
+
+#tabmessage2 .item-text span {
+	font-size: 14px;
+	color: #BBBBBB;
+}
+
+#tabmessage2 .key-word {
+	width: 25%;
+	height: 25px;
+}
+#tabmessage2 .item-inner{
+	margin-top: 10px;
+}
+
+#tabmessage3 .item-subtitle .sex {
+	width: 13%;
+	height: 15px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#tabmessage3 .sex span {
+	float: left;
+	width: 50%;
+	height: 15px;
+	color: white;
+	text-align: center;
+	font-size: 10px;
+	margin-top: 2px;
+}
+
+#tabmessage3 .img1 {
+	float: left;
+	width: 30%;
+	height: ;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	margin-right: 2px;
+	margin-left: 2px;
+}
+
+#tabmessage3 .img2 {
+	width: 60%;
+	padding-left: 2px;
+	height: 100%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#tabmessage3 .list-block .item-content {
+	padding-left: 5px;
+}
+
+#tabmessage3 .list-block .item-text {
+	height: 100%;
+}
+
+#tabmessage3 .item-after span {
+	font-size: 8px;
+	margin-top: 5px;
+	color: #BBBBBB;
+}
+
+#tabmessage3 .item-media img {
+	width: 60px;
+	height: 60px;
+	border-radius: 5px;
+}
+
+#tabmessage3 .item-title div {
+	margin-top: 8px;
+	float: left;
+	font-size: 14px;
+	font-weight: 200;
+}
+
+
+#tabmessage3 .item-text span {
+	font-size: 14px;
+	color: #BBBBBB;
+}
+
+#tabmessage3 .key-word {
+	width: 25%;
+	height: 25px;
+}
+
+.actions-modal-button {
+    cursor: pointer;
+    line-height: 43px;
+    font-size: 18px;
+    color: #45ADF6;
+}
+
+.list-block.sortable-opened .item-inner, .list-block.sortable-opened .item-link .item-inner {
+    left: 35px;
+    right: 0px;
+}
+
+.div-yichufans {
+    position: fixed;
+    bottom: 0px;
+    font-size: 20px;
+    background-color: #0EAAE3;
+    width: 100%;
+    height: 40px;
+    z-index: 444;
+    text-align: center;
+    color: #fff;
+    margin: auto;
+}
+#tabmessage2.content-block-inner:before {
+	height:0px;
+    background-color: none;
+}
+
+#tabmessage2.content-block-inner:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: auto;
+    top: auto;
+    height: 1px;
+    width: 100%;
+    background-color: none;
+    display: block;
+    z-index: 15;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+}
+
+#tabmessage2.content-block-inner:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: auto;
+    right: auto;
+    height: 1px;
+    width: 100%;
+    background-color: none;
+    display: block;
+    z-index: 15;
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+}
+#tabmessage2.content-block-inner:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: auto;
+    top: auto;
+    height: 1px;
+    width: 100%;
+    background-color: none;
+    display: block;
+    z-index: 15;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+}
+
+#friendlSearchListMess .list-block.media-list .item-link .item-title-row,
+#friendlSearchListMess .list-block li.media-item .item-link .item-title-row {
+	background-image: none;
+	padding-right: 0px;
+}
+
+#friendlSearchListMess .item-subtitle .sex {
+	width: 13%;
+	height: 15px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#friendlSearchListMess .sex span {
+	float: left;
+	width: 50%;
+	height: 15px;
+	color: white;
+	text-align: center;
+	font-size: 10px;
+	margin-top: 2px;
+}
+
+#friendlSearchListMess .img1 {
+	float: left;
+	width: 30%;
+	height: ;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	margin-right: 2px;
+	margin-left: 2px;
+}
+
+#friendlSearchListMess .img2 {
+	width: 60%;
+	padding-left: 2px;
+	height: 100%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#friendlSearchListMess .list-block .item-content {
+	padding-left: 5px;
+}
+
+#friendlSearchListMess .list-block .item-text {
+	height: 25px;
+}
+#friendlSearchListMess .item-after{
+	float: right;
+	margin-left: 0px;
+}
+#friendlSearchListMess .item-after span {
+	font-size: 8px;
+	margin-top: 2px;
+	color: #BBBBBB;
+}
+
+#friendlSearchListMess .item-media img {
+	border-radius: 5px;
+}
+
+#friendlSearchListMess .item-title span {
+	float: left;
+	font-size: 14px;
+	font-weight: 200;
+}
+
+#friendlSearchListMess .item-text span {
+	font-size: 12px;
+	color: #BBBBBB;
+}
+
+#friendlSearchListMess .key-word {
+	width: 25%;
+	height: 25px;
+}
+#friendlSearchListMess .button{
+	background-color: #0EAAE3;
+}
+#friendlSearchListMess .item-inner{
+	margin-left: 15px;
+}
+#friendlSearchListMess .communityDetal-mars{
+    float: left;
+    background-color: #0EAAE3;
+    width: 30px;
+    height: 13px;
+    display: inline;
+    margin-top: 4px;
+    margin-left: 0px;
+    margin-right: 0px;
+    line-height: 10px;
+    border-radius: 4px;
+}
+#friendlSearchListMess .communityDetal-marss{
+	float: left;
+    background-color: #FA94AA;
+    width: 30px;
+    height: 13px;
+    display: inline;
+    margin-top: 4px;
+    margin-left: 0px;
+    margin-right: 0px;
+    line-height: 10px;
+    border-radius: 4px;
+}
+#friendlSearchListMess .community-mars-icon{
+	padding-left: 2px;
+	padding-bottom: 6px;
+	margin-top: 5px;
+	margin-right: 0px;
+}
+
+#friendlSearchListMess .community-mars-icon{
+	padding-left: 2px;
+	padding-bottom: 6px;
+	margin-top: 5px;
+	margin-right: 0px;
+}
+#friendlSearchListMess .communityDetal-vip{
+	float:left;
+	width: 40px;
+	height: 15px;
+	display:inline;
+	margin-left: 2px;
+}
+#friendlSearchListMess .keyword{
+	width: auto;
+	background: #FFFFFF;
+	float: left;
+	margin-right: 2px;
+	padding-left: 1px ;
+	padding-right: 1px;
+	border: 1px solid #E7E7E7;
+}
+#friendlSearchListMess .keyword span{
+	width: 100%;
+	color: #CECECE;
+}
+#friendlSearchListMess .keyword-search{
+	width: auto;
+	background: #0EAAE3;
+	float: left;
+	margin-right: 2px;
+	padding-left: 1px ;
+	padding-right: 1px;
+}
+#friendlSearchListMess .keyword-search span{
+	width: 100%;
+	color: #FFFFFF;
+}
+#friendsethtml .button {
+	height: 38px;
+	line-height: 36px;
+	margin-bottom: 15px;
+	color: #ffffff;
+	border-color: #F14E51;
+	background-color: #F14E51;
+}
+.shake.freez.shake-rotate {
+	-webkit-animation-name: shake-rotate;
+	-ms-animation-name: shake-rotate;
+	animation-name: shake-rotate;
+	-webkit-animation-duration: 300s;
+	-ms-animation-duration: 300s;
+	animation-duration: 300s;
+	-webkit-animation-iteration-count: infinite;
+	-ms-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+	-webkit-animation-timing-function: ease-in-out;
+	-ms-animation-timing-function: ease-in-out;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-delay: 0s;
+	-ms-animation-delay: 0s;
+	animation-delay: 0s;
+	-webkit-animation-play-state: running;
+	-ms-animation-play-state: running;
+	animation-play-state: running
+}
+.shake.shake-rotate:hover {
+	-webkit-animation-name: shake-rotate;
+	-ms-animation-name: shake-rotate;
+	animation-name: shake-rotate;
+	-webkit-animation-duration: 300s;
+	-ms-animation-duration: 300s;
+	animation-duration: 300s;
+	-webkit-animation-iteration-count: infinite;
+	-ms-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+	-webkit-animation-timing-function: ease-in-out;
+	-ms-animation-timing-function: ease-in-out;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-delay: 0s;
+	-ms-animation-delay: 0s;
+	animation-delay: 0s;
+	-webkit-animation-play-state: running;
+	-ms-animation-play-state: running;
+	animation-play-state: running
+}
+.shake.shake-constant.shake-rotate {
+	-webkit-animation-name: shake-rotate;
+	-ms-animation-name: shake-rotate;
+	animation-name: shake-rotate;
+	-webkit-animation-duration: 300s;
+	-ms-animation-duration: 300s;
+	animation-duration: 300s;
+	-webkit-animation-iteration-count: infinite;
+	-ms-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+	-webkit-animation-timing-function: ease-in-out;
+	-ms-animation-timing-function: ease-in-out;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-delay: 0s;
+	-ms-animation-delay: 0s;
+	animation-delay: 0s;
+	-webkit-animation-play-state: running;
+	-ms-animation-play-state: running;
+	animation-play-state: running
+}
+
+#user_info_edit .list-block .item-media {
+	width: 56px;
+}
+@-webkit-keyframes shake-rotate {
+ 0% {
+ -webkit-transform: translate(0px, 0px) rotate(0deg)
+}
+ 2% {
+ -webkit-transform: translate(0px, 0px) rotate(-5.5deg)
+}
+ 4% {
+ -webkit-transform: translate(0px, 0px) rotate(1.5deg)
+}
+ 6% {
+ -webkit-transform: translate(0px, 0px) rotate(-7.5deg)
+}
+ 8% {
+ -webkit-transform: translate(0px, 0px) rotate(-7.5deg)
+}
+ 10% {
+ -webkit-transform: translate(0px, 0px) rotate(-0.5deg)
+}
+ 12% {
+ -webkit-transform: translate(0px, 0px) rotate(-5.5deg)
+}
+ 14% {
+ -webkit-transform: translate(0px, 0px) rotate(-4.5deg)
+}
+ 16% {
+ -webkit-transform: translate(0px, 0px) rotate(0.5deg)
+}
+ 18% {
+ -webkit-transform: translate(0px, 0px) rotate(3.5deg)
+}
+ 20% {
+ -webkit-transform: translate(0px, 0px) rotate(-6.5deg)
+}
+ 22% {
+ -webkit-transform: translate(0px, 0px) rotate(-5.5deg)
+}
+ 24% {
+ -webkit-transform: translate(0px, 0px) rotate(3.5deg)
+}
+ 26% {
+ -webkit-transform: translate(0px, 0px) rotate(-0.5deg)
+}
+ 28% {
+ -webkit-transform: translate(0px, 0px) rotate(-0.5deg)
+}
+ 30% {
+ -webkit-transform: translate(0px, 0px) rotate(5.5deg)
+}
+ 32% {
+ -webkit-transform: translate(0px, 0px) rotate(3.5deg)
+}
+ 34% {
+ -webkit-transform: translate(0px, 0px) rotate(-5.5deg)
+}
+ 36% {
+ -webkit-transform: translate(0px, 0px) rotate(-0.5deg)
+}
+ 38% {
+ -webkit-transform: translate(0px, 0px) rotate(-1.5deg)
+}
+ 40% {
+ -webkit-transform: translate(0px, 0px) rotate(4.5deg)
+}
+ 42% {
+ -webkit-transform: translate(0px, 0px) rotate(6.5deg)
+}
+ 44% {
+ -webkit-transform: translate(0px, 0px) rotate(0.5deg)
+}
+ 46% {
+ -webkit-transform: translate(0px, 0px) rotate(4.5deg)
+}
+ 48% {
+ -webkit-transform: translate(0px, 0px) rotate(-0.5deg)
+}
+ 50% {
+ -webkit-transform: translate(0px, 0px) rotate(0.5deg)
+}
+ 52% {
+ -webkit-transform: translate(0px, 0px) rotate(-7.5deg)
+}
+ 54% {
+ -webkit-transform: translate(0px, 0px) rotate(-1.5deg)
+}
+ 56% {
+ -webkit-transform: translate(0px, 0px) rotate(0.5deg)
+}
+ 58% {
+ -webkit-transform: translate(0px, 0px) rotate(6.5deg)
+}
+ 60% {
+ -webkit-transform: translate(0px, 0px) rotate(-3.5deg)
+}
+ 62% {
+ -webkit-transform: translate(0px, 0px) rotate(-6.5deg)
+}
+ 64% {
+ -webkit-transform: translate(0px, 0px) rotate(1.5deg)
+}
+ 66% {
+ -webkit-transform: translate(0px, 0px) rotate(-0.5deg)
+}
+ 68% {
+ -webkit-transform: translate(0px, 0px) rotate(2.5deg)
+}
+ 70% {
+ -webkit-transform: translate(0px, 0px) rotate(-4.5deg)
+}
+ 72% {
+ -webkit-transform: translate(0px, 0px) rotate(-1.5deg)
+}
+ 74% {
+ -webkit-transform: translate(0px, 0px) rotate(-6.5deg)
+}
+ 76% {
+ -webkit-transform: translate(0px, 0px) rotate(3.5deg)
+}
+ 78% {
+ -webkit-transform: translate(0px, 0px) rotate(-5.5deg)
+}
+ 80% {
+ -webkit-transform: translate(0px, 0px) rotate(1.5deg)
+}
+ 82% {
+ -webkit-transform: translate(0px, 0px) rotate(4.5deg)
+}
+ 84% {
+ -webkit-transform: translate(0px, 0px) rotate(-1.5deg)
+}
+ 86% {
+ -webkit-transform: translate(0px, 0px) rotate(-2.5deg)
+}
+ 88% {
+ -webkit-transform: translate(0px, 0px) rotate(-3.5deg)
+}
+ 90% {
+ -webkit-transform: translate(0px, 0px) rotate(-0.5deg)
+}
+ 92% {
+ -webkit-transform: translate(0px, 0px) rotate(-0.5deg)
+}
+ 94% {
+ -webkit-transform: translate(0px, 0px) rotate(-6.5deg)
+}
+ 96% {
+ -webkit-transform: translate(0px, 0px) rotate(-7.5deg)
+}
+ 98% {
+ -webkit-transform: translate(0px, 0px) rotate(6.5deg)
+}
+}
+@-ms-keyframes shake-rotate {
+ 0% {
+ -ms-transform: translate(0px, 0px) rotate(0deg)
+}
+ 2% {
+ -ms-transform: translate(0px, 0px) rotate(0.5deg)
+}
+ 4% {
+ -ms-transform: translate(0px, 0px) rotate(5.5deg)
+}
+ 6% {
+ -ms-transform: translate(0px, 0px) rotate(-3.5deg)
+}
+ 8% {
+ -ms-transform: translate(0px, 0px) rotate(-2.5deg)
+}
+ 10% {
+ -ms-transform: translate(0px, 0px) rotate(-6.5deg)
+}
+ 12% {
+ -ms-transform: translate(0px, 0px) rotate(6.5deg)
+}
+ 14% {
+ -ms-transform: translate(0px, 0px) rotate(5.5deg)
+}
+ 16% {
+ -ms-transform: translate(0px, 0px) rotate(-0.5deg)
+}
+ 18% {
+ -ms-transform: translate(0px, 0px) rotate(-6.5deg)
+}
+ 20% {
+ -ms-transform: translate(0px, 0px) rotate(6.5deg)
+}
+ 22% {
+ -ms-transform: translate(0px, 0px) rotate(3.5deg)
+}
+ 24% {
+ -ms-transform: translate(0px, 0px) rotate(-4.5deg)
+}
+ 26% {
+ -ms-transform: translate(0px, 0px) rotate(4.5deg)
+}
+ 28% {
+ -ms-transform: translate(0px, 0px) rotate(-0.5deg)
+}
+ 30% {
+ -ms-transform: translate(0px, 0px) rotate(-5.5deg)
+}
+ 32% {
+ -ms-transform: translate(0px, 0px) rotate(-6.5deg)
+}
+ 34% {
+ -ms-transform: translate(0px, 0px) rotate(1.5deg)
+}
+ 36% {
+ -ms-transform: translate(0px, 0px) rotate(-3.5deg)
+}
+ 38% {
+ -ms-transform: translate(0px, 0px) rotate(0.5deg)
+}
+ 40% {
+ -ms-transform: translate(0px, 0px) rotate(-3.5deg)
+}
+ 42% {
+ -ms-transform: translate(0px, 0px) rotate(-5.5deg)
+}
+ 44% {
+ -ms-transform: translate(0px, 0px) rotate(-0.5deg)
+}
+ 46% {
+ -ms-transform: translate(0px, 0px) rotate(-7.5deg)
+}
+ 48% {
+ -ms-transform: translate(0px, 0px) rotate(1.5deg)
+}
+ 50% {
+ -ms-transform: translate(0px, 0px) rotate(0.5deg)
+}
+ 52% {
+ -ms-transform: translate(0px, 0px) rotate(-4.5deg)
+}
+ 54% {
+ -ms-transform: translate(0px, 0px) rotate(0.5deg)
+}
+ 56% {
+ -ms-transform: translate(0px, 0px) rotate(-4.5deg)
+}
+ 58% {
+ -ms-transform: translate(0px, 0px) rotate(2.5deg)
+}
+ 60% {
+ -ms-transform: translate(0px, 0px) rotate(-2.5deg)
+}
+ 62% {
+ -ms-transform: translate(0px, 0px) rotate(4.5deg)
+}
+ 64% {
+ -ms-transform: translate(0px, 0px) rotate(-1.5deg)
+}
+ 66% {
+ -ms-transform: translate(0px, 0px) rotate(-5.5deg)
+}
+ 68% {
+ -ms-transform: translate(0px, 0px) rotate(0.5deg)
+}
+ 70% {
+ -ms-transform: translate(0px, 0px) rotate(-3.5deg)
+}
+ 72% {
+ -ms-transform: translate(0px, 0px) rotate(-2.5deg)
+}
+ 74% {
+ -ms-transform: translate(0px, 0px) rotate(-1.5deg)
+}
+ 76% {
+ -ms-transform: translate(0px, 0px) rotate(-1.5deg)
+}
+ 78% {
+ -ms-transform: translate(0px, 0px) rotate(6.5deg)
+}
+ 80% {
+ -ms-transform: translate(0px, 0px) rotate(3.5deg)
+}
+ 82% {
+ -ms-transform: translate(0px, 0px) rotate(1.5deg)
+}
+ 84% {
+ -ms-transform: translate(0px, 0px) rotate(-0.5deg)
+}
+ 86% {
+ -ms-transform: translate(0px, 0px) rotate(2.5deg)
+}
+ 88% {
+ -ms-transform: translate(0px, 0px) rotate(-6.5deg)
+}
+ 90% {
+ -ms-transform: translate(0px, 0px) rotate(2.5deg)
+}
+ 92% {
+ -ms-transform: translate(0px, 0px) rotate(6.5deg)
+}
+ 94% {
+ -ms-transform: translate(0px, 0px) rotate(-7.5deg)
+}
+ 96% {
+ -ms-transform: translate(0px, 0px) rotate(6.5deg)
+}
+ 98% {
+ -ms-transform: translate(0px, 0px) rotate(-4.5deg)
+}
+}
+@keyframes shake-rotate {
+ 0% {
+ transform: translate(0px, 0px) rotate(0deg)
+}
+ 2% {
+ transform: translate(0px, 0px) rotate(2.5deg)
+}
+ 4% {
+ transform: translate(0px, 0px) rotate(-4.5deg)
+}
+ 6% {
+ transform: translate(0px, 0px) rotate(2.5deg)
+}
+ 8% {
+ transform: translate(0px, 0px) rotate(4.5deg)
+}
+ 10% {
+ transform: translate(0px, 0px) rotate(-5.5deg)
+}
+ 12% {
+ transform: translate(0px, 0px) rotate(-3.5deg)
+}
+ 14% {
+ transform: translate(0px, 0px) rotate(-1.5deg)
+}
+ 16% {
+ transform: translate(0px, 0px) rotate(-1.5deg)
+}
+ 18% {
+ transform: translate(0px, 0px) rotate(2.5deg)
+}
+ 20% {
+ transform: translate(0px, 0px) rotate(-0.5deg)
+}
+ 22% {
+ transform: translate(0px, 0px) rotate(6.5deg)
+}
+ 24% {
+ transform: translate(0px, 0px) rotate(0.5deg)
+}
+ 26% {
+ transform: translate(0px, 0px) rotate(-5.5deg)
+}
+ 28% {
+ transform: translate(0px, 0px) rotate(-4.5deg)
+}
+ 30% {
+ transform: translate(0px, 0px) rotate(-1.5deg)
+}
+ 32% {
+ transform: translate(0px, 0px) rotate(2.5deg)
+}
+ 34% {
+ transform: translate(0px, 0px) rotate(0.5deg)
+}
+ 36% {
+ transform: translate(0px, 0px) rotate(6.5deg)
+}
+ 38% {
+ transform: translate(0px, 0px) rotate(-6.5deg)
+}
+ 40% {
+ transform: translate(0px, 0px) rotate(3.5deg)
+}
+ 42% {
+ transform: translate(0px, 0px) rotate(-4.5deg)
+}
+ 44% {
+ transform: translate(0px, 0px) rotate(5.5deg)
+}
+ 46% {
+ transform: translate(0px, 0px) rotate(2.5deg)
+}
+ 48% {
+ transform: translate(0px, 0px) rotate(2.5deg)
+}
+ 50% {
+ transform: translate(0px, 0px) rotate(5.5deg)
+}
+ 52% {
+ transform: translate(0px, 0px) rotate(-1.5deg)
+}
+ 54% {
+ transform: translate(0px, 0px) rotate(5.5deg)
+}
+ 56% {
+ transform: translate(0px, 0px) rotate(-7.5deg)
+}
+ 58% {
+ transform: translate(0px, 0px) rotate(2.5deg)
+}
+ 60% {
+ transform: translate(0px, 0px) rotate(6.5deg)
+}
+ 62% {
+ transform: translate(0px, 0px) rotate(1.5deg)
+}
+ 64% {
+ transform: translate(0px, 0px) rotate(-7.5deg)
+}
+ 66% {
+ transform: translate(0px, 0px) rotate(-2.5deg)
+}
+ 68% {
+ transform: translate(0px, 0px) rotate(3.5deg)
+}
+ 70% {
+ transform: translate(0px, 0px) rotate(-4.5deg)
+}
+ 72% {
+ transform: translate(0px, 0px) rotate(2.5deg)
+}
+ 74% {
+ transform: translate(0px, 0px) rotate(2.5deg)
+}
+ 76% {
+ transform: translate(0px, 0px) rotate(-2.5deg)
+}
+ 78% {
+ transform: translate(0px, 0px) rotate(-0.5deg)
+}
+ 80% {
+ transform: translate(0px, 0px) rotate(-3.5deg)
+}
+ 82% {
+ transform: translate(0px, 0px) rotate(5.5deg)
+}
+ 84% {
+ transform: translate(0px, 0px) rotate(-1.5deg)
+}
+ 86% {
+ transform: translate(0px, 0px) rotate(-1.5deg)
+}
+ 88% {
+ transform: translate(0px, 0px) rotate(4.5deg)
+}
+ 90% {
+ transform: translate(0px, 0px) rotate(5.5deg)
+}
+ 92% {
+ transform: translate(0px, 0px) rotate(4.5deg)
+}
+ 94% {
+ transform: translate(0px, 0px) rotate(-1.5deg)
+}
+ 96% {
+ transform: translate(0px, 0px) rotate(3.5deg)
+}
+ 98% {
+ transform: translate(0px, 0px) rotate(-7.5deg)
+}
+}

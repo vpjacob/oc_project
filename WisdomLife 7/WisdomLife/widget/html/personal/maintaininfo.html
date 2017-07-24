@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<title>新增报修</title>
+		<link rel="stylesheet" type="text/css" href="maintain.css">
+		<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/base.css">
+		<link rel="stylesheet" href="../../css/sm-extend.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
+		<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm-extend.min.js' charset='utf-8'></script>
+    <style>
+        body {
+            font-family: "微软雅黑";
+        }
+
+        a {
+            color: #000;
+        }
+
+        a:active, a:link, a:visited, a:hover {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .oneLine {
+            padding: 10px 8px;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -o-box;
+            display: box;
+            -webkit-box-flex: 1;
+            -moz-box-flex: 1;
+            -o-box-flex: 1;
+            box-flex: 1;
+            -webkit-box-align: center;
+            -moz-box-align: center;
+            -o-box-align: center;
+            box-align: center;
+            border-bottom: 1px solid #D7D7D7;
+        }
+
+        .neirong {
+            padding: 6px 8px 10px 8px;
+            font-size: 13px;
+        }
+
+        .item-ul {
+            padding: 0px 14px;
+            background-color: #fff;
+            border-radius: 5px;
+            margin-top:10px;
+        }
+
+        .item-ul .leftLine {
+            font-size: 16px;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -o-box;
+            display: box;
+            -webkit-box-flex: 1;
+            -moz-box-flex: 1;
+            -o-box-flex: 1;
+            box-flex: 1;
+        }
+
+        .item-ul .rightLine {
+            font-size: 13px;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -o-box;
+            display: box;
+            -webkit-box-flex: 1;
+            -moz-box-flex: 1;
+            -o-box-flex: 1;
+            box-flex: 1;
+            -webkit-box-pack: end;
+            -moz-box-pack: end;
+            -o-box-pack: end;
+            box-pack: end;
+        }
+
+    </style>
+</head>
+<body>
+<!--<div class="page-group">-->
+<!--&lt;!&ndash; 你的html代码 &ndash;&gt;-->
+<div class="page">
+    <header class="bar bar-nav" id="header">
+        <a class="icon pull-left" id="back">
+          <i class="iconfont icon-xiangzuo1" style="font-size: 28px;color: #999"></i>
+        </a>
+        <!--<a class="icon icon-refresh pull-right"></a>-->
+        <h1 class="title">
+            报修详情</h1>
+    </header>
+    <div class="content pull-to-refresh-content native-scroll">
+        <div class="pull-to-refresh-layer">
+            <div class="preloader"></div>
+            <div class="pull-to-refresh-arrow"></div>
+        </div>
+        <div class="item-ul">
+            <div class="sames"><span class="titleS">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</span><span id="applicant" class="contentC"></span></div>
+            <div class="sames"><span class="titleS">手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机：</span><span id="telphone" class="contentC"></span></div>
+            <div class="sames"><span class="titleS">楼栋｜门牌：</span><span id="fno" class="contentC"></span></div>
+            <div class="sames"><span class="titleS">类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</span><span id="ftype" class="contentC"></span></div>
+            <div class="sames"><span class="titleS">事&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;由：</span><span id="descript" class="contentC"></span></div>
+            <div class="sames"><span class="titleS">状&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;态：</span><span id="status" class="contentC"></span></div>
+            <div id="finishname" class="sames"></div>
+        </div>
+        <div id="finishstatus" class=" content-block"></div>
+    </div>
+</div>
+<!--</div>-->
+<script>
+    $.init();
+    $(document).on('touchend',' .buttons', function () {
+        $(this).css({"background-color":"#1fb8f0","color":"#fff"});
+    });
+    $(document).on('touchstart','.buttons', function () {
+        $(this).css({"background-color":"#fff","color":"#1fb8f0","border":"2px solid #0fb8f3"});
+    });
+</script>
+</body>
+
+<script type="text/javascript" src="../../script/api.js"></script>
+	<script type="text/javascript" src="../../script/common.js"></script>
+	<script type="text/javascript" src="maintaininfo.js"></script>
+</html>

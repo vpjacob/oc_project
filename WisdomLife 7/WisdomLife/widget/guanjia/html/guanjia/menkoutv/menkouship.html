@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/sm.min.css">
+    <link rel="stylesheet" href="../../../css/sm-extend.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/iconfont.css" />
+	<link rel="stylesheet" type="text/css" href="../../../css/guanjia/menkoutv/menkoushipin.css" />
+</head>
+<body>
+	<div class="tankuang_box">
+		<div class="tankuang">
+			<div><span>开门成功</span></div>
+		</div>
+	</div>
+	<div class="black_box"></div>	
+	<div class="hujiao_box">
+		<div class="hujiao_list">
+			<div class="hujiao_top">
+				<div>
+					<img src="../../../image/shipin_icon_b.png" alt="" />
+				</div>
+				<dl>
+					<dt>请接听</dt>
+					<dd>1栋1单元门口机...</dd>
+				</dl>
+			</div>
+			<div class="clearfix"></div>
+			
+		</div>
+	</div>
+	<div class="hujiao_bottom">
+				<div class="bottom">
+					<div class="icona"><span id="dian"></span></div>
+					<div class="icona"><span id="suo"></span></div>
+					<div class="icona"><span></span></div>
+				</div>
+				<div class="bottom">
+					<div id="close">
+						<img src="../../../image/icon_c5.png" alt="" />
+					</div>
+				</div>
+			</div>
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript" src="../../../script/common.js"></script>
+<script type="text/javascript" src="../../../script/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="../../../script/guanjia/menkoutv/menkoutv.js"></script>
+	<script type="text/javascript">
+		$("#dian").click(
+			function(){
+			 	change();
+			}
+		)
+		var flag=true;
+		function change(){
+			if(flag){
+				$('#dian').css({'background':'url(../../../image/shipin2.png)',
+							 'background-origin':'0 0',
+							 'background-size':'100% 100%',
+							 'background-position':'center center'})
+			}else{
+			   $('#dian').css({'background':'url(../../../image/shipin1.png)',
+							 'background-origin':'0 0',
+							 'background-size':'100% 100%',
+							 'background-position':'center center'})
+			}
+			flag=!flag;
+		}
+		$(".tankuang_box,.black_box").hide()
+		$("#suo").click(
+			function(){
+				$(".tankuang_box,.black_box").show().fadeOut(2000)
+			}
+		)	
+	</script>
+</body>
+
+</html>

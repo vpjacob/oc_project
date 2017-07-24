@@ -1,0 +1,400 @@
+body {
+	font-family: "微软雅黑";
+	background-color:#efefef;
+	overflow: hidden;
+}
+img {
+	display: block;
+}
+input {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border: none;
+	text-align: left;
+}
+button{
+	border:none;
+	padding:0;
+	margin:0;
+	outline:0;
+}
+
+.clearfix {
+	clear: both;
+}
+
+h1{
+	background: #0eaae3;
+}
+.title{
+	font-size:17px;
+}
+.Personal_box{
+	background:#FFFFFF;
+	overflow: hidden;
+}
+.Personal_title{
+	background:#FFFFFF;
+	width:100%;
+	margin:auto;
+	line-height:45px;
+	margin-top:10px;
+	clear:both;
+	border-bottom:solid 1px #efefef;
+}
+.Personal_title span{
+	position:relative;
+	float:left;
+	width:50%;
+	text-align:center;
+	font-size:13px;
+	border-bottom:solid 1px rgba{0,0,0,0};
+}
+.Personal_title .special{
+	color:#0eaae3;
+	border-bottom:solid 1px #0eaae3;
+	padding:0 20px;
+}
+.Personal_centent{
+	background:#FFFFFF;
+	position: relative;
+}
+.Personal_centent .list_box button{
+	margin:0;
+	padding:0;
+	outline:none;
+	border:none;
+	background:#FFFFFF;
+	color:#a9a9a9;
+	float:right;
+	margin-right:8%;
+}
+.Personal_centent .list_box div{
+	width:100%;
+	border-bottom:solid 1px #efefef;
+	margin-left:4%;
+	line-height:46px;
+	font-size:13px;
+	border:none;
+	outline:none;
+}
+.Personal_centent .list_box div:nth-child(2){
+	width:100%;
+	margin-left:4%;
+	line-height:46px;
+	font-size:13px;
+	border:none;
+	outline:none;
+}
+.Personal_centent .list_box input{
+	float:right;
+	margin-right:10%;
+	line-height:46px;	
+	width:91px;
+}
+.Personal_centent .list_box .dateTime{
+	float:right;
+	margin-right:10%;
+	line-height:46px;	
+	color:#a9a9a9;
+}
+.Personal_centent .list_box select{
+	width:28%;
+	height:30px;
+	border:1px solid #E5E5E5;
+	border-radius:5px;
+	padding:0;
+	margin:0;
+	float:right;
+	margin-right:10%;
+	margin-top:10px;
+	background-color: white;
+}
+.next{
+	width:92%;
+	margin:auto;
+}
+.next button{
+	width:100%;
+	height:35px;
+	border-radius:10px;
+	background:#0eaae3;
+	color:#FFFFFF;
+	margin-top:40px;
+	font-size:13px;
+	margin-bottom: 20px;
+}
+
+
+.box{
+	width: 100%;
+	height:100%;
+}
+.box .bottom{
+	margin:0 auto;
+	width: 100%;
+	height:44%;
+	background-color:#efefef;
+}
+.box .bottom .user{
+	width: 100%;
+	height:2.2rem;
+	border-bottom:1px solid #efefef;
+	background-color:#ffffff;
+}
+.box .bottom .same{
+	width: 92%;
+	margin:0 auto;
+}
+.box .bottom .user span{
+	 line-height:2.2rem;
+	font-size:15px;
+	float:left;
+}
+.box .bottom .user input{
+    line-height:2.2rem;
+	color:#A1A1A1;
+	font-size:15px;
+	width:6.5rem;
+	
+}
+
+.box .bottom .user select{
+	border-radius:5px;
+	color:#A1A1A1;
+	font-size:15px;
+	float:right;
+	margin-top: 3.1%;
+	height:65%;
+	width:16%;
+	background-color: white;
+	border:none;
+}
+.box .bottom .user .yanzheng{
+	border-radius:5px;
+	font-size:13px;
+	color:#A1A1A1;
+	border:1px solid #0EAAE3;
+	float:right;
+	width:4rem;
+	height: 1.45rem;
+	text-align:center;
+	line-height:1.45rem;
+	margin-top:2.5%;
+}
+.box .next{
+	width:92%;
+	margin:2.5rem auto;
+}
+.box.next button{
+	width:100%;
+	height:35px;
+	border-radius:10px;
+	background:#0eaae3;
+	color:#FFFFFF;
+	font-size:20px;
+}
+
+
+
+body {
+	font-family: "微软雅黑";
+	background-color:#efefef;
+	overflow: hidden;
+}
+img {
+	display: block;
+}
+input {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border: none;
+	text-align: left;
+}
+button{
+	border:none;
+	padding:0;
+	margin:0;
+	outline:0;
+}
+
+.clearfix {
+	clear: both;
+}
+
+h1{
+	background: #0eaae3;
+}
+.title{
+	font-size:17px;
+}
+.Personal_box{
+	background:#FFFFFF;
+	overflow: hidden;
+}
+.Personal_title{
+	background:#FFFFFF;
+	width:100%;
+	margin:auto;
+	line-height:45px;
+	margin-top:10px;
+	clear:both;
+	border-bottom:solid 1px #efefef;
+}
+.Personal_title span{
+	position:relative;
+	float:left;
+	width:50%;
+	text-align:center;
+	font-size:13px;
+	border-bottom:solid 1px rgba{0,0,0,0};
+}
+.Personal_title .special{
+	color:#0eaae3;
+	border-bottom:solid 1px #0eaae3;
+	padding:0 20px;
+}
+.Personal_centent{
+	background:#FFFFFF;
+	position: relative;
+}
+.Personal_centent .list_box button{
+	margin:0;
+	padding:0;
+	outline:none;
+	border:none;
+	background:#FFFFFF;
+	color:#a9a9a9;
+	float:right;
+	margin-right:8%;
+}
+.Personal_centent .list_box div{
+	width:100%;
+	border-bottom:solid 1px #efefef;
+	margin-left:4%;
+	line-height:46px;
+	font-size:13px;
+	border:none;
+	outline:none;
+}
+.Personal_centent .list_box div:nth-child(2){
+	width:100%;
+	margin-left:4%;
+	line-height:46px;
+	font-size:13px;
+	border:none;
+	outline:none;
+}
+.Personal_centent .list_box input{
+	float:right;
+	margin-right:10%;
+	line-height:46px;	
+	width:91px;
+}
+.Personal_centent .list_box .dateTime{
+	float:right;
+	margin-right:10%;
+	line-height:46px;	
+	color:#a9a9a9;
+}
+.Personal_centent .list_box select{
+	width:28%;
+	height:30px;
+	border:1px solid #E5E5E5;
+	border-radius:5px;
+	padding:0;
+	margin:0;
+	float:right;
+	margin-right:10%;
+	margin-top:10px;
+	background-color: white;
+}
+.next{
+	width:92%;
+	margin:auto;
+}
+.next button{
+	width:100%;
+	height:35px;
+	border-radius:10px;
+	background:#0eaae3;
+	color:#FFFFFF;
+	margin-top:40px;
+	font-size:13px;
+	margin-bottom: 20px;
+}
+
+
+.box{
+	width: 100%;
+	height:100%;
+}
+.box .bottom{
+	margin:0 auto;
+	width: 100%;
+	height:44%;
+	background-color:#efefef;
+}
+.box .bottom .user{
+	width: 100%;
+	height:2.2rem;
+	border-bottom:1px solid #efefef;
+	background-color:#ffffff;
+}
+.box .bottom .same{
+	width: 92%;
+	margin:0 auto;
+}
+.box .bottom .user span{
+	 line-height:2.2rem;
+	font-size:15px;
+	float:left;
+}
+.box .bottom .user input{
+    line-height:2.2rem;
+	color:#A1A1A1;
+	font-size:15px;
+	width:6.5rem;
+	
+}
+
+.box .bottom .user select{
+	border-radius:5px;
+	color:#A1A1A1;
+	font-size:15px;
+	float:right;
+	margin-top: 3.1%;
+	height:65%;
+	width:16%;
+	background-color: white;
+	border:none;
+}
+.box .bottom .user .yanzheng{
+	border-radius:5px;
+	font-size:13px;
+	color:#A1A1A1;
+	border:1px solid #0EAAE3;
+	float:right;
+	width:4rem;
+	height: 1.45rem;
+	text-align:center;
+	line-height:1.45rem;
+	margin-top:2.5%;
+}
+.box .next{
+	width:92%;
+	margin:2.5rem auto;
+}
+.box.next button{
+	width:100%;
+	height:35px;
+	border-radius:10px;
+	background:#0eaae3;
+	color:#FFFFFF;
+	font-size:20px;
+}
+
+
+

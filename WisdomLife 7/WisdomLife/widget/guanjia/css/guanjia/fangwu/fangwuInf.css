@@ -1,0 +1,45 @@
+body {
+	font-family: "微软雅黑";
+	background-color:white;
+}
+img {
+	display: block;
+}
+input {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border: none;
+	text-align: right;
+}
+button{
+	border:none;
+	padding:0;
+	margin:0;
+	outline:0;
+}
+
+.clearfix {
+	clear: both;
+}
+.box{
+	height:7%;
+	border-bottom:1px solid #D7D7D7;
+	background-color:white;
+}
+.box .left{
+	height:100%;
+	width:30%;
+	float:left;
+	font-size:15px;
+	color:#A1A1A1;
+	text-align: center;
+	padding-top:3%;
+}
+.box .right{
+	height:100%;
+	float:right;
+	font-size:13px;
+	width:70%;
+	padding-top:3.5%;
+}

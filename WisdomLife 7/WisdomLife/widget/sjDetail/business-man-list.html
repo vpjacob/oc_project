@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<title>商家详情</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../css/sm.min.css">
+		<link rel="stylesheet" href="../css/sm-extend.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/iconfont.css">
+		<link rel="stylesheet" type="text/css" href="../css/mesIcon/iconfont.css" />
+		<script type='text/javascript' src='../script/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../script/sm.min.js' charset='utf-8'></script>
+		<style>
+			::-webkit-input-placeholder {/* WebKit browsers */
+				color: #CCCCCC;
+			}
+			:-moz-placeholder {/* Mozilla Firefox 4 to 18 */
+				color: #CCCCCC;
+			}
+			::-moz-placeholder {/* Mozilla Firefox 19+ */
+				color: #CCCCCC;
+			}
+			:-ms-input-placeholder {/* Internet Explorer 10+ */
+				color: #CCCCCC;
+			}
+			body {
+				font-family: "微软雅黑"
+			}
+			* {
+				font-weight: normal;
+			}
+			.cl {
+				clear: both;
+			}
+			dl, dt, dd {
+				margin: 0;
+				padding: 0;
+			}
+			.bar {
+				background-color: #0eaae3;
+				position: relative;
+				padding-top: 7px;
+			}
+			.search-box {
+				width: 60%;
+				margin: auto;
+				border-radius: 15px;
+				background-color: #FFFFFF;
+				padding: 0 15px;
+			}
+			.bar input[type=search] {
+				width: 80%;
+				font-size: 15px;
+				margin: 0;
+			}
+			.bar a {
+				color: white;
+			}
+			::-webkit-input-placeholder {/* WebKit browsers */
+				color: #D5D5D5;
+			}
+			:-moz-placeholder {/* Mozilla Firefox 4 to 18 */
+				color: #D5D5D5;
+			}
+			::-moz-placeholder {/* Mozilla Firefox 19+ */
+				color: #D5D5D5;
+			}
+			:-ms-input-placeholder {/* Internet Explorer 10+ */
+				color: #D5D5D5;
+			}
+			.container {
+				width: 100%;
+				background-color: #FFFFFF;
+			}
+			.container-box {
+				width: 92%;
+				margin: auto;
+			}
+			.container-header {
+				height: 115px;
+				padding: 10px 0;
+			}
+			.container-header .left {
+				float: left;
+			}
+			.container-header .left:nth-child(2) {
+				width: 200px;
+			}
+			.container-header .left img {
+				float: left;
+				margin-right: 2px;
+				width: 18px;
+			}
+			.container-header .left span {
+				float: left;
+				color: #999999;
+			}
+			.add {
+				width: 100%;
+				padding: 0 4%;
+				background-color: #FFFFFF;
+				margin-top: 1px;
+				margin-bottom: 10px;
+			}
+			.add-box {
+				height: 40px;
+			}
+			.add span {
+				float: left;
+				font-size: 12px;
+				color: #333333;
+				height: 40px;
+			}
+			.add span:nth-child(1) {
+				width: 8%;
+				line-height: 40px;
+			}
+			.add span:nth-child(2) {
+				width: 67%;
+				border-right: solid 1px #c7c7c7;
+				line-height: 34px;
+				margin-top: 5px;
+				height: 35px
+			}
+			.add span:nth-child(3) {
+				width: 25%;
+				line-height: 36px;
+				text-align: center;
+				margin-top: 5px;
+			}
+			.businessinformation {
+				width: 100%;
+				margin: auto;
+			}
+			.businessinformation div {
+				line-height: 40px;
+				padding: 0 15px;
+				font-size: 15px;
+				background: #ffffff;
+				margin-bottom: 1px;
+				color: #333333;
+			}
+			.businessinformation i {
+				font-size: 16px;
+				color: #0eaae3;
+			}
+			.businessinformation textarea {
+				width: 70%;
+				height: 100px;
+				float: right;
+				resize: none;
+				line-height: 20px;
+			}
+			.show {
+				width: 100%;
+				background-color: #FFFFFF;
+			}
+			.show-box {
+				width: 92%;
+				margin: auto;
+				padding: 10px 0;
+			}
+			.show-list {
+				width: 46%;
+				border: solid 1px #ededed;
+				float: left;
+				margin: 0 2% 0 2%;
+				padding-bottom: 5px;
+				margin-bottom: 10px;
+				height: 196px;
+			}
+			.show-list .show-p {
+				width: 100%;
+				margin: auto;
+				float: left;
+				height: 130px
+			}
+			.show-list div {
+				width: 100%;
+				padding: 0 5px
+			}
+			.show-list div:nth-child(2) {
+				font-size: 10px;
+				line-height: 26px;
+			}
+			.show-list div:nth-child(3) {
+				margin-bottom: 5px;
+			}
+			.show-list div:nth-child(3) img {
+				float: left;
+				width: 10px;
+				margin-right: 1px;
+			}
+			.show-list div:nth-child(3) span {
+				font-size: 10px;
+				float: right;
+				line-height: 10px;
+				color: #999999;
+			}
+			.show-list div:nth-child(4) {
+				font-size: 10px;
+				color: #999999;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			.show-list div:nth-child(4) span {
+				font-size: 10px;
+				float: left;
+				border-radius: 5px;
+				line-height: 18px;
+				margin-right: 8px
+			}
+			.comment {
+				width: 100%;
+				background-color: #ffffff;
+				margin-top: 10px;
+			}
+			.comment-box {
+				width: 92%;
+				margin: auto;
+			}
+			.conmment-btn {
+				height: 45px;
+				border-bottom: solid 1px #f2f2f2;
+				padding: 0 5%;
+			}
+			button {
+				border-radius: 8px;
+				font-size: 15px;
+				padding: 4px 5px;
+				margin-top: 7px;
+				margin-right: 5%;
+				color: #5EBDE9;
+			}
+			.conmment-neirong {
+				width: 100%;
+				padding: 10px 4%;
+			}
+			.conmment-neirong span {
+				float: left;
+			}
+			.conmment-neirong .showPic {
+				width: 18%;
+				height: 45px;
+			}
+			.conmment-neirong span:nth-child(1) img {
+				width: 44px;
+			}
+			.conmment-neirong .showSpan {
+				width: 45px;
+				height: 45px;
+				border-radius: 22px;
+			}
+			.conmment-neirong .showPic img {
+				width: 45px;
+				height: 45px;
+				border-radius: 22px;
+			}
+			.conmment-neirong span:nth-child(2) {
+				width: 60%;
+				font-size: 15px;
+				color: #666666;
+			}
+			.conmment-neirong span:nth-child(2) div:nth-child(1) {
+				line-height: 24px;
+			}
+			.conmment-neirong span:nth-child(2) div:nth-child(2) img {
+				float: left;
+				width: 12px;
+				margin: 1px;
+			}
+			.conmment-neirong span:nth-child(2) div:nth-child(2) span {
+				float: left;
+				width: auto;
+				font-size: 10px;
+			}
+			.conmment-neirong span:nth-child(3) img {
+				width: 44px;
+				margin-right: 5%;
+			}
+			.conmment-jianjie {
+				width: 100%;
+				margin: auto;
+			}
+			.conmment-jianjie span {
+				width: 70%;
+				margin-left: 20%;
+				font-size: 12px;
+				color: #333333;
+			}
+			.conmment-ps {
+				width: 70%;
+				margin: 10px 0 0 20%;
+			}
+			.conmment-ps img {
+				float: left;
+				width: 30%;
+				margin-right: 2.5%;
+				height: 90px;
+				margin-top: 1%
+			}
+			.conmment-pl {
+				width: 92%;
+				height: 45px;
+				margin: auto;
+			}
+			.conmment-pl span {
+				float: left;
+				line-height: 45px;
+				font-size: 10px;
+			}
+			.conmment-pl button {
+				float: right;
+			}
+			#address {
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				overflow: hidden;
+			}
+			.search-box img {
+				width: 18px;
+				height: 18px;
+				position: relative;
+				top: 3px;
+			}
+			.flyplant {
+				width: 100%;
+				height: 35px;
+			}
+			.flyplant img {
+				float: right;
+				width: 20px;
+				height: 20px;
+				margin-right: 4px;
+			}
+			.flyplant span {
+				float: right;
+				font-size: 13px;
+				margin-right: 12px;
+			}
+			.conmment-neirong .youzhi {
+				float: right;
+				font-size: 15px;
+			}
+			#sjname{
+				width:100%;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 你的html代码 -->
+		<header class="bar bar-nav" id="title">
+			<a id="Back" class="iconfont icon-xiangzuo1 pull-left" style="font-size:20px;color:#FFFFFF;position:absolute;top:8px;"></a>
+			<!--<a class="iconfont icon-wodefankui pull-right" style="font-size:20px;color:#FFFFFF;position:absolute;top:8px;right: 10px" ></a>-->
+			
+			<div style="text-align: center; color: white;overflow: hidden; text-overflow: ellipsis;white-space: nowrap;margin-left:15px;margin-top:3px" id="name"></div>
+		</header>
+		<div class="container">
+			<div class="container-box">
+				<div class="container-header">
+					<div class="left"><img src="" id="headpic" style="width:125px;height: 95px"/>
+					</div>
+					<div class="left" style="margin-left:10px;width:50%;">
+						<textarea style="font-size:18px;line-height:24px;resize: none;" id="sjname";></textarea>
+						<div style="height:20px;margin-top:4px;" id="showstar">
+							<!--<img src="img/stares.jpg" alt="" />
+							<img src="img/stares.jpg" alt="" />
+							<img src="img/stares.jpg" alt="" />
+							<img src="img/stares.jpg" alt="" />
+							<img src="img/stares.jpg" alt="" />-->
+							<!--<span style="line-height:20px;font-size:15px;" id="pingCount"></span>-->
+						</div>
+						<div style="font-size:15px;line-height:26px;color:#999999;" id="companytype"></div>
+					</div>
+				</div>
+			</div>
+			<div class="flyplant">
+				<span id="goToHere">去这里</span><img src="img/airplane.jpg"/>
+			</div>
+		</div>
+		<div class="add">
+			<div class="add-box">
+				<span><i class="iconfont icon-dizhi" style="font-size:22px;line-height:45px;"></i></span>
+				<span id="address"></span>
+				<span id="distance"><span> <div class="cl"></div>
+			</div>
+			<div class="cl"></div>
+		</div>
+		<div class="businessinformation">
+			<div class="information-title">
+				商家信息
+			</div>
+			<div>
+				<i class="iconfont icon-shouji"></i> 联系电话：<span id="tel"></span>
+			</div>
+			<div>
+				<i class="iconfont icon-shijian"></i> 营业时间：<span id="time"></span>
+			</div>
+			<div>
+				<i class="iconfont icon-danlieliebiao"></i> 主营业务：<span id="mainbusiness"></span>
+			</div>
+			<div>
+				<i class="iconfont icon-fenxiang"></i> 简介： 				<textarea style="margin-top:10px;"disabled="disabled" id="summary"></textarea><div class="cl"></div>
+			</div>
+			<div>
+				<i class="iconfont icon-zonghe"></i> 类型：<span id="type"></span>
+			</div>
+		</div>
+		<div class="show">
+			<!--<div style='line-height:40px;padding:0 15px;font-size:15px;background:#ffffff;margin-bottom:1px; color:#333333;border: 1px solid #EEEEEE' id="refer">为您推荐的商家</div>-->
+			<!--<div class="show-box" id="recommends">-->
+			<!--<div class="show-list">
+			<img src="./img/jsa.png" alt=""class="show-p"/>
+			<div>苹果手机维修</div>
+			<div>
+			<img src="img/stares.jpg" alt="" />
+			<img src="img/stares.jpg" alt="" />
+			<img src="img/stares.jpg" alt="" />
+			<img src="img/stares.jpg" alt="" />
+			<img src="img/stares.jpg" alt="" />
+			<span>>5km</span>
+			<div class="cl"></div>
+			</div>
+			<div >手机维修</div>
+			<div class="cl"></div>
+			</div>-->
+			<!--<div class="show-list">
+			<img src="./img/s.png" alt=""class="show-p"/>
+			<div>苹果手机维修</div>
+			<div>
+			<img src="img/stares.jpg" alt="" />
+			<img src="img/stares.jpg" alt="" />
+			<img src="img/stares.jpg" alt="" />
+			<img src="img/stares.jpg" alt="" />
+			<img src="img/stares.jpg" alt="" />
+			<span>>5km</span>
+			<div class="cl"></div>
+			</div>
+			<div style=" "><span style="border:solid 1px #d08a6d;line-height:.9;padding:2px 2px;color:#d08a6d;width:70%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">苹果6换外屏220元</span>手机维修</div>
+			<div class="cl"></div>
+			</div>
+			<div class="show-list">
+			<img src="./img/s.png" alt=""class="show-p"/>
+			<div>苹果手机维修</div>
+			<div>
+			<img src="img/stares.jpg" alt="" />
+			<img src="img/stares.jpg" alt="" />
+			<img src="img/stares.jpg" alt="" />
+			<img src="img/stares.jpg" alt="" />
+			<img src="img/stares.jpg" alt="" />
+			<span>>5km</span>
+			<div class="cl"></div>
+			</div>
+			<div style=" "><span style="border:solid 1px #d08a6d;line-height:.9;padding:2px 2px;color:#d08a6d;width:70%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">苹果6换外屏220元</span>手机维修</div>
+			<div class="cl"></div>
+			</div>
+			<div class="show-list">
+			<img src="./img/s.png" alt=""class="show-p"/>
+			<div>苹果手机维修</div>
+			<div>
+			<img src="img/stares.jpg" alt="" />
+			<img src="img/stares.jpg" alt="" />
+			<img src="img/stares.jpg" alt="" />
+			<img src="img/stares.jpg" alt="" />
+			<img src="img/stares.jpg" alt="" />
+			<span>>5km</span>
+			<div class="cl"></div>
+			</div>
+			<div style=" "><span style="border:solid 1px #d08a6d;line-height:.9;padding:2px 2px;color:#d08a6d;width:70%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">苹果6换外屏220元</span>手机维修</div>
+			<div class="cl"></div>
+			</div>-->
+			<!--</div>-->
+			<div class="cl"></div>
+		</div>
+		<div class="comment">
+			<div class="conmment-box">
+				<div class="list">
+					<div class="conmment-btn">
+						<button id="haoP">
+							网友好评(0)
+						</button>
+						<button id="chaP">
+							网友差评(0)
+						</button>
+						<img src="img/busInfo.png" alt="" style="float:right;width: 20px;height: 20px;margin-top: 11px" id="review"/>
+					</div>
+					<div id="showList">
+						<!-- <div class="conmment-neirong">
+						<span class="showPic"><span class="showSpan"><img src="./img/ch.png" alt="" /></span></span>
+						<span>
+						<div>leonaski
+						<img src="./img/vip.png" alt=""  style="width:19px;"/>
+						</div>
+						<div><span>打分</span>
+						<img src="./img/stares.jpg" alt="" />
+						<img src="./img/stares.jpg" alt="" />
+						<img src="./img/stares.jpg" alt="" />
+						<img src="./img/gstars.png" alt="" />
+						<img src="./img/gstars.png" alt="" />
+						<div class="cl"></div>
+						</div>
+						</span>
+						<span class="youzhi">5月6号</span>
+						<div class="cl"></div>
+						</div>
+						<div class="conmment-jianjie"><span>集东南西北口味，24小时火爆，夜宵早茶好去处，就是金鼎轩</span></div>
+						<div class="conmment-ps">
+						<img src="./img/jsa.png" alt="" />
+						<img src="./img/jsb.png" alt="" />
+						<img src="./img/jsc.png" alt="" />
+						<div class="cl"></div>
+						</div> -->
+					</div>
+					<div class="conmment-pl">
+						<!--<span style="color:#999999;">浏览1130</span><button id="review"><i ></i>评论</button><button>❤ 赞</button>-->
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="container"
+		style="position: absolute;"></div>
+	</body>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ESDwG4YDWBmu8GnTVmzXIL82al8eEdi1"></script>
+	<script type="text/javascript" src="../script/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/common.js"></script>
+	<script type="text/javascript" src="seller.js"></script>
+	<script>
+		function refresh() {
+			location.reload();
+		}
+	</script>

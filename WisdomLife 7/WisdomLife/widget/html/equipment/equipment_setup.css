@@ -1,0 +1,99 @@
+/*@import "menu.css";*/
+/** 清除内外边距 **/
+body, h1, h2, h3, h4, h5, h6, hr, p,
+blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
+th, td, /* table elements 表格元素 */
+img/* img elements 图片元素 */{
+    border:medium none;
+    margin: 0;
+    padding: 0;
+}
+/** 设置默认字体 **/
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: '微软雅黑';
+}
+/*h1, h2, h3, h4, h5, h6 { font-size: 100%; }*/
+/*em{font-style:normal;}*/
+/** 重置列表元素 **/
+ul, ol { list-style: none; }
+/** 重置超链接元素 **/
+a { text-decoration: none; color:#000;}
+a:hover { text-decoration: underline; color:#3363a7; }
+/** 重置图片元素 **/
+img{ border:0px;}
+/** 重置表格元素 **/
+table { border-collapse: collapse; border-spacing: 0; }
+
+.maindown{
+	width:100%;
+	background-color:#FFFFFF;
+	margin-top:60px;
+}
+.maindown
+p{
+	color:#000000;
+	line-height:40px;
+	display:inline;
+}
+.changekey{
+	width:98%;
+	height:40px;
+	margin-left:2%;
+	background-color:#FFFFFF;
+	border-bottom:1px solid #DCDCDC;
+}
+.format{
+	width:98%;
+	height:40px;
+	margin-left:2%;
+	background-color:#FFFFFF;
+	border-bottom:1px solid #DCDCDC;
+}
+.recording{
+	width:98%;
+	height:40px;
+	margin-left:2%;
+	background-color:#FFFFFF;
+}
+.icon-xiangyou1{
+	float:right;
+	line-height:40px;
+	margin-right:0.5rem;
+}
+.aui-pull-right{
+	margin-top:7px;
+}
+.aui-form{
+	width:60%;
+	margin-left:20%;
+	margin-top:200px;
+	border:1px solid #DCDCDC;
+	border-radius:10px;
+}
+.aui-input-row{
+	text-align:center;
+}
+
+.hide{
+   position:fixed;
+   top:0;
+   left:0;
+   width:100%;
+   height:100%;
+   background-color:rgba(0,0,0,.6);
+   z-index: 10000;
+   display:none;
+}
+.aui-btn-row{
+	width:100%;
+}
+
+.aui-btn-warning,.aui-btn-success,.aui-btn-warning:active,.aui-btn-success:active{
+  width:50%;
+}

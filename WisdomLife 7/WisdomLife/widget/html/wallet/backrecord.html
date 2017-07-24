@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<title>回购记录</title>
+		<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<link rel="stylesheet" href="../../css/sm-extend.min.css">
+		<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm-extend.min.js' charset='utf-8'></script>
+		<link rel="stylesheet" type="text/css" href="../../css/all.css">
+		<link rel="stylesheet" type="text/css" href="../../css/base.css">
+		<link rel="stylesheet" type="text/css" href="backrecord.css">
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
+		<link rel="stylesheet" type="text/css" href="../../css/person/iconfont.css">
+		<link rel="stylesheet" type="text/css" href="../../css/myIcon/iconfont.css">
+		<style>
+			body {
+				font-family: "微软雅黑";
+			}
+			a {
+				color: #000;
+			}
+			a:active, a:link, a:visited, a:hover {
+				color: #000;
+				text-decoration: none;
+			}
+			.list-block .item-inner:after {
+				content: none;
+			}
+			.bar {
+				z-index: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="page-group">
+			<!-- 你的html代码 -->
+			<div class="page">
+				<header class="bar bar-nav" id="header">
+					<a class="icon pull-left" id="back"><i  class="iconfont icon-xiangzuo1" style="font-size: 28px;color: #999"></i></a>
+					<h1 class="title" id="title">回购记录</h1>
+				</header>
+				<div class="buttons-tab">
+						<a id="a_tab1" href="#tab1" class="tab-link active button">审核中</a>
+						<a id="a_tab2" href="#tab2" class="tab-link button">审核通过</a>
+						<a id="a_tab3" href="#tab3" class="tab-link button">审核失败</a>
+					</div>
+				<div class="content" style="background-color: #f0f0f0;">
+					<!--<div class="buttons-tab buttons-fixed" data-offset="44">
+						<a id="a_tab1" href="#tab1" class="tab-link active button">时间</a>
+						<a id="a_tab2" href="#tab2" class="tab-link button">回购金币</a>
+						<a id="a_tab3" href="#tab3" class="tab-link button">开户银行</a>
+					</div>-->
+					<div class="content-block">
+						<div class="tabs">
+						
+							<div id="tab1" class="tab active infinite-scroll">
+								<!-- <div class="imgbottom" id="back_tab1">
+									<img src="../../image/ring_02.png" alt="" />
+									<p class="waiting">
+										加载到0条数据
+									</p>
+								</div> -->
+								<div class="list-block" >
+									 <ul id="ul_tab1">
+										<!--<li class="item-content"><div class="item-inner"><div class="item-title">时间</div>
+										<div class="item-mid"><span  class="detailnumber"><img src="../../image/jinbi.png" alt="" class="img1"/><span class="spans">200</span></span>
+										</div><div class="item-last"><span class="detaildate">中国建设银行</span></div></div></li>-->
+									</ul> 
+								</div>
+								<!-- 加载提示符 -->
+								<!-- <div class="infinite-scroll-preloader">
+									<div class="preloader"></div>
+								</div> -->
+							</div>
+							<div id="tab2" class="tab infinite-scroll">
+								<!-- <div class="imgbottom" id="back_tab2">
+									<img src="../../image/ring_02.png" alt="" />
+									<p class="waiting">
+										加载到0条数据
+									</p>
+								</div> -->
+								<div class="list-block" >
+									<ul id="ul_tab2"></ul>
+								</div>
+								<!-- 加载提示符 -->
+								<!-- <div class="infinite-scroll-preloader">
+									<div class="preloader"></div>
+								</div> -->
+							</div>
+							<div id="tab3" class="tab infinite-scroll">
+								<!-- <div class="imgbottom" id="back_tab3">
+									<img src="../../image/ring_02.png" alt="" />
+									<p class="waiting">
+										加载到0条数据
+									</p>
+								</div> -->
+								<div class="list-block" >
+									<ul id="ul_tab3"></ul>
+								</div>
+								<!-- 加载提示符 -->
+								<!-- <div class="infinite-scroll-preloader">
+									<div class="preloader"></div>
+								</div> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../script/api.js"></script>
+	<script type="text/javascript" src="../../script/common.js"></script>
+	<script type="text/javascript" src="backrecord.js"></script>
+   </html>

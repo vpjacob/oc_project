@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<title>设置</title>
+		<link rel="stylesheet" type="text/css" href="equipmentindex.css">
+		<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<link rel="stylesheet" href="../../css/sm-extend.min.css">
+		<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm-extend.min.js' charset='utf-8'></script>
+		<script type="text/javascript" src="../../script/Chart.js" charset='utf-8'></script>
+    <style>
+        body {
+            font-family: "微软雅黑";
+        }
+
+        a {
+            color: #000;
+        }
+
+        a:active, a:link, a:visited, a:hover {
+            color: #000;
+            text-decoration: none;
+        }
+        #canvas{
+            color:#fff;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+<div class="page-group">
+    <div class="page">
+        <header class="bar bar-nav">
+            <a class="icon pull-left" id="back"><img src="../../image/toright.png"/></a>
+            <!--<a class="icon icon-refresh pull-right"></a>-->
+            <h1 class="title">存储管理</h1>
+            <!--<a id="regist" style="float: right; height: 44px; line-height: 50px;">-->
+            <!--<img src="../../images/add.png"/>-->
+            <!--</a>-->
+        </header>
+        <div class="content" data-distance="50" style="background-color: #fff;">
+            <div class="capacity">
+                <span>总容量</span>
+                <span class="capacity_num">55GB</span>
+            </div>
+            <div class="statistics">
+                <canvas id="canvas" height="220" width="220"></canvas>
+                <div class="statistics_num">剩余21GB</div>
+            </div>
+            <div class="same">当前照片<span>0</span>张，最多还能存储<span>22411</span>张</div>
+            <div class="same sameOrange">当前短视频<span>0</span>个，最多还能存储<span>4523</span>个</div>
+        </div>
+    </div>
+</div>
+<script>
+
+    var pieData = [
+        {
+            value: 70,
+            color:"#0eaae3"
+            ,text: "34GB"
+        },
+        {
+            value : 30,
+            color : "#0ee3cc"
+            ,text: "21GB"
+        }
+
+    ];
+    var context =document.getElementById("canvas").getContext("2d");
+    var myPie = new Chart(context).Pie(pieData);
+//    context.font = '40px';
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>添加家庭成员</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/sm.min.css">
+    <link rel="stylesheet" href="../../../css/sm-extend.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../css/iconfont.css" />
+	 <link rel="stylesheet" type="text/css" href="../../../css/guanjia/fangwu/editHouse.css" /> 
+       
+</head>
+<body>
+	<header class="bar bar-nav" style="position: relative;" id="title">
+		<h1 class="title" style="background-color:white">编辑</h1>
+		<a onclick="goBack()" class="iconfont icon-xiangzuo1 pull-left" style="font-size:20px;color:#0EAAE3;position:absolute;top:7px;"></a>
+		<a  class="iconfont" style="font-size:14px;color:#797979;position:absolute;top:13px; right: 15px;" id="save">保存</a>		
+	</header>
+	<div class="box">
+		<div class="bottom">
+				<div class="user">
+					<div class="same">
+						<span>面积：</span><a class="iconfont pull-right" style="font-size:18px;color:#999999;line-height: 2.2rem"></a>
+						<a class="iconfont  pull-right" style="font-size:20px;color:#797979;line-height: 2.1rem">m²</a>
+						<input type="text" placeholder="请填写您的房屋面积" id="acreage"/>
+					</div>
+				</div>
+				<div class="user">
+					<div class="same">
+						<span>朝向：</span><a class="iconfont icon-xiangyou1 pull-right" style="font-size:18px;color:#999999;line-height: 2.2rem"></a>
+						<select id="orientation">
+							<option value="0">朝南</option>
+							<option value="1">朝北</option>
+							<option value="2">朝东</option>
+							<option value="3">朝西</option>
+							<option value="4">东北</option>
+							<option value="5">东南</option>
+							<option value="6">西南</option>
+							<option value="7">西北</option>
+						</select>
+					</div>	
+				</div>
+				<div class="user">
+					<div class="same"><span>装修情况：</span><a class="iconfont icon-xiangyou1 pull-right" style="font-size:18px;color:#999999;line-height: 2.2rem"></a>
+						<select id="decorate">
+							<option value="0">毛坯</option>
+							<option value="1">简装修</option>
+							<option value="2">精装修</option>
+							<option value="3">豪华装修</option>
+							<option value="4">其他</option>
+						</select>
+					</div>
+				</div>
+				<div class="user">
+					<div class="same">
+						<span>房屋类型：</span><a class="iconfont icon-xiangyou1 pull-right" style="font-size:18px;color:#999999;line-height: 2.2rem"></a>
+						<select id="type">
+							<option value="1">自住</option>
+							<option value="2">出租</option>
+						</select>
+					</div>	
+				</div>
+	</div>	
+</body>
+<script type="text/javascript" src="../../../../script/api.js"></script>
+<script type="text/javascript" src="../../../../script/common.js"></script>
+<script type="text/javascript" src="../../../script/jquery.js"></script>
+<script type="text/javascript" src="../../../script/guanjia/fangwu/editHouse.js"></script>
+</html>

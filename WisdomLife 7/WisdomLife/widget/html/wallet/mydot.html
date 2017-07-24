@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<title>我的信使豆</title>
+		<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<link rel="stylesheet" href="../../css/sm-extend.min.css">
+		<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm-extend.min.js' charset='utf-8'></script>
+		<link rel="stylesheet" type="text/css" href="../../css/all.css">
+		<link rel="stylesheet" type="text/css" href="../../css/base.css">
+		<link rel="stylesheet" type="text/css" href="mydot.css">
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
+		<link rel="stylesheet" type="text/css" href="../../css/person/iconfont.css">
+		<style>
+			body {
+				font-family: "微软雅黑";
+			}
+			a {
+				color: #000;
+			}
+			a:active, a:link, a:visited, a:hover {
+				color: #000;
+				text-decoration: none;
+			}
+			.list-block .item-inner:after {
+				content: none;
+			}
+			.bar {
+				z-index: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="page-group">
+			<!-- 你的html代码 -->
+			<div class="page">
+				<header class="bar bar-nav" id="header">
+					<a class="icon pull-left" id="back"><i  class="iconfont icon-xiangzuo1" style="font-size: 28px;color: #999"></i></a>
+					<h1 class="title" id="title">我的信使豆</h1>
+					<a class="top-bar-right" id="choose">筛选<i class="icon iconfont icon-top"></i></a>
+				</header>
+				<ul class="secondul">
+					<li class="first"></li>
+					<li id="allLi">
+						全部
+					</li>
+					<li id="todayLi">
+						今日
+					</li>
+					<li id="weekLi">
+						近一周
+					</li>
+					<li class="last" id="mouthLi">
+						近一个月
+					</li>
+				</ul>
+				<div class="buttons-tab">
+						<a id="a_tab1" href="#tab1" class="tab-link active button">激励信使豆</a>
+						<a id="a_tab2" href="#tab2" class="tab-link button">推荐信使豆</a>						
+				</div>
+				<div class="content" style="background-color: #f0f0f0;">
+					<!--<div class="buttons-tab buttons-fixed" data-offset="44">
+						<a id="a_tab1" href="#tab1" class="tab-link active button">激励信使豆</a>
+						<a id="a_tab2" href="#tab2" class="tab-link button">推荐信使豆</a>-->
+						<!--<a id="a_tab3" href="#tab3" class="tab-link button">获赠信使豆</a>-->
+					<!--</div>-->
+					<div class="content-block">
+						<div class="tabs">
+							<div id="tab1" class="tab active">
+								<div class="imgtop">
+									<div>
+										<div class="jilileft">
+											<p class="shopkeeper">
+												零售商
+											</p>
+											<p class="shopkeeperp">
+												累计激励信使豆
+											</p>
+											<span class="shopkeeper0" id="lingshouTotal">0.00</span>
+										</div>
+										<div class="jiliright">
+											<p class="merchant">
+												商家
+											</p>
+											<p class="merchantp">
+												累计激励信使豆
+											</p>
+											<span class="merchant0" id="shangjiaTotal">0.00</span>
+										</div>
+									</div>
+								</div>
+								<div class="jili">
+									<div class="changeCor" id="jili6">
+										6%激励
+									</div>
+									<div id="jili12">
+										12%激励
+									</div>
+									<div id="jili24">
+										24%激励
+									</div>
+								</div>
+								<div class="imgbottom" id="back_tab1">
+									<img src="../../image/ring_02.png" alt="" />
+									<p class="waiting">
+										加载到0条数据
+									</p>
+								</div>
+
+										<!--<li class="item-content">
+											<div class="item-inner">
+												<div class="item-title">
+													HG161212072420009
+												</div>
+												<div class="item-after">
+													<i class="iconfont icon-meidou"></i>
+													<span  class="detailnumber">49,295</span>
+												</div>
+												<div class="item-after">
+													   <span class="detaildate">2016-12-12</span>
+												</div>
+											</div>
+										</li>-->
+								<div class="change infinite-scroll" id="ul_tab1">
+									<div class="list-block">
+										<ul id="tab1_ul"></ul>
+									</div>
+									<!-- 加载提示符 -->
+									<div class="infinite-scroll-preloader">
+										<div class="preloader"></div>
+									</div>
+								</div>
+							</div>
+							<div id="tab2" class="tab">
+								<div class="imgtop">
+									<div>
+										<div>
+											<p>
+												累计推荐信使豆
+											</p>
+											<span id="tuijianTotal">0</span>
+										</div>
+									</div>
+								</div>
+								<div class="jili">
+									<div class="changeCor" id="jili61">
+										6%激励
+									</div>
+									<div id="jili121">
+										12%激励
+									</div>
+									<div id="jili241">
+										24%激励
+									</div>
+								</div>
+								<div class="imgbottom" id="back_tab2">
+									<img src="../../image/ring_02.png" alt="" />
+									<p class="waiting">
+										加载到0条数据
+									</p>
+								</div>
+								<div class="change infinite-scroll" id="ul_tab2">
+									<div class="list-block">
+										<ul id="tab2_ul"></ul>
+									</div>
+									<!-- 加载提示符 -->
+									<div class="infinite-scroll-preloader">
+										<div class="preloader"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../script/api.js"></script>
+	<script type="text/javascript" src="../../script/common.js"></script>
+	<script type="text/javascript" src="mydot.js"></script>
+</html>

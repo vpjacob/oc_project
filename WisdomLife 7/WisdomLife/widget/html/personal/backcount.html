@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>回购金币</title>
+    <link rel="stylesheet" type="text/css" href="../../css/api.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+	<link rel="stylesheet" href="../../css/sm-extend.min.css">
+	<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+	<script type='text/javascript' src='../../script/sm.min.js' charset='utf-8'></script>
+	<script type='text/javascript' src='../../script/sm-extend.min.js' charset='utf-8'></script>
+	<link rel="stylesheet" type="text/css" href="../../css/all.css">
+	<link rel="stylesheet" type="text/css" href="../../css/base.css">
+	<link rel="stylesheet" type="text/css" href="backcount.css">	
+	<link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
+	<link rel="stylesheet" type="text/css" href="../../css/person/iconfont.css">
+	<link rel="stylesheet" type="text/css" href="../wallet/myegg.css">
+    <style>
+    body {
+				font-family: "微软雅黑";
+				position: absolute;
+			}
+			a {
+				color: #000;
+			}
+			a:active, a:link, a:visited, a:hover {
+				color: #000;
+				text-decoration: none;
+			}
+			.list-block {
+				margin: 0rem 0;
+			}
+			.bar {
+				z-index: 0;
+			}
+			.item-content {
+				border-bottom: 1px solid #DCDCDC;
+			}
+    </style>
+</head>
+<body>
+	<header class="bar bar-nav " id="header">
+		<a class="icon pull-left" id="back"><i  class="iconfont icon-xiangzuo1" style="font-size: 28px;color: #999"></i></a>
+		<h1 class="title">回购金币</h1>	
+		<!--<a class="top-bar-right" id="choose">筛选<i class="icon iconfont icon-top"></i></a>-->	
+	</header>
+	<!--<ul class="secondul">
+					<li class="first"></li>
+					<li id="week">
+						近七天
+					</li>
+					<li id="mouth">
+						近一个月
+					</li>
+					<li id="threeMouth">
+						近三个月
+					</li>
+					<li class="last" id="sixMouth">
+						近半年
+					</li>
+	</ul>-->
+	<div class="top">
+		<div class="topFirst">
+			<div>
+				<span id="alreadyBackAmount">0</span>
+				<span>总金币(枚)</span>
+			</div>
+		</div>
+	</div>
+	<div class="bottom">
+		<div class="buttons-tab">
+			<a id="a_tab1" href="#tab1" class="tab-link active button">回购申请中</a>
+			<a id="a_tab2" href="#tab2" class="tab-link button">回购完成</a>
+			<a id="a_tab3" href="#tab3" class="tab-link button">回购失败</a>
+		</div>
+		<div class="content-block">
+			<div class="tabs">
+				<div id="tab1" class="tab active infinite-scroll">
+					<!--<div class="date">
+						<span>1 月</span>
+					</div>-->
+					<div id="tab1">
+					  <ul id="first">
+					  	<!--<li>
+					  		<div class="same">
+								<div class="left">
+									2017-01-19
+								</div>
+								<div class="mid">
+									<img src="../../image/jinbi.png"/>
+									<span>2.00</span>
+								</div>
+								<div class="right">
+									<span>中国中信银行</span>
+									<i class="iconfont icon-xiangyou1" style="font-size: 22px;"></i>
+								</div>
+							</div>
+						</li>-->
+					  </ul> 
+					</div>		
+				</div>
+				<div id="tab2" class="tab infinite-scroll">
+					<!--<div class="date">
+						<span>2 月</span>
+					</div>-->
+					<div id="tab2">
+					  <ul id="second">
+					  	<!--<li>
+					  		<div class="same">
+								<div class="left">
+									2017-01-19
+								</div>
+								<div class="mid">
+									<img src="../../image/jinbi.png"/>
+									<span>2.00</span>
+								</div>
+								<div class="right">
+									<span>中国中信银行</span>
+									<i class="iconfont icon-xiangyou1" style="font-size: 22px;"></i>
+								</div>
+							</div>
+						</li>-->
+					  </ul> 
+					</div>
+				</div>
+				<div id="tab3" class="tab infinite-scroll">
+					<!--<div class="date">
+						<span>3 月</span>
+					</div>-->
+					<div id="tab3">
+					  <ul id="third">
+					  	<!--<li>
+					  		<div class="same">
+								<div class="left">
+									2017-01-19
+								</div>
+								<div class="mid">
+									<img src="../../image/jinbi.png"/>
+									<span>2.00</span>
+								</div>
+								<div class="right">
+									<span>中国中信银行</span>
+									<i class="iconfont icon-xiangyou1" style="font-size: 22px;"></i>
+								</div>
+							</div>
+						</li>-->
+					  </ul> 
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+	</div>
+</body>
+
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/common.js"></script>
+<script type="text/javascript" src="backcount.js"></script>
+</html>

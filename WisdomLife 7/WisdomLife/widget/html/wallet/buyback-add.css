@@ -1,0 +1,43 @@
+body{
+	background-color:#f1f1f1;
+}
+.clearfix{clear:both;}
+.content{
+	margin-top:10px;
+}
+.content .list{
+	width:100%;
+	margin:auto;
+}
+.content .list div{
+	line-height:58px;
+	background-color:#FFFFFF;
+	margin-bottom:2px;
+	padding:0 .5rem
+}
+.content .list span{
+	float:left;
+	width:100px;
+}
+.content .list input{
+	float:left;
+	line-height:58px;
+	width:200px;
+}
+.content .list i{
+	float:right;
+	-webkit-transform:rotate(90deg);
+	transform:rotate(90deg);
+	width:41px;
+	
+}
+.commit{
+   width:90%;
+   margin:20px auto;
+   background-color:#0EAAE0;
+   color:#FFFFFF;
+   padding:8px 0;
+   text-align:center;
+   border-radius:10px;
+}
+

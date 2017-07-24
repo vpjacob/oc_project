@@ -1,0 +1,76 @@
+/*@import "menu.css";*/
+/** 清除内外边距 **/
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
+th, td, /* table elements 表格元素 */
+img/* img elements 图片元素 */ {
+	border: medium none;
+	margin: 0;
+	padding: 0;
+}
+/** 设置默认字体 **/
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	font-family: '微软雅黑';
+}
+/*h1, h2, h3, h4, h5, h6 { font-size: 100%; }*/
+/*em{font-style:normal;}*/
+/** 重置列表元素 **/
+ul, ol {
+	list-style: none;
+}
+/** 重置超链接元素 **/
+a {
+	text-decoration: none;
+	color: #000;
+}
+a:hover {
+	text-decoration: underline;
+	color: #3363a7;
+}
+/** 重置图片元素 **/
+img {
+	border: 0px;
+}
+/** 重置表格元素 **/
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.text{
+   padding:3px 0px 3px 15px;
+   background-color:#f0f0f0;
+}
+
+.typeAll {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -o-flex;
+	display: flex;
+	background-color: #fff;
+	flex-wrap:wrap;
+}
+.typeAll .same {
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	-o-box-flex: 1;
+	box-flex: 1;
+	text-align: center;
+	font-size: 14px;
+	color: #646464;
+	width:25%;
+	margin-top:10px;
+}
+.same img{
+   width:50px;
+   height:50px;
+}
+
+.same p{
+  font-size:14px;
+}

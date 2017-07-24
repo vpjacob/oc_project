@@ -1,0 +1,7 @@
+
+
+
+		function goBack() {
+			api.closeWin({
+            });
+		}

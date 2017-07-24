@@ -1,0 +1,109 @@
+#releaseDy .list-block .item-inner:after{
+	background-color: #F4F3F1;
+}
+#releaseDy .content-block-title{
+    margin-top: 15px;
+}
+#releaseDy .content-block-title span{
+    font-size: 12px;
+    color: #040404;
+    font-weight: 800;
+}
+#releaseDy .item-title span{
+	font-size: 14px;
+	font-weight: 400;
+	color: #0F0F0F;
+}
+#releaseDy .page-content{
+	background-color: #F4F3F1;
+	padding-top: 0px;
+}
+#releaseDy .list-block{
+	margin-bottom: 5px;
+	margin-top: 2px;
+}
+#releaseDy .list-block ul:before{
+	background-color：#F4F3F1;
+}
+#releaseDy .list-block ul:after{
+	background-color：#F4F3F1;
+}
+#releaseDy .list-block textarea{
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 0px;
+    background: #FFFFFF;
+}
+#releaseDy .list-block ul li{
+	padding-bottom: 10px;
+	height: auto;
+	overflow: auto;
+}
+#releaseDy .tool{
+	width: auto;
+	height: 70px;
+}
+#releaseDy .tool span{
+	display:block; 
+	text-align:center;
+	line-height: 80%;
+	font-size: 12px;
+}
+#releaseDy .phone{
+	float: left;
+	margin-top: 2px;
+	margin-left: 5px;
+	height:70px;
+	width:calc((100% - 25px) / 4);
+	background: #F2F2F2;
+	text-align: center;
+	color: #DCDCDC;
+	font-size: 16px;
+	vertical-align: middle;
+}
+#releaseDy .phone img{
+	height: 70px;
+	width: 100%;
+}
+#releaseDy .expression{
+	float: left;
+	margin-top: 2px;
+	margin-left: 5px;
+	height: 70px;
+	width:calc((100% - 25px) / 4);
+	background: #F2F2F2;
+	text-align: center;
+	color: #DCDCDC;
+	font-size: 16px;
+}
+#releaseDy .item-after{
+	font-size: 14px;
+	font-weight: 400;
+	color: #0F0F0F;
+}
+.center{
+	color: #FFFFFF;
+}
+#releaseDy i.icon-back.theme-green, .theme-green i.icon-back {
+    background-image: url(../../image/nearby/ic_back_arrow_left.png);
+}
+div[class*="list-block  smart-select-list-"] {
+  margin-top: 10px;
+ 
+}
+
+#releaseDy .icon-hidden{
+	display: none;
+}
+#releaseDy .releaseDyButton{
+	display:none;
+}
+
+#releaseDy .navbar,.navbar-inner{
+	background-color:white;
+}
+
+
+
