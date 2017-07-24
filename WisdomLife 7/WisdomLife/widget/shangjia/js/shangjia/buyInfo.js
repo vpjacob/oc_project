@@ -32,6 +32,7 @@ apiready = function() {
 	});
 	//提交支付调用支付宝接口
 	$('#apply').click(function() {
+		var mobileReg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(14[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
 		if (userInfo.userNo == '' || userInfo.userNo == null) {
 			api.alert({
 				msg : "您是否登录了？请先去登录吧！"
@@ -53,6 +54,12 @@ apiready = function() {
 		if($("#userPhone").val()==""){
 			api.alert({
 				msg : "请输入收货人的手机号！"
+			});
+			return false;
+		};
+		if(!mobileReg.test($("#userPhone").val())){
+			api.alert({
+				msg : "收货人的电话格式不对！"
 			});
 			return false;
 		};
@@ -79,7 +86,7 @@ apiready = function() {
 				remark:" ",
 				goodModel:$("#colorChoose option:selected").html(),
 				merchantNo : "B000001",
-				merchantName : "李-零售商01",
+				merchantName : "北京小客网络科技有限公司",
 				mount : countAll,
 				type : "1"
 			},
@@ -88,7 +95,7 @@ apiready = function() {
 				if (formset.execStatus == "true") {
 					var dealNo = formset.formDataset.dealNo;
 					var data = {
-						"subject" : "李-零售商01",
+						"subject" : "北京小客网络科技有限公司",
 						"body" : "小客智慧生活支付",
 						"amount" : countAll,
 						"tradeNO" : dealNo
@@ -140,7 +147,7 @@ apiready = function() {
 				}
 			},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
-				console.log("错误输出信息：" + XMLHttpRequest.status + "###" + XMLHttpRequest.readyState + "###" + textStatus);
+//				console.log("错误输出信息：" + XMLHttpRequest.status + "###" + XMLHttpRequest.readyState + "###" + textStatus);
 				api.alert({
 					msg : "您的网络是否已经连接上了，请检查一下！"
 				});
@@ -164,8 +171,11 @@ function changeColor(){
 		if($('#colorChoose option:selected').val()==0 || $('#colorChoose option:selected').val()==1){
 			$('#businessImg').attr('src','../image/address/lock1.png');
 			$('#content').html('小客科技智能锁  玫瑰金');
-		}else{
+		}else if($('#colorChoose option:selected').val()==2){
 			$('#businessImg').attr('src','../image/address/lock2.png');
+			$('#content').html('小客科技智能锁  拉丝金');
+		}else if($('#colorChoose option:selected').val()==3){
+			$('#businessImg').attr('src','../image/address/lock3.png');
 			$('#content').html('小客科技智能锁  拉丝银');
 		}
 	}

@@ -19,6 +19,9 @@ apiready = function() {
 		sync : true,
 		key : 'path'
 	});
+    
+
+    
 	var header = $api.byId('header');
 	ssid = api.pageParam.ssid;
 	if (api.systemType == 'ios') {
@@ -288,9 +291,6 @@ function download(name) {
 	////$(aaa).remove();
 	//$(aaa2).remove();
 	var url = "http://192.168.1.254/CARDV/MOVIE/" + name;
-	
-    
-    
     
     var fs = api.require('fs');
     fs.exist({
@@ -365,52 +365,5 @@ function download(name) {
              }
              });
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    /*
-    
-    var fs = api.require('fs');
-    fs.readDir({
-               path : path_file+name,
-               }, function(ret, err) {
-               console.log(ret.status);
-               console.log(ret.status);
-               console.log(ret.status);
-               if (ret.status) {
-               console.log("----------yes--------");
-               console.log(ret.status);
-               console.log(path_file + name);
-               api.accessNative({
-                                name : 'palyCarViedo',
-                                extra : {
-                                path:path_file+name,
-                                name:name
-                                }
-                                }, function(ret, err) {
-                                if (ret) {
-                                //                                    alert(JSON.stringify(ret));
-                                } else {
-                                //                                    alert(JSON.stringify(err));
-                                }
-                                });
-               $(idOfI).remove();
-               
-               }else{
-               console.log("---------else---------");
-               console.log(ret.status);
-               console.log(path_file + name);
-               
-               
-               }
-               });
-    
-    */
-	
+
 }

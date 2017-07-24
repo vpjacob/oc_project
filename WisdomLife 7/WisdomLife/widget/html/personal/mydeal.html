@@ -4,27 +4,21 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
 		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
-		<title>我的订单</title>
+		<title>我的物流</title>
 		<link rel="stylesheet" type="text/css" href="../../css/api.css"/>
 		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
 		<link rel="stylesheet" href="../../css/sm-extend.min.css">
 		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css" />
-		<link rel="stylesheet" type="text/css" href="myrecord.css" />
+		<link rel="stylesheet" type="text/css" href="mydeal.css" />
 		<script type="text/javascript" src="../../script/jquery-1.10.2.js"></script>
 		<style></style>
 	</head>
 	<body>
 		<header class="bar bar-nav" style="position: relative; background-color:white" id="title">
-			<h1 class="title" style="background-color:white;border-bottom:1px solid #efefef;">我的订单</h1>
+			<h1 class="title" style="background-color:white;border-bottom:1px solid #efefef;">我的物流</h1>
 			<a onclick="goBack()" class="iconfont icon-xiangzuo1 pull-left" style="font-size:20px;color:#0EAAE3;position:absolute;top:7px;"></a>
 		</header>
-	<div class="black_box"></div>
 		<div class="Personal_box">
-			<div class="Personal_title">
-				<span class="special span0 ">我的订单</span><span class="span1 ">交易记录</span>
-				<div class="clearfix"></div>
-			</div>
-			<div class="clearfix"></div>
 			<div class="Personal_centent" id="order">
 				<!--<div class="box">
 					<div class="bottom">
@@ -34,17 +28,13 @@
 								<span>北京麦当劳凯旋城</span>
 							</div>
 						</div>
-						<div class="user" style="height:100%;overflow: auto">
+						<div class="user" style="height:3.25rem;">
 							<div class="same">
-								<span>商品：</span>
-								<span style="line-height: 2.5rem">
-									麦辣鸡腿汉堡套餐：¥64<br>
-									麦辣鸡腿汉堡套餐：¥64<br>
-									麦辣鸡腿汉堡套餐：¥64<br>
-								</span>
+								<span>小客迷你电动便携式榨汁机 玫瑰金：</span>
+								<span>¥1000</span>
 							</div>
 						</div>
-							<div class="commodity" >共2件商品,实付¥<a style="color:#ff6c00">128</a></div>
+						<div class="commodity" >共2件商品,实付¥<a style="color:#ff6c00">128</a></div>
 						<div class="user">
 							<div class="same">
 								<span>交易总额：</span>
@@ -59,49 +49,56 @@
 						</div>
 						<div class="user">
 							<div class="same">
-								<span>创建时间：</span>
+								<span>交易创建时间：</span>
 								<span>2017</span>
 							</div>
 						</div>
 						<div class="user">
 							<div class="same">
-								<span>订单状态：</span>
-								<span>北京麦当劳凯旋城</span>
-							</div>
-						</div>
-					</div>
-				</div>-->
-			</div>
-			<div class="Personal_centent" id="deal">
-				<!--<div class="box">
-					<div class="bottom">
-						<div class="user">
-							<div class="same">
-								<span>商家名称：</span>
-								<span>北京麦当劳凯旋城</span>
+								<span>收货人：</span>
+								<span>阿三</span>
 							</div>
 						</div>
 						<div class="user">
 							<div class="same">
-								<span>交易总额：</span>
-								<span style="color:#ff6c00">128</span>
+								<span>收货人号码：</span>
+								<span style="color:#ff6c00">12545532541</span>
+							</div>
+						</div>
+						<div class="user other">
+							<div class="same">
+								<span>收货地址：</span>
+								<textarea disabled="disabled">1</textarea>
 							</div>
 						</div>
 						<div class="user">
 							<div class="same">
-								<span>订单号：</span>
-								<span>123123123123123123</span>
+								<span>发货时间：</span>
+								<span>2017</span>
 							</div>
 						</div>
 						<div class="user">
 							<div class="same">
-								<span>平台确认时间：</span>
-								<span>2017-10-10 01:10:20</span>
+								<span>物流状态：</span>
+								<span>待发货</span>
 							</div>
 						</div>
 						<div class="user">
 							<div class="same">
-								<span class="other">查看物流</span>
+								<span>快递公司：</span>
+								<span></span>
+							</div>
+						</div>
+						<div class="user">
+							<div class="same">
+								<span>快递单号：</span>
+								<span></span>
+							</div>
+						</div>
+						<div class="user">
+							<div class="same">
+								<span>交易完成时间：</span>
+								<span>2017</span>
 							</div>
 						</div>
 					</div>
@@ -110,5 +107,5 @@
 	</body>
 	<script type="text/javascript" src="../../script/api.js"></script>
 	<script type="text/javascript" src="../../script/common.js"></script>
-	<script type="text/javascript" src="myrecord.js"></script>
+	<script type="text/javascript" src="mydeal.js"></script>
 </html>

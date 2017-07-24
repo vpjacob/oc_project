@@ -51,7 +51,10 @@ apiready = function() {
 			} else if (!mobileReg.test(telephone)) {
 				alert("联系电话格式有误");
 				return false;
-			} else if ($("#role option:selected" ).val()=="0") {
+			} else if ($("#address").val()=="") {
+				alert("请填写维修房间信息");
+				return false; 
+			}else if ($("#role option:selected" ).val()=="0") {
 				alert("请选择报修类型");
 				return false;
 			}else {

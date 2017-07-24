@@ -125,7 +125,7 @@ apiready = function() {
 	//牙刷
 	$('#lock').click(function(){
 		api.openWin({
-				name : 'lock.html',
+				name : 'lock',
 				url : 'lock.html',
 				animation : {
 					type : "push", //动画类型（详见动画类型常量）

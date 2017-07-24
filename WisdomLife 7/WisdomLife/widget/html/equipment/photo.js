@@ -10,11 +10,13 @@ apiready = function() {
 		sync : true,
 		key : 'path'
 	});
-	fs = api.require('fs');
-	memberid = api.getPrefs({
-		sync : true,
-		key : 'memberid'
-	});
+    fs = api.require('fs');
+    memberid = api.getPrefs({
+                            sync : true,
+                            key : 'memberid'
+                            });
+    
+	
 	showLi();
 //	var header = $api.byId('header');
 //	if (api.systemType == 'ios') {
@@ -41,21 +43,83 @@ apiready = function() {
 
 	});
 };
+
+
 function showPic(name) {
+    
 	if (name.indexOf("JPG") != '-1') {
-		$('.zzc').show(500);
-		$(".zzc img").attr("src", path_file + name);
-	} else if (name.indexOf("MOV") != '-1') {
-		api.openVideo({
+//		$('.zzc').show(500);
+//		$(".zzc img").attr("src", path_file + name);
+
+        var imageBrowser = api.require('imageBrowser');
+        imageBrowser.openImages({
+                                imageUrls: [
+                                            path_file + name
+                                            ]
+                                });
+        
+    } else if (name.indexOf("MOV") != '-1') {
+	if (api.systemType == 'ios') {
+        api.accessNative({
+                         name : 'palyCarViedo',
+                         extra : {
+                         path:path_file+name,
+                         name:name
+                         }
+                         }, function(ret, err) {
+                         if (ret) {
+                         //                                    alert(JSON.stringify(ret));
+                         } else {
+                         //                                    alert(JSON.stringify(err));
+                         }
+                         });
+    }else{
+        api.openVideo({
 			url : path_file + name
 		});
 	}
+    }
 }
 
 function showLi() {
-	api.showProgress({
-	});
-	AjaxUtil.exeScript({
+	
+    fs.readDir({
+               path : path_file
+               }, function(ret, err) {
+               //					alert(JSON.stringify(ret) + "-----" + JSON.stringify(err));
+               if (ret.status) {
+               //						alert(JSON.stringify(ret) + "-----");
+               console.log("-----****" + JSON.stringify(ret));
+               var html = "";
+               $("li").remove();
+               for (var i = 0; i < ret.data.length; i++) {
+               if (ret.data[i].indexOf("JPG") != '-1' || ret.data[i].indexOf("MOV") != '-1') {
+               var names = "";
+               if (names.indexOf(ret.data[i]) != '-1') {//在后台
+               photo_li = photo_yes;
+               } else {
+               photo_li = photo_no;
+               }
+               var title = ret.data[i];
+               var id = title.substring(0, title.length - 4);
+               getSize(title, id);
+               var newli = photo_li.replace("\"[name]\"", ret.data[i]);
+               newli = newli.replace("\"[name2]\"", ret.data[i]);
+               newli = newli.replace("\"[title]\"", ret.data[i]);
+               newli = newli.replace("\"[id]\"", id);
+               html += newli;
+               }
+               }
+               $api.append(document.getElementById("con"), html);
+               } else {
+               //						api.alert({
+               //							msg : "请检查您的SD卡或手机储存卡是否安装"
+               //						});
+               }
+               });
+    
+    /*
+    AjaxUtil.exeScript({
 		script : "mobile.center.equipment.equipment",
 		needTrascation : true,
 		funName : "getfiles",
@@ -63,8 +127,10 @@ function showLi() {
 			memberid : memberid
 		},
 		success : function(data) {
+                       console.log("------------success : function(data) {------------------");
 			api.hideProgress();
 			console.log(JSON.stringify(data));
+                       console.log("-----------JSON.stringify(data)-------------------");
 			//			alert(JSON.stringify(data));
 			if (data.execStatus == 'true') {
 				var length = data.datasources[0].rows.length;
@@ -78,6 +144,10 @@ function showLi() {
 					path : path_file
 				}, function(ret, err) {
 //					alert(JSON.stringify(ret) + "-----" + JSON.stringify(err));
+                           console.log("-------------}, function(ret, err) {-----------------");
+                           console.log(ret.status);
+                           console.log(JSON.stringify(ret));
+                           console.log("------------console.log(JSON.stringify(ret));------------------");
 					if (ret.status) {
 //						alert(JSON.stringify(ret) + "-----");
 						console.log("-----****" + JSON.stringify(ret));
@@ -102,10 +172,14 @@ function showLi() {
 						}
 						$api.append(document.getElementById("con"), html);
 					} else {
-						api.alert({
-							msg : "请检查您的SD卡或手机储存卡是否安装"
-						});
-					}
+//						api.alert({
+//							msg : "请检查您的SD卡或手机储存卡是否安装"
+//						});
+                           console.log("------------------------------");
+                           console.log(ret.status);
+                           console.log(JSON.stringify(ret));
+                           console.log("------------------------------");
+                           }
 				});
 
 			} else {
@@ -121,6 +195,7 @@ function showLi() {
 			});
 		}
 	});
+    */
 }
 
 function getSize(name, id) {

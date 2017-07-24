@@ -31,6 +31,7 @@ apiready = function() {
 	});
 	//提交支付调用支付宝接口
 	$('#apply').click(function() {
+		var mobileReg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(14[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
 		if (userInfo.userNo == '' || userInfo.userNo == null) {
 			api.alert({
 				msg : "您是否登录了？请先去登录吧！"
@@ -52,6 +53,12 @@ apiready = function() {
 		if($("#userPhone").val()==""){
 			api.alert({
 				msg : "请输入收货人的手机号！"
+			});
+			return false;
+		};
+		if(!mobileReg.test($("#userPhone").val())){
+			api.alert({
+				msg : "收货人的电话格式不对！"
 			});
 			return false;
 		};
@@ -78,7 +85,7 @@ apiready = function() {
 				remark:" ",
 				goodModel:$("#colorChoose option:selected").html(),
 				merchantNo : "B000001",
-				merchantName : "李-零售商01",
+				merchantName : "北京小客网络科技有限公司",
 				mount : countAll,
 				type : "1"
 			},
@@ -87,7 +94,7 @@ apiready = function() {
 				if (formset.execStatus == "true") {
 					var dealNo = formset.formDataset.dealNo;
 					var data = {
-						"subject" : "李-零售商01",
+						"subject" : "北京小客网络科技有限公司",
 						"body" : "小客智慧生活支付",
 						"amount" : countAll,
 						"tradeNO" : dealNo
@@ -139,7 +146,7 @@ apiready = function() {
 				}
 			},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
-				console.log("错误输出信息：" + XMLHttpRequest.status + "###" + XMLHttpRequest.readyState + "###" + textStatus);
+//				console.log("错误输出信息：" + XMLHttpRequest.status + "###" + XMLHttpRequest.readyState + "###" + textStatus);
 				api.alert({
 					msg : "您的网络是否已经连接上了，请检查一下！"
 				});
@@ -162,9 +169,10 @@ $(document).ready(function(){
 function changeColor(){
 		if($('#colorChoose option:selected').val()==0 || $('#colorChoose option:selected').val()==1){
 			$('#businessImg').attr('src','../image/address/juicing1.png');
-			$('#content').html('小客迷你电动便携式榨汁机  玫瑰金');
-		}else{
-			$('#businessImg').attr('src','../image/address/juicing2.png');
-			$('#content').html('小客迷你电动便携式榨汁机  拉丝银');
-		}
+			$('#content').html('小客便携式榨汁机  金色');
+		}	
+//		}else{
+//			$('#businessImg').attr('src','../image/address/juicing2.png');
+//			$('#content').html('小客迷你电动便携式榨汁机  拉丝银');
+//		}
 	}
