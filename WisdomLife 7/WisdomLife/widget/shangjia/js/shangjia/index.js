@@ -9,46 +9,6 @@ apiready = function() {
 		var cc = $api.dom('.xiaobiao');
 		$api.css(cc, 'margin-top:0px;');
 	}
-	//		var tel = $api.byId('tel');
-	//		$api.css(tel, 'padding-right:25px;');
-	//	}
-	//	FileUtils.readFile("info.json", function(info, err) {
-	//				urId=info.userNo;
-	//
-	//			});
-	//	$('#tab1').click(function() {
-	//			api.openWin({
-	//			name : 'seller',
-	//			url : '../busdetail/seller.html',
-	//			animation : {
-	//				type : "push", //动画类型（详见动画类型常量）
-	//				subType : "from_right", //动画子类型（详见动画子类型常量）
-	//				duration : 300 //动画过渡时间，默认300毫秒
-	//			}
-	//		});
-	//	});
-	//	$('#tab2').click(function() {
-	//			api.openWin({
-	//			name : 'seller',
-	//			url : '../busdetail/seller.html',
-	//			animation : {
-	//				type : "push", //动画类型（详见动画类型常量）
-	//				subType : "from_right", //动画子类型（详见动画子类型常量）
-	//				duration : 300 //动画过渡时间，默认300毫秒
-	//			}
-	//		});
-	//	});
-	//	$('#tab3').click(function() {
-	//			api.openWin({
-	//			name : 'seller',
-	//			url : '../busdetail/seller.html',
-	//			animation : {
-	//				type : "push", //动画类型（详见动画类型常量）
-	//				subType : "from_right", //动画子类型（详见动画子类型常量）
-	//				duration : 300 //动画过渡时间，默认300毫秒
-	//			}
-	//		});
-	//	});
 
 	FileUtils.readFile("info.json", function(info, err) {
 		urId = info.userNo;
@@ -71,68 +31,68 @@ apiready = function() {
 	}
 
 	//初始加载蒙版
-	$('.sjclose').click(function(){
+	$('.sjclose').click(function() {
 		$('.tankuang_box').hide();
 		$('.black_box').hide();
 	});
-	$('.sjimg').click(function(){
+	$('.sjimg').click(function() {
 		api.openWin({
-				name : 'zadange.html',
-				url : '../../html/wallet/zadange.html',
-				animation : {
-					type : "push", //动画类型（详见动画类型常量）
-					subType : "from_right", //动画子类型（详见动画子类型常量）
-					duration : 300 //动画过渡时间，默认300毫秒
-				}
-			});
+			name : 'zadange.html',
+			url : '../../html/wallet/zadange.html',
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			}
+		});
 	});
 	//榨汁机
-	$('#juicing').click(function(){
+	$('#juicing').click(function() {
 		api.openWin({
-				name : 'juicing.html',
-				url : 'juicing.html',
-				animation : {
-					type : "push", //动画类型（详见动画类型常量）
-					subType : "from_right", //动画子类型（详见动画子类型常量）
-					duration : 300 //动画过渡时间，默认300毫秒
-				}
-			});
+			name : 'busAllShow.html',
+			url : 'busAllShow.html',
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			}
+		});
 	});
 	//门禁
-	$('#entranceGuard').click(function(){
+	$('#entranceGuard').click(function() {
 		api.openWin({
-				name : 'entranceGuard.html',
-				url : 'entranceGuard.html',
-				animation : {
-					type : "push", //动画类型（详见动画类型常量）
-					subType : "from_right", //动画子类型（详见动画子类型常量）
-					duration : 300 //动画过渡时间，默认300毫秒
-				}
-			});
+			name : 'busAllShow.html',
+			url : 'busAllShow.html',
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			}
+		});
 	});
 	//牙刷
-	$('#toothbrush').click(function(){
+	$('#toothbrush').click(function() {
 		api.openWin({
-				name : 'toothbrush.html',
-				url : 'toothbrush.html',
-				animation : {
-					type : "push", //动画类型（详见动画类型常量）
-					subType : "from_right", //动画子类型（详见动画子类型常量）
-					duration : 300 //动画过渡时间，默认300毫秒
-				}
-			});
+			name : 'busAllShow.html',
+			url : 'busAllShow.html',
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			}
+		});
 	});
-	//牙刷
-	$('#lock').click(function(){
+	//门锁
+	$('#lock').click(function() {
 		api.openWin({
-				name : 'lock',
-				url : 'lock.html',
-				animation : {
-					type : "push", //动画类型（详见动画类型常量）
-					subType : "from_right", //动画子类型（详见动画子类型常量）
-					duration : 300 //动画过渡时间，默认300毫秒
-				}
-			});
+			name : 'busAllShow',
+			url : 'busAllShow.html',
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			}
+		});
 	});
 	//获得商品信息分类列表
 	function list() {
@@ -140,9 +100,9 @@ apiready = function() {
 			script : "mobile.business.business",
 			needTrascation : true,
 			funName : "findCompanyType",
-			//	      form:{
-			//	         userNo:urId
-			//	      },
+			//        form:{
+			//           userNo:urId
+			//        },
 			success : function(data) {
 				console.log("商品详情" + $api.jsonToStr(data));
 				if (data.formDataset.checked == 'true') {
@@ -151,19 +111,19 @@ apiready = function() {
 					var nowli = "";
 					var nowlis = "";
 					for (var i = 0; i < list.length; i++) {
-						//	       				 nowli += "<div class='swiper-slide'><span id="+list[i].typeflag+">"+list[i].typename+"</span></div>";
+						//                  nowli += "<div class='swiper-slide'><span id="+list[i].typeflag+">"+list[i].typename+"</span></div>";
 						if (i < 10) {
-							nowli = '<span id="' + list[i].fid + '">' + '<img src="' + rootUrl + list[i].picpath + '"></img>' + '<div class="leibie">' + list[i].typename + '</div>' + '</span>';
+							nowli = '<span id="' + list[i].uuid + '">' + '<img src="' + rootUrl + list[i].image + '"></img>' + '<div class="leibie">' + list[i].name + '</div>' + '</span>';
 							$('#showTypeInfo').append(nowli);
 						} else {
-							nowlis = '<span id="' + list[i].fid + '">' + '<img src="' + rootUrl + list[i].picpath + '"></img>' + '<div class="leibie">' + list[i].typename + '</div>' + '</span>';
+							nowlis = '<span id="' + list[i].uuid + '">' + '<img src="' + rootUrl + list[i].image + '"></img>' + '<div class="leibie">' + list[i].name + '</div>' + '</span>';
 							$('#showTypeInfo1').append(nowlis);
 						}
 
 					}
-					//	       				$('#showTypeInfo').append(nowli);
+					//                 $('#showTypeInfo').append(nowli);
 				} else {
-//					alert(data.formDataset.errorMsg);
+					//          alert(data.formDataset.errorMsg);
 				}
 			}
 		});
@@ -186,26 +146,26 @@ apiready = function() {
 				typename : ''
 			},
 			success : function(data) {
-				console.log("推荐商家" + $api.jsonToStr(data));
+				console.log("推荐商家"+$api.jsonToStr(data));
 				if (data.formDataset.checked == 'true') {
 					var account = data.formDataset.companyDataList;
 					var list = $api.strToJson(account);
 
 					if (list.length == undefined || list.length == 0 || list == undefined || list == '' || list.length == '') {
-						//	       				api.toast({
-						//	                       msg:'暂无商家记录'
+						//                 api.toast({
+						//                         msg:'暂无商家记录'
 						//                     });
 						return false;
 					} else {
 						var nowli = "";
 						for (var i = 0; i < list.length; i++) {
-							nowli += '<dl class="recommend-details" id="' + list[i].fid + '" data="' + list[i].companytype + '"><img src="' + rootUrl + list[i].shopurl + '" alt="" /><dt>' + list[i].companyname + '</dt><dd>' + list[i].companytype + '</dd></dl>';
+							nowli += '<dl class="recommend-details" id="' + list[i].fid + '" data="' + list[i].industry_name + '"><img src="' + rootUrl + list[i].shopurl + '" alt="" /><dt>' + list[i].companyname + '</dt><dd>' + list[i].industry_name + '</dd></dl>';
 
 						}
 						$('#recommend').append(nowli);
 					}
 				} else {
-//					alert(data.formDataset.errorMsg);
+					//          alert(data.formDataset.errorMsg);
 				}
 			}
 		});
@@ -216,90 +176,22 @@ apiready = function() {
 	$('#sou').click(function() {
 		$('#tab1').html('');
 		page = 1;
-		getDistance("",""); 
+		getDistance("", "");
 	});
-
-	//
-	//	api.addEventListener({
-	//		name : 'keydown'
-	//	}, function(ret, err) {
-	//		alert(123);
-	//		if(keyCode==84){
-	//			$('#tab1').html('');
-	//			page=1;
-	//			businessList(1);
-	//		}
-	//	});
-	//  软键盘的搜索按钮
-	//	$('#search').keydown(function(e){
-	//		alert(e.keyCode);
-	//		if(e.keyCode==13){
-	//			$('#tab1').html('');
-	//			page=1;
-	//			businessList(1);
-	//		}
-	//	})
 
 	//	单击相应的分类获取分类
 	$('#showTypeInfo').on('click', 'span', function() {
 		var typeId = this.id;
 		//			alert(typeId);
 		$('#tab1').children().remove();
-		getDistance(typeId,"");
+		getDistance(typeId, "");
 	});
 
 	$('#showTypeInfo1').on('click', 'span', function() {
 		var typeId = this.id;
 		$('#tab1').children().remove();
-		getDistance(typeId,""); 
+		getDistance(typeId, "");
 	});
-
-	//		$('#search').focus(function(){
-	//			setTimeout(function(){
-	//				api.toast({
-	//	            msg:'亲,请点击左侧放大镜来进行搜索哦！'
-	//          });
-	//			},500)
-	//
-	//		})
-
-	//	function topList(title){
-	//		AjaxUtil.exeScript({
-	//	      script:"mobile.business.business",
-	//	      needTrascation:true,
-	//	      funName:"findCompanyType",
-	//	      form:{
-	//	         title:title
-	//	      },
-	//	      success:function (data) {
-	//	      console.log($api.jsonToStr(data));
-	//	       if (data.formDataset.checked == 'true') {
-	//	       		var account = data.formDataset.recordList;
-	//	       		console.log('account为'+account);
-	//	       		var list=$api.strToJson(account);
-	//	       		console.log('list为'+list);
-	//	       			var nowli ="";
-	//	       			var nowli='<div class="box" id="'+list.fid+'">'
-	//	       					+'<i class="icon iconfont icon-xiangyou1" style=" font-size:15px;color: #cccccc;float: right"></i>'
-	//	       					+'<div class="left">'
-	//	       					+'<img src="'+rootUrl+list.shopurl+'" alt="" />'
-	//							+'</div>'
-	//							+'<div class="right">'
-	//							+'<span id="sjname">'+list.companyname+'</span>'
-	//							+'<div id="sjaddress">'+list.address+'</div>'
-	//							+'<ul style="margin-bottom: 2px">'
-	//							+'<li class="other">'+list.companytype+'</li>'
-	//							+'</ul>'
-	//							+'</div>'
-	//							+'</div>';
-	//					$('#tab1').html("");
-	//	       			$('#tab1').append(nowli);
-	//	         } else {
-	//	             alert(data.formDataset.errorMsg);
-	//	         }
-	//	       }
-	//	    });
-	//	}
 
 	//金银蛋交易总额
 	function total(urId) {
@@ -326,7 +218,7 @@ apiready = function() {
 					}
 
 				} else {
-//					alert(data.formDataset.errorMsg);
+					//					alert(data.formDataset.errorMsg);
 				}
 			}
 		});
@@ -357,7 +249,7 @@ apiready = function() {
 						}
 					}
 				} else {
-//					alert(data.formDataset.errorMsg);
+					//					alert(data.formDataset.errorMsg);
 				}
 			}
 		});
@@ -365,7 +257,7 @@ apiready = function() {
 
 	//;
 
-	function getDistance(typeId,city) {
+	function getDistance(typeId, city) {
 		map = api.require('bMap');
 		//api.showProgress();
 		map.getLocation({
@@ -379,20 +271,19 @@ apiready = function() {
 				lat = ret.lat;
 				businessList(1, typeId, city);
 			} else {
-//				alert(err.code);
+				//				alert(err.code);
 			}
 		});
 
 	}
 
-	getDistance("","");
+	getDistance("", "");
 
 	//展示商家列表
 	function businessList(pages, typeId, city) {
-		if(typeof(city) == "undefined"||city==""){
+		if ( typeof (city) == "undefined" || city == "") {
 			city = "北京";
 		}
-		console.log("输出城市信息："+city);
 		AjaxUtil.exeScript({
 			script : "mobile.business.business",
 			needTrascation : true,
@@ -402,14 +293,14 @@ apiready = function() {
 				p : pages,
 				companytype : typeId || '',
 				title : $('#search').val(),
-				//	         is_online:0,
+				//           is_online:0,
 				lng : lon,
 				lat : lat,
-				city: city
+				city : city
 			},
 			success : function(data) {
-				console.log($api.jsonToStr(data));
 				if (data.formDataset.checked == 'true') {
+					console.log("商家列表：" + $api.jsonToStr(data));
 					var account = data.formDataset.companyDataList;
 					var list = $api.strToJson(account);
 
@@ -426,8 +317,8 @@ apiready = function() {
 
 					} else {
 						for (var i = 0; i < list.length; i++) {
-							lon = list[i].longtitude;
-							lat = list[i].latitude;
+//							lon = list[i].longtitude;
+//							lat = list[i].latitude;
 							var starlen = list[i].star;
 							//alert(picLen.length); 评星数
 							function starLenght(starlen) {
@@ -449,32 +340,32 @@ apiready = function() {
 							if (list[i].address == null || list[i].address == '') {
 								list[i].address = '无';
 							}
-							if (list[i].companytype == null || list[i].companytype == '') {
-								list[i].companytype = '无';
+							if (list[i].industry_name == null || list[i].industry_name == '') {
+								list[i].industry_name = '无';
 							}
 							var distance = list[i].distance;
 							if (0 < distance && distance < 1000) {
 								distance = ('距此' + (distance.toFixed(1)) + 'm');
-							} else if (1000 < distance && distance < 5000) {
+							} else if (1000 <= distance && distance <= 100000) {
 								distance = ((distance / 1000).toFixed(1));
 								distance = ('距此' + distance + 'km');
-							} else if (distance > 5000) {
-								distance = ('距此大于5km');
+							} else if (distance > 100000) {
+								distance = ('距此大于100km');
 							} else {
 								distance = ('距离暂无');
 							}
-							var nowli = '<div class="businessman-box" id="' + list[i].fid + '" data="' + list[i].companytype + '">' + '<div class="businessman-list">' + '<div class="left"><img src="' + rootUrl + list[i].shopurl + '" alt=""/></div>' + '<dl class="left">' + '<dt>' + list[i].companyname + '</dt>' + '<dd>' + '' + starLenght(starlen) + '' + '<span></span>' + '</dd>' + '<dd>' + list[i].companytype + '<span class="text-right" >' + distance + '</span></dd>' + '</dl>' + '</div>' + '</div>';
+							var nowli = '<div class="businessman-box" id="' + list[i].fid + '" data="' + list[i].industry_name + '">' + '<div class="businessman-list">' + '<div class="left"><img src="' + rootUrl + list[i].shopurl + '" alt=""/></div>' + '<dl class="left">' + '<dt>' + list[i].companyname + '</dt>' + '<dd>' + '' + starLenght(starlen) + '' + '<span></span>' + '</dd>' + '<dd>' + list[i].industry_name + '<span class="text-right" >' + distance + '</span></dd>' + '</dl>' + '</div>' + '</div>';
 
 							$('#tab1').append(nowli);
 						}
-						//		       		getDistance()
+						//               getDistance()
 					}
 
 					pageCount = data.formDataset.count > 10 ? Math.ceil(data.formDataset.count / 10) : 1;
 					console.log("返回的:pageCount=" + pageCount);
 					console.log("返回的page=" + page);
 				} else {
-//					alert(data.formDataset.errorMsg);
+					//          alert(data.formDataset.errorMsg);
 				}
 			}
 		});
@@ -529,47 +420,6 @@ apiready = function() {
 			}
 		});
 	});
-
-	//	function getDistance() {
-	//		  AjaxUtil.exeScript({
-	//		        script:"mobile.business.business",
-	//		        needTrascation:false,
-	//		        funName:"getDistance",
-	//		        form:{
-	//		            lng:lon,
-	//		            lat:lat
-	//		        },
-	//		        success:function(data){
-	//		            if(data.execStatus == 'true'){
-	//		                //alert('获得距离成功！');
-	//		                var rows = data.datasources[0].rows;
-	//		               // alert(rows.length);
-	//		                for (var i = 0; i < rows.length; i++) {
-	//		                	var distance=rows[i].distance;
-	//		                	//alert(distance);
-	//			                if(0<=distance&&distance<1000){
-	//				    		$('#keyId'+i+'').html('距此'+distance+'m');
-	//
-	//						    	}else if(1000<=distance&&distance<5000){
-	//						    		var distances=((distance/1000).toFixed(1));
-	//						    		$('#keyId'+i+'').html('距此'+distances+'km');
-	//
-	//						    	}else if(distance>5000){
-	//						    		$('#keyId'+i+'').html('距此大于5km');
-	//
-	//						    	}else {
-	//						    		$('#keyId'+i+'').html('暂无');
-	//
-	//						    	}
-	//
-	//		               //  $('#keyId'+i+'').html(distance);
-	//		                }
-	//		            }else {
-	//		               // alert("获得距离失败！");
-	//		            }
-	//		        }
-	//		    });
-	//}
 
 	//获取商家地理位置
 	$('#nearby').click(function() {
@@ -633,7 +483,7 @@ apiready = function() {
 						//								id : $(this).attr()
 						//							}
 						$('#tab1').children().remove();
-						getDistance("",ret.cityInfo.city);
+						getDistance("", ret.cityInfo.city);
 						$('#showCity').html(ret.cityInfo.city);
 						UICityList.close();
 					}

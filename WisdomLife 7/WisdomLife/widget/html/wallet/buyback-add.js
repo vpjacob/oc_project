@@ -110,6 +110,12 @@ function queryUserInfoUserNo(urId){
 		   })
 		   return false;
 		};
+		if($('#bank option:selected').val()=='请选择'){
+			api.alert({
+			   msg : '请选择要转入的银行'
+		   })
+		   return false;
+		};
 		
 		if( !card_no){
           api.alert({
@@ -130,7 +136,7 @@ function queryUserInfoUserNo(urId){
 	      form:{
 	        userNo:urId,
 	        master:master,
-	        bank:bank,
+	        bank:$('#bank option:selected').val(),
 	        card_no:card_no,
 	        province:$('#province option:selected').val(),
 	        city:$('#city option:selected').val(),

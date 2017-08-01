@@ -10,6 +10,7 @@ var userDate;
 var urId='';
 var nameFlag='';
 var nameCard='';
+var oldPwd="";
 apiready = function() {
 	var header = $api.byId('header');
 	if (api.systemType == 'ios') {
@@ -25,6 +26,7 @@ apiready = function() {
 				urId = info.userNo;
 				getInfo(urId);
 				queryUserInfoUserNo(urId);
+				oldPwd(urId);
 				$('#createtime').html(userInfo.createTime);
 			});
 	
@@ -129,6 +131,33 @@ function queryUserInfoUserNo(urId){
 		});
 	};
 	
+//获取旧密码对二级密码进行跳转判断
+function oldPwd(urId){	
+		AjaxUtil.exeScript({
+	      script:"managers.home.person",
+	      needTrascation:true,
+	      funName:"querySecondPwd",
+	      form:{
+	        userNo:urId
+	      },
+	      success:function (data) {
+	      console.log($api.jsonToStr(data));
+	       if (data.formDataset.checked == 'true') {
+	       		var account = data.formDataset.secondPwd;
+	       		oldPwd=account;
+//				if(oldPwd==888888){
+////	       			alert("您的二级密码的初始密码为888888,如果您想修改，请去个人信息完善修改！")
+//					$('#oldpwd').attr('placeholder','初始密码为六个8');
+//					
+//	       		}else{
+//	       			$('#oldpwd').attr('placeholder','请输入您的旧密码');
+//	       		}
+	         } else {
+	             alert(data.formDataset.errorMsg);
+	         }
+	       }
+	    });
+	}	
 //修改真实姓名
 	$('#name_').click(function() {
 		if (nameFlag == true) {
@@ -224,23 +253,42 @@ function queryUserInfoUserNo(urId){
 			}
 		});
 	});
-	
+//修改二级密码跳转	
 	$('#changeSecondPwd').click(function() {
-		api.openWin({
-			name : 'changeSecondPwd',
-			url : 'changeSecondPwd.html',
-			reload : true,
-			pageParam : {
-				memberid : memberid
-			},
-			slidBackEnabled : true,
-			animation : {
-				type : "push", //动画类型（详见动画类型常量）
-				subType : "from_right", //动画子类型（详见动画子类型常量）
-				duration : 300 //动画过渡时间，默认300毫秒
-			}
-		});
-	});
+		if (oldPwd == 888888) {
+			api.openWin({
+				name : 'changeSecondPwd',
+				url : 'changeSecondPwd.html',
+				reload : true,
+				pageParam : {
+					memberid : memberid
+				},
+				slidBackEnabled : true,
+				animation : {
+					type : "push", //动画类型（详见动画类型常量）
+					subType : "from_right", //动画子类型（详见动画子类型常量）
+					duration : 300 //动画过渡时间，默认300毫秒
+				}
+			});
+		} else {
+			api.openWin({
+				name : 'changeSpwd',
+				url : 'changeSpwd.html',
+				reload : true,
+				pageParam : {
+					memberid : memberid
+				},
+				slidBackEnabled : true,
+				animation : {
+					type : "push", //动画类型（详见动画类型常量）
+					subType : "from_right", //动画子类型（详见动画子类型常量）
+					duration : 300 //动画过渡时间，默认300毫秒
+				}
+			});
+		}
+
+	}); 
+
 	
 	$('#gexing').click(function() {
 		api.openWin({

@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
     <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
-    <title></title>
+    <title>小客商品</title>
     <link rel="stylesheet" type="text/css" href="../../css/api.css"/>
     <link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
     <link rel="stylesheet" href="../../css/sm-extend.min.css">
@@ -12,25 +12,43 @@
 	<link rel="stylesheet" type="text/css" href="../css/busAllShow.css" /> 
 </head>
 <body>
-	<header class="bar bar-nav" style="position: relative;background: #0EAAE3" id="title">
-		<a onclick="goBack()" class="iconfont icon-xiangzuo1 pull-left" style="font-size:20px;position:absolute;top:7px;"></a>	
-		<h1 class="title" style="color: #4d4d4d;font-size: 0.8rem;">小客商品</h1>
+	<header class="bar bar-nav" style="position: relative;background: #fff" id="title">
+		<a  class="iconfont icon-xiangzuo1 pull-left" style="font-size:20px;position:absolute;top:7px;z-index: 10" id="back"></a>	
+		<h1 class="title" style="color: #0EAAE3;font-size: 0.8rem;">小客商品</h1>
 	</header>
 	<div class="box" id="showList">
 		<div class="same">
-			<div class="datalist">
-				<img src="../image/sjLun1.jpg"/>
+			<div class="datalist" id="lock">
+				<img src="../image/tu1.png" >
+				<span>小客科技智能锁</span>
+				<span>小客遥控智能锁 W300指纹锁 家用防盗门锁 电子锁智能锁 WiFi视频开门</span>
 			</div>
 		</div>
 		<div class="same">
-			<img src="../image/sjLun2.png"/>
+			<div class="datalist" id="entranceGuard">
+				<img src="../image/tu2.png"/>
+				<span>小客科技智能门禁</span>
+				<span>钢化玻璃面板搭配不锈钢边框，时尚质感油然而生。防水，防晒，耐冲撞</span>
+			</div>
+		</div>
+		<div class="same">
+			<div class="datalist" id="toothbrush">
+				<img src="../image/tu3.png" />
+				<span>小客k100声波电动牙刷</span>
+				<span>k100声波电动牙刷 感应充电 磁悬浮成人电动牙刷 软毛</span>
+			</div>
+		</div>
+		<div class="same">
+			<div class="datalist" id="juicing">
+				<img src="../image/tu4.png"/>
+				<span>小客便携式榨汁机</span>
+				<span>小客便携式榨汁机 小型家用水果汁搅拌机</span>
+			</div>
 		</div>
 	</div>
-	
 </body>
 <script type="text/javascript" src="../../script/api.js"></script>
 <script type="text/javascript" src="../../script/common.js"></script>
-<script type="text/javascript" src="../script/jquery.js"></script>
 <script type="text/javascript" src="../../script/jquery-1.10.2.js"></script>
 <script type="text/javascript" src="../js/shangjia/busAllShow.js"></script>
 </html>

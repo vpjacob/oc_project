@@ -23,7 +23,8 @@
 			<div><span class="span1">姓名:</span><span class="span1" id="wxName"></span></div>
 			<div><span class="span1">联系电话:</span><span class="span1" id="wxTel"></span></div>
 			<div><span class="span1">维修状态:</span><span class="span1" id="wxstate"></span></div>
-			<div><span class="span1">维修房间:</span><span class="span1" id="roomInfo"></span></div>
+			<div><span class="span1">维修房间:</span><span class="span1 span2" id="roomInfo"></span></div>
+			<div><span class="span1">物业公司:</span><span class="span1" id="company"></span></div>
 			<div><span class="span1">发布时间:</span><span class="span1" id="wxTime"></span></div>
 			<div><span class="span1">完成时间:</span><span class="span1" id="endTime"></span></div>
 		</div>
@@ -36,23 +37,7 @@
 			<div class="clearfix"></div>
 		</div>
 		<div class="clearfix"></div>
-		<div class="Personal_centent">
-			<!--<div class="list_box">
-				<div><span><b style="color: red; visibility: hidden">*</b>报修类型:</span>
-				<select id="role">
-					 <option>请选择</option>
-				</select>
-				</div>
-				<div><span><b style="color: red; visibility: hidden">*</b>备注:</span>
-				<textarea style="font-size:16px;line-height:16px;height:100px;" id="textarea"></textarea>
-				</div>
-			</div>
-			<div class="other">
-				<div class="er"><span style="width:26%"><span><b style="color: red">* </b>联系人：</span></span><span style="width：74%;"><input id="name" type="text" class="per" placeholder="请输入联系人的姓名" style="width：74%; height:40px;"></span></div>
-				<div><span class="er1" style="width:26%"><span><b style="color: red">* </b>联系电话：</span></span><span class="er1" style="width：74%;"><input id="telphone" type="tel" class="per" placeholder="请输入联系电话" style="width：74%; height:40px;"></span></div>
-				<div><span class="er1" style="width:26%"><span><b style="visibility: hidden">* </b>联系地址：</span></span><span class="er1" style="width：74%;"><input type="text" class="per" id="address" placeholder="请详细到楼栋单元房间号" style="width：74%; height:40px;"></span></div>
-			</div>-->
-			
+		<div class="Personal_centent">			
 			<div class="sameBox">
 				<div class="same">
 					<span><b style="color: red">* </b><span>联系人</span></span>
@@ -67,8 +52,14 @@
 					<input id="address" type="text" class="per" placeholder="请详细到楼栋单元房间号">
 				</div>
 				<div class="same">
-					<span><b style="color: red;visibility: hidden">* </b>报修类型</span>
+					<span><b style="color: red;">* </b>报修类型</span>
 					<select id="role">
+						<!--<option>请选择</option>-->
+					</select>
+				</div>
+				<div class="same">
+					<span><b style="color: red;">* </b>物业公司</span>
+					<select id="companyList">
 						<!--<option>请选择</option>-->
 					</select>
 				</div>
@@ -99,10 +90,7 @@
 				<div><span style="margin-left: 4px">发布时间 <span style="margin-left: 15px"> 2017-3-05</span></span></div>-->
 			</div>
 		</div>
-		<div class="clearfix"></div>				
-	<!--<div class="next">
-		<button type="button" class="step" id="apply">提交</button>
-	</div>	-->
+		<div class="clearfix"></div>		
 </body>
 <script type="text/javascript" src="../../../../script/api.js"></script>
 <script type="text/javascript" src="../../../../script/common.js"></script>

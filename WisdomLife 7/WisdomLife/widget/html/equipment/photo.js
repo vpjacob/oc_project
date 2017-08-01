@@ -210,78 +210,161 @@ function getSize(name, id) {
 }
 
 function uploadfile(name) {
-	fs.getAttribute({
-		path : path_file + name
-	}, function(ret, err) {
-		if (ret.status) {
-			var num = Number(ret.attribute.size) / (1024 * 1024);
-			if (Math.round(num * 100) / 100 > 10) {
-				api.alert({
-					msg : "文件过大，请选择不大于10M的文件"
-				});
-			} else {
-				var headurl = path_file + name;
-				api.showProgress({
-					style : 'default',
-					animationType : 'fade',
-					title : '文件上传中...',
-					modal : false
-				});
-				api.ajax({
-					url : rootUrl + '/api/equipmentUpload',
-					method : 'post',
-					data : {
-						files : {
-							file : headurl
-						}
-					}
-				}, function(ret, err) {
-					api.hideProgress();
-					if (ret.execStatus == 'true') {
-						var path = ret.formDataset.path;
-						var filename = ret.formDataset.filename;
-						var size = ret.formDataset.size;
-						var suffix = ret.formDataset.suffix;
-						AjaxUtil.exeScript({
-							script : "mobile.center.equipment.equipment",
-							needTrascation : true,
-							funName : "addfile",
-							form : {
-								path : path,
-								filename : filename,
-								size : size,
-								suffix : suffix,
-								memberid : memberid
-							},
-							success : function(data) {
-								if (data.execStatus == 'true') {
-									api.alert({
-										msg : '上传成功！'
-									}, function(ret, err) {
-										showLi();
-									});
-								} else {
-									api.alert({
-										msg : '上传失败,请您从新上传'
-									});
-								}
-							}
-						});
-					} else {
-						api.alert({
-							msg : '上传图片失败,请您从新上传'
-						});
-					}
-				});
-			}
-		} else {
-			api.alert({
-				msg : "获取文件大小失败"
-			});
-		}
-	});
+    
+    
+    var mnPopups = api.require('MNPopups');
+    mnPopups.open({
+                  rect: {
+                  w: 100,
+                  h: 100
+                  },
+                  position: {
+                  x: api.winWidth - 10,
+                  y: 70
+                  },
+                  styles: {
+                  mask: 'rgba(0,0,0,0.2)',
+                  bg: '#eee',
+                  cell: {
+                  bg: {
+                  normal: '',
+                  highlight: ''
+                  },
+                  h: 50,
+                  title: {
+                  marginL: 45,
+                  color: '#636363',
+                  size: 12,
+                  },
+                  icon: {
+                  marginL: 10,
+                  w: 25,
+                  h: 25,
+                  corner: 2
+                  }
+                  },
+                  pointer: {
+                  size: 7,
+                  xPercent: 90,
+                  yPercent: 0,
+                  orientation: 'downward'
+                  }
+                  },
+                  datas: [{
+                          title: '分享',
+                          icon: 'fs://MNPopups/addFriends.png'
+                          },  {
+                          title: '删除',
+                          icon: 'fs://MNPopups/send.png'
+                          }],
+                  animation: true
+                  }, function(ret) {
+                  if (ret) {
+//                    alert(JSON.stringify(ret));
+                  if(ret.index == 0){
+                  uploadfileShared(name);
+                  }
+                  if(ret.index == 1){
+                  deleteFile(name);
+                  }
+                  }
+                  });
+    
+    
+    /*
+	
+     */
 
 }
+
+function uploadfileShared(name){
+    fs.getAttribute({
+                    path : path_file + name
+                    }, function(ret, err) {
+                    if (ret.status) {
+                    var num = Number(ret.attribute.size) / (1024 * 1024);
+                    if (Math.round(num * 100) / 100 > 10) {
+                    api.alert({
+                              msg : "文件过大，请选择不大于10M的文件"
+                              });
+                    } else {
+                    var headurl = path_file + name;
+                    api.showProgress({
+                                     style : 'default',
+                                     animationType : 'fade',
+                                     title : '文件上传中...',
+                                     modal : false
+                                     });
+                    api.ajax({
+                             url : rootUrl + '/api/equipmentUpload',
+                             method : 'post',
+                             data : {
+                             files : {
+                             file : headurl
+                             }
+                             }
+                             }, function(ret, err) {
+                             api.hideProgress();
+                             console.log(JSON.stringify(ret));
+                             if (ret.execStatus == 'true') {
+                             var path = ret.formDataset.path;
+                             var filename = ret.formDataset.filename;
+                             var size = ret.formDataset.size;
+                             var suffix = ret.formDataset.suffix;
+                             AjaxUtil.exeScript({
+                                                script : "mobile.center.equipment.equipment",
+                                                needTrascation : true,
+                                                funName : "addfile",
+                                                form : {
+                                                path : path,
+                                                filename : filename,
+                                                size : size,
+                                                suffix : suffix,
+                                                memberid : memberid
+                                                },
+                                                success : function(data) {
+                                                if (data.execStatus == 'true') {
+                                                api.alert({
+                                                          msg : '上传成功！'
+                                                          }, function(ret, err) {
+                                                          showLi();
+                                                          });
+                                                } else {
+                                                api.alert({
+                                                          msg : '上传失败,请您从新上传'
+                                                          });
+                                                }
+                                                }
+                                                });
+                             } else {
+                             api.alert({
+                                       msg : '上传图片失败,请您从新上传'
+                                       });
+                             }
+                             });
+                    }
+                    } else {
+                    api.alert({
+                              msg : "获取文件大小失败"
+                              });
+                    }
+                    });
+}
+
+
+
+function deleteFile(name){
+    fs.remove({
+              path: path_file  + name
+              }, function(ret, err) {
+              if (ret.status) {
+              alert(JSON.stringify(ret));
+              } else {
+              alert(JSON.stringify(err));
+              }
+              });
+}
+
 
 function uploadfile2() {
 	api.alert({

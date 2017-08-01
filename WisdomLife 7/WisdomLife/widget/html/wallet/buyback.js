@@ -353,15 +353,20 @@ function bank(chooseId,urId){
 	      },
 	      success:function (data) {
 	      console.log($api.jsonToStr(data));
+	      var imgUlr='';
 	       if (data.formDataset.checked == 'true') {
 	       		var account = data.formDataset.bank;
 	       		//console.log('account为'+account);
 	       		var list=$api.strToJson(account);
 	       		 cardId=list.id;
-	       		console.log('list.card_no为'+list.card_no);
+	       		if(list.open_bank=="中信银行"){
+		       				imgUlr='<img src="../../image/bank1.png"/>'
+		       			}else if(list.open_bank=="工商银行"){
+		       				imgUlr='<img src="../../image/bank2.png"/>'
+		       			}
 						var nowli='<div class="jia" id="'+list.id+'">'
 		       					+'<div class="left">'
-		       					+'<img src="../../image/bank1.png"/>'
+		       					+''+imgUlr+''
 		       					+'</div>'
 		       					+'<div class="middle">'
 		       					+'<div><span id="bankName">'+list.open_bank+'</span></div>'

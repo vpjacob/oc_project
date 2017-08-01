@@ -69,10 +69,16 @@ apiready = function() {
 						msg : "您还没有添加银行卡！"
 					});
 				}else{
+				var imgUlr='';
 		       		for(var i=0;i<list.length;i++){
+		       			if(list[i].open_bank=="中信银行"){
+		       				imgUlr='<img src="../../image/bank1.png"/>'
+		       			}else if(list[i].open_bank=="工商银行"){
+		       				imgUlr='<img src="../../image/bank2.png"/>'
+		       			}
 		       			var nowli='<div class="jia" >'
 		       					+'<div class="left">'
-		       					+'<img src="../../image/bank1.png"/>'
+		       					+''+imgUlr+''
 		       					+'</div>'
 		       					+'<div class="middle">'
 		       					+'<div><span>'+list[i].open_bank+'</span></div>'

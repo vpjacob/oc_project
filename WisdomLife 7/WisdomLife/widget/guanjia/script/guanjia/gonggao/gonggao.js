@@ -11,62 +11,10 @@ apiready = function() {
 	//调用小区公告
 	FileUtils.readFile("info.json", function(info, err) {
 		urId = info.userNo;
-		userGetAnnouncementlistPageById(urId, page);
+		queryAnnouncementListByUserNo(urId, page);
 	});
 	//小区公告接口
-	//	function notice(urId){
-	//		//alert(urId);
-	//		AjaxUtil.exeScript({
-	//	      script:"mobile.steward.announcement",
-	//	      needTrascation:true,
-	//	      funName:"findAnnouncementById ",
-	//	      form:{
-	//	         userNo:urId
-	//	      },
-	//	      success:function (data) {
-	//	      console.log($api.jsonToStr(data));
-	//	       if (data.formDataset.checked == 'true') {
-	//	       		var account = data.formDataset.announcementList;
-	//	       		var list=$api.strToJson(account);
-	//	       		 if(list==undefined||list==""){
-	//                    	api.toast({
-	//	                          msg:'暂无'
-	//                        });
-	//                    }else{
-	//                    var announcementType='';
-	//                    var grade='';
-	//                    for(var i = 0; i < list.length; i++){
-	//                    	//公告类型
-	//                      	if(list[i].announcement_type==1){
-	//                      		announcementType='通知 ';
-	//                      	}else if(list[i].announcement_type==2){
-	//                      		announcementType='公告  ';
-	//                      	}else if(list[i].announcement_type==3){
-	//                      		announcementType='活动   ';
-	//                      	}
-	//                      //公告等级
-	//                      	if(list[i].announcement_grade==1){
-	//                      		grade='background:#029f37';
-	//                      	}else if(list[i].announcement_grade==2){
-	//                      		grade='background:#fb5259';
-	//                      	}
-	//                      var nowList='<div class="gonggao" id="'+list[i].ggid+'">'
-	//                      		+'<div><span style="'+grade+'">'+announcementType+'</span><span>'+list[i].c_title+'</span></div>'
-	//                      		+'<div><span>'+list[i].release_time +'</span></div>'
-	//								+'<div id="first"><span>查看详情</span><span class="iconfont icon-xiangyou1"></span></div>'
-	//								+'<div class="clearfix"></div>'
-	//								+'</div>'
-	//							$("#gao").append(nowList);
-	//                    }
-	//                    }
-	//	         } else {
-	//	             alert(data.formDataset.errorMsg);
-	//	         }
-	//	       }
-	//	    });
-	//	}
-	//小区公告接口
-	function userGetAnnouncementlistPageById(urId, pages) {
+	function queryAnnouncementListByUserNo(urId, pages) {
 		api.showProgress({
 		});
 		var data = {
@@ -75,14 +23,14 @@ apiready = function() {
 			"pageSize" : "10"
 		};
 		$.ajax({
-			url : rootUrls + '/announcement/userGetAnnouncementlistPageById.do',
+			url : rootUrls + '/xk/queryAnnouncementListByUserNo.do',
 			type : 'post',
 			dataType : 'json',
 			data : JSON.stringify(data),
 			contentType : "application/json;charset=utf-8",
 			success : function(result) {
 				api.hideProgress();
-				// console.log($api.jsonToStr(result));
+				 console.log($api.jsonToStr(result));
 				if (result.state == 1) {
 					var data = result.data.list;
 					if (data == undefined || data == "" || data.length == 0 || data.length == null || data.length == undefined || data == null) {
@@ -151,13 +99,13 @@ apiready = function() {
 			}
 		});
 	});
-	//notice();
+	//分页的刷功能
 	api.addEventListener({
 		name : 'scrolltobottom'
 	}, function(ret, err) {
 		if (parseInt(page) <= parseInt(pageCount)) {
 			page++;
-			userGetAnnouncementlistPageById(urId, page);
+			queryAnnouncementListByUserNo(urId, page);
 		} else {
 			page = parseInt(pageCount) + 1;
 		}

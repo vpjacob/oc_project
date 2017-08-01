@@ -28,7 +28,7 @@ apiready = function() {
 						userRole = true;
 					}
 				} else {
-					//					alert(data.msg);
+					//alert(data.msg);
 				}
 			}
 		});
@@ -52,7 +52,7 @@ apiready = function() {
 				}
 			});
 		} else {
-			alert('您的角色不对,不能使用该功能');
+			alert('您暂时没有此权限,不能使用该功能');
 		}
 	});
 	//联系物业页面跳转
@@ -70,7 +70,7 @@ apiready = function() {
 				}
 			});
 		} else {
-			alert('您的角色不对,不能使用该功能');
+			alert('您暂时没有此权限,不能使用该功能');
 		}
 	});
 
@@ -128,7 +128,7 @@ apiready = function() {
 				}
 			});
 		} else {
-			alert('您的角色不对,不能使用该功能');
+			alert('您暂时没有此权限,不能使用该功能');
 		}
 	});
 
@@ -309,5 +309,3 @@ apiready = function() {
 	});
 
 }
-//物业维修弹框弹出
-$(".tankuang_box,.black_box").hide();

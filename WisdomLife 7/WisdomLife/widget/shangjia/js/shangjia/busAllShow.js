@@ -7,39 +7,58 @@ apiready = function() {
 	var roomId = api.pageParam.id;
 	FileUtils.readFile("info.json", function(info, err) {
 		urId = info.userNo;
-
 	});
-
-};
-//软键盘搜索
-$('#search').keydown(function(e) {
-	//alert(e.keyCode);
-//	var len = $('.same').length;
-//	var arr = [];
-//	var reg = new RegExp($("#search").val());
-//	for (var i = 0; i < len; i++) {
-//		//如果字符串中不包含目标字符会返回-1
-//		if (list[i].match(reg)) {
-//			arr.push(list[i]);
-//		}
-//	}
-//	return arr;
-//	alert(arr);
-	if (e.keyCode == 13) {
-		var same=$('.same');
-		for(var i=0;i<same.length;i++){
-			if($("#search").val()=="中"){
-				$(this).show();
-			}else{
-				$(this).addClass('.special');
+	$("#back").bind("click", function() {
+		api.closeWin();
+	});
+	//门锁
+	$('#lock').bind("click",function() {
+		api.openWin({
+			name : 'lock',
+			url : 'lock.html',
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
 			}
-		}
-	}
-});
-
-function goBack() {
-	api.closeWin({
+		});
 	});
-}
-}
-});
+	//门禁
+	$('#entranceGuard').bind("click",function() {
+		api.openWin({
+			name : 'entranceGuard.html',
+			url : 'entranceGuard.html',
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			}
+		});
+	});
+	//牙刷
+	$('#toothbrush').bind("click",function() {
+		api.openWin({
+			name : 'toothbrush.html',
+			url : 'toothbrush.html',
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			}
+		});
+	});
+	
+	//榨汁机
+	$('#juicing').bind("click",function() {
+		api.openWin({
+			name : 'juicing.html',
+			url : 'juicing.html',
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			}
+		});
+	});
+};
+

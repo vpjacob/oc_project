@@ -61,14 +61,37 @@ function play(position1) {
 				};
 				moduleTest.show(param);
 			} else {
-				api.alert({
-					msg : "请连接设备指定WiFi"
-				});
-			}
+//				api.alert({
+//					msg : "请连接设备指定WiFi"
+//				});
+
+                       api.confirm({
+                                   msg : '未连接指定WiFi，现在就去？',
+                                   buttons : ['设置', '取消']
+                                   }, function(ret, err) {
+                                   var index = ret.buttonIndex;
+                                   if (index == 1) {
+                                   api.accessNative({
+                                                    name : 'ConnetToWiFi',
+                                                    extra : {
+                                                    }
+                                                    }, function(ret, err) {
+                                                    if (ret) {
+                                                    //                                    alert(JSON.stringify(ret));
+                                                    } else {
+                                                    //                                    alert(JSON.stringify(err));
+                                                    }
+                                                    });
+                                   } else if(index == 2){
+                                   api.closeWin();
+                                   }
+                                   });
+                       }
 		});
 	} else {
 		var moduleTest = api.require('movies');
 		var retWifiName = moduleTest.get();
+        console.log(retWifiName + "-----" + ssid);
 		if (retWifiName == ssid) {
 			var appPath = api.fsDir;
 			var param = {
@@ -76,10 +99,32 @@ function play(position1) {
 			};
 			moduleTest.show(param);
 		} else {
-			api.alert({
-				msg : "请连接设备指定WiFi"
-			});
-		}
+//			api.alert({
+//				msg : "请连接设备指定WiFi"
+//			});
+
+            api.confirm({
+                        msg : '未连接指定WiFi，现在就去？',
+                        buttons : ['设置', '取消']
+                        }, function(ret, err) {
+                        var index = ret.buttonIndex;
+                        if (index == 1) {
+                        api.accessNative({
+                                         name : 'ConnetToWiFi',
+                                         extra : {
+                                         }
+                                         }, function(ret, err) {
+                                         if (ret) {
+                                         //                                    alert(JSON.stringify(ret));
+                                         } else {
+                                         //                                    alert(JSON.stringify(err));
+                                         }
+                                         });
+                        } else if(index == 2){
+                        api.closeWin();
+                        }
+                        });
+        }
 
 	}
 }

@@ -27,7 +27,6 @@
 #import "JJScanViewController.h"
 #import "KNBVideoPlayerController.h"
 
-
 static DMHtmlListener *instance = nil;
 
 @interface DMHtmlListener ()<APIWebViewDelegate, APIModuleMethodDelegate, APIScriptMessageDelegate>
@@ -171,6 +170,20 @@ static DMHtmlListener *instance = nil;
         };
         
         [self.windowContainer pushViewController:scanVC animated:YES];
+    }
+    if ([scriptMessage.name isEqualToString:@"ConnetToWiFi"]) {
+        NSURL *url;
+        if ([[UIDevice currentDevice] systemVersion].floatValue < 10.0) {
+            url = [NSURL URLWithString:@"prefs:root=WIFI"];
+        }else{
+            url = [NSURL URLWithString:@"app-Prefs:root=WIFI"];
+        }
+      if ([[UIApplication sharedApplication] canOpenURL:url]) {
+          
+          [[UIApplication sharedApplication] openURL:url];
+          
+      }
+                                         
     }
     if ([scriptMessage.name isEqualToString:@"ShowKey"]) {
         NSArray *deviceList = [DeviceManager manager].list;

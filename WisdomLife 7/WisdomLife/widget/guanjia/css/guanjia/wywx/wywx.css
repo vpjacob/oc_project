@@ -183,21 +183,21 @@ h1{
 	z-index:20000;
 	height:100%;
 	width:100%;
-	display:none;
+	 display:none; 
 	overflow: hidden;
 }
 .tankuang_box{
 	position:fixed;
-	top:25%;
+	top:22%;
 	left:0;
 	z-index:20001;
 	width:100%;
-	display:none;
+	 display:none; 
 	overflow: hidden;
 }
 .tankuang{
 	width:84%;
-	height:265px;
+	height:300px;
 	margin:auto;
 	background-color: white;
 	border-radius:5px;
@@ -224,9 +224,17 @@ h1{
 .tankuang div .span1{
 	margin-top:12px;
 	margin-left:12px;
-	font-size:14px;
+	font-size:0.7rem;
 }
-
+.tankuang div .span2{
+	width:67%;
+	line-height:0.7rem;
+	text-overflow :ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+	position: relative;
+	top:2px;
+}
 .sameBox{
 	width: 92%;
 	margin: 0 auto;
