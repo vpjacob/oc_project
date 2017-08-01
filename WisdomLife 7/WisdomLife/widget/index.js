@@ -274,7 +274,6 @@ function initFile(){
 				fs.createFile({
 					path : 'fs://wisdomLifeData/info.json'
 				}, function(ret, err) {
-					console.log($api.jsonToStr(ret));
 					if (ret.status) {
 						FileUtils.writeFile(userInfo1, "info.json");
 					}

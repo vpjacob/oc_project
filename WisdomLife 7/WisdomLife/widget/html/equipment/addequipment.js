@@ -44,6 +44,7 @@ apiready = function() {
 //						api.alert({
 //							msg : '请您连接上指定设备WiFi'
 //						});
+                         if (api.systemType == 'ios') {
                          api.confirm({
                                      msg : '未连接指定WiFi，现在就去？',
                                      buttons : ['设置', '取消']
@@ -65,6 +66,11 @@ apiready = function() {
                                      api.closeWin();
                                      }
                                      });
+                         }else{
+                         api.alert({
+                                   msg : "请连接设备的指定WIFI"
+                                   });
+                         }
 					} else {
 						if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 							xmlhttp = new XMLHttpRequest();
@@ -77,7 +83,6 @@ apiready = function() {
 								trans.parse({
 									data : xmlhttp.responseText
 								}, function(ret, err) {
-									console.log(JSON.stringify(ret));
 									ssid = ret.LIST.SSID;
 									pwd = ret.LIST.PASSPHRASE;
 									//同步返回结果：
@@ -85,7 +90,6 @@ apiready = function() {
 										sync : true,
 										path : 'fs://wisdomLifeData/equipment.json'
 									});
-									console.log(data);
 									jsonOfData = $api.strToJson(data);
 									length = jsonOfData.length;
 									if (length == 1) {//默认的长度为1，所以长度唯一的时候要判断是有还是没有
@@ -137,7 +141,6 @@ apiready = function() {
 								api.alert({
 									msg : "请连接设备的指定WIFI"
 								});
-								console.log(xmlhttp.readyState + "---" + xmlhttp.status);
 							}
 						}
 						xmlhttp.open("GET", url_test, true);
@@ -145,10 +148,37 @@ apiready = function() {
 					}
 				});
 			} else {
-				api.alert({
-					msg : '请您连接上指定设备WiFi'
-				});
-			}
+//				api.alert({
+//					msg : '请您连接上指定设备WiFi'
+//				});
+                        if (api.systemType == 'ios') {
+                        api.confirm({
+                                    msg : '未连接指定WiFi，现在就去？',
+                                    buttons : ['设置', '取消']
+                                    }, function(ret, err) {
+                                    var index = ret.buttonIndex;
+                                    if (index == 1) {
+                                    api.accessNative({
+                                                     name : 'ConnetToWiFi',
+                                                     extra : {
+                                                     }
+                                                     }, function(ret, err) {
+                                                     if (ret) {
+                                                     //                                    alert(JSON.stringify(ret));
+                                                     } else {
+                                                     //                                    alert(JSON.stringify(err));
+                                                     }
+                                                     });
+                                    } else if(index == 2){
+                                    api.closeWin();
+                                    }
+                                    });
+                        }else{
+                        api.alert({
+                                  msg : "请连接设备的指定WIFI"
+                                  });
+                        }
+                        }
 		}
 	});
 

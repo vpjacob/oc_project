@@ -124,7 +124,7 @@ apiready = function() {
 				}
 			} else if (tabTop == "24") {
 				if (page3) {
-					console.log("刷新了----：    " + page3);
+//					console.log("刷新了----：    " + page3);
 					pageNum3 = pageNum3 + 1;
 					getInfos(tabTop, "2", page);
 				}
@@ -150,7 +150,6 @@ function getInfos(drivetype, datetype, toPage) {
 	}, function(ret, err) {
 		api.hideProgress();
 		isRefresh = false;
-		console.log($api.jsonToStr(ret));
 		if (ret) {
 			if (ret.execStatus == "true") {
 				var result = ret.formDataset.entity;

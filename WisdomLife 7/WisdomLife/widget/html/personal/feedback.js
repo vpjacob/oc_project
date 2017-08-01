@@ -55,7 +55,6 @@ apiready = function() {
 				link : $(".num").val()
 			},
 			success : function(data) {//请求成功
-							console.log(JSON.stringify(data));
 				if (data.execStatus === "true" && data.formDataset.checked === "true") {
 					$(".hide").show();
 					$(".good").bind("click", function() {

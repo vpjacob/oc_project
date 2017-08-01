@@ -49,14 +49,12 @@ apiready = function() {
 					trans.parse({
 						data : xmlhttp.responseText
 					}, function(ret, err) {
-						console.log(JSON.stringify(ret));
 						if (ret.Function.Status == 0) {
 							xmlhttp.onreadystatechange = function() {
 								if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 									trans.parse({
 										data : xmlhttp.responseText
 									}, function(ret, err) {
-										console.log(JSON.stringify(ret));
 										api.alert({
 											msg : '密码设置成功，请您重新连接设备WIFI',
 										}, function(ret, err) {
@@ -67,7 +65,6 @@ apiready = function() {
 									api.alert({
 										msg : "请连接设备的指定WIFI"
 									});
-									console.log(xmlhttp.readyState + "---" + xmlhttp.status);
 								}
 							}
 							xmlhttp.open("GET", ReconnectWiFi, true);
@@ -75,11 +72,38 @@ apiready = function() {
 						}
 					});
 				} else if (xmlhttp.readyState == 4 && xmlhttp.status == 0) {
-					api.alert({
-						msg : "请连接设备的指定WIFI"
-					});
-					console.log(xmlhttp.readyState + "---" + xmlhttp.status);
-				}
+//					api.alert({
+//						msg : "请连接设备的指定WIFI"
+//					});
+
+                      if (api.systemType == 'ios') {
+                      api.confirm({
+                                  msg : '未连接指定WiFi，现在就去？',
+                                  buttons : ['设置', '取消']
+                                  }, function(ret, err) {
+                                  var index = ret.buttonIndex;
+                                  if (index == 1) {
+                                  api.accessNative({
+                                                   name : 'ConnetToWiFi',
+                                                   extra : {
+                                                   }
+                                                   }, function(ret, err) {
+                                                   if (ret) {
+                                                   //                                    alert(JSON.stringify(ret));
+                                                   } else {
+                                                   //                                    alert(JSON.stringify(err));
+                                                   }
+                                                   });
+                                  } else if(index == 2){
+                                  api.closeWin();
+                                  }
+                                  });
+                      }else{
+                      api.alert({
+                                msg : "请连接设备的指定WIFI"
+                                });
+                      }
+                      }
 			}
 			xmlhttp.open("GET", url + "num", true);
 			xmlhttp.send();

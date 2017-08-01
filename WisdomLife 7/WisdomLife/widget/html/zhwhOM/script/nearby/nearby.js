@@ -20,11 +20,6 @@ myApp.onPageInit('screening', function(page) {
 			ageMin = ages[0];
 			ageMax = ages[1];
 		}
-		console.log("time"+time);
-		console.log("gender"+gender);
-		console.log("ageMin"+ageMin);
-		console.log("ageMax"+ageMax);
-		console.log("con"+con);
 		getNearbyPersonnelList('1', time, gender, ageMin, ageMax, con);
 		
 	});
@@ -133,7 +128,6 @@ myApp.onPageInit('nearbyDynamicInfo', function(page) {
 		form : "{cur_page: 1,page_num:2,uid:'" + uid + "',dynamicId:'" + dynamicId + "',dyUserId:'" + dyUserId + "'}"
 	};
 	
-	console.log(uid+"$$"+dynamicId+"$$"+dyUserId);
 
 	$$.ajax({
 		url : rootUrl + "/api/execscript",

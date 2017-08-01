@@ -81,9 +81,6 @@ var _p_uichatbox = function() {
 				} else {
 					winHeight = api.winHeight - ret.panelHeight - ret.inputBarHeight - 20 + panelHeight_s;
 				}
-				console.log("page_height="+page_height);
-				console.log("winHeight="+page_height);
-				console.log("ret.panelHeight="+ret.panelHeight);
 				
 				api.setFrameAttr({
 					name : framename,

@@ -34,7 +34,6 @@ var cc = $api.dom('.content');
 		var num=$('#num').val();
 		var vCode=$('#vCode').val();
 		var zg=/^\d{6}$/
-		console.log('typeof(num)'+typeof(num))
 		if(oldpwd==""){
 			alert("亲，请输入的旧密码");
 			return false;
@@ -82,7 +81,6 @@ var cc = $api.dom('.content');
 	        userNo:urId
 	      },
 	      success:function (data) {
-	      console.log($api.jsonToStr(data));
 	       if (data.formDataset.checked == 'true') {
 	       		var account = data.formDataset.secondPwd;
 	       		oldPwd=account;

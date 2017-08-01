@@ -86,7 +86,7 @@ var Service = {
 //					        	//
                 var result = data.datasources[0].rows;
 	        	console.clear();
-	        	console.log(' [ 获取消息历史 ] ', data);
+//	        	console.log(' [ 获取消息历史 ] ', data);
 	        	//未处理
 //	        	if(result.status == 0){
 //	        		//

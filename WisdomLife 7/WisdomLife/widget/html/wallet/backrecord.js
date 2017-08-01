@@ -68,7 +68,6 @@ apiready = function() {
 	      success:function (data) {
 	      	var listInfo = data.formDataset.buyBackRecord;
 			var list = eval(listInfo);
-			console.log('listInfo' + listInfo);
 		//	console.log('list.length' + list.length);
 			if (data.formDataset.checked == 'true') {
 				if (list.length==undefined ||list.length== 0 ||list.length=='') {

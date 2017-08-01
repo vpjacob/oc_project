@@ -21,26 +21,26 @@ var _p_rongcloud = function() {
 				switch (status) {
 					//链接成功
 					case RongIMLib.ConnectionStatus.CONNECTED:
-						console.log('链接成功');
+//						console.log('链接成功');
 						break;
 					//正在链接
 					case RongIMLib.ConnectionStatus.CONNECTING:
-						console.log('正在链接');
+//						console.log('正在链接');
 						break;
 					//重新链接
 					case RongIMLib.ConnectionStatus.DISCONNECTED:
-						console.log('断开连接');
+//						console.log('断开连接');
 						break;
 					//其他设备登录
 					case RongIMLib.ConnectionStatus.KICKED_OFFLINE_BY_OTHER_CLIENT:
-						console.log('其他设备登录');
+//						console.log('其他设备登录');
 						break;
 					//网络不可用
 					case RongIMLib.ConnectionStatus.NETWORK_UNAVAILABLE:
 						toast.show('当前网络不可用，请检查配置');
-						console.log('网络不可用');
-						//
-						console.log('正在重新连接');
+//						console.log('网络不可用');
+//						//
+//						console.log('正在重新连接');
 						//
 						RongIMClient.reconnect();
 						break;
@@ -60,10 +60,9 @@ var _p_rongcloud = function() {
 		//
 		RongIMClient.connect(token, {
 	        onSuccess: function(userId) {
-          		console.log("Login successfully." + userId);
 	        },
 	        onTokenIncorrect: function() {
-          		console.log('token无效');
+//          		console.log('token无效');
 	        },
 	        onError:function(errorCode){
           		var info = '';
@@ -84,7 +83,7 @@ var _p_rongcloud = function() {
 						info = '服务器不可用';
 						break;
 				}
-				console.log('RongCloud Conection', errorCode, info);
+//				console.log('RongCloud Conection', errorCode, info);
 				RongIMClient.reconnect();
             }
     	});
@@ -108,7 +107,7 @@ var _p_rongcloud = function() {
 		}else{
 			conversationtype = RongIMLib.ConversationType.GROUP;
 		}
-		console.log(' [ 发送消息 ] ', msg);
+//		console.log(' [ 发送消息 ] ', msg);
 		//
 		window.setTimeout(RongIMClient.getInstance().sendMessage(
 			conversationtype, 
@@ -118,7 +117,7 @@ var _p_rongcloud = function() {
                 onSuccess: function (message) {
                 	//
             		this.call(this, message);
-                	console.log("Send successfully");
+//                	console.log("Send successfully");
                 }.bind(callback),
                 onError: function (errorCode,message) {
                     var info = '';

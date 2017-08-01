@@ -69,12 +69,9 @@ function tvList(){
                   }),
                   dataType:"json",   
                   success:function(req){
-                      console.log("返回结果:"+$api.jsonToStr(req));
                       var result= req.data;
-                      console.log('data.length'+result.length);
                       for(var i = 0; i < result.length; i++){
                         var room_list=result[i].community_info.room_list;
-                        console.log('room_list'+room_list.length);
                         if(room_list.length==0 ||room_list.length==''||room_list.length==undefined){
                         	return false;
                         }else{

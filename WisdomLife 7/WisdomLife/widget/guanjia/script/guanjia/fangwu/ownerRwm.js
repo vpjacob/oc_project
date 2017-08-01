@@ -36,7 +36,6 @@ function queryUserInfo(urId){
                   data:JSON.stringify(data),  
                   contentType: "application/json;charset=utf-8",
                   success:function(result){  
-                  	 console.log($api.jsonToStr(result));  
                   	  var data= result.data;
                   	 if(result.state==1){
                   	 	if(data.realName==null || data.realName=="undefined" ||data.realName==''){
@@ -67,8 +66,7 @@ function queryUserInfo(urId){
                   data:JSON.stringify(data),  
                   contentType: "application/json;charset=utf-8",
                   success:function(result){  
-                  	 console.log($api.jsonToStr(result));
-                  	 var data= result.data; 
+                  	 var data= result.data;
                   	 var nowList=''
                       if(result.state==1){
                       	 if (data.length == undefined || data.length == 0 || data == undefined || data == '' || data.length == '') {
@@ -109,7 +107,6 @@ function queryUserInfo(urId){
                   data:JSON.stringify(data),  
                   contentType: "application/json;charset=utf-8",
                   success:function(result){  
-                  	 console.log($api.jsonToStr(result));
                       if(result.state==1){
                         alert(result.msg);
                         api.execScript({//实现添加家庭成员的回显刷新

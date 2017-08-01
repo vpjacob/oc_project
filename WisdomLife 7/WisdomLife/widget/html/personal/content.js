@@ -110,7 +110,6 @@ function queryUserInfoUserNo(urId){
 				userNo : urId
 			},
 			success : function(data) {
-				console.log($api.jsonToStr(data));
 				if (data.formDataset.checked == 'true') {
 					var account = data.formDataset.userInfo;
 					var list = $api.strToJson(account);
@@ -141,7 +140,6 @@ function oldPwd(urId){
 	        userNo:urId
 	      },
 	      success:function (data) {
-	      console.log($api.jsonToStr(data));
 	       if (data.formDataset.checked == 'true') {
 	       		var account = data.formDataset.secondPwd;
 	       		oldPwd=account;
@@ -393,7 +391,6 @@ function oldPwd(urId){
 		},
 		success : function(data) {
 			api.hideProgress();
-			console.log($api.jsonToStr(data));
 			if (data.execStatus == 'true') {
 					AjaxUtil.exeScript({
 						script : "managers.home.person",
@@ -424,7 +421,6 @@ function oldPwd(urId){
 				// 真实姓名
 				var realname = result.real_name == null ? '' : result.real_name;
 				$("#realname").html(realname);
-				console.log('realname'+realname);
 				// 用户名称
 				var nick = result.nick == null ? '' : result.nick;
 				$("#nick").html(nick);
@@ -468,7 +464,6 @@ function oldPwd(urId){
 				var idcard = result.idcard == 'undefined' ? "" : result.idcard;
 				
 				$("#idcard").html(idcard);
-				console.log('idcard'+idcard);
 				// 我的房屋
 				// 注册日期
 //				var createtime = result.createtime == null ? "" : result.createtime;
@@ -703,10 +698,8 @@ function getPicture(type) {
 			saveToPhotoAlbum : false
 		}, function(ret, err) {
 			if (ret) {
-				console.log(ret.data + "输出："+$api.jsonToStr(ret));
 				compress(ret.data);
 			} else {
-				console.log('错误： ' + JSON.stringify(err));
 				//				alert(JSON.stringify(err));
 				//				api.alert({
 				//					msg : JSON.stringify(err)
@@ -728,7 +721,6 @@ function getPicture(type) {
 			if (ret) {
 				compress(ret.data);
 			} else {
-				console.log('错误： ' + JSON.stringify(err));
 				//				alert(JSON.stringify(err));
 				//				api.alert({
 				//					msg : JSON.stringify(err)

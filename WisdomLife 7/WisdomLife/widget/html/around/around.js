@@ -23,8 +23,6 @@ apiready = function() {
 	FileUtils.readFile("info.json", function(info, err) {
 		lon = info.location.lon;
 		lat = info.location.lat;
-		console.log("lon ::: " + lon);
-		console.log("lat ::: " + lat);
 		showArround(lon, lat);
 	});
 
@@ -56,7 +54,6 @@ function showArround(lon, lat) {
 
 //获得列表详情
 function getNuomiList(jsonParam, reload) {
-	console.log("url ::: " + rootUrl + "/api/nearby");
 	$.ajax({
 		type : "GET",
 		url : rootUrl + "/api/nearby",
@@ -71,7 +68,6 @@ function getNuomiList(jsonParam, reload) {
 			});
 		},
 		success : function(json) {
-			console.log($api.jsonToStr(json));
 			api.hideProgress();
 			if (json == null) {
 				api.alert({
@@ -189,7 +185,6 @@ $.init();
 
 //下拉刷新
 $(document).on('refresh', '.pull-to-refresh-content', function(e) {
-	console.log("aaaaa");
 	if (loading) {
 		return;
 	}

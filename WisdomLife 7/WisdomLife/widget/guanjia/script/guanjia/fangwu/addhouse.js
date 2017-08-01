@@ -571,7 +571,6 @@ apiready = function() {
                   data:JSON.stringify(data),  
                   contentType: "application/json;charset=utf-8",
                   success:function(result){  
-                  	 console.log($api.jsonToStr(result));
                   	 var data= result.data;
                  	 var nowList='<option>请选择</option>';
                       if(result.state==1){
@@ -607,7 +606,6 @@ function queryUnitByComIdAndBuildIdTemp(){
                   data:JSON.stringify(data),  
                   contentType: "application/json;charset=utf-8",
                   success:function(result){  
-                  	 console.log($api.jsonToStr(result));
                   	 var data= result.data;
                  	 var nowList='<option>请选择</option>';
                       if(result.state==1){
@@ -643,7 +641,6 @@ function queryUnitByComIdAndBuildIdTemp(){
                   data:JSON.stringify(data),  
                   contentType: "application/json;charset=utf-8",
                   success:function(result){  
-                  	 console.log($api.jsonToStr(result));
                   	 var data= result.data;
                  	 var nowList='<option>请选择</option>';
                       if(result.state==1){

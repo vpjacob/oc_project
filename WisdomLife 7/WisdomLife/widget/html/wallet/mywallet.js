@@ -67,7 +67,6 @@ apiready = function() {
 		url : rootUrl + '/api/commmonweal/mywallet',
 		method : 'post'
 	}, function(ret, err) {
-		console.log(JSON.stringify(ret));
 		if (ret) {
 			if (ret.execStatus == "true") {
 				var result = ret.formDataset.entity;
@@ -111,9 +110,7 @@ apiready = function() {
 					},
 					success : function(data) {
 						api.hideProgress();
-						console.log(JSON.stringify(data));
 						if (data.execStatus == "true") {
-							console.log(JSON.stringify(data));
 						} else {
 							api.alert({
 								msg : "数据请求失败，请重试"

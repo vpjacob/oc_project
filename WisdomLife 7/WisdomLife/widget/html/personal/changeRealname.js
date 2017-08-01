@@ -92,7 +92,6 @@ $("#regist").click(function() {
 				},
 				
 				success : function(data) {
-					console.log('data.execStatus'+data.execStatus)
 					if (data.execStatus == 'true') {
 						api.execScript({//刷新person界面数据
 							name : 'room',

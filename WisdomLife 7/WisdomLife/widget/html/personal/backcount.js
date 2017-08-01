@@ -102,7 +102,6 @@ function change(flag,changeId){
 	      success:function (data) {
 	      	var listInfo = data.formDataset.buyBackRecord;
 			var list = eval(listInfo);
-			console.log('listInfo' + listInfo);
 		//	console.log('list.length' + list.length);
 			if (data.formDataset.checked == 'true') {
 				if (list.length==undefined ||list.length== 0 ||list.length==''||list==undefined || list=='') {
@@ -153,7 +152,6 @@ function total(urId) {
 		success : function(data) {
 			//var listInfo = data.formDataset;
 			var list=$api.jsonToStr(data.formDataset);
-			console.log('data.formDataset'+list);
 			if (data.formDataset.checked == 'true') {
 					data.formDataset.alreadyBackAmount==null?$('#alreadyBackAmount').html(0):$('#alreadyBackAmount').html(data.formDataset.alreadyBackAmount);
 			} else {

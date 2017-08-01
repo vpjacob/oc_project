@@ -80,7 +80,6 @@ function total(urId) {
 		success : function(data) {
 			//var listInfo = data.formDataset;
 			var list=$api.jsonToStr(data.formDataset);
-			console.log('data.formDataset'+list);
 			if (data.formDataset.checked == 'true') {
 					data.formDataset.silverAmount==null?$('#silverAmount').html(0):$('#silverAmount').html(data.formDataset.silverAmount);
 			} else {

@@ -484,7 +484,6 @@ function count(urId) {
 			if (data.formDataset.checked == 'true') {
 				var account = data.formDataset.account;
 				var list = $api.strToJson(account);
-				console.log(list.gold_egg_count);
 				$("#dotleft").html(list.gold_egg_count);
 				$("#dotmidd").html(list.silver_egg_count);
 				$("#dotright").html(list.balance_gold);
@@ -607,7 +606,6 @@ $('#commit').click(function() {
 					}
 				}, function(ret, err) {
 					api.hideProgress();
-					console.log($api.jsonToStr(ret));
 					if (ret) {
 						if (ret.execStatus == "true") {
 							if (ret.formDataset.entity.code == "0") {//登录成功
@@ -752,10 +750,8 @@ function getUesrInfo(urId) {
 		},
 		success : function(data) {
 
-			console.log('检查推送状态' + $api.jsonToStr(data));
 			if (data.execStatus == 'true' && data.datasources[0].rows.length > 0) {
 				satatus = data.datasources[0].rows[0].messagestatus;
-				console.log('进来了');
 				//获取个人信息
 				AjaxUtil.exeScript({
 					script : "managers.home.person",
@@ -766,7 +762,6 @@ function getUesrInfo(urId) {
 						"userNo":urId
 					},
 					success : function(data) {
-						console.log('获取个人信息'+$api.jsonToStr(data));
 						api.hideProgress();
 						if (data.execStatus == 'true' && data.datasources[0].rows.length > 0) {
 							var result = data.datasources[0].rows[0];
@@ -914,7 +909,6 @@ function reloadheaderurl() {
 				memberid : memberid
 			},
 			success : function(data) {
-				console.log($api.jsonToStr(data));
 				ProgressUtil.hideProgress();
 				if (data.execStatus == 'true' && data.datasources[0].rows.length > 0) {
 					var result = data.datasources[0].rows[0];
@@ -957,7 +951,6 @@ function getidentify() {
 		}
 	}, function(ret, err) {
 		if (ret) {
-			console.log('获取图片****************   ' + JSON.stringify(ret));
 			if (ret.execStatus == 'false') {
 				api.hideProgress();
 				api.toast({
@@ -1060,7 +1053,6 @@ function getPicture(type) {
 			saveToPhotoAlbum : false
 		}, function(ret, err) {
 			if (ret) {
-				console.log(ret.data + "输出：" + $api.jsonToStr(ret));
 				
 				compress(ret.data);
 			} else {
@@ -1148,10 +1140,8 @@ function changeheadurl(headurl) {
 					},
 					success : function(data) {
 						api.hideProgress();
-						console.log($api.jsonToStr(data));
 						if (data.execStatus == 'true') {
 							$('#headurl').attr('src', headurl);
-							console.log("地址：" + rootUrl + headurl);
 							api.execScript({//刷新person界面数据
 								name : 'root',
 								frameName : 'room',

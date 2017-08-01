@@ -54,7 +54,6 @@ apiready = function() {
 				api.alert({
 					msg : "扫描失败！" + JSON.stringify(err)
 				});
-				console.log("扫描支付二维码失败：" + JSON.stringify(err));
 			}
 		});
 	});

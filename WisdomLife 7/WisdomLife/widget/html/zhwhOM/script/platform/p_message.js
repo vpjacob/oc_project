@@ -371,7 +371,7 @@ var _p_message = function() {
 				var userinfo 	= message.content.user.userinfo;
 				//
 				$$(document).trigger('msgService', message);
-	            console.log(' [接受消息] 文字', message);
+//	            console.log(' [接受消息] 文字', message);
 	            break;
 	        case RongIMClient.MessageType.VoiceMessage:
 	            // 对声音进行预加载
@@ -381,10 +381,10 @@ var _p_message = function() {
 	            break;
 	        case RongIMClient.MessageType.ImageMessage:
 	        	$$(document).trigger('msgService', message);
-	            console.log(' [接受消息] 图片', message);
+//	            console.log(' [接受消息] 图片', message);
 	            break;
 	        case RongIMClient.MessageType.TypingStatusMessage:
-	        	console.log(' [接受消息] 正在输入', message);
+//	        	console.log(' [接受消息] 正在输入', message);
 	            break;
 	        case RongIMClient.MessageType.UnknownMessage:
 	            break;
@@ -545,7 +545,7 @@ var _p_message = function() {
     	$$('.chat-input-voice').on('touchstart', function(e){
     		 e.preventDefault();
     		this._data.beginRecord(); 
-            console.log('touchstart触发');
+//            console.log('touchstart触发');
 			
 			$$('.chat-voice-record').show();
 			

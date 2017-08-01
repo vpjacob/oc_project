@@ -1,7 +1,6 @@
 var id;
 apiready = function() {
 	id = api.pageParam.id;
-	console.log('=========='+id);
 	var header = $api.byId('title');
 	if (api.systemType == 'ios') {
 		$api.css(header, 'margin-top:20px;');
@@ -24,7 +23,6 @@ apiready = function() {
 	         fid:fid
 	      },
 	      success:function (data) {
-	      console.log($api.jsonToStr(data));
 	       if (data.formDataset.checked == 'true') {
 	       		var account = data.formDataset.comDTO;
 	       		var list=$api.strToJson(account);

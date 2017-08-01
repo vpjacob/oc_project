@@ -21,7 +21,6 @@ apiready = function() {
                   data:JSON.stringify(data),  
                   contentType: "application/json;charset=utf-8",
                   success:function(result){  
-                  	 console.log($api.jsonToStr(result)); 
                   	 var data= result.data; 
                   	 if(result.state==1){
 						if (data.length == undefined || data.length == 0 || data == undefined || data == '' || data.length == '') {

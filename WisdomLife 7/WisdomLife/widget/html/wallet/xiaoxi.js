@@ -94,7 +94,6 @@ function getTab1Info(messagetype, toPage) {
 	}, function(ret, err) {
 		api.hideProgress();
 		isRefresh = false;
-		console.log($api.jsonToStr(ret));
 		if (ret) {
 			if (ret.execStatus == "true") {
 				var result = ret.formDataset.entity;

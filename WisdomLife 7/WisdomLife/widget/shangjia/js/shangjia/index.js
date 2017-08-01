@@ -104,7 +104,6 @@ apiready = function() {
 			//           userNo:urId
 			//        },
 			success : function(data) {
-				console.log("商品详情" + $api.jsonToStr(data));
 				if (data.formDataset.checked == 'true') {
 					var account = data.formDataset.companyType;
 					var list = $api.strToJson(account);
@@ -146,7 +145,7 @@ apiready = function() {
 				typename : ''
 			},
 			success : function(data) {
-				console.log("推荐商家"+$api.jsonToStr(data));
+//				console.log("推荐商家"+$api.jsonToStr(data));
 				if (data.formDataset.checked == 'true') {
 					var account = data.formDataset.companyDataList;
 					var list = $api.strToJson(account);
@@ -234,7 +233,6 @@ apiready = function() {
 				userNo : urId
 			},
 			success : function(data) {
-				console.log($api.jsonToStr(data));
 				if (data.formDataset.checked == 'true') {
 					var account = data.formDataset.recordList;
 					var list = $api.strToJson(account);
@@ -300,7 +298,7 @@ apiready = function() {
 			},
 			success : function(data) {
 				if (data.formDataset.checked == 'true') {
-					console.log("商家列表：" + $api.jsonToStr(data));
+//					console.log("商家列表：" + $api.jsonToStr(data));
 					var account = data.formDataset.companyDataList;
 					var list = $api.strToJson(account);
 
@@ -362,8 +360,6 @@ apiready = function() {
 					}
 
 					pageCount = data.formDataset.count > 10 ? Math.ceil(data.formDataset.count / 10) : 1;
-					console.log("返回的:pageCount=" + pageCount);
-					console.log("返回的page=" + page);
 				} else {
 					//          alert(data.formDataset.errorMsg);
 				}

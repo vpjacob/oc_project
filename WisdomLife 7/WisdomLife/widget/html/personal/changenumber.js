@@ -119,7 +119,6 @@ apiready = function() {
 						if (data.formDataset.checked == 'true') {
 							telphone = $('#num').val();
 							
-							console.log('code'+code)
 						} else {
 						api.alert({
 				msg : '该手机号已经被使用，请您输入正确号码。'

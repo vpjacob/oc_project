@@ -18,7 +18,6 @@ apiready = function() {
 			contentType : "application/json;charset=utf-8",
 			success : function(result) {
 				var data = result.data;
-				console.log($api.jsonToStr(result));
 				if (result.state == 1) {
 					if (data.userRole == 6) {
 						userRole = true;

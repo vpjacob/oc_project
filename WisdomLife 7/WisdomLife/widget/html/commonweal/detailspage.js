@@ -50,7 +50,6 @@ apiready = function() {
 		},
 		success : function(data) {
 			api.hideProgress();
-			console.log('详情***********' + $api.jsonToStr(data));
 			if (data.execStatus == "true") {
 				var json = data.datasources[0].rows[0];
 				lon = json.longtitude;
@@ -73,7 +72,6 @@ apiready = function() {
 					},
 					success : function(data) {
 						api.hideProgress();
-						console.log('详情***********' + $api.jsonToStr(data));
 						if (data.execStatus == "true") {
 							var json = data.datasources[0].rows;
 							var length = json.length;

@@ -153,7 +153,6 @@ apiready = function() {
 			data : JSON.stringify(data),
 			contentType : "application/json;charset=utf-8",
 			success : function(result) {
-				console.log($api.jsonToStr(result));
 				var data = result.data;
 				if (result.state == 1) {
 					alert(result.msg);
@@ -193,7 +192,6 @@ apiready = function() {
 			contentType : "application/json;charset=utf-8",
 			success : function(result) {
 				api.hideProgress();
-				console.log($api.jsonToStr(result));
 				if (result.state == 1) {
 					var data = result.data.list;
 					if (data == undefined || data == "" || data.length == 0 || data.length == null || data.length == undefined || data == null) {
@@ -276,7 +274,6 @@ apiready = function() {
 			data : JSON.stringify(data),
 			contentType : "application/json;charset=utf-8",
 			success : function(result) {
-				console.log($api.jsonToStr(result));
 				var data = result.data;
 				if (result.state == 1) {
 					$('#wxName').html(data.applyName);

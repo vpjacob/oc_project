@@ -22,8 +22,6 @@ apiready = function() {
 		});
 		//同步返回结果：
 		var hasEq = $api.strToJson(data)[0].hasEq;
-		console.log(data);
-		console.log(hasEq);
 		if (hasEq == false || hasEq == 'false') {
 			api.openWin({//打开我的设备
 				name : 'my_equipment',

@@ -26,12 +26,10 @@ apiready = function() {
                   }),
                   dataType:"json",   
                   success:function(req){
-                      console.log("返回结果:"+$api.jsonToStr(req));
                       var result= req.data;
                       //console.log('data.length'+result.length);
                       for(var i = 0; i < result.length; i++){
                         var result=result[i].id;
-                        console.log('result'+result);
                           
                       } 
                   },

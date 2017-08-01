@@ -22,7 +22,6 @@ apiready = function() {
 	}, function(ret, err) {
 //		alert($api.jsonToStr(ret));
 		api.hideProgress();
-		console.log($api.jsonToStr(ret));
 		if (ret) {
 			if (ret.execStatus == "true") {
 				referrerName = ret.formDataset.entity.referrerName;
@@ -269,19 +268,6 @@ function completeMsg() {
 		});
 		return false;
 	}
-	console.log('提交成功');
-	console.log("userid++++++++++" + userinfoid);
-	console.log("realname++++++++++" + personName);
-	console.log("birth_day++++++++++" + personDate);
-	console.log("sex++++++++++" + personGender);
-	console.log("idcardtype++++++++++" + personIdentfy);
-	console.log("idcard++++++++++" + identifyNumber);
-	console.log("industry++++++++++" + personWork);
-	console.log("password2++++++++++" + personKey);
-	console.log("email++++++++++" + personEmail);
-	console.log("provinceid++++++++++" + proId);
-	console.log("cityid++++++++++" + cityId);
-	console.log("referrerName++++++++++" + referrerName);
 	api.showProgress();
 	api.ajax({
 		url : rootUrl + '/api/commmonweal/checkIdCard',
@@ -321,8 +307,6 @@ function completeMsg() {
 						}
 					}, function(ret, err) {
 						api.hideProgress();
-						console.log("---" + $api.jsonToStr(ret));
-						console.log("---" + $api.jsonToStr(err));
 						if (ret) {
 							if (ret.execStatus == "true") {
 								api.alert({

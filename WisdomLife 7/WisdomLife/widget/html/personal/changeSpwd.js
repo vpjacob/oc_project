@@ -128,7 +128,6 @@ apiready = function() {
 				secondPwd : vCode
 			},
 			success : function(data) {
-				console.log($api.jsonToStr(data));
 				if (data.formDataset.checked == 'true') {
 					api.toast({
 						msg : "亲，您提交成功！"
@@ -175,7 +174,6 @@ apiready = function() {
 				},
 				success : function(data) {
 					api.hideProgress();
-					console.log($api.jsonToStr(data));
 					if (data.execStatus == 'true') {
 						code = data.formDataset.code;
 						api.alert({

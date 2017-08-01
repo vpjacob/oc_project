@@ -89,7 +89,6 @@ function showLi() {
                //					alert(JSON.stringify(ret) + "-----" + JSON.stringify(err));
                if (ret.status) {
                //						alert(JSON.stringify(ret) + "-----");
-               console.log("-----****" + JSON.stringify(ret));
                var html = "";
                $("li").remove();
                for (var i = 0; i < ret.data.length; i++) {
@@ -305,7 +304,6 @@ function uploadfileShared(name){
                              }
                              }, function(ret, err) {
                              api.hideProgress();
-                             console.log(JSON.stringify(ret));
                              if (ret.execStatus == 'true') {
                              var path = ret.formDataset.path;
                              var filename = ret.formDataset.filename;

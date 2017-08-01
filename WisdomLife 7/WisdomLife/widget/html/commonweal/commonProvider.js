@@ -79,7 +79,6 @@ function setLieBiaoList(p) {
 		success : function(data) {
 			api.hideProgress();
 			loading = false;
-			console.log('列表***********' + $api.jsonToStr(data));
 			if (data.execStatus == "true") {
 				getNuomiList(data.datasources[0]);
 			} else {
@@ -99,7 +98,6 @@ function setFenLeiList() {
 		funName : "selectTypeList",
 		success : function(data) {
 			api.hideProgress();
-			console.log('分类的类型列表***********' + $api.jsonToStr(data));
 			if (data.execStatus === "true") {
 				var rows = data.datasources[0].rows;
 				jsonOfFenLei = rows;
@@ -121,7 +119,6 @@ function setFenLeiList() {
 					for (var i = 0; i < pageLength; i++) {
 						newre += hangDiv.replace("\"[id]\"", i);
 					}
-					console.log('分类的全部界面代码2222:  ' + newre);
 					$('#totalDiv').append(newre);
 					for (var j = 0; j < pageLength; j++) {
 						var allGeDiv = "";
@@ -137,9 +134,7 @@ function setFenLeiList() {
 							result = result.replace("\"[id]\"", i);
 							allGeDiv += result;
 						};
-						console.log('分类的全部界面代码:  ' + allGeDiv);
 						var id = "#hangDiv" + j;
-						console.log("" + id + "");
 						$(id).append(allGeDiv);
 					}
 				}

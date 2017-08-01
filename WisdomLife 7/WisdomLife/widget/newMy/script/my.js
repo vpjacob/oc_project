@@ -184,7 +184,7 @@ function getUesrInfo(urId) {
 		},
 		success : function(data) {
 //			api.hideProgress();
-			console.log('检查推送状态' + $api.jsonToStr(data));
+//			console.log('检查推送状态' + $api.jsonToStr(data));
 			if (data.execStatus == 'true' && data.datasources[0].rows.length > 0) {
 				satatus = data.datasources[0].rows[0].messagestatus;
 				//获取个人信息
@@ -197,7 +197,7 @@ function getUesrInfo(urId) {
 						"userNo":urId
 					},
 					success : function(data) {
-						console.log('获取个人信息'+$api.jsonToStr(data));
+//						console.log('获取个人信息'+$api.jsonToStr(data));
 //						api.hideProgress();
 						if (data.execStatus == 'true' && data.datasources[0].rows.length > 0) {
 							var result = data.datasources[0].rows[0];
@@ -260,7 +260,6 @@ function reloadheaderurl() {
 				memberid : memberid
 			},
 			success : function(data) {
-				console.log($api.jsonToStr(data));
 //				api.hideProgress();
 				if (data.execStatus == 'true' && data.datasources[0].rows.length > 0) {
 					var result = data.datasources[0].rows[0];
@@ -408,7 +407,6 @@ function changeheadurl(headurl) {
 					},
 					success : function(data) {
 						api.hideProgress();
-						console.log($api.jsonToStr(data));
 						if (data.execStatus == 'true') {
 							$('#headurl').attr('src', rootUrl + headurl);
 //							console.log("地址：" + rootUrl + headurl);

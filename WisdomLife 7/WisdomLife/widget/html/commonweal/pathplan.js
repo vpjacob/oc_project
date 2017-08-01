@@ -97,7 +97,6 @@ apiready = function() {
 	}, function(ret, err) {
 		api.hideProgress();
 		if (ret.status) {
-			console.log('定位结果：  ' + JSON.stringify(ret));
 			lon = ret.lon;
 			lat = ret.lat;
 			api.showProgress();
@@ -117,7 +116,6 @@ apiready = function() {
 				fixedOn : api.frameName,
 				fixed : true
 			}, function(ret) {
-				console.log('打开界面结果：  ' + JSON.stringify(ret));
 				if (ret.status) {
 					getCarPath();
 				}
@@ -190,7 +188,6 @@ apiready = function() {
 				lat : lat_Purpose
 			}
 		}, function(ret, err) {
-			console.log("路线搜索3****" + JSON.stringify(ret));
 			api.hideProgress();
 			if (ret.status) {
 				walk_json = ret.plans[0].nodes
@@ -248,7 +245,6 @@ function getBusDetails(policy) {
 			lat : lat_Purpose
 		}
 	}, function(ret, err) {
-		console.log("路线搜索2****" + JSON.stringify(ret));
 		api.hideProgress();
 		if (ret.status) {
 			bus_json = ret;
@@ -262,7 +258,6 @@ function getBusDetails(policy) {
 				result = result.replace("\"[detail]\"", i);
 				newsResult += result;
 			}
-			console.log(newsResult);
 			$('#ul_tab2').append(newsResult);
 		} else {
 //			alert(JSON.stringify(err));
@@ -308,7 +303,6 @@ function getDetail_bus(json) {
 	for (var i = 0; i < json.length; i++) {
 		description += json[i].description;
 	}
-	console.log(description + "*************");
 	for (var i = 0; i < (description.split(a1)).length - 1; i++) {
 		var haha = description.substr(description.indexOf(a1, a) + 2, 4);
 		if (haha.indexOf('米') >= 0) {
@@ -355,12 +349,9 @@ function getCarPath() {
 			lat : lat_Purpose
 		}
 	}, function(ret, err) {
-		console.log("路线搜索****" + JSON.stringify(ret));
 		api.hideProgress();
 		if (ret.status) {
 			$('#costTime').html(getTimeCost(ret.plans[0].duration, ret.plans[0].distance / 1000));
-			console.log(ret.plans[0].distance+"---------------------");
-			console.log(getTexCost(ret.plans[0].distance / 1000));
 			if (ret.plans[0].distance) {
 				$('#costMon').html(getTexCost(ret.plans[0].distance / 1000));
 			} else {
