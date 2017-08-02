@@ -44,7 +44,6 @@ apiready = function() {
 //						api.alert({
 //							msg : '请您连接上指定设备WiFi'
 //						});
-                         if (api.systemType == 'ios') {
                          api.confirm({
                                      msg : '未连接指定WiFi，现在就去？',
                                      buttons : ['设置', '取消']
@@ -66,11 +65,6 @@ apiready = function() {
                                      api.closeWin();
                                      }
                                      });
-                         }else{
-                         api.alert({
-                                   msg : "请连接设备的指定WIFI"
-                                   });
-                         }
 					} else {
 						if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 							xmlhttp = new XMLHttpRequest();
@@ -151,7 +145,6 @@ apiready = function() {
 //				api.alert({
 //					msg : '请您连接上指定设备WiFi'
 //				});
-                        if (api.systemType == 'ios') {
                         api.confirm({
                                     msg : '未连接指定WiFi，现在就去？',
                                     buttons : ['设置', '取消']
@@ -173,11 +166,6 @@ apiready = function() {
                                     api.closeWin();
                                     }
                                     });
-                        }else{
-                        api.alert({
-                                  msg : "请连接设备的指定WIFI"
-                                  });
-                        }
                         }
 		}
 	});

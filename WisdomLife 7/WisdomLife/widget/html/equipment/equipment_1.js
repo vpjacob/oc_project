@@ -65,7 +65,6 @@ function play(position1) {
 //					msg : "请连接设备指定WiFi"
 //				});
 
-                       if (api.systemType == 'ios') {
                        api.confirm({
                                    msg : '未连接指定WiFi，现在就去？',
                                    buttons : ['设置', '取消']
@@ -87,11 +86,6 @@ function play(position1) {
                                    api.closeWin();
                                    }
                                    });
-                       }else{
-                       api.alert({
-                                 msg : "请连接设备的指定WIFI"
-                                 });
-                       }
                        }
 		});
 	} else {
@@ -109,33 +103,27 @@ function play(position1) {
 //				msg : "请连接设备指定WiFi"
 //			});
 
-            if (api.systemType == 'ios') {
-                api.confirm({
-                            msg : '未连接指定WiFi，现在就去？',
-                            buttons : ['设置', '取消']
-                            }, function(ret, err) {
-                            var index = ret.buttonIndex;
-                            if (index == 1) {
-                            api.accessNative({
-                                             name : 'ConnetToWiFi',
-                                             extra : {
-                                             }
-                                             }, function(ret, err) {
-                                             if (ret) {
-                                             //                                    alert(JSON.stringify(ret));
-                                             } else {
-                                             //                                    alert(JSON.stringify(err));
-                                             }
-                                             });
-                            } else if(index == 2){
-                            api.closeWin();
-                            }
-                            });
-            }else{
-                api.alert({
-                          msg : "请连接设备的指定WIFI"
-                          });
-            }
+            api.confirm({
+                        msg : '未连接指定WiFi，现在就去？',
+                        buttons : ['设置', '取消']
+                        }, function(ret, err) {
+                        var index = ret.buttonIndex;
+                        if (index == 1) {
+                        api.accessNative({
+                                         name : 'ConnetToWiFi',
+                                         extra : {
+                                         }
+                                         }, function(ret, err) {
+                                         if (ret) {
+                                         //                                    alert(JSON.stringify(ret));
+                                         } else {
+                                         //                                    alert(JSON.stringify(err));
+                                         }
+                                         });
+                        } else if(index == 2){
+                        api.closeWin();
+                        }
+                        });
         }
 
 	}

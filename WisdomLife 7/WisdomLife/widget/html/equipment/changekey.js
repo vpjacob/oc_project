@@ -76,7 +76,6 @@ apiready = function() {
 //						msg : "请连接设备的指定WIFI"
 //					});
 
-                      if (api.systemType == 'ios') {
                       api.confirm({
                                   msg : '未连接指定WiFi，现在就去？',
                                   buttons : ['设置', '取消']
@@ -98,11 +97,6 @@ apiready = function() {
                                   api.closeWin();
                                   }
                                   });
-                      }else{
-                      api.alert({
-                                msg : "请连接设备的指定WIFI"
-                                });
-                      }
                       }
 			}
 			xmlhttp.open("GET", url + "num", true);
