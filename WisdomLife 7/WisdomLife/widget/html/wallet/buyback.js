@@ -478,15 +478,10 @@ apiready = function() {
 			return false;
 		};
 		$("#showAmount").html(beannum);
-		if (beannum > 0 && beannum < 1000) {
-
-			$("#procedureCost").html(5);
-		} else if (beannum >= 1000) {
-			if (openBank == "中信银行" && province == "北京市") {
-				$("#procedureCost").html((beannum * 0.006).toFixed(1));
-			} else {
-				$("#procedureCost").html((beannum * 0.007).toFixed(1));
-			}
+		if (openBank == "中信银行" && province == "北京市") {
+			$("#procedureCost").html((beannum * 0.006).toFixed(1));
+		} else {
+			$("#procedureCost").html((beannum * 0.007).toFixed(1));
 
 		}
 		$('.black_box').css('display', 'block');

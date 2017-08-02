@@ -198,9 +198,7 @@ static DMHtmlListener *instance = nil;
         [webView sendResultWithCallback:scriptMessage.callback ret:dict err:nil delete:YES];
     }
     /*
-     
      智果暂时不用
-     
     if ([scriptMessage.name isEqualToString:@"loginDMVPhoneSDK"]) {//登入
         //初始化DMVPhoneSDK
         [DMCommModel initDMVPhoneSDK];
@@ -211,8 +209,6 @@ static DMHtmlListener *instance = nil;
             [webView sendResultWithCallback:scriptMessage.callback ret:@{@"ret":@(ret), @"msg":msg} err:nil delete:YES];
         }];
     }
-    
-    
     if ([scriptMessage.name isEqualToString:@"call"]) {//呼叫
         NSString *account = scriptMessage.userInfo[@"account"];
         NSNumber *accountType = @([scriptMessage.userInfo[@"accountType"] intValue]);
@@ -220,7 +216,6 @@ static DMHtmlListener *instance = nil;
             [webView sendResultWithCallback:scriptMessage.callback ret:@{@"ret":@(ret), @"msg":msg} err:nil delete:YES];
         }];
     }
-    
     //退出DMVPhoneSDK
     if ([scriptMessage.name isEqualToString:@"exitDMVPhoneSDK"]) {
         int ret = [DMCommModel exitDMVPhoneSDK];
