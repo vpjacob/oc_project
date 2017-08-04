@@ -182,7 +182,7 @@ function oldPwd(urId){
 
 
 	
-	$('#nick').click(function() {
+	$('#name').click(function() {
 		api.openWin({
 			name : 'changename',
 			url : 'changename.html',

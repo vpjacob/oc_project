@@ -44,7 +44,6 @@ typedef enum {
     
 //    if ([[ContentUtils shareContentUtils] isCube]) {
         self.commonNavBar.hidden = YES;
-        
         NewNav *nav = [[NewNav alloc] initWithTitle:NSLocalizedString(@"yoho_visitor_title", @"")];
         [nav.escBtn addTarget:self action:@selector(escBtnClicl) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:nav];
@@ -120,28 +119,33 @@ typedef enum {
     }
     return _visitorView;
 }
-
+//点击描述后选择的设备
 -(void)describeClick:(UIButton *)sender
 {
     SelectDeviceViewController *selectVC = [[SelectDeviceViewController alloc] init];
     selectVC.viewController = self;
     [self.navigationController pushViewController:selectVC animated:YES];
 }
-
+//点击建立通行证的按钮
 -(void)sureAction
 {
     if (_visitorView.name.text.length == 0)
     {
-        [GlobalTool alertTipsView:@"empty_receiver"];
+        [GlobalTool alertTipsView:@"访客名称是空"];
         return;
     }
-    if ([_visitorView.endDate.titleLabel.text componentsSeparatedByString:@"-"].count != 3 || [_visitorView.endTime.titleLabel.text componentsSeparatedByString:@":"].count != 2) {
-        [GlobalTool alertTipsView:@"empty_enddate"];
+    if ([_visitorView.endDate.titleLabel.text componentsSeparatedByString:@"-"].count != 3) {
+        
+        [GlobalTool alertTipsView:@"结束通行时间是空"];
         return;
     }
-    
+    if ([_visitorView.endTime.titleLabel.text componentsSeparatedByString:@"点"].count != 2) {
+        
+        [GlobalTool alertTipsView:@"完成时间是空"];
+        return;
+    }
     if (self.selectedDevSn == nil) {
-        [GlobalTool alertTipsView:@"yoho_visitor_select_device"];
+        [GlobalTool alertTipsView:@"描述设备是空"];
         return;
     }
     
@@ -199,48 +203,84 @@ typedef enum {
     }];
 }
 
--(void)startDateAction
-{
-    [self alertDatePicker:DATETYPE andIsStart:YES];
-}
 
+
+// 点击结束日期的按钮
 -(void)endDateAction
 {
     [self alertDatePicker:DATETYPE andIsStart:NO];
 }
+//结束时间的按钮
+-(void)endTimeAction
+{
+    
+    [self alertTimeWithPickerView:NO];
+    //    [self alertDatePicker:TIMETYPE andIsStart:NO];
+}
+
+
+
+
 
 -(void)startTimeAction
 {
 //    [self alertDatePicker:TIMETYPE andIsStart:YES];
     [self alertTimeWithPickerView:YES];
 }
-
--(void)endTimeAction
+-(void)startDateAction
 {
-    
-    [self alertTimeWithPickerView:NO];
-//    [self alertDatePicker:TIMETYPE andIsStart:NO];
+    [self alertDatePicker:DATETYPE andIsStart:YES];
 }
 
 -(void)alertTimeWithPickerView:(BOOL)isStart
 {
+//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"\n\n\n\n\n\n\n\n\n\n\n\n" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+//    UIPickerView *pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(kCurrentWidth(50), 0, kCurrentWidth(200), 216)];
+//    pickerView.showsSelectionIndicator = YES;
+//    pickerView.dataSource = self;
+//    pickerView.delegate = self;
+//    
+//    [alert.view addSubview:pickerView];
+//    
+//    self.selectedRow = 0;
+//    
+//    UIAlertAction *ok = [UIAlertAction actionWithTitle:NSLocalizedString(@"confirm", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+//        if (isStart) {
+//            [_visitorView.startTime setTitle:[NSString stringWithFormat:@"%02ld:00", (long)self.selectedRow] forState:UIControlStateNormal];
+//        }else
+//        {
+//            [_visitorView.endTime setTitle:[NSString stringWithFormat:@"%02ld:00", (long)self.selectedRow] forState:UIControlStateNormal];
+//        }
+//    }];
+//    
+//    UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"cancel", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+//        
+//    }];
+//    [alert addAction:ok];
+//    [alert addAction:cancel];
+//    [self presentViewController:alert animated:YES completion:^{ }];
+
+    UIDatePicker *datePicker = [[UIDatePicker alloc] init];
+    // 设置显示格式
+        datePicker.datePickerMode = UIDatePickerModeTime;
+    
+    [datePicker setDate:[NSDate date]]; // 设置显示时间
+    [datePicker setMinimumDate:[NSDate date]]; // 设置可选择最小时间
+    
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"\n\n\n\n\n\n\n\n\n\n\n\n" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    UIPickerView *pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(kCurrentWidth(50), 0, kCurrentWidth(200), 216)];
-    pickerView.showsSelectionIndicator = YES;
-    pickerView.dataSource = self;
-    pickerView.delegate = self;
-    
-    [alert.view addSubview:pickerView];
-    
-    self.selectedRow = 0;
-    
+    [alert.view addSubview:datePicker];
     UIAlertAction *ok = [UIAlertAction actionWithTitle:NSLocalizedString(@"confirm", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        if (isStart) {
-            [_visitorView.startTime setTitle:[NSString stringWithFormat:@"%02ld:00", (long)self.selectedRow] forState:UIControlStateNormal];
-        }else
-        {
-            [_visitorView.endTime setTitle:[NSString stringWithFormat:@"%02ld:00", (long)self.selectedRow] forState:UIControlStateNormal];
-        }
+        NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];
+        //实例化一个NSDateFormatter对象
+            [dateFormat setDateFormat:@"HH/mm"];//设定时间格式
+            NSString *dateString = [dateFormat stringFromDate:datePicker.date];
+            if (isStart) {
+                [_visitorView.startTime setTitle:[self getDateStringFromString:dateString isDate:NO] forState:UIControlStateNormal];
+            }else
+            {
+                [_visitorView.endTime setTitle:[self getDateStringFromString:dateString isDate:NO] forState:UIControlStateNormal];
+            }
+        
     }];
     
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"cancel", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
@@ -402,12 +442,12 @@ typedef enum {
         NSString *year = [string substringWithRange:NSMakeRange(0, 4)];
         NSString *month = [string substringWithRange:NSMakeRange(5, 2)];
         NSString *day = [string substringWithRange:NSMakeRange(8, 2)];
-        return [NSString stringWithFormat:@"%@-%@-%@", day, month, year];
+        return [NSString stringWithFormat:@"%@-%@-%@", year, month, day];
     }
     
     NSString *hours = [string substringWithRange:NSMakeRange(0, 2)];
     NSString *min = [string substringWithRange:NSMakeRange(3, 2)];
-    return [NSString stringWithFormat:@"%@-%@", hours, min];
+    return [NSString stringWithFormat:@"%@点%@分", hours, min];
     
 }
 

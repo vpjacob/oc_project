@@ -184,12 +184,32 @@ apiready = function() {
 		//			alert(typeId);
 		$('#tab1').children().remove();
 		getDistance(typeId, "");
+                          api.addEventListener({
+                                               name : 'scrolltobottom'
+                                               }, function(ret, err) {
+                                               if (parseInt(page) <= parseInt(pageCount)) {
+                                               page++;
+                                               getDistance(typeId, "");
+                                               } else {
+                                               page = parseInt(pageCount) + 1;
+                                               }
+                                               });
 	});
 
 	$('#showTypeInfo1').on('click', 'span', function() {
 		var typeId = this.id;
 		$('#tab1').children().remove();
 		getDistance(typeId, "");
+                           api.addEventListener({
+                                                name : 'scrolltobottom'
+                                                }, function(ret, err) {
+                                                if (parseInt(page) <= parseInt(pageCount)) {
+                                                page++;
+                                                getDistance(typeId, "");
+                                                } else {
+                                                page = parseInt(pageCount) + 1;
+                                                }
+                                                });
 	});
 
 	//金银蛋交易总额
