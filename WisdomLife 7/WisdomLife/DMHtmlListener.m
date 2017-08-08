@@ -161,16 +161,16 @@ static DMHtmlListener *instance = nil;
         [self.windowContainer pushViewController:_playVC animated:YES];
     }
     
-    if ([scriptMessage.name isEqualToString:@"NativeScan"]) {//
-        JJScanViewController *scanVC = [[JJScanViewController alloc] init];
-        
-        scanVC.QRCodeMessage = ^(NSString *qrcodeMessage) {
-
-            [webView sendResultWithCallback:scriptMessage.callback ret:@{@"result":qrcodeMessage} err:nil delete:YES];
-        };
-        
-        [self.windowContainer pushViewController:scanVC animated:YES];
-    }
+//    if ([scriptMessage.name isEqualToString:@"NativeScan"]) {//
+//        JJScanViewController *scanVC = [[JJScanViewController alloc] init];
+//        
+//        scanVC.QRCodeMessage = ^(NSString *qrcodeMessage) {
+//
+//        [webView sendResultWithCallback:scriptMessage.callback ret:@{@"result":qrcodeMessage} err:nil delete:YES];
+//        };
+//        
+//        [self.windowContainer pushViewController:scanVC animated:YES];
+//    }
     if ([scriptMessage.name isEqualToString:@"ConnetToWiFi"]) {
         NSURL *url;
         if ([[UIDevice currentDevice] systemVersion].floatValue < 10.0) {
@@ -179,9 +179,7 @@ static DMHtmlListener *instance = nil;
             url = [NSURL URLWithString:@"app-Prefs:root=WIFI"];
         }
       if ([[UIApplication sharedApplication] canOpenURL:url]) {
-          
           [[UIApplication sharedApplication] openURL:url];
-          
       }
                                          
     }
