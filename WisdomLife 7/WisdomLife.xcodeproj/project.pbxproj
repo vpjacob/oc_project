@@ -140,6 +140,10 @@
 		D68408CE1F04B21600E57E88 /* res_UIMediaScanner in Resources */ = {isa = PBXBuildFile; fileRef = D68408C31F04B21600E57E88 /* res_UIMediaScanner */; };
 		D68408CF1F04B21600E57E88 /* uz in Resources */ = {isa = PBXBuildFile; fileRef = D68408C41F04B21600E57E88 /* uz */; };
 		D68408D11F04B25000E57E88 /* libmovies.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D68408D01F04B25000E57E88 /* libmovies.a */; };
+		D686C3921F3AADE00028C511 /* JJDoorListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D686C3901F3AADE00028C511 /* JJDoorListViewCell.m */; };
+		D686C3931F3AADE00028C511 /* JJDoorListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D686C3911F3AADE00028C511 /* JJDoorListViewCell.xib */; };
+		D6906B111F39BC4C000E87E0 /* JJSettingBlackListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6906B0F1F39BC4C000E87E0 /* JJSettingBlackListCell.m */; };
+		D6906B121F39BC4C000E87E0 /* JJSettingBlackListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6906B101F39BC4C000E87E0 /* JJSettingBlackListCell.xib */; };
 		D6ABBF9D1F00A48C008FB306 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6ABBF831F00A48C008FB306 /* Info.plist */; };
 		D6ABBF9E1F00A48C008FB306 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ABBF851F00A48C008FB306 /* MASCompositeConstraint.m */; };
 		D6ABBF9F1F00A48C008FB306 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ABBF881F00A48C008FB306 /* MASConstraint.m */; };
@@ -152,6 +156,7 @@
 		D6ABBFA61F00A48C008FB306 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ABBF991F00A48C008FB306 /* View+MASAdditions.m */; };
 		D6ABBFA71F00A48C008FB306 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ABBF9C1F00A48C008FB306 /* ViewController+MASAdditions.m */; };
 		D6C2FD241EF7DEEA0059B412 /* DMHtmlListener.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2FD231EF7DEEA0059B412 /* DMHtmlListener.m */; };
+		D6E33D4B1F3AE97F00F36683 /* JJRefuseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E33D4A1F3AE97F00F36683 /* JJRefuseManager.m */; };
 		D6EC979B1EFF87FF001E607B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6EC979A1EFF87FF001E607B /* Assets.xcassets */; };
 		D6F952DC1EFCA2C200683812 /* DeviceLockParamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F951591EFCA2C200683812 /* DeviceLockParamViewController.m */; };
 		D6F952DD1EFCA2C200683812 /* DeviceSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F9515B1EFCA2C200683812 /* DeviceSettingViewController.m */; };
@@ -292,7 +297,6 @@
 		D6F953741EFCA2C200683812 /* NewSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F952BE1EFCA2C200683812 /* NewSetViewController.m */; };
 		D6F953751EFCA2C200683812 /* SelectShakeOrCloseDevViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F952C01EFCA2C200683812 /* SelectShakeOrCloseDevViewController.m */; };
 		D6F953761EFCA2C200683812 /* ShakeOpenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F952C21EFCA2C200683812 /* ShakeOpenViewController.m */; };
-		D6F953771EFCA2C200683812 /* DoorListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F952C71EFCA2C200683812 /* DoorListViewCell.m */; };
 		D6F953781EFCA2C200683812 /* DoorListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F952CA1EFCA2C200683812 /* DoorListViewController.m */; };
 		D6F953791EFCA2C200683812 /* QRCodeDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F952CF1EFCA2C200683812 /* QRCodeDetailView.m */; };
 		D6F9537A1EFCA2C200683812 /* SelectDeviceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F952D11EFCA2C200683812 /* SelectDeviceTableViewCell.m */; };
@@ -482,6 +486,12 @@
 		D68408C31F04B21600E57E88 /* res_UIMediaScanner */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res_UIMediaScanner; sourceTree = "<group>"; };
 		D68408C41F04B21600E57E88 /* uz */ = {isa = PBXFileReference; lastKnownFileType = folder; path = uz; sourceTree = "<group>"; };
 		D68408D01F04B25000E57E88 /* libmovies.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmovies.a; sourceTree = "<group>"; };
+		D686C38F1F3AADE00028C511 /* JJDoorListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJDoorListViewCell.h; sourceTree = "<group>"; };
+		D686C3901F3AADE00028C511 /* JJDoorListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJDoorListViewCell.m; sourceTree = "<group>"; };
+		D686C3911F3AADE00028C511 /* JJDoorListViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JJDoorListViewCell.xib; sourceTree = "<group>"; };
+		D6906B0E1F39BC4C000E87E0 /* JJSettingBlackListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJSettingBlackListCell.h; sourceTree = "<group>"; };
+		D6906B0F1F39BC4C000E87E0 /* JJSettingBlackListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJSettingBlackListCell.m; sourceTree = "<group>"; };
+		D6906B101F39BC4C000E87E0 /* JJSettingBlackListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JJSettingBlackListCell.xib; sourceTree = "<group>"; };
 		D6ABBF831F00A48C008FB306 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6ABBF841F00A48C008FB306 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		D6ABBF851F00A48C008FB306 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
@@ -511,6 +521,8 @@
 		D6C2FC331EF7CAEB0059B412 /* WisdomLife.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WisdomLife.entitlements; sourceTree = "<group>"; };
 		D6C2FD221EF7DEEA0059B412 /* DMHtmlListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMHtmlListener.h; sourceTree = "<group>"; };
 		D6C2FD231EF7DEEA0059B412 /* DMHtmlListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMHtmlListener.m; sourceTree = "<group>"; };
+		D6E33D491F3AE97F00F36683 /* JJRefuseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJRefuseManager.h; sourceTree = "<group>"; };
+		D6E33D4A1F3AE97F00F36683 /* JJRefuseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJRefuseManager.m; sourceTree = "<group>"; };
 		D6EC979A1EFF87FF001E607B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6F951581EFCA2C200683812 /* DeviceLockParamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceLockParamViewController.h; sourceTree = "<group>"; };
 		D6F951591EFCA2C200683812 /* DeviceLockParamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceLockParamViewController.m; sourceTree = "<group>"; };
@@ -801,8 +813,6 @@
 		D6F952C01EFCA2C200683812 /* SelectShakeOrCloseDevViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectShakeOrCloseDevViewController.m; sourceTree = "<group>"; };
 		D6F952C11EFCA2C200683812 /* ShakeOpenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShakeOpenViewController.h; sourceTree = "<group>"; };
 		D6F952C21EFCA2C200683812 /* ShakeOpenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShakeOpenViewController.m; sourceTree = "<group>"; };
-		D6F952C61EFCA2C200683812 /* DoorListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoorListViewCell.h; sourceTree = "<group>"; };
-		D6F952C71EFCA2C200683812 /* DoorListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoorListViewCell.m; sourceTree = "<group>"; };
 		D6F952C91EFCA2C200683812 /* DoorListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoorListViewController.h; sourceTree = "<group>"; };
 		D6F952CA1EFCA2C200683812 /* DoorListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoorListViewController.m; sourceTree = "<group>"; };
 		D6F952CE1EFCA2C200683812 /* QRCodeDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeDetailView.h; sourceTree = "<group>"; };
@@ -1702,6 +1712,8 @@
 				D6F952781EFCA2C200683812 /* ContentUtils.h */,
 				D6F952791EFCA2C200683812 /* DevOpenLogManager.h */,
 				D6F9527A1EFCA2C200683812 /* DevOpenLogManager.m */,
+				D6E33D491F3AE97F00F36683 /* JJRefuseManager.h */,
+				D6E33D4A1F3AE97F00F36683 /* JJRefuseManager.m */,
 				D6F9527B1EFCA2C200683812 /* DevOpenLogModel.h */,
 				D6F9527C1EFCA2C200683812 /* DevOpenLogModel.m */,
 				D6F9527D1EFCA2C200683812 /* GlobalTimer.h */,
@@ -1878,6 +1890,9 @@
 				D6F952C01EFCA2C200683812 /* SelectShakeOrCloseDevViewController.m */,
 				D6F952C11EFCA2C200683812 /* ShakeOpenViewController.h */,
 				D6F952C21EFCA2C200683812 /* ShakeOpenViewController.m */,
+				D6906B0E1F39BC4C000E87E0 /* JJSettingBlackListCell.h */,
+				D6906B0F1F39BC4C000E87E0 /* JJSettingBlackListCell.m */,
+				D6906B101F39BC4C000E87E0 /* JJSettingBlackListCell.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1902,8 +1917,9 @@
 		D6F952C51EFCA2C200683812 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D6F952C61EFCA2C200683812 /* DoorListViewCell.h */,
-				D6F952C71EFCA2C200683812 /* DoorListViewCell.m */,
+				D686C38F1F3AADE00028C511 /* JJDoorListViewCell.h */,
+				D686C3901F3AADE00028C511 /* JJDoorListViewCell.m */,
+				D686C3911F3AADE00028C511 /* JJDoorListViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2096,9 +2112,11 @@
 				220DD92E1EE8EFF000A19F4D /* Localizable.strings in Resources */,
 				D68408B91F04B1F300E57E88 /* WeiboSDK.bundle in Resources */,
 				D68408C91F04B21600E57E88 /* res_movies in Resources */,
+				D686C3931F3AADE00028C511 /* JJDoorListViewCell.xib in Resources */,
 				D6F9533D1EFCA2C200683812 /* MJRefresh.bundle in Resources */,
 				D68408CB1F04B21600E57E88 /* res_UIChatBox in Resources */,
 				D68408C71F04B21600E57E88 /* res_imageBrowser in Resources */,
+				D6906B121F39BC4C000E87E0 /* JJSettingBlackListCell.xib in Resources */,
 				225F8BC91EBDB14B000822DB /* DMVPhoneSDK.bundle in Resources */,
 				D6EC979B1EFF87FF001E607B /* Assets.xcassets in Resources */,
 				220DD9281EE8EC2300A19F4D /* open_door_sound.wav in Resources */,
@@ -2149,6 +2167,7 @@
 				D6F952EB1EFCA2C200683812 /* DelEKeyViewController.m in Sources */,
 				D6F953321EFCA2C200683812 /* MJRefreshHeader.m in Sources */,
 				D6F953691EFCA2C200683812 /* DMLoginAction.m in Sources */,
+				D6E33D4B1F3AE97F00F36683 /* JJRefuseManager.m in Sources */,
 				D6F953081EFCA2C200683812 /* UIDevice+DeviceInfo.m in Sources */,
 				D650235D1F145E7F00464540 /* JJScanViewController.m in Sources */,
 				D6F952E81EFCA2C200683812 /* AddCardViewController.m in Sources */,
@@ -2165,6 +2184,7 @@
 				D6F952FB1EFCA2C200683812 /* MBProgressHUD+MJ.m in Sources */,
 				D6F953751EFCA2C200683812 /* SelectShakeOrCloseDevViewController.m in Sources */,
 				D6F953741EFCA2C200683812 /* NewSetViewController.m in Sources */,
+				D6906B111F39BC4C000E87E0 /* JJSettingBlackListCell.m in Sources */,
 				D6F952E51EFCA2C200683812 /* NewNav.m in Sources */,
 				D6F953181EFCA2C200683812 /* Config.m in Sources */,
 				D6F9533C1EFCA2C200683812 /* DeviceManager.m in Sources */,
@@ -2172,6 +2192,7 @@
 				D6F953291EFCA2C200683812 /* NSObject+MJClass.m in Sources */,
 				D6F9530F1EFCA2C200683812 /* UIView+Addition.m in Sources */,
 				D6F953111EFCA2C200683812 /* UIView+Frame.m in Sources */,
+				D686C3921F3AADE00028C511 /* JJDoorListViewCell.m in Sources */,
 				D6F953421EFCA2C200683812 /* CommonHttpClient.m in Sources */,
 				D6F953021EFCA2C200683812 /* NSString+ImageUrl.m in Sources */,
 				D6F952FD1EFCA2C200683812 /* NSData+Addition.m in Sources */,
@@ -2287,7 +2308,6 @@
 				D6ABBFA71F00A48C008FB306 /* ViewController+MASAdditions.m in Sources */,
 				D6F952F41EFCA2C200683812 /* AFHTTPSessionManager.m in Sources */,
 				D6F9535B1EFCA2C200683812 /* DevOpenLogManager.m in Sources */,
-				D6F953771EFCA2C200683812 /* DoorListViewCell.m in Sources */,
 				D6F952E61EFCA2C200683812 /* OpenDoorViewCell.m in Sources */,
 				D6F952DD1EFCA2C200683812 /* DeviceSettingViewController.m in Sources */,
 				D6F953121EFCA2C200683812 /* UIView+Layer.m in Sources */,

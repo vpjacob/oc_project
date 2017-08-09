@@ -7,18 +7,17 @@
 //
 
 #import "DoorListViewController.h"
-#import "DoorListViewCell.h"
+#import "JJDoorListViewCell.h"
 //#import "CallViewController.h"
 #import "HomeService.h"
 #import "LoginDto.h"
 #import "DeviceManager.h"
 
-@interface DoorListViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface DoorListViewController ()<UITableViewDataSource,UITableViewDelegate>
 
-@property (nonatomic,strong)UICollectionView *collectionView;
 
 @property (nonatomic,strong)NSMutableArray *dataSource;
-
+@property (nonatomic, strong) UITableView *jjTabelView;
 @property (nonatomic,strong)UILabel *messageLbl;
 
 @end
@@ -31,53 +30,58 @@
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(devListMsgReceved) name:DevListMsgReceved object:nil]; // 注册刷新设备列表接口
     self.commonNavBar.title = NSLocalizedString(@"DoorList", @"");
-    
-    [self.view addSubview:IsArrEmpty([[DeviceManager manager] getAllVoipDevice])?self.messageLbl:self.collectionView];
+    [self.view addSubview:IsArrEmpty([[DeviceManager manager] getAllVoipDevice])?self.messageLbl:self.jjTabelView];
 }
 
 -(void)devListMsgReceved
 {
-    [self.collectionView reloadData];
+//    [self.collectionView reloadData];
+    [self.tableView reloadData];
 }
 
 #pragma mark - UICollectionViewDelegate && UICollectionViewDataSource
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
- 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [[DeviceManager manager] getAllVoipDevice].count;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    DoorListViewCell *cell = (DoorListViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:kCollectionViewCellReuseID forIndexPath:indexPath];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    JJDoorListViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"JJDoorListViewCell"];
+    if (cell ==nil) {
+        cell = [[NSBundle mainBundle] loadNibNamed:@"JJDoorListViewCell" owner:self options:nil].lastObject;
+    }
     [cell setDataWith:indexPath.item];
     return cell;
 }
-//item格子尺寸
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return CGSizeMake((kDeviceWidth-1)/2, (kDeviceWidth-1)/2);
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 100;
 }
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
-{
-    return 1;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    VoipDoorDto *dto = [[[DeviceManager manager] getAllVoipDevice] safeObjectAtIndex:indexPath.item];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    //呼叫--Benson
+    [DMCommModel callAccount:dto.dev_sn callAccountType:@(2) callback:^(int ret, NSString *msg) {
+        if (ret != 0) {
+            [self performSelectorOnMainThread:@selector(presentTips:)  withObject:msg waitUntilDone:NO];//运行在主线程里，要不然没有runloop，定时器不起作用--Benson
+        }else
+        {
+            DMCallViewController *nextCtr = [[DMCallViewController alloc]init];
+            nextCtr.callType = 0;
+            nextCtr.addStr = dto.dev_name;
+            nextCtr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+            [self presentViewController:nextCtr animated:YES completion:nil];
+        }
+    }];
 }
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
-{
-    return 1;
-}
-
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-{
-    return UIEdgeInsetsMake(1, 0, 0, 0);
-}
-
+/*
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     VoipDoorDto *dto = [[[DeviceManager manager] getAllVoipDevice] safeObjectAtIndex:indexPath.item];
@@ -108,26 +112,14 @@
     }];
     
 }
+*/
+
 
 -(void)presentTips:(NSString *)title{
     [self presentSheet:title];
 }
 
 #pragma mark - Setter && Getter
-- (UICollectionView *)collectionView
-{
-    if (!_collectionView) {
-        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-        flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, kNavBarHeight, kDeviceWidth, kDeviceHeight-kNavBarHeight) collectionViewLayout:flowLayout];
-        _collectionView.delegate = self;
-        _collectionView.dataSource = self;
-        [_collectionView registerClass:[DoorListViewCell class] forCellWithReuseIdentifier:kCollectionViewCellReuseID];
-        _collectionView.backgroundColor = kBackgroundColor;
-    }
-    return _collectionView;
-}
 
 - (UILabel *)messageLbl
 {
@@ -138,6 +130,16 @@
         _messageLbl.font = kSystem(15);
     }
     return _messageLbl;
+}
+
+- (UITableView *)jjTabelView{
+    if (!_jjTabelView) {
+        _jjTabelView = [[UITableView alloc] initWithFrame:CGRectMake(0, kNavBarHeight, kDeviceWidth, kDeviceHeight-kNavBarHeight) style:UITableViewStylePlain];
+        _jjTabelView.dataSource = self;
+        _jjTabelView.delegate = self;
+        _jjTabelView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    }
+    return _jjTabelView;
 }
 
 - (NSMutableArray *)dataSource

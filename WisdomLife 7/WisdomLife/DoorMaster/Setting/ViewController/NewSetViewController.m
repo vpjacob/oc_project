@@ -16,27 +16,54 @@
 //#import "SelectDeviceVC.h"
 #import "ShakeOpenViewController.h"
 #import "CloseOpenViewController.h"
+#import <DMVPhoneSDK/DMVPhoneSDK.h>
+#import "JJSettingBlackListCell.h"
 
-@interface NewSetViewController ()
+@interface NewSetViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic,strong)UIImageView *markImg;
-
+@property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) NSArray *titleArr;
+@property (nonatomic, strong) NSArray *normalArr;
 @end
 
 @implementation NewSetViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.titleArr = @[NSLocalizedString(@"yoho_setting_shaking_mode", @""),NSLocalizedString(@"yoho_setting_near_mode", @"")];
+    self.normalArr = @[@"shark",@"door_mobile"];
     
-    [self initSubViews];
+    self.commonNavBar.title = @"设定";
+    [self.view addSubview:self.commonNavBar];
+    [self.view addSubview:self.markImg];
+    [self.view addSubview:self.collectionView];
+    
+
     
 }
 
-- (void)clickSender:(ClickButton *)sender
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return self.titleArr.count;
+}
+
+- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    JJSettingBlackListCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"JJSettingBlackListCell" forIndexPath:indexPath];
+    cell.iconImageView.image = [UIImage imageNamed:self.normalArr[indexPath.row]];
+    cell.nameLabel.text = self.titleArr[indexPath.row];    
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    [self clickSender:indexPath.row];
+}
+
+- (void)clickSender:(NSInteger)row
 {
-    switch (sender.tag) {
-        case 5000:
-        {
+    switch (row) {
+        case 0:
+        {//摇一摇
             if ([[ContentUtils shareContentUtils] isCube]) {
             }else
             {
@@ -45,8 +72,8 @@
             }
         }
             break;
-        case 5001:
-        {
+        case 1:
+        {//近场开门
             if ([[ContentUtils shareContentUtils] isCube]) {
             }else
             {
@@ -68,10 +95,6 @@
 - (void)initSubViews
 {
 //    self.commonNavBar.hidden = YES;
-    self.commonNavBar.title = @"设定";
-    [self.view addSubview:self.commonNavBar];
-    [self.view addSubview:self.markImg];
-    
     NSArray *titleArr = @[NSLocalizedString(@"yoho_setting_shaking_mode", @""),NSLocalizedString(@"yoho_setting_near_mode", @"")];
     NSArray *normalArr = @[@"shark",@"door_mobile"];
     NSArray *highlightedArr = @[@"shark",@"door_mobile"];
@@ -94,6 +117,22 @@
         _markImg.image = [UIImage imageNamed:@"banner1"];
     }
     return _markImg;
+}
+
+
+- (UICollectionView *)collectionView{
+    if (!_collectionView) {
+        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        flowLayout.itemSize = CGSizeMake(kDeviceWidth * 0.5, kDeviceWidth * 0.5);
+        flowLayout.minimumLineSpacing = 0;
+        flowLayout.minimumInteritemSpacing = 0;
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.markImg.frame),kDeviceWidth, kDeviceHeight - CGRectGetMaxY(self.markImg.frame))  collectionViewLayout:flowLayout];
+        [_collectionView registerNib:[UINib nibWithNibName:@"JJSettingBlackListCell" bundle:nil] forCellWithReuseIdentifier:@"JJSettingBlackListCell"];
+        _collectionView.delegate = self;
+        _collectionView.dataSource = self;
+        _collectionView.backgroundColor = [UIColor whiteColor];
+    }
+    return _collectionView;
 }
 
 - (void)didReceiveMemoryWarning {

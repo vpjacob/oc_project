@@ -234,6 +234,7 @@
     [[OptionManager manager] saveOption];
 }
 
+
 -(void)setSliderHighLight:(BOOL)highLight
 {
     if (highLight) {
