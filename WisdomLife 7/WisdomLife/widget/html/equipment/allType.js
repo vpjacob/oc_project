@@ -22,6 +22,8 @@ apiready = function() {
 		});
 		//同步返回结果：
 		var hasEq = $api.strToJson(data)[0].hasEq;
+		console.log(data);
+		console.log(hasEq);
 		if (hasEq == false || hasEq == 'false') {
 			api.openWin({//打开我的设备
 				name : 'my_equipment',
@@ -64,6 +66,19 @@ apiready = function() {
 			}
 		});
 	});
+//打开门锁界面
+$("#myLock").bind("click", function() {
+		api.openWin({//打开有设备的界面
+			name : 'myLock',
+			url : './myLock.html',
+			slidBackEnabled : true,
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			}
+		});
+	});	
 };
 
 /**

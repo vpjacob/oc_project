@@ -12,8 +12,9 @@
 #import "HomeService.h"
 #import "LoginDto.h"
 #import "DeviceManager.h"
+#import <DMVPhoneSDK/DMVPhoneSDK.h>
 
-@interface DoorListViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface DoorListViewController ()<UITableViewDataSource,UITableViewDelegate,JJDoorListViewCellDelegate>
 
 
 @property (nonatomic,strong)NSMutableArray *dataSource;
@@ -25,6 +26,8 @@
 @implementation DoorListViewController
 
 #define kCollectionViewCellReuseID @"kCollectionViewCellReuseID"
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -56,7 +59,41 @@
     }
     
     [cell setDataWith:indexPath.item];
-    return cell;
+    cell.sw.tag = indexPath.row + 100;
+    NSArray *blackListArray = [DMCommModel getBlackList];
+    VoipDoorDto *dto = [[[DeviceManager manager] getAllVoipDevice] safeObjectAtIndex:indexPath.row];
+    cell.nameLabel.text = [NSString stringWithFormat:@"%@",dto.dev_name];
+    
+    if (blackListArray) {
+        if ([blackListArray containsObject:dto.dev_sn]) {
+            cell.sw.on = NO;
+        }else{
+            cell.sw.on = YES;
+        }
+    }else{
+        cell.sw.on = YES;
+    }
+
+    
+    cell.delegate = self;
+    
+        return cell;
+}
+
+#pragma mark - JJDoorListViewCellDelegate
+- (void)JJDoorListView:(JJDoorListViewCell *)doorListCell withSwitch:(UISwitch *)sw didSelectIndex:(NSInteger)index{
+        VoipDoorDto *dto = [[[DeviceManager manager] getAllVoipDevice] safeObjectAtIndex:index];
+        NSLog(@"%@",dto.dev_sn);
+        NSLog(@"%zd",sw.on);
+        if (sw.on) {
+//            sw.on = NO;
+            [DMCommModel modifyBlackList:dto.dev_sn isAdd:NO];
+
+        }else{
+//            sw.on = YES;
+            [DMCommModel modifyBlackList:dto.dev_sn isAdd:YES];
+
+        }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

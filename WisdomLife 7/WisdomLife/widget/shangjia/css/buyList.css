@@ -84,7 +84,7 @@ input::-moz-input-placeholder{text-align: left;}
 .box .sameBoxs .same .busname{
 	font-size:0.65rem;
 	color: #282828;
-	width: 100%;
+	width: 95%;
 	text-overflow :ellipsis;
 	white-space:nowrap;
 	overflow:hidden;
