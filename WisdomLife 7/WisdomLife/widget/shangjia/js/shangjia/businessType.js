@@ -6,6 +6,12 @@ var lat="";
 apiready = function() {
 	//展示商家列表
 	id = api.pageParam.id;
+	var header = $api.byId('title');
+	var miancss = $api.dom('.deal');
+	if (api.systemType == 'ios') {
+		$api.css(header, 'margin-top:22px;');
+		$api.css(miancss, 'margin-top:1.5rem;');
+	};
 	function businessList(pages, typeId) {
 		api.showProgress({});
 		AjaxUtil.exeScript({
@@ -28,7 +34,6 @@ apiready = function() {
 				if (data.formDataset.checked == 'true') {
 					var account = data.formDataset.companyDataList;
 					var list = $api.strToJson(account);
-
 					if (list.length == undefined || list.length == 0 || list == undefined || list == '' || list.length == '') {
 						if (pages == 1) {
 							api.toast({
@@ -39,7 +44,6 @@ apiready = function() {
 								msg : '无更多商家记录'
 							});
 						}
-
 					} else {
 						for (var i = 0; i < list.length; i++) {
 							//							lon = list[i].longtitude;

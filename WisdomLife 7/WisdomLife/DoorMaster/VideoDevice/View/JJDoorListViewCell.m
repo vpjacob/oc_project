@@ -46,13 +46,7 @@
     
         if (sender.tag == 0) {
             return;
-        }
-    NSLog(@"%zd",sender.tag);
-    if (self.switchBlock) {
-        self.switchBlock(sender.tag - 100);
-        
-    }
-    
+        }    
     
     if ([self.delegate respondsToSelector:@selector(JJDoorListView:withSwitch:didSelectIndex:)]) {
         [self.delegate JJDoorListView:self withSwitch:sender didSelectIndex:sender.tag - 100];

@@ -73,11 +73,8 @@
     }else{
         cell.sw.on = YES;
     }
-
-    
     cell.delegate = self;
-    
-        return cell;
+    return cell;
 }
 
 #pragma mark - JJDoorListViewCellDelegate
@@ -97,7 +94,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 100;
+    return 60;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -176,6 +173,7 @@
         _jjTabelView.dataSource = self;
         _jjTabelView.delegate = self;
         _jjTabelView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _jjTabelView.bounces = NO;
     }
     return _jjTabelView;
 }
