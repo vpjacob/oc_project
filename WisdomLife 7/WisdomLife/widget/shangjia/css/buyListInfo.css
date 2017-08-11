@@ -1,0 +1,272 @@
+/*@import "menu.css";*/
+/** 清除内外边距 **/
+body, h1, h2, h3, h4, h5, h6, hr, p,
+blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
+th, td, /* table elements 表格元素 */
+img/* img elements 图片元素 */{
+    border:medium none;
+    margin: 0;
+    padding: 0;
+}
+/** 设置默认字体 **/
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: '微软雅黑';
+}
+/*h1, h2, h3, h4, h5, h6 { font-size: 100%; }*/
+/*em{font-style:normal;}*/
+/** 重置列表元素 **/
+
+ul, ol {
+	list-style: none;
+}
+/** 重置超链接元素 **/
+a {
+	text-decoration: none;
+	color: #000;
+}
+a:hover {
+	text-decoration: underline;
+	color: #3363a7;
+}
+/** 重置图片元素 **/
+img {
+	border: 0px;
+}
+#showPic img{
+	height: 11.5rem;
+}
+/** 重置表格元素 **/
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.last{
+	width:40%;
+	height: 8%;
+	position:fixed;
+	bottom: 0;
+	right: 0;
+}
+.box{
+	width:100%;
+	background: white;
+}
+.topInfo{
+	width:96%;
+	height: 9rem;
+	margin: 0 auto;
+}
+.topInfo textarea{
+	width:100%;
+	resize: none;
+	height: 2.8rem;
+	font-size:0.9rem;
+	font-weight: 700;
+	margin-top: 0.2rem;
+}
+.topInfo textarea:nth-child(2){
+	font-size:0.6rem;
+	color: #f23020;
+	margin-top: -6px;
+}
+.box .sameBoxs .same .busprice{
+	font-size:0.7rem;
+	color: #f23030 
+}
+.topInfo .busprice .yh{
+	font-size:0.7rem;
+	color: #f23030;
+	margin-left: -2%; 
+}
+.topInfo .busprice .symbol{
+	font-size:0.65rem;
+	color: #f23030 
+}
+.topInfo .busprice .nowPrice{
+	font-size:0.8rem;
+	color: #f23030 
+}
+.topInfo .busprice .initprice{
+	font-size:0.6rem;
+	color: #999;
+	margin-left: 0.4rem; 
+}
+.topInfo .busperson{
+	font-size:0.6rem;
+	color: #999;
+}
+
+.bottomInfo{
+	width:100%;
+	height: 6rem;
+	margin: 0 auto;
+	border-top:1px solid #ddd;
+	background: white;
+}
+.bottomInfo textarea{
+	margin-left: 2%;
+	font-size: 0.6rem;
+	color: #282828;
+	font-weight: 700;
+	height: 4rem;
+	width:96%;
+	resize: none; 
+}
+ .bottomInfo span:nth-child(1){
+	margin-left: 2%;
+	font-size: 0.8rem;
+	color: #999;
+	margin-top: 0.5rem;
+}
+
+
+.photo {
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.5);
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 999;
+	font-size: 1rem;
+	display:none;
+}
+.share_center {
+	width: 100%;
+	height: 190px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding: 10px;
+	background-color: #fff;
+}
+.share_center .share_title {
+	width: 100%;
+	text-align: center;
+	font-size: 16px;
+	color: #777778;
+	margin-bottom:10px;
+}
+
+.share li div {
+	font-size: 14px;
+	color: #777778;
+}
+.share_sub {
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: #777778;
+	font-size: 18px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background-color: #fff;
+	border-top:1px solid #f0f0f0;
+}
+.share li{
+    width:32%;
+    text-align:center;
+    display:inline-block;
+}
+.quit {
+	width: 80%;
+	background-color: #0EAAE0;
+	color: #fff;
+	font-size: 16px;
+	text-align: center;
+	margin: 10px auto;
+	padding: 8px 0;
+	border-radius: 5px;
+	display: block;
+}
+
+footer{
+	width:100%;
+	height: 2.6rem;
+	background: #FFF;
+	position: fixed;
+	bottom: 0;
+}
+footer span{
+	font-family: '微软雅黑';
+	font-weight: 700;
+	color: #FF4E00;
+	font-size: 0.9rem;
+}
+footer span:nth-child(1){
+	margin-left: 4%;
+	line-height: 2.7rem;
+}
+footer span:nth-child(3){
+	float: right;
+	height: 2rem;
+	width: 6.3rem;
+	color: #fff;
+	background: #FF4E00;
+	text-align: center;
+	margin-top: 0.35rem;
+	margin-right: 4%;
+	line-height: 2rem;
+	border-radius: 5px;
+}
+
+/* .bottomInfo span:nth-child(3){
+	margin-left: 2%;
+	font-size: 0.6rem;
+	color: #999;
+    position: relative;
+    top: -1.1rem;
+}
+.bottomInfo textarea{
+	font-size: 0.6rem;
+	color: #282828;
+	font-weight: 700;
+	height: 1.8rem;
+	width:84%;
+	border:1px solid red;
+	resize: none; 
+	
+}
+.bottomInfo span:nth-child(6){
+	margin-left: 2%;
+	font-size: 0.6rem;
+	color: #999
+}
+.bottomInfo span:nth-child(7){
+	font-size: 0.6rem;
+	color: #282828;
+	font-weight: 700;
+}
+.bottomInfo span:nth-child(8){
+	font-size: 0.6rem;
+	color: #f23030;
+	margin-left: 2%;
+}  */
+
+/* footer{
+	width: 100%;
+	height: 8%;
+	position: fixed;
+    bottom: 0;
+    background:white;
+    border:1px solid red; 
+}
+footer span{
+	color: #FF4A00;
+}
+footer span:nth-child{
+	color: #FF4A00;
+} */
+
+
+
+
+

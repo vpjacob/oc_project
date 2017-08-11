@@ -42,6 +42,7 @@ function setLieBiaoList(p, companycategory) {
 		success : function(data) {
 			api.hideProgress();
 			loading = false;
+			console.log('列表***********' + $api.jsonToStr(data));
 			if (data.execStatus == "true") {
 				if (data.datasources[0].rows.length == 0) {
 					api.toast({

@@ -14,6 +14,7 @@ apiready = function() {
 		method : 'post'
 	}, function(ret, err) {
 		api.hideProgress();
+		console.log($api.jsonToStr(ret));
 		if (ret) {
 			if (ret.execStatus == "true") {
 				var result=ret.formDataset;

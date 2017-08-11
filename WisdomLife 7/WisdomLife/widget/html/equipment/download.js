@@ -101,13 +101,28 @@ apiready = function() {
 	if (systemType != "ios") {//只限Android系统
 		moduleTest.get(function(ret) {
 			if (ret.ssid != ssid) {
-				api.alert({
-					msg : "请连接设备指定WiFi"
-				}, function(ret, err) {
-					api.closeWin({
-					});
-				});
-			} else {
+                       api.confirm({
+                                   msg : '未连接指定WiFi，现在就去？',
+                                   buttons : ['设置', '取消']
+                                   }, function(ret, err) {
+                                   var index = ret.buttonIndex;
+                                   if (index == 1) {
+                                   api.accessNative({
+                                                    name : 'ConnetToWiFi',
+                                                    extra : {
+                                                    }
+                                                    }, function(ret, err) {
+                                                    if (ret) {
+                                                    //                                    alert(JSON.stringify(ret));
+                                                    } else {
+                                                    //                                    alert(JSON.stringify(err));
+                                                    }
+                                                    });
+                                   } else if(index == 2){
+                                   api.closeWin();
+                                   }
+                                   });
+                       } else {
 				getList();
 			}
 		});
@@ -147,6 +162,7 @@ apiready = function() {
 		}
 	}
 };
+
 function getList() {
 	var xmlhttp;
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -306,21 +322,8 @@ function download(name) {
              alert('是文件夹');
              } else {
              
-             api.accessNative({
-                              name : 'palyCarViedo',
-                              extra : {
-                              path:path_file+name,
-                              name:name
-                              }
-                              }, function(ret, err) {
-                              if (ret) {
-                              //                                    alert(JSON.stringify(ret));
-                              } else {
-                              //                                    alert(JSON.stringify(err));
-                              }
-                              });
+             alert("视频文件已经存在，前往相册中查看");
              $(idOfI).remove();
-             
              
              }
              } else {
@@ -343,21 +346,21 @@ function download(name) {
                            }, function(ret, err) {
                           if (ret.state == 1) {
                           state = 1;
-                          api.accessNative({
-                                           name : 'palyCarViedo',
-                                           extra : {
-                                           path:path_file+name,
-                                           name:name
-                                           }
-                                           }, function(ret, err) {
-                                           if (ret) {
-                                           //                                    alert(JSON.stringify(ret));
-                                           } else {
-                                           //                                    alert(JSON.stringify(err));
-                                           }
-                                           });
-                          
-                          
+//                          api.accessNative({
+//                                           name : 'palyCarViedo',
+//                                           extra : {
+//                                           path:path_file+name,
+//                                           name:name
+//                                           }
+//                                           }, function(ret, err) {
+//                                           if (ret) {
+//                                           //                                    alert(JSON.stringify(ret));
+//                                           } else {
+//                                           //                                    alert(JSON.stringify(err));
+//                                           }
+//                                           });
+
+                          alert("已经下载完成，前往相册中查看");
                           
                           $(idOfI).remove();
                           api.hideProgress();

@@ -126,6 +126,7 @@ function getDetail(urId,type,pages) {
 		},
 		success : function(data) {
 			ProgressUtil.hideProgress();
+			console.log($api.jsonToStr(data));
 			if (data.execStatus == 'true') {
 				var datas= data.datasources[0].rows;
 				var newsResult='';

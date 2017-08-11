@@ -8,6 +8,7 @@ apiready = function(){
 		var param = api.pageParam;
 //		$(".top").find("p").html(param.address);
 		$(".top").find("p").html('我的二维码');
+		console.log("我的二维码图片地址是否正确：=============="+param.imgpath);
 		$(".bottom").find("img").attr("src",param.imgpath);
 		
 		$("#goback").click(function(){

@@ -28,10 +28,13 @@ var _p_fn = function() {
 			            easing: 'swing',
 			            /* Callbacks */
 			            begin: function (elements) {
+			                console.log('animation began');
 			            },
 			            complete: function (elements) {
+			                console.log('animation completed');
 			            },
 			            progress: function (elements, complete, remaining, start) {
+			                console.log('animation in progress');
 			            }
 			        }
 			    );

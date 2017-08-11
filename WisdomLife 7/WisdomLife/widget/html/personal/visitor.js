@@ -70,6 +70,7 @@ function getVisitorKeys() {
 				var isfor;
 				for (var i = 0; i < visitorKeysInfo.length; i++) {
 					var keyId = visitorKeysInfo[i].fid;
+					console.log(visitorKeysInfo[i].isforbidden+"---------------------------");
 					if( visitorKeysInfo[i].isforbidden == true)
 					{
 						isforbid = "再次生成";

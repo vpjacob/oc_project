@@ -39,6 +39,7 @@ function total(urId) {
 		success : function(data) {
 			//var listInfo = data.formDataset;
 			var list=$api.jsonToStr(data.formDataset);
+			console.log('data.formDataset'+list);
 			if (data.formDataset.checked == 'true') {
 					data.formDataset.goldAmount== null ? $('#goldAmount').html(0):$('#goldAmount').html(data.formDataset.goldAmount);
 			} else {

@@ -30,6 +30,7 @@ apiready = function() {
 			contentType : "application/json;charset=utf-8",
 			success : function(result) {
 				api.hideProgress();
+				 console.log($api.jsonToStr(result));
 				if (result.state == 1) {
 					var data = result.data.list;
 					if (data == undefined || data == "" || data.length == 0 || data.length == null || data.length == undefined || data == null) {

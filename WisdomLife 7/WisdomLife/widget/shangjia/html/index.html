@@ -47,11 +47,11 @@
 	<div class="top">
 		<!--商品轮播部分-->
 		<div class="swiper-containerlrf" style="overflow: hidden;">
-	        <div class="swiper-wrapper ">
-	        	 <div class="swiper-slide"><img src="../image/sjlun4.jpg" id="lock"></div>
+	        <div class="swiper-wrapper" id="mainShowImg">
+	        	 <!--<div class="swiper-slide"><img src="../image/sjlun4.jpg" id="lock"></div>
 	        	 <div class="swiper-slide"><img src="../image/sjlun3.jpg" id="entranceGuard"></div> 
 	        	 <div class="swiper-slide"><img src="../image/sjlun2.png" id="toothbrush"></div>  
-	             <div class="swiper-slide"><img src="../image/sjlun1.jpg" id="juicing"></div>	                 
+	             <div class="swiper-slide"><img src="../image/sjlun1.jpg" id="juicing"></div>	-->                 
 	        </div>
 	        <div class="swiper-pagination" style="position:relative;bottom:1.23rem"></div>
   	   </div>
@@ -285,15 +285,17 @@
 		autoplayDisableOnInteraction:false,
     });	
     
-    var swiper = new Swiper('.swiper-containerlrf', {
-        pagination: '.swiper-pagination',
-        paginationClickable: true,
-        spaceBetween: 3,
-        centeredSlides: true,
-        autoplayDisableOnInteraction: false,
-        autoplay: 2500,
-        loop: true
-    });	
+//  var swiper = new Swiper('.swiper-containerlrf', {
+//      pagination: '.swiper-pagination',
+//      paginationClickable: true,
+//      spaceBetween: 3,
+//      centeredSlides: true,
+//      autoplayDisableOnInteraction: false,
+//      autoplay: 2500,
+//      loop: true,
+//		observer:true,//修改swiper自己或子元素时，自动初始化swiper
+// 		observeParents:true//修改swiper的父元素时，自动初始化swiper
+//  });	
    
 	function changeNews(){
 		$(".notice-box ul").animate({marginTop:-50},1000,function(){

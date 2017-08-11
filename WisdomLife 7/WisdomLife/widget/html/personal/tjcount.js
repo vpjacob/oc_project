@@ -36,6 +36,7 @@ function total(urId) {
 		success : function(data) {
 			//var listInfo = data.formDataset;
 			var list=$api.jsonToStr(data.formDataset);
+			console.log('data.formDataset'+list);
 			if (data.formDataset.checked == 'true') {
 					data.formDataset.recommendAmount==null?$('#recommendAmount').html(0):$('#recommendAmount').html(data.formDataset.recommendAmount);
 			} else {

@@ -109,7 +109,9 @@ input::-moz-input-placeholder{text-align: left;}
 	height: 44px;
 	margin: 0 auto;
 }
-
+.swiper-containerlrf img{
+	height: 7.4rem;
+}
 .notice{width:100%;height:50px; background-color:#ffffff;font-size:12px;border:solid 1px #E6E6E6;}
 .notice li{height:50px;}
 .notice .left{float:left;height:50px;}

@@ -87,14 +87,14 @@ apiready = function() {
 		getTabInfo(num_tab1, "6", "", "", "1");
 	});
 	$("#a_tab2").on('click', function() {//推荐信使豆
-//		console.log('推荐');
+		console.log('推荐');
 		num_top = 2;
 		initState();
 		$('.infinite-scroll-preloader').eq(1).show();
 		getTab2Info(num_tab2, "", "", "1");
 	});
 	$("#jili61").on('click', function() {
-//		console.log('推荐6');
+		console.log('推荐6');
 		num_tab2 = 6;
 		$('li.item-content').remove();
 		page1 = true;
@@ -103,7 +103,7 @@ apiready = function() {
 		getTab2Info(num_tab2, "", "", "1");
 	});
 	$("#jili121").on('click', function() {
-//		console.log('推荐12');
+		console.log('推荐12');
 		num_tab2 = 12;
 		$('li.item-content').remove();
 		page2 = true;
@@ -112,7 +112,7 @@ apiready = function() {
 		getTab2Info(num_tab2, "", "", "1");
 	});
 	$("#jili241").on('click', function() {
-//		console.log('推荐24');
+		console.log('推荐24');
 		num_tab2 = 24;
 		$('li.item-content').remove();
 		page3 = true;
@@ -133,13 +133,13 @@ apiready = function() {
 			$('.infinite-scroll-preloader').eq(0).show();
 			getTabInfo(num_tab1, "6", "", "", "1");
 		} else if (num_top == 2) {
-//			console.log('点击了全部');
+			console.log('点击了全部');
 			$('.infinite-scroll-preloader').eq(1).show();
 			getTab2Info(num_tab2, "", "", "1");
 		}
 	});
 	$("#todayLi").on('click', function() {
-//		console.log('todayLi');
+		console.log('todayLi');
 		$(".secondul").hide();
 		$('.icon-down').removeClass('icon-down').addClass('icon-top');
 		$('li.item-content').remove();
@@ -153,7 +153,7 @@ apiready = function() {
 		}
 	});
 	$("#weekLi").on('click', function() {
-//		console.log('weekLi');
+		console.log('weekLi');
 		$(".secondul").hide();
 		$('.icon-down').removeClass('icon-down').addClass('icon-top');
 		$('li.item-content').remove();
@@ -167,7 +167,7 @@ apiready = function() {
 		}
 	});
 	$("#mouthLi").on('click', function() {
-//		console.log('mouthLi');
+		console.log('mouthLi');
 		$(".secondul").hide();
 		$('.icon-down').removeClass('icon-down').addClass('icon-top');
 		$('li.item-content').remove();
@@ -186,7 +186,7 @@ apiready = function() {
 			if (isRefresh) {
 				return
 			}
-//			console.log('*******加载更多');
+			console.log('*******加载更多');
 			if (num_top == 1) {
 				if (num_tab1 == 6) {
 					if (page1) {
@@ -255,7 +255,8 @@ function getTab2Info(drivetype, returntime, datetime, toPage) {
 	}, function(ret, err) {
 		api.hideProgress();
 		isRefresh = false;
-//		console.log('getTab2Info');
+		console.log('getTab2Info');
+		console.log($api.jsonToStr(ret));
 		if (ret) {
 			if (ret.execStatus == "true") {
 				var result = ret.formDataset.entity;
@@ -296,6 +297,7 @@ function getTabInfo(driveType, dateType, startTime, endTime, toPage) {
 	}, function(ret, err) {
 		isRefresh = false;
 		api.hideProgress();
+		console.log($api.jsonToStr(ret));
 		if (ret) {
 			if (ret.execStatus == "true") {
 				var result = ret.formDataset.entity;

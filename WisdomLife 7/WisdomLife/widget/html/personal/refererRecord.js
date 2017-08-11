@@ -37,6 +37,8 @@ function record(urId) {
 		success : function(data) {
 			var listInfo = data.formDataset.recommendList;
 			var list = eval(listInfo);
+			console.log('list'+list);
+			console.log('listInfo'+listInfo);
 			//console.log('list'+list);
 			//var list=$api.strToJson(listInfo)
 

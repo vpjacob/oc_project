@@ -2,6 +2,7 @@ var urId;
 apiready = function() {
 	FileUtils.readFile("info.json", function(info, err) {
 			urId=info.userNo;
+			console.log('userNo为'+urId);
 			bankList(urId);
 		});
 	var header = $api.byId('title');
@@ -56,10 +57,12 @@ apiready = function() {
 	        userNo:urId
 	      },
 	      success:function (data) {
+	      console.log($api.jsonToStr(data));
 	       if (data.formDataset.checked == 'true') {
 	       		var account = data.formDataset.bankList;
 	       		var list=$api.strToJson(account);
 //	       		var list=eval(account);
+	       		console.log(list)
 	       		//$api.jsonToStr(data)
 				if(list.length==0){
 					api.toast({
@@ -161,6 +164,7 @@ apiready = function() {
 				    key: 'chooseId',
 				    value: arr[0].id
 				});
+			    	console.log(arr[0].id);
 			    	
 			    	api.closeWin({
         				});

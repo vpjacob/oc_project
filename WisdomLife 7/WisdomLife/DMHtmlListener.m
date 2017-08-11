@@ -67,7 +67,7 @@ static DMHtmlListener *instance = nil;
 -(void)initSetting
 {
     //初始化蓝牙
-    [LibDevModel initBluetooth];
+    [LibDevModel initBluetoothNotShowPower];
     [OpenDoorService manager]; //初始化服务
     [[SharkMotionManager manager] initMotionManager]; //初始化摇一摇监听
     [[SharkMotionManager manager] startShakeMonitor]; //根据保存数据判断是否继续执行摇一摇

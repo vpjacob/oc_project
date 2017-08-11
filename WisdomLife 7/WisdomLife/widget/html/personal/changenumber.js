@@ -64,6 +64,7 @@ apiready = function() {
 				},
 				success : function(data) {
 					api.hideProgress();
+					console.log($api.jsonToStr(data));
 					if (data.execStatus == 'true') {
 						code = data.formDataset.code;
 						
@@ -114,11 +115,13 @@ apiready = function() {
 					type : 2
 				},
 				success : function(data) {
+					console.log($api.jsonToStr(data));
 					api.hideProgress();
 					if (data.execStatus == 'true') {
 						if (data.formDataset.checked == 'true') {
 							telphone = $('#num').val();
-							
+							code = data.formDataset.code;
+							console.log('code'+code)
 						} else {
 						api.alert({
 				msg : '该手机号已经被使用，请您输入正确号码。'

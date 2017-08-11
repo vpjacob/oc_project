@@ -47,6 +47,7 @@ apiready = function() {
 		var scanner = api.require('scanner');
 		scanner.open(function(ret, err) {
    		 if (ret) {
+   		 	console.log(JSON.stringify(ret));
    		 	//alert(JSON.stringify(ret.msg));
    		 	api.openWin({
 			name : 'referer',
@@ -279,6 +280,7 @@ apiready = function() {
 			success : function(data) {
 				if (data.formDataset.checked === "true") {
 					identifyingCode = data.formDataset.code;
+					console.log(identifyingCode+"******************************");
 					if (identifyingCode != "") {
 						api.alert({
 							title : '系统提示',
@@ -497,7 +499,7 @@ apiready = function() {
 							script : 'openCenterPage();'
 						});
 					} else if (isnearby == "true") {
-//						console.log('邻里');
+						console.log('邻里');
 						api.setPrefs({
 							key : 'isnearby',
 							value : false
@@ -549,7 +551,7 @@ apiready = function() {
 				name:$("#username").val()				
 			},
 			success : function(data) {
-//				console.log('圈子。。。。。。。' + $api.jsonToStr(data));
+				console.log('圈子。。。。。。。' + $api.jsonToStr(data));
 				if (data.execStatus == 'true') {
 					//					api.alert({
 					//						msg : '成功加入圈子'

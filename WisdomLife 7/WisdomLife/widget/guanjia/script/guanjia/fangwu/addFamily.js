@@ -84,6 +84,7 @@ apiready = function() {
 				telphone : $("#tel").val()
 			},
 			success : function(data) {
+			console.log($api.jsonToStr(data));
 				if (data.formDataset.checked === "true") {
 					identifyingCode = data.formDataset.code;
 					console.log(identifyingCode+"******************************");

@@ -91,6 +91,7 @@ apiready = function() {
 				type : "1"
 			},
 			success : function(formset) {
+				console.log($api.jsonToStr(formset));
 				if (formset.execStatus == "true") {
 					var dealNo = formset.formDataset.dealNo;
 					var data = {
@@ -106,6 +107,7 @@ apiready = function() {
 						dataType : "json",
 						contentType : 'application/json;charset=utf-8',
 						success : function(data) {
+							console.log($api.jsonToStr(data));
 							if (data.state == '1') {
 								var iaf = api.require('aliPay');
 								iaf.payOrder({
@@ -132,6 +134,7 @@ apiready = function() {
 							}
 						},
 						error : function(XMLHttpRequest, textStatus, errorThrown) {
+							console.log("错误输出信息：" + XMLHttpRequest.status + "###" + XMLHttpRequest.readyState + "###" + textStatus);
 							api.alert({
 								msg : "您的网络是否已经连接上了，请检查一下！"
 							});

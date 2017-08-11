@@ -55,6 +55,7 @@ function getList(urId) {
 			p:p
 		},
 		success : function(data) {
+		console.log($api.jsonToStr(data));
 			ProgressUtil.hideProgress();
 			var newsResult = "";
 			if (data.execStatus == 'true' && data.datasources[0].rows.length > 0) {

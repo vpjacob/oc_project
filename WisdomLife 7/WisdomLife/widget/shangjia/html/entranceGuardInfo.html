@@ -25,6 +25,7 @@
 			color: #000;
 			text-decoration: none;
 		}
+		
     </style>
 </head>
 <body>
@@ -32,25 +33,26 @@
 		<a class="icon pull-left" id="back"><i class="iconfont icon-xiangzuo1" style="font-size: 1rem;color: #0EAAE3"></i></a>
 		<h1 class="title" style="color: #4d4d4d;font-size: 0.8rem;">确认信息</h1>
 	</header>
+	<div style="height: 85%;width:100%;overflow:auto" id="miancss">
 	<div class="firstInfo">
 		<div class="businessInfo">
-			<span>商品详情</span>
+			<span id="productId" data="">商品详情</span>
 		</div>
 		<div class="businessShow">
-			<img src="../image/address/entranceGuard1.png" id="businessImg"/>
-			<span id="price">12800元</span>
-			<span id="content">小客科技智能门禁  黑色</span>
+			<img src="" id="businessImg" alt="暂无"/>
+			<span id="price"></span>
+			<span id="content"></span>
 		</div>
 	</div>
-	<div class="choose">
-		<div class="chooseColor">
+	<div class="choose" id="modelList">
+		<!--<div class="chooseColor" >
 			<span>颜色</span>
-			<select id="colorChoose" onchange="changeColor()">
+			<span class="spanModle">请选择</span>
+			<select id="colorChoose">
 				<option value="0">请选择</option>
-				<option value="1">黑色</option>
-				<!--<option value="2">拉丝银</option>-->
+				<option value="0">中古(五斤装)</option>
 			</select>
-		</div>
+		</div>-->
 		<div class="chooseAmount">
 			<span>数量</span>
 			<div class="chooseAmountChange">
@@ -79,11 +81,13 @@
 			<textarea placeholder="请输入您的详细地址" id="address"></textarea>
 		</div>
 	</div>
+	</div>
 	<footer>
 		<span>共计 : </span>
-		<span id="countAll">12800元</span>
+		<span id="countAll"></span>
 		<span id="apply">支付</span>
 	</footer>
+	
 </body>
 <script type="text/javascript" src="../../script/common.js"></script>
 <script type="text/javascript" src="../../script/api.js"></script>

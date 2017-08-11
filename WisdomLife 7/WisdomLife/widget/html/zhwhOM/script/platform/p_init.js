@@ -60,6 +60,7 @@ window.Auto517.fn.transEm = function(text) {
     return textTransed;
 }
 window.Auto517.fn.animation = function(targetDOM, cssJSON){
+	console.log(targetDOM.html())
     targetDOM.animate(
         cssJSON,
         {
@@ -67,10 +68,13 @@ window.Auto517.fn.animation = function(targetDOM, cssJSON){
             easing: 'swing',
             /* Callbacks */
             begin: function (elements) {
+                console.log('animation began');
             },
             complete: function (elements) {
+                console.log('animation completed');
             },
             progress: function (elements, complete, remaining, start) {
+                console.log('animation in progress');
             }
         }
     );

@@ -42,6 +42,7 @@ apiready = function() {
 	$("#messageStatus").prop("checked", satatus);
 	$("#messageStatus").bind("change", function() {
 		var messageStatus = $("#messageStatus").prop("checked");
+		console.log(messageStatus);
 		AjaxUtil.exeScript({
 			script : "mobile.center.message.message",
 			needTrascation : true,
@@ -281,6 +282,7 @@ function getUesrInfo() {
 			memberid : memberid
 		},
 		success : function(data) {
+			console.log('检查推送状态');
 			if (data.execStatus == 'true' && data.datasources[0].rows.length > 0) {
 				satatus = data.datasources[0].rows[0].messagestatus;
 				$("#messageStatus").prop("checked", satatus);		
@@ -319,6 +321,11 @@ function initUserInfoAndUserKeyInfo() {
 	api.setPrefs({
 		key : 'telphone',
 		value : 'telphone'
+	});
+	//退出时置空用户编号
+	api.setPrefs({
+		key : 'userNo',
+		value : 'userNo'
 	});
 
 	//用户信息

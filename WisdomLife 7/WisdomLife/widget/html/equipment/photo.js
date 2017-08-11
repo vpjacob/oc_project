@@ -356,9 +356,9 @@ function deleteFile(name){
               path: path_file  + name
               }, function(ret, err) {
               if (ret.status) {
-              alert(JSON.stringify(ret));
+              alert("删除成功");
               } else {
-              alert(JSON.stringify(err));
+              alert("删除错误");
               }
               });
 }

@@ -100,6 +100,7 @@ function sendIdentifyingCode() {
 			if (data.formDataset.checked === "true") {
 				identifyingCode = data.formDataset.code;
 				//				alert(identifyingCode);
+				console.log("验证码"+identifyingCode);
 				if (identifyingCode != "") {
 					api.alert({
 						title : '系统提示',

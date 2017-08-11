@@ -21,6 +21,7 @@ apiready = function() {
 		$('li').remove();
 		page = 1;
 		var name = $('#search').val();
+		console.log(name + "      你写入的文字");
 		if (name) {
 			setLieBiaoList(page);
 			$('.infinite-scroll-preloader').show();
@@ -45,6 +46,7 @@ function setLieBiaoList(p) {
 		success : function(data) {
 			api.hideProgress();
 			loading = false;
+			console.log('列表***********' + $api.jsonToStr(data));
 			if (data.execStatus == "true") {
 				if (data.datasources[0].rows.length == 0) {
 					api.toast({

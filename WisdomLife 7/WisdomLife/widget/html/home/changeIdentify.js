@@ -36,6 +36,7 @@ apiready = function() {
 				});
 				return false;	
 		}
+		console.log(idCard)
 	
 		//ProgressUtil.showProgress();
 		AjaxUtil.exeScript({

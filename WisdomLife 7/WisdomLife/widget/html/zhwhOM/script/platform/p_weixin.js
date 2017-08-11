@@ -72,6 +72,7 @@ var _p_weixin = function() {
 									} else if (err.code == 1) {
 										toast.show('支付失败：必传参数缺失');
 									} else {
+									    console.log('weixin back:'+JSON.stringify(ret)+' err:'+JSON.stringify(err));
 										toast.show('支付失败：可能的原因：签名错误、未注册APPID、项目设置APPID不正确、注册的APPID与设置的不匹配、其他异常等');
 									}
 

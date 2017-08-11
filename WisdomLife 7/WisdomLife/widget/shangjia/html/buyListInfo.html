@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<title>商品详情</title>
+		<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<link rel="stylesheet" href="../../css/sm-extend.min.css">
+		<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm-extend.min.js' charset='utf-8'></script>
+		<link rel="stylesheet" type="text/css" href="../css/buyListInfo.css">
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
+		<style>
+			body {
+				font-family: "微软雅黑";
+			}
+			a {
+				color: #000;
+			}
+			a:active, a:link, a:visited, a:hover {
+				color: #000;
+				text-decoration: none;
+			}
+			img {
+				display: block;
+				margin: auto;
+				width: 100%;
+			}
+			.bar:after {
+				background-color: rgba(0,0,0,0);
+			}
+		</style>
+	</head>
+	<body>
+		<header class="bar bar-nav" id="header" style="background: #fff;position: fixed;z-index: 10000">
+			<a class="icon pull-left" id="back"> <i class="iconfont icon-xiangzuo1" style="font-size: 1.0rem;color: #0EAAE3"></i> </a>
+			<h1 class="title" style="color: #4d4d4d;font-size: 0.85rem;" id="titleName">商品</h1>
+			<a class="icon pull-right" id="share"> <i class="iconfont icon-share" style="font-size: 1.0rem;color: #0EAAE3"></i> </a>
+		</header>
+		<div style="overflow: auto;height:100%;padding-bottom:51px;margin-top: 44px;"class="iosBox">
+			<div class="swiper-containerlrf" style="overflow: hidden;">
+				<div class="swiper-wrapper" id="showPic">
+					 <!--<div class="swiper-slide"><img src="../image/imgTemp/img.jpg">
+					</div>
+					<div class="swiper-slide"><img src="../image/imgTemp/img1.jpg">
+					</div> -->
+				</div>
+				<div class="swiper-pagination" style="position:relative;bottom:33%;margin-top: -24px;"></div>
+			</div>
+			<div class="box">
+				<div class="topInfo">
+					<textarea id="title" readonly ="readonly"></textarea>
+					<textarea id="sub_title" readonly ="readonly"></textarea>
+					<div class="busprice">
+						<span class="yh">【优惠价】</span><span class="symbol">¥</span><span class="nowPrice" id="price_discount"></span><s class="initprice" id="price"></s>
+					</div>
+					<span class="busperson" id="buy_count">100人已买</span>
+				</div>
+				<div class="bottomInfo">
+					<span>商品说明</span>
+					<br/>
+					<textarea readonly ="readonly" id="description"></textarea>
+					<!--<span>促销 ：</span><textarea disabled="disabled">此价格不与套装优惠同时使用</textarea><br/>
+					<span>配送 ：</span><span>北京三环以内配送</span><span>现货</span>-->
+				</div>
+			</div>
+			<img src=" " id="mainImg" style="margin-top: 2px" alt="暂无" />
+		</div>
+		<div class="photo" id="photo">
+			<div class="share_center">
+				<p class="share_title">
+					分享到
+				</p>
+				<ul class="share">
+					<li id="qq_share">
+						<a href="javascript:;"> <img src="../../image/moreOne.png"/>
+						<div>
+							QQ
+						</div> </a>
+					</li>
+					<li id="wx_share">
+						<a href="javascript:;"> <img src="../../image/morenTwo.png"/>
+						<div>
+							微信
+						</div> </a>
+					</li>
+					<li id="sms_share">
+						<a href="javascript:;"> <img src="../../image/moreFour.png"/>
+						<div>
+							短信
+						</div> </a>
+					</li>
+				</ul>
+				<button class="share_sub">
+					取消
+				</button>
+			</div>
+		</div>
+		<!--<img src="../image/imgTemp/nowBuy.jpg" style="position:fixed;bottom: 0;"/>
+		<div id="toBuy" class="last" data="" datas=""></div>-->
+		<footer>
+			<span>价格: </span>
+			<span id="countAll"></span>
+			<span id="toBuy">立即购买</span>
+		</footer>
+	</body>
+	<script type="text/javascript" src="../../script/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="../js/swiper.js"></script>
+	<script type="text/javascript" src="../../script/api.js"></script>
+	<script type="text/javascript" src="../../script/common.js"></script>
+	<script type="text/javascript" src="../js/shangjia/buyListInfo.js"></script>
+	<script>
+	function refresh() {
+		location.reload();
+	}
+	</script>
+</html>

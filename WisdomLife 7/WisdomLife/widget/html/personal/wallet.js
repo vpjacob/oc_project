@@ -85,6 +85,7 @@ function count(urId) {
 			if (data.formDataset.checked == 'true') {
 				var account = data.formDataset.account;
 				var list = $api.strToJson(account);
+				console.log(list.gold_egg_count);
 				$("#dotleft").html(list.gold_egg_count);
 				$("#dotmidd").html(list.silver_egg_count);
 				$("#dotright").html(list.balance_gold);

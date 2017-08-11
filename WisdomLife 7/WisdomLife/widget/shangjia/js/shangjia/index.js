@@ -46,54 +46,100 @@ apiready = function() {
 			}
 		});
 	});
+
+	//获得商品主页轮播图
+	function queryCarouselList() {
+		AjaxUtil.exeScript({
+			script : "mobile.business.product",
+			needTrascation : false,
+			funName : "queryCarouselList",
+			//        form:{
+			//           userNo:urId
+			//        },
+			success : function(data) {
+				console.log("商品轮播图片" + $api.jsonToStr(data));
+				if (data.formDataset.checked == 'true') {
+					var account = data.formDataset.carouselList;
+					var list = $api.strToJson(account);
+					var nowli = "";
+					for (var i = 0; i < list.length; i++) {
+						nowli += '<div class="swiper-slide"><img src="' + rootUrl + list[i].image_url + '"></img></div>'
+					}
+					$('#mainShowImg').html(nowli);
+					var swiper = new Swiper('.swiper-containerlrf', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        spaceBetween: 3,
+        centeredSlides: true,
+        autoplayDisableOnInteraction: false,
+        autoplay: 2500,
+        loop: true,
+		observer:true,//修改swiper自己或子元素时，自动初始化swiper
+   		observeParents:true//修改swiper的父元素时，自动初始化swiper
+    });	
+					//跳转到商品列表页
+					$('.swiper-containerlrf img').click(function() {
+						api.openWin({
+							name : 'buyList',
+							url : 'buyList.html',
+							animation : {
+								type : "push", //动画类型（详见动画类型常量）
+								subType : "from_right", //动画子类型（详见动画子类型常量）
+								duration : 300 //动画过渡时间，默认300毫秒
+							}
+						});
+					});
+				} else {
+					alert(data.formDataset.errorMsg);
+				}
+			},
+			error : function() {
+				api.hideProgress();
+				api.alert({
+					msg : "您的网络是否已经连接上了，请检查一下！"
+				});
+			}
+		});
+	}
+
+	queryCarouselList();
 	//榨汁机
-	$('#juicing').click(function() {
-		api.openWin({
-			name : 'busAllShow.html',
-			url : 'busAllShow.html',
-			animation : {
-				type : "push", //动画类型（详见动画类型常量）
-				subType : "from_right", //动画子类型（详见动画子类型常量）
-				duration : 300 //动画过渡时间，默认300毫秒
-			}
-		});
-	});
-	//门禁
-	$('#entranceGuard').click(function() {
-		api.openWin({
-			name : 'busAllShow.html',
-			url : 'busAllShow.html',
-			animation : {
-				type : "push", //动画类型（详见动画类型常量）
-				subType : "from_right", //动画子类型（详见动画子类型常量）
-				duration : 300 //动画过渡时间，默认300毫秒
-			}
-		});
-	});
-	//牙刷
-	$('#toothbrush').click(function() {
-		api.openWin({
-			name : 'busAllShow.html',
-			url : 'busAllShow.html',
-			animation : {
-				type : "push", //动画类型（详见动画类型常量）
-				subType : "from_right", //动画子类型（详见动画子类型常量）
-				duration : 300 //动画过渡时间，默认300毫秒
-			}
-		});
-	});
-	//门锁
-	$('#lock').click(function() {
-		api.openWin({
-			name : 'busAllShow',
-			url : 'busAllShow.html',
-			animation : {
-				type : "push", //动画类型（详见动画类型常量）
-				subType : "from_right", //动画子类型（详见动画子类型常量）
-				duration : 300 //动画过渡时间，默认300毫秒
-			}
-		});
-	});
+	//	$('#juicing').click(function() {
+	//		api.openWin({
+	//			name : 'busAllShow.html',
+	//			url : 'busAllShow.html',
+	//			animation : {
+	//				type : "push", //动画类型（详见动画类型常量）
+	//				subType : "from_right", //动画子类型（详见动画子类型常量）
+	//				duration : 300 //动画过渡时间，默认300毫秒
+	//			}
+	//		});
+	//	});
+	//	//门禁
+	//	$('#entranceGuard').click(function() {
+	//		api.openWin({
+	//			name : 'busAllShow.html',
+	//			url : 'busAllShow.html',
+	//			animation : {
+	//				type : "push", //动画类型（详见动画类型常量）
+	//				subType : "from_right", //动画子类型（详见动画子类型常量）
+	//				duration : 300 //动画过渡时间，默认300毫秒
+	//			}
+	//		});
+	//	});
+	//	//牙刷
+	//	$('#toothbrush').click(function() {
+	//		api.openWin({
+	//			name : 'busAllShow.html',
+	//			url : 'busAllShow.html',
+	//			animation : {
+	//				type : "push", //动画类型（详见动画类型常量）
+	//				subType : "from_right", //动画子类型（详见动画子类型常量）
+	//				duration : 300 //动画过渡时间，默认300毫秒
+	//			}
+	//		});
+	//	});
+
 	//获得商品信息分类列表
 	function list() {
 		AjaxUtil.exeScript({
@@ -104,6 +150,7 @@ apiready = function() {
 			//           userNo:urId
 			//        },
 			success : function(data) {
+				console.log("商品详情" + $api.jsonToStr(data));
 				if (data.formDataset.checked == 'true') {
 					var account = data.formDataset.companyType;
 					var list = $api.strToJson(account);
@@ -145,7 +192,7 @@ apiready = function() {
 				typename : ''
 			},
 			success : function(data) {
-//				console.log("推荐商家"+$api.jsonToStr(data));
+				console.log("推荐商家" + $api.jsonToStr(data));
 				if (data.formDataset.checked == 'true') {
 					var account = data.formDataset.companyDataList;
 					var list = $api.strToJson(account);
@@ -184,32 +231,58 @@ apiready = function() {
 		//			alert(typeId);
 		$('#tab1').children().remove();
 		getDistance(typeId, "");
-                          api.addEventListener({
-                                               name : 'scrolltobottom'
-                                               }, function(ret, err) {
-                                               if (parseInt(page) <= parseInt(pageCount)) {
-                                               page++;
-                                               getDistance(typeId, "");
-                                               } else {
-                                               page = parseInt(pageCount) + 1;
-                                               }
-                                               });
+		api.addEventListener({
+			name : 'scrolltobottom'
+		}, function(ret, err) {
+			if (parseInt(page) <= parseInt(pageCount)) {
+				page++;
+				getDistance(typeId, "");
+			} else {
+				page = parseInt(pageCount) + 1;
+			}
+		});
+		api.openWin({//详情界面
+			name : 'businessType',
+			url : 'businessType.html',
+			slidBackEnabled : true,
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			},
+			pageParam : {
+				id : typeId,
+			}
+		});
 	});
 
 	$('#showTypeInfo1').on('click', 'span', function() {
 		var typeId = this.id;
 		$('#tab1').children().remove();
 		getDistance(typeId, "");
-                           api.addEventListener({
-                                                name : 'scrolltobottom'
-                                                }, function(ret, err) {
-                                                if (parseInt(page) <= parseInt(pageCount)) {
-                                                page++;
-                                                getDistance(typeId, "");
-                                                } else {
-                                                page = parseInt(pageCount) + 1;
-                                                }
-                                                });
+		api.addEventListener({
+			name : 'scrolltobottom'
+		}, function(ret, err) {
+			if (parseInt(page) <= parseInt(pageCount)) {
+				page++;
+				getDistance(typeId, "");
+			} else {
+				page = parseInt(pageCount) + 1;
+			}
+		});
+		api.openWin({//详情界面
+			name : 'businessType',
+			url : 'businessType.html',
+			slidBackEnabled : true,
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			},
+			pageParam : {
+				id : typeId,
+			}
+		});
 	});
 
 	//金银蛋交易总额
@@ -253,6 +326,7 @@ apiready = function() {
 				userNo : urId
 			},
 			success : function(data) {
+				console.log($api.jsonToStr(data));
 				if (data.formDataset.checked == 'true') {
 					var account = data.formDataset.recordList;
 					var list = $api.strToJson(account);
@@ -318,7 +392,7 @@ apiready = function() {
 			},
 			success : function(data) {
 				if (data.formDataset.checked == 'true') {
-//					console.log("商家列表：" + $api.jsonToStr(data));
+					console.log("商家列表：" + $api.jsonToStr(data));
 					var account = data.formDataset.companyDataList;
 					var list = $api.strToJson(account);
 
@@ -335,8 +409,8 @@ apiready = function() {
 
 					} else {
 						for (var i = 0; i < list.length; i++) {
-//							lon = list[i].longtitude;
-//							lat = list[i].latitude;
+							//							lon = list[i].longtitude;
+							//							lat = list[i].latitude;
 							var starlen = list[i].star;
 							//alert(picLen.length); 评星数
 							function starLenght(starlen) {
@@ -380,6 +454,8 @@ apiready = function() {
 					}
 
 					pageCount = data.formDataset.count > 10 ? Math.ceil(data.formDataset.count / 10) : 1;
+					console.log("返回的:pageCount=" + pageCount);
+					console.log("返回的page=" + page);
 				} else {
 					//          alert(data.formDataset.errorMsg);
 				}

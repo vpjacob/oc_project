@@ -75,6 +75,7 @@ apiready = function() {
 			success : function(data) {
 				if (data.formDataset.checked === "true") {
 					identifyingCode = data.formDataset.code;
+					console.log(identifyingCode+"******************************");
 					if (identifyingCode != "") {
 						api.alert({
 							title : '系统提示',
@@ -132,6 +133,7 @@ apiready = function() {
                   data:JSON.stringify(data),  
                   contentType: "application/json;charset=utf-8",
                   success:function(result){  
+                  	 console.log($api.jsonToStr(result));
                       if(result.state==1){
                         alert(result.msg);
                         api.execScript({//实现添加家庭成员的回显刷新

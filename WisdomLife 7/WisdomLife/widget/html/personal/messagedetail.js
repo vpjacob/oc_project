@@ -71,6 +71,7 @@ function getDetail(urId) {
 		},
 		success : function(data) {
 			ProgressUtil.hideProgress();
+			console.log($api.jsonToStr(data));
 			var newsResult = "";
 			if (data.execStatus == 'true' && data.datasources[0].rows.length > 0) {
 				var title = data.datasources[0].rows[0].title;

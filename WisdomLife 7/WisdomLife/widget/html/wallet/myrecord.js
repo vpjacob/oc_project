@@ -108,7 +108,7 @@ apiready = function() {
 				pageNo : page
 			},
 			success : function(data) {
-//				console.log("在此输出订单的信息：" + $api.jsonToStr(data));
+				console.log("在此输出订单的信息：" + $api.jsonToStr(data));
 				api.hideProgress();
 				if(data.datasources[0]=="undefined" || data.datasources[0]== "" || data.datasources[0]==null){
 					api.toast({
@@ -131,6 +131,7 @@ apiready = function() {
 						}
 					} else {
 						for (var i = 0; i < list.length; i++) {
+							console.log(list[i].merchant_name + ":" + list[i].goods.length);
 							var nowli = '<div class="box">' + '<div class="bottom">' + '<div class="user">' + '<div class="same">' + '<span>商家名称：</span>' + '<span>' + list[i].merchant_name + '</span>' + '</div>' + '</div>';
 							nowli = nowli + '<div class="user" style="height:100%;overflow:auto">' + '<div class="same">'
 							+ '<span>商品 ：</span><span>';
@@ -179,6 +180,7 @@ apiready = function() {
 			},
 			success : function(data) {
 				api.hideProgress();
+				console.log($api.jsonToStr(data));
 				var listInfo = data.formDataset.recordList;
 				var list = eval(listInfo);
 				if (data.formDataset.checked == 'true') {

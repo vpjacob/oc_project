@@ -25,6 +25,7 @@ apiready = function() {
 				if (data.formDataset.checked == 'true') {
 					var account = data.formDataset.account;
 					var list = $api.strToJson(account);
+					console.log($api.jsonToStr(list));
 					$("#dotleft").html(list.gold_egg_count);
 					$("#dotmidd").html(list.silver_egg_count);
 					$("#dotright").html(list.may_buyback);
@@ -146,6 +147,7 @@ $('#payMoney').click(function() {
 			});
 
 		} else {
+			console.log("扫描支付二维码返回：" + JSON.stringify(err));
 		}
 	});
 });

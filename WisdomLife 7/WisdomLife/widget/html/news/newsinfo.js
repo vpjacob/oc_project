@@ -441,6 +441,7 @@ function showProgress() {
 }
 
 function refresh() {
+	console.log('艹，新闻刷新 了');
 	api.setPrefs({
 		key : 'isnew',
 		value : false

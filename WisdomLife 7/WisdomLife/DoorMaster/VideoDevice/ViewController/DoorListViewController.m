@@ -54,6 +54,7 @@
     if (cell ==nil) {
         cell = [[NSBundle mainBundle] loadNibNamed:@"JJDoorListViewCell" owner:self options:nil].lastObject;
     }
+    
     [cell setDataWith:indexPath.item];
     return cell;
 }

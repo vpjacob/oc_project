@@ -31,6 +31,7 @@ apiready = function() {
 			data : JSON.stringify(data),
 			contentType : "application/json;charset=utf-8",
 			success : function(result) {
+				console.log($api.jsonToStr(result));
 				var data = result.data;
 				var headAddress = '';
 				if (result.state == 1) {
@@ -92,6 +93,7 @@ apiready = function() {
 			data : JSON.stringify(data),
 			contentType : "application/json;charset=utf-8",
 			success : function(result) {
+				console.log($api.jsonToStr(result));
 				var data = result.data;
 				var headImg = '';
 				if (result.state == 1) {
@@ -148,6 +150,7 @@ apiready = function() {
 			data : JSON.stringify(data),
 			contentType : "application/json;charset=utf-8",
 			success : function(result) {
+				console.log($api.jsonToStr(result));
 				var data = result.data;
 				if (result.state == 1) {
 					alert(result.msg);
@@ -218,7 +221,9 @@ apiready = function() {
 		}, function(ret, err) {
 			if (ret.status) {
 				$("#qr_img").attr("src", ret.savePath);
+				console.log(JSON.stringify(ret));
 			} else {
+				console.log(JSON.stringify(err));
 			}
 		});
 	});

@@ -145,6 +145,7 @@ apiready = function() {
 					compress($(showSrc[i]).attr('src'));
 					
 				};
+				console.log(showSrc);
 //				setTimeout(function() {
 //					var test = headurls.substring(0, headurls.length - 1);
 //					var keke = test.split(',');
@@ -238,6 +239,7 @@ apiready = function() {
 			}
 		}, function(ret, err) {
 			api.hideProgress();
+			console.log($api.jsonToStr(ret));
 			if (ret.execStatus == 'true') {
 				attachmentPic = ret.formDataset.saveNames;
 				//alert('拿回来的路径'+attachmentPic);  上传接口拿回路径
@@ -283,9 +285,11 @@ apiready = function() {
 //			review();
 			var test = headurls.substring(0, headurls.length - 1);
 			var keke = test.split(',');
+			console.log('keke的长度+++++++++++'+keke.length);
 			changeheadurl(keke);
 		} else {
 			$('#textLen').html('加油，还差' + (7 - top_area) + '个字');
+			console.log('未满7字');
 			return false;
 		}
 	}

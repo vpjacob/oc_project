@@ -5,6 +5,19 @@ apiready = function() {
 		urId = info.userNo;
 		queryUserRoleInfo(urId);
 	});
+	//跳转轮播到商品
+	$('.header img').click(function() {
+			api.openWin({
+				name : 'buyList',
+				url : '../../../shangjia/html/buyList.html',
+				slidBackEnabled : true,
+				animation : {
+					type : "push", //动画类型（详见动画类型常量）
+					subType : "from_right", //动画子类型（详见动画子类型常量）
+					duration : 300 //动画过渡时间，默认300毫秒
+				}
+			});
+	});
 	//查询用户角色
 	function queryUserRoleInfo(urId) {
 		var data = {
@@ -18,6 +31,7 @@ apiready = function() {
 			contentType : "application/json;charset=utf-8",
 			success : function(result) {
 				var data = result.data;
+				console.log($api.jsonToStr(result));
 				if (result.state == 1) {
 					if (data.userRole == 6) {
 						userRole = true;

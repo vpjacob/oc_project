@@ -81,6 +81,7 @@ function record(urId) {
 		success : function(data) {
 			var listInfo = data.formDataset;
 			var list=$api.jsonToStr(data.formDataset);
+			console.log('data.formDataset'+list);
 			if (data.formDataset.checked == 'true') {
 					data.formDataset.balance==0?$('#balance').html(0.00):$('#balance').html(data.formDataset.balance);
 					data.formDataset.mayBack==0?$('#mayBack').html(0.00):$('#mayBack').html(data.formDataset.mayBack);

@@ -153,6 +153,7 @@ apiready = function() {
 					memberid:memberid
 				},
 				success : function(data) {//请求成功
+				console.log("-------------dddd--------"+$api.jsonToStr(data));
 		            if (data.execStatus === "true" && data.formDataset.checked === "true") {
 		                   var telphones = new Array();
 							telphones[0]=telphone;

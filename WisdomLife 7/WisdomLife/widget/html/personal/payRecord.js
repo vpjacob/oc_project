@@ -23,6 +23,7 @@ apiready = function() {
 				if (data.formDataset.checked == 'true') {
 					var account = data.formDataset.payRecordList;
 					var list = $api.strToJson(account);
+					console.log($api.jsonToStr(data));
 					if (list == undefined || list == '' || list.length == '' || list.length == 0 || list.length == undefined) {
 						api.toast({
 							msg : "亲，您暂时没有支付记录！"

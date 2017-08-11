@@ -45,6 +45,7 @@ function queryUserInfoUserNo(urId){
 				userNo : urId
 			},
 			success : function(data) {
+				console.log($api.jsonToStr(data));
 				if (data.formDataset.checked == 'true') {
 					var account = data.formDataset.userInfo;
 					var list = $api.strToJson(account);
@@ -143,6 +144,7 @@ function queryUserInfoUserNo(urId){
 	      },
 	     
 			success:function (data) {
+				console.log($api.jsonToStr(data));
 				if (data.formDataset.checked == 'true') {
 					api.toast({
 						msg : "亲，您提交成功！"

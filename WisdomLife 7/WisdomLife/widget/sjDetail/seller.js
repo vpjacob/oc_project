@@ -200,6 +200,7 @@ apiready = function() {
 			},
 			success : function(data) {
 
+				console.log($api.jsonToStr(data));
 				if (data.formDataset.checked == 'true') {
 					var account = data.formDataset.result;
 					var list = $api.strToJson(account);
@@ -253,6 +254,8 @@ apiready = function() {
 					}
 
 					pageCount = data.formDataset.count > 10 ? Math.ceil(data.formDataset.count / 10) : 1;
+					console.log("返回的:pageCount=" + pageCount);
+					console.log("返回的page=" + page);
 				} else {
 					alert(data.formDataset.errorMsg);
 				}
@@ -356,6 +359,7 @@ apiready = function() {
 				starBad : 2
 			},
 			success : function(data) {
+				console.log($api.jsonToStr(data));
 				if (data.formDataset.checked == 'true') {
 					$('#haoP').html('网友好评（' + data.formDataset.countGood + '）');
 					$('#chaP').html('网友差评（' + data.formDataset.countBad + '）');

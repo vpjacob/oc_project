@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,20 +20,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vidio_pic" translatesAutoresizingMaskIntoConstraints="NO" id="xXd-Fh-mvV">
-                        <rect key="frame" x="10" y="9" width="60" height="80"/>
+                        <rect key="frame" x="10" y="9" width="68" height="80"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="60" id="opr-Zn-bpn"/>
+                            <constraint firstAttribute="width" constant="68" id="opr-Zn-bpn"/>
                             <constraint firstAttribute="height" constant="80" id="wRr-gf-Hzo"/>
                         </constraints>
                     </imageView>
-                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Asz-SS-HQL">
-                        <rect key="frame" x="316" y="34" width="51" height="31"/>
-                        <connections>
-                            <action selector="switchAction:" destination="KGk-i7-Jjw" eventType="valueChanged" id="42E-sl-FkO"/>
-                        </connections>
-                    </switch>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小区名称" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nC7-9i-kWT">
-                        <rect key="frame" x="80" y="10" width="226" height="79"/>
+                        <rect key="frame" x="88" y="10" width="199" height="79"/>
                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -53,9 +48,7 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="Asz-SS-HQL" secondAttribute="trailing" constant="10" id="6zJ-jU-J6P"/>
-                    <constraint firstItem="Asz-SS-HQL" firstAttribute="leading" secondItem="nC7-9i-kWT" secondAttribute="trailing" constant="10" id="Bq5-Jv-Jc6"/>
-                    <constraint firstItem="Asz-SS-HQL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="GIZ-Oc-fb7"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="nC7-9i-kWT" secondAttribute="trailing" constant="80" id="GvE-XP-65B"/>
                     <constraint firstAttribute="trailing" secondItem="IRh-RR-SYK" secondAttribute="trailing" id="Imd-cX-Mrf"/>
                     <constraint firstAttribute="bottom" secondItem="nC7-9i-kWT" secondAttribute="bottom" constant="10" id="OlB-kg-VIm"/>
                     <constraint firstItem="IRh-RR-SYK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="QA7-ey-jGZ"/>
@@ -71,7 +64,6 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="nameLabel" destination="nC7-9i-kWT" id="aqU-3J-ugG"/>
-                <outlet property="refuseSwitch" destination="Asz-SS-HQL" id="4aD-ac-PUF"/>
             </connections>
             <point key="canvasLocation" x="33.5" y="54"/>
         </tableViewCell>

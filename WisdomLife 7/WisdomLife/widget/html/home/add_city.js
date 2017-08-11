@@ -10,6 +10,7 @@ apiready = function() {
 	//	$("#nowaddr").html(nowaddr);
 	loadLocation();
 	FileUtils.readFile("citys.json", function(data) {
+		console.log('citys.json:  ' + $api.jsonToStr(data));
 		var newsResult = "";
 		for (var k in data) {
 			var result = nowli.replace("\"[city]\"", data[k]);
@@ -218,6 +219,7 @@ function changeaddress(address) {
 }
 
 function loadLocation() {
+	console.log("开始定位");
 	var lat;
 	var lon;
 	//读取地图位置

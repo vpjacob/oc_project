@@ -147,7 +147,7 @@ apiready = function() {
         account : account
       },
       success : function(data) {
-//      	console.log('第一次进来'+$api.jsonToStr(data));
+      	console.log('第一次进来'+$api.jsonToStr(data));
         if (data.execStatus === "true" && data.formDataset.checked === "true") {
           if (data.formDataset.userRole == '5' || data.formDataset.userRole == '6' || data.formDataset.userRole == '8' || data.formDataset.userRole == '9') {
             	pwd = $.md5(pwd);
@@ -163,7 +163,7 @@ apiready = function() {
               registrationId : registrationId
             },
             success : function(data) {
-//            	console.log('第二次进来'+$api.jsonToStr(data));
+            	console.log('第二次进来'+$api.jsonToStr(data));
               if (data.execStatus === "true" && data.formDataset.checked === "true") {
                 updateUserInfoAndKeyInfo(data);
               } else if (data.execStatus === "true" && data.formDataset.checked === "false") {
@@ -254,6 +254,7 @@ apiready = function() {
 		userInfo.telphone = data.formDataset.telphone;
 		userInfo.userNo = data.formDataset.userNo;
 		userInfo.createTime = data.formDataset.createTime;
+		console.log('userInfo.createTime为' + userInfo.createTime)
 		var token = data.formDataset.token;
 		api.setPrefs({
 			key : 'token',
@@ -265,7 +266,16 @@ apiready = function() {
 			"lat" : 0,
 			"address" : ""
 		};
-
+		//获取用户ID 不在从文件中读取ID
+		api.setPrefs({
+			key : 'userNo',
+			value : data.formDataset.userNo
+		});
+		//获取用户创建时间
+		api.setPrefs({
+			key : 'createTime',
+			value : data.formDataset.createTime
+		});
 		api.setPrefs({
 			key : 'hasRegist',
 			value : true
@@ -306,6 +316,8 @@ apiready = function() {
 				sync : true,
 				key : 'isnearby'
 			});
+			console.log("------" + isnew == '' || isnew == "false");
+			console.log(isnearby == 'false' || isnearby == '');
 			if ((isnew == '' || isnew == "false") && (isnearby == 'false' || isnearby == '')) {//正常进入的界面
 				api.execScript({
 					sync : true,
@@ -325,7 +337,7 @@ apiready = function() {
 //				});
 
 			} else if (isnew == "true") {//从新闻进来的界面
-//				console.log('是从新闻进来的啊');
+				console.log('是从新闻进来的啊');
 				api.setPrefs({
 					key : 'isnew',
 					value : false

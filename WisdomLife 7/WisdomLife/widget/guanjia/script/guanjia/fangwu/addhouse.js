@@ -91,6 +91,7 @@ apiready = function() {
 				telphone : $("#tel").val()
 			},
 			success : function(data) {
+				console.log($api.jsonToStr(data));
 				if (data.formDataset.checked === "true") {
 					identifyingCode = data.formDataset.code;
 					console.log(identifyingCode+"******************************");
@@ -571,6 +572,7 @@ apiready = function() {
                   data:JSON.stringify(data),  
                   contentType: "application/json;charset=utf-8",
                   success:function(result){  
+                  	 console.log($api.jsonToStr(result));
                   	 var data= result.data;
                  	 var nowList='<option>请选择</option>';
                       if(result.state==1){
@@ -606,6 +608,7 @@ function queryUnitByComIdAndBuildIdTemp(){
                   data:JSON.stringify(data),  
                   contentType: "application/json;charset=utf-8",
                   success:function(result){  
+                  	 console.log($api.jsonToStr(result));
                   	 var data= result.data;
                  	 var nowList='<option>请选择</option>';
                       if(result.state==1){
@@ -641,6 +644,7 @@ function queryUnitByComIdAndBuildIdTemp(){
                   data:JSON.stringify(data),  
                   contentType: "application/json;charset=utf-8",
                   success:function(result){  
+                  	 console.log($api.jsonToStr(result));
                   	 var data= result.data;
                  	 var nowList='<option>请选择</option>';
                       if(result.state==1){

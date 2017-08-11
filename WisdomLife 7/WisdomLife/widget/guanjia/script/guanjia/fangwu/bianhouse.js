@@ -90,6 +90,7 @@ apiready = function() {
                   data:JSON.stringify(data),  
                   contentType: "application/json;charset=utf-8",
                   success:function(result){  
+                  	 console.log($api.jsonToStr(result));
                       if(result.state==1){
                           alert(result.msg);
                         	api.execScript({//实现我的房屋回显刷新
@@ -123,6 +124,7 @@ apiready = function() {
                   data:JSON.stringify(data),  
                   contentType: "application/json;charset=utf-8",
                   success:function(result){  
+                  	 console.log($api.jsonToStr(result));  
                   	 var data= result.data;
                   	 var nowList='<option>请选择</option>';
                   	 if(result.state==1){
@@ -163,6 +165,7 @@ queryProvnce();
                   data:JSON.stringify(data),  
                   contentType: "application/json;charset=utf-8",
                   success:function(result){  
+                  	 console.log($api.jsonToStr(result));  
                   	 var data= result.data;
                   	 var nowList='<option>请选择</option>';
                   	 if(result.state==1){
@@ -203,6 +206,7 @@ queryProvnce();
                   data:JSON.stringify(data),  
                   contentType: "application/json;charset=utf-8",
                   success:function(result){  
+                  	 console.log($api.jsonToStr(result));  
                   	 var data= result.data;
                   	 var nowList='<option>请选择</option>';
                   	 if(result.state==1){
@@ -241,6 +245,7 @@ queryProvnce();
                   data:JSON.stringify(data),  
                   contentType: "application/json;charset=utf-8",
                   success:function(result){  
+                  	 console.log($api.jsonToStr(result));  
                   	 var data= result.data;
                   	 var nowList='<option>请选择</option>';
                   	 if(result.state==1){
@@ -281,6 +286,7 @@ queryProvnce();
                   data:JSON.stringify(data),  
                   contentType: "application/json;charset=utf-8",
                   success:function(result){  
+                  	 console.log($api.jsonToStr(result));  
                   	 var data= result.data;
                   	 var nowList='<option>请选择</option>';
                   	 if(result.state==1){
@@ -391,6 +397,7 @@ queryProvnce();
                   data:JSON.stringify(data),  
                   contentType: "application/json;charset=utf-8",
                   success:function(result){  
+                  	 console.log($api.jsonToStr(result));
                   	 var data= result.data;
                  	 var nowList='<option>请选择</option>';
                       if(result.state==1){
@@ -426,6 +433,7 @@ function queryUnitByComIdAndBuildIdTemp(){
                   data:JSON.stringify(data),  
                   contentType: "application/json;charset=utf-8",
                   success:function(result){  
+                  	 console.log($api.jsonToStr(result));
                   	 var data= result.data;
                  	 var nowList='<option>请选择</option>';
                       if(result.state==1){
@@ -461,6 +469,7 @@ function queryUnitByComIdAndBuildIdTemp(){
                   data:JSON.stringify(data),  
                   contentType: "application/json;charset=utf-8",
                   success:function(result){  
+                  	 console.log($api.jsonToStr(result));
                   	 var data= result.data;
                  	 var nowList='<option>请选择</option>';
                       if(result.state==1){

@@ -230,6 +230,7 @@ apiready = function() {
 			name : 'appintent'
 		}, function(ret, err) {
 			if (ret && ret.appParam.ajpush) {
+				console.log($api.jsonToStr(ret));
 //				var ajpush = ret.appParam.ajpush;
 //				var id = ajpush.id;
 //				var title = ajpush.title;

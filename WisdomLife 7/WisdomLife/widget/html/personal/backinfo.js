@@ -54,8 +54,9 @@ function record(countId) {
 		},
 		success : function(data) {
 			var list=$api.strToJson(data.formDataset.buyBackDetail);
+			console.log($api.jsonToStr(data));
 			if (data.formDataset.checked == 'true'){					
-					list.username==null?$('#username').html(0.00):$('#username').html(list.username);
+					list.real_name==null?$('#username').html("暂无"):$('#username').html(list.real_name);
 					list.apply_time==null?$('#apply_time').html(0.00):$('#apply_time').html(list.apply_time);
 					list.phone==null?$('#model').html(0.00):$('#model').html(list.phone);
 					list.open_bank==null?$('#open_bank').html(0.00):$('#open_bank').html(list.open_bank);

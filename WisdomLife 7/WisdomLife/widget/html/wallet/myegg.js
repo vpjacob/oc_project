@@ -73,7 +73,7 @@ apiready = function() {
 		key : 'open'
 	});
 
-//	console.log('校验是否打开：  ' + open);
+	console.log('校验是否打开：  ' + open);
 	//	if (open == '1') {//今日已经打开过金蛋
 	//		$("#egg").attr("src", "../../image/egg_2.png");
 	//		$(".fanzt-chuizi").hide();
@@ -253,6 +253,7 @@ function reacd() {
 		success : function(data) {
 			var listInfo = data.formDataset.recordList;
 			var list = eval(listInfo);
+			console.log('list.length' + list.length);
 			if (data.formDataset.checked == 'true') {
 				$('#ul_tab1 ').empty();
 				for (var i = 0; i < list.length; i++) {
@@ -279,6 +280,7 @@ function isHaveEgg(obj) {
 			userNo : urId
 		},
 		success : function(data) {
+			console.log("输出：" + $api.jsonToStr(data));
 			if (data.formDataset.checked == 'true') {
 				if (data.formDataset.isHaveEgg == 'true') {
 					isBeat(obj);
@@ -307,7 +309,7 @@ function isBeat(obj) {
 			//    	console.log("输出："+$api.jsonToStr(data));
 			if (data.formDataset.checked == 'true') {
 				if (data.formDataset.isBeat == 'true') {
-//					console.log("进来了")
+					console.log("进来了")
 //					eggClick(obj);
 				$(".imgtop").css({"background":"url('../../image/bgcGold.jpg') no-repeat center",
 						"width":"100%;",
@@ -370,6 +372,7 @@ function isHaveSilverEgg(obj) {
 			userNo : urId
 		},
 		success : function(data) {
+			console.log("输出：" + $api.jsonToStr(data));
 			if (data.formDataset.checked == 'true') {
 				if (data.formDataset.isHaveEgg == 'true') {
 					IsBeatSilverEgg(obj);
@@ -395,7 +398,7 @@ function IsBeatSilverEgg(obj) {
 			userNo : urId
 		},
 		success : function(data) {
-//			console.log("输出：isMayBeat" + $api.jsonToStr(data));
+			console.log("输出：isMayBeat" + $api.jsonToStr(data));
 			if (data.formDataset.checked == 'true') {
 				if (data.formDataset.isMayBeat == 'true') {
 //					console.log("进来了")

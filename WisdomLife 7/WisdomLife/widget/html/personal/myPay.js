@@ -106,6 +106,7 @@ apiready = function() {
 							}
 						},
 						error : function(XMLHttpRequest, textStatus, errorThrown) {
+							console.log("错误输出信息：" + XMLHttpRequest.status + "###" + XMLHttpRequest.readyState + "###" + textStatus);
 							api.alert({
 								msg : "您的网络是否已经连接上了，请检查一下！"
 							});
@@ -118,6 +119,7 @@ apiready = function() {
 				}
 			},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
+				console.log("错误输出信息：" + XMLHttpRequest.status + "###" + XMLHttpRequest.readyState + "###" + textStatus);
 				api.alert({
 					msg : "您的网络是否已经连接上了，请检查一下！"
 				});
