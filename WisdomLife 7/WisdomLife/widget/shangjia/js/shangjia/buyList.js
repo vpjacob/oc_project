@@ -96,6 +96,9 @@ apiready = function() {
 
 					}
 					$('#showListAll').append(nowli);
+					pageCount = data.formDataset.count > 10 ? Math.ceil(data.formDataset.count / 10) : 1;
+					console.log("返回的:pageCount=" + pageCount);
+					console.log("返回的page=" + page);
 					
 				} else {
 					alert(data.formDataset.errorMsg);

@@ -12,14 +12,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="JJDoorListViewCell" id="KGk-i7-Jjw" customClass="JJDoorListViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小区名称" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nC7-9i-kWT">
-                        <rect key="frame" x="62" y="5.5" width="263" height="48.5"/>
+                        <rect key="frame" x="88" y="10.5" width="237" height="78.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -32,33 +32,33 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IRh-RR-SYK">
-                        <rect key="frame" x="0.0" y="59" width="375" height="0.5"/>
+                        <rect key="frame" x="0.0" y="99" width="375" height="0.5"/>
                         <color key="backgroundColor" red="0.52451441740000004" green="0.53003562179999997" blue="0.53003562179999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="0.5" id="DeN-Zt-UPQ"/>
                         </constraints>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vidio_pic" translatesAutoresizingMaskIntoConstraints="NO" id="xXd-Fh-mvV">
-                        <rect key="frame" x="10" y="5" width="42" height="50"/>
+                        <rect key="frame" x="10" y="10" width="68" height="80"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="42" id="FIQ-YS-cIz"/>
-                            <constraint firstAttribute="height" constant="50" id="hQz-cW-cZ6"/>
+                            <constraint firstAttribute="width" constant="68" id="2Wz-Vf-rER"/>
+                            <constraint firstAttribute="height" constant="80" id="kN1-bD-fqe"/>
                         </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="nC7-9i-kWT" firstAttribute="top" secondItem="cmY-dk-QMf" secondAttribute="bottom" constant="10" id="I0B-Am-QOC"/>
+                    <constraint firstAttribute="trailing" secondItem="nC7-9i-kWT" secondAttribute="trailing" constant="50" id="I9U-2T-VH0"/>
                     <constraint firstAttribute="trailing" secondItem="IRh-RR-SYK" secondAttribute="trailing" id="Imd-cX-Mrf"/>
+                    <constraint firstItem="IRh-RR-SYK" firstAttribute="top" secondItem="nC7-9i-kWT" secondAttribute="bottom" constant="10" id="OJK-iY-enG"/>
                     <constraint firstItem="IRh-RR-SYK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="QA7-ey-jGZ"/>
-                    <constraint firstItem="nC7-9i-kWT" firstAttribute="leading" secondItem="xXd-Fh-mvV" secondAttribute="trailing" constant="10" id="ZA6-kU-S2K"/>
+                    <constraint firstItem="xXd-Fh-mvV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="TMX-UD-2ks"/>
+                    <constraint firstItem="nC7-9i-kWT" firstAttribute="leading" secondItem="xXd-Fh-mvV" secondAttribute="trailing" constant="10" id="ax0-3v-f2z"/>
                     <constraint firstItem="cmY-dk-QMf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="c3u-eg-4lp"/>
                     <constraint firstAttribute="trailing" secondItem="cmY-dk-QMf" secondAttribute="trailing" id="ctr-rw-6v1"/>
                     <constraint firstItem="cmY-dk-QMf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="dLm-Fb-hxg"/>
                     <constraint firstAttribute="bottom" secondItem="IRh-RR-SYK" secondAttribute="bottom" id="gWd-uc-Ig8"/>
-                    <constraint firstItem="IRh-RR-SYK" firstAttribute="top" secondItem="nC7-9i-kWT" secondAttribute="bottom" constant="5" id="hYb-dJ-UWb"/>
-                    <constraint firstAttribute="trailing" secondItem="nC7-9i-kWT" secondAttribute="trailing" constant="50" id="ief-et-si6"/>
-                    <constraint firstItem="nC7-9i-kWT" firstAttribute="top" secondItem="cmY-dk-QMf" secondAttribute="bottom" constant="5" id="luS-ch-9K7"/>
-                    <constraint firstItem="xXd-Fh-mvV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="nPB-7C-X5K"/>
-                    <constraint firstItem="xXd-Fh-mvV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="y0e-bx-jMd"/>
+                    <constraint firstItem="xXd-Fh-mvV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="orh-HR-Lgv"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

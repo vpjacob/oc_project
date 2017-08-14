@@ -36,7 +36,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(devListMsgReceved) name:DevListMsgReceved object:nil]; // 注册刷新设备列表接口
     
     self.dataSource = [[DeviceManager manager] getAllAccessDevice];
-    [self addIsOnToArray];
     self.commonNavBar.title = NSLocalizedString(@"guardList", @"");
 
     self.tableView.frame = CGRectMake(0, kNavBarHeight, kDeviceWidth, kDeviceHeight-kNavBarHeight);
@@ -89,13 +88,8 @@
         [self presentSheetOnKeyWindow:[UIApplication sharedApplication].keyWindow andTitle:NSLocalizedString(@"device_refresh", @"")];
         [self.navigationController popToViewController:self animated:YES];
     }
-    
     self.dataSource = [[DeviceManager manager] getAllAccessDevice];
     [self refreshTableView];
-}
-
--(void)addIsOnToArray{
-    
 }
 
 -(void)nextVC:(UIButton *)sender

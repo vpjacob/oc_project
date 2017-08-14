@@ -20,7 +20,13 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.sw = [[UISwitch alloc] init];
+    self.sw.frame = CGRectMake(kDeviceWidth - 50, self.centerY, 50, 30);
+    [self.contentView addSubview:self.sw];
+    [self.sw addTarget:self action:@selector(swAction:) forControlEvents:UIControlEventValueChanged];
 }
+
+
 
 + (BOOL)requiresConstraintBasedLayout{
     return YES;
@@ -83,10 +89,7 @@
 {
     
    
-    self.sw = [[UISwitch alloc] init];
-    self.sw.frame = CGRectMake(kDeviceWidth - 50, self.centerY, 50, 30);
-    [self.contentView addSubview:self.sw];
-    [self.sw addTarget:self action:@selector(swAction:) forControlEvents:UIControlEventValueChanged];
+    
     
 //    NSUserDefaults *defalut = [NSUserDefaults standardUserDefaults];
 //    NSMutableDictionary *dic = [defalut objectForKey:@"refuseDic"];
