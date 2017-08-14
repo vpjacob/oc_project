@@ -36,6 +36,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(devListMsgReceved) name:DevListMsgReceved object:nil]; // 注册刷新设备列表接口
     
     self.dataSource = [[DeviceManager manager] getAllAccessDevice];
+    [self addIsOnToArray];
     self.commonNavBar.title = NSLocalizedString(@"guardList", @"");
 
     self.tableView.frame = CGRectMake(0, kNavBarHeight, kDeviceWidth, kDeviceHeight-kNavBarHeight);
@@ -91,6 +92,10 @@
     
     self.dataSource = [[DeviceManager manager] getAllAccessDevice];
     [self refreshTableView];
+}
+
+-(void)addIsOnToArray{
+    
 }
 
 -(void)nextVC:(UIButton *)sender
