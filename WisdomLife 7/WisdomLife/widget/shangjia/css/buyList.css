@@ -17,7 +17,7 @@ input::-webkit-input-placeholder{text-align: left;}
 input::-o-input-placeholder{text-align: left;}
 input::-moz-input-placeholder{text-align: left;}
 .title{
-	height: 2.2rem;
+	height: 4.5rem;
 	background-color: white;
 }
 .title .title_div{
@@ -53,14 +53,20 @@ input::-moz-input-placeholder{text-align: left;}
 	margin-top: 2.2rem;
 	overflow: hidden;
 	background-color: #efefef;
+	position: relative;
+	top:2.35rem;
 }
-.box .top{
-	width: 100%;
- 	border-bottom:1px solid #ddd;  
+.bar .top{
+	width: 106%;
+  	border-bottom:1px solid #ddd;   
 	background:#FFFFFF;
 	height: 2.3rem;
+	position: relative;
+	top:2.2rem;
+	left:-3%;
+	
 }
-.box .top .topSame{
+.bar .top .topSame{
 	height: 2.2rem;
 	width: 25%;
 	float: left;
@@ -123,11 +129,11 @@ input::-moz-input-placeholder{text-align: left;}
 }
 /* 分类展示 */
 .secondul {
-	position: absolute;
+	position: fixed;
 	background-color: #fff;
 	color: #fff;
 	width: 5rem;
-	z-index: 20001;
+	z-index: 30001;
 	display: none;
 	right: 1%;
 	top:4.2rem;
@@ -151,8 +157,8 @@ div.first {
 	text-align: center;
 	width: 5px;
 	height: 5px;
-	position: absolute;
-	z-index: 20001;
+	position: fixed;
+	z-index: 30001;
 	-webkit-transform: rotate(45deg);
 	transform: rotate(45deg);
 	top: 3.85rem;
@@ -168,7 +174,7 @@ div.first {
 	position:fixed;
 	top:0;
 	left:0;
-	z-index:20000;
+	z-index:2000;
 	height:100%;
 	width:100%;
 	 display:none; 

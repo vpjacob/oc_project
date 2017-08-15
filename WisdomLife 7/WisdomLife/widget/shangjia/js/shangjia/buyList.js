@@ -2,11 +2,17 @@ var page = 1;
 var pageCount = 1;
 apiready = function() {
 	var header = $api.byId('title');
+	var Back = $api.byId('Back');
+	var submit = $api.dom('.title_div');
+	var top = $api.dom('.top');
 	var cc = $api.dom('.box');
 	var first = $api.dom('.first');
 	var secondul = $api.dom('.secondul');
 	if (api.systemType == 'ios') {
-		$api.css(header, 'margin-top:1.1rem;');
+		$api.css(header, 'height:5.6rem');
+		$api.css(Back, 'top:1.25rem');
+		$api.css(top, 'top:3.3rem');
+		$api.css(submit, 'top:1.3rem');
 		$api.css(secondul, 'margin-top:1.0rem;');
 		$api.css(first, 'margin-top:1.0rem;');
 		$api.css(cc, 'margin-top:3.1rem;');

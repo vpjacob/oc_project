@@ -13,14 +13,20 @@
     <script type='text/javascript' src='../../script/sm.min.js' charset='utf-8'></script>  
 </head>
 <body>
-	<header class="bar bar-nav" style="position: absolute;z-index: 10000" id="title" >
+	<header class="bar bar-nav" style="position: fixed;z-index: 1000" id="title" >
 		<div class="title">
 			<div class="title_div">
 				<img src="../image/fdj.png" id="topSer">
 				<form action="#" enctype='applicaion/json' id="submit"><input type="search" placeholder="请输入商品名称" id="searchval" style="text-align: left" /></form>
 			</div>
 		</div>
-		<a onclick="goBack()" class="iconfont icon-xiangzuo1 pull-left" style="font-size:0.95rem;color:#0EAAE3;position:absolute;top:0.35rem;"></a>
+		<a onclick="goBack()" class="iconfont icon-xiangzuo1 pull-left" style="font-size:0.95rem;color:#0EAAE3;position:absolute;top:0.35rem;" id="Back"></a>
+		<div class="top">
+			<div class="topSame"><span data="2" class="special">全部</span></div>
+			<div class="topSame"><span data="1">推荐</span></div>
+			<div class="topSame"><span data="0">销量</span></div>
+			<div class="topSame" id="showType"><span>分类</span></div>
+		</div>
 	</header>
 	<div class="first"></div>
 	<ul class="secondul" id="showTypes">
@@ -50,12 +56,7 @@
 		</ul>
 	<div class="black_box"></div>	
 	<div class="box">
-		<div class="top">
-			<div class="topSame"><span data="2" class="special">全部</span></div>
-			<div class="topSame"><span data="1">推荐</span></div>
-			<div class="topSame"><span data="0">销量</span></div>
-			<div class="topSame" id="showType"><span>分类</span></div>
-		</div>
+		
 		<div class="sameBoxs" id="showListAll">
 			<!--<div class="same">
 				<img src="../image/ms.jpg" alt="" />

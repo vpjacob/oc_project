@@ -175,7 +175,9 @@ apiready = function() {
 	});
 	//提交支付调用支付宝接口
 	$('#apply').click(function() {
-		goodMod=""
+		var amoutVal=$("#amout").html();
+		goodMod="";
+//		alert(amoutVal);
 		var mobileReg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(14[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
 		if (userInfo.userNo == '' || userInfo.userNo == null) {
 			api.alert({
@@ -194,10 +196,10 @@ apiready = function() {
 				goodMod+=($("option:selected",sel[i]).html()+",");
 			}
 		};
-		if($("#amout").html()>surplusCount){
-			api.alert({
+		if(parseInt(amoutVal)>parseInt(surplusCount)){
+			 api.alert({
 				msg : "亲，库存量不足,还剩"+surplusCount+"件"
-			});
+			}); 
 			return false;
 		};
 		if($("#userName").val()==""){
@@ -225,7 +227,8 @@ apiready = function() {
 			return false;
 		};
 		 countAll = ($("#countAll").html()).split("元")[0];
-		var price = parseInt($("#price").html());
+		var price = ($("#price").html()).split("元")[0];
+//		var price = parseInt($("#price").html());
 		AjaxUtil.exeScript({
 			script : "mobile.center.pay.pay",
 			needTrascation : true,
@@ -315,6 +318,22 @@ apiready = function() {
 		});
 	});
 	
+	//添加收货地址	
+//	$("#address").click(function() {
+//		api.openWin({//详情界面
+//			name : 'createAddress',
+//			url : 'createAddress.html',
+//			slidBackEnabled : true,
+//			animation : {
+//				type : "push", //动画类型（详见动画类型常量）
+//				subType : "from_right", //动画子类型（详见动画子类型常量）
+//				duration : 300 //动画过渡时间，默认300毫秒
+//			},
+//
+//		});
+//	});
+
+
 };
 //阻止底部标签跟随软键盘的位移
 $(document).ready(function(){

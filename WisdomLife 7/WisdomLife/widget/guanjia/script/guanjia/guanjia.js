@@ -5,6 +5,66 @@ apiready = function() {
 		urId = info.userNo;
 		queryUserRoleInfo(urId);
 	});
+	//获得商品主页轮播图
+	function queryCarouselList() {
+		AjaxUtil.exeScript({
+			script : "mobile.business.product",
+			needTrascation : false,
+			funName : "queryCarouselList",
+			//        form:{
+			//           userNo:urId
+			//        },
+			success : function(data) {
+				console.log("商品轮播图片" + $api.jsonToStr(data));
+				if (data.formDataset.checked == 'true') {
+					var account = data.formDataset.carouselList;
+					var list = $api.strToJson(account);
+					var nowli = "";
+					for (var i = 0; i < list.length; i++) {
+						nowli += '<div class="swiper-slide"><img src="' + rootUrl + list[i].image_url + '"></img></div>'
+					}
+					$('#mainShowImg').html(nowli);
+					var swiper = new Swiper('.swiper-container', {
+						pagination : '.swiper-pagination',
+						paginationClickable : true,
+						spaceBetween : 3,
+						centeredSlides : true,
+						autoplayDisableOnInteraction : false,
+						autoplay : 2500,
+						loop : true,
+						observer : true, //修改swiper自己或子元素时，自动初始化swiper
+						observeParents : true//修改swiper的父元素时，自动初始化swiper
+					}); 
+
+					//跳转到商品列表页
+					$('.swiper-wrapper img').click(function() {
+						api.openWin({
+							name : 'buyList',
+							url : '../../../shangjia/html/buyList.html',
+							animation : {
+								type : "push", //动画类型（详见动画类型常量）
+								subType : "from_right", //动画子类型（详见动画子类型常量）
+								duration : 300 //动画过渡时间，默认300毫秒
+							}
+						});
+					});
+				} else {
+					alert(data.formDataset.errorMsg);
+				}
+			},
+			error : function() {
+				api.hideProgress();
+				api.alert({
+					msg : "您的网络是否已经连接上了，请检查一下！"
+				});
+			}
+		});
+	}
+
+	queryCarouselList();
+	
+	
+	
 	//跳转轮播到商品
 	$('.header img').click(function() {
 			api.openWin({
