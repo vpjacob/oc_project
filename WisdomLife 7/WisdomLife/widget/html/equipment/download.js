@@ -57,7 +57,6 @@ apiready = function() {
 			nowli = nowli.replace("\"[id]\"", title.substring(0, title.length - 4));
 			nowli = nowli.replace("\"[size]\"", Math.round((Number(newJSON[i].File.SIZE) / (1024 * 1024)) * 100) / 100 + "M");
 			html += nowli;
-
 		}
 		newPage = totalPage - 1;
 		$api.append(document.getElementById("con"), html);
@@ -346,19 +345,6 @@ function download(name) {
                            }, function(ret, err) {
                           if (ret.state == 1) {
                           state = 1;
-//                          api.accessNative({
-//                                           name : 'palyCarViedo',
-//                                           extra : {
-//                                           path:path_file+name,
-//                                           name:name
-//                                           }
-//                                           }, function(ret, err) {
-//                                           if (ret) {
-//                                           //                                    alert(JSON.stringify(ret));
-//                                           } else {
-//                                           //                                    alert(JSON.stringify(err));
-//                                           }
-//                                           });
 
                           alert("已经下载完成，前往相册中查看");
                           

@@ -106,6 +106,25 @@ apiready = function() {
 		initUserInfoAndUserKeyInfo();
 	});
 	
+    //版本信息
+    $('#version').click(function() {
+                       
+                        api.accessNative({
+                                         name : 'showVersionCode',
+                                         extra : {
+                                         
+                                         }
+                                         }, function(ret, err) {
+                                         if (ret) {
+                                         //                                    alert(JSON.stringify(ret));
+                                         } else {
+                                         //                                    alert(JSON.stringify(err));
+                                         }
+                                         });
+                        
+                       });
+    
+    
 	$("#getmark").bind("click", function() {//去评分
 		var browser = api.require('webBrowser');
 		if (isIos) {

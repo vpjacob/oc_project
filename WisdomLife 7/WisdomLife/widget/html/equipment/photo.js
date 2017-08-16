@@ -59,7 +59,7 @@ function showPic(name) {
                                 });
         
     } else if (name.indexOf("MOV") != '-1') {
-	if (api.systemType == 'ios') {
+//	if (api.systemType == 'ios') {
         api.accessNative({
                          name : 'palyCarViedo',
                          extra : {
@@ -73,11 +73,11 @@ function showPic(name) {
                          //                                    alert(JSON.stringify(err));
                          }
                          });
-    }else{
-        api.openVideo({
-			url : path_file + name
-		});
-	}
+//    }else{
+//        api.openVideo({
+//			url : path_file + name
+//		});
+//	}
     }
 }
 

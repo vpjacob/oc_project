@@ -26,6 +26,8 @@
 #import "DeviceManager.h"
 #import "JJScanViewController.h"
 #import "KNBVideoPlayerController.h"
+#import "JJVersionCodeController.h"
+
 
 static DMHtmlListener *instance = nil;
 
@@ -183,6 +185,13 @@ static DMHtmlListener *instance = nil;
       }
                                          
     }
+    
+    if ([scriptMessage.name isEqualToString:@"showVersionCode"]) {
+        NSLog(@"展示版本信息");
+        JJVersionCodeController *VC = [JJVersionCodeController new];
+        [self.windowContainer pushViewController:VC animated:YES];
+    }
+    
     if ([scriptMessage.name isEqualToString:@"ShowKey"]) {
         NSArray *deviceList = [DeviceManager manager].list;
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
