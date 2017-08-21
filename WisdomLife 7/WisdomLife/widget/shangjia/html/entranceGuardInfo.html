@@ -40,7 +40,7 @@
 		</div>
 		<div class="businessShow">
 			<img src="" id="businessImg" alt="暂无"/>
-			<span id="price"></span>
+			<span id="price">12800.00元</span>
 			<span id="content"></span>
 		</div>
 	</div>
@@ -67,7 +67,7 @@
 			<img src="../image/address/pay.png" />
 		</div>
 	</div>
-	<div class="buyInfo">
+	<!--<div class="buyInfo">
 		<div class="buySame">
 			<span>收货人姓名</span>
 			<input type="text" placeholder="请输入姓名" id="userName" />
@@ -80,7 +80,31 @@
 			<span style="float: left">详细地址 </span>
 			<textarea placeholder="请输入您的详细地址" id="address"></textarea>
 		</div>
+	</div>-->
+	 <div class="addInfo">
+		<div class="addInfoBox">
+			<div class="top">
+				<span id="userName"></span>
+				<span id="userPhone"></span>
+			</div>
+			<div class="bottom">
+				<textarea placeholder="请添加收货地址" readonly="readonly"  id="address" data=""></textarea>
+			</div>
+			<i class="iconfont pull-right icon-xiangyou1"></i>
+		</div>
 	</div>
+	 <div class="priceInfo">
+		<div class="costInfo">
+			<div class="costInfoTop">
+				<span>运费</span>
+				<span style="margin-right: -0.95rem" id="freight">+0.00</span>
+			</div>
+			<div class="costInfoTop">
+				<span>商品金额</span>
+				<span id="busTotal"></span>
+			</div>
+		</div>
+	</div>  
 	</div>
 	<footer>
 		<span>共计 : </span>
@@ -92,4 +116,9 @@
 <script type="text/javascript" src="../../script/common.js"></script>
 <script type="text/javascript" src="../../script/api.js"></script>
 <script type="text/javascript" src="../js/shangjia/entranceGuardInfo.js"></script>
+<script>
+function refresh() {
+		location.reload();
+	}
+</script>
 </html>

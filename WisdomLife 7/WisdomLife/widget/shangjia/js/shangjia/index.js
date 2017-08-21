@@ -4,6 +4,7 @@ var pageCount = 1;
 var lon;
 var lat;
 var map;
+var cityName="";
 apiready = function() {
 	if (api.systemType == 'ios') {
 		var cc = $api.dom('.xiaobiao');
@@ -67,16 +68,16 @@ apiready = function() {
 					}
 					$('#mainShowImg').html(nowli);
 					var swiper = new Swiper('.swiper-containerlrf', {
-        pagination: '.swiper-pagination',
-        paginationClickable: true,
-        spaceBetween: 3,
-        centeredSlides: true,
-        autoplayDisableOnInteraction: false,
-        autoplay: 2500,
-        loop: true,
-		observer:true,//修改swiper自己或子元素时，自动初始化swiper
-   		observeParents:true//修改swiper的父元素时，自动初始化swiper
-    });	
+					        pagination: '.swiper-pagination',
+					        paginationClickable: true,
+					        spaceBetween: 3,
+					        centeredSlides: true,
+					        autoplayDisableOnInteraction: false,
+					        autoplay: 2500,
+					        loop: true,
+							observer:true,//修改swiper自己或子元素时，自动初始化swiper
+					   		observeParents:true//修改swiper的父元素时，自动初始化swiper
+					    });	
 					//跳转到商品列表页
 					$('.swiper-containerlrf img').click(function() {
 						api.openWin({
@@ -229,18 +230,18 @@ apiready = function() {
 	$('#showTypeInfo').on('click', 'span', function() {
 		var typeId = this.id;
 		//			alert(typeId);
-		$('#tab1').children().remove();
-		getDistance(typeId, "");
-		api.addEventListener({
-			name : 'scrolltobottom'
-		}, function(ret, err) {
-			if (parseInt(page) <= parseInt(pageCount)) {
-				page++;
-				getDistance(typeId, "");
-			} else {
-				page = parseInt(pageCount) + 1;
-			}
-		});
+//		$('#tab1').children().remove();
+//		getDistance(typeId, "");
+//		api.addEventListener({
+//			name : 'scrolltobottom'
+//		}, function(ret, err) {
+//			if (parseInt(page) <= parseInt(pageCount)) {
+//				page++;
+//				getDistance(typeId, "");
+//			} else {
+//				page = parseInt(pageCount) + 1;
+//			}
+//		});
 		api.openWin({//详情界面
 			name : 'businessType',
 			url : 'businessType.html',
@@ -252,24 +253,25 @@ apiready = function() {
 			},
 			pageParam : {
 				id : typeId,
+				city:cityName
 			}
 		});
 	});
 
 	$('#showTypeInfo1').on('click', 'span', function() {
 		var typeId = this.id;
-		$('#tab1').children().remove();
-		getDistance(typeId, "");
-		api.addEventListener({
-			name : 'scrolltobottom'
-		}, function(ret, err) {
-			if (parseInt(page) <= parseInt(pageCount)) {
-				page++;
-				getDistance(typeId, "");
-			} else {
-				page = parseInt(pageCount) + 1;
-			}
-		});
+//		$('#tab1').children().remove();
+//		getDistance(typeId, "");
+//		api.addEventListener({
+//			name : 'scrolltobottom'
+//		}, function(ret, err) {
+//			if (parseInt(page) <= parseInt(pageCount)) {
+//				page++;
+//				getDistance(typeId, "");
+//			} else {
+//				page = parseInt(pageCount) + 1;
+//			}
+//		});
 		api.openWin({//详情界面
 			name : 'businessType',
 			url : 'businessType.html',
@@ -281,6 +283,7 @@ apiready = function() {
 			},
 			pageParam : {
 				id : typeId,
+				city:cityName
 			}
 		});
 	});
@@ -391,8 +394,8 @@ apiready = function() {
 				city : city
 			},
 			success : function(data) {
-				if (data.formDataset.checked == 'true') {
 					console.log("商家列表：" + $api.jsonToStr(data));
+				if (data.formDataset.checked == 'true') {
 					var account = data.formDataset.companyDataList;
 					var list = $api.strToJson(account);
 
@@ -470,7 +473,7 @@ apiready = function() {
 	}, function(ret, err) {
 		if (parseInt(page) <= parseInt(pageCount)) {
 			page++;
-			businessList(page);
+			businessList(page,"",cityName);
 		} else {
 			page = parseInt(pageCount) + 1;
 		}
@@ -478,7 +481,6 @@ apiready = function() {
 
 	//商家列表进行跳转
 	$('#tab1').on('click', '.businessman-box', function() {
-
 		api.openWin({//详情界面
 			name : 'business-man-list',
 			url : '../../sjDetail/business-man-list.html',
@@ -574,6 +576,8 @@ apiready = function() {
 						//							pageParam : {
 						//								id : $(this).attr()
 						//							}
+						cityName=ret.cityInfo.city
+                        page = 1;
 						$('#tab1').children().remove();
 						getDistance("", ret.cityInfo.city);
 						$('#showCity').html(ret.cityInfo.city);

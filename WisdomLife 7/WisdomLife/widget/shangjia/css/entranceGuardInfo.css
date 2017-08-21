@@ -236,12 +236,67 @@ footer span:nth-child(3){
 }
 
 
+textarea::-ms-input-placeholder{text-align: center;color:#999}
+textarea::-webkit-input-placeholder{text-align: center;color:#999}
+textarea::-o-input-placeholder{text-align: center;color:#999}
+textarea::-moz-input-placeholder{text-align: center;color:#999}
+.addInfo{
+	width: 100%;
+	margin-top:0.7rem;
+	height: 4.4rem;
+	background: #fff;
+	border-top:1px solid #ddd;
+	border-bottom:1px solid #ddd;
+	
+}
+.addInfo .addInfoBox{
+	width: 96%;
+	height: 4.4rem;
+	margin:0 auto;
+	/*  border:1px solid red;  */ 
+}
+.addInfo .addInfoBox .top{
+	margin-top:0.3rem;
+}
 
+.addInfo .addInfoBox .top span:nth-child(2){
+	margin-left: 1rem;
+}
+.addInfo .addInfoBox textarea{
+	resize: none;
+	height:2.5rem;
+	margin-top:0.2rem;
+	width:94%;
+	/*  border:1px solid red;  */ 
+	
+}
+.addInfo .addInfoBox i{
+	font-size: 1rem;
+	color: #d3d3d3;
+	position: relative;
+	top:-3.0rem;
+}
 
-
-
-
-
+.priceInfo{
+	width: 100%;
+	margin-top:0.7rem;
+	height: 4.4rem;
+	background: #fff;
+	border-top:1px solid #ddd;
+	border-bottom:1px solid #ddd;	
+}
+.priceInfo .costInfo{
+	width: 96%;
+	height: 4.4rem;
+	margin:0 auto;
+}
+.priceInfo .costInfo .costInfoTop{
+	margin-top:0.6rem;
+}
+.priceInfo .costInfo .costInfoTop span:nth-child(2){
+	 float:right; 
+	 color:#FF4E00;
+}
 
 
 

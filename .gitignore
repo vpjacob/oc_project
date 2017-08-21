@@ -19,6 +19,7 @@ DerivedData
 *.framework
 *.xml
 common.js
+JJSelectAddressViewController.m
 
 #CocoaPods
 Pods

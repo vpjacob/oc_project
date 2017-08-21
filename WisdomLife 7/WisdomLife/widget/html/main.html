@@ -50,18 +50,33 @@
 				float:right;
 				width: 65px;
 				height: 56px;
-				margin-right: -87px;
+				margin-right: -67px;
 				margin-top: 30px;
-				display:none;
 				-webkit-animation: flash  linear 5s infinite ;
+				/* display: none; */
 			}
 			.showCount{
 				float:right;
-				margin-right: 12px;
+				margin-right: 18px;
 				margin-top: 86px;
 			    font-size: 14px;
 			    color: white;
-			    display:none;
+			    /* display: none; */
+			}
+			.showbus{
+				float:left;
+				width: 65px;
+				height: 56px;
+				margin-left: -59px;
+				margin-top: 30px;
+				-webkit-animation: flash  linear 5s infinite ;
+			}
+			.showBusCount{
+				float:left;
+				margin-left: 12px;
+				margin-top: 86px;
+			    font-size: 14px;
+			    color: white;
 			}
 		</style>
 	</head>
@@ -141,9 +156,10 @@
 				</div>
 				<!--金蛋显示问题-->
 				<!--<div class="showCount" id="showCount">200</div>-->
-				<span class="showCount">金蛋宝宝在等您</span>
+				<span class="showCount">金蛋宝宝</span>
 				<img src="../image/mainEggGraey.jpg" class="showEgg" id="mainEgg"/>
-				
+				<span class="showBusCount">小客商城</span>
+				<img src="../image/mainbus.jpg" class="showbus" id="showbus"/>
 				<div id="bodycontent" style="opacity:1">
 					<div class="bottom" id="bottom">
 						<div class="hint">

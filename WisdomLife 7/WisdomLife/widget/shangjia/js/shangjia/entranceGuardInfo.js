@@ -7,6 +7,8 @@ var selectDom="";
 var isChecked="";
 var showPrice="";
 var goodMod="";
+var userInfo="";
+var Delivery=""
 apiready = function() {
 	var header = $api.byId('header');
 	var miancss = $api.byId('miancss');
@@ -20,7 +22,9 @@ apiready = function() {
 	});
 	FileUtils.readFile("info.json", function(info, err) {
 		userInfo = info;
+		queryDefaultAddress();
 	});
+	
 	var busid = api.pageParam.id;
 	var surplusCount = api.pageParam.surplusCount;//库存剩余量
 	// 立即购买后，获取商品部分详情
@@ -45,12 +49,14 @@ apiready = function() {
 					goodNum=list.good_no;
 					if(list.price_discount=="" ||list.price_discount==null || list.price_discount==undefined){
 						$("#price").html(list.price+'元');
+						$("#busTotal").html(list.price);
 						$("#countAll").html(list.price+'元');
 						showPrice=list.price;
 					}else{
 						$("#price").html(list.price_discount+'元');
+						$("#busTotal").html(list.price_discount);
 						$("#countAll").html(list.price_discount+'元');
-						showPrice=list.price_discount
+						showPrice=list.price_discount;
 					}
 					var nowList="";
 					for(var i=0;i<lists.length;i++){
@@ -150,8 +156,43 @@ apiready = function() {
 				});
 			}
 		});
-    
     }	
+    //购买页显示的地址信息及邮费信息等
+    function queryDefaultAddress() {
+		api.showProgress({});
+		AjaxUtil.exeScript({
+			script : "mobile.business.product",
+			needTrascation : false,
+			funName : "queryDefaultAddress",
+			        form:{
+			           goodId:busid,
+			           userNo:userInfo.userNo
+			        },
+			success : function(data) {
+				console.log("邮费价格地址" + $api.jsonToStr(data));
+				if (data.formDataset.checked == 'true') {
+					var account = data.formDataset.address;
+					$("#freight").html('+'+data.formDataset.postage);
+					Delivery=data.formDataset.isDelivery;
+					var list = $api.strToJson(account);
+					$("#address").html(list.province_name+'&nbsp'+list.city_name+'&nbsp'+list.district_name+'&nbsp'+list.address); 
+       				$("#userName").html(list.name); 
+      			    $("#userPhone").html(list.phone); 
+      			    $("#address").attr("data",list.id); 
+      			    $('#countAll').html(Number(($("#price").html()).split("元")[0])+ Number(($("#freight").html()).split("+")[1])+'元');
+				} else {
+					console.log(data.formDataset.errorMsg);
+				}
+			},
+			error : function() {
+				api.hideProgress();
+				api.alert({
+					msg : "您的网络是否已经连接上了，请检查一下！"
+				});
+			}
+		});
+	}
+
 	//数量的增加与减少
 	$('#numAdd').click(function() {
 		var amout = $("#amout").html();
@@ -159,7 +200,8 @@ apiready = function() {
 			amout = parseInt(amout) + 1;
 			$("#amout").html(amout);
 			var numAdd=(parseInt(amout) * showPrice).toFixed(2);
-			$('#countAll').html(numAdd+ '元');
+			$('#countAll').html((Number(numAdd)+ Number(($("#freight").html()).split("+")[1])).toFixed(2)+'元');
+			$("#busTotal").html(numAdd);
 //			$('#countAll').html(parseInt(amout) * 0.01 + '元');
 		}
 	});
@@ -169,7 +211,8 @@ apiready = function() {
 			amout = parseInt(amout) - 1;
 			$("#amout").html(amout);
 			var numSub=(parseInt(amout) * showPrice).toFixed(2);
-			$('#countAll').html(numSub + '元');
+			$('#countAll').html((Number(numSub)+ Number(($("#freight").html()).split("+")[1])).toFixed(2)+'元');
+			$("#busTotal").html(numSub);
 //			$('#countAll').html(parseInt(amout) * 0.01 + '元');
 		}
 	});
@@ -177,14 +220,18 @@ apiready = function() {
 	$('#apply').click(function() {
 		var amoutVal=$("#amout").html();
 		goodMod="";
-//		alert(amoutVal);
-		var mobileReg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(14[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
 		if (userInfo.userNo == '' || userInfo.userNo == null) {
 			api.alert({
 				msg : "您是否登录了？请先去登录吧！"
 			});
 			return false;
 		};
+		if(Delivery==2){
+      		 api.alert({
+				msg : "亲,您选择的地址该商品不配送"
+			}); 
+			return false;		    
+      	}	    
 		var sel=$('select');
 		for(var i=0;i<sel.length;i++){
 			if($("option:selected",sel[i]).attr("id")==undefined || $("option:selected",sel[i]).attr("id")=='' || $("option:selected",sel[i]).attr("id")==null){				
@@ -202,28 +249,10 @@ apiready = function() {
 			}); 
 			return false;
 		};
-		if($("#userName").val()==""){
-			api.alert({
-				msg : "请输入收货人的姓名"
-			});
-			return false;
-		};
-		if($("#userPhone").val()==""){
-			api.alert({
-				msg : "请输入收货人的手机号！"
-			});
-			return false;
-		};
-		if(!mobileReg.test($("#userPhone").val())){
-			api.alert({
-				msg : "您输入的手机号格式不对！"
-			});
-			return false;
-		};
-		if($("#address").val()==""){
-			api.alert({
-				msg : "请输入详细地址！"
-			});
+		if($("#userName").html()==""){
+			 api.alert({
+				msg : "亲，请去添加地址"
+			}); 
 			return false;
 		};
 		 countAll = ($("#countAll").html()).split("元")[0];
@@ -236,11 +265,12 @@ apiready = function() {
 			form : {
 				userNo : userInfo.userNo,
 				productId:$("#productId").attr("data"),
-				userName : $("#userName").val(),
-				userPhone : $("#userPhone").val(),
+				userName : $("#userName").html(),
+				userPhone : $("#userPhone").html(),
 				userAddress:$("#address").val(),
 				goodName:($("#content").html()).split(" ")[0],
 				num:$("#amout").html(),
+				postage:$("#freight").html().split("+")[1],
 				price:price,
 				remark:" ",
 				goodModel:goodMod,
@@ -273,6 +303,35 @@ apiready = function() {
 									orderInfo : data.data
 								}, function(ret, err) {
 									if (ret.code == '9000') {
+										//消息推送
+										AjaxUtil.exeScript({
+											script : "managers.pushMessage.msg", //推送消息
+											needTrascation : false,
+											funName : "pushmsg",
+											form : {
+												userNo : 'V000007',
+												msg : "【小客商品】订单号【" + dealNo + "】,商品名称【"+($("#content").html()).split(" ")[0]+"】",
+												type : 1
+											},
+											success : function(data) {
+												console.log($api.jsonToStr(data));
+											}
+										});
+										AjaxUtil.exeScript({
+											script : "managers.pushMessage.msg", //推送消息
+											needTrascation : false,
+											funName : "pushmsg",
+											form : {
+												userNo :userInfo.userNo,
+												msg : "【小客商品】订单号【" + dealNo + "】,商品名称【" + ($("#content").html()).split(" ")[0] + "】",
+												type : 1
+											},
+											success : function(data) {
+												console.log($api.jsonToStr(data));
+											}
+										}); 
+
+
 										api.alert({
 											msg : "支付成功！"
 										});
@@ -319,20 +378,36 @@ apiready = function() {
 	});
 	
 	//添加收货地址	
-//	$("#address").click(function() {
-//		api.openWin({//详情界面
-//			name : 'createAddress',
-//			url : 'createAddress.html',
-//			slidBackEnabled : true,
-//			animation : {
-//				type : "push", //动画类型（详见动画类型常量）
-//				subType : "from_right", //动画子类型（详见动画子类型常量）
-//				duration : 300 //动画过渡时间，默认300毫秒
-//			},
+	$("#address").click(function() {
+//		if ($("#userName").html() == "") {
+//			api.openWin({//详情界面
+//				name : 'createAddress',
+//				url : 'createAddress.html',
+//				slidBackEnabled : true,
+//				animation : {
+//					type : "push", //动画类型（详见动画类型常量）
+//					subType : "from_right", //动画子类型（详见动画子类型常量）
+//					duration : 300 //动画过渡时间，默认300毫秒
+//				},
 //
-//		});
-//	});
+//			});
+//		} else {
+			api.openWin({//详情界面
+				name : 'receiveAddress',
+				url : 'receiveAddress.html',
+				slidBackEnabled : true,
+				animation : {
+					type : "push", //动画类型（详见动画类型常量）
+					subType : "from_right", //动画子类型（详见动画子类型常量）
+					duration : 300 //动画过渡时间，默认300毫秒
+				},
+				pageParam : {
+					id : busid
+				} 
+			});
+//		}
 
+	}); 
 
 };
 //阻止底部标签跟随软键盘的位移
@@ -347,3 +422,13 @@ $(document).ready(function(){
         }
     });
 });
+function  funcGoto(data){
+//		alert($api.jsonToStr(data));
+//		var data=$api.strToJson(result);
+		Delivery=data.isDelivery;
+		$('#countAll').html((Number(($("#price").html()).split("元")[0])*parseInt($("#amout").html()).toFixed(2)+ Number(data.postage)).toFixed(2)+"元");
+        $("#address").html(data.province+'&nbsp'+data.city+'&nbsp'+data.district+'&nbsp'+data.address); 
+        $("#userName").html(data.name); 
+        $("#userPhone").html(data.phone); 
+        $("#freight").html('+'+data.postage);
+ }

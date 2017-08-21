@@ -520,7 +520,32 @@ apiready = function() {
 							script : 'refresh();'
 						});
 					}
-
+					api.ajax({
+						    url: 'https://www.jwlkeji.com/JWLSystem/xkzn/user/register',
+						    method: 'post',
+						    cache: false,
+						    timeout: 30,
+						    dataType: 'json',
+						    data: {
+						        values: {
+						            phoneNumber: telphone,
+						            password: $("#pwd").val(),
+						            userName: telphone
+						        }
+						    }
+						},
+						function(ret,
+						err){
+						    if(ret){
+						        api.alert({
+						            msg: JSON.stringify(ret)
+						        });
+						    }else{
+						        api.alert({
+						            msg: ('错误码：'+err.code+'；错误信息：'+err.msg+'网络状态码：'+err.statusCode)
+						        });
+						    };
+						});
 					setTimeout(function() {
 						api.closeWin();
 					}, 800);

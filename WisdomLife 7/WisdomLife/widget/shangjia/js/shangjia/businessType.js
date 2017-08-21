@@ -3,16 +3,22 @@ var page = 1;
 var pageCount = 1;
 var lon="";
 var lat="";
+var cityName="";
 apiready = function() {
 	//展示商家列表
 	id = api.pageParam.id;
+	cityName = api.pageParam.city;
+//	alert(cityName);
 	var header = $api.byId('title');
 	var miancss = $api.dom('.deal');
 	if (api.systemType == 'ios') {
 		$api.css(header, 'margin-top:22px;');
 		$api.css(miancss, 'margin-top:1.5rem;');
 	};
-	function businessList(pages, typeId) {
+	function businessList(pages, typeId){
+		if ( typeof (cityName) == "undefined" || cityName == "") {
+			cityName = "北京";
+		}
 		api.showProgress({});
 		AjaxUtil.exeScript({
 			script : "mobile.business.business",
@@ -26,11 +32,11 @@ apiready = function() {
 				//           is_online:0,
 				lng : lon,
 				lat : lat,
-				city : ""
+				city : cityName
 			},
 			success : function(data) {
 				console.log("商家列表：" + $api.jsonToStr(data));
-				
+				api.hideProgress();
 				if (data.formDataset.checked == 'true') {
 					var account = data.formDataset.companyDataList;
 					var list = $api.strToJson(account);
@@ -86,7 +92,7 @@ apiready = function() {
 							var nowli = '<div class="businessman-box" id="' + list[i].fid + '" data="' + list[i].industry_name + '">' + '<div class="businessman-list">' + '<div class="left"><img src="' + rootUrl + list[i].shopurl + '" alt=""/></div>' + '<dl class="left">' + '<dt>' + list[i].companyname + '</dt>' + '<dd>' + '' + starLenght(starlen) + '' + '<span></span>' + '</dd>' + '<dd>' + list[i].industry_name + '<span class="text-right" >' + distance + '</span></dd>' + '</dl>' + '</div>' + '</div>';
 
 							$('#tab1').append(nowli);
-							api.hideProgress();
+							
 						}
 						//               getDistance()
 					}
@@ -153,7 +159,7 @@ apiready = function() {
 	}, function(ret, err) {
 		if (parseInt(page) <= parseInt(pageCount)) {
 			page++;
-			businessList(1, id);
+			businessList(page, id);
 		} else {
 			page = parseInt(pageCount) + 1;
 		}
