@@ -48,6 +48,16 @@ apiready = function() {
 	//弹出中奖结果  确认按钮关闭
 	$('.closeTan').click(function(){
 		$('#showBox').hide();
+		api.openWin({
+			name : 'buyList',
+			url : '../../shangjia/html/buyList.html',
+			reload : true,
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			}
+		});
 	})
 	
 

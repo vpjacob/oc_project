@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>Chinese</string>
 	<key>CFBundleDisplayName</key>
-	<string>小客智慧生活</string>
+	<string>小客</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>

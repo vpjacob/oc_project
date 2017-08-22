@@ -128,11 +128,11 @@ static DMHtmlListener *instance = nil;
     
     if ([scriptMessage.name isEqualToString:@"DoorVideoList"]) {//门口视频
 
-        JFCityViewControllers* vc = [[JFCityViewControllers alloc] init];
-        [self.windowContainer pushViewController:vc animated:YES];
+//        JFCityViewControllers* vc = [[JFCityViewControllers alloc] init];
+//        [self.windowContainer pushViewController:vc animated:YES];
         
-//        DoorListViewController *nextCtr = [[DoorListViewController alloc] init];
-//        [self.windowContainer pushViewController:nextCtr animated:YES];
+        DoorListViewController *nextCtr = [[DoorListViewController alloc] init];
+        [self.windowContainer pushViewController:nextCtr animated:YES];
     }
     
     if ([scriptMessage.name isEqualToString:@"OpenRecord"]) {//开门记录
