@@ -517,7 +517,28 @@ apiready = function() {
 
 	//获取商家地理位置
 	$('#nearby').click(function() {
-		getCityList();
+		
+                       
+                       if (api.systemType == 'ios') {
+                       api.accessNative({
+                                        name : 'NativeSelectCity',
+                                        extra : {
+                                        
+                                        }
+                                        }, function(ret, err) {
+                                        if (ret) {
+                                        $('#tab1').children().remove();
+                                        getDistance("", ret.title);
+                                        $('#showCity').html(ret.title);
+                                        } else {
+                                        alert(JSON.stringify(err));
+                                        }
+                                        });
+                       }else{
+                       getCityList();
+                       }
+                       
+                       
 	})
 	function getCityList() {
 		var hh = 0;

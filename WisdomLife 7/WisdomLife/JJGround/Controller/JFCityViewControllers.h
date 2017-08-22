@@ -8,11 +8,17 @@
 
 #import "CommonViewController.h"
 
+typedef void(^JFCityBlock)(NSString *cityName);
+
 @protocol JFCityViewControllerDelegate <NSObject>
 
 - (void)cityName:(NSString *)name;
 
 @end
+
 @interface JFCityViewControllers : CommonViewController
+
 @property (nonatomic, weak) id<JFCityViewControllerDelegate> delegate;
+@property (nonatomic, copy)JFCityBlock cityBlock;
+
 @end

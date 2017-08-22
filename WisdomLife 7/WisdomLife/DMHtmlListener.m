@@ -135,6 +135,18 @@ static DMHtmlListener *instance = nil;
         [self.windowContainer pushViewController:nextCtr animated:YES];
     }
     
+    if ([scriptMessage.name isEqualToString:@"NativeSelectCity"]) {
+        
+        JFCityViewControllers *vc = [JFCityViewControllers new];
+        [self.windowContainer pushViewController:vc animated:YES];
+        
+        vc.cityBlock = ^(NSString *cityName) {
+            NSDictionary *dict = @{@"title":cityName};
+            [webView sendResultWithCallback:scriptMessage.callback ret:dict err:nil delete:YES];
+        };
+        
+    }
+    
     if ([scriptMessage.name isEqualToString:@"OpenRecord"]) {//开门记录
         OpenRecordViewController *nextCtr = [[OpenRecordViewController alloc] init];
         [self.windowContainer pushViewController:nextCtr animated:YES];

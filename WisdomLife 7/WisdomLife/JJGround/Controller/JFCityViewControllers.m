@@ -15,7 +15,6 @@
 #import "JFSearchView.h"
 #import "JJSelectAddressViewController.h"
 
-
 #define kCurrentCityInfoDefaults [NSUserDefaults standardUserDefaults]
 
 @interface JFCityViewControllers ()<UITableViewDelegate,
@@ -169,10 +168,22 @@ KNBBillingRecordSliderViewDelegate
         
         [self historyCity:cityName];
     }
+//    NSLog(@"%@",cityName);
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"NativeSelectCity" object:cityName];
     
     //销毁通知
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self.navigationController popViewControllerAnimated:YES];
+    
+    cityName = [cityName componentsSeparatedByString:@"市"].firstObject;
+
+    if (!cityName) {
+        
+        self.cityBlock(cityName);
+    }else{
+        self.cityBlock(cityName);
+    }
+    
 }
 
 - (NSMutableArray *)areaMutableArray {
@@ -425,7 +436,18 @@ KNBBillingRecordSliderViewDelegate
     if (self.delegate && [self.delegate respondsToSelector:@selector(cityName:)]) {
         [self.delegate cityName:cell.textLabel.text];
     }
+    NSLog(@"%@",cell.textLabel.text);
     [self historyCity:cell.textLabel.text];
+    NSString *cityName = cell.textLabel.text;
+    cityName = [cityName componentsSeparatedByString:@"市"].firstObject;
+    
+    if (!cityName) {
+        
+        self.cityBlock(cityName);
+    }else{
+        self.cityBlock(cityName);
+    }
+//    self.cityBlock(cell.textLabel.text);
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -484,6 +506,7 @@ KNBBillingRecordSliderViewDelegate
 }
 
 #pragma mark - JFSearchViewDelegate
+
 - (void)searchResults:(NSDictionary *)dic {
     [kCurrentCityInfoDefaults setObject:[dic valueForKey:@"city"] forKey:@"currentCity"];
     [kCurrentCityInfoDefaults setObject:[dic valueForKey:@"city_number"] forKey:@"cityNumber"];
@@ -491,8 +514,15 @@ KNBBillingRecordSliderViewDelegate
     if (self.delegate && [self.delegate respondsToSelector:@selector(cityName:)]) {
         [self.delegate cityName:nameStr];
     }
-    [self.navigationController popViewControllerAnimated:YES];
+    NSString *cityName = [dic valueForKey:@"city"];
+    cityName = [cityName componentsSeparatedByString:@"市"].firstObject;
+    if (!cityName) {
+        self.cityBlock(cityName);
+    }else{
+        self.cityBlock(cityName);
+    }
     [self historyCity:[dic valueForKey:@"city"]];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
@@ -549,13 +579,6 @@ KNBBillingRecordSliderViewDelegate
     NSLog(@"JFCityViewController dealloc");
 }
 
-//- (UIView *)inlandView{
-//    if (!_inlandView) {
-//        _inlandView = [[UIView alloc] init];
-//        
-//    }
-//    return _inlandView;
-//}
 
 - (UIView *)abroad{
     if (!_abroad) {
@@ -608,6 +631,11 @@ KNBBillingRecordSliderViewDelegate
         [self addChildViewController:self.selectVC];
         [_scrollView addSubview:self.selectVC.view];
         [_scrollView addSubview:self.rootTableView];
+        __weak typeof(self) weakSelf = self;
+        self.selectVC.cityNameBlock = ^(NSString *cityName) {
+            weakSelf.cityBlock(cityName);
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+        };
         
     }
     return _scrollView;

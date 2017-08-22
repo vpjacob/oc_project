@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^JJSelectAddressBlock)(NSString *cityName);
+
 @interface JJSelectAddressViewController : UIViewController
+
+@property (nonatomic, copy)JJSelectAddressBlock cityNameBlock;
 
 @end

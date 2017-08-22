@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="JJAbroadCityCollectionCell" id="gTV-IL-0wX" customClass="JJAbroadCityCollectionCell">
+            <rect key="frame" x="0.0" y="0.0" width="163" height="64"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="163" height="64"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fb3-Vf-bmN">
+                        <rect key="frame" x="0.0" y="0.0" width="163" height="64"/>
+                        <attributedString key="attributedText">
+                            <fragment content="迪拜">
+                                <attributes>
+                                    <font key="NSFont" size="14" name="STSongti-SC-Black"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                <real key="value" value="0.5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="layer. borderColor">
+                                <color key="value" red="0.51791004279999997" green="0.53968533500000004" blue="0.55537564770000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="fb3-Vf-bmN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="85D-za-JwX"/>
+                <constraint firstAttribute="bottom" secondItem="fb3-Vf-bmN" secondAttribute="bottom" id="GSC-sX-6a8"/>
+                <constraint firstAttribute="trailing" secondItem="fb3-Vf-bmN" secondAttribute="trailing" id="hZj-zi-Q7v"/>
+                <constraint firstItem="fb3-Vf-bmN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="wOL-QT-OSR"/>
+            </constraints>
+            <size key="customSize" width="163" height="64"/>
+            <connections>
+                <outlet property="titleLabel" destination="fb3-Vf-bmN" id="YnY-GS-uFf"/>
+            </connections>
+            <point key="canvasLocation" x="-22.5" y="63"/>
+        </collectionViewCell>
+    </objects>
+</document>
