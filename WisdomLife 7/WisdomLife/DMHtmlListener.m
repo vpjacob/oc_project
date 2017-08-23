@@ -77,7 +77,6 @@ static DMHtmlListener *instance = nil;
     
     //Register Receiver
     [DMCommModel registerReceiverCallWithCallingViewType:DEFAULTCALLINGVIEWTYPE];
-    
     [[APIManager sharedManager] setWebViewDelegate:self];
     [[APIManager sharedManager] setModuleMethodDelegate:self];
     [[APIManager sharedManager] setScriptMessageDelegate:self];
@@ -120,6 +119,13 @@ static DMHtmlListener *instance = nil;
         NSString *password = scriptMessage.userInfo[@"pwd"];
         [DMLoginAction loginWithUsername:account andPwd:password withWebView:webView andScriptMessage:scriptMessage];
     }
+    
+    if ([scriptMessage.name isEqualToString:@"update"]) {//登入系统，account&pwd
+        
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/cn/app/id1182914885?mt=8"]];
+        
+    }
+    
     
     if ([scriptMessage.name isEqualToString:@"DeviceList"]) {//门禁钥匙
         OpenDoorListViewController *nextCtr = [[OpenDoorListViewController alloc] init];
