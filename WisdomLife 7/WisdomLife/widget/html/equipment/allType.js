@@ -51,7 +51,16 @@ apiready = function() {
 	});
 
 	$("#myroom").bind("click", function() {
-		showRoomPage();
+		api.openWin({//打开有设备的界面
+			name : 'myLock',
+			url : '../../guanjia/html/guanjia/fangwu/addhouse.html',
+			slidBackEnabled : true,
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			}
+		});
 	});
 
 	$("#regist").bind("click", function() {

@@ -13,6 +13,8 @@
 #import "WisdomLife-Swift.h"
 #import "OpenDoorListViewController.h"
 #import "DoorListViewController.h"
+#import <StoreKit/StoreKit.h>
+
 
 @interface AppDelegate ()
 
@@ -48,13 +50,16 @@
     }
     
 //    [SplashView updateSplashData:@"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=996278178,3084539720&fm=26&gp=0.jpg" actUrl:@"http://www.baidu.com"];
-    UIImage *image = [UIImage imageNamed:@"ad_pic"];
+    UIImage *image = [UIImage imageNamed:@"guanggao"];
     [SplashView showSplashView:5 defaultImage:image tapSplashImageBlock:^(NSString * urlStr) {
 //        JJViewController *vc = [JJViewController new];
 //        [(UINavigationController *)self.window.rootViewController pushViewController:vc animated:YES];
 //        vc.urlString = urlStr;
     } splashViewDismissBlock:^(BOOL complete) {
-        
+
+//        [SKStoreReviewController requestReview];
+//        NSString  * nsStringToOpen = [NSString  stringWithFormat: @"itms-apps://itunes.apple.com/app/id%@?action=write-review",@"1182914885"];//替换为对应的APPID
+//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:nsStringToOpen]];
     }];
     return YES;
 }

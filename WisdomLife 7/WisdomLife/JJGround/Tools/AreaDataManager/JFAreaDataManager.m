@@ -45,7 +45,6 @@ static JFAreaDataManager *manager = nil;
     BOOL success = [db open];
     if (success) {
         // 数据库创建成功!
-        NSLog(@"数据库创建成功!");
         NSString *sqlStr = @"CREATE TABLE IF NOT EXISTS shop_area (area_number INTEGER ,area_name TEXT ,city_number INTEGER ,city_name TEXT ,province_number INTEGER ,province_name TEXT);";
         BOOL successT = [self.db executeUpdate:sqlStr];
         if (successT) {
@@ -70,6 +69,7 @@ static JFAreaDataManager *manager = nil;
     FMResultSet *result = [self.db executeQuery:@"SELECT DISTINCT city_name FROM shop_area;"];
     while ([result next]) {
         NSString *cityName = [result stringForColumn:@"city_name"];
+        NSLog(@"---cityName---:%@",cityName);
         [resultArray addObject:cityName];
     }
     cityData(resultArray);
