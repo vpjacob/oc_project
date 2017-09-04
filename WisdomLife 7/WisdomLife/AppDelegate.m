@@ -45,7 +45,7 @@
     UIApplicationShortcutItem *item = [[UIApplicationShortcutItem alloc] initWithType:@"onceOpen" localizedTitle:@"一键开门" localizedSubtitle:nil icon:onceOpen userInfo:nil];
     UIApplicationShortcutItem *item2 = [[UIApplicationShortcutItem alloc] initWithType:@"shortcutTypeTwo" localizedTitle:@"门口视频" localizedSubtitle:nil icon:video userInfo:nil];
     UIApplicationShortcutItem *item3 = [[UIApplicationShortcutItem alloc] initWithType:@"shortcutTypeThree" localizedTitle:@"门禁钥匙" localizedSubtitle:nil icon:keys userInfo:nil];
-        UIApplicationShortcutItem *item4 = [[UIApplicationShortcutItem alloc] initWithType:@"scan" localizedTitle:@"扫一扫" localizedSubtitle:nil icon:keys userInfo:nil];
+        UIApplicationShortcutItem *item4 = [[UIApplicationShortcutItem alloc] initWithType:@"eggs" localizedTitle:@"砸金蛋" localizedSubtitle:nil icon:keys userInfo:nil];
     [[UIApplication sharedApplication] setShortcutItems:@[item3,item2,item,item4]];
     }
     
@@ -56,10 +56,11 @@
 //        [(UINavigationController *)self.window.rootViewController pushViewController:vc animated:YES];
 //        vc.urlString = urlStr;
     } splashViewDismissBlock:^(BOOL complete) {
-
-//        [SKStoreReviewController requestReview];
-//        NSString  * nsStringToOpen = [NSString  stringWithFormat: @"itms-apps://itunes.apple.com/app/id%@?action=write-review",@"1182914885"];//替换为对应的APPID
+        
+//10        [SKStoreReviewController requestReview];
+//10以下        NSString  * nsStringToOpen = [NSString  stringWithFormat: @"itms-apps://itunes.apple.com/app/id%@?action=write-review",@"1182914885"];//替换为对应的APPID
 //        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:nsStringToOpen]];
+
     }];
     return YES;
 }
@@ -120,8 +121,8 @@
     }else if ([shortcutItem.type isEqualToString:@"shortcutTypeThree"]){
         OpenDoorListViewController *nextCtr = [[OpenDoorListViewController alloc] init];
         [(UINavigationController *)self.window.rootViewController pushViewController:nextCtr animated:YES];
-    }else if ([shortcutItem.type isEqualToString:@"scan"]){
-        [[DMHtmlListener manager] nativeSendActionToH5:@"scan"];
+    }else if ([shortcutItem.type isEqualToString:@"eggs"]){
+        [[DMHtmlListener manager] nativeSendActionToH5:@"eggs"];
     }
     
 }

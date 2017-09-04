@@ -9,10 +9,10 @@ var haoPing = 0;
 var companyNo;
 var comtype = '';
 var map;
+var fname=""
 apiready = function() {
 	id = api.pageParam.id;
 	comtype = api.pageParam.companytype;
-
 	var header = $api.byId('title');
 	if (api.systemType == 'ios') {
 		$api.css(header, 'margin-top:20px;');
@@ -20,11 +20,6 @@ apiready = function() {
 	$("#Back").on('click', function() {
 		api.closeWin();
 	});
-	//	$("#goH").on('click', function() {
-	//		api.toast({
-	//		    msg: '此功能暂未开通'
-	//		});
-	//	});
 	function listInfo(fid) {
 		//    /console.log(fid);
 		AjaxUtil.exeScript({
@@ -37,6 +32,7 @@ apiready = function() {
 				lat : lat
 			},
 			success : function(data) {
+				console.log($api.jsonToStr(data));
 				if (data.formDataset.checked == 'true') {
 					var account = data.formDataset.comDTO;
 					var list = $api.strToJson(account);
@@ -44,15 +40,6 @@ apiready = function() {
 					lon = list.longtitude;
 					lat = list.latitude;
 					shopname = list.companyname;
-					//             $('#sjname').html(list.companyname);
-					//             $('#address').html(list.address);
-					//             $('#companytype').html(list.companytype);
-					//             $('#tel').html(list.tel);
-					//             $('#time').html(list.starttime + "-" + list.endtime);
-					//             $('#mainbusiness').html(list.mainbusiness);
-					//             $('#summary').html(list.summary);
-					//             $('#type').html(list.companytype);
-
 					var distance = list.distance;
 					if (0 < distance && distance < 1000) {
 						distance = ('距此' + (distance.toFixed(1)) + 'm');
@@ -65,7 +52,6 @@ apiready = function() {
 						distance = ('距离暂无');
 					}
 					var starlen = list.star;
-
 					function starLenght(starlen) {
 						var daF = '';
 						var kf = '';
@@ -81,11 +67,11 @@ apiready = function() {
 						}
 
 						return daF + kf + '<span style="line-height:20px;font-size:15px;margin-left: 5px" id="pingCount"></span>';
-					}
-
+					};
 					var stares = starLenght(starlen);
 					$('#showstar').append(stares);
 					$('#distance').html(distance);
+					fname=list.fname;
 					list.fname == null ? $('.container').attr('id', '') : $('.container').attr('id', list.fname);
 					list.companyname == null ? $('#name').html('无') : $('#name').html(list.companyname);
 					list.companyname == null ? $('#sjname').html('无') : $('#sjname').html(list.companyname);
@@ -97,9 +83,27 @@ apiready = function() {
 					list.mainbusiness == null ? $('#mainbusiness').html('无') : $('#mainbusiness').html(list.mainbusiness);
 					list.industry_name == null ? $('#type').html('无') : $('#type').html(list.industry_name);
 					list.summary == null ? $('#summary').html('无') : $('#summary').html(list.summary);
-
+					//判断商品展示
+					if(list.goodimgurls=="" || list.goodimgurls==null || list.goodimgurls=="undefined"){
+						$(".showbus").hide();
+					}else{
+						var goodimgurls= list.goodimgurls.split(";");
+						var nowList="";
+						for(var i=0;i<goodimgurls.length;i++){
+							nowList+='<span class="swiper-slide"><img src="'+rootUrl+goodimgurls[i]+'"></span>'
+						};
+						$('#mainShowImg').html(nowList);
+						var swiper = new Swiper('.swiper-container', {
+					        pagination: '.swiper-pagination',
+					        paginationClickable: true,
+					        spaceBetween: 3,
+					        centeredSlides: true,
+					        width : 90,
+					    });
+					}
 					getReview(1);
-					goodBad()
+					goodBad();
+					
 				} else {
 					//alert(data.formDataset.errorMsg);
 				}
@@ -193,13 +197,12 @@ apiready = function() {
 			needTrascation : true,
 			funName : "findComments",
 			form : {
-				company_no : $('.container').attr('id'),
+				company_no : fname,
 				starMin : starMin || 1,
 				starMax : starMax || 5,
 				p : pages
 			},
 			success : function(data) {
-
 				console.log($api.jsonToStr(data));
 				if (data.formDataset.checked == 'true') {
 					var account = data.formDataset.result;

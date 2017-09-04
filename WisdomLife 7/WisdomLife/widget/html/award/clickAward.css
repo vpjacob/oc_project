@@ -1,0 +1,134 @@
+body {
+	font-family: "微软雅黑";
+	background-color: #efefef;
+}
+ img {
+ 	display: block;
+ } 
+input {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border: none;
+	text-align: right;
+}
+.tankuang_box {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 50001;
+	width: 100%;
+	height:100%;
+  	display:none;     
+	overflow: hidden;
+}
+.tankuang {
+	width: 100%;
+	height:100%;
+	margin: auto;
+	background-color: rgba(0,0,0,0);
+	overflow: hidden;
+}
+.tankuang img {
+	width: 100%;
+	height: 100%;
+}
+.tankuang .awareBox{
+	width: 66%;
+    height: 34%;
+  /*   border: 1px solid red; */
+	position: absolute;
+	top: 40%;
+	left: 17%;
+}
+.tankuang .goToAward {
+	font-family:"微软雅黑";
+    font-size: 0.9rem;
+    font-weight:700;
+    text-align:center;
+    margin-top:4%;
+    background-image: -webkit-gradient(linear, left top, left  bottom, from(rgba(255, 168, 2, 1)), to(rgba(255,255, 0, 1)));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	/*  text-shadow:-3px -3px 0 #000  */
+}
+.tankuang .goToAward span{
+	-webkit-text-stroke: 0.1rem white;
+	text-stroke: 0.1rem white;
+	-webkit-text-fill-color: #f8031e;
+	font-size: 1.5rem;
+}
+.tankuang .awareBox img{
+	width:44%;
+	height: 50%;
+	margin: 2% auto;
+}
+.tankuang .awareBox .clickButton{
+	width: 7.25rem;
+	height:2.1rem;
+	margin: -7% auto;
+}
+.bar:after{
+	background-color: rgba(0,0,0,0);
+}
+.box{
+	width:100%;
+	height:100%;
+	margin:0 auto;
+	background: url("../../image/award/icon-bj.png") no-repeat 0 0;
+	background-size: 100% 100%;
+}
+ .fanzt-chuizi {
+	position: absolute;
+	z-index: 9991;
+ 	   display: none;    
+	-webkit-transform: rotate(5deg);
+	-moz-transform: rotate(5deg);
+	-o-transform: rotate(5deg);
+	transform: rotate(5deg);
+}
+
+.box .sameBox{
+	position:absolute;
+	left:7%;
+	top:36%;
+	width:86%;
+	height: 28%;
+	/* border:1px solid red; */
+} 
+.box .sameBox .eggSame .hammer{
+    position: absolute;
+    top: -6.3rem;
+    left: 2rem;
+}
+.box .sameBox .eggSame .mainEgg{
+	width: 88px;
+	height: 82px;
+}
+.item-s-b{
+	display:-webkit-flex;
+	display:flex;	
+	-webkit-justify-content:space-between;
+	justify-content:space-between;	
+}
+.box .sameBox .top{
+	position: absolute;
+	top:0;
+	width: 100%
+}
+.box .sameBox .bottom{
+	position: absolute;
+	bottom:0;
+	width: 100%
+}
+
+
+
+
+
+
+
+
+
+
+

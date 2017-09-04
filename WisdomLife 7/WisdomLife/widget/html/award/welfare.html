@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<title>小客福利</title>
+		<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/zepto_fx.js' charset='utf-8'></script>
+		<link rel="stylesheet" type="text/css" href="welfare.css">
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
+		
+	</head>
+	<body>
+		<header class="bar bar-nav" id="title" style="background:rgba(0,0,0,0) ">
+			<h1 class="title" style="background-color:#fff;color: #000">小客福利</h1>
+			<a  class="iconfont icon-xiangzuo1 pull-left" style="font-size:20px;color:#0EAAE3;position:absolute;top:8px;" id="back"></a>
+		</header>
+		<div class="tankuang_box">
+			<img src="../../image/award/xklogo.png" class="xkLogo"/>
+			<div class="tankuang">
+				<div class="topTilte">
+					<span>小客福利</span>
+					<img src="../../image/award/icon_p.png" alt="" class="close"/>
+				</div>
+				<div class="addInfo">
+					请填写您的收货信息
+				</div>
+				<div class="addBox">
+					<div class="same" style="border:none">
+						<span>收货人姓名</span>
+						<input type="text" id="name"/>
+					</div>
+					<div class="same">
+						<span>手机号码</span>
+						<input type="text" id="telphone"/>
+					</div>
+					<div class="same">
+						<span>详细地址</span>
+						<div contenteditable=true class="test_box" id="addressInfo"></div>
+					</div>
+					<div class="same"></div>
+					<div class="postInfo">
+						提交
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="black_box"></div>
+		<div class="box">
+			<div class="top">
+				<img src="../../image/award/welfare.png" alt="" />
+				<img src="../../image/award/titleprice.png" id="titleprice"/>
+			</div>
+			<div class="bottom">
+				<div class="first">
+					<img src="../../image/award/gift.png" alt="" />
+					<span id="prizename"></span>
+					<button id="getButton">立即推荐</button>
+				</div>
+				<div class="second">
+					<div class="barline">
+						 <div style="width: 0%;" class="charts"></div> 
+					</div>
+					<span id="number" data=""></span>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../script/api.js"></script>
+	<script type="text/javascript" src="../../script/common.js"></script>
+	<script type="text/javascript" src="welfare.js"></script>
+	<script>
+		$(document).ready(function () {
+		　　$('body').height($('body')[0].clientHeight);
+		});
+	</script>
+</html>

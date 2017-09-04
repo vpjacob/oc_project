@@ -348,6 +348,17 @@
 			#sjname{
 				width:100%;
 			}
+			#mainShowImg img{
+				width:4rem;
+				height:4rem;
+				display:block;
+			}
+			#mainShowImg{
+				padding: 0 0;
+			}
+			.businessinformation .container{
+				padding: 0 0;
+			}
 		</style>
 	</head>
 	<body>
@@ -393,6 +404,15 @@
 			<div class="information-title">
 				商家信息
 			</div>
+			<div class="showbus">
+				<div class="swiper-container container" style="overflow: hidden;">
+			        <div class="swiper-wrapper" id="mainShowImg">
+						 <!-- <span class="swiper-slide"><img src="img/jsb.png"></span>
+		 					  <span class="swiper-slide"><img src="img/jsa.png"></span>
+		 					  <span class="swiper-slide"><img src="img/jsc.png"></span> -->
+					</div>
+				</div>
+			</div>
 			<div>
 				<i class="iconfont icon-shouji"></i> 联系电话：<span id="tel"></span>
 			</div>
@@ -403,11 +423,12 @@
 				<i class="iconfont icon-danlieliebiao"></i> 主营业务：<span id="mainbusiness"></span>
 			</div>
 			<div>
-				<i class="iconfont icon-fenxiang"></i> 简介： 				<textarea style="margin-top:10px;"disabled="disabled" id="summary"></textarea><div class="cl"></div>
+				<i class="iconfont icon-fenxiang"></i> 简介：<textarea style="margin-top:10px;"disabled="disabled" id="summary"></textarea><div class="cl"></div>
 			</div>
 			<div>
 				<i class="iconfont icon-zonghe"></i> 类型：<span id="type"></span>
 			</div>
+			
 		</div>
 		<div class="show">
 			<!--<div style='line-height:40px;padding:0 15px;font-size:15px;background:#ffffff;margin-bottom:1px; color:#333333;border: 1px solid #EEEEEE' id="refer">为您推荐的商家</div>-->
@@ -525,11 +546,13 @@
 	</body>
 	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ESDwG4YDWBmu8GnTVmzXIL82al8eEdi1"></script>
 	<script type="text/javascript" src="../script/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="../shangjia/js/swiper.js"></script> 
 	<script type="text/javascript" src="../script/api.js"></script>
 	<script type="text/javascript" src="../script/common.js"></script>
 	<script type="text/javascript" src="seller.js"></script>
 	<script>
 		function refresh() {
 			location.reload();
-		}
+		};
+			
 	</script>

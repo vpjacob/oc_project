@@ -56,6 +56,7 @@ apiready = function() {
 	}, function(ret, err) {
 
 	});
+	
 	/**====================================调用智果是否有设备接口====================================**/
 	if (logon == 'true') {
 		setUserKeyInfos();
@@ -111,7 +112,81 @@ apiready = function() {
 	FileUtils.readFile("info.json", function(info, err) {
 		urId = info.userNo;
 		isHaveEgg(urId);
+		checkIsNewUser();
 	});
+
+	//新人奖
+	
+	$(".goToAward").click(function(){
+		$(".tankuang_box").css("display","none");
+		api.openWin({
+			name : 'clickAward',
+			url : 'award/clickAward.html',
+			slidBackEnabled : true,
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			}
+		}); 
+	});
+	//检测是否为新用户
+	function checkIsNewUser() {
+		api.showProgress({});
+		AjaxUtil.exeScript({
+			script : "mobile.myegg.myaward",
+			needTrascation : true,
+			funName : "checkIsNewUser",
+			form : {
+				userNo : urId
+			},
+			success : function(data) {
+				api.hideProgress();
+				console.log("检测是否为新用户"+$api.jsonToStr(data));
+				if (data.formDataset.checked == 'true') {
+					var list = data.formDataset.isNewUser;
+					if(list==1){
+						queryIsGetAward();
+					}
+					
+				} else {
+//					alert(data.formDataset.errorMsg);
+				}
+			},
+			error : function(xhr, type) {
+				api.hideProgress();
+				alert("您的网络不给力啊，检查下是否连接上网络了！");
+			}
+		});
+	};
+	//检测是否已抽奖
+	function queryIsGetAward() {
+		api.showProgress({});
+		AjaxUtil.exeScript({
+			script : "mobile.myegg.myaward",
+			needTrascation : true,
+			funName : "queryIsGetAward",
+			form : {
+				userNo : urId
+			},
+			success : function(data) {
+				api.hideProgress();
+				console.log("检测是否已抽奖"+$api.jsonToStr(data));
+				if (data.formDataset.checked == 'true') {
+					var list = data.formDataset.isGet;
+					if(list==1){
+						$(".tankuang_box").show();
+					}
+				} else {
+//					alert(data.formDataset.errorMsg);
+				}
+			},
+			error : function(xhr, type) {
+				api.hideProgress();
+				alert("您的网络不给力啊，检查下是否连接上网络了！");
+			}
+		});
+	};
 
 	$("#afterTomorrow").html(DateUtils.getWeekDay(2));
 	$("#todayDay").html(DateUtils.getTodayDate());

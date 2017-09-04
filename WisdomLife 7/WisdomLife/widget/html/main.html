@@ -53,7 +53,7 @@
 				margin-right: -67px;
 				margin-top: 30px;
 				-webkit-animation: flash  linear 5s infinite ;
-				/* display: none; */
+				 display: none; 
 			}
 			.showCount{
 				float:right;
@@ -61,7 +61,7 @@
 				margin-top: 86px;
 			    font-size: 14px;
 			    color: white;
-			    /* display: none; */
+			     display: none; 
 			}
 			.showbus{
 				float:left;
@@ -71,6 +71,12 @@
 				margin-top: 30px;
 				-webkit-animation: flash  linear 5s infinite ;
 			}
+			.showbusLeft{
+				width: 2.5rem;
+				height: 3.5rem;
+				margin-left: -54px;
+   			    margin-top: 0.6rem;
+			}
 			.showBusCount{
 				float:left;
 				margin-left: 12px;
@@ -78,9 +84,43 @@
 			    font-size: 14px;
 			    color: white;
 			}
+			/* 新人奖 */
+			.tankuang_box{
+				position:fixed;
+				top:0;
+				left:0;
+				z-index:50001;
+				width:100%;
+				display:none;    
+				overflow: hidden;
+			}
+			.tankuang{
+				width:100%;
+				margin:auto;
+				background-color: rgba(0,0,0,0);
+				overflow:hidden;
+			}
+			.tankuang img{
+				width:100%;
+				height: 100%;
+			}
+			.tankuang .goToAward{
+				/* border:1px solid red; */
+				width:5.5rem;
+				height: 2.0rem;
+				position: absolute;
+				bottom: 23.5%;
+				left:35%;
+			}
 		</style>
 	</head>
 	<body>
+	<div class="tankuang_box">
+		<div class="tankuang">
+			<img src="../image/award/mainBgi.png"></img>
+			<div class="goToAward"></div>
+		</div>
+	</div>
 		<div class="page">
 			<!--==========================================================================-->
 			<!-- content应该拥有"pull-to-refresh-content"类,表示启用下拉刷新 -->
@@ -159,7 +199,7 @@
 				<span class="showCount">金蛋宝宝</span>
 				<img src="../image/mainEggGraey.jpg" class="showEgg" id="mainEgg"/>
 				<span class="showBusCount">小客商城</span>
-				<img src="../image/mainbus.jpg" class="showbus" id="showbus"/>
+				<img src="../image/mainbus.jpg" class="showbus showbusLeft" id="showbus"/>
 				<div id="bodycontent" style="opacity:1">
 					<div class="bottom" id="bottom">
 						<div class="hint">

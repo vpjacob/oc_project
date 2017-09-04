@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<title>我的金蛋</title>
+		<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/zepto_fx.js' charset='utf-8'></script>
+		<link rel="stylesheet" type="text/css" href="clickAward.css">
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
+		<style>
+			body {
+				font-family: "微软雅黑";
+			}
+			a {
+				color: #000;
+			}
+			a:active, a:link, a:visited, a:hover {
+				color: #000;
+				text-decoration: none;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="bar bar-nav" id="header" style="background:rgba(0,0,0,0);position: absolute">
+			<a class="icon  pull-left" id="closePage" style="padding: .8rem .1rem;">
+		   		<i class="iconfont icon-xiangzuo1" style="font-size: 1.2rem;color: white;" id="back"></i> 
+			</a>
+		</header>
+		<div class="tankuang_box">
+			<div class="tankuang">
+				 <img src="../../image/award/icon-b.png"></img> 
+				<div class="awareBox">
+					<div class="goToAward">北京小客科技恭喜您砸得</div> 
+					<div class="goToAward" style="margin-top: -2%;font-size: 1.25rem">价值<span id="prizePrice">0</span>元</div> 
+					<div class="goToAward" style="margin-top: -2%;font-size: 1.25rem" id="prizename"></div> 
+					<img src="" alt="无" id="prizeImg"/>
+					<img src="../../image/award/button.png" class="clickButton"></img> 
+				</div>
+				
+			</div>
+		</div>
+		<div class="box">
+			<div class="sameBox">
+				<div class="top  item-s-b">
+					<div class="eggSame" data-flag="0" onClick="eggClick(this)">
+					 	<img src="../../image/award/mainEgg.jpg" alt="" class="mainEgg"/>
+						<div class="fanzt-chuizi jcz" ><img src="../../image/img-6.png" class="hammer"></div> 
+					</div>
+					<div class="eggSame" data-flag="0" onClick="eggClick(this)">
+					 	<img src="../../image/award/mainEgg.jpg" alt="" class="mainEgg"/>
+						<div class="fanzt-chuizi jcz"><img src="../../image/img-6.png" class="hammer"></div> 
+					</div>
+					<div class="eggSame" data-flag="0" onClick="eggClick(this)">
+					 	<img src="../../image/award/mainEgg.jpg" alt="" class="mainEgg"/>
+						<div class="fanzt-chuizi jcz" ><img src="../../image/img-6.png" class="hammer"></div> 
+					</div>
+				</div>
+				<div class="bottom  item-s-b">
+					<div class="eggSame" data-flag="0" onClick="eggClick(this)">
+					 	<img src="../../image/award/mainEgg.jpg" alt="" class="mainEgg"/>
+						<div class="fanzt-chuizi jcz" ><img src="../../image/img-6.png" class="hammer"></div> 
+					</div>
+					<div class="eggSame" data-flag="0" onClick="eggClick(this)">
+					 	<img src="../../image/award/mainEgg.jpg" alt="" class="mainEgg"/>
+						<div class="fanzt-chuizi jcz" ><img src="../../image/img-6.png" class="hammer"></div> 
+					</div>
+					<div class="eggSame" data-flag="0" onClick="eggClick(this)">
+					 	<img src="../../image/award/mainEgg.jpg" alt="" class="mainEgg"/>
+						<div class="fanzt-chuizi jcz"><img src="../../image/img-6.png" class="hammer"></div> 
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../script/api.js"></script>
+	<script type="text/javascript" src="../../script/common.js"></script>
+	<script type="text/javascript" src="clickAward.js"></script>	
+</html>

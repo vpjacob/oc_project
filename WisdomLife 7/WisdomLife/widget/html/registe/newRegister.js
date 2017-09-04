@@ -296,7 +296,7 @@ apiready = function() {
 						api.execScript({
 							sync : true,
 							name : 'root',
-							script : 'openCenterPage();'
+							script : 'openWeatherPage();'
 						});
 //					} else if (isnearby == "true") {
 //						console.log('邻里');

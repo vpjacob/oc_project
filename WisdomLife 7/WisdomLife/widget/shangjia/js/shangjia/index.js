@@ -223,7 +223,7 @@ apiready = function() {
 	$('#sou').click(function() {
 		$('#tab1').html('');
 		page = 1;
-		getDistance("", "");
+		getDistance("", cityName);
 	});
 
 	//	单击相应的分类获取分类
@@ -378,7 +378,8 @@ apiready = function() {
 	function businessList(pages, typeId, city) {
 		if ( typeof (city) == "undefined" || city == "") {
 			city = "北京";
-		}
+		};
+		api.showProgress({});
 		AjaxUtil.exeScript({
 			script : "mobile.business.business",
 			needTrascation : true,
@@ -395,6 +396,7 @@ apiready = function() {
 			},
 			success : function(data) {
 					console.log("商家列表：" + $api.jsonToStr(data));
+					api.hideProgress();
 				if (data.formDataset.checked == 'true') {
 					var account = data.formDataset.companyDataList;
 					var list = $api.strToJson(account);
@@ -449,11 +451,14 @@ apiready = function() {
 							} else {
 								distance = ('距离暂无');
 							}
-							var nowli = '<div class="businessman-box" id="' + list[i].fid + '" data="' + list[i].industry_name + '">' + '<div class="businessman-list">' + '<div class="left"><img src="' + rootUrl + list[i].shopurl + '" alt=""/></div>' + '<dl class="left">' + '<dt>' + list[i].companyname + '</dt>' + '<dd>' + '' + starLenght(starlen) + '' + '<span></span>' + '</dd>' + '<dd>' + list[i].industry_name + '<span class="text-right" >' + distance + '</span></dd>' + '</dl>' + '</div>' + '</div>';
-
+							var nowli = '<div class="businessman-box" id="' + list[i].fid + '" data="' + list[i].industry_name + '">' + '<div class="businessman-list">' + '<div class="left"><img  class="lazy" src="' + rootUrl + list[i].shopurl + '" alt=""/></div>' + '<dl class="left">' + '<dt>' + list[i].companyname + '</dt>' + '<dd>' + '' + starLenght(starlen) + '' + '<span></span>' + '</dd>' + '<dd>' + list[i].industry_name + '<span class="text-right" >' + distance + '</span></dd>' + '</dl>' + '</div>' + '</div>';
 							$('#tab1').append(nowli);
+						    
 						}
-						//               getDistance()
+//						$("#tab1 .lazy").lazyload({
+//							threshold : 300,
+//							effect : "fadeIn",
+//						}); 
 					}
 
 					pageCount = data.formDataset.count > 10 ? Math.ceil(data.formDataset.count / 10) : 1;
@@ -481,6 +486,7 @@ apiready = function() {
 
 	//商家列表进行跳转
 	$('#tab1').on('click', '.businessman-box', function() {
+
 		api.openWin({//详情界面
 			name : 'business-man-list',
 			url : '../../sjDetail/business-man-list.html',
@@ -515,10 +521,8 @@ apiready = function() {
 		});
 	});
 
-	//获取商家地理位置
-	$('#nearby').click(function() {
-		
-                       
+    //获取商家地理位置
+    $('#nearby').click(function() {
                        if (api.systemType == 'ios') {
                        api.accessNative({
                                         name : 'NativeSelectCity',
@@ -537,9 +541,10 @@ apiready = function() {
                        }else{
                        getCityList();
                        }
-                       
-                       
-	})
+                       })
+    
+    
+    
 	function getCityList() {
 		var hh = 0;
 		var UICityList = api.require('UICityList');
@@ -597,8 +602,8 @@ apiready = function() {
 						//							pageParam : {
 						//								id : $(this).attr()
 						//							}
-						cityName=ret.cityInfo.city
-                        page = 1;
+						cityName=ret.cityInfo.city;
+						page=1;
 						$('#tab1').children().remove();
 						getDistance("", ret.cityInfo.city);
 						$('#showCity').html(ret.cityInfo.city);

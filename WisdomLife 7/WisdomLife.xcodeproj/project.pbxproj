@@ -61,7 +61,6 @@
 		D6815E781F21AC6B0047F382 /* KNBVideoPlayerAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6815E731F21AC6B0047F382 /* KNBVideoPlayerAlertView.m */; };
 		D6815E791F21AC6B0047F382 /* KNBVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6815E751F21AC6B0047F382 /* KNBVideoPlayerController.m */; };
 		D6815E7A1F21AC6B0047F382 /* KNBVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6815E771F21AC6B0047F382 /* KNBVideoPlayerView.m */; };
-		D6815EFF1F22039C0047F382 /* JJUploadVideoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6815EFE1F22039C0047F382 /* JJUploadVideoManager.m */; };
 		D684082D1F04B1F300E57E88 /* APICloud.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D68407851F04B1F300E57E88 /* APICloud.a */; };
 		D684082E1F04B1F300E57E88 /* ajpush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D68407961F04B1F300E57E88 /* ajpush.a */; };
 		D684082F1F04B1F300E57E88 /* aliPay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D68407971F04B1F300E57E88 /* aliPay.a */; };
@@ -420,8 +419,6 @@
 		D6815E751F21AC6B0047F382 /* KNBVideoPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNBVideoPlayerController.m; sourceTree = "<group>"; };
 		D6815E761F21AC6B0047F382 /* KNBVideoPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNBVideoPlayerView.h; sourceTree = "<group>"; };
 		D6815E771F21AC6B0047F382 /* KNBVideoPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNBVideoPlayerView.m; sourceTree = "<group>"; };
-		D6815EFD1F22039C0047F382 /* JJUploadVideoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJUploadVideoManager.h; sourceTree = "<group>"; };
-		D6815EFE1F22039C0047F382 /* JJUploadVideoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJUploadVideoManager.m; sourceTree = "<group>"; };
 		D68407851F04B1F300E57E88 /* APICloud.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = APICloud.a; sourceTree = "<group>"; };
 		D68407861F04B1F300E57E88 /* APIEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIEvent.h; sourceTree = "<group>"; };
 		D68407881F04B1F300E57E88 /* NSDictionaryUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDictionaryUtils.h; sourceTree = "<group>"; };
@@ -1175,8 +1172,6 @@
 				D6815E751F21AC6B0047F382 /* KNBVideoPlayerController.m */,
 				D6815E761F21AC6B0047F382 /* KNBVideoPlayerView.h */,
 				D6815E771F21AC6B0047F382 /* KNBVideoPlayerView.m */,
-				D6815EFD1F22039C0047F382 /* JJUploadVideoManager.h */,
-				D6815EFE1F22039C0047F382 /* JJUploadVideoManager.m */,
 				D69480881F4459010077BCB5 /* JJVersionCodeController.h */,
 				D69480891F4459010077BCB5 /* JJVersionCodeController.m */,
 				D694808A1F4459010077BCB5 /* JJVersionCodeController.xib */,
@@ -2545,7 +2540,6 @@
 				D6F953611EFCA2C200683812 /* ProcessDBData.m in Sources */,
 				D6ABBFA61F00A48C008FB306 /* View+MASAdditions.m in Sources */,
 				D6F953671EFCA2C200683812 /* Advertisement.m in Sources */,
-				D6815EFF1F22039C0047F382 /* JJUploadVideoManager.m in Sources */,
 				D6F953551EFCA2C200683812 /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				D6ABBFA71F00A48C008FB306 /* ViewController+MASAdditions.m in Sources */,
 				D6F952F41EFCA2C200683812 /* AFHTTPSessionManager.m in Sources */,

@@ -1,0 +1,232 @@
+body {
+	font-family: "微软雅黑";
+	background-color: #efefef;
+}
+ img {
+ 	display: block;
+ } 
+input {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border: none;
+	text-align: right;
+}
+
+.black_box{
+	background:rgba(0,0,0,0.5);
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:20000;
+	height:100%;
+	width:100%;
+	 display:none;   
+	overflow: auto;
+}
+.tankuang_box{
+	position:absolute;
+	top:14.5%;
+	left:0;
+	z-index:20001;
+	width:100%;
+	 display:none;   
+	overflow: hidden;
+}
+.tankuang_box .xkLogo{
+	width:3.775rem;
+	height: 4.25rem;
+	position: relative;
+	top:1.7rem;
+	left: 2.0rem;
+}
+.tankuang{
+	width:73%;
+	/* height:310px; */
+	margin:auto;
+	background-color: white;
+	border-radius:5px;
+	overflow:hidden;
+	border:2px solid #ddd;
+	position: relative;
+	z-index: 50000;
+}
+.tankuang .topTilte{
+	width:100%;
+	height: 1rem;
+	color:white;
+	background: #ff632d;
+	font-size: 0.6rem;
+}
+.tankuang .topTilte span{
+	margin-left: 0.75rem;
+	float:left;
+	margin-top: 0.05rem;
+}
+.tankuang .topTilte img{
+	margin-right: 0.5rem;
+	float:right;
+	margin-top:0.11rem;
+	width: 0.75rem;
+	height: 0.75rem;
+}
+.tankuang .addInfo{
+	font-size: 0.8rem;
+	color:black;
+	text-align: center;
+	margin-top: 0.9rem;
+}
+.tankuang .addBox{
+	width:100%;
+	/* border:1px solid red; */
+	margin-top: 0.75rem;
+}
+.tankuang .addBox .same{
+	width:100%;
+	/* height: 2.25rem; */
+	clear:both;
+	border-bottom: 1px solid rgb(221,221,221);
+}
+.tankuang .addBox span{
+	font-size:0.75rem;
+	color: rgb(158,158,158);
+	line-height:2.25rem;
+	float: left;
+	margin-left: 3.46%;
+}
+.tankuang .addBox input{
+	float:left;
+	text-align: left;
+	width:55%;
+	margin-left: 5%;
+	font-size:0.75rem;
+	margin-top: 0.6rem;
+}
+.test_box {
+    width: 65%;
+    float:left;
+    margin-left:5%;
+    margin-top:0.5rem;
+    min-height: 1.2rem;
+    max-height: 2.2rem;
+    font-size: 0.75rem;
+    -webkit-user-select:text; /* IOS中div contenteditable=true无法输入 */
+     word-wrap: break-word;
+    overflow-x: hidden;
+    overflow-y: auto;
+    _overflow-y: visible; 
+}
+.postInfo{
+	width:88%;
+	margin:0 auto;
+	height: 1.65rem;
+	background:-webkit-linear-gradient(left,#55A5C0 0,#4164C2 100%);
+	text-align: center;
+	line-height: 1.65rem;
+	font-size: 1rem;
+	color: white;
+	margin-top: 1.625rem;
+	border-radius: 1rem;
+	margin-bottom:1rem;
+}
+
+
+.box{
+	width: 92%;
+	margin:0 auto;
+	margin-top:3.4rem;
+	
+}
+.box .top img{
+	width: 100%;
+	height: 9rem;
+}
+.box .top img:nth-child(2){
+    width: 8.325rem;
+    height: 4.95rem;
+    position: absolute;
+    right: 4%;
+    top: 7.4rem;
+}
+.box .bottom{
+	width: 100%;
+	height: 3.75rem;
+	/* border:1px solid red; */
+	background: #fff;
+}
+.box .bottom .first{
+	width: 100%;
+	height: 2.5rem;
+	/* border:1px solid red; */
+}
+.box .bottom .first img{
+	width:1.9rem;
+	height: 1.25rem;
+	margin-top: 0.35rem;
+	float: left;
+}
+.box .bottom .first span{
+	float: left;
+	font-size: 0.7rem;
+	color: rgb(40,40,40);
+	font-family: 'Microsoft YaHei';
+	font-weight: 700;
+	margin-top: 0.5rem;
+	margin-left: 0.5rem;
+} 
+.box .bottom .first button{
+	width: 3.875rem;
+	height: 1.25rem;
+	float: right;
+	background: #FF632D;
+	margin-top: 0.5rem;
+	margin-right: 0.5rem;
+	border-radius: 1rem;
+	color:white;
+	font-size: 0.75rem;
+	text-align: center;
+	line-height: 1.25rem;
+}
+.box .bottom .second .barline{
+	width: 82%;
+	height: 0.8rem;
+	margin-top: 0.2rem;
+	margin-left: 1%;
+	float: left;
+	background:url("../../image/award/icon_jdt.png") 0 0 no-repeat;
+	background-size:100%;
+	overflow:hidden;
+	border-radius: 8px;
+}
+.box .bottom .second .charts{
+	width: 82%;
+	height: 0.8rem;
+	float: left;
+	background-size:100%;
+	overflow:hidden;
+	background:url("../../image/award/icon_jd.png") right center repeat-x;
+	border-radius: 8px;
+
+}
+.box .bottom .second span{
+	font-size: 0.6rem;
+	color: rgb(0,188,213);
+	float: right;
+	margin-right: 1%;
+	margin-top: 0.1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

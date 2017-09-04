@@ -93,7 +93,7 @@ import UIKit
         self.addSubview(imageView!)
         
         skipButton = UIButton(frame: CGRect(x: screenWidth - buttonSizeW - buttonMargin,
-            y: buttonMargin + statusHeight, width: buttonSizeW, height: buttonSizeH))
+                                            y: buttonMargin + statusHeight, width: buttonSizeW, height: buttonSizeH))
         skipButton?.layer.cornerRadius = buttonSizeH / 2
         skipButton?.clipsToBounds = true
         skipButton?.backgroundColor = UIColor(red: 0.3, green: 0.3, blue: 0.3, alpha: 0.3)
@@ -122,10 +122,10 @@ import UIKit
     
     func setupTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1.0,
-                                                       target: self,
-                                                       selector: #selector(timerCycleAction),
-                                                       userInfo: nil,
-                                                       repeats: true)
+                                     target: self,
+                                     selector: #selector(timerCycleAction),
+                                     userInfo: nil,
+                                     repeats: true)
     }
     
     func stopTimer() {
@@ -145,15 +145,15 @@ import UIKit
         
         stopTimer()
         UIView.animate(withDuration: 0.6,
-                                   animations: {
-                                    self.alpha = 0.0
-                                    self.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
-            },
-                                   completion: {(finished) -> Void in
-                                    self.removeFromSuperview()
-                                    if let _splashViewDissmissBlock = self.splashViewDissmissBlock {
-                                        _splashViewDissmissBlock(initiativeDismiss)
-                                    }
+                       animations: {
+                        self.alpha = 0.0
+                        self.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        },
+                       completion: {(finished) -> Void in
+                        self.removeFromSuperview()
+                        if let _splashViewDissmissBlock = self.splashViewDissmissBlock {
+                            _splashViewDissmissBlock(initiativeDismiss)
+                        }
         })
     }
     
