@@ -114,6 +114,7 @@
         DoorDto *model = [[DoorDto alloc] init];
         [model encodeFromDictionary:result];
         if (IsArrEmpty(model.dataArr)) {
+            [[DeviceManager manager] updateAllLocalDeviceList];
         } else {
             
             [[DeviceManager manager].tmpList addObjectsFromArray:model.dataArr];

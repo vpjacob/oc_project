@@ -105,7 +105,7 @@ apiready = function() {
 					}else if(list==4){
 						$("#getButton").html("已经领取");
 					}else if(list==0){
-						$(".box").hide();
+//						$(".box").hide();
 						api.toast({
 	                        msg:'只限新用户参加！'
                         });
