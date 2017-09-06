@@ -30,7 +30,11 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
+<<<<<<< HEAD
 	<string>225</string>
+=======
+	<string>224</string>
+>>>>>>> ce955ba80e92fdaa8b95c63fe654ededdcb0d9f0
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSApplicationQueriesSchemes</key>
