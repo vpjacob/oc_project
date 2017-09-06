@@ -20,7 +20,7 @@ DerivedData
 *.xml
 common.js
 JJSelectAddressViewController.m
-
+Info.plist
 
 #CocoaPods
 Pods
