@@ -18,6 +18,13 @@ apiready = function() {
 		$api.css(cc, 'margin-top:3.1rem;');
 	};
 
+    var indexid = api.pageParam.indexid;
+    if(indexid==true){
+        $("#Back").hide();
+        if (api.systemType == 'ios'){
+            $api.css(submit, 'top:0.8rem');
+        }
+    }
 	
 	//查找所有商品分类
 	function queryProductTypeList() {

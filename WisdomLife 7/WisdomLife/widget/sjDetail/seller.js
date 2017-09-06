@@ -9,7 +9,9 @@ var haoPing = 0;
 var companyNo;
 var comtype = '';
 var map;
-var fname=""
+var fname="";
+var goodimgurls="";
+var headpic="";
 apiready = function() {
 	id = api.pageParam.id;
 	comtype = api.pageParam.companytype;
@@ -37,6 +39,7 @@ apiready = function() {
 					var account = data.formDataset.comDTO;
 					var list = $api.strToJson(account);
 					$('#headpic').attr('src', rootUrl + list.shopurl);
+					headpic=rootUrl + list.shopurl
 					lon = list.longtitude;
 					lat = list.latitude;
 					shopname = list.companyname;
@@ -87,10 +90,10 @@ apiready = function() {
 					if(list.goodimgurls=="" || list.goodimgurls==null || list.goodimgurls=="undefined"){
 						$(".showbus").hide();
 					}else{
-						var goodimgurls= list.goodimgurls.split(";");
+						goodimgurls= list.goodimgurls.split(";");
 						var nowList="";
 						for(var i=0;i<goodimgurls.length;i++){
-							nowList+='<span class="swiper-slide"><img src="'+rootUrl+goodimgurls[i]+'"></span>'
+							nowList+='<span class="swiper-slide"><img src="'+rootUrl+goodimgurls[i]+'" data="'+i+'"></span>'
 						};
 						$('#mainShowImg').html(nowList);
 						var swiper = new Swiper('.swiper-container', {
@@ -100,7 +103,7 @@ apiready = function() {
 					        centeredSlides: true,
 					        width : 90,
 					    });
-					}
+					};
 					getReview(1);
 					goodBad();
 					
@@ -110,7 +113,30 @@ apiready = function() {
 			}
 		});
 	}
-
+//商品图片展示放大功能及展示相应的索引
+    var imageBrowser = api.require('imageBrowser');
+	$('.showbus').on('click', 'img', function() {
+		imgPath($(this).attr("data"),goodimgurls);
+	});
+	//点击门头头像放大功能
+	$('#headpic').click(function() {
+		imageBrowser.openImages({
+			imageUrls : [headpic],
+			activeIndex:0,
+			showList:false
+		});
+	});
+	function imgPath(index,imgs) {
+		var imgUrl = [];
+		for (var i = 0; i < imgs.length; i++) {
+			imgUrl.push(rootUrl+imgs[i]);
+		}
+		imageBrowser.openImages({
+			imageUrls : imgUrl,
+			activeIndex:index,
+			showList:false
+		});
+	};
 
 	$('#goToHere').click(function() {
 		if (lon && lat && shopname) {
@@ -189,7 +215,6 @@ apiready = function() {
 
 	getDistance();
 	//getDistance();
-
 	function getReview(pages, starMin, starMax) {
 		//alert($('.container').attr('id'));
 		AjaxUtil.exeScript({
@@ -235,27 +260,29 @@ apiready = function() {
 								return daF + kf;
 							}
 
+							var strlist = "";
 							//展示图片方法
 							function pic(picLen) {
 								var picCount = '';
+								var picCount1 = "";
 								for (var j = 0; j < picLen.length; j++) {
 									//alert(picLen[j]);
-									picCount += '<img src="' + rootUrl + picLen[j] + '" alt=""/>';
+									picCount += '<img src="' + rootUrl + picLen[j] + '"  class="showimg"  data="' + j + '"alt=""/>';
+									strlist += picLen[j];
+									strlist += ",";
 								}
-								return picCount;
+								strlist = strlist.substring(0, strlist.length - 1);
+								picCount1 += '<div class="conmment-ps" data="' + strlist + '">';
+								picCount += '<div class="cl"></div>' + '</div>';
+								picCount1 += picCount;
+								return picCount1;
 							}
 
 							var time = list[i].create_time.split(' ');
-							var nowli = '<div class="conmment-neirong">' + '<span class="showPic"><img src="' + rootUrl + list[i].head_image + '" alt="" /></span>' + '<span>' + '<div>' + list[i].user_no + '' + '</div>' + '<div><span class="dafen">打分</span>' + '' + starLenght(starlen) + '' + '<div class="cl"></div>' + '</div>' + '</span>' + '<span class="youzhi">' + time[0] + '</span>' + '<div class="cl"></div></div>' + '<div class="conmment-jianjie"><span>' + list[i].content + '</span></div>' + '<div class="conmment-ps">' + '' + pic(picLen) + '' + '<div class="cl"></div>' + '</div>' + '<div class="conmment-pl" style="border-bottom:1px solid #EAEAEA; height: 12px;width: 100%"></div>'
+							var nowli = '<div class="conmment-neirong">' + '<span class="showPic"><img src="' + rootUrl + list[i].head_image + '" alt="" /></span>' + '<span>' + '<div>' + list[i].user_no + '' + '</div>' + '<div><span class="dafen">打分</span>' + '' + starLenght(starlen) + '' + '<div class="cl"></div>' + '</div>' + '</span>' + '<span class="youzhi">' + time[0] + '</span>' + '<div class="cl"></div></div>' + '<div class="conmment-jianjie"><span>' + list[i].content + '</span></div>' + '' + pic(picLen) + '' + '<div class="conmment-pl" style="border-bottom:1px solid #EAEAEA; height: 12px;width: 100%"></div>'
 							$('#showList').append(nowli);
-
 						}
-						//		       		alert(haoPing);
-						//		       		alert(chaPing);
-						//		       		$('#haoP').html('网友好评（'+haoPing+'）');
-						//		       		$('#chaP').html('网友差评（'+chaPing+'）');
 					}
-
 					pageCount = data.formDataset.count > 10 ? Math.ceil(data.formDataset.count / 10) : 1;
 					console.log("返回的:pageCount=" + pageCount);
 					console.log("返回的page=" + page);
@@ -266,90 +293,9 @@ apiready = function() {
 		});
 	}
 
-	//推荐相关商家列表
-	//	function recommendList(){
-	//		AjaxUtil.exeScript({
-	//	      script:"mobile.business.business",
-	//	      needTrascation:true,
-	//	      funName:"findBusinessIsrecommendList",
-	//	      form:{
-	//	         is_recommend:'0',
-	//	         is_online:'0',
-	//	         recordCount:4,
-	//	         typename:comtype,
-	//	         lng:lon,
-	//		     lat:lat
-	//	      },
-	//	      success:function (data) {
-	//	      console.log("推荐相关商家列表"+$api.jsonToStr(data));
-	//	       if (data.formDataset.checked == 'true') {
-	//	       		var account = data.formDataset.companyDataList;
-	//	       		var list=$api.strToJson(account);
-	//	       			if(list.length==undefined ||list.length==0 ||list==undefined || list=='' || list.length  ==''){
-	//	       				$('#refer').html('为您推荐的商家: 暂无');
-	//						return false;
-	//	       			}else{
-	//	       			var nowli ="";
-	//
-	//	       			for(var i=0;i<list.length;i++){
-	//	       				var starlen=list[i].star;
-	//		       			//alert(picLen.length); 评星数
-	//		       			function starLenght(starlen){
-	//		       				var daF='';
-	//		       				var kf='';
-	//		       				if(starlen==0||starlen==''||starlen==undefined){
-	//		       					daF='<span style="float:left">评星暂无</span>'
-	//		       				}else{
-	//				       			for(var k=0;k<starlen;k++){
-	//				       				 daF+='<img src="./img/stares.jpg" alt=""/>'
-	//				       			}
-	//				       			for(var w=0;w<5-starlen;w++){
-	//				       				kf+='<img src="./img/gstars.png" alt=""/>'
-	//				       			}
-	//			       			}
-	//		       				return daF+kf;
-	//		       			}
-	//		       			var distance=list[i].distance;
-	//		       			if(0<distance&&distance<1000){
-	//				    		distance=('距此'+(distance.toFixed(1))+'m');
-	//				    	}else if(1000<=distance&&distance<5000){
-	//				    		distance=((distance/1000).toFixed(1));
-	//				    		distance=('距此'+(distance.toFixed(1))+'km');
-	//				    	}else if(distance>5000){
-	//				    		distance=('距此大于5km');
-	//				    	}else{
-	//				    		distance=('距离暂无');
-	//				    	}
-	//	       				//nowli += '<dl class="recommend-details" id="'+list[i].fid+'"><img src="'+rootUrl+list[i].head_image+'" alt="" /><dt>'+list[i].companyname+'</dt><dd>'+list[i].companytype+'</dd></dl>';
-	//						nowli+='<div class="show-list" id="'+list[i].fid+'"><img src="'+rootUrl+list[i].head_image+'" alt="" class="show-p"/><div>'+list[i].companyname+'</div><div>'+starLenght(starlen)+'<span>'+distance+'</span><div class="cl"></div></div><div >'+list[i].mainbusiness+'</div><div class="cl"></div></div>'
-	//
-	//	       			}
-	//	       				$('#recommends').append(nowli);
-	//	       			}
-	//	         } else {
-	//	             alert(data.formDataset.errorMsg);
-	//	         }
-	//	       }
-	//	    });
-	//	}
-	//  推荐相关商家跳转
-	//	$('#recommends').on('click','.show-list',function() {
-	//			api.openWin({//详情界面
-	//				name : 'nearList',
-	//				url : 'nearList.html',
-	//				slidBackEnabled : true,
-	//				animation : {
-	//					type : "push", //动画类型（详见动画类型常量）
-	//					subType : "from_right", //动画子类型（详见动画子类型常量）
-	//					duration : 300 //动画过渡时间，默认300毫秒
-	//				},
-	//				pageParam : {
-	//					id : $(this).attr('id'),
-	//					companytype:$(this).attr('data')
-	//				}
-	//			});
-	//		});
-
+	$('#showList').on('click', '.showimg', function() {
+		imgPath($(this).attr("data"), $(this).parent().attr("data").split(","));
+	}); 
 	function goodBad() {
 		//alert($('.container').attr('id'));
 		AjaxUtil.exeScript({
