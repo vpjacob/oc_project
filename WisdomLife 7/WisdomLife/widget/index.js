@@ -559,9 +559,36 @@ function openAroundPage() {
  *打开邻里首页
  */
 function openNeighboursPage() {
-    api.toast({
-              msg : '程序员卖力开发中，敬请期待！'
-              });
+    $("#neighbours").addClass("changeCor").siblings().removeClass("changeCor");
+//    api.openWin({
+//                name : 'busList',
+//                url : 'shangjia/html/buyList.html',
+//                slidBackEnabled : true,
+//                animation : {
+//                type : "push", //动画类型（详见动画类型常量）
+//                subType : "from_right", //动画子类型（详见动画子类型常量）
+//                duration : 300 //动画过渡时间，默认300毫秒
+//                }
+//                });
+    			api.openWin({
+    				name : 'busList',
+    				url : 'shangjia/html/buyList.html',
+    				bounces : false,
+    				rect : {
+    					x : 0,
+    					y : headerH,
+    					w : 'auto',
+    					h : frameH
+    				},
+    				animation : {
+    					type : "push", //动画类型（详见动画类型常量）
+    					subType : 'from_right', //动画子类型（详见动画子类型常量）
+    					duration : 300
+    				}
+    			});
+    //    api.toast({
+//              msg : '程序员卖力开发中，敬请期待！'
+//              });
 //	memberid = api.getPrefs({
 //		sync : true,
 //		key : 'memberid'
