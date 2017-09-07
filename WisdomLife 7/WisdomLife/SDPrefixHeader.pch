@@ -54,15 +54,15 @@
 #define kDarkGrayColor    [UIColor darkGrayColor]
 #define kLightGrayColor   [UIColor lightGrayColor]
 #define kGrayColor        [UIColor grayColor]
-#define kRedColor         [UIColor redColor]
-#define kGreenColor       [UIColor greenColor]
-#define kBlueColor        [UIColor blueColor]
-#define kCyanColor        [UIColor cyanColor]
-#define kYellowColor      [UIColor yellowColor]
-#define kMagentaColor     [UIColor magentaColor]
-#define kOrangeColor      [UIColor orangeColor]
-#define kPurpleColor      [UIColor purpleColor]
-#define kBrownColor       [UIColor brownColor]
+//#define kRedColor         [UIColor redColor]
+//#define kGreenColor       [UIColor greenColor]
+//#define kBlueColor        [UIColor blueColor]
+//#define kCyanColor        [UIColor cyanColor]
+//#define kYellowColor      [UIColor yellowColor]
+//#define kMagentaColor     [UIColor magentaColor]
+//#define kOrangeColor      [UIColor orangeColor]
+//#define kPurpleColor      [UIColor purpleColor]
+//#define kBrownColor       [UIColor brownColor]
 #define KNB_RGB(r,g,b)      [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0]
 #define kBackgroundColor    [UIColor colorWithHexString:@"eeeeee"]
 #define kSepparteLineColor  [UIColor colorWithHexString:@"c8c8c8"]
@@ -90,13 +90,13 @@ typedef enum {
     GENERAL_USER = 4, // 普通用户
 }PrivilegeE;
 
-#define RGB_COLOR(r, g, b, a) ([UIColor colorWithRed: (r)/ 255.0 green:(g) / 255.0 blue:(b) / 255.0 alpha:(a)])
+//#define RGB_COLOR(r, g, b, a) ([UIColor colorWithRed: (r)/ 255.0 green:(g) / 255.0 blue:(b) / 255.0 alpha:(a)])
 
 //主页按钮的宽度
 #define kHomeButtonWidth (kDeviceWidth - 1.5) / 4.0
 
-#define RGBCOLOR(r,g,b)  [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
-#define RGB1COLOR(r,g,b,a)  [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
+//#define RGBCOLOR(r,g,b)  [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
+//#define RGB1COLOR(r,g,b,a)  [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
 
 //rgb颜色转换（16进制->10进制）
 #define UIColorFromRGB(rgbValue)  [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0f green:((float)((rgbValue & 0xFF00) >> 8))/255.0f blue:((float)(rgbValue & 0xFF))/255.0f alpha:(a)]

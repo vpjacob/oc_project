@@ -42,7 +42,6 @@ KNBBillingRecordSliderViewDelegate
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) JJSelectAddressViewController *selectVC;
 
-
 @property (nonatomic, strong) JFAreaDataManager *manager;
 @property (nonatomic, strong) JFLocation *locationManager;
 @property (nonatomic, strong) JFSearchView *searchView;
@@ -69,10 +68,8 @@ KNBBillingRecordSliderViewDelegate
     _HeaderSectionTotal = 3;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chooseCityWithName:) name:JFCityTableViewCellDidChangeCityNotification object:nil];
     
-//    [self.view addSubview:self.rootTableView];
     self.rootTableView.tableHeaderView = self.headerView;
     
-//    [self backBarButtonItem];
     [self initWithJFAreaDataManaager];
     
     _indexMutableArray = [NSMutableArray array];
@@ -178,12 +175,10 @@ KNBBillingRecordSliderViewDelegate
     cityName = [cityName componentsSeparatedByString:@"市"].firstObject;
 
     if (!cityName) {
-        
         self.cityBlock(cityName);
     }else{
         self.cityBlock(cityName);
     }
-    
 }
 
 - (NSMutableArray *)areaMutableArray {
@@ -204,7 +199,6 @@ KNBBillingRecordSliderViewDelegate
     return _headerView;
 }
 
-
 - (JFSearchView *)searchView {
     if (!_searchView) {
         CGRect frame = [UIScreen mainScreen].bounds;
@@ -220,7 +214,6 @@ KNBBillingRecordSliderViewDelegate
     [_searchView removeFromSuperview];
     _searchView = nil;
 }
-
 
 - (NSMutableArray *)historyCityMutableArray {
     if (!_historyCityMutableArray) {
@@ -284,7 +277,7 @@ KNBBillingRecordSliderViewDelegate
                         //用这个字母做字典的key，将当前的标题保存到key对应的数组里面去
                         NSMutableArray *array = [NSMutableArray arrayWithObject:str];
                         NSMutableDictionary *dic = _sectionMutableArray[0];
-                        NSLog(@"_sectionMutableArray[0]----------%@",_sectionMutableArray[0]);
+//                        NSLog(@"_sectionMutableArray[0]----------%@",_sectionMutableArray[0]);
                         [dic setObject:array forKey:firstStr];
                         [_sectionMutableArray addObject:dic];
                     }
@@ -334,8 +327,6 @@ KNBBillingRecordSliderViewDelegate
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return _characterMutableArray.count;
 }
@@ -369,6 +360,15 @@ KNBBillingRecordSliderViewDelegate
         cell.textLabel.font = [UIFont systemFontOfSize:14];
         return cell;
     }
+}
+
+//给cell添加动画
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    cell.layer.transform = CATransform3DMakeScale(0.1, 0.1, 1);
+    [UIView animateWithDuration:0.3 animations:^{
+        cell.layer.transform = CATransform3DMakeScale(1, 1, 1);
+    }];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -436,7 +436,7 @@ KNBBillingRecordSliderViewDelegate
     if (self.delegate && [self.delegate respondsToSelector:@selector(cityName:)]) {
         [self.delegate cityName:cell.textLabel.text];
     }
-    NSLog(@"%@",cell.textLabel.text);
+//    NSLog(@"%@",cell.textLabel.text);
     [self historyCity:cell.textLabel.text];
     NSString *cityName = cell.textLabel.text;
     cityName = [cityName componentsSeparatedByString:@"市"].firstObject;

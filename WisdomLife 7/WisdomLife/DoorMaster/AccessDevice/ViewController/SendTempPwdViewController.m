@@ -135,8 +135,8 @@
     textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     [textField addTarget:self action:@selector(finishTextClick:) forControlEvents:UIControlEventEditingDidEndOnExit];
     //设置textfield占位符及内容字体的颜色--Benson
-    textField.textColor = kBlackColor;
-    textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(placeholder, @"") attributes:@{NSForegroundColorAttributeName:kLightGrayColor}];
+    textField.textColor = [UIColor blackColor];
+    textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(placeholder, @"") attributes:@{NSForegroundColorAttributeName:[UIColor lightGrayColor]}];
     return textField;
 }
 

@@ -57,7 +57,7 @@
 //    [nav.escBtn addTarget:self action:@selector(escBtnClicl) forControlEvents:UIControlEventTouchUpInside];
     
     UIView *lineViewName = [[UIView alloc] initWithFrame:CGRectMake(0, self.markImg.bottom, kDeviceWidth, 0.5)];
-    lineViewName.backgroundColor = kSepparteLineColor;
+    lineViewName.backgroundColor = [UIColor colorWithHexString:@"c8c8c8"];
     [self.view addSubview:lineViewName];
     //1摇动开锁功能
     UILabel *tipLbl1 = [[UILabel alloc] initWithFrame:CGRectMake(jjSCREENW(20), self.markImg.bottom, kCurrentWidth(150), kCurrentWidth(60))];
@@ -67,7 +67,7 @@
     [self.view addSubview:tipLbl1];
     
     UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, tipLbl1.bottom, kDeviceWidth, 0.5)];
-    lineView.backgroundColor = kSepparteLineColor;
+    lineView.backgroundColor = [UIColor colorWithHexString:@"c8c8c8"];
     [self.view addSubview:lineView];
     
 //    UILabel *timeIntervalLB = [[UILabel alloc] initWithFrame:CGRectMake(kCurrentWidth(30), lineView.bottom, kCurrentWidth(150), kCurrentWidth(60))];
@@ -86,7 +86,7 @@
     self.kSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(kDeviceWidth-kCurrentWidth(65), self.markImg.bottom+(kCurrentWidth(60)-28)/2, 0, 0)];
     [self.kSwitch setOn:(self.optionModel.useShake)];
     self.kSwitch.onTintColor = [UIColor colorWithHexString:@"0eaae3"];
-    self.kSwitch.backgroundColor = kGrayColor;
+    self.kSwitch.backgroundColor = [UIColor grayColor];
     self.kSwitch.layer.cornerRadius = self.kSwitch.height/2.0;
     self.kSwitch.layer.masksToBounds = YES;
     [self.kSwitch addTarget:self action:@selector(switchChange:) forControlEvents:UIControlEventValueChanged];
@@ -96,7 +96,7 @@
     self.slider = [[UISlider alloc] initWithFrame:CGRectMake(kCurrentWidth(40), tipLbl2.bottom, kDeviceWidth-kCurrentWidth(80), 20)];
     self.slider.maximumValue = 70;
     self.slider.minimumValue = 1;
-    self.slider.tintColor = kLightGrayColor;
+    self.slider.tintColor = [UIColor lightGrayColor];
     [self setSliderHighLight:NO];
     [self.slider setValue:self.optionModel.shakeOpenDistance == 0 ? 50 : -50 - self.optionModel.shakeOpenDistance];
     [self valueChange:self.slider];
@@ -104,7 +104,7 @@
     [self.view addSubview:self.slider];
     
     UIView *distanceLineView = [[UIView alloc] initWithFrame:CGRectMake(0, self.slider.bottom + 10, kDeviceWidth, 0.5)];
-    lineView.backgroundColor = kSepparteLineColor;
+    lineView.backgroundColor = [UIColor colorWithHexString:@"c8c8c8"];
     [self.view addSubview:distanceLineView];
     
     //选择按钮
@@ -164,8 +164,8 @@
         self.slider.minimumTrackTintColor =  [UIColor colorWithHexString:@"0eaae3"];
     }else
     {
-        self.slider.thumbTintColor = kGrayColor;
-        self.slider.minimumTrackTintColor = kLightGrayColor;
+        self.slider.thumbTintColor = [UIColor grayColor];
+        self.slider.minimumTrackTintColor = [UIColor lightGrayColor];
     }
 }
 

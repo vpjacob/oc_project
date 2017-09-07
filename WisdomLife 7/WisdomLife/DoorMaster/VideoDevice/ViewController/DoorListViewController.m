@@ -36,11 +36,13 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(devListMsgReceved) name:DevListMsgReceved object:nil]; // 注册刷新设备列表接口
     self.commonNavBar.title = NSLocalizedString(@"DoorList", @"");
     self.blackListArray = [DMCommModel getBlackList];
+    NSLog(@"blackListArray：%@",self.blackListArray);
     [self initWithBlackList];
     [self.view addSubview:IsArrEmpty([[DeviceManager manager] getAllVoipDevice])?self.messageLbl:self.jjTabelView];
 }
 
 - (void)initWithBlackList{
+//    NSLog(@"%@",[[DeviceManager manager] getAllVoipDevice]);
     for (int i = 0; i < [[DeviceManager manager] getAllVoipDevice].count; i++) {
         VoipDoorDto *dto = [[[DeviceManager manager] getAllVoipDevice] safeObjectAtIndex:i];
         
@@ -48,11 +50,11 @@
             if ([self.blackListArray containsObject:dto.dev_sn]) {
                 [self.isOnMutableArray addObject:@(NO)];
             }else{
-//                cell.sw.on = YES;
+                //                cell.sw.on = YES;
                 [self.isOnMutableArray addObject:@(YES)];
             }
         }else{
-//            cell.sw.on = YES;
+            //            cell.sw.on = YES;
             [self.isOnMutableArray addObject:@(YES)];
         }
     }
@@ -60,7 +62,7 @@
 
 -(void)devListMsgReceved
 {
-//    [self.collectionView reloadData];
+    //    [self.collectionView reloadData];
     [self.tableView reloadData];
 }
 
@@ -81,42 +83,42 @@
         cell = [[NSBundle mainBundle] loadNibNamed:@"JJDoorListViewCell" owner:self options:nil].lastObject;
     }
     
-//    [cell setDataWith:indexPath.item];
+    //    [cell setDataWith:indexPath.item];
     cell.sw.tag = indexPath.row + 100;
-//    NSArray *blackListArray = [DMCommModel getBlackList];
+    //    NSArray *blackListArray = [DMCommModel getBlackList];
     VoipDoorDto *dto = [[[DeviceManager manager] getAllVoipDevice] safeObjectAtIndex:indexPath.row];
     cell.nameLabel.text = [NSString stringWithFormat:@"%@",dto.dev_name];
-
+    
     cell.sw.on = [self.isOnMutableArray[indexPath.row] boolValue];
     
     
-//    if (blackListArray) {
-//        if ([blackListArray containsObject:dto.dev_sn]) {
-//            cell.sw.on = NO;
-//        }else{
-//            cell.sw.on = YES;
-//        }
-//    }else{
-//        cell.sw.on = YES;
-//    }
+    //    if (blackListArray) {
+    //        if ([blackListArray containsObject:dto.dev_sn]) {
+    //            cell.sw.on = NO;
+    //        }else{
+    //            cell.sw.on = YES;
+    //        }
+    //    }else{
+    //        cell.sw.on = YES;
+    //    }
     cell.delegate = self;
     return cell;
 }
 
 #pragma mark - JJDoorListViewCellDelegate
 - (void)JJDoorListView:(JJDoorListViewCell *)doorListCell withSwitch:(UISwitch *)sw didSelectIndex:(NSInteger)index{
-        VoipDoorDto *dto = [[[DeviceManager manager] getAllVoipDevice] safeObjectAtIndex:index];
-        NSLog(@"%@",dto.dev_sn);
-        NSLog(@"%zd",sw.on);
-        if (sw.on) {
-//            sw.on = NO;
-            [DMCommModel modifyBlackList:dto.dev_sn isAdd:NO];
-            [self.isOnMutableArray replaceObjectAtIndex:index withObject:@(YES)];
-        }else{
-//            sw.on = YES;
-            [DMCommModel modifyBlackList:dto.dev_sn isAdd:YES];
-            [self.isOnMutableArray replaceObjectAtIndex:index withObject:@(NO)];
-        }
+    VoipDoorDto *dto = [[[DeviceManager manager] getAllVoipDevice] safeObjectAtIndex:index];
+    NSLog(@"%@",dto.dev_sn);
+    NSLog(@"%zd",sw.on);
+    if (sw.on) {
+        //            sw.on = NO;
+        [DMCommModel modifyBlackList:dto.dev_sn isAdd:NO];
+        [self.isOnMutableArray replaceObjectAtIndex:index withObject:@(YES)];
+    }else{
+        //            sw.on = YES;
+        [DMCommModel modifyBlackList:dto.dev_sn isAdd:YES];
+        [self.isOnMutableArray replaceObjectAtIndex:index withObject:@(NO)];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -142,7 +144,14 @@
     }];
 }
 
-
+//给cell添加动画
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    cell.layer.transform = CATransform3DMakeScale(0.1, 0.1, 1);
+    [UIView animateWithDuration:0.3 animations:^{
+        cell.layer.transform = CATransform3DMakeScale(1, 1, 1);
+    }];
+}
 
 
 -(void)presentTips:(NSString *)title{

@@ -521,6 +521,22 @@ apiready = function() {
 		});
 	});
 
+    api.setRefreshHeaderInfo({
+                             loadingImg : '../../image/mainbus.jpg',
+                             bgColor : '#ccc',
+                             textColor : '#fff',
+                             textDown : '下拉刷新...',
+                             textUp : '松开刷新...'
+                             }, function(ret, err) {
+                             api.refreshHeaderLoading();
+                             if(ret){
+                             location.reload();
+                             api.refreshHeaderLoadDone();
+                             }else{
+                             alert(err);
+                             }
+                             });
+    
     //获取商家地理位置
     $('#nearby').click(function() {
                        if (api.systemType == 'ios') {
@@ -533,6 +549,7 @@ apiready = function() {
                                         if (ret) {
                                         $('#tab1').children().remove();
                                         getDistance("", ret.title);
+                                        cityName=ret.title;
                                         $('#showCity').html(ret.title);
                                         } else {
                                         alert(JSON.stringify(err));

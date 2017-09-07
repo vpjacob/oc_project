@@ -110,7 +110,7 @@
 
 - (void)changeHighStates
 {
-    self.backgroundColor = kWhiteColor;
+    self.backgroundColor = [UIColor whiteColor];
 }
 
 @end

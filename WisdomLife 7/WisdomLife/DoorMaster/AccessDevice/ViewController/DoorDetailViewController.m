@@ -254,7 +254,7 @@ typedef enum {
         cell.detailTextLabel.text = [self.detailContent objectAtIndex:indexPath.row];
         if (indexPath.row == 2)
         {
-            cell.detailTextLabel.textColor = RGB_COLOR(25, 152, 213, 1);
+            cell.detailTextLabel.textColor = KNB_RGB(25, 152, 213);
         }
     }
     else if(indexPath.section == GROUP_DEV_MANAGER)

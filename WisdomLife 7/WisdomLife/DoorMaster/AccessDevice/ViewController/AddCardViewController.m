@@ -74,7 +74,7 @@
     [self.exitBtn setTitle:NSLocalizedString(@"exit", @"") forState:UIControlStateNormal];
     self.exitBtn.frame = CGRectMake((kDeviceWidth - width) / 2, 100, width, height); // x, y, width, height
 //    self.exitBtn.backgroundColor = [UIColor redColor];
-    self.exitBtn.backgroundColor = kGrayColor;
+    self.exitBtn.backgroundColor = [UIColor grayColor];
     [self.exitBtn addTarget:self action:@selector(exitBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.exitBtn.titleLabel.font = [UIFont boldSystemFontOfSize:15];
 //    [GlobalTool addCornerForView: self.exitBtn];
@@ -84,7 +84,7 @@
     self.tipLabel.font = [UIFont systemFontOfSize:16];
     
     //设置字体颜色--Benson
-    self.tipLabel.textColor = kBlackColor;
+    self.tipLabel.textColor = [UIColor blackColor];
     [self.view addSubview: self.punchRegBtn];
     //    [self.view addSubview: self.cardnoRegBtn];
 }

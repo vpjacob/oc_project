@@ -37,30 +37,30 @@
     self.window.rootViewController = (UIViewController *)[[DMHtmlListener manager] getAPIWidgetContainer];
     [self.window makeKeyAndVisible];
     
-//    3d touch
+    //    3d touch
     if (IOS9) {
         UIApplicationShortcutIcon *video = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeCaptureVideo];
         UIApplicationShortcutIcon *onceOpen = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypePlay];
         UIApplicationShortcutIcon *keys = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeHome];
-    UIApplicationShortcutItem *item = [[UIApplicationShortcutItem alloc] initWithType:@"onceOpen" localizedTitle:@"一键开门" localizedSubtitle:nil icon:onceOpen userInfo:nil];
-    UIApplicationShortcutItem *item2 = [[UIApplicationShortcutItem alloc] initWithType:@"shortcutTypeTwo" localizedTitle:@"门口视频" localizedSubtitle:nil icon:video userInfo:nil];
-    UIApplicationShortcutItem *item3 = [[UIApplicationShortcutItem alloc] initWithType:@"shortcutTypeThree" localizedTitle:@"门禁钥匙" localizedSubtitle:nil icon:keys userInfo:nil];
+        UIApplicationShortcutItem *item = [[UIApplicationShortcutItem alloc] initWithType:@"onceOpen" localizedTitle:@"一键开门" localizedSubtitle:nil icon:onceOpen userInfo:nil];
+        UIApplicationShortcutItem *item2 = [[UIApplicationShortcutItem alloc] initWithType:@"shortcutTypeTwo" localizedTitle:@"门口视频" localizedSubtitle:nil icon:video userInfo:nil];
+        UIApplicationShortcutItem *item3 = [[UIApplicationShortcutItem alloc] initWithType:@"shortcutTypeThree" localizedTitle:@"门禁钥匙" localizedSubtitle:nil icon:keys userInfo:nil];
         UIApplicationShortcutItem *item4 = [[UIApplicationShortcutItem alloc] initWithType:@"eggs" localizedTitle:@"砸金蛋" localizedSubtitle:nil icon:keys userInfo:nil];
-    [[UIApplication sharedApplication] setShortcutItems:@[item3,item2,item,item4]];
+        [[UIApplication sharedApplication] setShortcutItems:@[item3,item2,item,item4]];
     }
     
-//    [SplashView updateSplashData:@"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=996278178,3084539720&fm=26&gp=0.jpg" actUrl:@"http://www.baidu.com"];
+    //    [SplashView updateSplashData:@"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=996278178,3084539720&fm=26&gp=0.jpg" actUrl:@"http://www.baidu.com"];
     UIImage *image = [UIImage imageNamed:@"guanggao"];
     [SplashView showSplashView:5 defaultImage:image tapSplashImageBlock:^(NSString * urlStr) {
-//        JJViewController *vc = [JJViewController new];
-//        [(UINavigationController *)self.window.rootViewController pushViewController:vc animated:YES];
-//        vc.urlString = urlStr;
+        //                JJViewController *vc = [JJViewController new];
+        //        [(UINavigationController *)self.window.rootViewController pushViewController:vc animated:YES];
+        //        vc.urlString = urlStr;
     } splashViewDismissBlock:^(BOOL complete) {
         
-//10        [SKStoreReviewController requestReview];
-//10以下        NSString  * nsStringToOpen = [NSString  stringWithFormat: @"itms-apps://itunes.apple.com/app/id%@?action=write-review",@"1182914885"];//替换为对应的APPID
-//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:nsStringToOpen]];
-
+        //10        [SKStoreReviewController requestReview];
+        //10以下        NSString  * nsStringToOpen = [NSString  stringWithFormat: @"itms-apps://itunes.apple.com/app/id%@?action=write-review",@"1182914885"];//替换为对应的APPID
+        //        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:nsStringToOpen]];
+        
     }];
     return YES;
 }

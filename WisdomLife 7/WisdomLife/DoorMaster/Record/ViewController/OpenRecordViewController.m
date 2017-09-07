@@ -14,9 +14,9 @@
 @interface OpenRecordViewController ()
 
 //@property (nonatomic,strong)UploadOpenDoorService *openDoorService;
-
 //@property (nonatomic,strong)NSMutableArray *dataSource;
 
+@property (nonatomic, strong) UIImageView *nomoreDataImageView;
 @end
 
 @implementation OpenRecordViewController
@@ -28,6 +28,10 @@
     self.tableView.backgroundColor = kBackgroundColor;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.tableView];
+    
+    self.nomoreDataImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nomoredata"]];
+    self.nomoreDataImageView.center = self.view.center;
+    [self.view addSubview:self.nomoreDataImageView];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateOpenLog) name:OpenLogUpdate object:nil];
     
@@ -53,6 +57,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if ([DevOpenLogManager manager].list.count != 0) {
+        [self.nomoreDataImageView removeFromSuperview];
+    }
     return [DevOpenLogManager manager].list.count;
 }
 

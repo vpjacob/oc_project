@@ -69,7 +69,6 @@ static JFAreaDataManager *manager = nil;
     FMResultSet *result = [self.db executeQuery:@"SELECT DISTINCT city_name FROM shop_area;"];
     while ([result next]) {
         NSString *cityName = [result stringForColumn:@"city_name"];
-        NSLog(@"---cityName---:%@",cityName);
         [resultArray addObject:cityName];
     }
     cityData(resultArray);

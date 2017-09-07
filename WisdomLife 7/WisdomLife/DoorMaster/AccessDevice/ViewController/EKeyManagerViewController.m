@@ -63,7 +63,7 @@
     [self.delUserEKeyBtn setTitle:NSLocalizedString(@"delete_ekey", @"") forState:UIControlStateNormal];
     self.delUserEKeyBtn.frame = CGRectMake((kDeviceWidth - width) / 2, 115+height, width, height); // x, y, width, height
 //    self.delUserEKeyBtn.backgroundColor = [UIColor redColor];
-    self.delUserEKeyBtn.backgroundColor = kGrayColor;
+    self.delUserEKeyBtn.backgroundColor = [UIColor grayColor];
     [self.delUserEKeyBtn addTarget:self action:@selector(deleteUserEKeyBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.delUserEKeyBtn.titleLabel.font = [UIFont boldSystemFontOfSize:15];
     

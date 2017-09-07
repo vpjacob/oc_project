@@ -64,7 +64,7 @@
     [self.deleteCardBtn setTitle:NSLocalizedString(@"delete_card", @"") forState:UIControlStateNormal];
     self.deleteCardBtn.frame = CGRectMake((kDeviceWidth - width) / 2, 115+height, width, height); // x, y, width, height
 //    self.deleteCardBtn.backgroundColor = [UIColor redColor];
-    self.deleteCardBtn.backgroundColor = kGrayColor;
+    self.deleteCardBtn.backgroundColor = [UIColor grayColor];
     [self.deleteCardBtn addTarget:self action:@selector(deleteCardBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.deleteCardBtn.titleLabel.font = [UIFont boldSystemFontOfSize:15];
     

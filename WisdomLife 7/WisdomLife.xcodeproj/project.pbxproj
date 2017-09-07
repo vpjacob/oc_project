@@ -51,6 +51,7 @@
 		225F8BF91EBDB532000822DB /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225F8BF81EBDB532000822DB /* VideoToolbox.framework */; };
 		225F8BFB1EBDB545000822DB /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225F8BFA1EBDB545000822DB /* UserNotifications.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		22E508C11EE82ADD004A3525 /* PushKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E508C01EE82ADD004A3525 /* PushKit.framework */; };
+		D61C8E181F5FDD5300DB4470 /* widget in Resources */ = {isa = PBXBuildFile; fileRef = D61C8E171F5FDD5300DB4470 /* widget */; };
 		D650235D1F145E7F00464540 /* JJScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D650235C1F145E7F00464540 /* JJScanViewController.m */; };
 		D650235E1F145E7F00464540 /* JJScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D650235C1F145E7F00464540 /* JJScanViewController.m */; };
 		D650235F1F145E7F00464540 /* JJScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D650235C1F145E7F00464540 /* JJScanViewController.m */; };
@@ -333,7 +334,6 @@
 		D6F9537E1EFCA2C200683812 /* VisitorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F952DA1EFCA2C200683812 /* VisitorViewController.m */; };
 		D6F9537F1EFCA2C200683812 /* libDMBusiness.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F952DB1EFCA2C200683812 /* libDMBusiness.a */; };
 		D6F953811EFCC68500683812 /* DMVPhoneSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F953801EFCC68500683812 /* DMVPhoneSDK.framework */; };
-		D6F953831EFD0E6500683812 /* widget in Resources */ = {isa = PBXBuildFile; fileRef = D6F953821EFD0E6500683812 /* widget */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -407,10 +407,11 @@
 		225F8BFC1EBDB5A9000822DB /* libnetwork.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libnetwork.tbd; path = usr/lib/libnetwork.tbd; sourceTree = SDKROOT; };
 		22E508C01EE82ADD004A3525 /* PushKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PushKit.framework; path = System/Library/Frameworks/PushKit.framework; sourceTree = SDKROOT; };
 		22E50A8D1EE83AE0004A3525 /* SDPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPrefixHeader.pch; sourceTree = "<group>"; };
+		D61C8E171F5FDD5300DB4470 /* widget */ = {isa = PBXFileReference; lastKnownFileType = folder; path = widget; sourceTree = "<group>"; };
 		D650235B1F145E7F00464540 /* JJScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJScanViewController.h; sourceTree = "<group>"; };
 		D650235C1F145E7F00464540 /* JJScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJScanViewController.m; sourceTree = "<group>"; };
-		D65023611F145EE000464540 /* LCQRCodeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCQRCodeUtil.h; sourceTree = "<group>"; };
-		D65023621F145EE000464540 /* LCQrcodeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCQrcodeUtil.m; sourceTree = "<group>"; };
+		D65023611F145EE000464540 /* LCQRCodeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LCQRCodeUtil.h; path = ../Utils/LCQRCodeUtil.h; sourceTree = "<group>"; };
+		D65023621F145EE000464540 /* LCQrcodeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LCQrcodeUtil.m; path = ../Utils/LCQrcodeUtil.m; sourceTree = "<group>"; };
 		D662626F1EF8CC8F00288AC6 /* WisdomLife-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WisdomLife-Bridging-Header.h"; sourceTree = "<group>"; };
 		D66262701EF8CC8F00288AC6 /* SplashView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		D6815E721F21AC6B0047F382 /* KNBVideoPlayerAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNBVideoPlayerAlertView.h; sourceTree = "<group>"; };
@@ -903,7 +904,6 @@
 		D6F952DA1EFCA2C200683812 /* VisitorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitorViewController.m; sourceTree = "<group>"; };
 		D6F952DB1EFCA2C200683812 /* libDMBusiness.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libDMBusiness.a; sourceTree = "<group>"; };
 		D6F953801EFCC68500683812 /* DMVPhoneSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DMVPhoneSDK.framework; sourceTree = "<group>"; };
-		D6F953821EFD0E6500683812 /* widget */ = {isa = PBXFileReference; lastKnownFileType = folder; path = widget; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1066,9 +1066,9 @@
 				D650235A1F145E5D00464540 /* tools */,
 				D6F951551EFCA2C200683812 /* DoorMaster */,
 				D6F952DB1EFCA2C200683812 /* libDMBusiness.a */,
-				D6EC979A1EFF87FF001E607B /* Assets.xcassets */,
+				D61C8E171F5FDD5300DB4470 /* widget */,
 				225F8A491EBD7B82000822DB /* Info.plist */,
-				D6F953821EFD0E6500683812 /* widget */,
+				D6EC979A1EFF87FF001E607B /* Assets.xcassets */,
 				225F8A381EBD7B82000822DB /* Supporting Files */,
 				D662626F1EF8CC8F00288AC6 /* WisdomLife-Bridging-Header.h */,
 				D6ABBF821F00A48C008FB306 /* Masonry */,
@@ -1164,6 +1164,8 @@
 		D650235A1F145E5D00464540 /* tools */ = {
 			isa = PBXGroup;
 			children = (
+				D65023611F145EE000464540 /* LCQRCodeUtil.h */,
+				D65023621F145EE000464540 /* LCQrcodeUtil.m */,
 				D650235B1F145E7F00464540 /* JJScanViewController.h */,
 				D650235C1F145E7F00464540 /* JJScanViewController.m */,
 				D6815E721F21AC6B0047F382 /* KNBVideoPlayerAlertView.h */,
@@ -1182,8 +1184,6 @@
 		D65023601F145ED900464540 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				D65023611F145EE000464540 /* LCQRCodeUtil.h */,
-				D65023621F145EE000464540 /* LCQrcodeUtil.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1339,7 +1339,6 @@
 			isa = PBXGroup;
 			children = (
 				D6E266D11F4C515600847D68 /* Controller */,
-				D6E266D61F4C515600847D68 /* Model */,
 				D6E266D71F4C515600847D68 /* Tools */,
 				D6E266FE1F4C515600847D68 /* View */,
 			);
@@ -1355,13 +1354,6 @@
 				D6E266D51F4C515600847D68 /* JJSelectAddressViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		D6E266D61F4C515600847D68 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		D6E266D71F4C515600847D68 /* Tools */ = {
@@ -1472,7 +1464,6 @@
 			children = (
 				D6F9518A1EFCA2C200683812 /* Common */,
 				D6F952931EFCA2C200683812 /* Login */,
-				D6F9529D1EFCA2C200683812 /* MyHouse */,
 				D6F951561EFCA2C200683812 /* AccessDevice */,
 				D6F952A11EFCA2C200683812 /* Record */,
 				D6F952AD1EFCA2C200683812 /* Setting */,
@@ -1955,8 +1946,6 @@
 			isa = PBXGroup;
 			children = (
 				D6F952941EFCA2C200683812 /* Model */,
-				D6F9529B1EFCA2C200683812 /* View */,
-				D6F9529C1EFCA2C200683812 /* ViewController */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1972,51 +1961,6 @@
 				D6F9529A1EFCA2C200683812 /* DMLoginAction.m */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		D6F9529B1EFCA2C200683812 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		D6F9529C1EFCA2C200683812 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		D6F9529D1EFCA2C200683812 /* MyHouse */ = {
-			isa = PBXGroup;
-			children = (
-				D6F9529E1EFCA2C200683812 /* Model */,
-				D6F9529F1EFCA2C200683812 /* View */,
-				D6F952A01EFCA2C200683812 /* ViewController */,
-			);
-			path = MyHouse;
-			sourceTree = "<group>";
-		};
-		D6F9529E1EFCA2C200683812 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		D6F9529F1EFCA2C200683812 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		D6F952A01EFCA2C200683812 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewController;
 			sourceTree = "<group>";
 		};
 		D6F952A11EFCA2C200683812 /* Record */ = {
@@ -2109,18 +2053,10 @@
 		D6F952C31EFCA2C200683812 /* VideoDevice */ = {
 			isa = PBXGroup;
 			children = (
-				D6F952C41EFCA2C200683812 /* Model */,
 				D6F952C51EFCA2C200683812 /* View */,
 				D6F952C81EFCA2C200683812 /* ViewController */,
 			);
 			path = VideoDevice;
-			sourceTree = "<group>";
-		};
-		D6F952C41EFCA2C200683812 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		D6F952C51EFCA2C200683812 /* View */ = {
@@ -2145,18 +2081,10 @@
 		D6F952CB1EFCA2C200683812 /* VisitorPass */ = {
 			isa = PBXGroup;
 			children = (
-				D6F952CC1EFCA2C200683812 /* Model */,
 				D6F952CD1EFCA2C200683812 /* View */,
 				D6F952D41EFCA2C200683812 /* ViewController */,
 			);
 			path = VisitorPass;
-			sourceTree = "<group>";
-		};
-		D6F952CC1EFCA2C200683812 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		D6F952CD1EFCA2C200683812 /* View */ = {
@@ -2315,7 +2243,6 @@
 				D68408C61F04B21600E57E88 /* res_FNScanner in Resources */,
 				D68408411F04B1F300E57E88 /* kxmovie.bundle in Resources */,
 				D68408661F04B1F300E57E88 /* RCConfig.plist in Resources */,
-				D6F953831EFD0E6500683812 /* widget in Resources */,
 				D68408641F04B1F300E57E88 /* PushConfig.plist in Resources */,
 				D68408CF1F04B21600E57E88 /* uz in Resources */,
 				220DD9511EE942CC00A19F4D /* 关闭.png in Resources */,
@@ -2324,6 +2251,7 @@
 				D6E267201F4C515600847D68 /* JJSectionCollectionReusableView.xib in Resources */,
 				220DD92E1EE8EFF000A19F4D /* Localizable.strings in Resources */,
 				D68408B91F04B1F300E57E88 /* WeiboSDK.bundle in Resources */,
+				D61C8E181F5FDD5300DB4470 /* widget in Resources */,
 				D68408C91F04B21600E57E88 /* res_movies in Resources */,
 				D69F0BE51F3D442F00E9AA31 /* LaunchScreen.storyboard in Resources */,
 				D6F9533D1EFCA2C200683812 /* MJRefresh.bundle in Resources */,
@@ -2641,7 +2569,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -2683,7 +2611,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
