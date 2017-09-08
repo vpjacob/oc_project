@@ -172,7 +172,12 @@ KNBBillingRecordSliderViewDelegate
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self.navigationController popViewControllerAnimated:YES];
     
-    cityName = [cityName componentsSeparatedByString:@"市"].firstObject;
+    if ([cityName containsString:@"市"]) {
+        cityName = [cityName componentsSeparatedByString:@"市"].firstObject;
+    }else if ([cityName containsString:@"县"]){
+        cityName = [cityName componentsSeparatedByString:@"县"].firstObject;
+    }
+    
 
     if (!cityName) {
         self.cityBlock(cityName);
@@ -224,7 +229,7 @@ KNBBillingRecordSliderViewDelegate
 
 - (NSArray *)hotCityArray {
     if (!_hotCityArray) {
-        _hotCityArray = @[@"北京市", @"上海市", @"广州市", @"深圳市", @"武汉市", @"天津市", @"西安市", @"南京市", @"杭州市", @"成都市", @"重庆市"];
+        _hotCityArray = @[@"北京市", @"天津市", @"哈尔滨市", @"金昌市", @"邯郸市", @"东港市", @"清徐县"];
     }
     return _hotCityArray;
 }
@@ -439,7 +444,11 @@ KNBBillingRecordSliderViewDelegate
 //    NSLog(@"%@",cell.textLabel.text);
     [self historyCity:cell.textLabel.text];
     NSString *cityName = cell.textLabel.text;
-    cityName = [cityName componentsSeparatedByString:@"市"].firstObject;
+    if ([cityName containsString:@"市"]) {
+        cityName = [cityName componentsSeparatedByString:@"市"].firstObject;
+    }else if ([cityName containsString:@"县"]){
+        cityName = [cityName componentsSeparatedByString:@"县"].firstObject;
+    }
     
     if (!cityName) {
         
@@ -515,7 +524,11 @@ KNBBillingRecordSliderViewDelegate
         [self.delegate cityName:nameStr];
     }
     NSString *cityName = [dic valueForKey:@"city"];
-    cityName = [cityName componentsSeparatedByString:@"市"].firstObject;
+    if ([cityName containsString:@"市"]) {
+        cityName = [cityName componentsSeparatedByString:@"市"].firstObject;
+    }else if ([cityName containsString:@"县"]){
+        cityName = [cityName componentsSeparatedByString:@"县"].firstObject;
+    }
     if (!cityName) {
         self.cityBlock(cityName);
     }else{
