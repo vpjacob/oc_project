@@ -11,7 +11,6 @@ var comtype = '';
 var map;
 var fname="";
 var goodimgurls="";
-var headpic="";
 apiready = function() {
 	id = api.pageParam.id;
 	comtype = api.pageParam.companytype;
@@ -39,7 +38,6 @@ apiready = function() {
 					var account = data.formDataset.comDTO;
 					var list = $api.strToJson(account);
 					$('#headpic').attr('src', rootUrl + list.shopurl);
-					headpic=rootUrl + list.shopurl
 					lon = list.longtitude;
 					lat = list.latitude;
 					shopname = list.companyname;
@@ -117,14 +115,6 @@ apiready = function() {
     var imageBrowser = api.require('imageBrowser');
 	$('.showbus').on('click', 'img', function() {
 		imgPath($(this).attr("data"),goodimgurls);
-	});
-	//点击门头头像放大功能
-	$('#headpic').click(function() {
-		imageBrowser.openImages({
-			imageUrls : [headpic],
-			activeIndex:0,
-			showList:false
-		});
 	});
 	function imgPath(index,imgs) {
 		var imgUrl = [];

@@ -406,40 +406,6 @@ li.first {
 	/*line-height: 70px;*/
  }
 
-/*  #ul_tab1 img{
- 	width:24px;
- 	height: 21px;
- } 
- #ul_tab1 li{
- 	height:80px;
- 	font-size:16px;
- }
- #ul_tab2 img{
- 	width:24px;
- 	height: 21px;
- } 
- #ul_tab2 li{
- 	height:80px;
- 	font-size:16px;
- } */
-
-/* 渲染模板的样式 */
-
-/*  .item-content .item-inner .item-title{
- 	width:33.3%;
- 	border:1px solid red;
- 	
- }
- .item-content .item-inner .item-mid{
- 	width:33.3%;
- 	border:1px solid red;
- 	
- }
- .item-content .item-inner .item-after{
- 	width:33.3%;
- 	border:1px solid red;
- 	
- }  */
 .showBox{
 	background:rgba(0,0,0,0.5);
 	position:absolute;
@@ -452,85 +418,30 @@ li.first {
 
 .showBox .showDiv{
 	position:absolute;
-	top:12%;
-	left:0;
-	z-index:20001;
 	width:100%;
+	z-index:20001;
 /* 	height:375px; */
-  	height:58%;  
-	background:url("../../image/eggbg2.png") no-repeat center; 
-	background-size: cover;
+  	height:100%;  
+	background:url("../../image/eggbg3.png") no-repeat center; 
+	background-size: 100% 100%;
 /* 	border:1px solid red */
 }
-.showBox .showDiv .showclose{
-	width:260px;
-	height:340px;
-	margin:0 auto;
-	/* border:1px solid red; */
+.showBox .showDiv .moneyStyle{
+	position: absolute;
+	font-size:1.25rem;
+    top: 44.5%;
+    width:100%;
+    text-align:center;
+    font-family:"微软雅黑";
+    font-weight:700;
+     background-image: -webkit-gradient(linear, left top, left  bottom, from(rgba(255, 163, 2, 1)), to(rgba(255,255, 0, 1)));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
-.showBox .showDiv .showContent{
-	z-index:20001;
-	width:260px;
-	height:167px;
- 	/* border:1px solid red; */
-	/* margin:205px auto; */
-  	margin:58% auto;  
-}
-.showBox .showDiv .showContent span{
-	text-align: center;
-	width: 100%;
-	font-size:16px;
-	color: #fd5c4e;
-	font-weight: bold;
-	font-family: 'Microsoft YaHei';
-}
-.showBox .showDiv .showContent span:nth-child(2){
-	margin-top:20px;
-	font-size:17px;
-	color: #6d3808;
-	font-weight: bold;
-}
-.showBox .showDiv .showContent span:nth-child(3){
-	margin-top:10px;
-	font-size:13px;
-	color: #ff6000;
-/* 	border:1px solid red; */
-}
-.showBox .showDiv .showContent .showOther{
-	width:100%;
-	height:50px;
-	margin-top:10px;
-}
-.showBox .showDiv .showContent .showOther span:nth-child(1){
-	border:1px solid red;
-	width: 48%;
-/* 	float:left; */
-	height: 35px;
-	margin-top:5px;
-	color: #FFF6BA;
-	background-color: #FD5C4E;
-	border-radius:15px;
-	line-height: 30px;
-	margin-left: 26%;
-}
-.showBox .showDiv .showContent .showOther span:nth-child(2){
-	border:1px solid red;
-	width: 48%;
-	float: right;
-	margin-top:5px;
-	height: 35px;
-	color: #FFF6BA;
-	background-color: #FD5C4E;
-	border-radius:15px;
-	line-height: 30px;
-	font-size:17px;
-	font-weight: 400;
-}
-
-.showBox .showDiv img{
-	position:absolute;
-	top:15%;
-	right:12%;
-	width:24px;
-	height: 24px;
+.showBox .showDiv .closeTan{
+	position: absolute;
+    top: 71.5%;
+    left:30%;
+    width:41%;
+    height: 7.5%;
 }

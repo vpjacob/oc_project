@@ -225,67 +225,6 @@ static DMHtmlListener *instance = nil;
         }
         [webView sendResultWithCallback:scriptMessage.callback ret:dict err:nil delete:YES];
     }
-    /*
-     智果暂时不用
-    if ([scriptMessage.name isEqualToString:@"loginDMVPhoneSDK"]) {//登入
-        //初始化DMVPhoneSDK
-        [DMCommModel initDMVPhoneSDK];
-        NSString *account = scriptMessage.userInfo[@"account"];
-        NSString *password = scriptMessage.userInfo[@"password"];
-        NSNumber *accountType = @([scriptMessage.userInfo[@"accountType"] intValue]);
-        [DMCommModel loginServer:account passwd:password accountType:accountType loginCallback:^(int ret, NSString *msg) {
-            [webView sendResultWithCallback:scriptMessage.callback ret:@{@"ret":@(ret), @"msg":msg} err:nil delete:YES];
-        }];
-    }
-    if ([scriptMessage.name isEqualToString:@"call"]) {//呼叫
-        NSString *account = scriptMessage.userInfo[@"account"];
-        NSNumber *accountType = @([scriptMessage.userInfo[@"accountType"] intValue]);
-        [DMCommModel callByAutomaticalWithController:self.windowContainer andCallAccount:account callAccountType:accountType callback:^(int ret, NSString *msg) {
-            [webView sendResultWithCallback:scriptMessage.callback ret:@{@"ret":@(ret), @"msg":msg} err:nil delete:YES];
-        }];
-    }
-    //退出DMVPhoneSDK
-    if ([scriptMessage.name isEqualToString:@"exitDMVPhoneSDK"]) {
-        int ret = [DMCommModel exitDMVPhoneSDK];
-        if (ret == 0) {
-            [webView sendResultWithCallback:scriptMessage.callback ret:@{@"ret":@(ret), @"msg":@"Exit success"} err:nil delete:YES];
-        }else
-        {
-            [webView sendResultWithCallback:scriptMessage.callback ret:@{@"ret":@(ret), @"msg":@"Exit fail"} err:nil delete:YES];
-        }
-    }
-    
-    //开门
-    if ([scriptMessage.name isEqualToString:@"openDoor"]) {
-        LibDevModel *device = [self getDevModelByDict:scriptMessage.userInfo];
-        int ret = [LibDevModel controlDevice:device andOperation:0];
-        if (ret != 0) {
-            NSDictionary *retDict = @{@"ret":@(ret), @"msg":@"open door fail"};
-            [webView sendResultWithCallback:scriptMessage.callback ret:retDict err:nil delete:YES];
-            return;
-        }
-        [LibDevModel onControlOver:^(int ret, NSMutableDictionary *msgDict) {
-            [webView sendResultWithCallback:scriptMessage.callback ret:@{@"ret":@(ret), @"msg":msgDict[@"msg"]} err:nil delete:YES];
-        }];
-    }
-    
-    
-    //扫描
-    if ([scriptMessage.name isEqualToString:@"scanDevice"]) {
-        int scanTime = [scriptMessage.userInfo[@"scanTime"] intValue];
-        int ret = [LibDevModel scanDevice:scanTime];
-        if (ret == 0)
-        {
-            [LibDevModel onScanOver:^(NSMutableDictionary *scanDevDict) {
-                [webView sendResultWithCallback:scriptMessage.callback ret:@{@"ret":@(ret), @"msg":@"Scan success", @"devRssiDict":scanDevDict} err:nil delete:YES];
-            }];
-        }else
-        {
-            [webView sendResultWithCallback:scriptMessage.callback ret:@{@"ret":@(ret), @"msg":@"Scan fail"} err:nil delete:YES];
-        }
-    }
-    */
-    
 //    
 //    if ([scriptMessage.name isEqual:@"abc"]) {
 //        NSString *msg = [NSString stringWithFormat:@"收到来自Html5的操作请求，访问的名称标识为%@，传入的参数为:%@", scriptMessage.name, scriptMessage.userInfo];

@@ -229,7 +229,7 @@ KNBBillingRecordSliderViewDelegate
 
 - (NSArray *)hotCityArray {
     if (!_hotCityArray) {
-        _hotCityArray = @[@"北京市", @"天津市", @"哈尔滨市", @"金昌市", @"邯郸市", @"东港市", @"清徐县"];
+        _hotCityArray = @[@"北京市", @"天津市",@"上海市",@"广州市", @"哈尔滨市", @"金昌市", @"邯郸市", @"东港市", @"清徐县"];
     }
     return _hotCityArray;
 }

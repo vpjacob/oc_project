@@ -49,12 +49,10 @@
         [[UIApplication sharedApplication] setShortcutItems:@[item3,item2,item,item4]];
     }
     
-    //    [SplashView updateSplashData:@"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=996278178,3084539720&fm=26&gp=0.jpg" actUrl:@"http://www.baidu.com"];
+//        [SplashView updateSplashData:@"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=996278178,3084539720&fm=26&gp=0.jpg" actUrl:@"http://www.baidu.com"];
     UIImage *image = [UIImage imageNamed:@"guanggao"];
     [SplashView showSplashView:5 defaultImage:image tapSplashImageBlock:^(NSString * urlStr) {
-        //                JJViewController *vc = [JJViewController new];
-        //        [(UINavigationController *)self.window.rootViewController pushViewController:vc animated:YES];
-        //        vc.urlString = urlStr;
+
     } splashViewDismissBlock:^(BOOL complete) {
         
         //10        [SKStoreReviewController requestReview];

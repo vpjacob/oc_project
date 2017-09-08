@@ -47,7 +47,21 @@ apiready = function() {
 			}
 		});
 	});
-
+	api.setRefreshHeaderInfo({
+	    loadingImg : '../../image/mainbus.jpg',
+	    bgColor : '#ccc',
+	    textColor : '#fff',
+	    textDown : '下拉刷新...',
+	    textUp : '松开刷新...'
+	  }, function(ret, err) {
+	    api.refreshHeaderLoading();
+	    if(ret){
+	      location.reload();
+	      api.refreshHeaderLoadDone();
+	    }else{
+	      alert(err);
+	    }
+	  }); 
 	//获得商品主页轮播图
 	function queryCarouselList() {
 		AjaxUtil.exeScript({
@@ -521,22 +535,6 @@ apiready = function() {
 		});
 	});
 
-    api.setRefreshHeaderInfo({
-                             loadingImg : '../../image/mainbus.jpg',
-                             bgColor : '#ccc',
-                             textColor : '#fff',
-                             textDown : '下拉刷新...',
-                             textUp : '松开刷新...'
-                             }, function(ret, err) {
-                             api.refreshHeaderLoading();
-                             if(ret){
-                             location.reload();
-                             api.refreshHeaderLoadDone();
-                             }else{
-                             alert(err);
-                             }
-                             });
-    
     //获取商家地理位置
     $('#nearby').click(function() {
                        if (api.systemType == 'ios') {
@@ -562,79 +560,79 @@ apiready = function() {
     
     
     
-	function getCityList() {
-		var hh = 0;
-		var UICityList = api.require('UICityList');
-		//			if (api.systemType == 'ios') {
-		//				hh = 20;
-		//			}
-		UICityList.open({
-			rect : {
-				x : 0,
-				y : hh,
-				w : api.frameWidth,
-				h : api.frameHeight
-			},
-			resource : 'widget://res/UICityList.json',
-			styles : {
-				searchBar : {
-					bgColor : '#f6f6f6',
-					cancelColor : '#E3E3E3'
-				},
-				location : {
-					color : '#696969',
-					size : 12
-				},
-				sectionTitle : {
-					bgColor : '#eee',
-					color : '#000',
-					size : 12
-				},
-				item : {
-					bgColor : '#fff',
-					activeBgColor : '#696969',
-					color : '#000',
-					size : 14,
-					height : 40
-				},
-				indicator : {
-					bgColor : '#fff',
-					color : '#696969'
-				}
-			},
-			currentCity : '北京',
-			locationWay : 'GPS(当前定位)',
-			hotTitle : '热门城市',
-			fixedOn : api.frameName,
-			placeholder : '请输入城市'
-		}, function(ret, err) {
-			if (ret) {
-				if (ret.eventType == 'show') {
-
-				} else {
-					//						UICityList.close();
-					if (ret.eventType == 'selected') {
-						//alert(JSON.stringify(ret));
-						//alert(JSON.stringify(ret.cityInfo.city));
-						//							pageParam : {
-						//								id : $(this).attr()
-						//							}
-						cityName=ret.cityInfo.city;
-						page=1;
-						$('#tab1').children().remove();
-						getDistance("", ret.cityInfo.city);
-						$('#showCity').html(ret.cityInfo.city);
-						UICityList.close();
-					}
-				}
-
-			} else {
-				api.alert({
-					msg : JSON.stringify(err)
-				});
-			}
-		});
-	}
+    function getCityList() {
+        var hh = 0;
+        var UICityList = api.require('UICityList');
+        //			if (api.systemType == 'ios') {
+        //				hh = 20;
+        //			}
+        UICityList.open({
+                        rect : {
+                        x : 0,
+                        y : hh,
+                        w : api.frameWidth,
+                        h : api.frameHeight
+                        },
+                        resource : 'widget://res/UICityList.json',
+                        styles : {
+                        searchBar : {
+                        bgColor : '#f6f6f6',
+                        cancelColor : '#E3E3E3'
+                        },
+                        location : {
+                        color : '#696969',
+                        size : 12
+                        },
+                        sectionTitle : {
+                        bgColor : '#eee',
+                        color : '#000',
+                        size : 12
+                        },
+                        item : {
+                        bgColor : '#fff',
+                        activeBgColor : '#696969',
+                        color : '#000',
+                        size : 14,
+                        height : 40
+                        },
+                        indicator : {
+                        bgColor : '#fff',
+                        color : '#696969'
+                        }
+                        },
+                        currentCity : '北京',
+                        locationWay : 'GPS(当前定位)',
+                        hotTitle : '热门城市',
+                        fixedOn : api.frameName,
+                        placeholder : '请输入城市'
+                        }, function(ret, err) {
+                        if (ret) {
+                        if (ret.eventType == 'show') {
+                        
+                        } else {
+                        //						UICityList.close();
+                        if (ret.eventType == 'selected') {
+                        //alert(JSON.stringify(ret));
+                        //alert(JSON.stringify(ret.cityInfo.city));
+                        //							pageParam : {
+                        //								id : $(this).attr()
+                        //							}
+                        cityName=ret.cityInfo.city;
+                        page=1;
+                        $('#tab1').children().remove();
+                        getDistance("", ret.cityInfo.city);
+                        $('#showCity').html(ret.cityInfo.city);
+                        UICityList.close();
+                        }
+                        }
+                        
+                        } else {
+                        api.alert({
+                                  msg : JSON.stringify(err)
+                                  });
+                        }
+                        });
+    }
 
 }
 
