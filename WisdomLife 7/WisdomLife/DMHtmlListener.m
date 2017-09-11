@@ -80,7 +80,7 @@ static DMHtmlListener *instance = nil;
     [[APIManager sharedManager] setWebViewDelegate:self];
     [[APIManager sharedManager] setModuleMethodDelegate:self];
     [[APIManager sharedManager] setScriptMessageDelegate:self];
-     
+    
     [self addObserver];
     
     // 这里的widget://表示widget的根目录路径
@@ -118,102 +118,54 @@ static DMHtmlListener *instance = nil;
         NSString *account = scriptMessage.userInfo[@"account"];
         NSString *password = scriptMessage.userInfo[@"pwd"];
         [DMLoginAction loginWithUsername:account andPwd:password withWebView:webView andScriptMessage:scriptMessage];
-    }
-    
-    if ([scriptMessage.name isEqualToString:@"update"]) {//登入系统，account&pwd
-        
+    }else if ([scriptMessage.name isEqualToString:@"update"]) {//登入系统，account&pwd
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/cn/app/id1182914885?mt=8"]];
-        
-    }
-    
-    
-    if ([scriptMessage.name isEqualToString:@"DeviceList"]) {//门禁钥匙
+    }else if ([scriptMessage.name isEqualToString:@"DeviceList"]) {//门禁钥匙
         OpenDoorListViewController *nextCtr = [[OpenDoorListViewController alloc] init];
         [self.windowContainer pushViewController:nextCtr animated:YES];
-    }
-    
-    if ([scriptMessage.name isEqualToString:@"DoorVideoList"]) {//门口视频
-
-//        JFCityViewControllers* vc = [[JFCityViewControllers alloc] init];
-//        [self.windowContainer pushViewController:vc animated:YES];
-        
+    }else if([scriptMessage.name isEqualToString:@"DoorVideoList"]) {//门口视频
         DoorListViewController *nextCtr = [[DoorListViewController alloc] init];
         [self.windowContainer pushViewController:nextCtr animated:YES];
-    }
-    
-    if ([scriptMessage.name isEqualToString:@"NativeSelectCity"]) {
-        
+    }else if([scriptMessage.name isEqualToString:@"NativeSelectCity"]) {//选择城市
         JFCityViewControllers *vc = [JFCityViewControllers new];
         [self.windowContainer pushViewController:vc animated:YES];
-        
         vc.cityBlock = ^(NSString *cityName) {
             NSDictionary *dict = @{@"title":cityName};
             [webView sendResultWithCallback:scriptMessage.callback ret:dict err:nil delete:YES];
         };
-        
-    }
-    
-    if ([scriptMessage.name isEqualToString:@"OpenRecord"]) {//开门记录
+    }else if([scriptMessage.name isEqualToString:@"OpenRecord"]) {//开门记录
         OpenRecordViewController *nextCtr = [[OpenRecordViewController alloc] init];
         [self.windowContainer pushViewController:nextCtr animated:YES];
-    }
-    
-    if ([scriptMessage.name isEqualToString:@"VisitorPass"]) {//授权访客
+    }else if([scriptMessage.name isEqualToString:@"VisitorPass"]) {//授权访客
         VisitorViewController *nextCtr = [[VisitorViewController alloc] init];
         [self.windowContainer pushViewController:nextCtr animated:YES];
-    }
-    
-    if ([scriptMessage.name isEqualToString:@"Onceopen"]) {//一键开门
-    [[NSNotificationCenter defaultCenter] postNotificationName:ScanOpenDoorReceved object:@"onceOpen"];
-    }
-    
-    if ([scriptMessage.name isEqualToString:@"Setting"]) {//设置
+    }else if([scriptMessage.name isEqualToString:@"Onceopen"]) {//一键开门
+        [[NSNotificationCenter defaultCenter] postNotificationName:ScanOpenDoorReceved object:@"onceOpen"];
+    }else if([scriptMessage.name isEqualToString:@"Setting"]) {//设置
         NewSetViewController *sVC = [[NewSetViewController alloc] init];
         [self.windowContainer pushViewController:sVC animated:YES];
-    }
-    
-    if ([scriptMessage.name isEqualToString:@"logout"]) {//登出
+    }else if([scriptMessage.name isEqualToString:@"logout"]) {//登出
         [DMLoginAction logout];
-    }
-    if ([scriptMessage.name isEqualToString:@"palyCarViedo"]) {
-        
+    }else if([scriptMessage.name isEqualToString:@"palyCarViedo"]) {//行车记录仪视频
         NSURL *url = [NSURL fileURLWithPath:scriptMessage.userInfo[@"path"]];
         _playVC = [[KNBVideoPlayerController alloc] initWithFrame:CGRectMake(0, 20, kDeviceWidth, kDeviceHeight - 20) title:scriptMessage.userInfo[@"name"] url:url];
         [_playVC setFullScreen:YES];
         [_playVC startPlay];
         [self.windowContainer pushViewController:_playVC animated:YES];
-    }
-    
-//    if ([scriptMessage.name isEqualToString:@"NativeScan"]) {//
-//        JJScanViewController *scanVC = [[JJScanViewController alloc] init];
-//        
-//        scanVC.QRCodeMessage = ^(NSString *qrcodeMessage) {
-//
-//        [webView sendResultWithCallback:scriptMessage.callback ret:@{@"result":qrcodeMessage} err:nil delete:YES];
-//        };
-//        
-//        [self.windowContainer pushViewController:scanVC animated:YES];
-//    }
-    if ([scriptMessage.name isEqualToString:@"ConnetToWiFi"]) {
+    }else if ([scriptMessage.name isEqualToString:@"ConnetToWiFi"]) {//连接WiFi
         NSURL *url;
         if ([[UIDevice currentDevice] systemVersion].floatValue < 10.0) {
             url = [NSURL URLWithString:@"prefs:root=WIFI"];
         }else{
             url = [NSURL URLWithString:@"app-Prefs:root=WIFI"];
         }
-      if ([[UIApplication sharedApplication] canOpenURL:url]) {
-          [[UIApplication sharedApplication] openURL:url];
-      }
-                                         
-    }
-    
-    if ([scriptMessage.name isEqualToString:@"showVersionCode"]) {
-        NSLog(@"展示版本信息");
+        if ([[UIApplication sharedApplication] canOpenURL:url]) {
+            [[UIApplication sharedApplication] openURL:url];
+        }
+    }else if ([scriptMessage.name isEqualToString:@"showVersionCode"]) {//版本信息
         JJVersionCodeController *VC = [JJVersionCodeController new];
         [self.windowContainer pushViewController:VC animated:YES];
-    }
-    
-    if ([scriptMessage.name isEqualToString:@"ShowKey"]) {
+    }else if([scriptMessage.name isEqualToString:@"ShowKey"]) {//
         NSArray *deviceList = [DeviceManager manager].list;
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
         dict[@"ret"] = @(0);
@@ -225,16 +177,6 @@ static DMHtmlListener *instance = nil;
         }
         [webView sendResultWithCallback:scriptMessage.callback ret:dict err:nil delete:YES];
     }
-//    
-//    if ([scriptMessage.name isEqual:@"abc"]) {
-//        NSString *msg = [NSString stringWithFormat:@"收到来自Html5的操作请求，访问的名称标识为%@，传入的参数为:%@", scriptMessage.name, scriptMessage.userInfo];
-//                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:msg delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-//                [alert show];
-//        
-//        [webView sendResultWithCallback:scriptMessage.callback ret:@{@"result":@"value"} err:nil delete:YES];
-//    } else if ([scriptMessage.name isEqual:@"requestEvent"]) {
-//        [[APIEventCenter defaultCenter] sendEventWithName:@"fromNative" userInfo:@{@"value":@"哈哈哈，我是来自Native的事件"}];
-//    }
 }
 
 #pragma mark - APIModuleMethodDelegate

@@ -6,7 +6,7 @@
 //  Copyright © 2016年 刘通超. All rights reserved.
 //
 
-#import "LCQrcodeUtil.h"
+#import "LCQRCodeUtil.h"
 
 @implementation LCQRCodeUtil
 

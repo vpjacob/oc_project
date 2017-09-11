@@ -19,7 +19,7 @@
 
 @interface OpenDoorListViewController () <AVAudioPlayerDelegate>
 
-@property (nonatomic,strong)UILabel *messageLbl;
+@property (nonatomic,strong)UIImageView *messageLbl;
 
 @property (nonatomic,strong)UploadOpenDoorService *openDoorService;
 
@@ -226,13 +226,13 @@
 }
 
 
-- (UILabel *)messageLbl
+- (UIImageView *)messageLbl
 {
     if (!_messageLbl) {
-        _messageLbl = [[UILabel alloc] initWithFrame:CGRectMake(0, (kDeviceHeight-kNavBarHeight-49)/2, kDeviceWidth, 30)];
-        _messageLbl.textColor = kLightGrayColor;
-        _messageLbl.textAlignment = NSTextAlignmentCenter;
-        _messageLbl.text = NSLocalizedString(@"NoData", @"");
+        _messageLbl = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nomoredata"]];
+        _messageLbl.center = self.view.center;
+        
+        
     }
     return _messageLbl;
 }

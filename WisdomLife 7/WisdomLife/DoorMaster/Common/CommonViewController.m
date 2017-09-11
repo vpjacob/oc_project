@@ -66,6 +66,9 @@
 {
     if (!_commonNavBar) {
         _commonNavBar = [[CommonNavBar alloc] initWithFrame:CGRectMake(0, 0, kDeviceWidth, kNavBarHeight)];
+        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 63.5, kDeviceWidth, 0.5)];
+        lineView.backgroundColor = [UIColor colorWithHexString:@"dddddd"];
+        [_commonNavBar addSubview:lineView];
         [_commonNavBar.backBtn addTarget:self action:@selector(backNavItemTapped) forControlEvents:UIControlEventTouchUpInside];
     }
     return _commonNavBar;

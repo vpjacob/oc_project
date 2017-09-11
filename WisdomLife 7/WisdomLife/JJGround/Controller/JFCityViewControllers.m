@@ -229,7 +229,7 @@ KNBBillingRecordSliderViewDelegate
 
 - (NSArray *)hotCityArray {
     if (!_hotCityArray) {
-        _hotCityArray = @[@"北京市", @"天津市",@"上海市",@"广州市", @"哈尔滨市", @"金昌市", @"邯郸市", @"东港市", @"清徐县"];
+        _hotCityArray = @[@"北京市", @"天津市", @"哈尔滨市", @"金昌市", @"邯郸市", @"东港市", @"清徐县",@"上海市",@"广州市",@"南京市"];
     }
     return _hotCityArray;
 }
@@ -391,6 +391,8 @@ KNBBillingRecordSliderViewDelegate
         return 40;
     }
 }
+
+
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (_HeaderSectionTotal == 3) {

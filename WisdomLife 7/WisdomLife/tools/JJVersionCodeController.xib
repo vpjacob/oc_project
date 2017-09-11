@@ -21,31 +21,43 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCo-Jo-Jbl">
-                    <rect key="frame" x="166" y="100" width="42" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                    <rect key="frame" x="165.5" y="298" width="44" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="textColor" red="0.60392156862745094" green="0.60392156862745094" blue="0.60392156862745094" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WechatIMG12" translatesAutoresizingMaskIntoConstraints="NO" id="L73-PT-ucM">
-                    <rect key="frame" x="127.5" y="171" width="120" height="120"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="versioncode" translatesAutoresizingMaskIntoConstraints="NO" id="L73-PT-ucM">
+                    <rect key="frame" x="152" y="120" width="70" height="69"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="120" id="1ep-A7-gi0"/>
-                        <constraint firstAttribute="width" constant="120" id="sB6-Rf-l9g"/>
-                    </constraints>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="科技改变生活，小客服务你我" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJo-kb-D6H">
+                    <rect key="frame" x="68" y="242" width="238.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="textColor" red="0.11764705882352941" green="0.62352941176470589" blue="0.82745098039215681" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京小客网络科技有限公司版权所有" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jSj-YX-dBr">
+                    <rect key="frame" x="81.5" y="591" width="212.5" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
-            <color key="backgroundColor" red="0.85753487583269106" green="0.85753487583269106" blue="0.85753487583269106" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="gCo-Jo-Jbl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="TRF-rU-pO2"/>
-                <constraint firstItem="L73-PT-ucM" firstAttribute="top" secondItem="gCo-Jo-Jbl" secondAttribute="bottom" constant="50" id="joM-VI-LSC"/>
-                <constraint firstItem="gCo-Jo-Jbl" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="rU4-yo-UWy"/>
-                <constraint firstItem="L73-PT-ucM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ykE-hd-9GH"/>
+                <constraint firstItem="QJo-kb-D6H" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="D3q-Da-gUE"/>
+                <constraint firstAttribute="bottom" secondItem="jSj-YX-dBr" secondAttribute="bottom" constant="60" id="KG5-Ho-9Aw"/>
+                <constraint firstItem="gCo-Jo-Jbl" firstAttribute="top" secondItem="QJo-kb-D6H" secondAttribute="bottom" constant="35" id="R8P-mh-aT3"/>
+                <constraint firstItem="L73-PT-ucM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="120" id="VJt-rX-SAb"/>
+                <constraint firstItem="gCo-Jo-Jbl" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ZAb-15-snH"/>
+                <constraint firstItem="L73-PT-ucM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ZRh-nh-qAG"/>
+                <constraint firstItem="jSj-YX-dBr" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="c67-Ib-OMj"/>
+                <constraint firstItem="QJo-kb-D6H" firstAttribute="top" secondItem="L73-PT-ucM" secondAttribute="bottom" constant="53" id="gzD-MB-9wl"/>
             </constraints>
             <point key="canvasLocation" x="27" y="7"/>
         </view>
     </objects>
     <resources>
-        <image name="WechatIMG12" width="120" height="120"/>
+        <image name="versioncode" width="70" height="69"/>
     </resources>
 </document>

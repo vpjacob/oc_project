@@ -37,34 +37,39 @@
     self.window.rootViewController = (UIViewController *)[[DMHtmlListener manager] getAPIWidgetContainer];
     [self.window makeKeyAndVisible];
     
-    //    3d touch
-    if (IOS9) {
-        UIApplicationShortcutIcon *video = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeCaptureVideo];
-        UIApplicationShortcutIcon *onceOpen = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypePlay];
-        UIApplicationShortcutIcon *keys = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeHome];
-        UIApplicationShortcutItem *item = [[UIApplicationShortcutItem alloc] initWithType:@"onceOpen" localizedTitle:@"一键开门" localizedSubtitle:nil icon:onceOpen userInfo:nil];
-        UIApplicationShortcutItem *item2 = [[UIApplicationShortcutItem alloc] initWithType:@"shortcutTypeTwo" localizedTitle:@"门口视频" localizedSubtitle:nil icon:video userInfo:nil];
-        UIApplicationShortcutItem *item3 = [[UIApplicationShortcutItem alloc] initWithType:@"shortcutTypeThree" localizedTitle:@"门禁钥匙" localizedSubtitle:nil icon:keys userInfo:nil];
-        UIApplicationShortcutItem *item4 = [[UIApplicationShortcutItem alloc] initWithType:@"eggs" localizedTitle:@"砸金蛋" localizedSubtitle:nil icon:keys userInfo:nil];
-        [[UIApplication sharedApplication] setShortcutItems:@[item3,item2,item,item4]];
-    }
-    
-//        [SplashView updateSplashData:@"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=996278178,3084539720&fm=26&gp=0.jpg" actUrl:@"http://www.baidu.com"];
-    UIImage *image = [UIImage imageNamed:@"guanggao"];
-    [SplashView showSplashView:5 defaultImage:image tapSplashImageBlock:^(NSString * urlStr) {
+    [self thridDTouchInit];
+    [self advertisementInit];
 
-    } splashViewDismissBlock:^(BOOL complete) {
-        
-        //10        [SKStoreReviewController requestReview];
-        //10以下        NSString  * nsStringToOpen = [NSString  stringWithFormat: @"itms-apps://itunes.apple.com/app/id%@?action=write-review",@"1182914885"];//替换为对应的APPID
-        //        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:nsStringToOpen]];
-        
-    }];
-    
     return YES;
 }
 
+- (void)advertisementInit{
+//        [SplashView updateSplashData:@"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=996278178,3084539720&fm=26&gp=0.jpg" actUrl:@"http://www.baidu.com"];
+    UIImage *image = [UIImage imageNamed:@"guanggao"];
+    [SplashView showSplashView:5 defaultImage:image tapSplashImageBlock:^(NSString * urlStr) {
+        
+    } splashViewDismissBlock:^(BOOL complete) {
+        
+//10        [SKStoreReviewController requestReview];
+//10以下        NSString  * nsStringToOpen = [NSString  stringWithFormat: @"itms-apps://itunes.apple.com/app/id%@?action=write-review",@"1182914885"];//替换为对应的APPID
+//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:nsStringToOpen]];
+    }];
+}
 
+- (void)thridDTouchInit{
+    //    3d touch
+    if (IOS9) {
+        UIApplicationShortcutIcon *clickEgg = [UIApplicationShortcutIcon iconWithTemplateImageName:@"3d_clickegg"];
+        UIApplicationShortcutIcon *video = [UIApplicationShortcutIcon iconWithTemplateImageName:@"3d_viedo"];
+        UIApplicationShortcutIcon *onceOpen = [UIApplicationShortcutIcon iconWithTemplateImageName:@"3d_opendoor"];
+        UIApplicationShortcutIcon *keys = [UIApplicationShortcutIcon iconWithTemplateImageName:@"3d_doorkey"];
+        UIApplicationShortcutItem *item = [[UIApplicationShortcutItem alloc] initWithType:@"onceOpen" localizedTitle:@"一键开门" localizedSubtitle:nil icon:onceOpen userInfo:nil];
+        UIApplicationShortcutItem *item2 = [[UIApplicationShortcutItem alloc] initWithType:@"shortcutTypeTwo" localizedTitle:@"门口视频" localizedSubtitle:nil icon:video userInfo:nil];
+        UIApplicationShortcutItem *item3 = [[UIApplicationShortcutItem alloc] initWithType:@"shortcutTypeThree" localizedTitle:@"门禁钥匙" localizedSubtitle:nil icon:keys userInfo:nil];
+        UIApplicationShortcutItem *item4 = [[UIApplicationShortcutItem alloc] initWithType:@"eggs" localizedTitle:@"砸金蛋" localizedSubtitle:nil icon:clickEgg userInfo:nil];
+        [[UIApplication sharedApplication] setShortcutItems:@[item3,item2,item,item4]];
+    }
+}
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {

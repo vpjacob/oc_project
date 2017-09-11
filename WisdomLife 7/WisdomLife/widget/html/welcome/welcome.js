@@ -57,7 +57,6 @@ apiready = function() {
 			value : registrationId
 		});
     });
-	
 	fs = api.require('fs');
 //	initAppInfo();
 	fs.readDir({

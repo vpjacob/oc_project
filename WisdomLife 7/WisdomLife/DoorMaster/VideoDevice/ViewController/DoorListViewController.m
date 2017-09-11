@@ -21,7 +21,7 @@
 @property (nonatomic,strong)NSArray *blackListArray;
 @property (nonatomic, strong) NSMutableArray *isOnMutableArray;
 @property (nonatomic, strong) UITableView *jjTabelView;
-@property (nonatomic,strong)UILabel *messageLbl;
+@property (nonatomic,strong)UIImageView *messageLbl;
 
 @end
 
@@ -160,13 +160,11 @@
 
 #pragma mark - Setter && Getter
 
-- (UILabel *)messageLbl
+- (UIImageView *)messageLbl
 {
     if (!_messageLbl) {
-        _messageLbl = [[UILabel alloc] initWithFrame:CGRectMake(0, kCurrentWidth(150), kDeviceWidth, kCurrentWidth(20))];
-        _messageLbl.text = NSLocalizedString(@"NoData", @"");
-        _messageLbl.textAlignment = NSTextAlignmentCenter;
-        _messageLbl.font = kSystem(15);
+        _messageLbl = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nomoredata"]];
+        _messageLbl.center = self.view.center;
     }
     return _messageLbl;
 }

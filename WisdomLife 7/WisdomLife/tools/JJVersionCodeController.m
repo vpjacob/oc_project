@@ -22,13 +22,9 @@
     // Do any additional setup after loading the view from its nib.
     self.commonNavBar.title = @"版本信息";
     [self.view addSubview:self.commonNavBar];
-    self.view.backgroundColor = [UIColor lightGrayColor];
-    self.versionCodeLabel.text = [CommonSystemInfo appVersion];
-    self.versionCodeLabel.font = [UIFont systemFontOfSize:24];
-//    self.versionCodeLabel.textColor = [UIColor redColor];
+    NSString *version = [CommonSystemInfo appVersion];
+    self.versionCodeLabel.text = [NSString stringWithFormat:@"v %@",version];
     
 }
-
-
 
 @end
