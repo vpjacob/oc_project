@@ -1,6 +1,7 @@
 var busAmount = 1;
 var clickNum = 1;
 var countAll="";
+var urId;
 apiready = function() {
 	var header = $api.byId('header');
 	if (api.systemType == 'ios') {
@@ -10,9 +11,10 @@ apiready = function() {
 	$("#back").bind("click", function() {
 		api.closeWin();
 	});
-	FileUtils.readFile("info.json", function(info, err) {
-		userInfo = info;
-	});
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
 	//数量的增加与减少
 	$('#numAdd').click(function() {
 		var amout = $("#amout").html();
@@ -33,7 +35,7 @@ apiready = function() {
 	//提交支付调用支付宝接口
 	$('#apply').click(function() {
 		var mobileReg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(14[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
-		if (userInfo.userNo == '' || userInfo.userNo == null) {
+		if (urId == '' || urId == null) {
 			api.alert({
 				msg : "您是否登录了？请先去登录吧！"
 			});
@@ -76,7 +78,7 @@ apiready = function() {
 			needTrascation : true,
 			funName : "insertTempAndGetDealNo",
 			form : {
-				userNo : userInfo.userNo,
+				userNo : urId,
 				userName : $("#userName").val(),
 				userPhone : $("#userPhone").val(),
 				userAddress:$("#address").val(),

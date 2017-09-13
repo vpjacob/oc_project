@@ -33,23 +33,19 @@ apiready = function() {
 	// 加载完毕，则注销无限加载事件，以防不必要的加载
 	//	$.detachInfiniteScroll($('.infinite-scroll'));
 	//	// 删除加载提示符
-	
-	FileUtils.readFile("info.json", function(info, err) {
-			urId=info.userNo;
-				//  加载银蛋记录
-			//  silverReacd();
-			//  加载银蛋是否可砸
-	
-			isHaveEgg();
-			reacd();	
-			isHaveSilverEgg();
-		});
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
+    isHaveEgg();
+	reacd();	
+	isHaveSilverEgg();
 	
 	//弹出中奖结果  确认按钮关闭
 	$('.closeTan').click(function(){
 		$('#showBox').hide();
 		api.openWin({
-			name : 'buyList',
+			name : 'buylist',
 			url : '../../shangjia/html/buyList.html',
 			reload : true,
 			animation : {

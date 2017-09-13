@@ -7,12 +7,13 @@ apiready = function() {
 	if (api.systemType == 'ios') {
 		$api.css(header, 'margin-top:20px;');
 	}
+	
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
+    queryAnnouncementListByUserNo(urId, page);
 
-	//调用小区公告
-	FileUtils.readFile("info.json", function(info, err) {
-		urId = info.userNo;
-		queryAnnouncementListByUserNo(urId, page);
-	});
 	//小区公告接口
 	function queryAnnouncementListByUserNo(urId, pages) {
 		api.showProgress({

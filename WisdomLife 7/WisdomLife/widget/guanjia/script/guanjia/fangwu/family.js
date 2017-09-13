@@ -5,6 +5,7 @@ var unitId = '';
 var roomId = '';
 var ownerInfo = '';
 var test = '';
+var urId;
 //地址信息
 apiready = function() {
 	//	兼容ios
@@ -12,10 +13,10 @@ apiready = function() {
 	if (api.systemType == 'ios') {
 		$api.css(header, 'margin-top:20px;');
 	};
-	FileUtils.readFile("info.json", function(info, err) {
-		urId = info.userNo;
-
-	});
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
 
 	//获取相关房屋穿过来的房间id
 	id = api.pageParam.id;

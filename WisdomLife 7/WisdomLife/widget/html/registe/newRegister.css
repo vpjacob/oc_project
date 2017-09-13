@@ -47,7 +47,7 @@ input {
 .contianBox .topSame{
 	width:100%;
 	height: 1.5rem;
-	margin-top: 36%;
+	margin-top: 37%;
 }
 .contianBox .topSame button{
    /* float: right;
@@ -59,7 +59,7 @@ input {
     top: -107%;
     z-index:10000;
     color:white;
-    padding: 0.25rem 0.6rem;
+    padding: 0.2rem 0.6rem;
     background: url("../../image/newLogin/djs.png") no-repeat 0 0;
     background-size:4.2rem 1.3rem;  
 }
@@ -100,7 +100,7 @@ input::-moz-input-placeholder{color:white}
 	line-height: 2.0rem;
 	font-size: 1rem;
 	color: white;
-	margin-top: 13%;
+	margin-top: 19%;
 	border-radius: 1rem;
 }
 .contian .contianBox .register{
@@ -114,20 +114,6 @@ input::-moz-input-placeholder{color:white}
 	border-radius: 1rem;
 	border: 1px solid #c8ced8;
 }
-.contian .contianBox .last{
-	width: 100%;
-	margin-top: 4%;
-	text-align: center;
-}
-.contian .contianBox  .forget{
-	font-size:0.65rem;
-	color: white;
-}
-.contian .contianBox  .forget .protocol{
-	font-size:0.7rem;
-	color: rgb(34,105,212);
-}
-
 
 
 

@@ -18,7 +18,7 @@ apiready = function() {
 	function businessList(pages, typeId){
 		if ( typeof (cityName) == "undefined" || cityName == "") {
 			cityName = "北京";
-		}
+		};
 		api.showProgress({});
 		AjaxUtil.exeScript({
 			script : "mobile.business.business",

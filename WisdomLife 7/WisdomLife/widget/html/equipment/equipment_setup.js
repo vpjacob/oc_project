@@ -106,32 +106,11 @@ function setRecode(url, state2) {
 				}
 			});
 		} else if (xmlhttp.readyState == 4 && xmlhttp.status == 0) {
-//			api.alert({
-//				msg : "请连接设备的指定WIFI"
-//			});
-            api.confirm({
-                        msg : '未连接指定WiFi，现在就去？',
-                        buttons : ['设置', '取消']
-                        }, function(ret, err) {
-                        var index = ret.buttonIndex;
-                        if (index == 1) {
-                        api.accessNative({
-                                         name : 'ConnetToWiFi',
-                                         extra : {
-                                         }
-                                         }, function(ret, err) {
-                                         if (ret) {
-                                         //                                    alert(JSON.stringify(ret));
-                                         } else {
-                                         //                                    alert(JSON.stringify(err));
-                                         }
-                                         });
-                        } else if(index == 2){
-                        api.closeWin();
-                        }
-                        });
-            
-        }
+			api.alert({
+				msg : "请连接设备的指定WIFI"
+			});
+			console.log(xmlhttp.readyState + "---" + xmlhttp.status);
+		}
 	}
 	if (state2 == 2) {//格式化
 		xmlhttp.open("GET", url, true);

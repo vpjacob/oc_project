@@ -8,10 +8,10 @@ apiready = function() {
 	if (api.systemType == 'ios') {
 		$api.css(header, 'margin-top:20px;');
 	}
-	FileUtils.readFile("info.json", function(info, err) {
-		urId = info.userNo;
-		
-	});
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
 	
 	//我是租户部分提交
 	$('#zuhu').click(function(){

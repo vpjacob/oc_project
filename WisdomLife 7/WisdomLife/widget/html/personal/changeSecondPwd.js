@@ -7,11 +7,12 @@ var cc = $api.dom('.content');
 		$api.css(header, 'margin-top:20px;');
 		$api.css(cc, 'margin-top:20px;');
 	}
-	FileUtils.readFile("info.json", function(info, err) {
-			urId=info.userNo;
-//			console.log('userNo为'+urId);
-			oldPwd(urId);
-		});
+	
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
+    oldPwd(urId);
 		
 	$('#goback').click(function(){
 		api.closeWin({

@@ -1,15 +1,16 @@
-var userInfo = {};
+var urId;
 apiready = function() {
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
 	$("#apply").click(function() {
 		var yj = $("#yj").val();
 		if(yj == ''){
 			alert("请填写反馈意见！");
 			return false;
 		}
-		//读取info.json文件：
-		FileUtils.readFile("info.json", function(info, err) {
-			applyExe(info.user_no)
-		});
+		applyExe(urId);
 	});
 
 	function applyExe(user_no) {

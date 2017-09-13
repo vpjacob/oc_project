@@ -2,10 +2,10 @@ var urId;
 var headurls = '';
 var attachmentPic = '';
 apiready = function() {
-	FileUtils.readFile("info.json", function(info, err) {
-		urId = info.userNo;
-
-	});
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
 	var name = api.pageParam.name;
 	var fid = api.pageParam.id;
 	$('#topName').html(name);
@@ -145,20 +145,12 @@ apiready = function() {
 					compress($(showSrc[i]).attr('src'));
 					
 				};
-				console.log(showSrc);
-//				setTimeout(function() {
-//					var test = headurls.substring(0, headurls.length - 1);
-//					var keke = test.split(',');
-//					changeheadurl(keke);
-//					console.log('keke的长度+++++++++++'+keke.length);
-//				}, 1500);
 
 			}
 		});
 	}
 
 	function compress(compressPic) {
-		//alert(compressPic);
 		headurls='';
 		var imgTempPath = compressPic.substring(compressPic.lastIndexOf("/"));
 		if (api.systemType == 'ios') {
@@ -169,7 +161,7 @@ apiready = function() {
 		var imageFilter = api.require('imageFilter');
 		imageFilter.compress({
 			img : compressPic,
-			quality : 0.05,
+			quality : 0.3,
 			save : {
 				imgPath : "fs://imgtemp",
 				imgName : imgTempPath
@@ -177,7 +169,6 @@ apiready = function() {
 		}, function(ret, err) {
 			if (ret.status) {
 				headurls += "fs://imgtemp" + imgTempPath + ",";
-				//alert(headurls);
 			} else {
 				alert(JSON.stringify(err));
 			}
@@ -218,8 +209,6 @@ apiready = function() {
 	});
 	//上传图片
 	function changeheadurl(headurls) {
-		//	if (headurls) {
-		//var ddf={files:{file1:'/storage/emulated/0/DCIM/Camera/p-34289ded.jpg',file2:'/storage/emulated/0/DCIM/Camera/IMG_20170110_094927.jpg',}};
 		api.showProgress({
 			style : 'default',
 			animationType : 'fade',
@@ -230,7 +219,6 @@ apiready = function() {
 		api.ajax({
 			url : rootUrl + '/api/uploads',
 			method : 'post',
-			//report:true,
 			contentType : "multipart/form-data",
 			data : {
 				files : {
@@ -242,7 +230,6 @@ apiready = function() {
 			console.log($api.jsonToStr(ret));
 			if (ret.execStatus == 'true') {
 				attachmentPic = ret.formDataset.saveNames;
-				//alert('拿回来的路径'+attachmentPic);  上传接口拿回路径
 				review();
 			}
 		});
@@ -268,7 +255,6 @@ apiready = function() {
 				
 				api.execScript({//实现商家详情页的回显刷新
 					name : 'business-man-list',
-//					frameName : 'business-man-list',
 					script : 'refresh()'
 				});
 				api.closeWin();
@@ -285,7 +271,6 @@ apiready = function() {
 //			review();
 			var test = headurls.substring(0, headurls.length - 1);
 			var keke = test.split(',');
-			console.log('keke的长度+++++++++++'+keke.length);
 			changeheadurl(keke);
 		} else {
 			$('#textLen').html('加油，还差' + (7 - top_area) + '个字');

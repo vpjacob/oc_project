@@ -2,10 +2,10 @@ var memberid;
 var urId='';
 apiready = function() {
 	memberid = api.pageParam.memberid;
-	FileUtils.readFile("info.json", function(info, err) {
-			urId=info.userNo;
-						
-		});
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
 	var header = $api.byId('header');
 	if (api.systemType == 'ios') {
 		var cc = $api.dom('.content');

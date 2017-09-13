@@ -50,15 +50,14 @@ apiready = function() {
 	
 	var ajpush = api.require('ajpush');
 	ajpush.getRegistrationId(function(ret) {
-        console.info(JSON.stringify(ret))
         var registrationId = ret.id;
         api.setPrefs({
 			key : 'registrationId',
 			value : registrationId
 		});
     });
+	
 	fs = api.require('fs');
-//	initAppInfo();
 	fs.readDir({
 		path : 'fs://wisdomLifeData/'
 	}, function(ret, err) {
@@ -96,12 +95,12 @@ function fnClose() {
 
 //滑动到第四个引导页时显示"立即体验"按钮
 function showNowRegistButton() {
-	$("img").show();
+	$(".imgbox").show();
 }
 
 //引导页向右滑动时隐藏页面上的"立即体验"按钮
 function hideNowRegistButton() {
-	$("img").hide();
+	$(".imgbox").hide();
 }
 
 //初始化基本信息,例如:用户信息:info.json,新闻信息:news.json,天气信息:lastweather.json,用户的钥匙信息:userkeyinfo.json
@@ -132,7 +131,7 @@ function initJpush()
 {
 	var ajpush = api.require('ajpush');
 	ajpush.init(function(ret) {
-	    if (ret && ret.status){
+	    if (ret){
 //	    	api.toast({
 //			    msg: '推送服务初始化成功',
 //			    duration: 2000,

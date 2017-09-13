@@ -6,10 +6,11 @@ apiready = function() {
 		sync : true,
 		key : 'msgnum'
 	});
-	FileUtils.readFile("info.json", function(info, err) {
-		urId = info.userNo;
-		getDetail(urId);
-	});
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
+    getDetail(urId);
 	if (msgnum == 0) {
 	} else {
 		msgnum = Number(msgnum) - 1;

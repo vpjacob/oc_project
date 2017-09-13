@@ -1,10 +1,11 @@
 var urId;
 apiready = function() {
-	FileUtils.readFile("info.json", function(info, err) {
-			urId=info.userNo;
-			console.log('userNo为'+urId);
-			bankList(urId);
-		});
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
+    bankList(urId);
+
 	var header = $api.byId('title');
 	if (api.systemType == 'ios') {
 		$api.css(header, 'margin-top:20px;');

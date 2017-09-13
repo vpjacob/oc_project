@@ -41,15 +41,23 @@ apiready = function() {
 			// 删除加载提示符
 			$('.infinite-scroll-preloader').remove();
 		}
+		console.log("i" + i);
+		console.log("j" + j);
 		for (i; i >= j; i--) {//倒叙
+			console.log(1);
 			var src = "http://192.168.1.254/CARDV/MOVIE/" + newJSON[i].File.NAME + "?custom=1&cmd=4001";
+			console.log(2);
 			var title = newJSON[i].File.NAME;
+			console.log(3);
 			var time = newJSON[i].File.TIME;
+			console.log(4);
 			if (names.indexOf(newJSON[i].File.NAME) >= 0) {
+				console.log(5);
 				result = result_yes;
 			} else {
 				result = result_no;
 			}
+			console.log(6);
 			var nowli = result.replace("\"[src]\"", src);
 			nowli = nowli.replace("\"[title]\"", title);
 			nowli = nowli.replace("\"[time]\"", time);
@@ -57,9 +65,14 @@ apiready = function() {
 			nowli = nowli.replace("\"[id]\"", title.substring(0, title.length - 4));
 			nowli = nowli.replace("\"[size]\"", Math.round((Number(newJSON[i].File.SIZE) / (1024 * 1024)) * 100) / 100 + "M");
 			html += nowli;
+			console.log(7);
+			console.log(html);
+
 		}
 		newPage = totalPage - 1;
+		console.log(8);
 		$api.append(document.getElementById("con"), html);
+		console.log(9);
 	});
 
 	$("#back").bind("click", function() {
@@ -100,68 +113,30 @@ apiready = function() {
 	if (systemType != "ios") {//只限Android系统
 		moduleTest.get(function(ret) {
 			if (ret.ssid != ssid) {
-                       api.confirm({
-                                   msg : '未连接指定WiFi，现在就去？',
-                                   buttons : ['设置', '取消']
-                                   }, function(ret, err) {
-                                   var index = ret.buttonIndex;
-                                   if (index == 1) {
-                                   api.accessNative({
-                                                    name : 'ConnetToWiFi',
-                                                    extra : {
-                                                    }
-                                                    }, function(ret, err) {
-                                                    if (ret) {
-                                                    //                                    alert(JSON.stringify(ret));
-                                                    } else {
-                                                    //                                    alert(JSON.stringify(err));
-                                                    }
-                                                    });
-                                   } else if(index == 2){
-                                   api.closeWin();
-                                   }
-                                   });
-                       } else {
+				api.alert({
+					msg : "请连接设备指定WiFi"
+				}, function(ret, err) {
+					api.closeWin({
+					});
+				});
+			} else {
 				getList();
 			}
 		});
 	} else {
 		var retWifiName = moduleTest.get();
 		if (retWifiName != ssid) {
-//			api.alert({
-//				msg : "请连接设备指定WiFi"
-//			}, function(ret, err) {
-//				api.closeWin({
-//				});
-//			});
-
-            api.confirm({
-                        msg : '未连接指定WiFi，现在就去？',
-                        buttons : ['设置', '取消']
-                        }, function(ret, err) {
-                        var index = ret.buttonIndex;
-                        if (index == 1) {
-                        api.accessNative({
-                                         name : 'ConnetToWiFi',
-                                         extra : {
-                                         }
-                                         }, function(ret, err) {
-                                         if (ret) {
-                                         //                                    alert(JSON.stringify(ret));
-                                         } else {
-                                         //                                    alert(JSON.stringify(err));
-                                         }
-                                         });
-                        } else if(index == 2){
-                        api.closeWin();
-                        }
-                        });
-        } else {
+			api.alert({
+				msg : "请连接设备指定WiFi"
+			}, function(ret, err) {
+				api.closeWin({
+				});
+			});
+		} else {
 			getList();
 		}
 	}
 };
-
 function getList() {
 	var xmlhttp;
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -191,6 +166,7 @@ function getList() {
 					});
 				} else if (JSON.stringify(ret).indexOf("[") < 0) {//只有一条
 					var info = ret;
+					console.log($api.jsonToStr(ret));
 					//							alert($api.jsonToStr(ret));
 					var html = "";
 					var fs = api.require('fs');
@@ -235,6 +211,7 @@ function getList() {
 					$('.infinite-scroll-preloader').remove();
 				} else {//有多个
 					if (ret) {//本地文件数量的判断
+						console.log(JSON.stringify(ret));
 						var info = ret;
 						var fs = api.require('fs');
 						fs.readDir({
@@ -283,10 +260,13 @@ function getList() {
 									nowli = nowli.replace("\"[id]\"", title.substring(0, title.length - 4));
 									nowli = nowli.replace("\"[size]\"", Math.round((Number(newJSON[i].File.SIZE) / (1024 * 1024)) * 100) / 100 + "M");
 									html += nowli;
+									console.log(html);
 
 								}
 								newPage = totalPage - 1;
 								$api.append(document.getElementById("con"), html);
+								console.log(html);
+								console.log(JSON.stringify(newJSON));
 
 							} else {
 								api.alert({
@@ -321,8 +301,21 @@ function download(name) {
              alert('是文件夹');
              } else {
              
-             alert("视频文件已经存在，前往相册中查看");
+             api.accessNative({
+                              name : 'palyCarViedo',
+                              extra : {
+                              path:path_file+name,
+                              name:name
+                              }
+                              }, function(ret, err) {
+                              if (ret) {
+                              //                                    alert(JSON.stringify(ret));
+                              } else {
+                              //                                    alert(JSON.stringify(err));
+                              }
+                              });
              $(idOfI).remove();
+             
              
              }
              } else {
@@ -343,10 +336,24 @@ function download(name) {
                           cache : true,
                           allowResume : true
                            }, function(ret, err) {
+                          console.log(JSON.stringify(ret));
                           if (ret.state == 1) {
                           state = 1;
-
-                          alert("已经下载完成，前往相册中查看");
+                          api.accessNative({
+                                           name : 'palyCarViedo',
+                                           extra : {
+                                           path:path_file+name,
+                                           name:name
+                                           }
+                                           }, function(ret, err) {
+                                           if (ret) {
+                                           //                                    alert(JSON.stringify(ret));
+                                           } else {
+                                           //                                    alert(JSON.stringify(err));
+                                           }
+                                           });
+                          
+                          
                           
                           $(idOfI).remove();
                           api.hideProgress();

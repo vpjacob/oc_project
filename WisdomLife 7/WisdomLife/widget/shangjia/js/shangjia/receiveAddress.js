@@ -1,4 +1,4 @@
-var userInfo="";
+var urId;
 var addressId=""
 apiready = function() {
 	var header = $api.byId('title');
@@ -8,10 +8,11 @@ apiready = function() {
 	if (api.systemType == 'ios') {
 		$api.css(header, 'margin-top:1.1rem;');
 	};
-	FileUtils.readFile("info.json", function(info, err) {
-		userInfo = info;
-		queryDeliveryList();
-	});
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
+    queryDeliveryList();
 	
 	  function queryDeliveryList(){
     	 AjaxUtil.exeScript({
@@ -19,7 +20,7 @@ apiready = function() {
 			needTrascation : false,
 			funName : "queryDeliveryList",
 	        form:{
-	           userNo:userInfo.userNo,
+	           userNo:urId,
 	        },
 			success : function(data) {
 				console.log("查询收货地址" + $api.jsonToStr(data));
@@ -128,7 +129,7 @@ apiready = function() {
 			funName : "queryAddressById",
 			        form:{
 			           goodId:busid,
-			           userNo:userInfo.userNo,
+			           userNo:urId,
 			           id:addressInfoId
 			        },
 			success : function(data) {

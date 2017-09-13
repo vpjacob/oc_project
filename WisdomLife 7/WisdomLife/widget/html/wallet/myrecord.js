@@ -9,11 +9,12 @@ apiready = function() {
 	if (api.systemType == 'ios') {
 		$api.css(header, 'margin-top:20px;');
 	}
-	//	上来就执行我的订单的查询
-	FileUtils.readFile("info.json", function(info, err) {
-		urId = info.userNo;
-		queryOrders(urId, page);
-	});
+	
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
+    queryOrders(urId, page);
 	$(function() {
 		$(".Personal_centent").hide().first().show();
 		$(".span1").click(function() {
@@ -108,16 +109,10 @@ apiready = function() {
 				pageNo : page
 			},
 			success : function(data) {
-				console.log("在此输出订单的信息：" + $api.jsonToStr(data));
+
 				api.hideProgress();
-				if(data.datasources[0]=="undefined" || data.datasources[0]== "" || data.datasources[0]==null){
-					api.toast({
-								msg : '亲，您暂时没有订单记录！'
-							});
-						return false;	
-				}
 				var list = data.datasources[0].rows;
-				
+
 				if (data.formDataset.checked == 'true') {
 					if (list == undefined || list == '' || list.length == '' || list.length == 0 || list.length == undefined) {
 						if (page == 1) {
@@ -131,19 +126,47 @@ apiready = function() {
 						}
 					} else {
 						for (var i = 0; i < list.length; i++) {
-							console.log(list[i].merchant_name + ":" + list[i].goods.length);
-							var nowli = '<div class="box">' + '<div class="bottom">' + '<div class="user">' + '<div class="same">' + '<span>商家名称：</span>' + '<span>' + list[i].merchant_name + '</span>' + '</div>' + '</div>';
-							nowli = nowli + '<div class="user" style="height:100%;overflow:auto">' + '<div class="same">'
-							+ '<span>商品 ：</span><span>';
-							if (list[i].goods.length > 0) {
-								for (var j = 0; j < list[i].goods.length; j++) {
-									nowli = nowli + list[i].goods[j].good_name + '&nbsp;&nbsp;: &nbsp;¥&nbsp;' + list[i].goods[j].price + '&nbsp;*&nbsp;' + list[i].goods[j].amount + '<br>';
-								}
-							} else {
-								nowli = nowli + '没有商品';
+						var	nowli = '<div class="box">' 
+									+ '<div class="bottom">' 
+										+ '<div class="user">' 
+											+ '<div class="same">' 
+												+ '<span>商家名称：</span>' + '<span>' + list[i].merchant_name + '</span>' 
+											+ '</div>' 
+										+ '</div>' ;
+						  nowli = nowli + '<div class="user" style="height:100%;overflow:auto">' 
+											+ '<div class="same">'  
+												+ '<span>商品 ：</span><span>';
+						if(list[i].goods.length>0){
+							for( var j=0;j<list[i].goods.length;j++){
+						  		nowli = nowli + list[i].goods[j].good_name + '&nbsp;&nbsp;: &nbsp;¥&nbsp;' + list[i].goods[j].price + '&nbsp;*&nbsp;'+ list[i].goods[j].amount +'<br>'; 
 							}
-							nowli = nowli + '</span></div>' + '</div>';
-							nowli = nowli + '<div class="user">' + '<div class="same">' + '<span>交易总额：</span>' + '<span style="color:#ff6c00">' + list[i].deal_amount + '</span>' + '</div>' + '</div>' + '<div class="user">' + '<div class="same">' + '<span>订单号：</span>' + '<span>' + list[i].deal_no + '</span>' + '</div>' + '</div>' + '<div class="user">' + '<div class="same">' + '<span>创建时间：</span>' + '<span>' + list[i].create_time + '</span>' + '</div>' + '</div>' + '<div class="user">' + '<div class="same">' + '<span>订单状态：</span>' + '<span>' + list[i].status + '</span>' + '</div>' + '</div>' + '</div>' + '</div>';
+						}else{
+							nowli = nowli + list[i].source_come;
+						}
+							nowli = nowli + '</span></div>' 
+										+ '</div>' ;
+						  nowli = nowli + '<div class="user">' 
+											+ '<div class="same">' 
+												+ '<span>交易总额：</span>' + '<span style="color:#ff6c00">' + list[i].deal_amount + '</span>' 
+											+ '</div>' 
+										+ '</div>' 
+										+ '<div class="user">' 
+											+ '<div class="same">' 
+												+ '<span>订单号：</span>' + '<span>' + list[i].deal_no + '</span>' 
+											+ '</div>' 
+										+ '</div>' 
+										+ '<div class="user">' 
+											+ '<div class="same">' 
+												+ '<span>创建时间：</span>' + '<span>' + list[i].create_time + '</span>' 
+											+ '</div>' 
+										+ '</div>' 
+										+ '<div class="user">' 
+											+ '<div class="same">' 
+												+ '<span>订单状态：</span>' + '<span>' + list[i].status + '</span>' 
+											+ '</div>' 
+										+ '</div>' 
+									+ '</div>' 
+								+ '</div>';
 							$('#order').append(nowli);
 						}
 					}

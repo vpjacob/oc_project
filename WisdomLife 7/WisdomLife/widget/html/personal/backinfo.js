@@ -9,11 +9,6 @@ apiready = function() {
 		api.closeWin({
         });
 	})
-//	FileUtils.readFile("info.json", function(info, err) {
-//			urId=info.userNo;
-//			record(urId);
-//			//total(urId);
-//		});
 	
 	$("#choose").on('click', function() {
 		var top = $(this).children().hasClass('icon-top');

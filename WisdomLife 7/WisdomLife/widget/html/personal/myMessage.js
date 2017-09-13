@@ -4,6 +4,7 @@ var page = 1;
 var pageCount = 1;
 apiready = function() {
 	//同步返回结果：
+
 //	relateid = api.pageParam.relateid;
 	relateid="";
 //	alert(relateid);
@@ -13,10 +14,12 @@ apiready = function() {
 		$api.css(header, 'margin-top:20px;');
 		$api.css(cc, 'margin-top:20px;');
 	};
-	FileUtils.readFile("info.json", function(info, err) {
-		urId = info.userNo;
-		getDetail(urId,99,page);
-	});
+	
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
+    getDetail(urId,99,page);
 	//Android返回键的监听
 	api.addEventListener({
 		name : 'keyback'
@@ -177,3 +180,4 @@ function getDetail(urId,type,pages) {
 		}
 	});
 }
+

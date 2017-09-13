@@ -455,7 +455,7 @@ apiready = function() {
 					//加入圈子
 					
 					
-					joinIn(data.formDataset.mid, telphone);//用户id 用户名
+					joinIn(data.formDataset.mid, userName);//用户id 用户名
 					
 					api.hideProgress();
 					api.closeWin({

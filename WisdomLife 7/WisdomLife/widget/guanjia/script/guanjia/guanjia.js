@@ -1,10 +1,11 @@
 var urId = '';
 var userRole = false;
 apiready = function() {
-	FileUtils.readFile("info.json", function(info, err) {
-		urId = info.userNo;
-		queryUserRoleInfo(urId);
-	});
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
+    queryUserRoleInfo(urId);
 	//获得商品主页轮播图
 	function queryCarouselList() {
 		AjaxUtil.exeScript({
@@ -237,6 +238,18 @@ apiready = function() {
 		api.toast({
 			msg : "此功能暂未开通！"
 		});
+	});
+	$('#rent').click(function() {
+		api.openWin({
+				name : 'myhouse',
+				url : 'test.html',
+				slidBackEnabled : true,
+				animation : {
+					type : "push", //动画类型（详见动画类型常量）
+					subType : "from_right", //动画子类型（详见动画子类型常量）
+					duration : 300 //动画过渡时间，默认300毫秒
+				}
+			});
 	});
 	//家政保洁
 	$('#homeClear').click(function() {

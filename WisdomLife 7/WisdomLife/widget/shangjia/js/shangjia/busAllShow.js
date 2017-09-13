@@ -5,9 +5,10 @@ apiready = function() {
 		$api.css(header, 'margin-top:20px;');
 	}
 	var roomId = api.pageParam.id;
-	FileUtils.readFile("info.json", function(info, err) {
-		urId = info.userNo;
-	});
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
 	$("#back").bind("click", function() {
 		api.closeWin();
 	});

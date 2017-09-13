@@ -4,11 +4,12 @@ apiready = function() {
 	if (api.systemType == 'ios') {
 		$api.css(header, 'margin-top:20px;');
 	}
-
-	FileUtils.readFile("info.json", function(info, err) {
-			urId=info.userNo;
-			queryUserInfoUserNo(urId);
-		});
+	
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
+    queryUserInfoUserNo(urId);
 
     //返回刷新
 	api.addEventListener({

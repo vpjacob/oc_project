@@ -9,11 +9,12 @@ apiready = function() {
 	if (api.systemType == 'ios') {
 		$api.css(header, 'margin-top:20px;');
 	};
-	//	上来就执行我的订单的查询
-	FileUtils.readFile("info.json", function(info, err) {
-		urId = info.userNo;
-		queryProductDealByUserNo(urId);
-	});
+	
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
+    queryProductDealByUserNo(urId);
 
 	//查询方法
 	function queryProductDealByUserNo(urId) {

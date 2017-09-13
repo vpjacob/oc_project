@@ -1,3 +1,4 @@
+var urId;
 apiready = function() {
 	var back = $api.byId('back');
 	var titleName = $api.byId('titleName');
@@ -11,15 +12,16 @@ apiready = function() {
 		$api.css(cc, 'margin-top:3.3rem;');
 		$api.css(header, 'height:3.3rem');
 	};
-	FileUtils.readFile("info.json", function(info, err) {
-		userInfo = info;
-	});
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
 	var busid = api.pageParam.id;
 	$("#back").bind("click", function() {
 		api.closeWin();
 	});
 	$('#toBuy').click(function() {
-	if (userInfo.userNo == '' || userInfo.userNo == null) {
+	if (urId == 'userNo' || urId == null) {
 			api.alert({
 				msg : "您是否登录了？请先去登录吧！"
 			});

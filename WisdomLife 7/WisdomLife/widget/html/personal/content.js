@@ -1,10 +1,8 @@
 //用户的手机号
 var telphone;
-var name;
 var memberid;
-//用户信息
-var userInfo = {
-};
+var createTime;
+
 var userInfos = {};
 var userDate;
 var urId='';
@@ -21,14 +19,23 @@ apiready = function() {
 		var tel = $api.byId('tel');
 		$api.css(tel, 'padding-right:25px;');
 	}
-	FileUtils.readFile("info.json", function(info, err) {
-				userInfo.createTime=info.createTime;
-				urId = info.userNo;
-				getInfo(urId);
-				queryUserInfoUserNo(urId);
-				oldPwd(urId);
-				$('#createtime').html(userInfo.createTime);
-			});
+	
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
+    createTime = api.getPrefs({
+	    sync:true,
+	    key:'createTime'
+    });
+    memberid = api.getPrefs({
+	    sync:true,
+	    key:'memberid'
+    });
+    getInfo(urId);
+	queryUserInfoUserNo(urId);
+	oldPwd(urId);
+	$('#createtime').html(createTime);
 	
 
 	/**
@@ -393,7 +400,7 @@ function oldPwd(urId){
 		},
 		success : function(data) {
 			api.hideProgress();
-			console.log($api.jsonToStr(data));
+			console.log("个人信息："+$api.jsonToStr(data));
 			if (data.execStatus == 'true') {
 					AjaxUtil.exeScript({
 						script : "managers.home.person",
@@ -402,11 +409,11 @@ function oldPwd(urId){
 						form : {
 							memberid : memberid
 						},
-						success : function(data) {
+						success : function(info) {
 							api.hideProgress();
-							if (data.execStatus == 'true') {
-								var result = data.datasources[0].rows[0];
-								var headurl = result.head_image == null ? '../../image/morenpic_03.png' : rootUrl + result.head_image;
+							if (info.execStatus == 'true') {
+								var result1 = info.datasources[0].rows[0];
+								var headurl = result1.head_image == null ? '../../image/morenpic_03.png' : rootUrl + result1.head_image;
 								$('#headurl').attr('src', headurl);
 							} else {
 								api.alert({
@@ -700,7 +707,7 @@ function getPicture(type) {
 			quality : 100,
 			//			targetWidth : 100,
 			//			targetHeight : 100,
-			saveToPhotoAlbum : fals
+			saveToPhotoAlbum : false
 		}, function(ret, err) {
 			if (ret) {
 				console.log(ret.data + "输出："+$api.jsonToStr(ret));

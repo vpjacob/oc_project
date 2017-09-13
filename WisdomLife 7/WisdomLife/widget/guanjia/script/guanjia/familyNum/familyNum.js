@@ -4,10 +4,11 @@ apiready = function() {
 	if (api.systemType == 'ios') {
 		$api.css(header, 'margin-top:20px;');
 	}
-	FileUtils.readFile("info.json", function(info, err) {
-		urId = info.userNo;
-		iamMemberList(urId);
-	});
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
+    iamMemberList(urId);
 
 	//24.我是成员的所有业主房屋信息
 		function iamMemberList(urId){

@@ -1423,38 +1423,6 @@ function closeSuccess() {
  */
 function delroom() {
 
-	//	//读取用户的钥匙信息
-	//	FileUtils.readFile("userkeyinfo.json", function(info, err) {
-	//		userKeyInfos = info;
-	//		var keyinfos = userKeyInfos.keyinfos;
-	//		var newuserKeyInfos='';
-	//				alert($api.jsonToStr(keyinfos));
-	//		if (keyinfos.length == 1) {
-	//			FileUtils.writeFile('{}', "userkeyinfo.json");
-	//		} else if(keyinfos.length > 1){
-	//			//
-	//			var delkeyIndex;
-	//			for (var i = 0; i < keyinfos.length; i++) {
-	//				if (keyinfos[i].roomid == roomid) {
-	//					delkeyIndex = i;
-	//					//				FileUtils.writeFile(userKeyInfos, "userkeyinfo.json");
-	//				}else{
-	//					newuserKeyInfos = '"isauthorize":'+keyinfos[i].isauthorize+',"forbiddenmemid":'+keyinfos[i].forbiddenmemid+',"des":'+keyinfos[i].des;
-	//					newuserKeyInfos = newuserKeyInfos + ',"isfirst":'+keyinfos[i].isfirst+',"devmac":'+keyinfos[i].devmac+',"isforbidden":'+keyinfos[i].isforbidden;
-	//					newuserKeyInfos = newuserKeyInfos + ',"nolimit":'+keyinfos[i].nolimit+',"userid":'+keyinfos[i].userid+',"mansionid":'+keyinfos[i].mansionid;
-	//					newuserKeyInfos = newuserKeyInfos + ',"authorizememid":'+keyinfos[i].authorizememid+',"roomid":'+keyinfos[i].roomid+',"createtime"：'+keyinfos[i].createtime;
-	//					newuserKeyInfos = newuserKeyInfos + ',"phoneid":'+keyinfos[i].phoneid+',"timelimit":'+keyinfos[i].timelimit+',"devsn":'+keyinfos[i].devsn;
-	//					newuserKeyInfos = newuserKeyInfos + ',"isdel":'+keyinfos[i].isdel+',"ekey":'+keyinfos[i].ekey+',"istemp":'+keyinfos[i].istemp+',"authortime":'+keyinfos[i].authortime;
-	//				}
-	//			}
-	////			delete keyinfos[delkeyIndex];
-	//		}
-	//		alert($api.jsonToStr(keyinfos));
-	//		alert('钥匙删除成功');
-	//
-	//	});
-	//
-	//	return false;
 	api.showProgress({
 	});
 	AjaxUtil.exeScript({
@@ -1476,15 +1444,6 @@ function delroom() {
 					frameName : 'weather',
 					script : 'setUserKeyInfos();'
 				});
-				//				api.openWin({
-				//					name : 'room',
-				//					slidBackEnabled : true,
-				//					animation : {
-				//						type : "push", //动画类型（详见动画类型常量）
-				//						subType : "from_right", //动画子类型（详见动画子类型常量）
-				//						duration : 300 //动画过渡时间，默认300毫秒
-				//					}
-				//				});
 				api.closeWin({
 					name : 'roomIndex'
 				});

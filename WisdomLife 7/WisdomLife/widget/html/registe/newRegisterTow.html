@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<title>注册</title>
+		<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<link rel="stylesheet" href="../../css/sm-extend.min.css">
+		<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm-extend.min.js' charset='utf-8'></script>
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
+		<link rel="stylesheet" type="text/css" href="newRegisterTow.css">
+</head>
+<body>
+	<header class="bar bar-nav" id="header" style="background:rgba(0,0,0,0);position:absolute;">
+		<a class="icon  pull-left" id="closePage">
+		   <i class="iconfont icon-xiangzuo1" style="font-size: 1rem;color: #0080FD;"></i>
+		</a>
+    </header>
+	<div class="contian">
+		<div class="contianBox">
+			<div class="topLog">
+				<img src="../../image/newLogin/companyLog.png" alt="" />
+			</div>
+			<img src="../../image/newLogin/slogan.png" alt="" class="slogan"/>
+			<div class="topSame" style="margin-top: 10%"> 
+				<img src="../../image/newLogin/name.png" style="width: 1.5rem;height: 1.5rem;float: left">
+				<input type="text"  placeholder="请输入您的真实姓名" id="name" class="inputsame"/>
+			</div>
+			<div class="topSame"> 
+				<img src="../../image/newLogin/sex.png" style="width: 1.5rem;height: 1.5rem;float: left">
+				<select id="sex" class="inputsame others">
+					<option value="0">请选择性别</option>
+					<option value="1">男</option>
+					<option value="2">女</option>
+				</select>
+				<img src="../../image/newLogin/select.png" id="changeImg" class="changeImg"/>
+			</div>
+			<div class="topSame"> 
+				<img src="../../image/newLogin/idcard.png" style="width: 1.5rem;height: 1.5rem;float: left">
+				<input type="text"  placeholder="请输入身份证号" id="idcard" class="inputsame"/>
+			</div>
+			<div class="topSame"> 
+				<img src="../../image/newLogin/pwdImg.png" style="width: 1.5rem;height: 1.5rem;float: left">
+				<input type="password"  placeholder="请输入密码(6-16个字符)" id="pwd" class="inputsame"/>
+			</div>
+			<div class="topSame"> 
+				<img src="../../image/newLogin/pwdImg.png" style="width: 1.5rem;height: 1.5rem;float: left">
+				<input type="password"  placeholder="请再次输入密码" id="pwdSec" class="inputsame"/>
+			</div>
+			<div class="last">
+				 <input type="checkbox" id="serv" style="position: relative;top: 2px;"/>
+				<span class="forget">阅读并同意<span class="protocol">用户协议</span></span>
+			</div>
+			<div class="buttong" style="color:white" id="registerButton">
+				注册
+			</div>
+		</div>
+	</div>
+<script type="text/javascript" src="../../script/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/jQuery.md5.js"></script>
+<script type="text/javascript" src="../../script/common.js"></script>
+<script type="text/javascript" src="../../script/idcard.js"></script>
+<script type="text/javascript" src="newRegisterTow.js"></script>
+<script>
+//移动端软键盘弹出时影响布局  使背景图片更改
+		$(document).ready(function () {
+		　　$('body').height($('body')[0].clientHeight);
+		});
+</script>
+</body>
+</html>

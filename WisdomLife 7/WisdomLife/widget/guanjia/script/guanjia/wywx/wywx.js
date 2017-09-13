@@ -8,10 +8,11 @@ apiready = function() {
 	}
 	// 获取维修类型
 	queryMaintainType();
-	FileUtils.readFile("info.json", function(info, err) {
-		urId = info.userNo;
-		queryUserAllEstateList(urId);
-	});
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
+    queryUserAllEstateList(urId);
 	$(function() {
 		$(".Personal_centent").hide().first().show();
 		$(".step").hide().first().show();

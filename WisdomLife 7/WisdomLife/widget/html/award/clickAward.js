@@ -4,9 +4,10 @@ apiready = function() {
 	$("#back").click(function(){
 		api.closeWin();
 	});
-	FileUtils.readFile("info.json", function(info, err) {
-		urId = info.userNo;
-	});
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
 	$(".clickButton").click(function(){
 		$(".tankuang_box").hide();
 		$(".tankuang").hide();

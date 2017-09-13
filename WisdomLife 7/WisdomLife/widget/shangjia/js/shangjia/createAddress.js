@@ -1,4 +1,4 @@
-var userInfo="";
+var urId;
 var defaultFlag="";
 apiready = function() {
 	var header = $api.byId('title');
@@ -6,9 +6,10 @@ apiready = function() {
 	if (api.systemType == 'ios') {
 		$api.css(header, 'margin-top:1.1rem;');
 	};
-	FileUtils.readFile("info.json", function(info, err) {
-		userInfo = info;
-	});
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
 	//33,查找所有的省份
 	function queryProvnce(){
 		$('#cityTemp').html('<option>请选择</option>');
@@ -116,7 +117,7 @@ queryProvnce();
 			needTrascation : false,
 			funName : "insertDelivery",
 			form : {
-				userNo : userInfo.userNo,
+				userNo : urId,
 				name : $("#name").val(),
 				phone : $("#telNum").val(),
 				tags : $("#labelAddress option:selected").val(),

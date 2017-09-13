@@ -8,14 +8,10 @@ apiready = function() {
 	if (api.systemType == 'ios') {
 		$api.css(header, 'margin-top:20px;');
 	}
-	FileUtils.readFile("info.json", function(info, err) {
-		urId = info.userNo;
-//		telphone=info.telphone;
-//		$('#yzPhone').val(telphone);
-		//获取业主姓名
-//		queryUserInfo(urId);
-		
-	});
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
 	
 	$(function() {
 		$(".Personal_centent").hide().first().show();
@@ -59,6 +55,8 @@ apiready = function() {
 			alert("您输入的验证码不正确，请重新输入");
 			return false;
 		}else{
+			$("#save").attr("disabled", true);
+			$("#save").css("background","#ddd");
 			houseOwnerApply();
 		}
 	});
@@ -188,6 +186,8 @@ apiready = function() {
 			alert('请输入业主手机号');
 			return false;
 		};
+		$("#zuhu").attr("disabled", true);
+		$("#zuhu").css("background","#ddd");
 		submitTenementHouseApply();
 	});
 

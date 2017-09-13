@@ -33,10 +33,10 @@ apiready = function() {
 	});
 	//关闭页面
 	$("#closePage").bind("click", function() {
-		api.execScript({
-			name : 'root',
-			script : 'openmain()'
-		});
+//		api.execScript({
+//			name : 'root',
+//			script : 'openmain()'
+//		});
 		setTimeout(function() {
 			api.closeWin();
 		}, 500);
@@ -45,10 +45,10 @@ apiready = function() {
 	api.addEventListener({
 		name : 'keyback'
 	}, function(ret, err) {
-		api.execScript({
-			name : 'root',
-			script : 'openmain()'
-		});
+//		api.execScript({
+//			name : 'root',
+//			script : 'openmain()'
+//		});
 		setTimeout(function() {
 			api.closeWin();
 		}, 500);
@@ -108,30 +108,25 @@ apiready = function() {
 		if (account == "") {
 			api.alert({
 				msg : '请填写登录账号!'
-			}, function(ret, err) {
-				//coding...
 			});
 			return;
 		}
 		if (pwd == "") {
 			api.alert({
 				msg : '请填写登录密码!'
-			}, function(ret, err) {
-				//coding...
 			});
 			return;
 		}
 
 		
 	AjaxUtil.exeScript({
-      script : "login.login", //need to do
+      script : "login.login",
       needTrascation : false,
       funName : "getUserRole",
       form : {
         account : account
       },
       success : function(data) {
-      	console.log('第一次进来'+$api.jsonToStr(data));
         if (data.execStatus === "true" && data.formDataset.checked === "true") {
           if (data.formDataset.userRole == '5' || data.formDataset.userRole == '6' || data.formDataset.userRole == '8' || data.formDataset.userRole == '9') {
             	pwd = $.md5(pwd);
@@ -147,7 +142,6 @@ apiready = function() {
               registrationId : registrationId
             },
             success : function(data) {
-            	console.log('第二次进来'+$api.jsonToStr(data));
               if (data.execStatus === "true" && data.formDataset.checked === "true") {
                 updateUserInfoAndKeyInfo(data);
               } else if (data.execStatus === "true" && data.formDataset.checked === "false") {
@@ -191,16 +185,6 @@ apiready = function() {
 	}
 
 	function updateUserInfoAndKeyInfo(data) {
-		//准备更新的用户数据
-		userInfo.hasRegist = true;
-		userInfo.hasLogon = true;
-		userInfo.memberid = data.formDataset.mid;
-		userInfo.account = data.formDataset.account;
-		userInfo.nickname = data.formDataset.nickname;
-		userInfo.telphone = data.formDataset.telphone;
-		userInfo.userNo = data.formDataset.userNo;
-		userInfo.createTime = data.formDataset.createTime;
-		console.log('userInfo.createTime为' + userInfo.createTime)
 		var token = data.formDataset.token;
 		api.setPrefs({
 			key : 'token',
@@ -246,64 +230,94 @@ apiready = function() {
 			key : 'telphone',
 			value : data.formDataset.telphone
 		});
-		FileUtils.writeFile(userInfo, "info.json", function(info, err) {
-			api.hideProgress();
-			api.toast({
-				msg : '登录成功!',
-				location : 'middle',
-				global : true
-			});
-			refreshUserKeyInfo(data.formDataset.mid);
-			var isnew = api.getPrefs({
-				sync : true,
-				key : 'isnew'
-			});
-			var isnearby = api.getPrefs({
-				sync : true,
-				key : 'isnearby'
-			});
-			console.log("------" + isnew == '' || isnew == "false");
-			console.log(isnearby == 'false' || isnearby == '');
-			if ((isnew == '' || isnew == "false") && (isnearby == 'false' || isnearby == '')) {//正常进入的界面
-				api.execScript({
-					sync : true,
-					name : 'root',
-					script : 'openCenterPage();'
-				});	
+		api.hideProgress();
+		
+		api.toast({
+			msg : '登录成功!',
+			location : 'middle',
+			global : true
+		}); 
 
-			} else if (isnew == "true") {//从新闻进来的界面
-				console.log('是从新闻进来的啊');
-				api.setPrefs({
-					key : 'isnew',
-					value : false
-				});
-				api.execScript({
-					name : 'newsinfo',
-					script : 'refresh();'
-				});
-				api.closeWin({
-					name : 'login'
-				});
+		//更新钥匙信息
+		refreshUserKeyInfo(data.formDataset.mid);
+		
+		api.closeWin();
+		//登录获取设备信息以及登录音视频服务器
+		api.accessNative({
+			name : 'loginAccount',
+			extra : {
+				account : data.formDataset.telphone,
+				pwd : '123456'
 			}
-			
-			api.closeWin();
-			//登录获取设备信息以及登录音视频服务器
-            api.accessNative({
-                     name: 'loginAccount',
-                     extra: {
-                            account: data.formDataset.telphone,
-                            pwd:'123456'
-                     }
-                     }, function(ret, err) {
-                            if (ret) {
-//                                     api.hideProgress(); 
-//                                     alert(JSON.stringify(ret));
-                            } else {
-//                                     api.hideProgress();
-//                                     alert(JSON.stringify(err));
-                            }
-             });
-		});
+		}, function(ret, err) {
+			if (ret) {
+				//                                     api.hideProgress();
+				//                                     alert(JSON.stringify(ret));
+			} else {
+				//                                     api.hideProgress();
+				//                                     alert(JSON.stringify(err));
+			}
+		}); 
+
+		
+//		FileUtils.writeFile(userInfo, "info.json", function(info, err) {
+//			api.hideProgress();
+//			api.toast({
+//				msg : '登录成功!',
+//				location : 'middle',
+//				global : true
+//			});
+//			refreshUserKeyInfo(data.formDataset.mid);
+//			var isnew = api.getPrefs({
+//				sync : true,
+//				key : 'isnew'
+//			});
+//			var isnearby = api.getPrefs({
+//				sync : true,
+//				key : 'isnearby'
+//			});
+//			console.log("------" + isnew == '' || isnew == "false");
+//			console.log(isnearby == 'false' || isnearby == '');
+//			if ((isnew == '' || isnew == "false") && (isnearby == 'false' || isnearby == '')) {//正常进入的界面
+//				api.execScript({
+//					sync : true,
+//					name : 'root',
+//					script : 'openCenterPage();'
+//				});	
+//
+//			} else if (isnew == "true") {//从新闻进来的界面
+//				console.log('是从新闻进来的啊');
+//				api.setPrefs({
+//					key : 'isnew',
+//					value : false
+//				});
+//				api.execScript({
+//					name : 'newsinfo',
+//					script : 'refresh();'
+//				});
+//				api.closeWin({
+//					name : 'login'
+//				});
+//			}
+//			
+//			api.closeWin();
+//			//登录获取设备信息以及登录音视频服务器
+//          api.accessNative({
+//                   name: 'loginAccount',
+//                   extra: {
+//                          account: data.formDataset.telphone,
+//                          pwd:'123456'
+//                   }
+//                   }, function(ret, err) {
+//                          if (ret) {
+////                                     api.hideProgress(); 
+////                                     alert(JSON.stringify(ret));
+//                          } else {
+////                                     api.hideProgress();
+////                                     alert(JSON.stringify(err));
+//                          }
+//           });
+//		});
 	}
 
 	/**
@@ -323,12 +337,7 @@ apiready = function() {
 					var keyInfos = '{"keyinfos":' + $api.jsonToStr(data.datasources[0].rows) + '}';
 					userKeyInfos = $api.strToJson(keyInfos);
 					FileUtils.writeFile(userKeyInfos, "userkeyinfo.json", function() {
-						api.execScript({
-							sync : true,
-							name : 'root',
-							frameName : 'weather',
-							script : 'showKeyButton();'
-						});
+					
 					});
 				} else {
 					userKeyInfos = {};

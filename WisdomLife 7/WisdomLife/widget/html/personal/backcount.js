@@ -4,16 +4,18 @@ apiready = function() {
 		$api.css(header, 'margin-top:20px;');
 	}
 	
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
+    
+    change(1,'#first',urId);
+	total(urId);
+	
 	$('#back').click(function(){
 		api.closeWin({
         });
 	})
-	
-	FileUtils.readFile("info.json", function(info, err) {
-			urId=info.userNo;
-			change(1,'#first',urId);
-			total(urId);
-		});
 	
 	$("#choose").on('click', function() {
 		var top = $(this).children().hasClass('icon-top');

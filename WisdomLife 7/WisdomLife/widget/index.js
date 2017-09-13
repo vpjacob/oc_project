@@ -79,7 +79,6 @@ apiready = function() {
 			funName : "checkAppVersion",
 			form : {},
 			success : function(data) {
-				console.log('测试版本' + $api.jsonToStr(data));
 				if (data.formDataset.checked == 'true') {
 					var account = data.formDataset.version;
 					var list = $api.strToJson(account);
@@ -167,39 +166,36 @@ apiready = function() {
 
 	checkAppVersion();
 	
-//3dtouch 实现扫一扫
-	api.addEventListener({
-		name : 'eggs'
-	}, function(ret, err) {
-		var reqUrl = 'html/wallet/myegg.html';
-		var name = "scan";
-		//打开登陆界面
-		api.openWin({
-			name : name,
-			url : reqUrl,
-			bounces : false,
-			rect : {
-				x : 0,
-				y : headerH,
-				w : 'auto',
-				h : frameH
-			},
-			animation : {
-				type : "push", //动画类型（详见动画类型常量）
-				subType : 'from_right', //动画子类型（详见动画子类型常量）
-				duration : 300
-			}
-		});
+    //3dtouch 实现扫一扫
+    api.addEventListener({
+                         name : 'eggs'
+                         }, function(ret, err) {
+                         var reqUrl = 'html/wallet/myegg.html';
+                         var name = "scan";
+                         //打开登陆界面
+                         api.openWin({
+                                     name : name,
+                                     url : reqUrl,
+                                     bounces : false,
+                                     rect : {
+                                     x : 0,
+                                     y : headerH,
+                                     w : 'auto',
+                                     h : frameH
+                                     },
+                                     animation : {
+                                     type : "push", //动画类型（详见动画类型常量）
+                                     subType : 'from_right', //动画子类型（详见动画子类型常量）
+                                     duration : 300
+                                     }
+                                     });
+                         
+                         });
+	hasLogon = api.getPrefs({
+	    sync:true,
+	    key:'hasLogon'
+    });
 
-	}); 
-
-	//读取本地信息，判断用户是否登录
-	FileUtils.readFile("info.json", function(info, err) {
-		hasLogon = info.hasLogon;
-		if (hasLogon != true) {
-			hasLogon = 'false';
-		}
-	});
 
 	//输出Log，Log将显示在APICloud Studio控制台
 	var header = $api.byId('header');
@@ -232,7 +228,7 @@ apiready = function() {
 		value : frameH
 	});
 	
-	initFile();
+//	initFile();
 
 	ajpush = api.require('ajpush');
 
@@ -340,13 +336,10 @@ apiready = function() {
 	};
 	indexOrWelcome(welcome());
 
-//	$('#shop').click(function() {
-//		$(this).addClass("changeCor").siblings().removeClass("changeCor")
-//	});
 };
 
 function onPause() {
-	onResume()
+	onResume();
 }
 
 
@@ -357,33 +350,6 @@ function onResume() {
 			key : 'registrationId',
 			value : registrationId
 		});
-	});
-}
-
-function initFile(){
-	var fs = api.require('fs');
-	fs.readDir({
-		path : 'fs://wisdomLifeData/'
-	}, function(ret, err) {
-		if (ret.status) {
-			var fileList = $api.jsonToStr(ret.data);
-			//用户信息
-			if (fileList.indexOf('"info.json"') > 0) {
-			} else {
-				fs.createFile({
-					path : 'fs://wisdomLifeData/info.json'
-				}, function(ret, err) {
-					console.log($api.jsonToStr(ret));
-					if (ret.status) {
-						FileUtils.writeFile(userInfo1, "info.json");
-					}
-				});
-			}
-		} else {
-			FileUtils.writeFile({
-				"welcome-->initAppInfo()-->ErrorMsg" : err.msg
-			}, "wisdomlife_log.log");
-		}
 	});
 }
 
@@ -452,95 +418,75 @@ function initUserInfoAndUserKeyInfo() {
 
 }
 
-function getUserInfo() {
-	//获取用户信息
-	FileUtils.readFile("info.json", function(data) {
-		if (data != "") {
-			userInfo = data;
-			var hasRegist = userInfo.hasRegist.toString();
-			var hasLogon = userInfo.hasLogon.toString();
-			var memberid = userInfo.memberid.toString();
-			var account = userInfo.account.toString();
-			var nickname = userInfo.nickname.toString();
-			var telphone = userInfo.telphone.toString();
-			//是否已登录
-			if (hasLogon) {
-				//将用户信息存到全局信息中,待以后使用
-				api.setPrefs({
-					key : 'hasRegist',
-					value : hasRegist
-				});
-				api.setPrefs({
-					key : 'hasLogon',
-					value : hasLogon
-				});
-				api.setPrefs({
-					key : 'memberid',
-					value : memberid
-				});
-				api.setPrefs({
-					key : 'account',
-					value : account
-				});
-				api.setPrefs({
-					key : 'nickname',
-					value : nickname
-				});
-				api.setPrefs({
-					key : 'telphone',
-					value : telphone
-				});
+function getUserInfo() {		
+	var hasRegist = api.getPrefs({
+		sync : true,
+		key : 'hasRegist'
+	}); 
+	var hasLogon = api.getPrefs({
+		sync : true,
+		key : 'hasLogon'
+	}); 
+	var memberid = api.getPrefs({
+		sync : true,
+		key : 'memberid'
+	}); 
+	var account = api.getPrefs({
+		sync : true,
+		key : 'account'
+	}); 
+	var nickname = api.getPrefs({
+		sync : true,
+		key : 'nickname'
+	}); 
+	var telphone = api.getPrefs({
+		sync : true,
+		key : 'telphone'
+	}); 
+	
+	//是否已登录	
+	if (String(hasLogon) == 'true') {
 
-				//获取手机的唯一标识
-				var deviceId = api.deviceId;
-				var connectionType = api.connectionType;
-				//比如： wifi
-				if (connectionType == 'none' || connectionType == "unknown") {
-					api.alert({
-						msg : '当前网络不可用,请连上网络并刷新重试'
-					}, function(ret, err) {
-						initUserInfoAndUserKeyInfo();
-						openWeatherPage();
-					});
-				} else {
-					//用户当前登录状态时判断有没有其他手机登录如果有则退出当前用户刷新用户的相关初始化信息
-					AjaxUtil.exeScript({
-						script : "login.login", //need to do
-						needTrascation : false,
-						funName : "checkSingleLogin",
-						form : {
-							memberId : memberid,
-							deviceId : deviceId
-						},
-						success : function(data) {
-							if (data.execStatus === "true" && data.formDataset.checked === "true") {
-								api.alert({
-									msg : '您的账号已在其他地方登陆,您被强制下线,如果不是您的个人行为请立即联系管理员,谢谢!'
-								}, function(ret, err) {
-									initUserInfoAndUserKeyInfo();
-								});
-							} else {
-								openWeatherPage();
-							}
-
-						}
-					});
-				}
-			} else {
-				api.alert({
-					msg : '您还没有登录,先去登录吧!'
-				}, function(ret, err) {
-					//coding...
-				});
-			}
-		} else {
+		//获取手机的唯一标识
+		var deviceId = api.deviceId;
+		var connectionType = api.connectionType;
+		//比如： wifi
+		if (connectionType == 'none' || connectionType == "unknown") {
 			api.alert({
-				msg : '您还没有注册,先去注册吧!'
+				msg : '当前网络不可用,请连上网络并刷新重试'
 			}, function(ret, err) {
-				//coding...
+//				initUserInfoAndUserKeyInfo();
+				openWeatherPage();
+			});
+		} else {
+			//用户当前登录状态时判断有没有其他手机登录如果有则退出当前用户刷新用户的相关初始化信息
+			AjaxUtil.exeScript({
+				script : "login.login", //need to do
+				needTrascation : false,
+				funName : "checkSingleLogin",
+				form : {
+					memberId : memberid,
+					deviceId : deviceId
+				},
+				success : function(data) {
+					if (data.execStatus === "true" && data.formDataset.checked === "true") {
+						api.alert({
+							msg : '您的账号已在其他地方登陆,您被强制下线,如果不是您的个人行为请立即联系管理员,谢谢!'
+						}, function(ret, err) {
+//							initUserInfoAndUserKeyInfo();
+						});
+					} else {
+						openWeatherPage();
+					}
+
+				}
 			});
 		}
-	});
+	} else {
+		openWeatherPage();
+	}
+
+
 }
 
 /**
@@ -548,40 +494,53 @@ function getUserInfo() {
  */
 function openAroundPage() {
 	changeImage("around");
-	api.alert({
-		msg : '该模块暂未开放'
-	}, function(ret, err) {
-		//coding...
-	});
+	
+	api.openWin({//打开登录界面
+		name : 'hshaf',
+		url : 'xk.ppke.cn',
+		slidBackEnabled : true,
+		animation : {
+			type : "push", //动画类型（详见动画类型常量）
+			subType : "from_right", //动画子类型（详见动画子类型常量）
+			duration : 300 //动画过渡时间，默认300毫秒
+		}
+	}); 
+
+
+//	api.alert({
+//		msg : '该模块暂未开放'
+//	}, function(ret, err) {
+//		//coding...
+//	});
 }
 
 /**
- *打开邻里首页
+ *打开邻里首页  改为跳转商城
  */
 function openNeighboursPage() {
-    $("#neighbours").addClass("changeCor").siblings().removeClass("changeCor");
-    api.openFrame({
-                  name : 'busList',
-                  url : 'shangjia/html/buyList.html',
-                  bounces : false,
-                  rect : {
-                  x : 0,
-                  y : headerH,
-                  w : 'auto',
-                  h : frameH
-                  },
-//                  animation : {
-//                  type : "push", //动画类型（详见动画类型常量）
-//                  subType : "from_right", //动画子类型（详见动画子类型常量）
-//                  duration : 300 //动画过渡时间，默认300毫秒
-//                  },
-                  pageParam : {
-                  indexid : true
-                  },
-                  });
-    //    api.toast({
-//              msg : '程序员卖力开发中，敬请期待！'
-//              });
+	$("#neighbours").addClass("changeCor").siblings().removeClass("changeCor");
+	api.openFrame({
+		name : 'busList',
+		url : 'shangjia/html/buyList.html',
+		bounces : false,
+		 rect : {
+          x : 0,
+          y : headerH,
+          w : 'auto',
+          h : frameH
+        },
+//		animation : {
+//			type : "push", //动画类型（详见动画类型常量）
+//			subType : "from_right", //动画子类型（详见动画子类型常量）
+//			duration : 300 //动画过渡时间，默认300毫秒
+//		},
+		pageParam : {
+          indexid : true
+        },
+	});
+//	api.toast({
+//	    msg:'程序猿卖力开发中，敬请期待！'
+//  });
 //	memberid = api.getPrefs({
 //		sync : true,
 //		key : 'memberid'
@@ -661,38 +620,12 @@ function openNeighboursPage() {
 //	});
 }
 
-/**
- *打开拍拍客首页
- */
-function openPpkePage() {
-	FileUtils.readFile("info.json", function(info, err) {
-		hasLogon = info.hasLogon;
-		if (hasLogon != true) {
-			api.openWin({//打开登录界面
-				name : 'login',
-				url : 'html/registe/logo.html',
-				slidBackEnabled : true,
-				animation : {
-					type : "push", //动画类型（详见动画类型常量）
-					subType : "from_right", //动画子类型（详见动画子类型常量）
-					duration : 300 //动画过渡时间，默认300毫秒
-				}
-			});
-		} else {
-			api.alert({
-				msg : '该模块暂未开放'
-			}, function(ret, err) {
-				//coding...
-			});
-		}
-	});
-
-}
 
 /**
  *打开天气新闻首页
  */
 function openWeatherPage() {
+	console.log("啊哈哈");
 	$("#weather").addClass("changeCor").siblings().removeClass("changeCor")
 	changeImage("weather");
 	api.openFrame({
@@ -734,66 +667,7 @@ function openCenterPage(show) {
 	var reqUrl = "html/registe/register.html";
 	var name = "register";
 	//没有登陆的情况下
-//	if (hasLogon == "false") {
-//		reqUrl = 'html/registe/logo.html';
-//		name = "login";
-//		api.openWin({
-//			name : name,
-//			url : reqUrl,
-//			bounces : false,
-//			rect : {
-//				x : 0,
-//				y : headerH,
-//				w : 'auto',
-//				h : frameH
-//			},
-//			animation : {
-//				type : "push", //动画类型（详见动画类型常量）
-//				subType : 'from_right', //动画子类型（详见动画子类型常量）
-//				duration : 300
-//			}
-//		});
-//	} else if (memberid != "memberid" && account != "account") {
-//		//已经登陆的情况下
-//		api.openFrame({
-//			name : 'room',
-//			url : 'html/personal/personal.html',
-//			bounces : false,
-//			rect : {
-//				x : 0,
-//				y : headerH,
-//				w : 'auto',
-//				h : frameH
-//			},
-//			pageParam : {
-//				memberid : memberid
-//			},
-//		});
-//	} else {
-//		//其他情况下
-//		reqUrl = 'html/registe/logo.html';
-//		name = "login";
-//		//打开登陆界面
-//		api.openWin({
-//			name : name,
-//			url : reqUrl,
-//			bounces : false,
-//			rect : {
-//				x : 0,
-//				y : headerH,
-//				w : 'auto',
-//				h : frameH
-//			},
-//			animation : {
-//				type : "push", //动画类型（详见动画类型常量）
-//				subType : 'from_right', //动画子类型（详见动画子类型常量）
-//				duration : 300
-//			}
-//		});
-//	}
-	FileUtils.readFile("info.json", function(info, err) {
-    hasLogon = info.hasLogon;
-    if (hasLogon != true) {
+    if (String(hasLogon) != 'true') {
       reqUrl = 'html/registe/logo.html';
       name = "login";
       api.openWin({
@@ -812,7 +686,7 @@ function openCenterPage(show) {
           duration : 300
         }
       })
-    } else if (memberid != "memberid" && account != "account") {
+    } else {
       //已经登陆的情况下
       api.openFrame({
         name : 'room',
@@ -828,29 +702,7 @@ function openCenterPage(show) {
           memberid : memberid
         },
       });
-    } else {
-      //其他情况下
-      reqUrl = 'html/registe/logo.html';
-      name = "login";
-      //打开登陆界面
-      api.openWin({
-        name : name,
-        url : reqUrl,
-        bounces : false,
-        rect : {
-          x : 0,
-          y : headerH,
-          w : 'auto',
-          h : frameH
-        },
-        animation : {
-          type : "push", //动画类型（详见动画类型常量）
-          subType : 'from_right', //动画子类型（详见动画子类型常量）
-          duration : 300
-        }
-      });
-    }
-  })
+    } 
 }
 
 //切换图片
@@ -868,60 +720,43 @@ function changeImage(myUrl) {
 //管家判断是否登录
 function showAround(show) {
 	$(show).addClass("changeCor").siblings().removeClass("changeCor");
-//
-//	var hasLogonl = api.getPrefs({
-//		sync : true,
-//		key : 'hasLogon'
-//	});
-	FileUtils.readFile("info.json", function(info, err) {
-		hasLogonl = info.hasLogon;
-//	alert(hasLogonl);
-//	api.getPrefs({
-//			key : 'hasLogon'
-//		}, function(ret, err) {
-//			var userName = ret.value;
-			//alert(userName);
-			if (hasLogonl != true) {
-				api.openWin({
-					name : 'login',
-					url : 'html/registe/logo.html',
-					bounces : false,
-					rect : {
-						x : 0,
-						y : headerH,
-						w : 'auto',
-						h : frameH
-					},
-					animation : {
+	api.getPrefs({
+		key : 'hasLogon'
+	}, function(ret, err) {
+		var hasLogonl = ret.value;
+		if (String(hasLogonl) != 'true') {
+			api.openWin({
+				name : 'login',
+				url : 'html/registe/logo.html',
+				bounces : false,
+				rect : {
+					x : 0,
+					y : headerH,
+					w : 'auto',
+					h : frameH
+				},
+				animation : {
 					type : "push", //动画类型（详见动画类型常量）
 					subType : 'from_right', //动画子类型（详见动画子类型常量）
 					duration : 300
 				}
-				});
-			} else {
+			});
+		} else {
 			api.openFrame({
-					name : 'guanjia',
-					url : 'guanjia/html/guanjia/guanjia.html',
-					bounces : false,
-					reload:true,
-					rect : {
-						x : 0,
-						y : headerH,
-						w : 'auto',
-						h : frameH
-					}
-				});
-				
-			}
-		});
+				name : 'guanjia',
+				url : 'guanjia/html/guanjia/guanjia.html',
+				bounces : false,
+				reload : true,
+				rect : {
+					x : 0,
+					y : headerH,
+					w : 'auto',
+					h : frameH
+				}
+			});
 
-	//$("#wrap").hide();
-//	$("#footer").css('display','none');
-//	api.closeWin({
-// 		 name: 'index',
-// 		 url:'index.html',
-// 		 bounces : false,
-//	});
+		}
+	});
 
 }
 
@@ -941,63 +776,6 @@ function openmain() {
 	});
 }
 
-function saveInfos() {
-	//获取用户信息
-	FileUtils.readFile("info.json", function(data) {
-		if (data != "") {
-			userInfo = data;
-			var hasRegist = userInfo.hasRegist.toString();
-			var hasLogon = userInfo.hasLogon.toString();
-			var memberid = userInfo.memberid.toString();
-			var account = userInfo.account.toString();
-			var nickname = userInfo.nickname.toString();
-			var telphone = userInfo.telphone.toString();
-			//是否已登录
-			if (hasLogon) {
-				//将用户信息存到全局信息中,待以后使用
-				api.setPrefs({
-					key : 'hasRegist',
-					value : hasRegist
-				});
-				api.setPrefs({
-					key : 'hasLogon',
-					value : hasLogon
-				});
-				api.setPrefs({
-					key : 'memberid',
-					value : memberid
-				});
-				api.setPrefs({
-					key : 'account',
-					value : account
-				});
-				api.setPrefs({
-					key : 'nickname',
-					value : nickname
-				});
-				api.setPrefs({
-					key : 'telphone',
-					value : telphone
-				});
-			}
-		}
-	});
-}
-//跳转到商家主页面
-//function openCommonweal() {
-//	$("#shop").addClass("changeCor").siblings().removeClass("changeCor");
-//	api.openFrame({
-//		name : 'commonProvider',
-//		url : 'html/commonweal/commonProvider.html',
-//		bounces : false,
-//		rect : {
-//			x : 0,
-//			y : headerH,
-//			w : 'auto',
-//			h : frameH
-//		}
-//	});
-//}
 function openCommonweal() {
 	$("#shop").addClass("changeCor").siblings().removeClass("changeCor");
 	api.openFrame({

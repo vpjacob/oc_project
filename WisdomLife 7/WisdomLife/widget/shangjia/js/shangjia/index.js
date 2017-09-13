@@ -10,13 +10,56 @@ apiready = function() {
 		var cc = $api.dom('.xiaobiao');
 		$api.css(cc, 'margin-top:0px;');
 	}
-
-	FileUtils.readFile("info.json", function(info, err) {
-		urId = info.userNo;
-		total(urId);
-		Ytotal(urId);
-
-	});
+	console.log("最早时间：" + DateUtils.getNowFormatDate());
+	api.setRefreshHeaderInfo({
+		loadingImg : '../../image/mainbus.jpg',
+		bgColor : '#ccc',
+		textColor : '#fff',
+		textDown : '下拉刷新...',
+		textUp : '松开刷新...',
+		showTime : false
+	}, function(ret, err) {
+		if(ret){
+			location.reload();
+			api.refreshHeaderLoadDone();
+		}else{
+			alert(err);
+		}
+		
+	}); 
+	
+	$('body').on("touchmove", function(ev) {
+		var winHeight = $(window).scrollTop();
+		if(winHeight>=0&&winHeight<=150){
+			$(".title").css("background", "none");
+			$(".title").css("opacity", 1.0);
+		}else if(winHeight>150){
+			$(".title").css("background", "#EEE");
+			$(".title").css("opacity", 1.0);
+		}
+	})
+//	function search() {
+//		var search = document.querySelector('.title');
+//		var banner = document.querySelector('.top');
+//		var height = banner.offsetHeight;
+//		window.onscroll = function() {
+//			var top = document.body.scrollTop;
+//			var opacity = 0;
+//			if (top < height) {
+//				opacity = 1 * (top / height);
+//			} else {
+//				opacity = 1;
+//			}
+//			$('.title').css('background', 'rgba(238,238,238,' + opacity + ')');
+//		}
+//	};
+//	search(); 
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
+    total(urId);
+	Ytotal(urId);
 	var isSjFirst = api.getPrefs({
 		sync : true,
 		key : 'isSjFirst'
@@ -47,21 +90,6 @@ apiready = function() {
 			}
 		});
 	});
-	api.setRefreshHeaderInfo({
-	    loadingImg : '../../image/mainbus.jpg',
-	    bgColor : '#ccc',
-	    textColor : '#fff',
-	    textDown : '下拉刷新...',
-	    textUp : '松开刷新...'
-	  }, function(ret, err) {
-	    api.refreshHeaderLoading();
-	    if(ret){
-	      location.reload();
-	      api.refreshHeaderLoadDone();
-	    }else{
-	      alert(err);
-	    }
-	  }); 
 	//获得商品主页轮播图
 	function queryCarouselList() {
 		AjaxUtil.exeScript({
@@ -72,7 +100,6 @@ apiready = function() {
 			//           userNo:urId
 			//        },
 			success : function(data) {
-				console.log("商品轮播图片" + $api.jsonToStr(data));
 				if (data.formDataset.checked == 'true') {
 					var account = data.formDataset.carouselList;
 					var list = $api.strToJson(account);
@@ -117,49 +144,13 @@ apiready = function() {
 		});
 	}
 
+	//加载轮播
 	queryCarouselList();
-	//榨汁机
-	//	$('#juicing').click(function() {
-	//		api.openWin({
-	//			name : 'busAllShow.html',
-	//			url : 'busAllShow.html',
-	//			animation : {
-	//				type : "push", //动画类型（详见动画类型常量）
-	//				subType : "from_right", //动画子类型（详见动画子类型常量）
-	//				duration : 300 //动画过渡时间，默认300毫秒
-	//			}
-	//		});
-	//	});
-	//	//门禁
-	//	$('#entranceGuard').click(function() {
-	//		api.openWin({
-	//			name : 'busAllShow.html',
-	//			url : 'busAllShow.html',
-	//			animation : {
-	//				type : "push", //动画类型（详见动画类型常量）
-	//				subType : "from_right", //动画子类型（详见动画子类型常量）
-	//				duration : 300 //动画过渡时间，默认300毫秒
-	//			}
-	//		});
-	//	});
-	//	//牙刷
-	//	$('#toothbrush').click(function() {
-	//		api.openWin({
-	//			name : 'busAllShow.html',
-	//			url : 'busAllShow.html',
-	//			animation : {
-	//				type : "push", //动画类型（详见动画类型常量）
-	//				subType : "from_right", //动画子类型（详见动画子类型常量）
-	//				duration : 300 //动画过渡时间，默认300毫秒
-	//			}
-	//		});
-	//	});
-
 	//获得商品信息分类列表
 	function list() {
 		AjaxUtil.exeScript({
 			script : "mobile.business.business",
-			needTrascation : true,
+			needTrascation : false,
 			funName : "findCompanyType",
 			//        form:{
 			//           userNo:urId
@@ -191,7 +182,6 @@ apiready = function() {
 	}
 
 	list();
-
 	//推荐商家列表
 	function recommendList() {
 		AjaxUtil.exeScript({
@@ -207,7 +197,6 @@ apiready = function() {
 				typename : ''
 			},
 			success : function(data) {
-				console.log("推荐商家" + $api.jsonToStr(data));
 				if (data.formDataset.checked == 'true') {
 					var account = data.formDataset.companyDataList;
 					var list = $api.strToJson(account);
@@ -385,7 +374,6 @@ apiready = function() {
 		});
 
 	}
-
 	getDistance("", "");
 
 	//展示商家列表
@@ -394,6 +382,7 @@ apiready = function() {
 			city = "北京";
 		};
 		api.showProgress({});
+		var startTime = DateUtils.getNowFormatDate();
 		AjaxUtil.exeScript({
 			script : "mobile.business.business",
 			needTrascation : true,
@@ -535,104 +524,104 @@ apiready = function() {
 		});
 	});
 
-    //获取商家地理位置
-    $('#nearby').click(function() {
-                       if (api.systemType == 'ios') {
-                       api.accessNative({
-                                        name : 'NativeSelectCity',
-                                        extra : {
-                                        
-                                        }
-                                        }, function(ret, err) {
-                                        if (ret) {
-                                        $('#tab1').children().remove();
-                                        getDistance("", ret.title);
-                                        cityName=ret.title;
-                                        $('#showCity').html(ret.title);
-                                        } else {
-                                        alert(JSON.stringify(err));
-                                        }
-                                        });
-                       }else{
-                       getCityList();
-                       }
-                       })
-    
-    
-    
-    function getCityList() {
-        var hh = 0;
-        var UICityList = api.require('UICityList');
-        //			if (api.systemType == 'ios') {
-        //				hh = 20;
-        //			}
-        UICityList.open({
-                        rect : {
-                        x : 0,
-                        y : hh,
-                        w : api.frameWidth,
-                        h : api.frameHeight
-                        },
-                        resource : 'widget://res/UICityList.json',
-                        styles : {
-                        searchBar : {
-                        bgColor : '#f6f6f6',
-                        cancelColor : '#E3E3E3'
-                        },
-                        location : {
-                        color : '#696969',
-                        size : 12
-                        },
-                        sectionTitle : {
-                        bgColor : '#eee',
-                        color : '#000',
-                        size : 12
-                        },
-                        item : {
-                        bgColor : '#fff',
-                        activeBgColor : '#696969',
-                        color : '#000',
-                        size : 14,
-                        height : 40
-                        },
-                        indicator : {
-                        bgColor : '#fff',
-                        color : '#696969'
-                        }
-                        },
-                        currentCity : '北京',
-                        locationWay : 'GPS(当前定位)',
-                        hotTitle : '热门城市',
-                        fixedOn : api.frameName,
-                        placeholder : '请输入城市'
-                        }, function(ret, err) {
-                        if (ret) {
-                        if (ret.eventType == 'show') {
-                        
-                        } else {
-                        //						UICityList.close();
-                        if (ret.eventType == 'selected') {
-                        //alert(JSON.stringify(ret));
-                        //alert(JSON.stringify(ret.cityInfo.city));
-                        //							pageParam : {
-                        //								id : $(this).attr()
-                        //							}
-                        cityName=ret.cityInfo.city;
-                        page=1;
-                        $('#tab1').children().remove();
-                        getDistance("", ret.cityInfo.city);
-                        $('#showCity').html(ret.cityInfo.city);
-                        UICityList.close();
-                        }
-                        }
-                        
-                        } else {
-                        api.alert({
-                                  msg : JSON.stringify(err)
-                                  });
-                        }
-                        });
-    }
+	 //获取商家地理位置
+   
+	$('#nearby').click(function() {
+		if (api.systemType == 'ios') {
+			api.accessNative({
+				name : 'NativeSelectCity',
+				extra : {
+
+				}
+			}, function(ret, err) {
+				if (ret) {
+					$('#tab1').children().remove();
+					getDistance("", ret.title);
+					cityName = ret.title;
+					$('#showCity').html(ret.title);
+				} else {
+					alert(JSON.stringify(err));
+				}
+			});
+		} else {
+			getCityList();
+		}
+	})
+
+	function getCityList() {
+		var hh = 0;
+		var UICityList = api.require('UICityList');
+		//			if (api.systemType == 'ios') {
+		//				hh = 20;
+		//			}
+		UICityList.open({
+			rect : {
+				x : 0,
+				y : hh,
+				w : api.frameWidth,
+				h : api.frameHeight
+			},
+			resource : 'widget://res/UICityList.json',
+			styles : {
+				searchBar : {
+					bgColor : '#f6f6f6',
+					cancelColor : '#E3E3E3'
+				},
+				location : {
+					color : '#696969',
+					size : 12
+				},
+				sectionTitle : {
+					bgColor : '#eee',
+					color : '#000',
+					size : 12
+				},
+				item : {
+					bgColor : '#fff',
+					activeBgColor : '#696969',
+					color : '#000',
+					size : 14,
+					height : 40
+				},
+				indicator : {
+					bgColor : '#fff',
+					color : '#696969'
+				}
+			},
+			currentCity : '北京',
+			locationWay : 'GPS(当前定位)',
+			hotTitle : '热门城市',
+			fixedOn : api.frameName,
+			placeholder : '请输入城市'
+		}, function(ret, err) {
+			if (ret) {
+				if (ret.eventType == 'show') {
+
+				} else {
+					//						UICityList.close();
+					if (ret.eventType == 'selected') {
+						//alert(JSON.stringify(ret));
+						//alert(JSON.stringify(ret.cityInfo.city));
+						//							pageParam : {
+						//								id : $(this).attr()
+						//							}
+						cityName=ret.cityInfo.city;
+						page=1;
+						$('#tab1').children().remove();
+						getDistance("", ret.cityInfo.city);
+						$('#showCity').html(ret.cityInfo.city);
+						UICityList.close();
+					}
+				}
+
+			} else {
+				api.alert({
+					msg : JSON.stringify(err)
+				});
+			}
+		});
+	}
 
 }
+
 

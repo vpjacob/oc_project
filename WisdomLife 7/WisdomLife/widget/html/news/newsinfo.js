@@ -68,34 +68,37 @@ apiready = function() {
 	 * 读取info.json文件
 	 * 判断是否登陆，若登陆则检查是否对该新闻点赞
 	 */
-	FileUtils.readFile("info.json", function(info, err) {
-		PrefsUtil.setPrefs("hasLogon", info.hasLogon);
-		PrefsUtil.setPrefs("memberid", info.memberid);
-		hasLogon = info.hasLogon;
-		memberid = info.memberid;
-		if (hasLogon == true) {//如果登陆过了，则查询是否对该新闻点过赞
-			AjaxUtil.exeScript({//新闻点赞数量
-				script : "managers.news.newlistme",
-				needTrascation : false,
-				funName : "supportNum2",
-				async : false,
-				form : {
-					memberid : memberid,
-					newsid : fid
-				},
-				success : function(data) {//请求成功
-					var count = data.datasources[0].rows.length;
-					if (count != 0) {//对该新闻点过赞,设置为红色
-						//						$('.ChangeGood').css('background', 'url(../../image/upnow.png) no-repeat left center')
-						$('.ChangeGood i').removeClass("icon-zantong").addClass("icon-zantongfill");
-						$('.ChangeGood .icon-zantongfill').css("color", "#e04023");
-						$(".thumbNum").css('color', '#e04023');
-						hasPre = true;
-					}
+	hasLogon = api.getPrefs({
+	    sync:true,
+	    key:'hasLogon'
+    });
+    memberid = api.getPrefs({
+	    sync:true,
+	    key:'memberid'
+    });
+	if (hasLogon == 'true') {//如果登陆过了，则查询是否对该新闻点过赞
+		AjaxUtil.exeScript({//新闻点赞数量
+			script : "managers.news.newlistme",
+			needTrascation : false,
+			funName : "supportNum2",
+			async : false,
+			form : {
+				memberid : memberid,
+				newsid : fid
+			},
+			success : function(data) {//请求成功
+				var count = data.datasources[0].rows.length;
+				if (count != 0) {//对该新闻点过赞,设置为红色
+					//						$('.ChangeGood').css('background', 'url(../../image/upnow.png) no-repeat left center')
+					$('.ChangeGood i').removeClass("icon-zantong").addClass("icon-zantongfill");
+					$('.ChangeGood .icon-zantongfill').css("color", "#e04023");
+					$(".thumbNum").css('color', '#e04023');
+					hasPre = true;
 				}
-			});
-		}
-	});
+			}
+		});
+	}
+
 	AjaxUtil.exeScript({//新闻详情
 		script : "managers.news.newslist",
 		needTrascation : true,
@@ -156,7 +159,7 @@ apiready = function() {
 	});
 	//点赞按钮
 	$('.ChangeGood').click(function() {
-		if (hasLogon != true) {//用户没有登陆
+		if (hasLogon != 'true') {//用户没有登陆
 			api.confirm({
 				title : '温馨提示：',
 				msg : '您还没有登陆，是否去登陆？',

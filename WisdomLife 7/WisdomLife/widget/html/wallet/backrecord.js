@@ -17,10 +17,12 @@ apiready = function() {
 		$api.css(header, 'margin-top:20px;');
 		$api.css(content, 'margin-top:20px;');
 	}
-	FileUtils.readFile("info.json", function(info, err) {
-			urId=info.userNo;
-			change(1,'#ul_tab1',urId);
-		});
+	
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
+    change(1,'#ul_tab1',urId);
 	
 	
 //	var height = $('.buttons-tab').height();

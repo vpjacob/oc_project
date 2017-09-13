@@ -36,11 +36,11 @@ apiready = function() {
 		//			// 删除加载提示符
 		//			$('.infinite-scroll-preloader').remove();
 	});
-	FileUtils.readFile("info.json", function(info, err) {
-			urId=info.userNo;
-			getList(urId);
-			
-		});
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
+    getList(urId);
 	
 
 function getList(urId) {

@@ -39,12 +39,14 @@ apiready = function() {
 			});
 		}
 	});
-	FileUtils.readFile("info.json", function(info, err) {
-		urId = info.userNo;
-		count(urId);
-		oldPwd(urId);
-		bank(chooseId, urId);
-	});
+	
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
+    count(urId);
+	oldPwd(urId);
+	bank(chooseId, urId);
 
 	api.addEventListener({
 		name : 'keyback'

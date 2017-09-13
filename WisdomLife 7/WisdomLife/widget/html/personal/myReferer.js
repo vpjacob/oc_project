@@ -1,21 +1,20 @@
 var urId;
-apiready = function(){
-		FileUtils.readFile("info.json", function(info, err) {
-			urId = info.userNo;
-		});
 
+apiready = function() {
+	urId = api.getPrefs({
+		sync : true,
+		key : 'userNo'
+	});
 
-		var param = api.pageParam;
-//		$(".top").find("p").html(param.address);
-		$(".top").find("p").html('我的二维码');
-		console.log("我的二维码图片地址是否正确：=============="+param.imgpath);
-		$(".bottom").find("img").attr("src",param.imgpath);
-		
-		$("#goback").click(function(){
-			goback();
-		});
-		
-		$('#tjrecord').click(function() {
+	var param = api.pageParam;
+	$(".top").find("p").html('我的二维码');
+	$(".bottom").find("img").attr("src", param.imgpath);
+
+	$("#goback").click(function() {
+		goback();
+	});
+
+	$('#tjrecord').click(function() {
 		api.openWin({
 			name : 'refererRecord',
 			url : 'refererRecord.html',
@@ -28,33 +27,27 @@ apiready = function(){
 			}
 		});
 	});
-		var header = $api.byId('header');
-	   if(api.systemType=='ios')
-	   {	  
-	       var cc=$api.dom('.content');
-		   $api.css(header,'margin-top:20px;');
-		   $api.css(cc,'margin-top:20px;');		
-	   }
-//监听页面的长按事件	   
-	   api.addEventListener({
-		    name:'longpress'
-		}, function(ret, err){        
-		   $('#photo').show();
-		});
-	   
-	   
-//	   $(document).on('click','#showShare',function() {
-//			$('#photo').show();
-//			
-//		});
-		$(document).on('click', '.share_sub', function() {
-			$('#photo').hide();
-		});
-		
-		$("#qq_share").bind("click", function() {
+	var header = $api.byId('header');
+	if (api.systemType == 'ios') {
+		var cc = $api.dom('.content');
+		$api.css(header, 'margin-top:20px;');
+		$api.css(cc, 'margin-top:20px;');
+	}
+	//监听页面的长按事件
+	api.addEventListener({
+		name : 'longpress'
+	}, function(ret, err) {
+		$('#photo').show();
+	});
+
+	$(document).on('click', '.share_sub', function() {
+		$('#photo').hide();
+	});
+
+	$("#qq_share").bind("click", function() {
 		var qq = api.require('qq');
 		qq.installed(function(ret, err) {
-			
+
 			if (ret.status) {
 				$('#photo').hide();
 				qq.shareNews({
@@ -78,27 +71,45 @@ apiready = function(){
 			}
 		});
 	});
-	 $("#wx_share").bind("click", function() {
+	$("#wx_share").bind("click", function() {
 		var wx = api.require('wx');
 		wx.isInstalled(function(ret, err) {
 			if (ret.installed) {
 				$('#photo').hide();
-				wx.shareWebpage({
+				//				wx.shareWebpage({
+				//					apiKey : '',
+				//					scene : 'session',
+				//					title : '小客智慧生活',
+				//					description : '小客智慧生活服务平台  小客为您开启智慧生活！！！',
+				//					thumb : 'widget://image/a.png',
+				//					contentUrl : rootUrl + "/jsp/recommendmobile?userNo=" + urId + "&userType=1",
+				//				}, function(ret, err) {
+				//					if (ret.status) {
+				//						api.alert({
+				//							msg : "分享成功！"
+				//						});
+				//					} else {
+				//						//alert(err.code);
+				//					}
+				//				});
+
+				wx.shareProgram({
 					apiKey : '',
 					scene : 'session',
-					title : '小客智慧生活',
-					description : '小客智慧生活服务平台  小客为您开启智慧生活！！！',
+					title : '测试标题',
+					description : '分享内容的描述',
 					thumb : 'widget://image/a.png',
-					contentUrl : rootUrl + "/jsp/recommendmobile?userNo=" + urId + "&userType=1",
+					webpageUrl : rootUrl + "/jsp/recommendmobile?userNo=" + urId + "&userType=1",
+					userName : 'A6921550712789',
+					path : '',
 				}, function(ret, err) {
 					if (ret.status) {
-						api.alert({
-							msg : "分享成功！"
-						});
+						alert('分享成功');
 					} else {
-						//alert(err.code);
+						alert(err.code);
 					}
 				});
+
 			} else {
 				api.alert({
 					msg : "当前设备未安装微信客户端"
@@ -106,8 +117,8 @@ apiready = function(){
 			}
 		});
 
-	});  
-	   
+	});
+
 	$("#sms_share").bind("click", function() {
 		api.sms({
 			text : '小客智慧生活' + rootUrl + "/jsp/recommendmobile?userNo=" + urId + "&userType=1",
@@ -120,9 +131,8 @@ apiready = function(){
 			}
 		});
 
-	});     
-	};
-	function goback()
-	{
-		api.closeWin();
-	}
+	});
+};
+function goback() {
+	api.closeWin();
+}

@@ -13,32 +13,18 @@ apiready = function() {
 		$api.css(header, 'margin-top:20px;');
 		$api.css(cc, 'margin-top:20px;');
 	}
-	FileUtils.readFile("info.json", function(info, err) {
-		urId = info.userNo;
-		telphone=info.telphone;
-		$('#username').val(telphone);
-	});
-//	showPro();
+	
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
+    
+    telphone = api.getPrefs({
+	    sync:true,
+	    key:'telphone'
+    });
+    $('#username').val(telphone);
 	memberid = api.pageParam.memberid;
-//	AjaxUtil.exeScript({
-//		script : "managers.home.person",
-//		needTrascation : false,
-//		funName : "getmemberinfo",
-//		form : {
-//			memberid : memberid
-//		},
-//		success : function(data) {
-//			console.log($api.jsonToStr(data));
-//			alert($api.jsonToStr(data));
-//			api.hideProgress();
-//			if (data.execStatus == 'true') {
-//				var result = data.datasources[0].rows[0];
-//				
-//				telphone = result.telphone;
-//				$("#username").val(telphone);
-//			}
-//		}
-//	});
 
 	//点击获取验证码按钮
 	$("#getCaptcha1").click(function() {
@@ -217,24 +203,17 @@ apiready = function() {
 				success : function(data) {
 					api.hideProgress();
 					if (data.execStatus == 'true') {
-						FileUtils.readFile("info.json", function(info, err) {
-							if (info != null) {
-								userInfo = info;
-							}
-							userInfo.telphone = telphone;
-							//重新写入文件
-							FileUtils.writeFile(userInfo, "info.json");
-							api.setPrefs({
-								key : 'telphone',
-								value : telphone
-							});
-							api.execScript({//刷新person界面数据
-								name : 'content',
-								script : 'refresh();'
-							});
-							closePage();
+						api.setPrefs({
+							key : 'telphone',
+							value : telphone
 						});
+						api.execScript({//刷新person界面数据
+							name : 'content',
+							script : 'refresh();'
+						});
+						closePage();
 					}
+
 				}
 			});
 		} else {

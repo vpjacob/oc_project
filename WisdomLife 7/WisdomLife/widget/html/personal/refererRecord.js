@@ -7,10 +7,11 @@ apiready = function() {
 		$api.css(content, 'margin-top:20px;');
 	}
 	
-	FileUtils.readFile("info.json", function(info, err) {
-			urId=info.userNo;
-			record(urId);
-		});
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
+    record(urId);
 	
 	$("#back").bind("click", function() {
 		api.closeWin();

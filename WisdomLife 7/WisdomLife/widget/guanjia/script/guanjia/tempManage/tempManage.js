@@ -5,11 +5,11 @@ apiready = function() {
 		$api.css(header, 'margin-top:20px;');
 	}
 	var roomId=api.pageParam.id;
-	FileUtils.readFile("info.json", function(info, err) {
-		urId = info.userNo;
-		queryTenementApplyByRoom(urId,100);
-		
-	});
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
+    queryTenementApplyByRoom(urId,100);
 	
 	//14，根据租户房屋申请id查找租户信息		
 		function queryTenementApplyById(tempId){

@@ -9,11 +9,12 @@ apiready = function() {
         });
 	})
 	
-	FileUtils.readFile("info.json", function(info, err) {
-			urId=info.userNo;
-			silverAmount(urId);
-			total(urId);
-		});
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
+    silverAmount(urId);
+	total(urId);
 	
 	$("#choose").on('click', function() {
 		var top = $(this).children().hasClass('icon-top');

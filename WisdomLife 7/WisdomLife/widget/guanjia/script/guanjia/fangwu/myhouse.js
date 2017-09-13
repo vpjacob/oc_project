@@ -4,17 +4,12 @@ apiready = function() {
 	if (api.systemType == 'ios') {
 		$api.css(header, 'margin-top:20px;');
 	}
-	FileUtils.readFile("info.json", function(info, err) {
-		urId = info.userNo;
-		//		checkUserIsHouseOwner(urId);
-		//		queryUserRoleInfo(urId);
-		queryMyHouseInfo(urId);
-		//deleteTenementApplyById(urId);
-		//updateHouseApply(urId);
-		//		updateTenementHouseApply(urId);
-		//我是租户房屋接口
-		//		queryMyTenementInfo(urId);
-	});
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
+    queryMyHouseInfo(urId);
+
 	$(function() {
 		$(".Personal_centent").hide().first().show();
 		$(".step").hide().first().show();

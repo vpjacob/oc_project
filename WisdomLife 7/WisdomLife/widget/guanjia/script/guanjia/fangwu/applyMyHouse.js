@@ -4,16 +4,17 @@ var communityId='';
 var buildingId='';
 var unitId='';
 var roomId='';
+var urId;
 apiready = function() {
 //	兼容ios
 	var header = $api.byId('title');
 	if (api.systemType == 'ios') {
 		$api.css(header, 'margin-top:20px;');
 	}
-	FileUtils.readFile("info.json", function(info, err) {
-		urId = info.userNo;
-		//addFamilyMember(urId);
-	});
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
 	communityId = api.pageParam.communityId;
 	buildingId = api.pageParam.buildingId;
 	unitId = api.pageParam.unitId;

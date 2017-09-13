@@ -30,19 +30,7 @@ apiready = function() {
 			}
 		});
 	});
-    $('#goldPay').click(function() {
-                           api.openWin({
-                                       name : 'goldPay',
-                                       url : 'goldPay.html',
-                                       reload : true,
-                                       slidBackEnabled : true,
-                                       animation : {
-                                       type : "push", //动画类型（详见动画类型常量）
-                                       subType : "from_right", //动画子类型（详见动画子类型常量）
-                                       duration : 300 //动画过渡时间，默认300毫秒
-                                       }
-                                       });
-                           });
+	
 	$('#yinbicount').click(function() {
 		api.openWin({
 			name : 'yinbicount',
@@ -82,7 +70,19 @@ apiready = function() {
 			}
 		});
 	});
-	
+	$('#goldPay').click(function() {
+		api.openWin({
+			name : 'goldPay',
+			url : 'goldPay.html',
+			reload : true,
+			slidBackEnabled : true,
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			}
+		});
+	});
 function record(urId) {
 	AjaxUtil.exeScript({
 		script : "mobile.accountdetail.accountdetail",

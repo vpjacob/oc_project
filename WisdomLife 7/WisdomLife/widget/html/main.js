@@ -32,7 +32,13 @@ var msgnum = 0;
 var cityname;
 var location;
 var checkshake = true;
+var urId;
+var memberid;
+var hasLogon;
 apiready = function() {
+
+//	var header = document.querySelector('.content');
+//	$api.fixStatusBar(header);
 	//百度地图模块
 	bMap = api.require('bMap');
 	//蓝牙模块
@@ -50,15 +56,25 @@ apiready = function() {
 		$('#msgnum').html(msgnum);
 	}
 
-	var logon = api.getPrefs({
+	hasLogon = api.getPrefs({
 		sync : true,
 		key : 'hasLogon'
-	}, function(ret, err) {
-
 	});
+	memberid = api.getPrefs({
+		sync : true,
+		key : 'memberid'
+	});
+	urId = api.getPrefs({
+		sync : true,
+		key : 'userNo'
+	});
+	isHaveEgg(urId);
+	checkIsNewUser();
 	
+	setUserKeyInfos();
+
 	/**====================================调用智果是否有设备接口====================================**/
-	if (logon == 'true') {
+	if (String(hasLogon) == 'true') {
 		setUserKeyInfos();
 		//获取用户的要是信息，返回true和false true代表有设备显示开门按钮，false反之
 		api.accessNative({
@@ -68,11 +84,9 @@ apiready = function() {
 			if (ret) {
 				//                                     api.hideProgress();
 				//                                     alert(JSON.stringify(ret));
-				if(ret.msg == 'true')
-				{
+				if (ret.msg == 'true') {
 					$('.key').show();
-				}else
-				{
+				} else {
 					$('.key').hide();
 				}
 			} else {
@@ -108,17 +122,11 @@ apiready = function() {
 			name : 'shake'
 		});
 	});
-	//主页显示获取金蛋是否可砸
-	FileUtils.readFile("info.json", function(info, err) {
-		urId = info.userNo;
-		isHaveEgg(urId);
-		checkIsNewUser();
-	});
 
 	//新人奖
-	
-	$(".goToAward").click(function(){
-		$(".tankuang_box").css("display","none");
+
+	$(".goToAward").click(function() {
+		$(".tankuang_box").css("display", "none");
 		api.openWin({
 			name : 'clickAward',
 			url : 'award/clickAward.html',
@@ -128,7 +136,7 @@ apiready = function() {
 				subType : "from_right", //动画子类型（详见动画子类型常量）
 				duration : 300 //动画过渡时间，默认300毫秒
 			}
-		}); 
+		});
 	});
 	//检测是否为新用户
 	function checkIsNewUser() {
@@ -142,15 +150,15 @@ apiready = function() {
 			},
 			success : function(data) {
 				api.hideProgress();
-				console.log("检测是否为新用户"+$api.jsonToStr(data));
+				console.log("检测是否为新用户" + $api.jsonToStr(data));
 				if (data.formDataset.checked == 'true') {
 					var list = data.formDataset.isNewUser;
-					if(list==1){
+					if (list == 1) {
 						queryIsGetAward();
 					}
-					
+
 				} else {
-//					alert(data.formDataset.errorMsg);
+					//					alert(data.formDataset.errorMsg);
 				}
 			},
 			error : function(xhr, type) {
@@ -171,14 +179,14 @@ apiready = function() {
 			},
 			success : function(data) {
 				api.hideProgress();
-				console.log("检测是否已抽奖"+$api.jsonToStr(data));
+				console.log("检测是否已抽奖" + $api.jsonToStr(data));
 				if (data.formDataset.checked == 'true') {
 					var list = data.formDataset.isGet;
-					if(list==1){
+					if (list == 1) {
 						$(".tankuang_box").show();
 					}
 				} else {
-//					alert(data.formDataset.errorMsg);
+					//					alert(data.formDataset.errorMsg);
 				}
 			},
 			error : function(xhr, type) {
@@ -283,7 +291,7 @@ apiready = function() {
 	/**
 	 *极光的初始化和设置监听
 	 */
-	
+
 	ajpush.setListener(function(ret) {
 		var content = ret.content;
 		if (systemType == 'ios') {
@@ -295,8 +303,8 @@ apiready = function() {
 				var id = ret.id;
 			});
 		}
-	}); 
 
+	});
 
 	//	var deviceModel = api.deviceModel;
 
@@ -304,94 +312,24 @@ apiready = function() {
 		api.addEventListener({
 			name : 'appintent'
 		}, function(ret, err) {
-			if (ret && ret.appParam.ajpush) {
-				console.log($api.jsonToStr(ret));
-//				var ajpush = ret.appParam.ajpush;
-//				var id = ajpush.id;
-//				var title = ajpush.title;
-//				var content = ajpush.content;
-//				var extra = ajpush.extra;
-//				var relateid = $api.strToJson(extra).relateId;
-
-//				if ($api.strToJson(extra).status != 3) {
-
-					FileUtils.readFile("info.json", function(info, err) {
-//						var memberid = info.memberid;
-						api.openWin({
-							name : 'myMessage',
-							url : 'personal/myMessage.html',
-							pageParam : {
-								relateid : info.userNo
-							},
-							slidBackEnabled : true,
-							animation : {
-								type : "push", //动画类型（详见动画类型常量）
-								subType : "from_right", //动画子类型（详见动画子类型常量）
-								duration : 300 //动画过渡时间，默认300毫秒
-							}
-						});
-					});
-//				} else {//是新闻
-//					api.closeToWin({
-//						name : 'root'
-//					});
-//				}
-			}
-		});
-	} else if (systemType == 'ios') {
-		api.addEventListener({
-			name : 'noticeclicked'
-		}, function(ret, err) {
 			if (ret) {
-//				if (ret.extra.pushInfo.status != 3) {
-//					var relateid = ret.extra.relateId;
+				console.log($api.jsonToStr(ret));
+				//				var ajpush = ret.appParam.ajpush;
+				//				var id = ajpush.id;
+				//				var title = ajpush.title;
+				//				var content = ajpush.content;
+				//				var extra = ajpush.extra;
+				//				var relateid = $api.strToJson(extra).relateId;
 
-					FileUtils.readFile("info.json", function(info, err) {
-//						var memberid = info.memberid;
-						api.openWin({
-							name : 'myMessage',
-							url : 'personal/myMessage.html',
-							pageParam : {
-								relateid : info.userNo
-							},
-							slidBackEnabled : true,
-							animation : {
-								type : "push", //动画类型（详见动画类型常量）
-								subType : "from_right", //动画子类型（详见动画子类型常量）
-								duration : 300 //动画过渡时间，默认300毫秒
-							}
-						});
-					});
-//				} else {//是新闻
-//					api.closeToWin({
-//						name : 'root'
-//					});
-//				}
-			}
-		})
-	}
+				//				if ($api.strToJson(extra).status != 3) {
 
-	$(document).on('click', '#message', function() {
-		FileUtils.readFile("info.json", function(info, err) {
-			var hasLogon = info.hasLogon;
-			var memberid = info.memberid;
-			if (hasLogon != true) {
-				api.openWin({//打开登录界面
-					name : 'login',
-					url : 'registe/logo.html',
-					slidBackEnabled : true,
-					animation : {
-						type : "push", //动画类型（详见动画类型常量）
-						subType : "from_right", //动画子类型（详见动画子类型常量）
-						duration : 300 //动画过渡时间，默认300毫秒
-					}
-				});
-			} else {
+				//					FileUtils.readFile("info.json", function(info, err) {
+				//						var memberid = info.memberid;
 				api.openWin({
-					name : 'messagelist',
-					url : 'personal/messagelist.html',
+					name : 'myMessage',
+					url : 'personal/myMessage.html',
 					pageParam : {
-						memberid : memberid
+						relateid : urId
 					},
 					slidBackEnabled : true,
 					animation : {
@@ -400,8 +338,79 @@ apiready = function() {
 						duration : 300 //动画过渡时间，默认300毫秒
 					}
 				});
+				//					});
+				//				} else {//是新闻
+				//					api.closeToWin({
+				//						name : 'root'
+				//					});
+				//				}
 			}
 		});
+	} else if (systemType == 'ios') {
+		api.addEventListener({
+			name : 'noticeclicked'
+		}, function(ret, err) {
+
+			if (ret) {
+				//				if (ret.extra.pushInfo.status != 3) {
+				//					var relateid = ret.extra.relateId;
+
+				//					FileUtils.readFile("info.json", function(info, err) {
+				//						var memberid = info.memberid;
+				api.openWin({
+					name : 'myMessage',
+					url : 'personal/myMessage.html',
+					pageParam : {
+						relateid : urId
+					},
+					slidBackEnabled : true,
+					animation : {
+						type : "push", //动画类型（详见动画类型常量）
+						subType : "from_right", //动画子类型（详见动画子类型常量）
+						duration : 300 //动画过渡时间，默认300毫秒
+					}
+				});
+				//					});
+				//				} else {//是新闻
+				//					api.closeToWin({
+				//						name : 'root'
+				//					});
+				//				}
+			}
+		})
+	}
+
+	$(document).on('click', '#message', function() {
+		//		FileUtils.readFile("info.json", function(info, err) {
+		//			var hasLogon = info.hasLogon;
+		//			var memberid = info.memberid;
+		if (String(hasLogon) != 'true') {
+			api.openWin({//打开登录界面
+				name : 'login',
+				url : 'registe/logo.html',
+				slidBackEnabled : true,
+				animation : {
+					type : "push", //动画类型（详见动画类型常量）
+					subType : "from_right", //动画子类型（详见动画子类型常量）
+					duration : 300 //动画过渡时间，默认300毫秒
+				}
+			});
+		} else {
+			api.openWin({
+				name : 'messagelist',
+				url : 'personal/messagelist.html',
+				pageParam : {
+					memberid : memberid
+				},
+				slidBackEnabled : true,
+				animation : {
+					type : "push", //动画类型（详见动画类型常量）
+					subType : "from_right", //动画子类型（详见动画子类型常量）
+					duration : 300 //动画过渡时间，默认300毫秒
+				}
+			});
+		}
+		//		});
 	});
 
 	//地址
@@ -418,21 +427,23 @@ apiready = function() {
 		});
 	});
 
-
 };
 
 function readUserInfoAndKeyInfo() {
-	//读取info.json文件：
 
-	FileUtils.readFile("info.json", function(info, err) {
-		if (info.location.address != "") {
-			$("#location").html(info.location.address);
-		}
-		userInfo = info;
-
-		//通过baidumap重新定位
-		loadLocationFormMap("yes");
+	var address = api.getPrefs({
+		sync : true,
+		key : 'nowaddr'
 	});
+	//	FileUtils.readFile("info.json", function(info, err) {
+	//		if (info.location.address != "") {
+	$("#location").html(address);
+	//		}
+	//		userInfo = info;
+
+	//通过baidumap重新定位
+	loadLocationFormMap("yes");
+	//	});
 }
 
 function refreshPageInitInfo(memberid) {
@@ -491,19 +502,19 @@ function initUserInfoAndUserKeyInfo() {
 	});
 
 	//用户信息
-	var userInfo = {
-		"hasRegist" : false,
-		"hasLogon" : false,
-		"memberid" : "memberid",
-		"account" : "account",
-		"nickname" : "nickname",
-		"telphone" : "telphone",
-		"location" : {
-			"lon" : 0,
-			"lat" : 0,
-			"address" : ""
-		}
-	};
+	//	var userInfo = {
+	//		"hasRegist" : false,
+	//		"hasLogon" : false,
+	//		"memberid" : "memberid",
+	//		"account" : "account",
+	//		"nickname" : "nickname",
+	//		"telphone" : "telphone",
+	//		"location" : {
+	//			"lon" : 0,
+	//			"lat" : 0,
+	//			"address" : ""
+	//		}
+	//	};
 	//强退时清除门禁信息
 	api.accessNative({
 		name : 'logout',
@@ -520,13 +531,13 @@ function initUserInfoAndUserKeyInfo() {
 
 	//用户的钥匙
 	var userkeyinfo = {};
-	FileUtils.writeFile(userInfo, "info.json", function() {
-		FileUtils.writeFile(userkeyinfo, "userkeyinfo.json", function() {
-			$('.key').hide();
-			readUserInfoAndKeyInfo();
+	//	FileUtils.writeFile(userInfo, "info.json", function() {
+	FileUtils.writeFile(userkeyinfo, "userkeyinfo.json", function() {
+		$('.key').hide();
+		readUserInfoAndKeyInfo();
 
-		});
 	});
+	//	});
 
 }
 
@@ -891,15 +902,15 @@ function selectMoreNews(th) {
  */
 function setUserKeyInfos() {
 	//读取info.json文件：
-	FileUtils.readFile("info.json", function(info, err) {
-		if (info.location.address != "") {
-			$("#location").html(info.location.address);
-		}
-		userInfo = info;
+	//	FileUtils.readFile("info.json", function(info, err) {
+	//		if (info.location.address != "") {
+	//			$("#location").html(info.location.address);
+	//		}
+	//		userInfo = info;
 
-		//通过baidumap重新定位
-		loadLocationFormMap("yes");
-	});
+	//通过baidumap重新定位
+	loadLocationFormMap("yes");
+	//	});
 }
 
 /**
@@ -912,7 +923,7 @@ function refreshUserKeyInfo() {
 		needTrascation : false,
 		funName : "refreshPageInitInfo",
 		form : {
-			userId : userInfo.memberid
+			userId : memberid
 		},
 		success : function(data) {
 			if (data.execStatus === "true" && data.datasources[0].rows.length > 0) {
@@ -997,10 +1008,21 @@ function loadLocationFormMap(remind) {
 								} else {
 									lat = ret.result.location.lat;
 									lon = ret.result.location.lng;
-									userInfo.location.lon = lon;
-									userInfo.location.lat = lat;
-									userInfo.location.address = cityname;
-									FileUtils.writeFile(userInfo, "info.json");
+
+									api.setPrefs({
+										key : 'nowaddr',
+										value : cityname
+									});
+									api.setPrefs({
+										key : 'nowLon',
+										value : lon
+									});
+									api.setPrefs({
+										key : 'nowLat',
+										value : lat
+									});
+
+									//									FileUtils.writeFile(userInfo, "info.json");
 									$("#location").html(cityname);
 									getCurrentWeatherAndForecast(lon, lat);
 								}
@@ -1036,9 +1058,17 @@ function getLonAndLat() {
 		if (ret.status) {
 			lat = ret.lat;
 			lon = ret.lon;
-			userInfo.location.lon = lon;
-			userInfo.location.lat = lat;
-			FileUtils.writeFile(userInfo, "info.json");
+
+			api.setPrefs({
+				key : 'nowLon',
+				value : lon
+			});
+			api.setPrefs({
+				key : 'nowLat',
+				value : lat
+			});
+
+			//			FileUtils.writeFile(userInfo, "info.json");
 			getNameFromLocation(lon, lat);
 		} else {
 			api.alert({
@@ -1064,7 +1094,7 @@ function getNameFromLocation(lon, lat) {
 	geoc.getLocation(point, function(rs) {
 		var addComp = rs.addressComponents;
 		var address = addComp.district + addComp.street + addComp.streetNumber;
-		userInfo.location.address = address;
+		//		userInfo.location.address = address;
 
 		$("#location").html(address);
 		api.setPrefs({
@@ -1081,7 +1111,7 @@ function getNameFromLocation(lon, lat) {
 		});
 		//重新写入文件
 		//InfoUtil.writeUserInfo(userInfo);
-		FileUtils.writeFile(userInfo, "info.json");
+		//		FileUtils.writeFile(userInfo, "info.json");
 	});
 
 	getCurrentWeatherAndForecast(lon, lat);
@@ -1265,6 +1295,7 @@ function getCurrentWeatherAndForecast(lon, lat) {
 				}
 				//根据白天或晚上进行背景替换
 				var cssDes = "";
+				console.log("天气：" + isNight + "@@" + currentSkycon);
 				if (isNight) {
 					if (currentSkycon == "CLEAR_DAY" || currentSkycon == "CLEAR_NIGHT") {
 						cssDes = "url('../image/clear_night.png')";
@@ -1291,7 +1322,7 @@ function getCurrentWeatherAndForecast(lon, lat) {
 						$(".weather4").hide();
 						//							$("#content").css("background", "url('../image/cloudy_night.png') no-repeat center");
 					} else if (currentSkycon == "RAIN") {
-						cssDes = "url('../image/rain_night.png')";
+						cssDes = "url('../image/day/jianjunjie.jpg')";
 						$(".backgroundImg").css("backgroundImage", cssDes);
 						$(".weather1").hide();
 						$(".weather2").show();
@@ -1374,6 +1405,7 @@ function getCurrentWeatherAndForecast(lon, lat) {
 						$(".weather2").show();
 						$(".weather3").hide();
 						$(".weather4").hide();
+
 						//							$("#content").css("background", "url('../image/rain_day.png') no-repeat center");
 					} else if (currentSkycon == "SLEET") {
 						cssDes = "url('../image/sleet_day.png')";
@@ -1679,14 +1711,14 @@ function freshWeather() {
 			readUserInfoAndKeyInfo();
 			//获取手机的唯一标识
 			var deviceId = api.deviceId;
-			if (userInfo.memberid) {
+			if (memberid) {
 				//用户当前登录状态时判断有没有其他手机登录如果有则退出当前用户刷新用户的相关初始化信息
 				AjaxUtil.exeScript({
 					script : "login.login", //need to do
 					needTrascation : false,
 					funName : "checkSingleLogin",
 					form : {
-						memberId : userInfo.memberid,
+						memberId : memberid,
 						deviceId : deviceId
 					},
 					success : function(data) {
@@ -1698,7 +1730,7 @@ function freshWeather() {
 								initUserInfoAndUserKeyInfo();
 							});
 						} else {
-							refreshPageInitInfo(userInfo.memberid);
+							refreshPageInitInfo(memberid);
 						}
 					}
 				});

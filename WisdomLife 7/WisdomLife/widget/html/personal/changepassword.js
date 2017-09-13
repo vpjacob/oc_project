@@ -11,10 +11,11 @@ apiready = function() {
 		$api.css(header, 'margin-top:20px;');
 		$api.css(cc, 'margin-top:20px;');
 	}
-	FileUtils.readFile("info.json", function(info, err) {
-		urId = info.userNo;
-		getPhone(urId);
-	});
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
+    getPhone(urId);
 	showPro();
 	memberid = api.pageParam.memberid;
 	function getPhone(urId) {

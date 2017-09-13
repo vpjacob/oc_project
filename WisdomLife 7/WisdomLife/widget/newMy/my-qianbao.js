@@ -1,3 +1,4 @@
+var urId;
 apiready = function() {
 	var header = $api.byId('title');
 	var contentB = $api.dom('.content-block')
@@ -5,11 +6,11 @@ apiready = function() {
 		$api.css(header, 'margin-top:20px;');
 		$api.css(contentB, 'margin-top:20px;');
 	};
-	FileUtils.readFile("info.json", function(info, err) {
-		urId = info.userNo;
-		count(urId);
-
-	});
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
+    count(urId);
 	//总计的方法
 	function count(urId) {
 		api.showProgress({});
@@ -36,7 +37,6 @@ apiready = function() {
 			}
 		});
 	}
-
 	//我的订单
 	$('#myrecord').click(function() {
 		api.openWin({
@@ -51,7 +51,7 @@ apiready = function() {
 			}
 		});
 	});
-	//我的金蛋
+	//我的金蛋   
 	$('#myegg').click(function() {
 		api.openWin({
 			name : 'myegg',
@@ -106,11 +106,13 @@ $('#payMoney').click(function() {
 				funName : "getMerchantNo",
 				form : {
 					merchantNo : content[0],
-					merchantName : content[1],
+//					merchantName : content[1],
 				},
 				success : function(formset) {
+					console.log($api.jsonToStr(formset));
 					if (formset.execStatus == "true") {
 						var mNo = formset.formDataset.mNo;
+						var mName = formset.formDataset.mName;
 						if (mNo == '9999' && (content[2] != '1' || content[2] != '2')) {
 							api.alert({
 								msg : "扫描信息不正确，请扫描正确的二维码！"
@@ -126,8 +128,8 @@ $('#payMoney').click(function() {
 									duration : 300 //动画过渡时间，默认300毫秒
 								},
 								pageParam : {
-									merchantNo : content[0],
-									merchantName : content[1],
+									merchantNo : mNo,
+									merchantName : mName,
 									type : content[2]
 								}
 							});

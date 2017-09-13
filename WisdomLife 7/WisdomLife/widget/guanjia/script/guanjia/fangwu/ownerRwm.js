@@ -4,18 +4,21 @@ var ownerInfo='';
 var Info='';
 apiready = function() {
 	 ownerInfo = api.pageParam.info;
-//	 console.log('1111111111111111111111111111111'+ownerInfo);
 	 Info=$api.strToJson(ownerInfo);
 	var header = $api.byId('title');
 	if (api.systemType == 'ios') {
 		$api.css(header,'margin-top:20px;');
 	};
-	FileUtils.readFile("info.json", function(info, err) {
-		urId = info.userNo;
-		telphone=info.telphone;
-	    $('#tempTel').val(telphone);
-		queryUserInfo(urId);
-	});
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
+    telphone = api.getPrefs({
+	    sync:true,
+	    key:'telphone'
+    });
+    $('#tempTel').val(telphone);
+	queryUserInfo(urId);
 	
 	$('#name').val(Info.data.userName);
 	$('#userPhone').val(Info.data.userPhone);

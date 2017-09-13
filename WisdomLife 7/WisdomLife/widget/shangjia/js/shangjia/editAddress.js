@@ -2,7 +2,7 @@ var defaultFlag="";
 var provinceId="";
 var cityId="";
 var districtId="";
-var userInfo="";
+var urId;
 var hideflag='';
 apiready = function() {
 	var header = $api.byId('title');
@@ -12,9 +12,10 @@ apiready = function() {
 	if (api.systemType == 'ios') {
 		$api.css(header, 'margin-top:1.1rem;');
 	};	
-	FileUtils.readFile("info.json", function(info, err) {
-		userInfo = info;
-	});
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
 	queryDeliveryById();
 	//33,查找所有的省份
 	function queryProvnce(provinceId,cityId,disId){
@@ -188,7 +189,7 @@ apiready = function() {
 			funName : "updateDelivery",
 			form : {
 				id : editAddressId,
-				userNo:userInfo.userNo,
+				userNo:urId,
 				name : $("#name").val(),
 				phone : $("#telNum").val(),
 				tags : $("#labelAddress option:selected").val(),
