@@ -1,54 +1,64 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
-    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
-    <title>我的支付</title>
-    <link rel="stylesheet" type="text/css" href="../../css/api.css" />
-	<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
-	<link rel="stylesheet" type="text/css" href="../../css/sm-extend.min.css">
-	<link rel="stylesheet" type="text/css" href="../../css/iconfont.css" />
-	<link rel="stylesheet" type="text/css" href="myPay.css" />
-</head>
-<body>
-	<header class="bar bar-nav" style="position: relative; background-color:white " id="title">
-		<h1 class="title" style="color: #4d4d4d;font-size: 16px">我的支付</h1>
-		<a onclick="goBack()" class="iconfont icon-xiangzuo1 pull-left" style="font-size:20px;color:#0EAAE3;position:absolute;top:7px;"></a>	
-	</header>
-	<!--<div class="topBox">
-		<div class="topBoxName">
-			<span id="merchantName"></span>
-			<span id="merchantID"></span>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>我的支付</title>
+		<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/sm-extend.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="myPay.css" />
+	</head>
+	<body>
+		<header class="bar bar-nav" style="position: relative; background-color:white " id="title">
+			<h1 class="title" style="color: #4d4d4d;font-size: 16px">我的支付</h1>
+			<a onclick="goBack()" class="iconfont icon-xiangzuo1 pull-left" style="font-size:20px;color:#0EAAE3;position:absolute;top:7px;"></a>
+		</header>
+	<div class="tankuang_box">
+	<div class="tankuang">
+		<div><span>二级密码</span><input type="password" id="pwd" placeholder="请输入二级密码"/></div>
+		<div>
+			<span class="noAgree">取消</span><span class="agree" id="agree">确定</span>
 		</div>
 	</div>
-	<div class="midTop">
-		<div class="midBoxName">
-			<span>金额</span>
-			<span style="width: 30px;float:left" >¥  :</span><input type="text" style="float:right;margin-top: 20px;height: 30px" id="payMoney"/>
-		</div>
 	</div>
-	<div class="next">
-		<button type="button" class="step" id="apply">确认支付</button>
-	</div>-->
-	<div class="bgtop">
-		<div class="topBoxName">
-			<span id="merchantName"></span>
-			<span id="merchantID"></span>
+	<div class="black_box"></div>
+		<div class="bgtop">
+			<div class="topBoxName">
+				<span id="merchantName"></span>
+				<span id="merchantID"></span>
+			</div>
+			<div class="bottom">
+				<span>金额</span>
+				<input type="text" placeholder="输入金额" id="payMoney"/>
+				<span>元</span>
+			</div>
+			<div class="businessPay">
+				<div class="businesses">
+					<img src="../../shangjia/image/address/pay.png" />
+					<span>支付宝</span>
+					<input type="checkbox" style="width:1rem;height: 1rem;float: right;position: relative;right: 2%;top: 0.5rem" id="zfb"/>
+				</div>
+			</div>
+			<div class="businessPay" style="margin-top: -0.1rem;">
+				<div class="businesses">
+					<img src="../../shangjia/image/address/xk.png" />
+					<span>剩余金币 :<p id="residueMoney"></p></span>
+					<input type="checkbox" style="width:1rem;height: 1rem;float: right;position: relative;right: 2%;top: 0.5rem" id="xk"/>
+				</div>
+			</div>
 		</div>
-		<div class="bottom">
-			<span>金额</span>
-			<input type="text" placeholder="输入金额" id="payMoney"/>
-			<span>元</span>
+		<div class="next">
+			<button type="button" class="step" id="apply">
+				确认支付
+			</button>
 		</div>
-	</div>
-	<div class="next">
-		<button type="button" class="step" id="apply">确认支付</button>
-	</div>
-</body>
-<script type="text/javascript" src="../../script/api.js"></script>
-<script type="text/javascript" src="../../script/common.js"></script>
-<script type="text/javascript" src="../../script/jquery.js"></script>
-<script type="text/javascript" src="../../script/jquery-1.10.2.js"></script>
-<script type="text/javascript" src="myPay.js"></script>
+	</body>
+	<script type="text/javascript" src="../../script/api.js"></script>
+	<script type="text/javascript" src="../../script/common.js"></script>
+	<script type="text/javascript" src="../../script/jquery.js"></script>
+	<script type="text/javascript" src="../../script/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="myPay.js"></script>
 </html>

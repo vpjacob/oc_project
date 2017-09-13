@@ -7,8 +7,9 @@ var selectDom="";
 var isChecked="";
 var showPrice="";
 var goodMod="";
-var userInfo="";
-var Delivery=""
+var urId="";
+var Delivery="";
+var oldPwd="";
 apiready = function() {
 	var header = $api.byId('header');
 	var miancss = $api.byId('miancss');
@@ -16,17 +17,70 @@ apiready = function() {
 		$api.css(header, 'margin-top:22px;');
 		$api.css(miancss, 'height:82%');
 	};
-
+	var busid = api.pageParam.id;
+	var surplusCount = api.pageParam.surplusCount;//库存剩余量
 	$("#back").bind("click", function() {
 		api.closeWin();
 	});
-	FileUtils.readFile("info.json", function(info, err) {
-		userInfo = info;
-		queryDefaultAddress();
-	});
+//	FileUtils.readFile("info.json", function(info, err) {
+//		userInfo = info;
+//	});
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
+    	queryDefaultAddress(urId);
+		oldPwd(urId);
+		queryUserAccountByUserNo(urId);
+	var fanxiBox = $(".businesses input:checkbox");
+    fanxiBox.click(function () {
+       if(this.checked || this.checked=='checked'){
+           fanxiBox.removeAttr("checked");
+           $(this).prop("checked", true);
+         }
+    });
+    //  获取二级密码    
+    function oldPwd(urId) {
+		AjaxUtil.exeScript({
+			script : "managers.home.person",
+			needTrascation : true,
+			funName : "querySecondPwd",
+			form : {
+				userNo : urId
+			},
+			success : function(data) {
+				if (data.formDataset.checked == 'true') {
+					var account = data.formDataset.secondPwd;
+					oldPwd = account;
+				} else {
+					alert(data.formDataset.errorMsg);
+				}
+			}
+		});
+	};
 	
-	var busid = api.pageParam.id;
-	var surplusCount = api.pageParam.surplusCount;//库存剩余量
+	 //获取剩余金币个数
+    function queryUserAccountByUserNo(urId) {
+		var data = {
+			"userNo" : urId,
+		};
+		$.ajax({
+			url : rootUrls + '/xk/queryUserAccountByUserNo.do',
+			type : 'post',
+			dataType : 'json',
+			data : JSON.stringify(data),
+			contentType : "application/json;charset=utf-8",
+			success : function(result) {
+				console.log($api.jsonToStr(result));
+				var data = result.data;
+				if (result.state == 1) {
+					$("#residueMoney").html(data.mayBuyback)
+				} else {
+					alert(result.msg);
+				}
+			}
+		});
+	}
 	// 立即购买后，获取商品部分详情
 	function queryProductDeatilAndModelType() {
 		api.showProgress({});
@@ -156,9 +210,9 @@ apiready = function() {
 				});
 			}
 		});
-    }	
+    };	
     //购买页显示的地址信息及邮费信息等
-    function queryDefaultAddress() {
+    function queryDefaultAddress(urId) {
 		api.showProgress({});
 		AjaxUtil.exeScript({
 			script : "mobile.business.product",
@@ -166,7 +220,7 @@ apiready = function() {
 			funName : "queryDefaultAddress",
 			        form:{
 			           goodId:busid,
-			           userNo:userInfo.userNo
+			           userNo:urId
 			        },
 			success : function(data) {
 				console.log("邮费价格地址" + $api.jsonToStr(data));
@@ -191,7 +245,7 @@ apiready = function() {
 				});
 			}
 		});
-	}
+	};
 
 	//数量的增加与减少
 	$('#numAdd').click(function() {
@@ -220,7 +274,7 @@ apiready = function() {
 	$('#apply').click(function() {
 		var amoutVal=$("#amout").html();
 		goodMod="";
-		if (userInfo.userNo == '' || userInfo.userNo == null) {
+		if (urId == 'userNo' || urId == null) {
 			api.alert({
 				msg : "您是否登录了？请先去登录吧！"
 			});
@@ -249,21 +303,36 @@ apiready = function() {
 			}); 
 			return false;
 		};
+		if($("#zfb").prop("checked")==false && $("#xk").prop("checked")==false){
+			alert("请选择支付方式");	
+			return false;	
+		};
 		if($("#userName").html()==""){
 			 api.alert({
 				msg : "亲，请去添加地址"
 			}); 
 			return false;
 		};
-		 countAll = ($("#countAll").html()).split("元")[0];
+		countAll = ($("#countAll").html()).split("元")[0];
 		var price = ($("#price").html()).split("元")[0];
+		var residueMoney=$("#residueMoney").html();
+		if($("#xk").prop("checked")==true){
+			if (Number(countAll) > Number(residueMoney)) {
+				api.alert({
+					msg : "您的商品总价大于您的剩余金币数，请重新选择！"
+				});
+				return false;
+			}
+		}
 //		var price = parseInt($("#price").html());
+//		$("#apply").attr("disabled", true);
+//		$("#apply").css("background","#ddd");
 		AjaxUtil.exeScript({
 			script : "mobile.center.pay.pay",
 			needTrascation : true,
 			funName : "insertTempAndGetDealNo",
 			form : {
-				userNo : userInfo.userNo,
+				userNo : urId,
 				productId:$("#productId").attr("data"),
 				userName : $("#userName").html(),
 				userPhone : $("#userPhone").html(),
@@ -283,85 +352,153 @@ apiready = function() {
 				console.log($api.jsonToStr(formset));
 				if (formset.execStatus == "true") {
 					var dealNo = formset.formDataset.dealNo;
-					var data = {
-						"subject" : "北京小客网络科技有限公司",
-						"body" : "小客智慧生活支付",
-						"amount" : countAll,
-						"tradeNO" : dealNo
-					};
-					$.ajax({
-						type : 'POST',
-						url : rootUrls + '/xk/onlineOrderInfo.do',
-						data : JSON.stringify(data),
-						dataType : "json",
-						contentType : 'application/json;charset=utf-8',
-						success : function(data) {
-							console.log($api.jsonToStr(data));
-							if (data.state == '1') {
-								var iaf = api.require('aliPay');
-								iaf.payOrder({
-									orderInfo : data.data
-								}, function(ret, err) {
-									if (ret.code == '9000') {
-										//消息推送
-										AjaxUtil.exeScript({
-											script : "managers.pushMessage.msg", //推送消息
-											needTrascation : false,
-											funName : "pushmsg",
-											form : {
-												userNo : 'V000007',
-												msg : "【小客商品】订单号【" + dealNo + "】,商品名称【"+($("#content").html()).split(" ")[0]+"】",
-												type : 1
-											},
-											success : function(data) {
-												console.log($api.jsonToStr(data));
-											}
-										});
-										AjaxUtil.exeScript({
-											script : "managers.pushMessage.msg", //推送消息
-											needTrascation : false,
-											funName : "pushmsg",
-											form : {
-												userNo :userInfo.userNo,
-												msg : "【小客商品】订单号【" + dealNo + "】,商品名称【" + ($("#content").html()).split(" ")[0] + "】",
-												type : 1
-											},
-											success : function(data) {
-												console.log($api.jsonToStr(data));
-											}
-										}); 
-
-
+//					alert(dealNo);
+					//走金币支付
+					if ($("#xk").prop("checked") == true) {
+						$(".tankuang_box").show();
+						$(".black_box").show();
+						document.getElementById("agree").onclick=function() {
+							if ($("#pwd").val() == oldPwd) {
+								var data = {
+									"amount" : countAll,
+									"dealNo" : dealNo
+								};
+								$.ajax({
+									type : 'POST',
+									url : rootUrls + '/xk/buyProductPayGoldCoin.do',
+									data : JSON.stringify(data),
+									dataType : "json",
+									contentType : 'application/json;charset=utf-8',
+									success : function(data) {
+										console.log($api.jsonToStr(data));
+										if (data.state == '1') {
+											$(".tankuang_box").hide();
+											$(".black_box").hide();
+											api.toast({
+												msg : data.msg
+											});
+											setTimeout(function() {
+												api.closeWin()
+											}, 500);
+										}
+									},
+									error : function(XMLHttpRequest, textStatus, errorThrown) {
+										console.log("错误输出信息：" + XMLHttpRequest.status + "###" + XMLHttpRequest.readyState + "###" + textStatus);
 										api.alert({
-											msg : "支付成功！"
-										});
-										api.closeWin();
-										api.execScript({//刷新商品详情页
-											name : 'buyListInfo',
-											script : 'refresh();'
-										});
-									} else if (ret.code == '6001') {
-										api.toast({
-											msg : "支付已取消"
-										});
-
-									} else {
-										api.alert({
-											title : '支付结果',
-											msg : ret.code,
-											buttons : ['确定']
+											msg : "您的网络是否已经连接上了，请检查一下！"
 										});
 									}
 								});
+							} else if ($("#pwd").val() == "") {
+								alert('请您输入二级密码');
+								return false;
+							} else {
+								alert('您输入二级密码有误');
+								return false;
 							}
-						},
-						error : function(XMLHttpRequest, textStatus, errorThrown) {
-							console.log("错误输出信息：" + XMLHttpRequest.status + "###" + XMLHttpRequest.readyState + "###" + textStatus);
-							api.alert({
-								msg : "您的网络是否已经连接上了，请检查一下！"
-							});
-						}
-					});
+						};
+						$(".noAgree").click(function() {
+							$(".tankuang_box").css("display","none");
+							$(".black_box").css("display","none");
+						})
+					};
+					
+					//走支付宝支付
+					if ($("#zfb").prop("checked") == true) {
+						var data = {
+							"subject" : "北京小客网络科技有限公司",
+							"body" : "小客智慧生活支付",
+							"amount" : countAll,
+							"tradeNO" : dealNo
+						};
+						$.ajax({
+							type : 'POST',
+							url : rootUrls + '/xk/onlineOrderInfo.do',
+							data : JSON.stringify(data),
+							dataType : "json",
+							contentType : 'application/json;charset=utf-8',
+							success : function(data) {
+								console.log($api.jsonToStr(data));
+								if (data.state == '1') {
+									var iaf = api.require('aliPay');
+									iaf.payOrder({
+										orderInfo : data.data
+									}, function(ret, err) {
+										if (ret.code == '9000') {
+											//消息推送
+											AjaxUtil.exeScript({
+												script : "managers.pushMessage.msg", //推送消息
+												needTrascation : false,
+												funName : "pushmsg",
+												form : {
+													userNo : 'V000007',
+													msg : "【小客商品】订单号【" + dealNo + "】,商品名称【"+($("#content").html()).split(" ")[0]+"】",
+													type : 1
+												},
+												success : function(data) {
+													console.log($api.jsonToStr(data));
+												}
+											});
+											AjaxUtil.exeScript({
+												script : "managers.pushMessage.msg", //推送消息
+												needTrascation : false,
+												funName : "pushmsg",
+												form : {
+													userNo :"V000011",
+													msg : "【小客商品】订单号【" + dealNo + "】,商品名称【" + ($("#content").html()).split(" ")[0] + "】",
+													type : 1
+												},
+												success : function(data) {
+													console.log($api.jsonToStr(data));
+												}
+											}); 
+											AjaxUtil.exeScript({
+												script : "managers.pushMessage.msg", //推送消息
+												needTrascation : false,
+												funName : "pushmsg",
+												form : {
+													userNo :urId,
+													msg : "【小客商品】订单号【" + dealNo + "】,商品名称【" + ($("#content").html()).split(" ")[0] + "】",
+													type : 1
+												},
+												success : function(data) {
+													console.log($api.jsonToStr(data));
+												}
+											}); 
+	
+	
+											api.alert({
+												msg : "支付成功！"
+											});
+											api.closeWin();
+											api.execScript({//刷新商品详情页
+												name : 'buyListInfo',
+												script : 'refresh();'
+											});
+										} else if (ret.code == '6001') {
+											api.toast({
+												msg : "支付已取消"
+											});
+	
+										} else {
+											api.alert({
+												title : '支付结果',
+												msg : ret.code,
+												buttons : ['确定']
+											});
+										}
+									});
+								}
+							},
+							error : function(XMLHttpRequest, textStatus, errorThrown) {
+								console.log("错误输出信息：" + XMLHttpRequest.status + "###" + XMLHttpRequest.readyState + "###" + textStatus);
+								api.alert({
+									msg : "您的网络是否已经连接上了，请检查一下！"
+								});
+							}
+						});
+					}
+					
 				} else {
 					api.alert({
 						msg : "操作失败，请联系管理员！"

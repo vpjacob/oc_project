@@ -1066,11 +1066,11 @@
 				D650235A1F145E5D00464540 /* tools */,
 				D6F951551EFCA2C200683812 /* DoorMaster */,
 				D6F952DB1EFCA2C200683812 /* libDMBusiness.a */,
-				D61C8E171F5FDD5300DB4470 /* widget */,
 				225F8A491EBD7B82000822DB /* Info.plist */,
 				D6EC979A1EFF87FF001E607B /* Assets.xcassets */,
 				225F8A381EBD7B82000822DB /* Supporting Files */,
 				D662626F1EF8CC8F00288AC6 /* WisdomLife-Bridging-Header.h */,
+				D61C8E171F5FDD5300DB4470 /* widget */,
 				D6ABBF821F00A48C008FB306 /* Masonry */,
 			);
 			path = WisdomLife;

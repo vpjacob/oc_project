@@ -11,10 +11,11 @@ apiready = function() {
         });
 	});
 	
-	FileUtils.readFile("info.json", function(info, err) {
-			urId=info.userNo;
-			record(urId);
-		});
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
+    record(urId);
 		
 	$('#jinbicount').click(function() {
 		api.openWin({
@@ -29,7 +30,19 @@ apiready = function() {
 			}
 		});
 	});
-	
+    $('#goldPay').click(function() {
+                           api.openWin({
+                                       name : 'goldPay',
+                                       url : 'goldPay.html',
+                                       reload : true,
+                                       slidBackEnabled : true,
+                                       animation : {
+                                       type : "push", //动画类型（详见动画类型常量）
+                                       subType : "from_right", //动画子类型（详见动画子类型常量）
+                                       duration : 300 //动画过渡时间，默认300毫秒
+                                       }
+                                       });
+                           });
 	$('#yinbicount').click(function() {
 		api.openWin({
 			name : 'yinbicount',
@@ -79,6 +92,7 @@ function record(urId) {
 			userNo : urId
 		},
 		success : function(data) {
+			console.log($api.jsonToStr(data));
 			var listInfo = data.formDataset;
 			var list=$api.jsonToStr(data.formDataset);
 			console.log('data.formDataset'+list);
@@ -92,6 +106,7 @@ function record(urId) {
 					data.formDataset.alreadyBack==null?$('#goldback').html(0.00):$('#goldback').html(data.formDataset.alreadyBack);
 					data.formDataset.goldUselessCount==null?$('#deadG').html(0.00):$('#deadG').html(data.formDataset.goldUselessCount);
 					data.formDataset.silverUselessCount==null?$('#deadY').html(0.00):$('#deadY').html(data.formDataset.silverUselessCount);
+					data.formDataset.payGoldCoinAmount==null?$('#payCount').html(0.00):$('#payCount').html(data.formDataset.payGoldCoinAmount);
 			} else {
 				alert(data.formDataset.errorMsg);
 			}

@@ -16,7 +16,6 @@
 
 @interface DoorListViewController ()<UITableViewDataSource,UITableViewDelegate,JJDoorListViewCellDelegate>
 
-
 //@property (nonatomic,strong)NSMutableArray *dataSource;
 @property (nonatomic,strong)NSArray *blackListArray;
 @property (nonatomic, strong) NSMutableArray *isOnMutableArray;

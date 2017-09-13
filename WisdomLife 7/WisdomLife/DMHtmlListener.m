@@ -115,44 +115,67 @@ static DMHtmlListener *instance = nil;
 - (void)webView:(APIWebView *)webView didReceiveScriptMessage:(APIScriptMessage *)scriptMessage {
     
     if ([scriptMessage.name isEqualToString:@"loginAccount"]) {//登入系统，account&pwd
+        
         NSString *account = scriptMessage.userInfo[@"account"];
         NSString *password = scriptMessage.userInfo[@"pwd"];
         [DMLoginAction loginWithUsername:account andPwd:password withWebView:webView andScriptMessage:scriptMessage];
+        
     }else if ([scriptMessage.name isEqualToString:@"update"]) {//登入系统，account&pwd
+        
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/cn/app/id1182914885?mt=8"]];
+        
     }else if ([scriptMessage.name isEqualToString:@"DeviceList"]) {//门禁钥匙
+        
         OpenDoorListViewController *nextCtr = [[OpenDoorListViewController alloc] init];
         [self.windowContainer pushViewController:nextCtr animated:YES];
+        
     }else if([scriptMessage.name isEqualToString:@"DoorVideoList"]) {//门口视频
+        
         DoorListViewController *nextCtr = [[DoorListViewController alloc] init];
         [self.windowContainer pushViewController:nextCtr animated:YES];
+        
     }else if([scriptMessage.name isEqualToString:@"NativeSelectCity"]) {//选择城市
+        
         JFCityViewControllers *vc = [JFCityViewControllers new];
         [self.windowContainer pushViewController:vc animated:YES];
         vc.cityBlock = ^(NSString *cityName) {
             NSDictionary *dict = @{@"title":cityName};
             [webView sendResultWithCallback:scriptMessage.callback ret:dict err:nil delete:YES];
         };
+        
     }else if([scriptMessage.name isEqualToString:@"OpenRecord"]) {//开门记录
+        
         OpenRecordViewController *nextCtr = [[OpenRecordViewController alloc] init];
         [self.windowContainer pushViewController:nextCtr animated:YES];
+        
     }else if([scriptMessage.name isEqualToString:@"VisitorPass"]) {//授权访客
+        
         VisitorViewController *nextCtr = [[VisitorViewController alloc] init];
         [self.windowContainer pushViewController:nextCtr animated:YES];
+        
     }else if([scriptMessage.name isEqualToString:@"Onceopen"]) {//一键开门
+        
         [[NSNotificationCenter defaultCenter] postNotificationName:ScanOpenDoorReceved object:@"onceOpen"];
+        
     }else if([scriptMessage.name isEqualToString:@"Setting"]) {//设置
+        
         NewSetViewController *sVC = [[NewSetViewController alloc] init];
         [self.windowContainer pushViewController:sVC animated:YES];
+        
     }else if([scriptMessage.name isEqualToString:@"logout"]) {//登出
+        
         [DMLoginAction logout];
+        
     }else if([scriptMessage.name isEqualToString:@"palyCarViedo"]) {//行车记录仪视频
+        
         NSURL *url = [NSURL fileURLWithPath:scriptMessage.userInfo[@"path"]];
         _playVC = [[KNBVideoPlayerController alloc] initWithFrame:CGRectMake(0, 20, kDeviceWidth, kDeviceHeight - 20) title:scriptMessage.userInfo[@"name"] url:url];
         [_playVC setFullScreen:YES];
         [_playVC startPlay];
         [self.windowContainer pushViewController:_playVC animated:YES];
+        
     }else if ([scriptMessage.name isEqualToString:@"ConnetToWiFi"]) {//连接WiFi
+        
         NSURL *url;
         if ([[UIDevice currentDevice] systemVersion].floatValue < 10.0) {
             url = [NSURL URLWithString:@"prefs:root=WIFI"];
@@ -162,10 +185,14 @@ static DMHtmlListener *instance = nil;
         if ([[UIApplication sharedApplication] canOpenURL:url]) {
             [[UIApplication sharedApplication] openURL:url];
         }
+        
     }else if ([scriptMessage.name isEqualToString:@"showVersionCode"]) {//版本信息
+        
         JJVersionCodeController *VC = [JJVersionCodeController new];
         [self.windowContainer pushViewController:VC animated:YES];
+        
     }else if([scriptMessage.name isEqualToString:@"ShowKey"]) {//
+        
         NSArray *deviceList = [DeviceManager manager].list;
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
         dict[@"ret"] = @(0);
@@ -176,6 +203,7 @@ static DMHtmlListener *instance = nil;
             dict[@"msg"] = @"false";
         }
         [webView sendResultWithCallback:scriptMessage.callback ret:dict err:nil delete:YES];
+        
     }
 }
 

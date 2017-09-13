@@ -22,9 +22,6 @@
 #define IOS8_OR_LATER ([[[UIDevice currentDevice] systemVersion] compare:@"8.0"] != NSOrderedAscending)
 #define IOS7_OR_LATER ([[[UIDevice currentDevice] systemVersion] compare:@"7.0"] != NSOrderedAscending)
 #define IOS6_OR_LATER ([[[UIDevice currentDevice] systemVersion] compare:@"6.0"] != NSOrderedAscending)
-#define IOS5_OR_LATER ([[[UIDevice currentDevice] systemVersion] compare:@"5.0"] != NSOrderedAscending)
-#define IOS4_OR_LATER ([[[UIDevice currentDevice] systemVersion] compare:@"4.0"] != NSOrderedAscending)
-#define IOS3_OR_LATER ([[[UIDevice currentDevice] systemVersion] compare:@"3.0"] != NSOrderedAscending)
 
 #define IOS_SYSTEM_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
 
@@ -54,15 +51,6 @@
 #define kDarkGrayColor    [UIColor darkGrayColor]
 #define kLightGrayColor   [UIColor lightGrayColor]
 #define kGrayColor        [UIColor grayColor]
-//#define kRedColor         [UIColor redColor]
-//#define kGreenColor       [UIColor greenColor]
-//#define kBlueColor        [UIColor blueColor]
-//#define kCyanColor        [UIColor cyanColor]
-//#define kYellowColor      [UIColor yellowColor]
-//#define kMagentaColor     [UIColor magentaColor]
-//#define kOrangeColor      [UIColor orangeColor]
-//#define kPurpleColor      [UIColor purpleColor]
-//#define kBrownColor       [UIColor brownColor]
 #define KNB_RGB(r,g,b)      [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0]
 #define kBackgroundColor    [UIColor colorWithHexString:@"eeeeee"]
 #define kSepparteLineColor  [UIColor colorWithHexString:@"c8c8c8"]
@@ -90,13 +78,10 @@ typedef enum {
     GENERAL_USER = 4, // 普通用户
 }PrivilegeE;
 
-//#define RGB_COLOR(r, g, b, a) ([UIColor colorWithRed: (r)/ 255.0 green:(g) / 255.0 blue:(b) / 255.0 alpha:(a)])
 
 //主页按钮的宽度
 #define kHomeButtonWidth (kDeviceWidth - 1.5) / 4.0
 
-//#define RGBCOLOR(r,g,b)  [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
-//#define RGB1COLOR(r,g,b,a)  [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
 
 //rgb颜色转换（16进制->10进制）
 #define UIColorFromRGB(rgbValue)  [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0f green:((float)((rgbValue & 0xFF00) >> 8))/255.0f blue:((float)(rgbValue & 0xFF))/255.0f alpha:(a)]
@@ -206,13 +191,9 @@ typedef enum {
 #import "Constant.h"
 #import "NSArray+SNFoundation.h"
 #import "HomeData.h"
-//#import "MineData.h"
 #import "AFNetworking.h"
 #import "CommonHttpClient.h"
 #import "Config.h"
-//#import "LinphoneManager.h"
-//#import "CallManager.h"
-//#import "Utils.h"
 #import <DoorMasterSDK/DoorMasterSDK.h>
 #import <DMVPhoneSDK/DMVPhoneSDK.h>
 #import "UploadOpenDoorService.h"

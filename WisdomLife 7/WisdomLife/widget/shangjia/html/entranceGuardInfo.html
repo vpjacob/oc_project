@@ -33,6 +33,15 @@
 		<a class="icon pull-left" id="back"><i class="iconfont icon-xiangzuo1" style="font-size: 1rem;color: #0EAAE3"></i></a>
 		<h1 class="title" style="color: #4d4d4d;font-size: 0.8rem;">确认信息</h1>
 	</header>
+	<div class="tankuang_box" id="tankuang_box">
+	<div class="tankuang">
+		<div><span>二级密码</span><input type="password" id="pwd" placeholder="请输入二级密码"/></div>
+		<div>
+			<span class="noAgree">取消</span><span class="agree" id="agree">确定</span>
+		</div>
+	</div>
+	</div>
+	<div class="black_box" id="black_box"></div>
 	<div style="height: 85%;width:100%;overflow:auto" id="miancss">
 	<div class="firstInfo">
 		<div class="businessInfo">
@@ -45,14 +54,6 @@
 		</div>
 	</div>
 	<div class="choose" id="modelList">
-		<!--<div class="chooseColor" >
-			<span>颜色</span>
-			<span class="spanModle">请选择</span>
-			<select id="colorChoose">
-				<option value="0">请选择</option>
-				<option value="0">中古(五斤装)</option>
-			</select>
-		</div>-->
 		<div class="chooseAmount">
 			<span>数量</span>
 			<div class="chooseAmountChange">
@@ -65,22 +66,17 @@
 	<div class="businessPay">
 		<div class="businesses">
 			<img src="../image/address/pay.png" />
+			<span>支付宝</span>
+			<input type="checkbox" style="width:1rem;height: 1rem;float: right;position: relative;right: 2%;top: 0.5rem" id="zfb"/>
 		</div>
 	</div>
-	<!--<div class="buyInfo">
-		<div class="buySame">
-			<span>收货人姓名</span>
-			<input type="text" placeholder="请输入姓名" id="userName" />
+	<div class="businessPay" style="margin-top: -0.1rem">
+		<div class="businesses">
+			<img src="../image/address/xk.png" />
+			<span>剩余金币 :<p id="residueMoney"></p></span>
+			<input type="checkbox" style="width:1rem;height: 1rem;float: right;position: relative;right: 2%;top: 0.5rem" id="xk"/>
 		</div>
-		<div class="buySame">
-			<span>手机号码  </span>
-			<input type="text" placeholder="请输入手机号" class="buyTel" id="userPhone"/>
-		</div>
-		<div class="buySame">
-			<span style="float: left">详细地址 </span>
-			<textarea placeholder="请输入您的详细地址" id="address"></textarea>
-		</div>
-	</div>-->
+	</div>
 	 <div class="addInfo">
 		<div class="addInfoBox">
 			<div class="top">
@@ -109,16 +105,15 @@
 	<footer>
 		<span>共计 : </span>
 		<span id="countAll"></span>
-		<span id="apply">支付</span>
+		<button id="apply">支付</button>
 	</footer>
-	
 </body>
 <script type="text/javascript" src="../../script/common.js"></script>
 <script type="text/javascript" src="../../script/api.js"></script>
 <script type="text/javascript" src="../js/shangjia/entranceGuardInfo.js"></script>
 <script>
 function refresh() {
-		location.reload();
+	location.reload();
 	}
 </script>
 </html>

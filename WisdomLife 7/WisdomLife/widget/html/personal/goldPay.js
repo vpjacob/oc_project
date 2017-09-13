@@ -15,7 +15,7 @@ apiready = function() {
 		AjaxUtil.exeScript({
 			script : "mobile.center.pay.pay",
 			needTrascation : true,
-			funName : "queryPayMerchantRecord  ",
+			funName : "queryPayByGoldCoin",
 			form : {
 				userNo : urId
 			},
@@ -27,7 +27,7 @@ apiready = function() {
 					console.log($api.jsonToStr(data));
 					if (list == undefined || list == '' || list.length == '' || list.length == 0 || list.length == undefined) {
 						api.toast({
-							msg : "亲，您暂时没有支付记录！"
+							msg : "亲，您暂时没有金币支付记录！"
 						});
 					} else {
 						for (var i = 0; i < list.length; i++) {

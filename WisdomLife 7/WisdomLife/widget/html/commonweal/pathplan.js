@@ -346,6 +346,7 @@ function getCarPath() {
 	map.searchRoute({
 		id : 1,
 		type : 'drive',
+        policy:'ecar_dis_first',
 		start : {
 			lon : lon,
 			lat : lat

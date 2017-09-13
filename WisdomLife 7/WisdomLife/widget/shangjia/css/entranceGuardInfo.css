@@ -222,7 +222,7 @@ footer span:nth-child(1){
 	margin-left: 4%;
 	line-height: 2.7rem;
 }
-footer span:nth-child(3){
+footer button{
 	float: right;
 	height: 2rem;
 	width: 6.3rem;
@@ -233,6 +233,8 @@ footer span:nth-child(3){
 	margin-right: 4%;
 	line-height: 2rem;
 	border-radius: 5px;
+	font-size: 0.9rem;
+	font-weight: 700;
 }
 
 
@@ -298,5 +300,86 @@ textarea::-moz-input-placeholder{text-align: center;color:#999}
 	 color:#FF4E00;
 }
 
+.businessPay span{
+	position: relative;
+	top:-0.4rem;
+	left:0.1rem;
+	font-size: 0.75rem;
+}
+.businessPay p{
+	display: inline-block;
+}
+
+.black_box{
+	background:rgba(0,0,0,0.7);
+	position:fixed;
+	top:0;
+	left:0;
+	z-index:20000;
+	height:100%;
+	width:100%;
+	 display:none; 
+	overflow: hidden;
+}
+.tankuang_box{
+	position:fixed;
+	top:34%;
+	left:0;
+	z-index:20001;
+	width:100%;
+ 	display:none; 
+	overflow: hidden;
+}
+
+.tankuang{
+	width:84%;
+	margin:auto;
+	background-color: white;
+	border-radius:5px;
+	overflow:hidden;
+	
+}
+.tankuang div{
+	background-color: #FFFFFF;
+	font-size:18px;
+	border-bottom:1px solid #E6E6E6;
+	height: 50px;
+}
+.tankuang div span{
+	margin-top: 5%;
+	margin-left: 4%;
+	font-size: 0.75rem
+}
+.tankuang div .agree{
+	margin: 0;
+	margin-top:12px;
+	float:right;
+ 	width:49%; 
+	background:#FFFFFF;
+	text-align:center;
+	color:#0eaae3;
+	
+}
+.tankuang div .noAgree{
+	border-right:solid 1px #c7c7c7;
+	margin: 0;
+	margin-top:12px;
+	float:left;
+ 	width:49%;  
+	background:#FFFFFF;
+	text-align:center;
+	color:#0eaae3;
+}
+#pwd{
+	float: right;
+	margin-top: 5%;
+    margin-right: 5%;
+	width: 6rem;
+	font-size: 0.75rem;
+	-ms-input-placeholder{font-size: 0.75rem};
+	-webkit-input-placeholder{font-size: 0.75rem};
+	-o-input-placeholder{font-size: 0.75rem};
+	-moz-input-placeholder{font-size: 0.75rem};
+};
 
 

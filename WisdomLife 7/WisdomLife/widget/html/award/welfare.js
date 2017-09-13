@@ -4,11 +4,11 @@ apiready = function() {
 	$("#back").click(function() {
 		api.closeWin();
 	});
-	//主页显示获取金蛋是否可砸
-	FileUtils.readFile("info.json", function(info, err) {
-		urId = info.userNo;
-		queryTaskPlan(); 
-	});
+	urId = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
+    queryTaskPlan();
 	
 	var closePage = $api.byId('title');
 	if (api.systemType == 'ios') {
@@ -105,8 +105,7 @@ apiready = function() {
 					}else if(list==4){
 						$("#getButton").html("已经领取");
 					}else if(list==0){
-//						$(".box").hide();
-                        $(".bottom").hide();
+						$(".bottom").hide();
 						api.toast({
 	                        msg:'只限新用户参加！'
                         });
