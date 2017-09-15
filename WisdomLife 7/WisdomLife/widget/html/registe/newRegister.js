@@ -116,7 +116,7 @@ apiready = function() {
 				console.log($api.jsonToStr(data));
 				if (data.formDataset.checked === "true") {
 					identifyingCode = data.formDataset.code;
-					alert(identifyingCode+"******************************");
+//					alert(identifyingCode+"******************************");
 					if (identifyingCode != "") {
 						api.alert({
 							title : '系统提示',
