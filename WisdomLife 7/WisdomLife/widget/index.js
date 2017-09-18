@@ -191,6 +191,34 @@ apiready = function() {
                                      });
                          
                          });
+    
+    
+    //3dtouch 实现小客商城
+    api.addEventListener({
+                         name : 'shopping'
+                         }, function(ret, err) {
+                         var reqUrl = 'shangjia/html/buyList.html';
+                         var name = "scan";
+                         //打开登陆界面
+                         api.openWin({
+                                     name : name,
+                                     url : reqUrl,
+                                     bounces : false,
+                                     rect : {
+                                     x : 0,
+                                     y : headerH,
+                                     w : 'auto',
+                                     h : frameH
+                                     },
+                                     animation : {
+                                     type : "push", //动画类型（详见动画类型常量）
+                                     subType : 'from_right', //动画子类型（详见动画子类型常量）
+                                     duration : 300
+                                     }
+                                     });
+                         
+                         });
+    
 	hasLogon = api.getPrefs({
 	    sync:true,
 	    key:'hasLogon'

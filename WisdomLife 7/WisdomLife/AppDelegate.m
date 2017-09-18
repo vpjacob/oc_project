@@ -59,18 +59,34 @@
 - (void)thridDTouchInit{
     //    3d touch
     if (IOS9) {
-        UIApplicationShortcutIcon *clickEgg = [UIApplicationShortcutIcon iconWithTemplateImageName:@"3d_clickegg"];
-        UIApplicationShortcutIcon *video = [UIApplicationShortcutIcon iconWithTemplateImageName:@"3d_viedo"];
         UIApplicationShortcutIcon *onceOpen = [UIApplicationShortcutIcon iconWithTemplateImageName:@"3d_opendoor"];
-        UIApplicationShortcutIcon *keys = [UIApplicationShortcutIcon iconWithTemplateImageName:@"3d_doorkey"];
         UIApplicationShortcutItem *item = [[UIApplicationShortcutItem alloc] initWithType:@"onceOpen" localizedTitle:@"一键开门" localizedSubtitle:nil icon:onceOpen userInfo:nil];
-        UIApplicationShortcutItem *item2 = [[UIApplicationShortcutItem alloc] initWithType:@"shortcutTypeTwo" localizedTitle:@"门口视频" localizedSubtitle:nil icon:video userInfo:nil];
-        UIApplicationShortcutItem *item3 = [[UIApplicationShortcutItem alloc] initWithType:@"shortcutTypeThree" localizedTitle:@"门禁钥匙" localizedSubtitle:nil icon:keys userInfo:nil];
-        UIApplicationShortcutItem *item4 = [[UIApplicationShortcutItem alloc] initWithType:@"eggs" localizedTitle:@"砸金蛋" localizedSubtitle:nil icon:clickEgg userInfo:nil];
-        [[UIApplication sharedApplication] setShortcutItems:@[item3,item2,item,item4]];
+        [[UIApplication sharedApplication] setShortcutItems:@[item]];
     }
 }
-
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    if ([[url absoluteString] hasPrefix:@"WisdomLifeToday"])
+    {
+        NSString *urlHost = [url host];
+        if ([urlHost isEqualToString:@"red200"]) {
+            DoorListViewController *nextCtr = [[DoorListViewController alloc] init];
+            [(UINavigationController *)self.window.rootViewController pushViewController:nextCtr animated:YES];
+        }else if ([urlHost isEqualToString:@"red201"]){
+            OpenDoorListViewController *nextCtr = [[OpenDoorListViewController alloc] init];
+            [(UINavigationController *)self.window.rootViewController pushViewController:nextCtr animated:YES];
+        }else if ([urlHost isEqualToString:@"red202"]){
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [[DMHtmlListener manager] nativeSendActionToH5:@"shopping"];
+            });
+        }else if ([urlHost isEqualToString:@"red203"]){
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [[DMHtmlListener manager] nativeSendActionToH5:@"eggs"];
+            });
+        }
+    }
+    return  YES;
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -117,18 +133,9 @@
 
 - (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {
     
-    if ([shortcutItem.type isEqualToString:@"onceOpen"]) {
+    if ([shortcutItem.type isEqualToString:@"onceOpen"]) {//一键开门
         [[NSNotificationCenter defaultCenter] postNotificationName:ScanOpenDoorReceved object:@"onceOpen"];
-    } else if ([shortcutItem.type isEqualToString:@"shortcutTypeTwo"]) {
-        DoorListViewController *nextCtr = [[DoorListViewController alloc] init];
-        [(UINavigationController *)self.window.rootViewController pushViewController:nextCtr animated:YES];
-    }else if ([shortcutItem.type isEqualToString:@"shortcutTypeThree"]){
-        OpenDoorListViewController *nextCtr = [[OpenDoorListViewController alloc] init];
-        [(UINavigationController *)self.window.rootViewController pushViewController:nextCtr animated:YES];
-    }else if ([shortcutItem.type isEqualToString:@"eggs"]){
-        [[DMHtmlListener manager] nativeSendActionToH5:@"eggs"];
     }
-    
 }
 
 @end

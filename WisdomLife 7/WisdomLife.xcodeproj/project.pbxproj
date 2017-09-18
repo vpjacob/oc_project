@@ -52,6 +52,10 @@
 		225F8BFB1EBDB545000822DB /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225F8BFA1EBDB545000822DB /* UserNotifications.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		22E508C11EE82ADD004A3525 /* PushKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E508C01EE82ADD004A3525 /* PushKit.framework */; };
 		D61C8E181F5FDD5300DB4470 /* widget in Resources */ = {isa = PBXBuildFile; fileRef = D61C8E171F5FDD5300DB4470 /* widget */; };
+		D6471C181F6F8C63003C8AEA /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6471C171F6F8C63003C8AEA /* NotificationCenter.framework */; };
+		D6471C1C1F6F8C63003C8AEA /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6471C1B1F6F8C63003C8AEA /* TodayViewController.m */; };
+		D6471C1F1F6F8C63003C8AEA /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6471C1D1F6F8C63003C8AEA /* MainInterface.storyboard */; };
+		D6471C231F6F8C63003C8AEA /* WisdomLifeToday.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D6471C161F6F8C63003C8AEA /* WisdomLifeToday.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D650235D1F145E7F00464540 /* JJScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D650235C1F145E7F00464540 /* JJScanViewController.m */; };
 		D650235E1F145E7F00464540 /* JJScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D650235C1F145E7F00464540 /* JJScanViewController.m */; };
 		D650235F1F145E7F00464540 /* JJScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D650235C1F145E7F00464540 /* JJScanViewController.m */; };
@@ -351,7 +355,28 @@
 			remoteGlobalIDString = 225F8A341EBD7B82000822DB;
 			remoteInfo = WisdomLife;
 		};
+		D6471C211F6F8C63003C8AEA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 225F8A2D1EBD7B82000822DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D6471C151F6F8C63003C8AEA;
+			remoteInfo = WisdomLifeToday;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D6471C271F6F8C63003C8AEA /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D6471C231F6F8C63003C8AEA /* WisdomLifeToday.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2209C1B21EC1BDD700B78DD6 /* DoorMasterSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DoorMasterSDK.framework; sourceTree = "<group>"; };
@@ -408,6 +433,12 @@
 		22E508C01EE82ADD004A3525 /* PushKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PushKit.framework; path = System/Library/Frameworks/PushKit.framework; sourceTree = SDKROOT; };
 		22E50A8D1EE83AE0004A3525 /* SDPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPrefixHeader.pch; sourceTree = "<group>"; };
 		D61C8E171F5FDD5300DB4470 /* widget */ = {isa = PBXFileReference; lastKnownFileType = folder; path = widget; sourceTree = "<group>"; };
+		D6471C161F6F8C63003C8AEA /* WisdomLifeToday.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WisdomLifeToday.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6471C171F6F8C63003C8AEA /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		D6471C1A1F6F8C63003C8AEA /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		D6471C1B1F6F8C63003C8AEA /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		D6471C1E1F6F8C63003C8AEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		D6471C201F6F8C63003C8AEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D650235B1F145E7F00464540 /* JJScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJScanViewController.h; sourceTree = "<group>"; };
 		D650235C1F145E7F00464540 /* JJScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJScanViewController.m; sourceTree = "<group>"; };
 		D65023611F145EE000464540 /* LCQRCodeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LCQRCodeUtil.h; path = ../Utils/LCQRCodeUtil.h; sourceTree = "<group>"; };
@@ -1026,6 +1057,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D6471C131F6F8C63003C8AEA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6471C181F6F8C63003C8AEA /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -1035,6 +1074,7 @@
 				225F8A371EBD7B82000822DB /* WisdomLife */,
 				225F8A511EBD7B83000822DB /* WisdomLifeTests */,
 				225F8A5C1EBD7B83000822DB /* WisdomLifeUITests */,
+				D6471C191F6F8C63003C8AEA /* WisdomLifeToday */,
 				225F8A361EBD7B82000822DB /* Products */,
 				225F8A6B1EBD7D55000822DB /* Frameworks */,
 			);
@@ -1046,6 +1086,7 @@
 				225F8A351EBD7B82000822DB /* WisdomLife.app */,
 				225F8A4E1EBD7B83000822DB /* WisdomLifeTests.xctest */,
 				225F8A591EBD7B83000822DB /* WisdomLifeUITests.xctest */,
+				D6471C161F6F8C63003C8AEA /* WisdomLifeToday.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1148,6 +1189,7 @@
 				225F8A701EBD7DD8000822DB /* libicucore.tbd */,
 				225F8A6E1EBD7DC6000822DB /* libz.tbd */,
 				225F8A6C1EBD7D55000822DB /* WebKit.framework */,
+				D6471C171F6F8C63003C8AEA /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1159,6 +1201,17 @@
 				D68407951F04B1F300E57E88 /* Modules */,
 			);
 			path = lib;
+			sourceTree = "<group>";
+		};
+		D6471C191F6F8C63003C8AEA /* WisdomLifeToday */ = {
+			isa = PBXGroup;
+			children = (
+				D6471C1A1F6F8C63003C8AEA /* TodayViewController.h */,
+				D6471C1B1F6F8C63003C8AEA /* TodayViewController.m */,
+				D6471C1D1F6F8C63003C8AEA /* MainInterface.storyboard */,
+				D6471C201F6F8C63003C8AEA /* Info.plist */,
+			);
+			path = WisdomLifeToday;
 			sourceTree = "<group>";
 		};
 		D650235A1F145E5D00464540 /* tools */ = {
@@ -2123,10 +2176,12 @@
 				225F8A311EBD7B82000822DB /* Sources */,
 				225F8A321EBD7B82000822DB /* Frameworks */,
 				225F8A331EBD7B82000822DB /* Resources */,
+				D6471C271F6F8C63003C8AEA /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D6471C221F6F8C63003C8AEA /* PBXTargetDependency */,
 			);
 			name = WisdomLife;
 			productName = WisdomLife;
@@ -2169,6 +2224,23 @@
 			productReference = 225F8A591EBD7B83000822DB /* WisdomLifeUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		D6471C151F6F8C63003C8AEA /* WisdomLifeToday */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6471C261F6F8C63003C8AEA /* Build configuration list for PBXNativeTarget "WisdomLifeToday" */;
+			buildPhases = (
+				D6471C121F6F8C63003C8AEA /* Sources */,
+				D6471C131F6F8C63003C8AEA /* Frameworks */,
+				D6471C141F6F8C63003C8AEA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WisdomLifeToday;
+			productName = WisdomLifeToday;
+			productReference = D6471C161F6F8C63003C8AEA /* WisdomLifeToday.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -2204,6 +2276,11 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 225F8A341EBD7B82000822DB;
 					};
+					D6471C151F6F8C63003C8AEA = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = HN2F9US93L;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 225F8A301EBD7B82000822DB /* Build configuration list for PBXProject "WisdomLife" */;
@@ -2222,6 +2299,7 @@
 				225F8A341EBD7B82000822DB /* WisdomLife */,
 				225F8A4D1EBD7B83000822DB /* WisdomLifeTests */,
 				225F8A581EBD7B83000822DB /* WisdomLifeUITests */,
+				D6471C151F6F8C63003C8AEA /* WisdomLifeToday */,
 			);
 		};
 /* End PBXProject section */
@@ -2280,6 +2358,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6471C141F6F8C63003C8AEA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6471C1F1F6F8C63003C8AEA /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2501,6 +2587,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D6471C121F6F8C63003C8AEA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6471C1C1F6F8C63003C8AEA /* TodayViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -2514,6 +2608,11 @@
 			target = 225F8A341EBD7B82000822DB /* WisdomLife */;
 			targetProxy = 225F8A5A1EBD7B83000822DB /* PBXContainerItemProxy */;
 		};
+		D6471C221F6F8C63003C8AEA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D6471C151F6F8C63003C8AEA /* WisdomLifeToday */;
+			targetProxy = D6471C211F6F8C63003C8AEA /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -2523,6 +2622,14 @@
 				220DD92F1EE8EFF000A19F4D /* Base */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		D6471C1D1F6F8C63003C8AEA /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D6471C1E1F6F8C63003C8AEA /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -2749,6 +2856,35 @@
 			};
 			name = Release;
 		};
+		D6471C241F6F8C63003C8AEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				DEVELOPMENT_TEAM = HN2F9US93L;
+				INFOPLIST_FILE = WisdomLifeToday/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoke.wizdomlife.WisdomLifeToday;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D6471C251F6F8C63003C8AEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = HN2F9US93L;
+				INFOPLIST_FILE = WisdomLifeToday/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoke.wizdomlife.WisdomLifeToday;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2787,6 +2923,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		D6471C261F6F8C63003C8AEA /* Build configuration list for PBXNativeTarget "WisdomLifeToday" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6471C241F6F8C63003C8AEA /* Debug */,
+				D6471C251F6F8C63003C8AEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
