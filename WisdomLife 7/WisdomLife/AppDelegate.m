@@ -14,7 +14,7 @@
 #import "OpenDoorListViewController.h"
 #import "DoorListViewController.h"
 #import <StoreKit/StoreKit.h>
-
+#import "JJAdvertisementApi.h"
 
 @interface AppDelegate ()
 
@@ -43,16 +43,49 @@
     return YES;
 }
 
-- (void)advertisementInit{
+- (void)advertisementInit{//@"http://192.168.1.199:9020/xk/appStartImg.do"
+    
+//    JJAdvertisementApi *api = [JJAdvertisementApi new];
+//    [api startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+//        NSLog(@"%@",request.responseObject);
+//        NSLog(@"%@",request.responseObject[@"msg"]);
+//        NSLog(@"%@",request.responseObject[@"data"]);
+//    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+//        NSLog(@"%@",request.responseObject);
+//    }];
+    
+    
+    JJAdvertisementApi *api = [[JJAdvertisementApi alloc] init];
+    [api startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+        NSLog(@"%@",request.responseObject);
+        NSLog(@"%@",request.responseObject[@"msg"]);
+        NSLog(@"%@",request.responseObject[@"data"]);
+    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+        NSLog(@"%@",request.responseObject);
+    }];
+    
+    
+    
+    /*
+     
+     身份证验证。get方式参数
+     
+        JJAdvertisementApi *api = [[JJAdvertisementApi alloc] initWithID:@"372321199109184451"];
+        [api startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+            NSLog(@"%@",request.responseObject);
+            NSLog(@"%@",request.responseObject[@"msg"]);
+            NSLog(@"%@",request.responseObject[@"data"]);
+        } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+            NSLog(@"%@",request.responseObject);
+        }];
+    */
+    
 //        [SplashView updateSplashData:@"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=996278178,3084539720&fm=26&gp=0.jpg" actUrl:@"http://www.baidu.com"];
     UIImage *image = [UIImage imageNamed:@"guanggao"];
     [SplashView showSplashView:5 defaultImage:image tapSplashImageBlock:^(NSString * urlStr) {
         
     } splashViewDismissBlock:^(BOOL complete) {
         
-//10        [SKStoreReviewController requestReview];
-//10以下        NSString  * nsStringToOpen = [NSString  stringWithFormat: @"itms-apps://itunes.apple.com/app/id%@?action=write-review",@"1182914885"];//替换为对应的APPID
-//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:nsStringToOpen]];
     }];
 }
 
@@ -73,8 +106,9 @@
             DoorListViewController *nextCtr = [[DoorListViewController alloc] init];
             [(UINavigationController *)self.window.rootViewController pushViewController:nextCtr animated:YES];
         }else if ([urlHost isEqualToString:@"red201"]){
-            OpenDoorListViewController *nextCtr = [[OpenDoorListViewController alloc] init];
-            [(UINavigationController *)self.window.rootViewController pushViewController:nextCtr animated:YES];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [[DMHtmlListener manager] nativeSendActionToH5:@"carRecoder"];
+            });
         }else if ([urlHost isEqualToString:@"red202"]){
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [[DMHtmlListener manager] nativeSendActionToH5:@"shopping"];

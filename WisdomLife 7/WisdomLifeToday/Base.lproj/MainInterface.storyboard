@@ -30,7 +30,8 @@
                             </button>
                             <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PRK-cb-zhZ">
                                 <rect key="frame" x="80" y="0.0" width="80" height="100"/>
-                                <state key="normal" title="门禁钥匙"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="行车记录仪"/>
                                 <connections>
                                     <action selector="btnAction:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="fNZ-Nt-YUX"/>
                                 </connections>

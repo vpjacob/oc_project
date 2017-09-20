@@ -61,14 +61,47 @@ function play(position1) {
 				};
 				moduleTest.show(param);
 			} else {
-				api.alert({
-					msg : "请连接设备指定WiFi"
-				});
-			}
+//				api.alert({
+//					msg : "请连接设备指定WiFi"
+//				});
+
+                       api.confirm({
+                                   msg : '出了点问题：\n情况1:未连接指定WiFi\n情况2:重新添加一个设备\n情况3:选择一个对的设备',
+                                   buttons : ['去设置WiFi', '添加新的设备','点击别的设备试试']
+                                   }, function(ret, err) {
+                                   var index = ret.buttonIndex;
+                                   if (index == 1) {
+                                   api.accessNative({
+                                                    name : 'ConnetToWiFi',
+                                                    extra : {
+                                                    }
+                                                    }, function(ret, err) {
+                                                    if (ret) {
+                                                    //                                    alert(JSON.stringify(ret));
+                                                    } else {
+                                                    //                                    alert(JSON.stringify(err));
+                                                    }
+                                                    });
+                                   } else if(index == 2){
+                                   api.openWin({//打开我的设备
+                                               name : 'addequipment',
+                                               url : 'addequipment.html',
+                                               slidBackEnabled : true,
+                                               animation : {
+                                               type : "push", //动画类型（详见动画类型常量）
+                                               subType : "from_right", //动画子类型（详见动画子类型常量）
+                                               duration : 300 //动画过渡时间，默认300毫秒
+                                               }
+                                               });
+                                   
+                                   }
+                                   });
+                       }
 		});
 	} else {
 		var moduleTest = api.require('movies');
 		var retWifiName = moduleTest.get();
+//        console.log(retWifiName + "-----" + ssid);
 		if (retWifiName == ssid) {
 			var appPath = api.fsDir;
 			var param = {
@@ -76,10 +109,42 @@ function play(position1) {
 			};
 			moduleTest.show(param);
 		} else {
-			api.alert({
-				msg : "请连接设备指定WiFi"
-			});
-		}
+//			api.alert({
+//				msg : "请连接设备指定WiFi"
+//			});
+
+            api.confirm({
+                        msg : '出了点问题：\n情况1:未连接指定WiFi\n情况2:重新添加一个设备\n情况3:选择一个对的设备',
+                        buttons : ['去设置WiFi', '添加新的设备','点击别的设备试试']
+                        }, function(ret, err) {
+                        var index = ret.buttonIndex;
+                        if (index == 1) {
+                        api.accessNative({
+                                         name : 'ConnetToWiFi',
+                                         extra : {
+                                         }
+                                         }, function(ret, err) {
+                                         if (ret) {
+                                         //                                    alert(JSON.stringify(ret));
+                                         } else {
+                                         //                                    alert(JSON.stringify(err));
+                                         }
+                                         });
+                        } else if(index == 2){
+                        api.openWin({//打开我的设备
+                                    name : 'addequipment',
+                                    url : 'addequipment.html',
+                                    slidBackEnabled : true,
+                                    animation : {
+                                    type : "push", //动画类型（详见动画类型常量）
+                                    subType : "from_right", //动画子类型（详见动画子类型常量）
+                                    duration : 300 //动画过渡时间，默认300毫秒
+                                    }
+                                    });
+                        
+                        }
+                        });
+        }
 
 	}
 }
@@ -111,40 +176,42 @@ function deleteLi(position) {
 		var index = ret.buttonIndex;
 		if (index == 1) {//确定
 			if (length == 1) {
-				var obj = [];
-				var equipmentinfo = {};
-				equipmentinfo.hasEq = false;
-				equipmentinfo.name = "";
-				equipmentinfo.wifiName = "";
-				equipmentinfo.pwd = "";
-				equipmentinfo.isRecode = 0;
-				obj.push(equipmentinfo);
-				//		alert(JSON.stringify(obj));
-				FileUtils.writeFile(obj, "equipment.json", function(info, err) {
-					//在名为winName的window中执行jsfun脚本
-					var jsfun = 'refreshFile();';
-					api.execScript({
-						name : 'room',
-						script : jsfun
-					});
-					api.openWin({
-						name : 'my_equipment',
-						url : 'my_equipment.html',
-						slidBackEnabled : true,
-						animation : {
-							type : "push", //动画类型（详见动画类型常量）
-							subType : "from_right", //动画子类型（详见动画子类型常量）
-							duration : 300 //动画过渡时间，默认300毫秒
-						}
-					});
-					setTimeout(function() {
-						var jsfun = 'close();';
-						api.execScript({
-							name : 'equipment_index',
-							script : jsfun
-						});
-					}, 800);
-				});
+//				var obj = [];
+//				var equipmentinfo = {};
+//				equipmentinfo.hasEq = false;
+//				equipmentinfo.name = "";
+//				equipmentinfo.wifiName = "";
+//				equipmentinfo.pwd = "";
+//				equipmentinfo.isRecode = 0;
+//				obj.push(equipmentinfo);
+//				//		alert(JSON.stringify(obj));
+//				FileUtils.writeFile(obj, "equipment.json", function(info, err) {
+//					//在名为winName的window中执行jsfun脚本
+//					var jsfun = 'refreshFile();';
+//					api.execScript({
+//						name : 'room',
+//						script : jsfun
+//					});
+////					api.openWin({
+////						name : 'my_equipment',
+////						url : 'my_equipment.html',
+////						slidBackEnabled : true,
+////						animation : {
+////							type : "push", //动画类型（详见动画类型常量）
+////							subType : "from_right", //动画子类型（详见动画子类型常量）
+////							duration : 300 //动画过渡时间，默认300毫秒
+////						}
+////					});
+//
+//				});
+                
+				setTimeout(function() {
+                						var jsfun = 'close();';
+                						api.execScript({
+                							name : 'equipment_index',
+                							script : jsfun
+                						});
+                					}, 800);
 			} else {//不止一个设备
 				var html = "";
 				var newObj = [];

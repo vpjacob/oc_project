@@ -13,54 +13,85 @@ apiready = function() {
 		sync : true,
 		key : 'memberid'
 	});
-	//记录仪被点击事件
-	$("#recorde").bind("click", function() {
-		//同步返回结果：
-		var data = api.readFile({
-			sync : true,
-			path : 'fs://wisdomLifeData/equipment.json'
-		});
-		//同步返回结果：
-		var hasEq = $api.strToJson(data)[0].hasEq;
-		console.log(data);
-		console.log(hasEq);
-		if (hasEq == false || hasEq == 'false') {
-			api.openWin({//打开我的设备
-				name : 'my_equipment',
-				url : '../equipment/my_equipment.html',
-				slidBackEnabled : true,
-				animation : {
-					type : "push", //动画类型（详见动画类型常量）
-					subType : "from_right", //动画子类型（详见动画子类型常量）
-					duration : 300 //动画过渡时间，默认300毫秒
-				}
-			});
+//	//记录仪被点击事件
+//	$("#recorde").bind("click", function() {
+//		//同步返回结果：
+//		var data = api.readFile({
+//			sync : true,
+//			path : 'fs://wisdomLifeData/equipment.json'
+//		});
+//		//同步返回结果：
+//		var hasEq = $api.strToJson(data)[0].hasEq;
+//		console.log(data);
+//		console.log(hasEq);
+//                       
+//		if (hasEq == false || hasEq == 'false') {
+//			api.openWin({//打开我的设备
+//				name : 'my_equipment',
+//				url : '../equipment/my_equipment.html',
+//				slidBackEnabled : true,
+//				animation : {
+//					type : "push", //动画类型（详见动画类型常量）
+//					subType : "from_right", //动画子类型（详见动画子类型常量）
+//					duration : 300 //动画过渡时间，默认300毫秒
+//				}
+//			});
+//
+//		} else {
+//			api.openWin({//打开有设备的界面
+//				name : 'equipment_index',
+//				url : '../equipment/equipment_index.html',
+//				slidBackEnabled : true,
+//				animation : {
+//					type : "push", //动画类型（详见动画类型常量）
+//					subType : "from_right", //动画子类型（详见动画子类型常量）
+//					duration : 300 //动画过渡时间，默认300毫秒
+//				}
+//			});
+//		}
+//	});
+    //记录仪被点击事件
+    $("#recorde").bind("click", function() {
+                       //同步返回结果：
+                       var data = api.readFile({
+                                               sync : true,
+                                               path : 'fs://wisdomLifeData/equipment.json'
+                                               });
+                       if(data){
+                                                      //同步返回结果：
+                                                      var hasEq = $api.strToJson(data)[0];
+                                                      if (hasEq == false || hasEq == 'false') {
+                                                      api.openWin({//打开我的设备
+                                                                  name : 'my_equipment',
+                                                                  url : '../equipment/my_equipment.html',
+                                                                  slidBackEnabled : true,
+                                                                  animation : {
+                                                                  type : "push", //动画类型（详见动画类型常量）
+                                                                  subType : "from_right", //动画子类型（详见动画子类型常量）
+                                                                  duration : 300 //动画过渡时间，默认300毫秒
+                                                                  }
+                                                                  });
 
-		} else {
-			api.openWin({//打开有设备的界面
-				name : 'equipment_index',
-				url : '../equipment/equipment_index.html',
-				slidBackEnabled : true,
-				animation : {
-					type : "push", //动画类型（详见动画类型常量）
-					subType : "from_right", //动画子类型（详见动画子类型常量）
-					duration : 300 //动画过渡时间，默认300毫秒
-				}
-			});
-		}
-	});
+                                                      } else {
+                                                      api.openWin({//打开有设备的界面
+                                                                  name : 'equipment_index',
+                                                                  url : '../equipment/equipment_index.html',
+                                                                  slidBackEnabled : true,
+                                                                  animation : {
+                                                                  type : "push", //动画类型（详见动画类型常量）
+                                                                  subType : "from_right", //动画子类型（详见动画子类型常量）
+                                                                  duration : 300 //动画过渡时间，默认300毫秒
+                                                                  }
+                                                                  });
+                                                      }
+                                                      }else{
+                       alert("没有设备，请先添加设备");
+                       }
+                       
+                       });
 
 	$("#myroom").bind("click", function() {
-		api.openWin({//打开有设备的界面
-			name : 'myLock',
-			url : '../../guanjia/html/guanjia/fangwu/addhouse.html',
-			slidBackEnabled : true,
-			animation : {
-				type : "push", //动画类型（详见动画类型常量）
-				subType : "from_right", //动画子类型（详见动画子类型常量）
-				duration : 300 //动画过渡时间，默认300毫秒
-			}
-		});
+		showRoomPage();
 	});
 
 	$("#regist").bind("click", function() {
