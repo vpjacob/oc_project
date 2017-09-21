@@ -62,23 +62,12 @@
 		D65023631F145EE000464540 /* LCQrcodeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D65023621F145EE000464540 /* LCQrcodeUtil.m */; };
 		D65023641F145EE000464540 /* LCQrcodeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D65023621F145EE000464540 /* LCQrcodeUtil.m */; };
 		D65023651F145EE000464540 /* LCQrcodeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D65023621F145EE000464540 /* LCQrcodeUtil.m */; };
-		D66254211F72483C00261C9E /* YTKBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D662540F1F72483C00261C9E /* YTKBaseRequest.m */; };
-		D66254221F72483C00261C9E /* YTKBatchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D66254111F72483C00261C9E /* YTKBatchRequest.m */; };
-		D66254231F72483C00261C9E /* YTKBatchRequestAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = D66254131F72483C00261C9E /* YTKBatchRequestAgent.m */; };
-		D66254241F72483C00261C9E /* YTKChainRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D66254151F72483C00261C9E /* YTKChainRequest.m */; };
-		D66254251F72483C00261C9E /* YTKChainRequestAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = D66254171F72483C00261C9E /* YTKChainRequestAgent.m */; };
-		D66254261F72483C00261C9E /* YTKNetworkAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = D662541A1F72483C00261C9E /* YTKNetworkAgent.m */; };
-		D66254271F72483C00261C9E /* YTKNetworkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = D662541C1F72483C00261C9E /* YTKNetworkConfig.m */; };
-		D66254281F72483C00261C9E /* YTKNetworkPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = D662541E1F72483C00261C9E /* YTKNetworkPrivate.m */; };
-		D66254291F72483C00261C9E /* YTKRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D66254201F72483C00261C9E /* YTKRequest.m */; };
-		D662542F1F7249BA00261C9E /* JJAdvertisementApi.m in Sources */ = {isa = PBXBuildFile; fileRef = D662542E1F7249BA00261C9E /* JJAdvertisementApi.m */; };
 		D66254781F7252F100261C9E /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D662546C1F7252F100261C9E /* AFHTTPSessionManager.m */; };
 		D66254791F7252F100261C9E /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D662546F1F7252F100261C9E /* AFNetworkReachabilityManager.m */; };
 		D662547A1F7252F100261C9E /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = D66254711F7252F100261C9E /* AFSecurityPolicy.m */; };
 		D662547B1F7252F100261C9E /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = D66254731F7252F100261C9E /* AFURLRequestSerialization.m */; };
 		D662547C1F7252F100261C9E /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = D66254751F7252F100261C9E /* AFURLResponseSerialization.m */; };
 		D662547D1F7252F100261C9E /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D66254771F7252F100261C9E /* AFURLSessionManager.m */; };
-		D66254801F72536100261C9E /* JJBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D662547F1F72536100261C9E /* JJBaseRequest.m */; };
 		D66262711EF8CC8F00288AC6 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66262701EF8CC8F00288AC6 /* SplashView.swift */; };
 		D6815E781F21AC6B0047F382 /* KNBVideoPlayerAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6815E731F21AC6B0047F382 /* KNBVideoPlayerAlertView.m */; };
 		D6815E791F21AC6B0047F382 /* KNBVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6815E751F21AC6B0047F382 /* KNBVideoPlayerController.m */; };
@@ -454,27 +443,6 @@
 		D650235C1F145E7F00464540 /* JJScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJScanViewController.m; sourceTree = "<group>"; };
 		D65023611F145EE000464540 /* LCQRCodeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LCQRCodeUtil.h; path = ../Utils/LCQRCodeUtil.h; sourceTree = "<group>"; };
 		D65023621F145EE000464540 /* LCQrcodeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LCQrcodeUtil.m; path = ../Utils/LCQrcodeUtil.m; sourceTree = "<group>"; };
-		D662540E1F72483C00261C9E /* YTKBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKBaseRequest.h; sourceTree = "<group>"; };
-		D662540F1F72483C00261C9E /* YTKBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKBaseRequest.m; sourceTree = "<group>"; };
-		D66254101F72483C00261C9E /* YTKBatchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKBatchRequest.h; sourceTree = "<group>"; };
-		D66254111F72483C00261C9E /* YTKBatchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKBatchRequest.m; sourceTree = "<group>"; };
-		D66254121F72483C00261C9E /* YTKBatchRequestAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKBatchRequestAgent.h; sourceTree = "<group>"; };
-		D66254131F72483C00261C9E /* YTKBatchRequestAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKBatchRequestAgent.m; sourceTree = "<group>"; };
-		D66254141F72483C00261C9E /* YTKChainRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKChainRequest.h; sourceTree = "<group>"; };
-		D66254151F72483C00261C9E /* YTKChainRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKChainRequest.m; sourceTree = "<group>"; };
-		D66254161F72483C00261C9E /* YTKChainRequestAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKChainRequestAgent.h; sourceTree = "<group>"; };
-		D66254171F72483C00261C9E /* YTKChainRequestAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKChainRequestAgent.m; sourceTree = "<group>"; };
-		D66254181F72483C00261C9E /* YTKNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKNetwork.h; sourceTree = "<group>"; };
-		D66254191F72483C00261C9E /* YTKNetworkAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKNetworkAgent.h; sourceTree = "<group>"; };
-		D662541A1F72483C00261C9E /* YTKNetworkAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKNetworkAgent.m; sourceTree = "<group>"; };
-		D662541B1F72483C00261C9E /* YTKNetworkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKNetworkConfig.h; sourceTree = "<group>"; };
-		D662541C1F72483C00261C9E /* YTKNetworkConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKNetworkConfig.m; sourceTree = "<group>"; };
-		D662541D1F72483C00261C9E /* YTKNetworkPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKNetworkPrivate.h; sourceTree = "<group>"; };
-		D662541E1F72483C00261C9E /* YTKNetworkPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKNetworkPrivate.m; sourceTree = "<group>"; };
-		D662541F1F72483C00261C9E /* YTKRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKRequest.h; sourceTree = "<group>"; };
-		D66254201F72483C00261C9E /* YTKRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKRequest.m; sourceTree = "<group>"; };
-		D662542D1F7249BA00261C9E /* JJAdvertisementApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJAdvertisementApi.h; sourceTree = "<group>"; };
-		D662542E1F7249BA00261C9E /* JJAdvertisementApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJAdvertisementApi.m; sourceTree = "<group>"; };
 		D662546B1F7252F100261C9E /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		D662546C1F7252F100261C9E /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		D662546D1F7252F100261C9E /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -488,8 +456,6 @@
 		D66254751F7252F100261C9E /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		D66254761F7252F100261C9E /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		D66254771F7252F100261C9E /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
-		D662547E1F72536100261C9E /* JJBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJBaseRequest.h; sourceTree = "<group>"; };
-		D662547F1F72536100261C9E /* JJBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJBaseRequest.m; sourceTree = "<group>"; };
 		D662626F1EF8CC8F00288AC6 /* WisdomLife-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WisdomLife-Bridging-Header.h"; sourceTree = "<group>"; };
 		D66262701EF8CC8F00288AC6 /* SplashView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		D6815E721F21AC6B0047F382 /* KNBVideoPlayerAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNBVideoPlayerAlertView.h; sourceTree = "<group>"; };
@@ -1275,32 +1241,6 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		D662540D1F72483C00261C9E /* YTKNetwork */ = {
-			isa = PBXGroup;
-			children = (
-				D662540E1F72483C00261C9E /* YTKBaseRequest.h */,
-				D662540F1F72483C00261C9E /* YTKBaseRequest.m */,
-				D66254101F72483C00261C9E /* YTKBatchRequest.h */,
-				D66254111F72483C00261C9E /* YTKBatchRequest.m */,
-				D66254121F72483C00261C9E /* YTKBatchRequestAgent.h */,
-				D66254131F72483C00261C9E /* YTKBatchRequestAgent.m */,
-				D66254141F72483C00261C9E /* YTKChainRequest.h */,
-				D66254151F72483C00261C9E /* YTKChainRequest.m */,
-				D66254161F72483C00261C9E /* YTKChainRequestAgent.h */,
-				D66254171F72483C00261C9E /* YTKChainRequestAgent.m */,
-				D66254181F72483C00261C9E /* YTKNetwork.h */,
-				D66254191F72483C00261C9E /* YTKNetworkAgent.h */,
-				D662541A1F72483C00261C9E /* YTKNetworkAgent.m */,
-				D662541B1F72483C00261C9E /* YTKNetworkConfig.h */,
-				D662541C1F72483C00261C9E /* YTKNetworkConfig.m */,
-				D662541D1F72483C00261C9E /* YTKNetworkPrivate.h */,
-				D662541E1F72483C00261C9E /* YTKNetworkPrivate.m */,
-				D662541F1F72483C00261C9E /* YTKRequest.h */,
-				D66254201F72483C00261C9E /* YTKRequest.m */,
-			);
-			path = YTKNetwork;
-			sourceTree = "<group>";
-		};
 		D662546A1F7252F100261C9E /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -1492,16 +1432,11 @@
 		D6E266D71F4C515600847D68 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				D662540D1F72483C00261C9E /* YTKNetwork */,
 				D6E266D81F4C515600847D68 /* AreaDataManager */,
 				D6E266EA1F4C515600847D68 /* AreaDB */,
 				D6E266EC1F4C515600847D68 /* FMDB */,
 				D6E266FC1F4C515600847D68 /* KNBBillingRecordSliderView.h */,
 				D6E266FD1F4C515600847D68 /* KNBBillingRecordSliderView.m */,
-				D662542D1F7249BA00261C9E /* JJAdvertisementApi.h */,
-				D662542E1F7249BA00261C9E /* JJAdvertisementApi.m */,
-				D662547E1F72536100261C9E /* JJBaseRequest.h */,
-				D662547F1F72536100261C9E /* JJBaseRequest.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -2446,12 +2381,10 @@
 				D6F953621EFCA2C200683812 /* SessionData.m in Sources */,
 				D6F953761EFCA2C200683812 /* ShakeOpenViewController.m in Sources */,
 				D6C2FD241EF7DEEA0059B412 /* DMHtmlListener.m in Sources */,
-				D66254221F72483C00261C9E /* YTKBatchRequest.m in Sources */,
 				D6F953261EFCA2C200683812 /* MJProperty.m in Sources */,
 				D6F9535C1EFCA2C200683812 /* DevOpenLogModel.m in Sources */,
 				D6E2670A1F4C515600847D68 /* JFAreaDataManager.m in Sources */,
 				D6F953051EFCA2C200683812 /* UIAlertView+Addition.m in Sources */,
-				D66254291F72483C00261C9E /* YTKRequest.m in Sources */,
 				D6F952F11EFCA2C200683812 /* SendTempPwdViewController.m in Sources */,
 				D6F9533A1EFCA2C200683812 /* MJRefreshNormalHeader.m in Sources */,
 				D6F952F21EFCA2C200683812 /* ServerCardOpViewController.m in Sources */,
@@ -2481,7 +2414,6 @@
 				D6F9530E1EFCA2C200683812 /* UITextField+LimitLength.m in Sources */,
 				D6E2671F1F4C515600847D68 /* JJSectionCollectionReusableView.m in Sources */,
 				D6F953651EFCA2C200683812 /* UserModel.m in Sources */,
-				D66254281F72483C00261C9E /* YTKNetworkPrivate.m in Sources */,
 				D6F953011EFCA2C200683812 /* NSString+FilterEmoji.m in Sources */,
 				D6F952FB1EFCA2C200683812 /* MBProgressHUD+MJ.m in Sources */,
 				D6E267091F4C515600847D68 /* JJSelectAddressViewController.m in Sources */,
@@ -2510,7 +2442,6 @@
 				D6F953071EFCA2C200683812 /* UIColor+Addition.m in Sources */,
 				D6F953301EFCA2C200683812 /* MJRefreshComponent.m in Sources */,
 				D6ABBFA11F00A48C008FB306 /* MASLayoutConstraint.m in Sources */,
-				D66254211F72483C00261C9E /* YTKBaseRequest.m in Sources */,
 				D6F953311EFCA2C200683812 /* MJRefreshFooter.m in Sources */,
 				D6F953271EFCA2C200683812 /* MJPropertyKey.m in Sources */,
 				D6F953461EFCA2C200683812 /* Reachability.m in Sources */,
@@ -2554,14 +2485,12 @@
 				D6ABBFA41F00A48C008FB306 /* NSArray+MASAdditions.m in Sources */,
 				D6F953031EFCA2C200683812 /* NSString+MD5Addition.m in Sources */,
 				D6F9531B1EFCA2C200683812 /* NSString+MD5.m in Sources */,
-				D66254241F72483C00261C9E /* YTKChainRequest.m in Sources */,
 				D6F9532E1EFCA2C200683812 /* MJRefreshAutoFooter.m in Sources */,
 				D6F953561EFCA2C200683812 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				D6F953451EFCA2C200683812 /* OpenSound.m in Sources */,
 				D6F953731EFCA2C200683812 /* CloseOpenViewController.m in Sources */,
 				D6F953231EFCA2C200683812 /* MBProgressHUD.m in Sources */,
 				D6E2671D1F4C515600847D68 /* JJHotAbroadCollectionCell.m in Sources */,
-				D66254231F72483C00261C9E /* YTKBatchRequestAgent.m in Sources */,
 				D6F9530C1EFCA2C200683812 /* UIImage+scale.m in Sources */,
 				D6F9532A1EFCA2C200683812 /* NSObject+MJCoding.m in Sources */,
 				D6F953681EFCA2C200683812 /* AnnouncementModel.m in Sources */,
@@ -2569,7 +2498,6 @@
 				D6815E781F21AC6B0047F382 /* KNBVideoPlayerAlertView.m in Sources */,
 				D6F9536C1EFCA2C200683812 /* GongGaoCell.m in Sources */,
 				D6F9532B1EFCA2C200683812 /* NSObject+MJKeyValue.m in Sources */,
-				D66254261F72483C00261C9E /* YTKNetworkAgent.m in Sources */,
 				D6F953371EFCA2C200683812 /* MJRefreshBackNormalFooter.m in Sources */,
 				D6F953701EFCA2C200683812 /* OptionModel.m in Sources */,
 				D6F9531E1EFCA2C200683812 /* HomeData.m in Sources */,
@@ -2580,7 +2508,6 @@
 				D662547C1F7252F100261C9E /* AFURLResponseSerialization.m in Sources */,
 				D6F9531D1EFCA2C200683812 /* HdMsgBox.m in Sources */,
 				D6F953641EFCA2C200683812 /* UserManager.m in Sources */,
-				D66254251F72483C00261C9E /* YTKChainRequestAgent.m in Sources */,
 				D6F9536D1EFCA2C200683812 /* OpenRecordViewController.m in Sources */,
 				D6E267171F4C515600847D68 /* FMDatabasePool.m in Sources */,
 				D6F9531C1EFCA2C200683812 /* README.md in Sources */,
@@ -2611,7 +2538,6 @@
 				D6F953201EFCA2C200683812 /* InsureValidate.m in Sources */,
 				D6F953781EFCA2C200683812 /* DoorListViewController.m in Sources */,
 				D6F953091EFCA2C200683812 /* UIDevice+IdentifierAddition.m in Sources */,
-				D66254801F72536100261C9E /* JJBaseRequest.m in Sources */,
 				D662547A1F7252F100261C9E /* AFSecurityPolicy.m in Sources */,
 				D6F953391EFCA2C200683812 /* MJRefreshGifHeader.m in Sources */,
 				D6E267111F4C515600847D68 /* JFLocation.m in Sources */,
@@ -2634,9 +2560,7 @@
 				D6F9535B1EFCA2C200683812 /* DevOpenLogManager.m in Sources */,
 				D6F952E61EFCA2C200683812 /* OpenDoorViewCell.m in Sources */,
 				D6F952DD1EFCA2C200683812 /* DeviceSettingViewController.m in Sources */,
-				D66254271F72483C00261C9E /* YTKNetworkConfig.m in Sources */,
 				D6F953121EFCA2C200683812 /* UIView+Layer.m in Sources */,
-				D662542F1F7249BA00261C9E /* JJAdvertisementApi.m in Sources */,
 				D6F953331EFCA2C200683812 /* MJRefreshAutoGifFooter.m in Sources */,
 				D6F953591EFCA2C200683812 /* UploadOpenDoorService.m in Sources */,
 				D6F953061EFCA2C200683812 /* UIButton+Addition.m in Sources */,

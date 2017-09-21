@@ -14,7 +14,9 @@
 #import "OpenDoorListViewController.h"
 #import "DoorListViewController.h"
 #import <StoreKit/StoreKit.h>
-#import "JJAdvertisementApi.h"
+
+static NSString *postUrl = @"http://192.168.1.199:9020/xk/appStartImg.do";
+static NSString *imgUrlFront = @"http://192.168.1.199:8080";
 
 @interface AppDelegate ()
 
@@ -43,25 +45,33 @@
 }
 
 - (void)advertisementInit{
-    
-    JJAdvertisementApi *api = [JJAdvertisementApi new];
-    [api startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
-        NSLog(@"%@",request.responseObject[@"data"][0][@"imgUrl"]);
-        NSLog(@"%@",request.responseObject[@"data"][0][@"skipUrl"]);
-        NSString *imgUrl = [NSString stringWithFormat:@"http://192.168.1.199:8080%@",request.responseObject[@"data"][0][@"imgUrl"]];
-        NSString *skipUrl = request.responseObject[@"data"][0][@"skipUrl"];
-        [SplashView updateSplashData:imgUrl actUrl:skipUrl];
-    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-        NSLog(@"%@",request.responseObject);
-    }];
-    
+
     UIImage *image = [UIImage imageNamed:@"guanggao"];
     [SplashView showSplashView:5 defaultImage:image tapSplashImageBlock:^(NSString * urlStr) {
         
     } splashViewDismissBlock:^(BOOL complete) {
         
     }];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.completionQueue = dispatch_get_global_queue(0, 0);
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager POST:postUrl parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"%@",dic);
+        NSArray *array = dic[@"data"];
+        NSString *imgUrl = [imgUrlFront stringByAppendingString:array[0][@"imgUrl"]];
+        NSString *skipUrl = array[0][@"skipUrl"];
+        [SplashView updateSplashData:imgUrl actUrl:skipUrl];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+
 }
+
 
 - (void)thridDTouchInit{
     //    3d touch
@@ -71,6 +81,8 @@
         [[UIApplication sharedApplication] setShortcutItems:@[item]];
     }
 }
+
+
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     if ([[url absoluteString] hasPrefix:@"WisdomLifeToday"])
