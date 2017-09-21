@@ -9,5 +9,4 @@
 #import "JJBaseRequest.h"
 
 @interface JJAdvertisementApi : JJBaseRequest
-- (instancetype )initWithID:(NSString *)ids;
 @end

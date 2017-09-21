@@ -1,9 +1,9 @@
 //
 //  JJBaseRequest.h
-//  WisdomLife
+//  DemoPro
 //
-//  Created by 刘毅 on 2017/9/20.
-//  Copyright © 2017年 wisdomlife. All rights reserved.
+//  Created by vpjacob on 2017/4/26.
+//  Copyright © 2017年 vpjacob. All rights reserved.
 //
 
 #import "YTKNetwork.h"

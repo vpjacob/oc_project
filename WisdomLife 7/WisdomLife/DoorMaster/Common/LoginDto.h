@@ -36,6 +36,8 @@
 
 @property (nonatomic,strong)NSString *dev_voip_account;
 
+@property (nonatomic,assign)int dev_type;
+
 @end
 
 @interface RoomListDto : CommonDTO

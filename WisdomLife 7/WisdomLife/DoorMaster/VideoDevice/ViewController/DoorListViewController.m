@@ -13,6 +13,7 @@
 #import "LoginDto.h"
 #import "DeviceManager.h"
 #import <DMVPhoneSDK/DMVPhoneSDK.h>
+#import "MJRefresh.h"
 
 @interface DoorListViewController ()<UITableViewDataSource,UITableViewDelegate,JJDoorListViewCellDelegate>
 
@@ -37,7 +38,14 @@
     self.blackListArray = [DMCommModel getBlackList];
     NSLog(@"blackListArray：%@",self.blackListArray);
     [self initWithBlackList];
-    [self.view addSubview:IsArrEmpty([[DeviceManager manager] getAllVoipDevice])?self.messageLbl:self.jjTabelView];
+    [self.view addSubview:self.jjTabelView];
+    [self.jjTabelView addSubview:self.messageLbl];
+//    [self.view addSubview:IsArrEmpty([[DeviceManager manager] getAllVoipDevice])?self.messageLbl:self.jjTabelView];
+    
+    __weak typeof(self) weakSelf = self;
+    self.jjTabelView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [weakSelf refreshCollectionView];
+    }];
 }
 
 - (void)initWithBlackList{
@@ -49,11 +57,9 @@
             if ([self.blackListArray containsObject:dto.dev_sn]) {
                 [self.isOnMutableArray addObject:@(NO)];
             }else{
-                //                cell.sw.on = YES;
                 [self.isOnMutableArray addObject:@(YES)];
             }
         }else{
-            //            cell.sw.on = YES;
             [self.isOnMutableArray addObject:@(YES)];
         }
     }
@@ -61,8 +67,46 @@
 
 -(void)devListMsgReceved
 {
-    //    [self.collectionView reloadData];
-    [self.tableView reloadData];
+    [self.jjTabelView reloadData];
+}
+
+-(void)refreshCollectionView
+{
+    __weak typeof(self) weakSelf = self;
+    
+    [HomeService videoDoorWithSuccess:^(NSDictionary *result) {
+        [weakSelf.jjTabelView.header endRefreshing];
+        int ret = [result[@"ret"] intValue];
+        if (ret == 0) {
+            NSArray *dataArr = result[@"data"][@"dev_list"];
+            NSMutableArray *voipDevices = [NSMutableArray array];
+            if ([dataArr isKindOfClass:[NSArray class]]) {
+                for (NSDictionary *dict in dataArr) {
+                    VoipDoorDto *dto = [[VoipDoorDto alloc] init];
+                    dto.community_code = dict[@"community_code"];
+                    dto.dev_name = dict[@"dev_name"];
+                    dto.dev_sn = dict[@"dev_sn"];
+                    dto.sn = dto.dev_sn;
+                    dto.dev_type = [dict[@"dev_type"] intValue];
+                    VoipDoorDto *localDevice = [[DeviceManager manager] getVoipDeviceWithSn:dto.dev_sn];
+                    if (localDevice != nil) {
+                        dto.dev_voip_account = localDevice.dev_voip_account;
+                    }
+                    [voipDevices addObject:dto];
+                }
+                [[DeviceManager manager].tmpList removeAllObjects];
+                [[DeviceManager manager].tmpList addObjectsFromArray:voipDevices];
+                [[DeviceManager manager].tmpList addObjectsFromArray:[[DeviceManager manager] getAllAccessDevice]];
+                [[DeviceManager manager] updateAllLocalDeviceList];
+            }
+        }else
+        {
+            [self presentTips:result[@"msg"]];
+        }
+    } failure:^(NSError *error) {
+        [weakSelf.jjTabelView.header endRefreshing];
+        [self presentTips:error.localizedDescription];
+    }];
 }
 
 #pragma mark - UICollectionViewDelegate && UICollectionViewDataSource

@@ -18,4 +18,9 @@ typedef void(^FailureBlock)(NSError *error);
  */
 + (void)doorListWithSuccess:(SucessBlock) success failure:(FailureBlock) failure;
 
+/**
+ *视频权限
+ */
++ (void)videoDoorWithSuccess:(SucessBlock) success failure:(FailureBlock) failure;
+
 @end

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class DoorListDto;
+@class VoipDoorDto;
 
 @interface DeviceManager : NSObject
 
@@ -19,6 +20,7 @@
 -(void)updataOnlineDeviceNotSort:(NSMutableDictionary *)devDict; //更新附近存在的门禁设备，不让扫描到的设备排在前面
 -(void)updataOnlineDevice:(NSMutableDictionary *)devDict;//更新附近存在的门禁设备
 -(DoorListDto *)getDeviceWithSn:(NSString *)dev_sn;
+-(VoipDoorDto *)getVoipDeviceWithSn:(NSString *)dev_sn;
 - (void) delDoorWithKey:(NSString*) devSn andDevMac:(NSString*) devMac;//删除设备
 -(void)updateDoorName:(NSString *)devSn andMac:(NSString *)devMac name:(NSString *)name; //更换门禁设备名称
 -(void)updateVoipDoorName:(NSString *)devSn name:(NSString *)name; //更换门口机设备名称

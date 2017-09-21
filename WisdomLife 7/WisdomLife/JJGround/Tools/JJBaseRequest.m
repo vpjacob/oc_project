@@ -1,25 +1,24 @@
 //
 //  JJBaseRequest.m
-//  WisdomLife
+//  DemoPro
 //
-//  Created by 刘毅 on 2017/9/20.
-//  Copyright © 2017年 wisdomlife. All rights reserved.
+//  Created by vpjacob on 2017/4/26.
+//  Copyright © 2017年 vpjacob. All rights reserved.
 //
 
 #import "JJBaseRequest.h"
 //#import "JJBaseRequestAccessory.h"
-
+#import "NSString+MD5.h"
 
 @interface JJBaseRequest ()
-//@property (nonatomic, strong) JJBaseRequestAccessory *accessory;
+
 @end
 
 @implementation JJBaseRequest
 
-
 - (instancetype)init {
     if (self = [super init]) {
-//        [self addAccessory:self.accessory];
+
     }
     return self;
 }
@@ -37,17 +36,22 @@
     return YTKRequestSerializerTypeHTTP;
 }
 
+//- (id)requestArgument {
+//    return self.appendSecretDic;
+//}
 
 #pragma mark - Getter & Setter
 - (NSMutableDictionary *)baseMuDic {
     if (!_baseMuDic) {
         NSDictionary *dic = @{
+
                               };
         _baseMuDic = [NSMutableDictionary dictionary];
         [_baseMuDic addEntriesFromDictionary:dic];
     }
     return _baseMuDic;
 }
+
 
 
 #pragma mark - Private Method
@@ -70,6 +74,5 @@
 + (BOOL)isNullString:(NSString *)str {
     return str.length == 0 || [str isKindOfClass:[NSNull class]];
 }
-
 
 @end

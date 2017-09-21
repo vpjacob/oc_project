@@ -155,6 +155,19 @@
     return accessDev;
 }
 
+-(VoipDoorDto *)getVoipDeviceWithSn:(NSString *)dev_sn
+{
+    VoipDoorDto *dto = nil;
+    for (CommonDTO *comm in _list) {
+        if (comm.type == VOIP_DOOR) {
+            if ([((VoipDoorDto *)comm).dev_sn isEqualToString:dev_sn]) {
+                dto = (VoipDoorDto *)comm;
+            }
+        }
+    }
+    return dto;
+}
+
 -(void)updateDoorName:(NSString *)devSn andMac:(NSString *)devMac name:(NSString *)name
 {
     for (CommonDTO *comm in self.list) {
@@ -224,7 +237,7 @@
         //通过序号排序
         [self sortBySerialNumber:self.tmpList];
     }
-    self.list = self.tmpList; //替换列表
+    self.list = [self.tmpList mutableCopy]; //替换列表
     [self setDeviceSerialNumber]; //重置序号
     [self saveDevList]; //保存列表
     //列表更新的通知
