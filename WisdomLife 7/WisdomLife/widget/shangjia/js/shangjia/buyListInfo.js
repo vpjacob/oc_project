@@ -12,21 +12,30 @@ apiready = function() {
 		$api.css(cc, 'margin-top:3.3rem;');
 		$api.css(header, 'height:3.3rem');
 	};
-	urId = api.getPrefs({
-	    sync:true,
-	    key:'userNo'
-    });
+	
 	var busid = api.pageParam.id;
 	$("#back").bind("click", function() {
 		api.closeWin();
 	});
 	$('#toBuy').click(function() {
-	if (urId == 'userNo' || urId == null) {
-			api.alert({
-				msg : "您是否登录了？请先去登录吧！"
+		urId = api.getPrefs({
+			sync : true,
+			key : 'userNo'
+		}); 
+		//如果用户没有登录，先去登录页面
+		if (urId == '' || urId == 'userNo' || urId == 'undefined' || urId == null) {
+			api.openWin({
+				name : 'login',
+				url : '../../html/registe/logo.html',
+				bounces : false,
+				animation : {
+					type : "push", //动画类型（详见动画类型常量）
+					subType : 'from_right', //动画子类型（详见动画子类型常量）
+					duration : 300
+				}
 			});
 			return false;
-		};
+		}
 		api.openWin({
 			name : 'entranceGuardInfo',
 			url : 'entranceGuardInfo.html',
@@ -35,13 +44,14 @@ apiready = function() {
 				subType : "from_right", //动画子类型（详见动画子类型常量）
 				duration : 300 //动画过渡时间，默认300毫秒
 			},
-			pageParam : { 
-				id :busid,
-				surplusCount:$("#toBuy").attr("datas")
+			pageParam : {
+				id : busid,
+				surplusCount : $("#toBuy").attr("datas")
 			}
 
 		});
-	});
+	}); 
+
 function queryProductDeatilById() {
 		api.showProgress({});
 		AjaxUtil.exeScript({

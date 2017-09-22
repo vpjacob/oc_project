@@ -159,7 +159,7 @@ apiready = function() {
 	});
 	//点赞按钮
 	$('.ChangeGood').click(function() {
-		if (hasLogon != 'true') {//用户没有登陆
+		if (String(hasLogon) != 'true') {//用户没有登陆
 			api.confirm({
 				title : '温馨提示：',
 				msg : '您还没有登陆，是否去登陆？',

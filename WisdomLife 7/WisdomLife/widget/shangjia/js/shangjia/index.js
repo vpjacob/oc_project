@@ -4,61 +4,49 @@ var pageCount = 1;
 var lon;
 var lat;
 var map;
-var cityName="";
+var cityName = "";
+var currentCity = "";
+var id;
 apiready = function() {
 	if (api.systemType == 'ios') {
 		var cc = $api.dom('.xiaobiao');
 		$api.css(cc, 'margin-top:0px;');
 	}
-	console.log("最早时间：" + DateUtils.getNowFormatDate());
-	api.setRefreshHeaderInfo({
-		loadingImg : '../../image/mainbus.jpg',
-		bgColor : '#ccc',
-		textColor : '#fff',
-		textDown : '下拉刷新...',
-		textUp : '松开刷新...',
-		showTime : false
-	}, function(ret, err) {
-		if(ret){
-			location.reload();
-			api.refreshHeaderLoadDone();
-		}else{
-			alert(err);
-		}
-		
-	}); 
-	
-	$('body').on("touchmove", function(ev) {
-		var winHeight = $(window).scrollTop();
-		if(winHeight>=0&&winHeight<=150){
-			$(".title").css("background", "none");
-			$(".title").css("opacity", 1.0);
-		}else if(winHeight>150){
-			$(".title").css("background", "#EEE");
-			$(".title").css("opacity", 1.0);
-		}
-	})
-//	function search() {
-//		var search = document.querySelector('.title');
-//		var banner = document.querySelector('.top');
-//		var height = banner.offsetHeight;
-//		window.onscroll = function() {
-//			var top = document.body.scrollTop;
-//			var opacity = 0;
-//			if (top < height) {
-//				opacity = 1 * (top / height);
-//			} else {
-//				opacity = 1;
-//			}
-//			$('.title').css('background', 'rgba(238,238,238,' + opacity + ')');
-//		}
-//	};
-//	search(); 
 	urId = api.getPrefs({
 	    sync:true,
 	    key:'userNo'
     });
-    total(urId);
+//	api.setRefreshHeaderInfo({
+//		loadingImg : '../../image/mainbus.jpg',
+//		bgColor : '#ccc',
+//		textColor : '#fff',
+//		textDown : '下拉刷新...',
+//		textUp : '松开刷新...',
+//		showTime : false
+//	}, function(ret, err) {
+//		if(ret){
+//			location.reload();
+//			api.refreshHeaderLoadDone();
+//		}else{
+//			alert(err);
+//		}
+//		
+//	}); 
+	
+	var UILoading = api.require('UILoading');
+	UILoading.flower({
+		center : {
+			x : api.winWidth/2.0,
+			y : api.winHeight/2.0
+		},
+		size : 30,
+		mask:'rgba(0,0,0,0.5)',
+		fixed : true
+	}, function(ret) {
+		id=ret.id;
+	}); 
+	
+	total(urId);
 	Ytotal(urId);
 	var isSjFirst = api.getPrefs({
 		sync : true,
@@ -73,6 +61,81 @@ apiready = function() {
 			value : 'NO'
 		});
 	}
+
+	//定位到当前城市
+	var bMap = api.require('bMap');
+	bMap.getLocation({
+		accuracy : '100m',
+		autoStop : true,
+		filter : 1
+	}, function(ret1, err1) {
+		if (ret1.status) {
+			//获取当前位置经纬度
+			lon = ret1.lon;
+			lat = ret1.lat;
+			bMap.getNameFromCoords({
+				lon : lon,
+				lat : lat
+			}, function(ret, err) {
+				if (ret.status) {
+					currentCity = ret.city;
+					var cityStorage = $api.getStorage("cityName");
+					if(cityStorage==''||cityStorage=='undefinded'||cityStorage==null){
+						$api.setStorage("cityName",currentCity);
+						cityName = currentCity;
+						init();
+					}else{
+						if(currentCity.indexOf(cityStorage)<0){
+							api.confirm({
+								title:'切换所在城市',
+								msg : '当前所在城市是' + currentCity + ',是否选择切换',
+								buttons : ['切换','取消']
+							}, function(ret2, err2) {
+								if (ret2.buttonIndex == 2) {
+									cityName = cityStorage;
+								}else if(ret2.buttonIndex==1){
+									$api.setStorage("cityName",ret.city);
+									cityName = ret.city;
+								}
+								init();
+							}); 
+						}else{
+							cityName = ret.city;
+							init();
+						}
+					}
+				}
+			}); 
+		} else {
+			$api.toast('定位失败！刷新一下试试！');
+		}
+		UILoading.closeFlower({
+			id : id
+		}); 
+	}); 
+	
+	function init(){
+		$("#showCity").html(cityName);
+		//加载轮播
+		queryCarouselList();
+		businessList(1, '', cityName);
+		//分类列表
+		list();
+		//获取商家推荐列表
+		recommendList(); 
+	}
+
+	
+	$('body').on("touchmove", function(ev) {
+		var winHeight = $(window).scrollTop();
+		if(winHeight>=0&&winHeight<=150){
+			$(".title").css("background", "none");
+			$(".title").css("opacity", 1.0);
+		}else if(winHeight>150){
+			$(".title").css("background", "#EEE");
+			$(".title").css("opacity", 1.0);
+		}
+	})
 
 	//初始加载蒙版
 	$('.sjclose').click(function() {
@@ -136,7 +199,6 @@ apiready = function() {
 				}
 			},
 			error : function() {
-				api.hideProgress();
 				api.alert({
 					msg : "您的网络是否已经连接上了，请检查一下！"
 				});
@@ -144,8 +206,7 @@ apiready = function() {
 		});
 	}
 
-	//加载轮播
-	queryCarouselList();
+	
 	//获得商品信息分类列表
 	function list() {
 		AjaxUtil.exeScript({
@@ -181,7 +242,7 @@ apiready = function() {
 		});
 	}
 
-	list();
+	
 	//推荐商家列表
 	function recommendList() {
 		AjaxUtil.exeScript({
@@ -221,7 +282,7 @@ apiready = function() {
 		});
 	}
 
-	recommendList();
+	
 
 	$('#sou').click(function() {
 		$('#tab1').html('');
@@ -347,7 +408,6 @@ apiready = function() {
 						}
 					}
 				} else {
-					//					alert(data.formDataset.errorMsg);
 				}
 			}
 		});
@@ -357,31 +417,30 @@ apiready = function() {
 
 	function getDistance(typeId, city) {
 		map = api.require('bMap');
-		//api.showProgress();
 		map.getLocation({
 			accuracy : '10m',
 			autoStop : true,
 			filter : 1
 		}, function(ret, err) {
-			//api.hideProgress();
 			if (ret.status) {
 				lon = ret.lon;
 				lat = ret.lat;
 				businessList(1, typeId, city);
 			} else {
-				//				alert(err.code);
+				api.toast({
+	                msg:'定位失败，刷新一下试试！'
+                });
 			}
 		});
 
 	}
-	getDistance("", "");
+	
 
 	//展示商家列表
 	function businessList(pages, typeId, city) {
 		if ( typeof (city) == "undefined" || city == "") {
 			city = "北京";
 		};
-		api.showProgress({});
 		var startTime = DateUtils.getNowFormatDate();
 		AjaxUtil.exeScript({
 			script : "mobile.business.business",
@@ -398,8 +457,6 @@ apiready = function() {
 				city : city
 			},
 			success : function(data) {
-					console.log("商家列表：" + $api.jsonToStr(data));
-					api.hideProgress();
 				if (data.formDataset.checked == 'true') {
 					var account = data.formDataset.companyDataList;
 					var list = $api.strToJson(account);
@@ -551,9 +608,6 @@ apiready = function() {
 	function getCityList() {
 		var hh = 0;
 		var UICityList = api.require('UICityList');
-		//			if (api.systemType == 'ios') {
-		//				hh = 20;
-		//			}
 		UICityList.open({
 			rect : {
 				x : 0,
@@ -588,36 +642,31 @@ apiready = function() {
 					color : '#696969'
 				}
 			},
-			currentCity : '北京',
+			currentCity: currentCity,
 			locationWay : 'GPS(当前定位)',
 			hotTitle : '热门城市',
 			fixedOn : api.frameName,
-			placeholder : '请输入城市'
+			placeholder : '请输入城市或首字母查询'
 		}, function(ret, err) {
 			if (ret) {
 				if (ret.eventType == 'show') {
 
 				} else {
-					//						UICityList.close();
 					if (ret.eventType == 'selected') {
-						//alert(JSON.stringify(ret));
-						//alert(JSON.stringify(ret.cityInfo.city));
-						//							pageParam : {
-						//								id : $(this).attr()
-						//							}
 						cityName=ret.cityInfo.city;
 						page=1;
 						$('#tab1').children().remove();
 						getDistance("", ret.cityInfo.city);
 						$('#showCity').html(ret.cityInfo.city);
+						$api.setStorage("cityName",ret.cityInfo.city);
 						UICityList.close();
 					}
 				}
 
 			} else {
-				api.alert({
-					msg : JSON.stringify(err)
-				});
+				api.toast({
+	                msg:'选择城市失败，请重新选择试试！'
+                });
 			}
 		});
 	}

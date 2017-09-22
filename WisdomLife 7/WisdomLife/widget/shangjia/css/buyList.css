@@ -140,7 +140,7 @@ input::-moz-input-placeholder{text-align: left;}
 	border-radius: 3px;
 	font-size: 0.65rem;
 	color: #999;
-	height: 7.5rem;
+	/* height: 7.5rem; */
 	overflow: auto;
 	
 }

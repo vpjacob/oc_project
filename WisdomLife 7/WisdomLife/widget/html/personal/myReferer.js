@@ -93,16 +93,17 @@ apiready = function() {
 				//					}
 				//				});
 
-				wx.shareProgram({
+				wx.shareWebpage({
 					apiKey : '',
 					scene : 'session',
-					title : '测试标题',
-					description : '分享内容的描述',
+					title : '小客科技改变生活',
+					description : '小客创享智慧未来,与您携手共享科技生活！',
 					thumb : 'widget://image/a.png',
-					webpageUrl : rootUrl + "/jsp/recommendmobile?userNo=" + urId + "&userType=1",
-					userName : 'A6921550712789',
-					path : '',
+					contentUrl : rootUrl + "/jsp/recommendmobile?userNo=" + urId + "&userType=1",
+//					userName : 'A6921550712789',
+//					path : '',
 				}, function(ret, err) {
+					console.log($api.jsonToStr(ret))
 					if (ret.status) {
 						alert('分享成功');
 					} else {

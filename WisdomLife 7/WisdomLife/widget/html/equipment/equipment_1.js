@@ -204,7 +204,7 @@ function deleteLi(position) {
 ////					});
 //
 //				});
-                
+
 				setTimeout(function() {
                 						var jsfun = 'close();';
                 						api.execScript({

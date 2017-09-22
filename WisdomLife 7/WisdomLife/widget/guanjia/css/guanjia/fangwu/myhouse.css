@@ -187,8 +187,12 @@ textarea{
 	top:-7px;
 	left:5px;
 }
-
-
+.list_box .same .sameBox .last_right a{
+	color: #c0c0c0;
+}
+.list_box .same .sameBox .last_left a{
+	color: #c0c0c0;
+}
 
 
 

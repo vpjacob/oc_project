@@ -58,7 +58,7 @@ function queryUserInfo(urId){
                       } 
                   }  
           }); 
-	}	
+	};	
 	
 	//获取与业主的关系
 	function relationList(){
@@ -90,10 +90,9 @@ function queryUserInfo(urId){
                   }  
           }); 
 	};
-	
-	
 	//19，新增绑定家庭成员	
 	function addFamilyMember(){
+		api.showProgress({});
 		var data = {
              userNo:urId,
              phone:$("#userPhone").val(),
@@ -112,6 +111,7 @@ function queryUserInfo(urId){
                   data:JSON.stringify(data),  
                   contentType: "application/json;charset=utf-8",
                   success:function(result){  
+                  api.hideProgress();
                   	 console.log($api.jsonToStr(result));
                       if(result.state==1){
                         alert(result.msg);
@@ -129,11 +129,8 @@ function queryUserInfo(urId){
 	
 	$('#apply').click(function(){
 		addFamilyMember();
-	})
-	
-	
-	
-	
+		$("#apply").attr("disabled", true);
+	});
 }
 function goBack() {
 		api.closeWin({

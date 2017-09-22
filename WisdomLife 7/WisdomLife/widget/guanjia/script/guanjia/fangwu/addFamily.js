@@ -88,10 +88,8 @@ apiready = function() {
 			console.log($api.jsonToStr(data));
 				if (data.formDataset.checked === "true") {
 					identifyingCode = data.formDataset.code;
-					console.log(identifyingCode+"******************************");
 					if (identifyingCode != "") {
-						api.alert({
-							title : '系统提示',
+						api.toast({
 							msg : '验证码发送成功!'
 						}, function(ret, err) {
 
@@ -128,37 +126,45 @@ apiready = function() {
 	}
 //19，新增绑定家庭成员	
 	function addFamilyMember(){
+		api.showProgress({
+		});
 		var data = {
-             userNo:urId,
-             phone:$("#tel").val(),
-             name :$("#name").val(),
-             identity:$('#idCard').val(),
-	         communityId:communityId,
-	         buildingId:buildingId,
-	         unitId: unitId,
-	         roomId:roomId,
-	         relation :$('#relate option:selected').val()
-          };
-            $.ajax({  
-                  url:rootUrls+'/xk/addFamilyMember.do',  
-                  type:'post',  
-                  dataType:'json',  
-                  data:JSON.stringify(data),  
-                  contentType: "application/json;charset=utf-8",
-                  success:function(result){  
-                  	 console.log($api.jsonToStr(result));
-                      if(result.state==1){
-                        alert(result.msg);
-                        api.execScript({//实现添加家庭成员的回显刷新
-							name : 'family',
-							script : 'refresh()'
-						});
-						api.closeWin();
-                      }else{  
-                          alert(result.msg);
-                      }  
-                  }  
-          }); 
+			userNo : urId,
+			phone : $("#tel").val(),
+			name : $("#name").val(),
+			identity : $('#idCard').val(),
+			communityId : communityId,
+			buildingId : buildingId,
+			unitId : unitId,
+			roomId : roomId,
+			relation : $('#relate option:selected').val()
+		};
+		$.ajax({
+			url : rootUrls + '/xk/addFamilyMember.do',
+			type : 'post',
+			dataType : 'json',
+			data : JSON.stringify(data),
+			contentType : "application/json;charset=utf-8",
+			success : function(result) {
+				console.log($api.jsonToStr(result));
+				if (result.state == 1) {
+					api.toast({
+						msg : result.msg
+					});
+					api.execScript({//实现添加家庭成员的回显刷新
+						name : 'family',
+						script : 'refresh()'
+					});
+					api.closeWin();
+				} else {
+					api.toast({
+						msg : result.msg
+					});
+				}
+			}
+		});
+		api.hideProgress(); 
+
 	};
 //20，成员类型列表
 function relationList(){

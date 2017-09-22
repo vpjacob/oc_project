@@ -14,6 +14,7 @@
 #import "DeviceManager.h"
 #import <DMVPhoneSDK/DMVPhoneSDK.h>
 #import "MJRefresh.h"
+#import "Masonry.h"
 
 @interface DoorListViewController ()<UITableViewDataSource,UITableViewDelegate,JJDoorListViewCellDelegate>
 
@@ -39,14 +40,13 @@
     NSLog(@"blackListArray：%@",self.blackListArray);
     [self initWithBlackList];
     [self.view addSubview:self.jjTabelView];
-    [self.jjTabelView addSubview:self.messageLbl];
-//    [self.view addSubview:IsArrEmpty([[DeviceManager manager] getAllVoipDevice])?self.messageLbl:self.jjTabelView];
-    
     __weak typeof(self) weakSelf = self;
     self.jjTabelView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [weakSelf refreshCollectionView];
     }];
 }
+
+
 
 - (void)initWithBlackList{
 //    NSLog(@"%@",[[DeviceManager manager] getAllVoipDevice]);
@@ -101,21 +101,28 @@
             }
         }else
         {
-            [self presentTips:result[@"msg"]];
+            [weakSelf presentTips:result[@"msg"]];
         }
+        [weakSelf initWithBlackList];
     } failure:^(NSError *error) {
         [weakSelf.jjTabelView.header endRefreshing];
-        [self presentTips:error.localizedDescription];
+        [weakSelf presentTips:@"没有查找到用户信息"];
     }];
 }
 
 #pragma mark - UICollectionViewDelegate && UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    
     return 1;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if ([[DeviceManager manager] getAllVoipDevice].count >0) {
+        [self.messageLbl removeFromSuperview];
+    }else{
+        [self.jjTabelView addSubview:self.messageLbl];
+    }
     return [[DeviceManager manager] getAllVoipDevice].count;
 }
 
@@ -126,24 +133,10 @@
         cell = [[NSBundle mainBundle] loadNibNamed:@"JJDoorListViewCell" owner:self options:nil].lastObject;
     }
     
-    //    [cell setDataWith:indexPath.item];
     cell.sw.tag = indexPath.row + 100;
-    //    NSArray *blackListArray = [DMCommModel getBlackList];
     VoipDoorDto *dto = [[[DeviceManager manager] getAllVoipDevice] safeObjectAtIndex:indexPath.row];
     cell.nameLabel.text = [NSString stringWithFormat:@"%@",dto.dev_name];
-    
     cell.sw.on = [self.isOnMutableArray[indexPath.row] boolValue];
-    
-    
-    //    if (blackListArray) {
-    //        if ([blackListArray containsObject:dto.dev_sn]) {
-    //            cell.sw.on = NO;
-    //        }else{
-    //            cell.sw.on = YES;
-    //        }
-    //    }else{
-    //        cell.sw.on = YES;
-    //    }
     cell.delegate = self;
     return cell;
 }
@@ -154,11 +147,9 @@
     NSLog(@"%@",dto.dev_sn);
     NSLog(@"%zd",sw.on);
     if (sw.on) {
-        //            sw.on = NO;
         [DMCommModel modifyBlackList:dto.dev_sn isAdd:NO];
         [self.isOnMutableArray replaceObjectAtIndex:index withObject:@(YES)];
     }else{
-        //            sw.on = YES;
         [DMCommModel modifyBlackList:dto.dev_sn isAdd:YES];
         [self.isOnMutableArray replaceObjectAtIndex:index withObject:@(NO)];
     }
@@ -207,7 +198,7 @@
 {
     if (!_messageLbl) {
         _messageLbl = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nomoredata"]];
-        _messageLbl.center = self.view.center;
+        _messageLbl.center = CGPointMake(kDeviceWidth*0.5, kDeviceHeight*0.3);
     }
     return _messageLbl;
 }

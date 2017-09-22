@@ -122,35 +122,41 @@ apiready = function() {
 		var str = amount.split(".");
 		if(str.length>=2){
 			if (amount.split(".")[1].length > 1) {
-			api.alert({
-				msg : "金额最低精度为角，不能为分！"
-			});
-			return false;
+				api.alert({
+					msg : "金额最低精度为角，不能为分！"
+				});
+				return false;
+			}
 		}
-		}
-		AjaxUtil.exeScript({
-			script : "mobile.center.pay.pay",
-			needTrascation : true,
-			funName : "getDealNo",
-			form : {
-				userNo : userNo,
-				userName : nickname,
-				userPhone : telphone,
-				merchantNo : param.merchantNo,
-				merchantName : param.merchantName,
-				mount : $("#payMoney").val(),
-				type : param.type
-			},
-			success : function(formset) {
-				if (formset.execStatus == "true") {
-					var dealNo = formset.formDataset.dealNo;
-					//走金币支付
-					if ($("#xk").prop("checked") == true) {
-						$(".tankuang_box").show();
-						$(".black_box").show();
-						document.getElementById("agree").onclick=function() {
-//						$(".agree").click(function() {
-							if ($("#pwd").val() == oldPwd) {
+		
+		//走金币支付
+		if ($("#xk").prop("checked") == true) {
+			$(".tankuang_box").show();
+			$(".black_box").show();
+			document.getElementById("agree").onclick = function() {
+				//支付密码匹配上，进行订单创建和钱数计算
+				if ($("#pwd").val() == oldPwd) {
+					api.showProgress({
+						text:'支付中...'
+	                });
+					//或去订单号及临时数据
+					AjaxUtil.exeScript({
+						script : "mobile.center.pay.pay",
+						needTrascation : true,
+						funName : "getDealNo",
+						form : {
+							userNo : userNo,
+							userName : nickname,
+							userPhone : telphone,
+							merchantNo : param.merchantNo,
+							merchantName : param.merchantName,
+							mount : $("#payMoney").val(),
+							type : param.type
+						},
+						success : function(formset) {
+							if (formset.execStatus == "true") {
+								//订单编号
+								var dealNo = formset.formDataset.dealNo;
 								var data = {
 									"amount" : amount,
 									"dealNo" : dealNo
@@ -162,7 +168,6 @@ apiready = function() {
 									dataType : "json",
 									contentType : 'application/json;charset=utf-8',
 									success : function(data) {
-										console.log($api.jsonToStr(data));
 										if (data.state == '1') {
 											$(".tankuang_box").hide();
 											$(".black_box").hide();
@@ -179,28 +184,58 @@ apiready = function() {
 										}
 									},
 									error : function(XMLHttpRequest, textStatus, errorThrown) {
-										console.log("错误输出信息：" + XMLHttpRequest.status + "###" + XMLHttpRequest.readyState + "###" + textStatus);
 										api.alert({
 											msg : "您的网络是否已经连接上了，请检查一下！"
 										});
 									}
-								});
-							} else if ($("#pwd").val() == "") {
-								alert('请您输入二级密码');
-								return false;
+								}); 
 							} else {
-								alert('您输入二级密码有误');
-								return false;
+								api.alert({
+									msg : "操作失败，请联系管理员！"
+								});
 							}
-						};
+						},
+						error : function(XMLHttpRequest, textStatus, errorThrown) {
+							console.log("错误输出信息：" + XMLHttpRequest.status + "###" + XMLHttpRequest.readyState + "###" + textStatus);
+							api.alert({
+								msg : "您的网络是否已经连接上了，请检查一下！"
+							});
+						}
+					}); 
+					api.hideProgress();
+				} else if ($("#pwd").val() == "") {
+					alert('请您输入二级密码');
+					return false;
+				} else {
+					alert('您输入二级密码有误');
+					return false;
+				}
+			};
 
-						$(".noAgree").click(function() {
-							$(".tankuang_box").hide();
-							$(".black_box").hide();
-						})
-					}
-					//走支付宝支付
-					if ($("#zfb").prop("checked") == true) {
+			$(".noAgree").click(function() {
+				$(".tankuang_box").hide();
+				$(".black_box").hide();
+			})
+		}
+		//走支付宝支付
+		if ($("#zfb").prop("checked") == true) {
+			//或去订单号及临时数据	
+			AjaxUtil.exeScript({
+				script : "mobile.center.pay.pay",
+				needTrascation : true,
+				funName : "getDealNo",
+				form : {
+					userNo : userNo,
+					userName : nickname,
+					userPhone : telphone,
+					merchantNo : param.merchantNo,
+					merchantName : param.merchantName,
+					mount : $("#payMoney").val(),
+					type : param.type
+				},
+				success : function(formset) {
+					if (formset.execStatus == "true") {
+						var dealNo = formset.formDataset.dealNo;
 						var data = {
 							"subject" : param.merchantName,
 							"body" : "小客智慧生活支付",
@@ -257,20 +292,20 @@ apiready = function() {
 								});
 							}
 						});
+					} else {
+						api.alert({
+							msg : "操作失败，请联系管理员！"
+						});
 					}
-				} else {
+				},
+				error : function(XMLHttpRequest, textStatus, errorThrown) {
+					console.log("错误输出信息：" + XMLHttpRequest.status + "###" + XMLHttpRequest.readyState + "###" + textStatus);
 					api.alert({
-						msg : "操作失败，请联系管理员！"
+						msg : "您的网络是否已经连接上了，请检查一下！"
 					});
 				}
-			},
-			error : function(XMLHttpRequest, textStatus, errorThrown) {
-				console.log("错误输出信息：" + XMLHttpRequest.status + "###" + XMLHttpRequest.readyState + "###" + textStatus);
-				api.alert({
-					msg : "您的网络是否已经连接上了，请检查一下！"
-				});
-			}
-		});
+			});
+		}
 	});
 }
 function goBack() {

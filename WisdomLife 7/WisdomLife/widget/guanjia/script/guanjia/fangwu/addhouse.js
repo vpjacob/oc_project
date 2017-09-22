@@ -20,6 +20,9 @@ apiready = function() {
 			$("#apply").hide();
 			$("#zuhu").show();
 			//查询相关的省份
+			api.toast({
+	            msg:'我是租户功能暂未开通!'
+            });
 			queryProvnce();
 		})
 		$(".span0").click(function() {
@@ -133,6 +136,8 @@ apiready = function() {
 //业主提交审核接口
 
 	function houseOwnerApply() {
+		api.showProgress({
+		});
 		var data = {
 			"userNo" : urId,
 			"phone" : $("#tel").val(),
@@ -141,11 +146,13 @@ apiready = function() {
 		$.ajax({
 			url : rootUrls + '/xk/houseOwnerApply.do',
 			type : 'post',
+			async:false,
 			dataType : 'json',
 			data : JSON.stringify(data),
 			contentType : "application/json;charset=utf-8",
 			success : function(result) {
 				console.log($api.jsonToStr(result));
+				api.hideProgress(); 
 				var data = result.data;
 				if (result.state == 1) {
 					alert(result.msg);
@@ -166,29 +173,32 @@ apiready = function() {
 
 	//我是租户部分提交
 	$('#zuhu').click(function(){
-		if($('#beginTime').html()=='请选择开始时间'){
-			alert('请选择开始时间');
-			return false;
-		};
-		 if($('#endTime').html()=='请选择结束时间'){
-			alert('请选择结束时间');
-			return false;
-		};
-		if($('#beginTime').html()>$('#endTime').html()){
-			alert('请输入正确的租房时间');
-			return false;
-		};
-		if($('#tempName').val()==''){
-			alert('请输入业主的名字');
-			return false;
-		};
-		if($('#tempTel').val()==''){
-			alert('请输入业主手机号');
-			return false;
-		};
-		$("#zuhu").attr("disabled", true);
-		$("#zuhu").css("background","#ddd");
-		submitTenementHouseApply();
+		api.toast({
+	        msg:'此功能暂未开通'
+        });
+//		if($('#beginTime').html()=='请选择开始时间'){
+//			alert('请选择开始时间');
+//			return false;
+//		};
+//		 if($('#endTime').html()=='请选择结束时间'){
+//			alert('请选择结束时间');
+//			return false;
+//		};
+//		if($('#beginTime').html()>$('#endTime').html()){
+//			alert('请输入正确的租房时间');
+//			return false;
+//		};
+//		if($('#tempName').val()==''){
+//			alert('请输入业主的名字');
+//			return false;
+//		};
+//		if($('#tempTel').val()==''){
+//			alert('请输入业主手机号');
+//			return false;
+//		};
+//		$("#zuhu").attr("disabled", true);
+//		$("#zuhu").css("background","#ddd");
+//		submitTenementHouseApply();
 	});
 
 	
@@ -242,6 +252,7 @@ apiready = function() {
 	});
 //16，提交租户房屋信息审核
 	function submitTenementHouseApply(){
+		api.showProgress({});
 		var data = {
              userNo:urId,
 	         phone:$('#tempTel').val(),
@@ -265,6 +276,7 @@ apiready = function() {
                   contentType: "application/json;charset=utf-8",
                   success:function(result){  
                   	 console.log($api.jsonToStr(result));
+                  	  api.hideProgress();
                       if(result.state==1){
                           alert(result.msg);
                         	api.execScript({//实现我的房屋回显刷新

@@ -144,6 +144,7 @@ apiready = function() {
 	
 	//确认租户审核信息
 	function submitTenementApply(agreeId,type){
+		api.showProgress({});
            var data = {
                "id": agreeId,
                "status":type
@@ -155,6 +156,7 @@ apiready = function() {
                   data:JSON.stringify(data),  
                   contentType: "application/json;charset=utf-8",
                   success:function(result){  
+                  	api.hideProgress(); 
                   	 console.log($api.jsonToStr(result)); 
                   	 var data = result.data; 
                   	 if(result.state==1){

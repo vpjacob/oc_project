@@ -22,16 +22,15 @@ apiready = function() {
 	$("#back").bind("click", function() {
 		api.closeWin();
 	});
-//	FileUtils.readFile("info.json", function(info, err) {
-//		userInfo = info;
-//	});
+
 	urId = api.getPrefs({
 	    sync:true,
 	    key:'userNo'
     });
-    	queryDefaultAddress(urId);
-		oldPwd(urId);
-		queryUserAccountByUserNo(urId);
+    
+    queryDefaultAddress(urId);
+	oldPwd(urId);
+	queryUserAccountByUserNo(urId);
 	var fanxiBox = $(".businesses input:checkbox");
     fanxiBox.click(function () {
        if(this.checked || this.checked=='checked'){
@@ -53,7 +52,9 @@ apiready = function() {
 					var account = data.formDataset.secondPwd;
 					oldPwd = account;
 				} else {
-					alert(data.formDataset.errorMsg);
+					api.toast({
+	                    msg:data.formDataset.errorMsg
+                    });
 				}
 			}
 		});
@@ -76,7 +77,9 @@ apiready = function() {
 				if (result.state == 1) {
 					$("#residueMoney").html(data.mayBuyback)
 				} else {
-					alert(result.msg);
+					api.toast({
+	                    msg:result.msg
+                    });
 				}
 			}
 		});
@@ -129,14 +132,16 @@ apiready = function() {
 					}
 					api.hideProgress();
 				} else {
-					alert(data.formDataset.errorMsg);
+					api.toast({
+	                    msg:data.formDataset.errorMsg
+                    });
 				}
 			},
 			error : function() {
 				api.hideProgress();
-				api.alert({
-					msg : "您的网络是否已经连接上了，请检查一下！"
-				});
+				api.toast({
+	            	msg:"您的网络是否已经连接上了，请检查一下！"
+                });
 			}
 		});
 	}
@@ -157,7 +162,6 @@ apiready = function() {
 				goodNo : goodNum
 			},
 			success : function(data) {
-				console.log("商品规格相册" + $api.jsonToStr(data));
 				var account = data.formDataset.modelList;
 				var list = $api.strToJson(account);
 				if (data.formDataset.checked == 'true') {
@@ -167,14 +171,16 @@ apiready = function() {
 						}
 					}
 				} else {
-					alert(data.formDataset.errorMsg);
+					api.toast({
+	            		msg:data.formDataset.errorMsg
+                	});
 				}
 			},
 			error : function() {
 				api.hideProgress();
-				api.alert({
-					msg : "您的网络是否已经连接上了，请检查一下！"
-				});
+				api.toast({
+	            	msg:"您的网络是否已经连接上了，请检查一下！"
+                });
 			}
 		});
 	}); 
@@ -190,7 +196,6 @@ apiready = function() {
 			           goodNo:goodNum
 			        },
 			success : function(data) {
-				console.log("商品规格初始化" + $api.jsonToStr(data));
 				if (data.formDataset.checked == 'true') {
 					var account = data.formDataset.modelList;
 					var list = $api.strToJson(account);
@@ -200,14 +205,16 @@ apiready = function() {
 					}
 					$("#"+dom+"").html(nowlist);
 				} else {
-					alert(data.formDataset.errorMsg);
+					api.toast({
+	            		msg:data.formDataset.errorMsg
+                	});
 				}
 			},
 			error : function() {
 				api.hideProgress();
-				api.alert({
-					msg : "您的网络是否已经连接上了，请检查一下！"
-				});
+				api.toast({
+	            	msg:"您的网络是否已经连接上了，请检查一下！"
+                });
 			}
 		});
     };	
@@ -223,7 +230,6 @@ apiready = function() {
 			           userNo:urId
 			        },
 			success : function(data) {
-				console.log("邮费价格地址" + $api.jsonToStr(data));
 				if (data.formDataset.checked == 'true') {
 					var account = data.formDataset.address;
 					$("#freight").html('+'+data.formDataset.postage);
@@ -235,14 +241,16 @@ apiready = function() {
       			    $("#address").attr("data",list.id); 
       			    $('#countAll').html(Number(($("#price").html()).split("元")[0])+ Number(($("#freight").html()).split("+")[1])+'元');
 				} else {
-					console.log(data.formDataset.errorMsg);
+					api.toast({
+	            		msg:data.formDataset.errorMsg
+                	});
 				}
 			},
 			error : function() {
 				api.hideProgress();
-				api.alert({
-					msg : "您的网络是否已经连接上了，请检查一下！"
-				});
+				api.toast({
+	            	msg:"您的网络是否已经连接上了，请检查一下！"
+                });
 			}
 		});
 	};
@@ -282,7 +290,7 @@ apiready = function() {
 		};
 		if(Delivery==2){
       		 api.alert({
-				msg : "亲,您选择的地址该商品不配送"
+				msg : "亲,您选择的地址不在配送范围之内"
 			}); 
 			return false;		    
       	}	    
@@ -304,7 +312,9 @@ apiready = function() {
 			return false;
 		};
 		if($("#zfb").prop("checked")==false && $("#xk").prop("checked")==false){
-			alert("请选择支付方式");	
+			api.alert({
+				msg : "请选择支付方式"
+			}); 
 			return false;	
 		};
 		if($("#userName").html()==""){
@@ -318,47 +328,46 @@ apiready = function() {
 		var residueMoney=$("#residueMoney").html();
 		if($("#xk").prop("checked")==true){
 			if (Number(countAll) > Number(residueMoney)) {
-				api.alert({
+				api.toast({
 					msg : "您的商品总价大于您的剩余金币数，请重新选择！"
 				});
 				return false;
 			}
 		}
-//		var price = parseInt($("#price").html());
-//		$("#apply").attr("disabled", true);
-//		$("#apply").css("background","#ddd");
-		AjaxUtil.exeScript({
-			script : "mobile.center.pay.pay",
-			needTrascation : true,
-			funName : "insertTempAndGetDealNo",
-			form : {
-				userNo : urId,
-				productId:$("#productId").attr("data"),
-				userName : $("#userName").html(),
-				userPhone : $("#userPhone").html(),
-				userAddress:$("#address").val(),
-				goodName:($("#content").html()).split(" ")[0],
-				num:$("#amout").html(),
-				postage:$("#freight").html().split("+")[1],
-				price:price,
-				remark:" ",
-				goodModel:goodMod,
-				merchantNo : "B000001",
-				merchantName : "北京小客网络科技有限公司",
-				mount : countAll,
-				type : "1"
-			},
-			success : function(formset) {
-				console.log($api.jsonToStr(formset));
-				if (formset.execStatus == "true") {
-					var dealNo = formset.formDataset.dealNo;
-//					alert(dealNo);
-					//走金币支付
-					if ($("#xk").prop("checked") == true) {
-						$(".tankuang_box").show();
-						$(".black_box").show();
-						document.getElementById("agree").onclick=function() {
-							if ($("#pwd").val() == oldPwd) {
+		
+		//走金币支付		
+		if ($("#xk").prop("checked") == true) {
+			$(".tankuang_box").show();
+			$(".black_box").show();
+			document.getElementById("agree").onclick = function() {
+				if ($("#pwd").val() == oldPwd) {
+					api.showProgress({
+						text:'支付中...'
+                    });
+					AjaxUtil.exeScript({
+						script : "mobile.center.pay.pay",
+						needTrascation : true,
+						funName : "insertTempAndGetDealNo",
+						form : {
+							userNo : urId,
+							productId : $("#productId").attr("data"),
+							userName : $("#userName").html(),
+							userPhone : $("#userPhone").html(),
+							userAddress : $("#address").val(),
+							goodName : ($("#content").html()).split(" ")[0],
+							num : $("#amout").html(),
+							postage : $("#freight").html().split("+")[1],
+							price : price,
+							remark : " ",
+							goodModel : goodMod,
+							merchantNo : "B000001",
+							merchantName : "北京小客网络科技有限公司",
+							mount : countAll,
+							type : "1"
+						},
+						success : function(formset) {
+							if (formset.execStatus == "true") {
+								var dealNo = formset.formDataset.dealNo;
 								var data = {
 									"amount" : countAll,
 									"dealNo" : dealNo
@@ -384,27 +393,68 @@ apiready = function() {
 									},
 									error : function(XMLHttpRequest, textStatus, errorThrown) {
 										console.log("错误输出信息：" + XMLHttpRequest.status + "###" + XMLHttpRequest.readyState + "###" + textStatus);
-										api.alert({
+										api.toast({
 											msg : "您的网络是否已经连接上了，请检查一下！"
 										});
 									}
-								});
-							} else if ($("#pwd").val() == "") {
-								alert('请您输入二级密码');
-								return false;
+								}); 
 							} else {
-								alert('您输入二级密码有误');
-								return false;
+								api.toast({
+									msg : "操作失败，请联系管理员！"
+								});
 							}
-						};
-						$(".noAgree").click(function() {
-							$(".tankuang_box").css("display","none");
-							$(".black_box").css("display","none");
-						})
-					};
-					
-					//走支付宝支付
-					if ($("#zfb").prop("checked") == true) {
+						},
+						error : function(XMLHttpRequest, textStatus, errorThrown) {
+							api.toast({
+								msg : "您的网络是否已经连接上了，请检查一下！"
+							});
+						}
+					}); 
+					api.hideProgress();
+				} else if ($("#pwd").val() == "") {
+					api.alert({
+						msg : '请您输入二级密码'
+					});
+					return false;
+				} else {
+					api.alert({
+						msg : '您输入二级密码有误'
+					});
+					return false;
+				}
+			};
+			$(".noAgree").click(function() {
+				$(".tankuang_box").css("display", "none");
+				$(".black_box").css("display", "none");
+			})
+		};
+
+		//走支付宝支付
+		if ($("#zfb").prop("checked") == true) {
+			AjaxUtil.exeScript({
+				script : "mobile.center.pay.pay",
+				needTrascation : true,
+				funName : "insertTempAndGetDealNo",
+				form : {
+					userNo : urId,
+					productId : $("#productId").attr("data"),
+					userName : $("#userName").html(),
+					userPhone : $("#userPhone").html(),
+					userAddress : $("#address").val(),
+					goodName : ($("#content").html()).split(" ")[0],
+					num : $("#amout").html(),
+					postage : $("#freight").html().split("+")[1],
+					price : price,
+					remark : " ",
+					goodModel : goodMod,
+					merchantNo : "B000001",
+					merchantName : "北京小客网络科技有限公司",
+					mount : countAll,
+					type : "1"
+				},
+				success : function(formset) {
+					if (formset.execStatus == "true") {
+						var dealNo = formset.formDataset.dealNo;
 						var data = {
 							"subject" : "北京小客网络科技有限公司",
 							"body" : "小客智慧生活支付",
@@ -432,7 +482,7 @@ apiready = function() {
 												funName : "pushmsg",
 												form : {
 													userNo : 'V000007',
-													msg : "【小客商品】订单号【" + dealNo + "】,商品名称【"+($("#content").html()).split(" ")[0]+"】",
+													msg : "【小客商品】订单号【" + dealNo + "】,商品名称【" + ($("#content").html()).split(" ")[0] + "】",
 													type : 1
 												},
 												success : function(data) {
@@ -444,29 +494,28 @@ apiready = function() {
 												needTrascation : false,
 												funName : "pushmsg",
 												form : {
-													userNo :"V000011",
+													userNo : "V000011",
 													msg : "【小客商品】订单号【" + dealNo + "】,商品名称【" + ($("#content").html()).split(" ")[0] + "】",
 													type : 1
 												},
 												success : function(data) {
 													console.log($api.jsonToStr(data));
 												}
-											}); 
+											});
 											AjaxUtil.exeScript({
 												script : "managers.pushMessage.msg", //推送消息
 												needTrascation : false,
 												funName : "pushmsg",
 												form : {
-													userNo :urId,
+													userNo : urId,
 													msg : "【小客商品】订单号【" + dealNo + "】,商品名称【" + ($("#content").html()).split(" ")[0] + "】",
 													type : 1
 												},
 												success : function(data) {
 													console.log($api.jsonToStr(data));
 												}
-											}); 
-	
-	
+											});
+
 											api.alert({
 												msg : "支付成功！"
 											});
@@ -479,7 +528,7 @@ apiready = function() {
 											api.toast({
 												msg : "支付已取消"
 											});
-	
+
 										} else {
 											api.alert({
 												title : '支付结果',
@@ -491,27 +540,25 @@ apiready = function() {
 								}
 							},
 							error : function(XMLHttpRequest, textStatus, errorThrown) {
-								console.log("错误输出信息：" + XMLHttpRequest.status + "###" + XMLHttpRequest.readyState + "###" + textStatus);
-								api.alert({
+								api.toast({
 									msg : "您的网络是否已经连接上了，请检查一下！"
 								});
 							}
+						}); 
+					} else {
+						api.toast({
+							msg : "操作失败，请联系管理员！"
 						});
 					}
-					
-				} else {
-					api.alert({
-						msg : "操作失败，请联系管理员！"
+				},
+				error : function(XMLHttpRequest, textStatus, errorThrown) {
+					api.toast({
+						msg : "您的网络是否已经连接上了，请检查一下！"
 					});
 				}
-			},
-			error : function(XMLHttpRequest, textStatus, errorThrown) {
-//				console.log("错误输出信息：" + XMLHttpRequest.status + "###" + XMLHttpRequest.readyState + "###" + textStatus);
-				api.alert({
-					msg : "您的网络是否已经连接上了，请检查一下！"
-				});
-			}
-		});
+			}); 
+		}
+
 	});
 	
 	//添加收货地址	

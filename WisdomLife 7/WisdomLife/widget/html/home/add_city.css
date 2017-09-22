@@ -1,0 +1,68 @@
+
+a:active, a:link, a:visited, a:hover {
+	color: #000;
+	text-decoration: none;
+}
+
+.pic{
+   width:100%;
+  
+}
+.pic img{
+   width:75px;
+   height:75px;
+   border-radius:50%;
+   margin:50px auto;
+   display:block;
+   
+}
+
+.list-block ul:before,.list-block ul:after{
+   border-bottom: 1px solid #ddd;
+}
+.list-block .item-inner:after{
+   height:0px;
+}
+.icon-zengjia{
+  float: right;
+}
+
+.content-block-title span{
+  font-size:16px;
+  font-weight:bold;
+}
+
+.icon-dizhi{
+  color:#0EAAE0;
+}
+.list-block .item-content{
+  border-bottom: 1px solid #ddd;
+  position:relative;
+  overflow: hidden;
+}
+.list-block .item-title{
+  position:absolute;
+  left:1.5rem;
+  top:.6rem;
+}
+
+.list-block{
+   font-size:15px;
+}
+.first{
+  color:#0EAAE0;
+}
+
+.del{
+  
+   height:100%;
+   width:80px;
+   color:#FFFFFF;
+   background-color:red;
+   text-align:center;
+   min-height:2.2rem;
+   padding-top:.5rem;
+   position:absolute;
+   right:-80px;
+   top:0;
+}

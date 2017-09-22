@@ -108,7 +108,7 @@ apiready = function() {
 		AjaxUtil.exeScript({
 			script : "login.login", //need to do
 			needTrascation : false,
-			funName : "sendIdentifyingCode",
+			funName : "newSendIdentifyingCode",
 			form : {
 				telphone : $("#telphone").val()
 			},
@@ -116,7 +116,7 @@ apiready = function() {
 				console.log($api.jsonToStr(data));
 				if (data.formDataset.checked === "true") {
 					identifyingCode = data.formDataset.code;
-//					alert(identifyingCode+"******************************");
+					console.log(identifyingCode+"******************************");
 					if (identifyingCode != "") {
 						api.alert({
 							title : '系统提示',

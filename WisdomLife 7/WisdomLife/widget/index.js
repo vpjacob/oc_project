@@ -1,4 +1,4 @@
-//其中，IOS状态栏高度为20px，Android为25px
+//其中，IOS状态栏高度为20px，Android为25px  
 var headerH;
 //footer高度为css样式中声明的30px.
 var footerH;
@@ -166,7 +166,7 @@ apiready = function() {
 
 	checkAppVersion();
 	
-    //widget 实现砸蛋
+	   //widget 实现砸蛋
     api.addEventListener({
                          name : 'eggs'
                          }, function(ret, err) {
