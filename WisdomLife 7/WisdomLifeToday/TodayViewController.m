@@ -24,7 +24,7 @@
     if ([[UIDevice currentDevice].systemVersion doubleValue] >= 10.0) {
         self.extensionContext.widgetLargestAvailableDisplayMode = NCWidgetDisplayModeCompact;
     }
-    self.preferredContentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, 100);
+    self.preferredContentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, 50);
 }
 
 - (UIEdgeInsets)widgetMarginInsetsForProposedMarginInsets:(UIEdgeInsets)defaultMarginInsets{

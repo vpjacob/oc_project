@@ -8,7 +8,6 @@
 
 #import "DoorListViewController.h"
 #import "JJDoorListViewCell.h"
-//#import "CallViewController.h"
 #import "HomeService.h"
 #import "LoginDto.h"
 #import "DeviceManager.h"
@@ -18,7 +17,6 @@
 
 @interface DoorListViewController ()<UITableViewDataSource,UITableViewDelegate,JJDoorListViewCellDelegate>
 
-//@property (nonatomic,strong)NSMutableArray *dataSource;
 @property (nonatomic,strong)NSArray *blackListArray;
 @property (nonatomic, strong) NSMutableArray *isOnMutableArray;
 @property (nonatomic, strong) UITableView *jjTabelView;
@@ -49,10 +47,9 @@
 
 
 - (void)initWithBlackList{
-//    NSLog(@"%@",[[DeviceManager manager] getAllVoipDevice]);
+    
     for (int i = 0; i < [[DeviceManager manager] getAllVoipDevice].count; i++) {
         VoipDoorDto *dto = [[[DeviceManager manager] getAllVoipDevice] safeObjectAtIndex:i];
-        
         if (self.blackListArray) {
             if ([self.blackListArray containsObject:dto.dev_sn]) {
                 [self.isOnMutableArray addObject:@(NO)];
@@ -73,7 +70,6 @@
 -(void)refreshCollectionView
 {
     __weak typeof(self) weakSelf = self;
-    
     [HomeService videoDoorWithSuccess:^(NSDictionary *result) {
         [weakSelf.jjTabelView.header endRefreshing];
         int ret = [result[@"ret"] intValue];
@@ -113,7 +109,6 @@
 #pragma mark - UICollectionViewDelegate && UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    
     return 1;
 }
 
@@ -144,8 +139,6 @@
 #pragma mark - JJDoorListViewCellDelegate
 - (void)JJDoorListView:(JJDoorListViewCell *)doorListCell withSwitch:(UISwitch *)sw didSelectIndex:(NSInteger)index{
     VoipDoorDto *dto = [[[DeviceManager manager] getAllVoipDevice] safeObjectAtIndex:index];
-    NSLog(@"%@",dto.dev_sn);
-    NSLog(@"%zd",sw.on);
     if (sw.on) {
         [DMCommModel modifyBlackList:dto.dev_sn isAdd:NO];
         [self.isOnMutableArray replaceObjectAtIndex:index withObject:@(YES)];
@@ -178,7 +171,7 @@
     }];
 }
 
-//给cell添加动画
+
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     cell.layer.transform = CATransform3DMakeScale(0.1, 0.1, 1);
@@ -221,9 +214,5 @@
     return _isOnMutableArray;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 @end

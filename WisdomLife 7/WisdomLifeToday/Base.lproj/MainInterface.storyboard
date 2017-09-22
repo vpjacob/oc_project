@@ -18,56 +18,110 @@
                         <viewControllerLayoutGuide type="bottom" id="FKl-LY-JtV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="155"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" tag="200" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6IV-90-5Gu">
-                                <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
-                                <state key="normal" title="门口视频"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="widget_backGround.png" translatesAutoresizingMaskIntoConstraints="NO" id="OI0-T9-maz">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="155"/>
+                            </imageView>
+                            <button opaque="NO" tag="200" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6IV-90-5Gu">
+                                <rect key="frame" x="0.0" y="0.0" width="80" height="155"/>
                                 <connections>
                                     <action selector="btnAction:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="LBL-wg-fbJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PRK-cb-zhZ">
-                                <rect key="frame" x="80" y="0.0" width="80" height="100"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="行车记录仪"/>
+                            <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PRK-cb-zhZ">
+                                <rect key="frame" x="80" y="0.0" width="80" height="155"/>
                                 <connections>
                                     <action selector="btnAction:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="fNZ-Nt-YUX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="202" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jS-hg-adW">
-                                <rect key="frame" x="160" y="0.0" width="80" height="100"/>
-                                <state key="normal" title="小客商城"/>
+                            <button opaque="NO" tag="202" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jS-hg-adW">
+                                <rect key="frame" x="160" y="0.0" width="80" height="155"/>
                                 <connections>
                                     <action selector="btnAction:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="tN0-Ie-THI"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="203" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTo-o6-h9z">
-                                <rect key="frame" x="240" y="0.0" width="80" height="100"/>
-                                <state key="normal" title="砸金蛋"/>
+                            <button opaque="NO" tag="203" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTo-o6-h9z">
+                                <rect key="frame" x="240" y="0.0" width="80" height="155"/>
                                 <connections>
                                     <action selector="btnAction:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="q2Y-ZW-kTK"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="门口视频" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJb-Gy-3Yr">
+                                <rect key="frame" x="11.5" y="97" width="57.5" height="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" red="0.11372549019607843" green="0.44705882352941173" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="行车记录仪" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfN-8B-o2f">
+                                <rect key="frame" x="84.5" y="97" width="71.5" height="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" red="0.1137254902" green="0.44705882349999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="商城" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Itm-VE-0pP">
+                                <rect key="frame" x="185.5" y="97" width="29" height="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" red="0.1137254902" green="0.44705882349999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="砸金蛋" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2EV-A2-C8g">
+                                <rect key="frame" x="258.5" y="97" width="43" height="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" red="0.1137254902" green="0.44705882349999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="widget_viedo.png" translatesAutoresizingMaskIntoConstraints="NO" id="bp6-TI-6Dg">
+                                <rect key="frame" x="17.5" y="42.5" width="46" height="46"/>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="widget_recoder.png" translatesAutoresizingMaskIntoConstraints="NO" id="LNp-UY-Z2i">
+                                <rect key="frame" x="98" y="43" width="46" height="46"/>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="widget_shop.png" translatesAutoresizingMaskIntoConstraints="NO" id="2gJ-Zc-h5c">
+                                <rect key="frame" x="177" y="43" width="46" height="46"/>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="widget_egg.png" translatesAutoresizingMaskIntoConstraints="NO" id="CZV-kF-WGd">
+                                <rect key="frame" x="257" y="43" width="46" height="46"/>
+                            </imageView>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="gfN-8B-o2f" firstAttribute="centerY" secondItem="hJb-Gy-3Yr" secondAttribute="centerY" id="2vt-TC-Fbx"/>
+                            <constraint firstItem="hJb-Gy-3Yr" firstAttribute="top" secondItem="bp6-TI-6Dg" secondAttribute="bottom" constant="8" id="2zD-27-FVS"/>
+                            <constraint firstItem="2EV-A2-C8g" firstAttribute="centerY" secondItem="hJb-Gy-3Yr" secondAttribute="centerY" id="4sF-YJ-nsa"/>
                             <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="vTo-o6-h9z" secondAttribute="bottom" id="6sw-mK-Ed8"/>
                             <constraint firstItem="6IV-90-5Gu" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="COP-AG-EbY"/>
+                            <constraint firstItem="CZV-kF-WGd" firstAttribute="centerX" secondItem="2EV-A2-C8g" secondAttribute="centerX" id="Cvb-KB-YiY"/>
                             <constraint firstAttribute="trailing" secondItem="vTo-o6-h9z" secondAttribute="trailing" id="DMt-EV-5A4"/>
                             <constraint firstItem="8jS-hg-adW" firstAttribute="width" secondItem="6IV-90-5Gu" secondAttribute="width" id="Ez0-9X-BzH"/>
+                            <constraint firstItem="hJb-Gy-3Yr" firstAttribute="centerY" secondItem="6IV-90-5Gu" secondAttribute="centerY" constant="28" id="HtL-4R-OB4"/>
+                            <constraint firstItem="gfN-8B-o2f" firstAttribute="centerX" secondItem="PRK-cb-zhZ" secondAttribute="centerX" id="IIW-BI-frB"/>
                             <constraint firstItem="8jS-hg-adW" firstAttribute="leading" secondItem="PRK-cb-zhZ" secondAttribute="trailing" id="K8y-n5-qSG"/>
+                            <constraint firstItem="hJb-Gy-3Yr" firstAttribute="centerX" secondItem="6IV-90-5Gu" secondAttribute="centerX" id="Kj2-cu-Fu3"/>
+                            <constraint firstAttribute="trailing" secondItem="OI0-T9-maz" secondAttribute="trailing" id="PCA-Qv-8YB"/>
+                            <constraint firstItem="hJb-Gy-3Yr" firstAttribute="centerX" secondItem="bp6-TI-6Dg" secondAttribute="centerX" id="Qvj-fd-KCK"/>
                             <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="6IV-90-5Gu" secondAttribute="bottom" id="TN6-X1-opv"/>
                             <constraint firstItem="PRK-cb-zhZ" firstAttribute="leading" secondItem="6IV-90-5Gu" secondAttribute="trailing" id="VoA-d4-opB"/>
                             <constraint firstItem="6IV-90-5Gu" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" id="cF3-9V-ElP"/>
                             <constraint firstItem="PRK-cb-zhZ" firstAttribute="width" secondItem="6IV-90-5Gu" secondAttribute="width" id="cOR-jc-FGz"/>
+                            <constraint firstItem="OI0-T9-maz" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" id="cjC-iu-Ro8"/>
                             <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="8jS-hg-adW" secondAttribute="bottom" id="dUC-58-rgK"/>
+                            <constraint firstItem="2EV-A2-C8g" firstAttribute="centerX" secondItem="vTo-o6-h9z" secondAttribute="centerX" id="fFi-Xd-klO"/>
+                            <constraint firstItem="OI0-T9-maz" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="fmi-SL-SlK"/>
                             <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="PRK-cb-zhZ" secondAttribute="bottom" id="gXT-uu-tbx"/>
+                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="OI0-T9-maz" secondAttribute="bottom" id="hoJ-aE-F02"/>
+                            <constraint firstItem="2gJ-Zc-h5c" firstAttribute="centerY" secondItem="bp6-TI-6Dg" secondAttribute="centerY" id="i8Z-iC-CWj"/>
+                            <constraint firstItem="CZV-kF-WGd" firstAttribute="centerY" secondItem="bp6-TI-6Dg" secondAttribute="centerY" id="i9O-Gm-kB6"/>
                             <constraint firstItem="8jS-hg-adW" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" id="jlk-O6-TEO"/>
                             <constraint firstItem="PRK-cb-zhZ" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" id="ksY-Py-hyp"/>
                             <constraint firstItem="vTo-o6-h9z" firstAttribute="width" secondItem="6IV-90-5Gu" secondAttribute="width" id="lVy-nF-Agz"/>
+                            <constraint firstItem="LNp-UY-Z2i" firstAttribute="centerX" secondItem="gfN-8B-o2f" secondAttribute="centerX" id="mc8-yO-Ghi"/>
+                            <constraint firstItem="LNp-UY-Z2i" firstAttribute="centerY" secondItem="bp6-TI-6Dg" secondAttribute="centerY" id="pOa-Ed-XdO"/>
+                            <constraint firstItem="Itm-VE-0pP" firstAttribute="centerX" secondItem="8jS-hg-adW" secondAttribute="centerX" id="qVp-VF-ZAv"/>
                             <constraint firstItem="vTo-o6-h9z" firstAttribute="leading" secondItem="8jS-hg-adW" secondAttribute="trailing" id="r6Y-g5-aDR"/>
                             <constraint firstItem="vTo-o6-h9z" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" id="rTb-xB-oay"/>
+                            <constraint firstItem="Itm-VE-0pP" firstAttribute="centerY" secondItem="hJb-Gy-3Yr" secondAttribute="centerY" id="sqg-U9-7EU"/>
+                            <constraint firstItem="2gJ-Zc-h5c" firstAttribute="centerX" secondItem="Itm-VE-0pP" secondAttribute="centerX" id="vdX-d1-pQF"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -75,10 +129,18 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="100"/>
+                    <size key="freeformSize" width="320" height="155"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="33.600000000000001" y="37.781109445277366"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="widget_backGround.png" width="359" height="156"/>
+        <image name="widget_egg.png" width="46" height="46"/>
+        <image name="widget_recoder.png" width="46" height="46"/>
+        <image name="widget_shop.png" width="46" height="46"/>
+        <image name="widget_viedo.png" width="46" height="46"/>
+    </resources>
 </document>
