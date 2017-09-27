@@ -113,6 +113,9 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    NSLog(@"-------------");
+    NSLog(@"%@",[[DeviceManager manager] getAllVoipDevice]);
+    NSLog(@"%zd",[[DeviceManager manager] getAllVoipDevice].count);
     if ([[DeviceManager manager] getAllVoipDevice].count >0) {
         [self.messageLbl removeFromSuperview];
     }else{
