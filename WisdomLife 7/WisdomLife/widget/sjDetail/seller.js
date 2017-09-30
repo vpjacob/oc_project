@@ -166,7 +166,7 @@ apiready = function() {
 			key : 'hasLogon'
 		}, function(ret, err) {
 			var userName = ret.value;
-			if (userName == 'true') {
+			if (String(userName) == 'true') {
 				//获取路径并上传照片
 				api.openWin({//打开导航界面
 					name : 'review',

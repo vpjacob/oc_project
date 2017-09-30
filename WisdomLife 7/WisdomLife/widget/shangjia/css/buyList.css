@@ -68,7 +68,7 @@ input::-moz-input-placeholder{text-align: left;}
 }
 .bar .top .topSame{
 	height: 2.2rem;
-	width: 25%;
+	width: 20%;
 	float: left;
 	text-align: center;
 	line-height: 2.2rem;
@@ -132,7 +132,7 @@ input::-moz-input-placeholder{text-align: left;}
 	position: fixed;
 	background-color: #fff;
 	color: #fff;
-	width: 5rem;
+	width: 4.0rem;
 	z-index: 30001;
 	display: none;
 	right: 1%;
@@ -162,7 +162,7 @@ div.first {
 	-webkit-transform: rotate(45deg);
 	transform: rotate(45deg);
 	top: 3.85rem;
-	right: 10.4%;
+	right: 8.4%;
 	background-color: #fff;
 	border: none;
 	display: none;

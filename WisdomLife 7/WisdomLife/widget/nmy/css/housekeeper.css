@@ -1,0 +1,76 @@
+		
+		.content-block{
+			margin:0;
+			padding:0;
+		}
+		.content-block:nth-child(1) .house-bg{
+			width:100%;
+			display:block;
+		}
+		.content-block:nth-child(2){
+			margin:0;
+			padding:0;
+			background-color:#ffffff;
+		}
+		.content-block:nth-child(2) .gongneng-block{
+			width:25%;
+			height:5rem;
+			font-size:.65rem;
+		}
+		.content-block:nth-child(2) .gongneng-block img{
+			margin:auto;
+			display:block;
+			width:2.2rem;
+			height:2.2rem;
+			margin-bottom:.5rem;
+		}
+		.biaoti{
+			padding:0 .75rem;
+			font-size:.7rem;
+			line-height:1.5rem;		
+		}
+		.neirong{
+			font-size:.65rem;
+			background-color:#ffffff;
+		}		
+		.neirong .gongneng-block{
+			width:25%;
+			height:3.75rem;
+		}		
+		.neirong .gongneng-block img{
+			margin:auto;
+			display:block;
+			width:1rem;
+			height:1rem;
+			margin-bottom:.75rem;	
+			margin-top:3px;
+		}		
+		.neirong .border-box {
+		    border-right: solid 1px #efefef;
+		    height: 3.75rem;
+		}		
+		
+		.justify{
+			display:-webkit-flex;
+			display:flex;	
+			-webkit-justify-content:center;
+			justify-content:center;							
+		}
+		.justify-f{
+			display:-webkit-flex;
+			display:flex;	
+			-webkit-justify-content:flex-start;
+			justify-content:flex-start;					
+		}
+		.justify-b{
+			display:-webkit-flex;
+			display:flex;			
+			-webkit-justify-content:space-between;
+			justify-content:space-between;		
+		}
+		.align{
+			display:-webkit-flex;
+			display:flex;			
+			-webkit-align-items:center;
+			align-items:center;		
+		}

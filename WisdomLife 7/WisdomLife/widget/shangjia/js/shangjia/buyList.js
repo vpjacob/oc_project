@@ -59,7 +59,7 @@ apiready = function() {
 	queryProductTypeList();
 
 	//查找所有商品
-	function queryProductList(pages, isRecommend,type,name,sales) {
+	function queryProductList(pages, isRecommend,type,name,sales,isPref) {
 		api.showProgress({});
 		AjaxUtil.exeScript({
 			script : "mobile.business.product",
@@ -70,6 +70,7 @@ apiready = function() {
 				type : type,
 				name : name,
 				sales : sales,
+				isPref:isPref,
 				p : pages
 			},
 			success : function(data) {
@@ -105,8 +106,14 @@ apiready = function() {
 							nowli += '<div class="same">' + '<img src="' + rootUrl + list[i].img_url + '" alt="" id="'+list[i].id+'"/>' + '<div class="busname">' + list[i].name + '</div>' + '<div class="busprice">' + '<span class="symbol">¥</span><span class="nowPrice">' + price + '</span><s class="initprice" style="display:'+flag+'">¥' + list[i].price + '</s>' + '</div>' + '<span class="busperson">' + list[i].buy_count + '人已购买</span>' + '</div>'
 						}
 
+					};
+					//走不同的渲染模板
+					if (isPref == 1000) {
+						$('#isPref').append(nowli);
+					} else {
+						$('#showListAll').append(nowli);
 					}
-					$('#showListAll').append(nowli);
+
 					pageCount = data.formDataset.count > 10 ? Math.ceil(data.formDataset.count / 10) : 1;
 					console.log("返回的:pageCount=" + pageCount);
 					console.log("返回的page=" + page);
@@ -124,21 +131,21 @@ apiready = function() {
 		});
 	}
 
-	queryProductList(page,"","","","");
+	queryProductList(page,"","","","","");
 //全部商品的下拉加载
 	api.addEventListener({
 		name : 'scrolltobottom'
 	}, function(ret, err) {
 		if (parseInt(page) <= parseInt(pageCount)) {
 			page++;
-			queryProductList(page,"","","","");
+			queryProductList(page,"","","","","");
 		} else {
 			page = parseInt(pageCount) + 1;
 		}
 	});
 	
 	//点击相应的图跳转到相应的详情页
-		$(document).on('click', 'img', function() {
+		$("#showListAll").on('click', 'img', function() {
 			api.openWin({//详情界面
 				name : 'buyListInfo',
 				url : 'buyListInfo.html',
@@ -153,9 +160,26 @@ apiready = function() {
 				}
 			});
 		});
+		//点击相应的图跳转优选详情
+		$("#isPref").on('click', 'img', function() {
+			api.openWin({//详情界面
+				name : 'ispref',
+				url : 'ispref.html',
+				slidBackEnabled : true,
+				animation : {
+					type : "push", //动画类型（详见动画类型常量）
+					subType : "from_right", //动画子类型（详见动画子类型常量）
+					duration : 300 //动画过渡时间，默认300毫秒
+				},
+				pageParam : {
+					id : $(this).attr("id")
+				}
+			});
+		});
 //搜索关键字  待测
 $("#submit").on("submit",function(){
 	$('#showListAll').empty();
+	$('#isPref').empty();
 	page = 1;
 	var searchVal=$("#searchval").val();
 //	alert(searchVal);
@@ -165,7 +189,7 @@ $("#submit").on("submit",function(){
 		}, function(ret, err) {
 			if (parseInt(page) <= parseInt(pageCount)) {
 				page++;
-				queryProductList(page,"","",searchVal,"");
+				queryProductList(page,"","",searchVal,"","");
 			} else {
 				page = parseInt(pageCount) + 1;
 			}
@@ -185,16 +209,17 @@ $("#submit").on("submit",function(){
 			if ($(this).attr("class") == "special") {
 				//切换到推荐
 				if ($(this).attr("data") == 1) {
-					$('#showListAll').empty()
+					$('#showListAll').empty();
+					$('#isPref').empty();
 					page = 1
 					var freData=$(this).attr("data");
-					queryProductList(page, freData,"","","");
+					queryProductList(page, freData,"","","","");
 					api.addEventListener({
 						name : 'scrolltobottom'
 					}, function(ret, err) {
 						if (parseInt(page) <= parseInt(pageCount)) {
 							page++;
-							queryProductList(page, freData,"","","");
+							queryProductList(page, freData,"","","","");
 						} else {
 							page = parseInt(pageCount) + 1;
 						}
@@ -202,15 +227,16 @@ $("#submit").on("submit",function(){
 				}
 				//切换到全部  
 				if ($(this).attr("data") == 2) {
-					$('#showListAll').empty()
+					$('#showListAll').empty();
+					$('#isPref').empty();
 					page = 1
-					queryProductList(page,"","","","");
+					queryProductList(page,"","","","","");
 					api.addEventListener({
 						name : 'scrolltobottom'
 					}, function(ret, err) {
 						if (parseInt(page) <= parseInt(pageCount)) {
 							page++;
-							queryProductList(page,"","","","");
+							queryProductList(page,"","","","","");
 						} else {
 							page = parseInt(pageCount) + 1;
 						}
@@ -218,10 +244,11 @@ $("#submit").on("submit",function(){
 				};
 				//切换到  销量
 				if ($(this).attr("data") == 0) {
-					$('#showListAll').empty()
+					$('#showListAll').empty();
+					$('#isPref').empty();
 					page = 1;
 					var saleData=$(this).attr("data");
-					queryProductList(page,"","","",saleData);
+					queryProductList(page,"","","",saleData,"");
 					api.addEventListener({
 						name : 'scrolltobottom'
 					}, function(ret, err) {
@@ -232,7 +259,24 @@ $("#submit").on("submit",function(){
 							page = parseInt(pageCount) + 1;
 						}
 					});
-				}
+				};
+				//切换到  优选
+				if ($(this).attr("data") == 3) {
+					$('#showListAll').empty();
+					$('#isPref').empty();
+					page = 1;
+					queryProductList(page,"","","","",1000);
+					api.addEventListener({
+						name : 'scrolltobottom'
+					}, function(ret, err) {
+						if (parseInt(page) <= parseInt(pageCount)) {
+							page++;
+							queryProductList(page,"","","","",1000);
+						} else {
+							page = parseInt(pageCount) + 1;
+						}
+					});
+				};
 			};
 		})
 	};
@@ -263,6 +307,7 @@ $("#submit").on("submit",function(){
 		}, 200);
 		
 		$('#showListAll').empty();
+		$('#isPref').empty();
 		page = 1;
 		var typeData=$(this).attr("id");
 		queryProductList(page,"",typeData,"","");

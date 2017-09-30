@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="css/sm.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+    <link rel="stylesheet" type="text/css" href="css/my.css"/>
+    <style>
+
+    </style>
+</head>
+<body>
+	<header class="bar bar-nav">
+		<a class="iconfont pull-left" onclick="xiaoxi()">
+			<img src="images/mes.png" alt="" />
+		</a>
+		<a class="iconfont pull-right" onclick="shezhi()">
+			<img src="images/shezhi.png" alt="" />
+		</a>
+	</header>	
+	<div class="content">
+		<div class="contacts-block">
+			<div class="content-head">
+				<div class="topImg">
+					<img src="images/my-header.png" alt="" id="headurl" class="pic"/>
+				</div>
+				<div class="justify">
+					<img src="images/my-man.png" alt="" id="sex"><span id="name">我是无敌小超人</span>
+				</div>
+			</div>
+		</div>
+		<div class="contacts-block firstBlock">
+			<div class="grid-demo">
+			    <div class="row">
+			    	<div class="col-33 justify align">
+			    		<div>
+			    		<div id="dotleft">0</div>
+			    		<div>金蛋总计</div>
+			    		</div>
+			    	</div>
+			    	<div class="col-33 justify-b align">
+			    		<img src="images/lines.png" alt="" />
+			    		<div>
+				    		<div id="dotmidd">0</div>
+				    		<div>银蛋总计</div>
+			    		</div>
+			    		<img src="images/lines.png" alt="" />
+			    	</div>
+			    	<div class="col-33 justify align">
+			    		<div>
+			    		<div id="dotright">0</div>
+			    		<div>可用金币</div>
+			    		</div>
+			    	</div>
+			    </div>			
+			</div>
+		</div>
+		<div class="contacts-block">
+			<div class="contacts-title justify-f align">
+				<div>我的钱包</div>
+			</div>		
+			<div class="contacts-body justify-b">
+				<div class="gongneng-block" id="payMoney">
+					<div class="border-box justify align">
+						<div>
+							<img src="images/my-saomiao.png" alt="" />
+							<div>扫一扫</div>
+						</div>
+					</div>
+				</div>
+				<div class="gongneng-block" id="myrecord">
+					<div class="border-box justify align">
+						<div>
+							<img src="images/my-dingdan.png" alt="" />
+							<div>订单</div>
+						</div>
+					</div>
+				</div>
+				<div class="gongneng-block" id="myegg">
+					<div class="border-box justify align">
+						<div>
+							<img src="images/my-jindan.png" alt="" />
+							<div>金蛋</div>
+						</div>
+					</div>
+				</div>
+				<div class="gongneng-block" id="buyback">
+					<div class="border-box justify align">
+						<div>
+							<img src="images/buyback.png" alt="" />
+							<div>回购</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="contacts-body justify-b" style="border:none">
+				<div class="gongneng-block" id="incomeInfo">
+					<div class="border-box justify align">
+						<div>
+							<img src="images/my-mingxi.png" alt="" />
+							<div>金币明细</div>
+						</div>
+					</div>
+				</div>
+				<div class="gongneng-block" id="payRecord">
+					<div class="border-box justify align">
+						<div>
+							<img src="images/my-zhifu.png" alt="" style="width: 1.2rem;height: 0.9rem;"/>
+							<div style="position: relative;top: 0.14rem;">支付明细</div>
+						</div>
+					</div>
+				</div>
+				<div class="gongneng-block" id="myDeal">
+					<div class="border-box justify align">
+						<div>
+							<img src="images/my-wuliu.png" alt="" style="width: 1.375rem;height: 0.875rem;"/>
+							<div style="position: relative;top: 0.2rem;">物流</div>
+						</div>
+					</div>
+				</div>
+				<div class="gongneng-block" id="welfare">
+					<div class="border-box justify align">
+						<div>
+							<img src="images/my-fuli.png" alt="" style="width: 1.3rem;height: 1.3rem;margin-bottom:0.4rem"/>
+							<div style="position: relative;top: -0.04rem;">小客福利</div>
+						</div>
+					</div>
+				</div>
+				<!--<div class="gongneng-block justify align" id="more">
+					<div>
+						<img src="images/house-gengduo.png" alt="" />
+						<div>更多</div>
+					</div>
+				</div>	-->			
+			</div>	
+			<div class="contacts-body justify-b" style="margin-top: 0.6rem;border:none">
+				<div class="gongneng-block" id="mydevice">
+					<div class="border-box justify align">
+						<div>
+							<img src="images/myDevice.png" alt="" />
+							<div>设备</div>
+						</div>
+					</div>
+				</div>
+				<div class="gongneng-block" id="myReferer">
+					<div class="border-box justify align">
+						<div>
+							<img src="images/my-tuiji.png" alt="" />
+							<div>推荐</div>
+						</div>
+					</div>
+				</div>
+				<div class="gongneng-block" id="myfeedback">
+					<div class="border-box justify align">
+						<div>
+							<img src="images/my-fankui.png" alt="" />
+							<div>反馈</div>
+						</div>
+					</div>
+				</div>
+				<div class="gongneng-block" id="more">
+					<div class="border-box justify align">
+						<div>
+							<img src="images/house-gengduos.png" alt="" />
+							<div>更多</div>
+						</div>
+					</div>
+				</div>	
+			</div>						
+		</div>
+		<div class="imgBox" id="firstImgBox">
+			<div class="imgSame">
+				<img src="images/mytest.png" alt="" style="float: left" id="firTopLef"/>
+				<!--<div>小客</div>-->
+			</div>
+			<div class="imgSame">
+				<img src="images/mytest.png" alt="" style="position: relative;left: 2%;" id="firTopMid"/>
+				<!--<div style="position: relative;top:-2.49rem">小客</div>-->
+			</div>
+			<div class="imgSame">
+				<img src="images/mytest.png" alt="" style="float: right" id="firTopRig"/>
+				<!--<div>小客</div>-->
+			</div>
+		</div>
+		
+	</div>
+	<div class="photo" id="photo">
+				<div class="photo_center">
+					<div class="photo_top">
+						<span>头像</span>
+						<button id="album" class="borderOne">
+							本地相册
+						</button>
+						<button id="tackpic">
+							拍照
+						</button>
+					</div>
+					<button class="photo_bottom">
+						取消
+					</button>
+				</div>
+			</div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/jquery-1.10.2.js"></script>
+<script type='text/javascript' src='../script/zepto.min.js' charset='utf-8'></script>
+<script type="text/javascript" src="my.js"></script>
+</html>

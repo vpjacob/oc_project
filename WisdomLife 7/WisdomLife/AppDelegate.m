@@ -15,8 +15,11 @@
 #import "DoorListViewController.h"
 #import <StoreKit/StoreKit.h>
 
-static NSString *postUrl = @"http://192.168.1.199:9020/xk/appStartImg.do";
-static NSString *imgUrlFront = @"http://192.168.1.199:8080";
+//static NSString *postUrl = @"http://192.168.1.199:9020/xk/appStartImg.do";
+//static NSString *imgUrlFront = @"http://192.168.1.199:8080";
+
+static NSString *postUrl = @"http://xk.ppke.cn:9030/xk/appStartImg.do";
+static NSString *imgUrlFront = @"http://www.ppke.cn";
 
 @interface AppDelegate ()
 
@@ -61,13 +64,14 @@ static NSString *imgUrlFront = @"http://192.168.1.199:8080";
         
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSLog(@"%@",dic);
+        NSLog(@"-------------成功");
         NSArray *array = dic[@"data"];
         NSString *imgUrl = [imgUrlFront stringByAppendingString:array[0][@"imgUrl"]];
         NSString *skipUrl = array[0][@"skipUrl"];
         [SplashView updateSplashData:imgUrl actUrl:skipUrl];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+        NSLog(@"-------------失败");
     }];
 
 }

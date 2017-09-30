@@ -155,17 +155,20 @@ apiready = function() {
 					}
 
 				} else {
-					 alert(data.formDataset.errorMsg);
+					 api.toast({
+	                     msg:data.formDataset.errorMsg
+                     });
 				}
 			},
 		error : function() {
-			alert("您的网络不给力啊，检查下是否连接上网络了！");
+			api.toast({
+	            msg:'您的网络不给力啊，检查下是否连接上网络了！'
+            });
 		}
 		});
 	}
 
 	checkAppVersion();
-	
 	   //widget 实现砸蛋
     api.addEventListener({
                          name : 'eggs'
@@ -243,6 +246,7 @@ apiready = function() {
                                      });
                          
                          });
+
 	hasLogon = api.getPrefs({
 	    sync:true,
 	    key:'hasLogon'
@@ -263,7 +267,9 @@ apiready = function() {
 		headerH = 0;
 	}
 	//footer高度为css样式中声明的30px
-	footerH = 60;
+//	footerH = $("#footer").css("height").split("px")[0];
+	footerH=50;
+//	alert($("#footer").css("height").split("px")[0]);
 	//frame的高度为当前window高度减去header和footer的高
 	frameH = api.winHeight - headerH - footerH;
 
@@ -504,12 +510,12 @@ function getUserInfo() {
 		var connectionType = api.connectionType;
 		//比如： wifi
 		if (connectionType == 'none' || connectionType == "unknown") {
-			api.alert({
-				msg : '当前网络不可用,请连上网络并刷新重试'
-			}, function(ret, err) {
+//			api.alert({
+//				msg : '当前网络不可用,请连上网络并刷新重试'
+//			}, function(ret, err) {
 //				initUserInfoAndUserKeyInfo();
 				openWeatherPage();
-			});
+//			});
 		} else {
 			//用户当前登录状态时判断有没有其他手机登录如果有则退出当前用户刷新用户的相关初始化信息
 			AjaxUtil.exeScript({
@@ -522,10 +528,8 @@ function getUserInfo() {
 				},
 				success : function(data) {
 					if (data.execStatus === "true" && data.formDataset.checked === "true") {
-						api.alert({
+						api.toast({
 							msg : '您的账号已在其他地方登陆,您被强制下线,如果不是您的个人行为请立即联系管理员,谢谢!'
-						}, function(ret, err) {
-//							initUserInfoAndUserKeyInfo();
 						});
 					} else {
 						openWeatherPage();
@@ -569,17 +573,21 @@ function openAroundPage() {
 /**
  *打开邻里首页  改为跳转商城
  */
-function openNeighboursPage() {
-	$("#neighbours").addClass("changeCor").siblings().removeClass("changeCor");
+function openNeighboursPage(show) {
+	$(show).find("p").addClass("changeCor").parent().siblings().find("p").removeClass("changeCor");
+	$("#center").find("img").attr("src","image/mainimg/wd.png");
+	$("#around").find("img").attr("src","image/mainimg/gj.png");
+	$("#shop").find("img").attr("src","image/mainimg/sj.png");
+	$("#neighbours").find("img").attr("src","image/mainimg/sc1.png");
 	api.openFrame({
 		name : 'busList',
 		url : 'shangjia/html/buyList.html',
 		bounces : false,
 		 rect : {
           x : 0,
-          y : headerH,
+          y : 0,
           w : 'auto',
-          h : frameH
+          h : headerH+frameH
         },
 //		animation : {
 //			type : "push", //动画类型（详见动画类型常量）
@@ -677,18 +685,21 @@ function openNeighboursPage() {
  *打开天气新闻首页
  */
 function openWeatherPage() {
-	console.log("啊哈哈");
-	$("#weather").addClass("changeCor").siblings().removeClass("changeCor")
+	$("#weather").siblings().find("p").removeClass("changeCor");
+	$("#center").find("img").attr("src","image/mainimg/wd.png");
+	$("#around").find("img").attr("src","image/mainimg/gj.png");
+	$("#shop").find("img").attr("src","image/mainimg/sj.png");
+	$("#neighbours").find("img").attr("src","image/mainimg/sc.png");
 	changeImage("weather");
 	api.openFrame({
 		name : 'weather',
-		url : 'html/main.html',
+		url : 'html/homepage.html',
 		bounces : false,
 		rect : {
 			x : 0,
-			y : headerH,
+			y : 0,
 			w : 'auto',
-			h : frameH
+			h : frameH+headerH
 		},
 		reload:true,//点击主页刷新
 	});
@@ -699,7 +710,12 @@ function openWeatherPage() {
  *根据当前的用户状态判断向哪个页面跳转
  */
 function openCenterPage(show) {
-	$(show).addClass("changeCor").siblings().removeClass("changeCor")
+	$(show).find("p").addClass("changeCor").parent().siblings().find("p").removeClass("changeCor");
+//	alert($(show).find("p").addClass("changeCor").parent().siblings().find("p").html());
+	$("#center").find("img").attr("src","image/mainimg/wd1.png");
+	$("#around").find("img").attr("src","image/mainimg/gj.png");
+	$("#shop").find("img").attr("src","image/mainimg/sj.png");
+	$("#neighbours").find("img").attr("src","image/mainimg/sc.png");
 	var hasRegist = api.getPrefs({
 		sync : true,
 		key : 'hasRegist'
@@ -742,14 +758,15 @@ function openCenterPage(show) {
       //已经登陆的情况下
       api.openFrame({
         name : 'room',
-        url : 'newMy/my.html',
+        url : 'nmy/my.html',
         bounces : false,
         rect : {
           x : 0,
-          y : headerH,
+          y : 0,
           w : 'auto',
-          h : frameH
+          h : frameH+headerH
         },
+        reload:true,//点击我的刷新
         pageParam : {
           memberid : memberid
         },
@@ -771,7 +788,11 @@ function changeImage(myUrl) {
 }
 //管家判断是否登录
 function showAround(show) {
-	$(show).addClass("changeCor").siblings().removeClass("changeCor");
+	$(show).find("p").addClass("changeCor").parent().siblings().find("p").removeClass("changeCor");
+	$("#center").find("img").attr("src","image/mainimg/wd.png");
+	$("#around").find("img").attr("src","image/mainimg/gj1.png");
+	$("#shop").find("img").attr("src","image/mainimg/sj.png");
+	$("#neighbours").find("img").attr("src","image/mainimg/sc.png");
 	api.getPrefs({
 		key : 'hasLogon'
 	}, function(ret, err) {
@@ -796,14 +817,14 @@ function showAround(show) {
 		} else {
 			api.openFrame({
 				name : 'guanjia',
-				url : 'guanjia/html/guanjia/guanjia.html',
+				url : 'nmy/housekeeper.html',
 				bounces : false,
 				reload : true,
 				rect : {
 					x : 0,
-					y : headerH,
+					y : 0,
 					w : 'auto',
-					h : frameH
+					h : frameH+headerH
 				}
 			});
 
@@ -813,38 +834,41 @@ function showAround(show) {
 }
 
 function openmain() {
-	$("#weather").addClass("changeCor").siblings().removeClass("changeCor");
+//	$("#weather").addClass("changeCor").siblings().removeClass("changeCor");
 	api.openFrame({
 		name : 'weather',
-		url : 'html/main.html',
+		url : 'html/homepage.html',
 		bounces : false,
 		rect : {
 			x : 0,
-			y : headerH,
+			y : 0,
 			w : 'auto',
-			h : frameH
+			h : frameH+headerH
 		},
 		reload:true,  //实现登录退出后回显刷新
 	});
 }
-
-function openCommonweal() {
-	$("#shop").addClass("changeCor").siblings().removeClass("changeCor");
+function openCommonweal(show) {
+	$(show).find("p").addClass("changeCor").parent().siblings().find("p").removeClass("changeCor");
+	$("#center").find("img").attr("src","image/mainimg/wd.png");
+	$("#around").find("img").attr("src","image/mainimg/gj.png");
+	$("#shop").find("img").attr("src","image/mainimg/sj1.png");
+	$("#neighbours").find("img").attr("src","image/mainimg/sc.png");
 	api.openFrame({
 		name : 'commonProvider',
-		url : 'shangjia/html/index.html',
+		url : 'shangjia/html/newIndex.html',
 		bounces : false,
 		reload:true,
 		rect : {
 			x : 0,
-			y : headerH,
+			y : 0,
 			w : 'auto',
-			h : frameH,
+			h : frameH+headerH,
 			
 		}
 			
 	});
-}
+};
 //6.19商家可以维护 砸蛋的页面跳转
 //function openCommonweal() {
 //	$("#shop").addClass("changeCor").siblings().removeClass("changeCor");

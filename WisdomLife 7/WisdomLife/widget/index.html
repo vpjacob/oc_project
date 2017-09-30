@@ -47,7 +47,9 @@
 			.bar-tab .changeCor{
 			   color:#0eaae3;
 			}
-			
+			#footer .changeCor{
+			    color: #0eaae3
+			}
 			.line{
 			  width:100%;
 			  height:1px;
@@ -56,6 +58,25 @@
 			  bottom:2.9rem;
 			  z-index:999;
 			  border-top:1px solid #eeeeee;
+			}
+			#footer{
+				background-color:#fff;
+				 border-top:1px solid #d3d3d3; 
+			}
+			#footer img{
+				width: 1.0rem;
+				height:1.0rem;
+				margin-top: 0.3rem
+			}
+			#footer p{
+				margin-top: -0.25rem;
+				color: #7f7f7f;
+			}
+			.bar-tab{
+				height: 50px;
+			}
+			.bar-tab .tab-item{
+				height: 50px
 			}
 		</style>
 	</head>
@@ -73,18 +94,20 @@
 			   <ul class="icon_lists clear">                
                 
                 <li class="tab-item" id="around" onclick="showAround(this)">
-                <i class="icon iconfont icon-shoplight"></i>
+                <!--<i class="icon iconfont icon-shoplight"></i>-->
+                	<img src="image/mainimg/gj.png" alt="" />
                 <p>管家</p>
                 </li>                
                
-                <li class="tab-item" onclick="openCommonweal()" id="shop">
-                <i class="icon iconfont icon-gouwuche"></i>
+                <li class="tab-item" onclick="openCommonweal(this)" id="shop">
+                <!--<i class="icon iconfont icon-gouwuche"></i>-->
+                	<img src="image/mainimg/sj.png" alt="" />
                 <p>商家</p>
                 </li> 
 
 
-                <li class="tab-item home" style="background:url('./image/111_03.png') no-repeat;background-size: 100%;top:-0.35rem;" onclick="openWeatherPage()" id="weather">
-                <div class="blueHome icon" style="font-size:16px;padding-top:8px;height:40px;-webkit-text-stroke-width:0;">主页</div>               
+                <li class="tab-item home" style="" onclick="openWeatherPage()" id="weather">
+                <div class="blueHome icon" style="font-size:16px;padding-top:8px;height:40px;-webkit-text-stroke-width:0;background:-webkit-linear-gradient(left,#55A5C0 0,#4164C2 100%);">首页</div>               
                 </li>
                 
 
@@ -92,13 +115,15 @@
                 <i class="icon iconfont icon-journeyline"></i>
                 <p>拍拍客</p>
                 </li>-->
-                 <li class="tab-item" id="neighbours" onclick="openNeighboursPage()">             
-                <i class="icon iconfont icon-smile"></i>
+                 <li class="tab-item" id="neighbours" onclick="openNeighboursPage(this)">             
+                <!--<i class="icon iconfont icon-smile"></i>-->
+                	<img src="image/mainimg/sc.png" alt="" />
                 <p>商城</p>
                 </li>
                          
                 <li class="tab-item" onclick="openCenterPage(this)" id="center">
-                <i class="icon iconfont icon-shezhi"></i>
+                <!--<i class="icon iconfont icon-shezhi"></i>-->
+                	<img src="image/mainimg/wd.png" alt="" />
                 <p>我的</p>
                 </li>         
               </ul>

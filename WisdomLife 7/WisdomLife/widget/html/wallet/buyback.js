@@ -524,7 +524,8 @@ apiready = function() {
 					}, function(ret, err) {
 						//						pushMsg(urId, title, message);
 						api.execScript({//刷新我的界面金币总数的数据
-							name : 'my-qianbao',
+							name : 'root',
+							frameName : 'room',
 							script : 'refresh();'
 						});
 						api.closeWin();
