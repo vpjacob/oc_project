@@ -179,10 +179,6 @@ static const char * __jb_app = NULL;
         return YES;
     }
     
-    //method 3
-    if (0 == system("ls")) {
-        return YES;
-    }
     
     return NO;
 }
