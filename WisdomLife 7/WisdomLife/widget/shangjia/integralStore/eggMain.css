@@ -1,0 +1,155 @@
+body {
+	font-family: "微软雅黑";
+	background-color: #efefef;
+}
+img {
+	display: block;
+}
+input {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border: none;
+	text-align: right;
+}
+input::-ms-input-placeholder{text-align: left;}
+input::-webkit-input-placeholder{text-align: left;}
+input::-o-input-placeholder{text-align: left;}
+input::-moz-input-placeholder{text-align: left;}
+.title{
+	height: 4.5rem;
+	background-color: white;
+}
+.title .title_div{
+	background-color: white;
+	width:60%;
+	height: 30px;
+	border-radius: 20px;
+	position: relative;
+	top:7px;
+	left:20%;
+	border:1px solid #ddd;
+}
+.title .title_div img{
+	width:18px;
+	height:18px;
+	display:inline;
+	position: absolute;
+	top:5px;
+	left:10px;
+}
+.title .title_div input{
+	display:inline;
+	position: absolute;
+	top:-0.1rem;
+	left:35px;
+	font-size:15px;
+	width:80%;
+	height: 17px;
+	padding-left: 0.1rem;
+}
+
+.box{
+	margin-top: 2.2rem;
+	overflow: hidden;
+	background-color: #efefef;
+	 position: relative;
+	top:2.35rem; 
+/* 	width: 100%;
+	    position: absolute;
+	    overflow-y: auto;
+	    top:2.35rem;
+	    bottom: 0;
+	   -webkit-overflow-scrolling: touch;  */
+}
+.bar .top{
+	width: 106%;
+  	border-bottom:1px solid #ddd;   
+	background:#FFFFFF;
+	height: 2.3rem;
+	position: relative;
+	top:2.2rem;
+	left:-3%;
+	
+}
+.bar .top .topSame{
+	height: 2.2rem;
+	width: 50%;
+	float: left;
+	text-align: center;
+	line-height: 2.2rem;
+	font-size: 0.7rem;
+	color: #929292;
+}
+.box .sameBoxs .same{
+	background-color:white;
+	width:49.2%;
+	float: left;
+	height: 13rem;
+	margin-top: 0.1rem;	
+	 margin-left: 0.1rem; 	
+}
+.box .sameBoxs .same img{
+	width: 100%;
+	height: 9.35rem;
+}
+.box .sameBoxs .same .busname{
+	font-size:0.65rem;
+	color: #282828;
+	width: 95%;
+	text-overflow :ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+	margin-left: 4%;
+}
+.box .sameBoxs .same .busprice{
+	font-size:0.7rem;
+	color: #f23030 
+}
+.box .sameBoxs .same .busprice .symbol{
+	color: #f23030;
+	margin-left: 4%;
+}
+.box .sameBoxs .same .busprice img{
+	width: 0.75rem;
+	height: 0.9rem;
+	display: inline;
+	position: relative;
+	top:0.2rem;
+	left: 0.1rem;
+}
+.box .sameBoxs .same .busprice .nowPrice{
+	font-size:0.8rem;
+	color: #f23030 
+}
+.box .sameBoxs .same .busprice .initprice{
+	font-size:0.6rem;
+	color: #999;
+	margin-left: 0.4rem; 
+}
+.box .sameBoxs .same .busperson{
+	font-size:0.6rem;
+	color: #999;
+	margin-left: 4%;
+}
+
+.special{
+	color: #282828;
+}
+.typeSpecial{
+	color: #0EAAE3;
+	background:#efefef;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

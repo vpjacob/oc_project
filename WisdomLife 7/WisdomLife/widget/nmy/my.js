@@ -143,7 +143,6 @@ apiready = function() {
 			});
 		}
 	}
-
 	//图片压缩
 	function compress(compressPic) {
 		var imgTempPath = compressPic.substring(compressPic.lastIndexOf("/"));
@@ -334,9 +333,93 @@ $('#payMoney').click(function() {
 	});
 	//回购
 	$('#buyback').click(function() {
+		checkBuyback();
+	});
+	//查询回购开关是否开启
+	function checkBuyback() {
+		AjaxUtil.exeScript({
+			script : "mobile.buyback.buyback",
+			needTrascation : true,
+			funName : "queryBuyBackIsOpen",
+			form : {
+				
+			},
+			success : function(data) {
+				console.log("查询回购开关是否开启"+$api.jsonToStr(data));
+				if (data.formDataset.checked == 'true') {
+					if(data.formDataset.isOpen == 1 ){
+						checkIsMayBuyBack();
+					}else if(data.formDataset.isOpen == 0){
+						api.openWin({
+							name : 'buyback',
+							url : '../html/wallet/buyback.html',
+							reload : true,
+							slidBackEnabled : true,
+							animation : {
+								type : "push", //动画类型（详见动画类型常量）
+								subType : "from_right", //动画子类型（详见动画子类型常量）
+								duration : 300 //动画过渡时间，默认300毫秒
+							}
+						});
+					}
+				} else {
+					console.log(data.formDataset.errorMsg);
+				}
+			}
+		});
+	};
+	
+	//回购显示状态
+	function checkIsMayBuyBack() {
+		api.showProgress({});
+		AjaxUtil.exeScript({
+			script : "mobile.buyback.buyback",
+			needTrascation : true,
+			funName : "checkIsMayBuyBack",
+			form : {
+				userNo : urId
+			},
+			success : function(data) {
+				api.hideProgress();
+				console.log("回购回显状态"+$api.jsonToStr(data));
+				if (data.formDataset.checked == 'true') {
+					//校验通过
+					if(String(data.formDataset.status)=="1"){
+						api.openWin({
+							name : 'buyback',
+							url : '../html/wallet/buyback.html',
+							reload : true,
+							slidBackEnabled : true,
+							animation : {
+								type : "push", //动画类型（详见动画类型常量）
+								subType : "from_right", //动画子类型（详见动画子类型常量）
+								duration : 300 //动画过渡时间，默认300毫秒
+							}
+						});
+					}else if(String(data.formDataset.status)=="2"){//回购资格不够
+						$("#buyBackImg").attr("src","../image/award/bjNot.png");
+						$(".tankuang_box").show();
+					}else if(String(data.formDataset.status)=="3"){//已经回购了
+						$("#buyBackImg").attr("src","../image/award/bjHade.png");
+						$(".tankuang_box").show();
+					}
+				} else {
+					console.log(data.formDataset.errorMsg);
+				}
+			},
+			error : function(xhr, type) {
+				api.hideProgress();
+				api.toast({
+	                msg:'您的网络不给力啊，检查下是否连接上网络了！'
+                });
+			}
+		});
+	};
+	//跳转商城
+	$(".gotoBus").click(function(){
 		api.openWin({
-			name : 'myegg',
-			url : '../html/wallet/buyback.html',
+			name : 'goldCount',
+			url : '../shangjia/html/buyList.html',
 			reload : true,
 			slidBackEnabled : true,
 			animation : {
@@ -345,7 +428,13 @@ $('#payMoney').click(function() {
 				duration : 300 //动画过渡时间，默认300毫秒
 			}
 		});
+		$(".tankuang_box").hide();
 	});
+	//关闭当前弹出框
+	$("#close").click(function(){
+		$(".tankuang_box").hide();
+	});
+	
 	//金明细跳转
 	$('#incomeInfo').click(function() {
 		api.openWin({
@@ -386,6 +475,19 @@ $('#payMoney').click(function() {
 			}
 		})
 	});
+	//物流跳转
+	$('#eggDh').click(function() {
+		api.openWin({
+			name : 'payRecord',
+			url : '../html/personal/eggDh.html',
+			slidBackEnabled : true,
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			}
+		})
+	});
 	//小客福利
 	$("#welfare").bind("click", function() {
 		api.openWin({//打开有设备的界面
@@ -413,9 +515,16 @@ $('#payMoney').click(function() {
 		});
 	});
 	$("#more").click(function(){
-		api.toast({
-	        msg:'敬请期待！'
-        });
+		api.openWin({
+			name : 'payRecord',
+			url : '../html/personal/myCollect.html',
+			slidBackEnabled : true,
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			}
+		})
 	})
 	//我的推荐
 	$('#myReferer').click(function() {
@@ -622,6 +731,28 @@ $('#payMoney').click(function() {
 					duration : 300 //动画过渡时间，默认300毫秒
 				}
 			});
+		} else if(String(skipurl) == "222222") {
+			api.openWin({//金蛋商城列表
+				name : 'integralStore',
+				url : '../shangjia/eggstore/eggMain.html',
+				slidBackEnabled : true,
+				animation : {
+					type : "push", //动画类型（详见动画类型常量）
+					subType : "from_right", //动画子类型（详见动画子类型常量）
+					duration : 300 //动画过渡时间，默认300毫秒
+				}
+			});
+		} else if(String(skipurl) == "333333") {
+			api.openWin({//积分商城列表
+				name : 'integralStore',
+				url : '../shangjia/integralStore/eggMain.html',
+				slidBackEnabled : true,
+				animation : {
+					type : "push", //动画类型（详见动画类型常量）
+					subType : "from_right", //动画子类型（详见动画子类型常量）
+					duration : 300 //动画过渡时间，默认300毫秒
+				}
+			});		
 		}else if(skipNo=="" || String(skipNo)=="null" || String(skipNo)=="undefined"){
 			api.confirm({
 				title : '提示',

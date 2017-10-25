@@ -477,6 +477,7 @@
 
    
     /*by king*/
+    
  //适配iPhone x
  u.fixIos7Bar = function(el){
  return u.fixStatusBar(el);
@@ -498,24 +499,8 @@
  el.style.paddingBottom = api.safeArea.bottom + 'px';
  return el.offsetHeight;
  }
- 
- 
- u.fixStatusBar = function(el){
-        if(!u.isElement(el)){
-            console.warn('$api.fixStatusBar Function need el param, el param must be DOM Element');
-            return;
-        }
-        var sysType = api.systemType;
-        if(sysType == 'ios'){
-            u.fixIos7Bar(el);
-        }else if(sysType == 'android'){
-            var ver = api.systemVersion;
-            ver = parseFloat(ver);
-            if(ver >= 4.4){
-                el.style.paddingTop = '25px';
-            }
-        }
-    };
+
+    
     u.toast = function(title, text, time){
         var opts = {};
         var show = function(opts, time){

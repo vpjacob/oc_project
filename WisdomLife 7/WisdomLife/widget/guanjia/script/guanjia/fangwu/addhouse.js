@@ -19,10 +19,6 @@ apiready = function() {
 		$(".span1").click(function() {
 			$("#apply").hide();
 			$("#zuhu").show();
-			//查询相关的省份
-			api.toast({
-	            msg:'我是租户功能暂未开通!'
-            });
 			queryProvnce();
 		})
 		$(".span0").click(function() {
@@ -173,32 +169,29 @@ apiready = function() {
 
 	//我是租户部分提交
 	$('#zuhu').click(function(){
-		api.toast({
-	        msg:'此功能暂未开通'
-        });
-//		if($('#beginTime').html()=='请选择开始时间'){
-//			alert('请选择开始时间');
-//			return false;
-//		};
-//		 if($('#endTime').html()=='请选择结束时间'){
-//			alert('请选择结束时间');
-//			return false;
-//		};
+		if($('#beginTime').html()=='请选择开始时间'){
+			alert('请选择开始时间');
+			return false;
+		};
+		 if($('#endTime').html()=='请选择结束时间'){
+			alert('请选择结束时间');
+			return false;
+		};
 //		if($('#beginTime').html()>$('#endTime').html()){
 //			alert('请输入正确的租房时间');
 //			return false;
 //		};
-//		if($('#tempName').val()==''){
-//			alert('请输入业主的名字');
-//			return false;
-//		};
-//		if($('#tempTel').val()==''){
-//			alert('请输入业主手机号');
-//			return false;
-//		};
-//		$("#zuhu").attr("disabled", true);
-//		$("#zuhu").css("background","#ddd");
-//		submitTenementHouseApply();
+		if($('#tempName').val()==''){
+			alert('请输入业主的名字');
+			return false;
+		};
+		if($('#tempTel').val()==''){
+			alert('请输入业主手机号');
+			return false;
+		};
+		$("#zuhu").attr("disabled", true);
+		$("#zuhu").css("background","#ddd");
+		submitTenementHouseApply();
 	});
 
 	

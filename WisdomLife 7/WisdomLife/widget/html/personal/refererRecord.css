@@ -52,11 +52,12 @@ table {
 	height: 50px;
 }
 #record .same li:nth-child(1){
-	height: 50px;
-	width:50px;
+	height: 2rem;
+	width:2rem;
 	float:left;
 	margin-left:5px;
-	 border-radius: 25px; 
+	 border-radius: 50%; 
+	 margin-top: 0.2rem;
 }
 #record .same li:nth-child(2){
 	height: 50px;
@@ -81,11 +82,57 @@ table {
 	line-height:50px;
 }
 #record .same img{
-	width:50px;
-	height: 50px;
+	width:2rem;
+	height: 2rem;
+	margin: 0 auto;
 	
 }
 
+#busRecord .same{
+	margin-top:5px;
+	border-bottom:1px solid #999999;
+	height: 52px;
+}
+
+#busRecord .same li{
+	display: inline;
+	height: 50px;
+}
+#busRecord .same li:nth-child(1){
+	height: 2rem;
+	width:2rem;
+	float:left;
+	margin-left:5px;
+	 border-radius: 50%; 
+	 margin-top: 0.2rem;
+}
+#busRecord .same li:nth-child(2){
+	height: 50px;
+	width:21%;
+	float:left;
+	line-height:50px;
+	margin-left: 5px;
+	text-overflow :ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+}
+#busRecord .same li:nth-child(3){
+	height: 50px;
+	width:27%;
+	float:left;
+	line-height:50px;
+}
+#busRecord .same li:nth-child(4){
+	height: 50px;
+	width:33%;
+	float:right;
+	line-height:50px;
+}
+#busRecord .same img{
+	width:2rem;
+	height: 2rem;
+	margin: 0 auto;
+}
 
 
 

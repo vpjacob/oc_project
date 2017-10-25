@@ -28,6 +28,30 @@
             color: #000;
             text-decoration: none;
         }
+        .referChange{
+        	width: 100%;
+		    height: 2rem;
+		    /* border: 1px solid red; */
+		    margin-top: 2.2rem;
+		    background: white;
+        }
+        .bar-nav~.content {
+        	top:4.2rem;
+        }
+        .referChange span{
+        	width:50%;
+        	height: 2.0rem;
+        	float: left;
+        	text-align: center;
+        	line-height: 2.0rem;
+        	color: #929292
+        }
+        .referChange span:nth-child(1){
+        	border-right:1px solid #ddd;
+        }
+        .referChange .special{
+        	color: black;
+        }
     </style>
 </head>
 <body>
@@ -38,6 +62,10 @@
 			<h1 class="title">我的推荐</h1>
 			<a class="top-bar-right" id="tjrecord">推荐记录</a>
 		</header>
+		<div class="referChange">
+			 <span class="span1 special">推荐用户</span>
+			 <span class="span2">推荐商家</span> 
+		</div>
         <div class="content">
         	<img class="background" src="../../image/bgc.png" />
         	<!--<div class="top">

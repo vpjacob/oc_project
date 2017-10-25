@@ -36,7 +36,7 @@
     //登录应用服务器，获取用户信息--Benson
     [LoginService loginWithUsername:username password:pwd success:^(NSDictionary *result) {
         NSNumber *code = [result objectForKey:@"ret"];
-        if ([code integerValue] == 0) {
+        if ([code integerValue] == 0) {//su
             
             [webView sendResultWithCallback:scriptMessage.callback ret:@{@"ret":@(0), @"msg":@"Login success"} err:nil delete:YES];
             
@@ -44,7 +44,7 @@
             //            [[AppDelegate currentAppDelegate] loginSIPServer];
             
         }else if([code integerValue] == 1020)
-        {
+        {//shibai
             [webView sendResultWithCallback:scriptMessage.callback ret:@{@"ret":@(1020), @"msg":@"account_or_password_wrong"} err:nil delete:YES];
         }
         else {

@@ -498,8 +498,8 @@
  el.style.paddingBottom = api.safeArea.bottom + 'px';
  return el.offsetHeight;
  }
- 
- u.toast = function(title, text, time){
+
+    u.toast = function(title, text, time){
         var opts = {};
         var show = function(opts, time){
             api.showProgress(opts);

@@ -9,6 +9,7 @@ var userInfo = {};
 //用户的钥匙
 var userkeyinfo = {};
 
+
 //用户信息
 var userInfo1 = {
 	"hasRegist" : false,
@@ -46,6 +47,11 @@ apiready = function() {
 				    buttons: ['确定', '取消']
 				}, function(ret, err) {
 				    if(ret.buttonIndex == 1){
+				    	//清空当前的城市名字
+				    	api.setPrefs({
+							key : 'cityname',
+							value : ''
+						});
 				    	api.closeWidget({
 			                id : 'A6921550712789',
 			                retData : {
@@ -252,6 +258,88 @@ apiready = function() {
 	    key:'hasLogon'
     });
 
+    //实现广告开屏跳转
+    api.addEventListener({
+                         name : 'startAdvertisement'
+                         }, function(ret, err) {
+                         
+                         var da = ret.value;
+                         var skipurl = da.skipUrl;
+                         var skipNo = da.skipNo;
+                         //                         alert(skipurl + skipNo);
+                         
+                         //                         var reqUrl = 'html/wallet/myegg.html';
+                         var name = "startAdvertisement";
+                         
+                         
+                         if (String(skipurl) == "000000") {
+                         api.openFrame({//商家列表
+                                       name : 'commonProvider',
+                                       url : 'shangjia/html/newIndex.html',
+                                       bounces : false,
+                                       reload : true,
+                                       rect : {
+                                       x : 0,
+                                       y : 0,
+                                       w : 'auto',
+                                       h : frameH + headerH,
+                                       }
+                                       });
+                         
+                         } else if(String(skipurl) == "111111") {
+                         api.openWin({//商城列表
+                                     name : 'busList',
+                                     url : 'shangjia/html/buyList.html',
+                                     slidBackEnabled : true,
+                                     animation : {
+                                     type : "push", //动画类型（详见动画类型常量）
+                                     subType : "from_right", //动画子类型（详见动画子类型常量）
+                                     duration : 300 //动画过渡时间，默认300毫秒
+                                     }
+                                     });
+                         } else if(String(skipurl) == "222222") {
+                         api.openWin({//金蛋商城列表
+                                     name : 'eggstore',
+                                     url : 'shangjia/eggstore/eggMain.html',
+                                     slidBackEnabled : true,
+                                     animation : {
+                                     type : "push", //动画类型（详见动画类型常量）
+                                     subType : "from_right", //动画子类型（详见动画子类型常量）
+                                     duration : 300 //动画过渡时间，默认300毫秒
+                                     }
+                                     });
+                         } else if(String(skipurl) == "333333") {
+                         api.openWin({//积分商城列表
+                                     name : 'integralStore',
+                                     url : 'shangjia/integralStore/eggMain.html',
+                                     slidBackEnabled : true,
+                                     animation : {
+                                     type : "push", //动画类型（详见动画类型常量）
+                                     subType : "from_right", //动画子类型（详见动画子类型常量）
+                                     duration : 300 //动画过渡时间，默认300毫秒
+                                     }
+                                     });
+                         }else if(skipNo=="" || String(skipNo)=="null" || String(skipNo)=="undefined"){
+                         api.confirm({
+                                     title : '提示',
+                                     msg : '您即将跳转到' + skipurl,
+                                     buttons : ['确定', '取消']
+                                     }, function(ret, err) {
+                                     var index = ret.buttonIndex;
+                                     if (index == 1) {
+                                     var browser = api.require('webBrowser');
+                                     browser.open({
+                                                  url : skipurl
+                                                  });
+                                     }
+                                     })
+                         }else if(skipurl=="" || String(skipurl)=="null" || String(skipurl)=="undefined"){
+                         //获取商品或商家id
+                         queryGoodOrMerchantByNo(skipNo);
+                         };
+                         
+                         });
+    
 
 	//输出Log，Log将显示在APICloud Studio控制台
 	var header = $api.byId('header');
@@ -475,6 +563,69 @@ function initUserInfoAndUserKeyInfo() {
 	});
 
 }
+
+
+function queryGoodOrMerchantByNo(skipNo){
+    api.showProgress({});
+    AjaxUtil.exeScript({
+                       script : "mobile.center.homepage.homepage",
+                       needTrascation : true,
+                       funName : "queryGoodOrMerchantByNo",
+                       form : {
+                       skipNo: skipNo
+                       },
+                       success : function(data) {
+                       api.hideProgress();
+                       console.log("获取商家或商品Id" + $api.jsonToStr(data));
+                       if (data.formDataset.checked == 'true') {
+                       //走商家
+                       if(data.formDataset.skipType=="1"){
+                       api.openWin({//商家详情界面
+                                   name : 'business-man-list',
+                                   url : 'sjDetail/business-man-list.html',
+                                   slidBackEnabled : true,
+                                   animation : {
+                                   type : "push", //动画类型（详见动画类型常量）
+                                   subType : "from_right", //动画子类型（详见动画子类型常量）
+                                   duration : 300 //动画过渡时间，默认300毫秒
+                                   },
+                                   pageParam : {
+                                   id : data.formDataset.skipId,
+                                   companytype : data.formDataset.skipId
+                                   }
+                                   });
+                       
+                       }else if(data.formDataset.skipType=="2"){
+                       api.openWin({//详情界面
+                                   name : 'buyListInfo',
+                                   url : 'shangjia/html/buyListInfo.html',
+                                   slidBackEnabled : true,
+                                   animation : {
+                                   type : "push", //动画类型（详见动画类型常量）
+                                   subType : "from_right", //动画子类型（详见动画子类型常量）
+                                   duration : 300 //动画过渡时间，默认300毫秒
+                                   },
+                                   pageParam : {
+                                   id : data.formDataset.skipId
+                                   }
+                                   });
+                       
+                       }
+                       
+                       } else {
+                       
+                       }
+                       },
+                       error : function(xhr, type) {
+                       api.hideProgress();
+                       api.toast({
+                                 msg:'您的网络不给力啊，检查下是否连接上网络了！'
+                                 });
+                       }
+                       });
+}
+
+
 
 function getUserInfo() {		
 	var hasRegist = api.getPrefs({
@@ -703,7 +854,11 @@ function openWeatherPage() {
 		},
 		reload:true,//点击主页刷新
 	});
-	
+	//清空当前的城市名字 初始加载当前的城市
+	api.setPrefs({
+		key : 'cityname',
+		value : ''
+	});
 }
 
 /**
@@ -846,6 +1001,11 @@ function openmain() {
 			h : frameH+headerH
 		},
 		reload:true,  //实现登录退出后回显刷新
+	});
+//	清空当前的城市名字 初始加载当前的城市
+	api.setPrefs({
+		key : 'cityname',
+		value : ''
 	});
 }
 function openCommonweal(show) {

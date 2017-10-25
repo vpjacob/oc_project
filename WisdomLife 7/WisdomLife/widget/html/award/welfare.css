@@ -134,12 +134,12 @@ input {
 .box{
 	width: 92%;
 	margin:0 auto;
-	margin-top:3.4rem;
-	
+/* 	margin-top:3.4rem; */
+	margin-top:3.0rem;
 }
 .box .top img{
 	width: 100%;
-	height: 9rem;
+ 	height: 9.0rem; 
 }
 .box .top img:nth-child(2){
     width: 8.325rem;
@@ -215,10 +215,55 @@ input {
 	margin-right: 1%;
 	margin-top: 0.1rem;
 }
-
-
-
-
+.dowebok {
+	 width: 100%;
+	 height:9.5rem; 
+	 margin: 10px auto; 
+	 border:2px solid #a1220a;
+	 border-radius: 5px;	
+}
+.dowebok ul { 
+	margin: 0; 
+	background-color: #fff2c5;
+	line-height: 25px;
+}
+.dowebok a { 
+	color: #a33e00; 
+	text-decoration: none;
+	margin-left: 2%;
+	font-size: 0.7rem;
+/* 	 margin-top: -5px;   */
+	width: 100%;
+ 	text-overflow :ellipsis;
+ 	white-space:nowrap;
+ 	overflow:hidden;
+}
+.dowebok a span{
+	color: #f52636;
+}
+ .dowebok span:nth-child(2){
+ 	width: 42%;
+ 	display: inline;
+/*  	 border:1px solid red;  */
+ 	text-overflow :ellipsis;
+ 	white-space:nowrap;
+ 	overflow:hidden;
+ }   
+.giftTop{
+	width: 63.73%;
+	margin: 0 auto;
+	margin-top: 0.325rem;
+	position: relative;
+	z-index: 100;
+}
+.dowebok{
+	margin-top: -3%;
+}
+.giftBto{
+	width:100%;
+	position: absolute;
+	bottom: 0;
+}
 
 
 

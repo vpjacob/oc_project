@@ -1,0 +1,396 @@
+/*@import "menu.css";*/
+/** 清除内外边距 **/
+body, h1, h2, h3, h4, h5, h6, hr, p,
+blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
+th, td, /* table elements 表格元素 */
+img/* img elements 图片元素 */{
+    border:medium none;
+    margin: 0;
+    padding: 0;
+}
+/** 设置默认字体 **/
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: '微软雅黑';
+}
+/*h1, h2, h3, h4, h5, h6 { font-size: 100%; }*/
+/*em{font-style:normal;}*/
+/** 重置列表元素 **/
+
+ul, ol {
+	list-style: none;
+}
+/** 重置超链接元素 **/
+a {
+	text-decoration: none;
+	color: #000;
+}
+a:hover {
+	text-decoration: underline;
+	color: #3363a7;
+}
+/** 重置图片元素 **/
+img {
+	border: 0px;
+}
+/** 重置表格元素 **/
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.firstInfo{
+	width:100%;
+	height: 5.2rem;
+	border-top:1px solid #ddd;
+	border-bottom:1px solid #ddd;
+	background: #fff;
+}
+.businessInfo{
+	width:96%;
+	height: 2.2rem;
+	float:right;
+	border-bottom:1px solid #ddd;
+	background: #fff;
+}
+.businessInfo span{
+	font-size: 0.75rem;
+	color: #4d4d4d;
+	line-height: 2.2rem;
+}
+.businessShow{
+	width:96%;
+	height: 3rem;
+	float:right;
+}
+.businessShow img{
+	width:1.4rem;
+	height: 1.4rem;
+	margin-top:0.8rem;
+}
+.businessShow span{
+	font-size: 0.7rem;
+	color: #282828;
+	float: right;
+	line-height: 3rem;
+	margin-right: 4%;	
+}
+.businessShow span:nth-child(4){
+	position:relative;
+	/* left: 28%; */
+	width:55%;
+	text-overflow :ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+}
+.businessShow .eggImg{
+	width:0.75rem;
+	height: 0.9rem;
+	float: right;
+	position: relative;
+    top: 0.2rem;
+    left: -3%;
+}
+.choose{
+	width:100%;
+	 overflow:auto;
+	border-top:1px solid #ddd;
+	border-bottom:1px solid #ddd;
+	background: #fff;
+	margin-top:0.75rem;
+}
+.choose .chooseColor{
+	width:96%;
+	height: 2.2rem;
+	border-bottom:1px solid #ddd;
+	float: right;
+}
+.choose .chooseColor select{
+	float: right;
+	border:none;
+	margin-top: 0.6rem;
+	margin-right: 4%;
+	font-size: 0.75rem;
+	background: #fff;
+/* 	 direction: rtl; */
+	 appearance:none;
+	-moz-appearance:none;
+	-webkit-appearance:none;
+	opacity: 0;
+	position: relative;
+	right: -13%;
+}
+.choose .chooseColor .spanModle{
+	float: right;
+	position: relative;
+	right: 4%;
+}
+.choose  span{
+	font-size: 0.75rem;
+	color: #4d4d4d;
+	line-height: 2.2rem;
+}
+.choose .chooseAmount{
+	width:96%;
+	height: 2.2rem;
+	float: right;
+}
+.choose .chooseAmount .chooseAmountChange{
+	width:3.75rem;
+	height: 1rem;
+ 	border:1px solid #ddd; 
+	float:right;
+	margin-top: 0.6rem;
+	margin-right: 4%;
+}
+ .choose .chooseAmount .chooseAmountChange div{
+	width:33.33%;
+	height: 100%;
+	font-size:0.7rem;
+ 	float: left;
+	text-align: center;
+	background: #E5E5E5;
+	line-height: 0.9rem;
+} 
+ .choose .chooseAmount .chooseAmountChange div:nth-child(2){
+ 	background: #fff;
+ }
+ 
+.businessPay{
+	height: 2.2rem;
+	width:100%;
+	border:1px solid #ddd;
+	background: #fff;
+	margin-top: 0.75rem;
+}
+.businessPay img{
+	width:1.25rem;
+	height: 1.25rem;
+	margin-left: 4%;
+	margin-top: 0.475rem;
+}
+.buyInfo{
+	width:100%;
+	height: 8.4rem;
+	margin-top:0.7rem;
+	border-top:1px solid #ddd;
+	border-bottom:1px solid #ddd;
+	background: #fff;
+}
+.buyInfo .buySame{
+	width:96%;
+	height: 2.2rem;
+	float: right;
+	border-bottom:1px solid #ddd;
+}
+.buyInfo .buySame:nth-child(3){
+	border-bottom:none;
+}
+.buyInfo .buySame span{
+	font-size: 0.75rem;
+    color: #4d4d4d;
+    line-height: 2.2rem;
+}
+.buyInfo .buySame input{
+	margin-left: 0.6rem;
+}
+.buyInfo .buySame .buyTel{
+	margin-left: 1.3rem;
+}
+.buyInfo .buySame textarea{
+	resize: none;
+	float: left;
+	height:3.4rem;
+	margin-left: 1.5rem;
+	margin-top:0.5rem;
+	width: 68%;
+}
+footer{
+	width:100%;
+	height: 2.6rem;
+	background: #FFF;
+	position: fixed;
+	bottom: 0;
+}
+footer span{
+	font-family: '微软雅黑';
+	font-weight: 700;
+	color: #FF4E00;
+	font-size: 0.9rem;
+}
+footer span:nth-child(1){
+	margin-left: 4%;
+	line-height: 2.7rem;
+}
+footer button{
+	float: right;
+	height: 2rem;
+	width: 6.3rem;
+	color: #fff;
+	background: #FF4E00;
+	text-align: center;
+	margin-top: 0.35rem;
+	margin-right: 4%;
+	line-height: 2rem;
+	border-radius: 5px;
+	font-size: 0.9rem;
+	font-weight: 700;
+}
+
+
+textarea::-ms-input-placeholder{text-align: center;color:#999}
+textarea::-webkit-input-placeholder{text-align: center;color:#999}
+textarea::-o-input-placeholder{text-align: center;color:#999}
+textarea::-moz-input-placeholder{text-align: center;color:#999}
+.addInfo{
+	width: 100%;
+	margin-top:0.7rem;
+	height: 4.4rem;
+	background: #fff;
+	border-top:1px solid #ddd;
+	border-bottom:1px solid #ddd;
+	
+}
+.addInfo .addInfoBox{
+	width: 96%;
+	height: 4.4rem;
+	margin:0 auto;
+	/*  border:1px solid red;  */ 
+}
+.addInfo .addInfoBox .top{
+	margin-top:0.3rem;
+}
+
+.addInfo .addInfoBox .top span:nth-child(2){
+	margin-left: 1rem;
+}
+.addInfo .addInfoBox textarea{
+	resize: none;
+	height:2.5rem;
+	margin-top:0.2rem;
+	width:94%;
+	/*  border:1px solid red;  */ 
+	
+}
+.addInfo .addInfoBox i{
+	font-size: 1rem;
+	color: #d3d3d3;
+	position: relative;
+	top:-3.0rem;
+}
+
+.priceInfo{
+	width: 100%;
+	margin-top:0.7rem;
+	height: 2.2rem;
+	background: #fff;
+	border-top:1px solid #ddd;
+	border-bottom:1px solid #ddd;	
+}
+.priceInfo .costInfo{
+	width: 96%;
+	height: 4.4rem;
+	margin:0 auto;
+}
+.priceInfo .costInfo .costInfoTop{
+	margin-top:0.6rem;
+}
+.priceInfo .costInfo .costInfoTop span:nth-child(3){
+	 float:right; 
+	 color:#FF4E00;
+}
+.priceInfo .costInfo .costInfoTop img{
+	float: right;
+	width: 0.75rem;
+	height: 0.9rem;
+	position: relative;
+	left: 0.2rem;
+}
+.businessPay span{
+	position: relative;
+	top:-0.4rem;
+	left:0.1rem;
+	font-size: 0.75rem;
+}
+.businessPay p{
+	display: inline-block;
+}
+
+.black_box{
+	background:rgba(0,0,0,0.7);
+	position:fixed;
+	top:0;
+	left:0;
+	z-index:20000;
+	height:100%;
+	width:100%;
+	 display:none; 
+	overflow: hidden;
+}
+.tankuang_box{
+	position:fixed;
+	top:34%;
+	left:0;
+	z-index:20001;
+	width:100%;
+ 	display:none; 
+	overflow: hidden;
+}
+
+.tankuang{
+	width:84%;
+	margin:auto;
+	background-color: white;
+	border-radius:5px;
+	overflow:hidden;
+	
+}
+.tankuang div{
+	background-color: #FFFFFF;
+	font-size:18px;
+	border-bottom:1px solid #E6E6E6;
+	height: 50px;
+}
+.tankuang div span{
+	margin-top: 5%;
+	margin-left: 4%;
+	font-size: 0.75rem
+}
+.tankuang div .agree{
+	margin: 0;
+	margin-top:12px;
+	float:right;
+ 	width:49%; 
+	background:#FFFFFF;
+	text-align:center;
+	color:#0eaae3;
+	
+}
+.tankuang div .noAgree{
+	border-right:solid 1px #c7c7c7;
+	margin: 0;
+	margin-top:12px;
+	float:left;
+ 	width:49%;  
+	background:#FFFFFF;
+	text-align:center;
+	color:#0eaae3;
+}
+#pwd{
+	float: right;
+	margin-top: 5%;
+    margin-right: 5%;
+	width: 6rem;
+	font-size: 0.75rem;
+	-ms-input-placeholder{font-size: 0.75rem};
+	-webkit-input-placeholder{font-size: 0.75rem};
+	-o-input-placeholder{font-size: 0.75rem};
+	-moz-input-placeholder{font-size: 0.75rem};
+};
+
+

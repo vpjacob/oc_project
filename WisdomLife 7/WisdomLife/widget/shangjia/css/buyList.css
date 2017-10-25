@@ -54,7 +54,7 @@ input::-moz-input-placeholder{text-align: left;}
 	overflow: hidden;
 	background-color: #efefef;
 	position: relative;
-	top:2.35rem;
+	top:2.35rem; 
 }
 .bar .top{
 	width: 106%;

@@ -1,19 +1,53 @@
 var urId;
-
+var busPath="";
+var flag=1;
 apiready = function() {
 	urId = api.getPrefs({
 		sync : true,
 		key : 'userNo'
 	});
-
+	//拼接服务器地址端口、执行方法、传递参数  推荐商家路径
+	//个人推荐的路径	
 	var param = api.pageParam;
-	$(".top").find("p").html('我的二维码');
+//	$(".top").find("p").html('我的二维码');
 	$(".bottom").find("img").attr("src", param.imgpath);
+	var address = rootUrl + "/jsp/manager/recommand/myProviderMoblieReg?userNo=" + urId + "&userType=2";
+	//请求二维码模块
+	var scanner = api.require('scanner');
+	scanner.encode({
+		string : address,
+		save : {
+			imgPath : 'fs://',
+			imgName : 'referBuser.png'
+		}
+	}, function(ret, err) {
+		if (ret.status) {
+			busPath=ret.savePath;
+		} else {
+			api.alert({
+				msg : JSON.stringify(err)
+			}, function(ret, err) {
+				//coding...
+			});
+		}
+	});
 
 	$("#goback").click(function() {
 		goback();
 	});
-
+	
+	//推荐个人  推荐商家切换
+	$(".referChange .span2").click(function(){
+		$(".bottom").find("img").attr("src", busPath);
+		$(this).addClass("special").prev().removeClass("special");
+		flag=2;
+	})
+	$(".referChange .span1").click(function(){
+		$(".bottom").find("img").attr("src", param.imgpath);
+		$(this).addClass("special").next().removeClass("special");
+		flag=1;
+	})
+	
 	$('#tjrecord').click(function() {
 		api.openWin({
 			name : 'refererRecord',
@@ -30,8 +64,10 @@ apiready = function() {
 	var header = $api.byId('header');
 	if (api.systemType == 'ios') {
 		var cc = $api.dom('.content');
-		$api.css(header, 'margin-top:20px;');
-		$api.css(cc, 'margin-top:20px;');
+		var dd = $api.dom('.referChange');
+		$api.css(header, 'margin-top:1rem;');
+		$api.css(cc, 'margin-top:1rem;');
+		$api.css(dd, 'margin-top:3.2rem;');
 	}
 	//监听页面的长按事件
 	api.addEventListener({
@@ -46,15 +82,21 @@ apiready = function() {
 
 	$("#qq_share").bind("click", function() {
 		var qq = api.require('qq');
+		var qqUrl="";
 		qq.installed(function(ret, err) {
-
+			
 			if (ret.status) {
 				$('#photo').hide();
+				if(flag==1){
+					qqUrl=rootUrl + "/jsp/recommendmobile?userNo=" + urId + "&userType=1"
+				}else if(flag==2){
+					qqUrl=address;
+				}
 				qq.shareNews({
 					type : 'QFriend',
-					url : rootUrl + "/jsp/recommendmobile?userNo=" + urId + "&userType=1",
-					title : '小客智慧生活',
-					description : '小客智慧生活服务平台  小客为您开启智慧生活！！！',
+					url : qqUrl,
+					title : '小客科技改变生活',
+					description : '小客创享智慧未来,与您携手共享科技生活！',
 					imgUrl : 'http://www.ppke.cn:8080/qrcode/a.png'
 				}, function(ret, err) {
 					if (ret.status) {
@@ -64,6 +106,7 @@ apiready = function() {
 					} else {
 					}
 				});
+				
 			} else {
 				api.alert({
 					msg : "当前设备未安装QQ客户端"
@@ -73,33 +116,22 @@ apiready = function() {
 	});
 	$("#wx_share").bind("click", function() {
 		var wx = api.require('wx');
+		var wxUrl=""
 		wx.isInstalled(function(ret, err) {
 			if (ret.installed) {
 				$('#photo').hide();
-				//				wx.shareWebpage({
-				//					apiKey : '',
-				//					scene : 'session',
-				//					title : '小客智慧生活',
-				//					description : '小客智慧生活服务平台  小客为您开启智慧生活！！！',
-				//					thumb : 'widget://image/a.png',
-				//					contentUrl : rootUrl + "/jsp/recommendmobile?userNo=" + urId + "&userType=1",
-				//				}, function(ret, err) {
-				//					if (ret.status) {
-				//						api.alert({
-				//							msg : "分享成功！"
-				//						});
-				//					} else {
-				//						//alert(err.code);
-				//					}
-				//				});
-
+				if(flag==1){
+					wxUrl=rootUrl + "/jsp/recommendmobile?userNo=" + urId + "&userType=1"
+				}else if(flag==2){
+					wxUrl=address;
+				}
 				wx.shareWebpage({
 					apiKey : '',
 					scene : 'session',
 					title : '小客科技改变生活',
 					description : '小客创享智慧未来,与您携手共享科技生活！',
 					thumb : 'widget://image/a.png',
-					contentUrl : rootUrl + "/jsp/recommendmobile?userNo=" + urId + "&userType=1",
+					contentUrl :wxUrl,
 //					userName : 'A6921550712789',
 //					path : '',
 				}, function(ret, err) {
@@ -121,8 +153,15 @@ apiready = function() {
 	});
 
 	$("#sms_share").bind("click", function() {
+		var sms="";
+		if (flag == 1) {
+			sms = rootUrl + "/jsp/recommendmobile?userNo=" + urId + "&userType=1"
+		} else if (flag == 2) {
+			sms = address;
+		}
+
 		api.sms({
-			text : '小客智慧生活' + rootUrl + "/jsp/recommendmobile?userNo=" + urId + "&userType=1",
+			text : '小客科技改变生活' + sms,
 		}, function(ret, err) {
 			if (ret && ret.status) {
 				//已发送

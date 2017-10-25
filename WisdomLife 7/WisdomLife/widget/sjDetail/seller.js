@@ -12,12 +12,23 @@ var map;
 var fname="";
 var goodimgurls="";
 var headpic="";
+var userNo="";
 apiready = function() {
 	id = api.pageParam.id;
 	comtype = api.pageParam.companytype;
 	var header = $api.byId('title');
+	var first = $api.dom('.first');
+	var secondul = $api.dom('.secondul');
+	userNo = api.getPrefs({
+	    sync:true,
+	    key:'userNo'
+    });
 	if (api.systemType == 'ios') {
-		$api.css(header, 'margin-top:20px;');
+		$api.css(header, 'padding-top:1rem;');
+		$api.css(header, 'height:3.2rem;');
+	}else{
+		$api.css(first, 'top:1.85rem');
+		$api.css(secondul, 'top:2.2rem');
 	}
 	$("#Back").on('click', function() {
 		api.closeWin();
@@ -190,8 +201,74 @@ apiready = function() {
 				})
 			}
 		});
-
 	});
+	//展示快速消费与收藏
+	$("#fastPay").click(function(){
+		$(".secondul").show();
+		$(".black_box").show();
+		$("div.first").show();
+	});
+	//点击蒙版消失
+	$('.black_box').on('click', function() {
+		$(".secondul").hide();
+		$("div.first").hide();
+		$(".black_box").hide();
+	});
+	$('#gotoPay').click(function() {
+		//获取路径并上传照片
+		api.openWin({//打开导航界面
+			name : 'myPay',
+			url : 'myPay.html',
+			slidBackEnabled : true,
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			},
+			pageParam : {
+				name : $('#sjname').html(),
+				id : $('.container').attr('id')
+			}
+		});
+		$(".secondul").hide();
+		$(".black_box").hide();
+		$("div.first").hide();
+	}); 
+	$("#collect").click(function(){
+		merchantCollection();
+	})
+	//收藏商家
+	function merchantCollection() {
+		AjaxUtil.exeScript({
+			script : "mobile.business.business",
+			needTrascation : true,
+			funName : "merchantCollection",
+			form : {
+				userNo :userNo,
+				merchantNo :$('.container').attr('id')
+			},
+			success : function(data) {
+				console.log($api.jsonToStr(data));
+				if (data.formDataset.checked == 'true') {
+					$(".secondul").hide();
+					$(".black_box").hide();
+					$("div.first").hide();
+					api.toast({
+	                    msg:data.formDataset.errorMsg
+                    });
+				}else{
+					api.toast({
+	                    msg:data.formDataset.errorMsg
+                    });
+                    $(".secondul").hide();
+					$(".black_box").hide();
+					$("div.first").hide();
+				}
+	
+			}
+		})
+	}
+
 
 	function getDistance() {
 		map = api.require('bMap');

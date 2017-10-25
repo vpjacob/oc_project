@@ -9,7 +9,8 @@ apiready = function() {
 	    key:'userNo'
     });
     queryTaskPlan();
-	
+	//调用中奖记录接口
+	giftRecord();
 	var closePage = $api.byId('title');
 	if (api.systemType == 'ios') {
 		$api.css(closePage, 'margin-top:1.1rem');
@@ -165,6 +166,55 @@ apiready = function() {
 			error : function(xhr, type) {
 				api.hideProgress();
 				alert("您的网络不给力啊，检查下是否连接上网络了！");
+			}
+		});
+	};
+	
+	function giftRecord() {
+		api.showProgress({});
+		AjaxUtil.exeScript({
+			script : "mobile.myegg.myaward",
+			needTrascation : true,
+			funName : "queryWinningInfo",
+			form : {},
+			success : function(data) {
+				api.hideProgress();
+				console.log("奖品记录"+$api.jsonToStr(data));
+				if (data.formDataset.checked == 'true') {
+//					var account = data.formDataset.carouselList;
+					var list = $api.strToJson(data.formDataset.awardList);
+					var nowli = "";
+					var sex="";
+					var unit=""
+					for (var i = 0; i < list.length; i++) {
+						if(String(list[i].sex)=="男"){
+							sex="先生"
+						}else if(String(list[i].sex)=="女"){
+							sex="女士"
+						}
+						if(String(list[i].name).indexOf("牙刷")>0){
+							unit="支"
+						}else{
+							unit="台"
+						}
+						nowli += '<li><a>恭喜！<span>'+String(list[i].real_name).substring(0,1)+'</span>'+sex+'  抽得<span>'+list[i].name+'一'+unit+'!</span></a></li>'
+					}
+					$('#giftRecord').html(nowli);
+					$(function(){
+						$('.dowebok').liMarquee({
+							direction: 'up',
+							scrollamount:30
+						});
+					});
+				} else {
+					console.log(data.formDataset.errorMsg);
+				}
+			},
+			error : function(xhr, type) {
+				api.hideProgress();
+				api.toast({
+	                msg:'您的网络不给力啊，检查下是否连接上网络了！'
+                });
 			}
 		});
 	};

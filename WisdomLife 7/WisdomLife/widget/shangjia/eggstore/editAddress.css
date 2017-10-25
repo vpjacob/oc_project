@@ -1,0 +1,206 @@
+body {
+	font-family: "微软雅黑";
+	background-color:#efefef;
+	overflow: hidden;
+}
+img {
+	display: block;
+}
+input {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border: none;
+	text-align: left;
+}
+button{
+	border:none;
+	padding:0;
+	margin:0;
+	outline:0;
+}
+
+.clearfix {
+	clear: both;
+}
+
+h1{
+	background: #0eaae3;
+}
+.title{
+	font-size:17px;
+	border-bottom:1px solid #efefef;
+}
+.Personal_box{
+	background:#FFFFFF;
+	overflow: hidden;
+}
+.Personal_title{
+	background:#FFFFFF;
+	width:100%;
+	margin:auto;
+	line-height:45px;
+	margin-top:10px;
+	clear:both;
+	border-bottom:solid 1px #efefef;
+}
+.Personal_title span{
+	position:relative;
+	float:left;
+	width:50%;
+	text-align:center;
+	font-size:13px;
+	border-bottom:solid 1px rgba{0,0,0,0};
+} 
+.next button{
+	width:100%;
+	height:2.2rem;
+	border-radius:10px;
+	background:#e71f19;
+	color:#FFFFFF;
+	font-size:0.9rem;	
+}
+
+ 
+.box{
+	width: 100%;
+	height:100%;
+}
+.box .bottom .user{
+	width: 100%;
+	border-bottom:1px solid #efefef;
+	background-color:#ffffff;
+}
+.box .bottom .same{
+	width: 92%;
+	margin:0 auto;
+}
+.box .bottom .user span{
+	 line-height:2.2rem;
+	font-size:15px;
+	float:left;
+	color: #282828;
+}
+.box .bottom .user input{
+    line-height:2.2rem;
+	color:#A1A1A1;
+	font-size:15px;
+	width:6.5rem;
+	
+}
+.box .next{
+	width:92%;
+	position:absolute;
+	bottom: 1rem;
+	left: 4%;
+}
+.box.next button{
+	width:100%;
+	height:35px;
+	border-radius:10px;
+	background-color:#e71f19;
+	color:#FFFFFF;
+	font-size:20px;
+}
+.box .bottom .same select{
+	width: 27%;
+	border:1px solid #A1A1A1;
+	margin-top: 0.5rem;
+	font-size: 15px;
+	background: #fff;
+	border-radius:5px;
+	appearance:none;
+	-moz-appearance:none;
+	-webkit-appearance:none;
+	color: #A1A1A1;
+}
+
+
+.checkbox {
+	position: relative;
+	display: inline-block;
+	float:right;
+	margin-top: 1.0rem;
+}
+.checkbox:after, .checkbox:before {
+	font-family: FontAwesome;
+	-webkit-font-feature-settings: normal;
+	-moz-font-feature-settings: normal;
+	font-feature-settings: normal;
+	-webkit-font-kerning: auto;
+	-moz-font-kerning: auto;
+	font-kerning: auto;
+	-webkit-font-language-override: normal;
+	-moz-font-language-override: normal;
+	font-language-override: normal;
+	font-stretch: normal;
+	font-style: normal;
+	font-synthesis: weight style;
+	font-variant: normal;
+	font-weight: normal;
+	text-rendering: auto;
+}
+.checkbox label {
+	width: 90px;
+	height: 1.32rem;
+	background: #ccc;
+	position: relative;
+	display: inline-block;
+	border-radius: 46px;
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+	top: 0.2rem;
+	left: 0;
+}
+.checkbox label:after {
+	content: '';
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	border-radius: 100%;
+	left: 0;
+	top: -5px;
+	z-index: 2;
+	background: #fff;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+.checkbox input {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 5;
+	opacity: 0;
+	cursor: pointer;
+}
+.checkbox input:checked + label:after {
+	left: 1.7rem;
+}
+ .checkbox label {
+	width: 55px;
+}
+ .checkbox label:after {
+	top: 3%;
+	width: 1.25rem;
+	height: 1.25rem;
+}
+.checkbox input:checked + label {
+	background: #0EAAE3;
+}
+ .checkbox input:checked + label:after {
+	left: 30px;
+}
+.test_box {
+    width: 74%;
+    min-height: 2.2rem;
+    max-height: 15rem;
+    font-size: 0.7rem;
+    -webkit-user-select:text; /* IOS中div contenteditable=true无法输入 */
+     word-wrap: break-word;
+    overflow-x: hidden;
+    overflow-y: auto;
+    _overflow-y: visible; 
+}

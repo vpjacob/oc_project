@@ -13,5 +13,5 @@
 
 +(instancetype)manager;
 -(APIWidgetContainer *)getAPIWidgetContainer;
-- (void)nativeSendActionToH5:(NSString*)action;
+- (void)nativeSendActionToH5:(NSString*)action userInfo:(NSDictionary *)userInfo;
 @end

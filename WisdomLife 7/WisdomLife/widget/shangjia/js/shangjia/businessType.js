@@ -63,10 +63,10 @@ apiready = function() {
 									daF = '评星暂无'
 								} else {
 									for (var k = 0; k < starlen; k++) {
-										daF += '<img src="../image/stares.jpg" alt=""/>'
+										daF += '<img src="../image/newimg/stares.png" alt=""/>'
 									}
 									for (var w = 0; w < 5 - starlen; w++) {
-										kf += '<img src="../image/stares.png" alt=""/>'
+										kf += '<img src="../image/newimg/starelost.png" alt=""/>'
 									}
 								}
 								return daF + kf;

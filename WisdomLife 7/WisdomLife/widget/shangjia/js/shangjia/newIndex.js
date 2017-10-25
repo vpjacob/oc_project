@@ -11,81 +11,86 @@ apiready = function() {
 		var cc = $api.dom('.title_div');
 		$api.css(cc, 'margin-top:0.8rem;');
 	};
-	var UILoading = api.require('UILoading');
-	UILoading.flower({
-		center : {
-			x : api.winWidth/2.0,
-			y : api.winHeight/2.0
-		},
-		size : 30,
-		mask:'rgba(0,0,0,0.5)',
-		fixed : true
-	}, function(ret) {
-		id=ret.id;
-	}); 
+//	var UILoading = api.require('UILoading');
+//	UILoading.flower({
+//		center : {
+//			x : api.winWidth/2.0,
+//			y : api.winHeight/2.0
+//		},
+//		size : 30,
+//		mask:'rgba(0,0,0,0.5)',
+//		fixed : true
+//	}, function(ret) {
+//		id=ret.id;
+//	}); 
 	
-	var bMap = api.require('bMap');
-	bMap.getLocation({
-		accuracy : '100m',
-		autoStop : true,
-		filter : 1
-	}, function(ret1, err1) {
-		if (ret1.status) {
-			//获取当前位置经纬度
-			lon = ret1.lon;
-			lat = ret1.lat;
-			bMap.getNameFromCoords({
-				lon : lon,
-				lat : lat
-			}, function(ret, err) {
-				if (ret.status) {
-					currentCity = ret.city;
-					var cityStorage = $api.getStorage("cityName");
-					if(cityStorage==''||cityStorage=='undefinded'||cityStorage==null){
-						$api.setStorage("cityName",currentCity);
-						cityName = currentCity;
-						init();
-					}else{
-						if(currentCity.indexOf(cityStorage)<0){
-							api.confirm({
-								title:'切换所在城市',
-								msg : '当前所在城市是' + currentCity + ',是否选择切换',
-								buttons : ['切换','取消']
-							}, function(ret2, err2) {
-								if (ret2.buttonIndex == 2) {
-									cityName = cityStorage;
-								}else if(ret2.buttonIndex==1){
-									$api.setStorage("cityName",ret.city);
-									cityName = ret.city;
-								}
-								init();
-							}); 
-						}else{
-							cityName = ret.city;
-							init();
-						}
-					}
-				}
-			}); 
-		} else {
-			$api.toast('定位失败！刷新一下试试！');
-		}
-		UILoading.closeFlower({
-			id : id
-		}); 
-	}); 
+//	var bMap = api.require('bMap');
+//	bMap.getLocation({
+//		accuracy : '100m',
+//		autoStop : true,
+//		filter : 1
+//	}, function(ret1, err1) {
+//		if (ret1.status) {
+//			//获取当前位置经纬度
+//			lon = ret1.lon;
+//			lat = ret1.lat;
+//			bMap.getNameFromCoords({
+//				lon : lon,
+//				lat : lat
+//			}, function(ret, err) {
+//				if (ret.status) {
+//					currentCity = ret.city;
+//					var cityStorage = $api.getStorage("cityName");
+//					if(cityStorage==''||String(cityStorage)=='undefinded'||String(cityStorage)=='null'){
+//						$api.setStorage("cityName",currentCity);
+//						cityName = currentCity;
+//						init();
+//					}else{
+//						if(currentCity.indexOf(cityStorage)<0){
+//							api.confirm({
+//								title:'切换所在城市',
+//								msg : '当前所在城市是' + currentCity + ',是否选择切换',
+//								buttons : ['切换','取消']
+//							}, function(ret2, err2) {
+//								if (ret2.buttonIndex == 2) {
+//									cityName = cityStorage;
+//								}else if(ret2.buttonIndex==1){
+//									$api.setStorage("cityName",ret.city);
+//									cityName = ret.city;
+//								}
+//								init();
+//							}); 
+//						}else{
+//							cityName = ret.city;
+//							init();
+//						}
+//					}
+//				}else{
+//					api.toast({
+//	                    msg:'定位失败'
+//                  });
+//					cityName = "北京";
+//					init();
+//				}
+//			}); 
+//		} else {
+//			$api.toast('定位失败！刷新一下试试！');
+//		}
+//		UILoading.closeFlower({
+//			id : id
+//		}); 
+//	}); 
 	
-	function init(){
-		$("#showCity").html(cityName);
+//	function init(){
+//		$("#showCity").html(cityName);
 		//加载轮播
-		queryCarouselList();
-		businessList(1, '', cityName);
+//		queryCarouselList();
+//		businessList(1, '', cityName);
 		//分类列表
-		list();
+//		list();
 		//获取商家推荐列表
-		recommendList(); 
-	}
-	
+//		recommendList(); 
+//	}
 	$('body').on("touchmove", function(ev) {
 		var winHeight = $(window).scrollTop();
 		if (winHeight >= 0 && winHeight <= 150) {
@@ -186,7 +191,7 @@ apiready = function() {
 		});
 	};
 	//加载轮播
-//	queryCarouselList();
+	queryCarouselList();
 	//获得商品信息分类列表
 	function list() {
 		AjaxUtil.exeScript({
@@ -226,6 +231,7 @@ apiready = function() {
 			}
 		});
 	};
+		list();
 	//	单击相应的分类获取分类
 	$('#showTypeInfo').on('click', 'span', function() {
 		var typeId = this.id;
@@ -263,7 +269,7 @@ apiready = function() {
 		});
 	});
 
-//	list();
+
 	//金银蛋交易总额
 	function total(urId) {
 		AjaxUtil.exeScript({
@@ -387,7 +393,7 @@ apiready = function() {
 			}
 		});
 	}
-//	recommendList();
+	recommendList();
 	//优选商家进行跳转
 	$('#recommend').on('click', '.same', function() {
 		api.openWin({//详情界面
@@ -422,7 +428,7 @@ apiready = function() {
 		});
 
 	}
-//	getDistance("", "");
+	getDistance("", "");
 
 	//附近商家列表
 	function businessList(pages, typeId, city) {
@@ -447,7 +453,7 @@ apiready = function() {
 				city : city
 			},
 			success : function(data) {
-				console.log("商家列表：" + $api.jsonToStr(data));
+				console.log("测试商家列表：" + $api.jsonToStr(data));
 				api.hideProgress();
 				if (data.formDataset.checked == 'true') {
 					var account = data.formDataset.companyDataList;
@@ -636,7 +642,7 @@ apiready = function() {
 						$('#tab1').children().remove();
 						getDistance("", ret.cityInfo.city);
 						$('#showCity').html(ret.cityInfo.city);
-						$api.setStorage("cityName",ret.cityInfo.city);
+//						$api.setStorage("cityName",ret.cityInfo.city);
 						UICityList.close()
 					}
 				}

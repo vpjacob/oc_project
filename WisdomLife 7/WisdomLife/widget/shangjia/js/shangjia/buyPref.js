@@ -27,7 +27,7 @@ apiready = function() {
 	    sync:true,
 	    key:'userNo'
     });
-    
+    queryProductDeatilAndModelType();
     queryDefaultAddress(urId);
 	oldPwd(urId);
 	queryUserAccountByUserNo(urId);
@@ -145,7 +145,7 @@ apiready = function() {
 			}
 		});
 	}
-	queryProductDeatilAndModelType();
+//	queryProductDeatilAndModelType();
 	//更改相应的图片
 	$(".choose").on("change", "select", function() {
 		selectTypeId = $(this).attr("id");

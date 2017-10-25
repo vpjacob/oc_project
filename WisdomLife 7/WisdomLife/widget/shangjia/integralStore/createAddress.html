@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>添加新地址</title>
+    <link rel="stylesheet" type="text/css" href="../../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+    <link rel="stylesheet" href="../../css/sm-extend.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/iconfont.css" />
+	<link rel="stylesheet" type="text/css" href="../css/createAddress.css" /> 
+	<script type="text/javascript" src="../../script/jquery-1.10.2.js"></script>
+	<style>
+
+	</style>
+</head>
+<body>
+	<header class="bar bar-nav" style="position: relative; background-color:white" id="title">
+		<h1 class="title" style="background-color:white">添加新地址</h1>
+		<a onclick="goBack()" class="iconfont icon-xiangzuo1 pull-left" style="font-size:20px;color:#0EAAE3;position:absolute;top:0.35rem;"></a>	
+	</header>
+	<div class="Personal_box">
+		<div class="Personal_centent">
+			<div class="box">
+				<div class="bottom">
+					<div class="user">
+						<div class="same">
+							<span>收货人姓名：</span>
+							<input type="text" placeholder="请输入收货人姓名" id="name" />
+						</div>
+					</div>
+					<div class="user">
+						<div class="same">
+							<span>手机号码：</span>
+							<input type="tel" placeholder="请输入手机号" id="telNum"/>
+						</div>
+					</div>
+					<div class="user" style="height: 2.2rem;">
+						<div class="same">
+							<span>地址标签：</span>
+							<select style="border:none;margin-top: 0.6rem;" id="labelAddress">
+								<option value="0">请选择</option>
+								<option value="1">家</option>
+								<option value="2">公司</option>
+							</select>
+						</div>
+					</div>
+					<div class="user" style="height: 2.2rem">
+						<div class="same">
+							<span>地区：</span>
+							 <select id="provinceTemp" onchange="queryCityByProvinceId()">
+							 </select>
+ 							 <select id="cityTemp" onchange="queryAreaByCityId()">
+ 							 	<option>请选择</option>
+ 							 </select>
+ 							 <select id="districtTemp">
+ 							 	<option>请选择</option>
+ 							 </select>
+						</div>
+					</div>
+					
+					<div class="user">
+						<div class="same">
+							<span>详细地址：</span>
+							<div contenteditable=true class="test_box" id="addressInfo"></div>
+							<!--<textarea style="background:transparent;boder-style:none"></textarea>-->
+						</div>
+					</div>
+					<div class="user" style="border-bottom:none;height: 2.2rem">
+						<div class="same">
+							<span>默认地址：</span>
+							<div class="checkbox">
+								<input type="checkbox" id="checkbox"/>
+								<label></label>
+							</div>
+						</div>
+					</div>
+					<div class="user" style="border:none;height: 2.2rem">
+						<div class="same">
+							<span style="line-height: 1rem;font-size：0.6rem;color: #999">注：每次下单默认使用该地址</span>
+						</div>
+					</div>
+					<div class="next">
+						<button type="button" class="step" id="save">
+							保存并使用
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</div>			
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/common.js"></script>
+<script type="text/javascript" src="../js/shangjia/createAddress.js"></script>
+</html>

@@ -16,6 +16,7 @@
 #import "DoorDetailViewController.h"
 #import "MJRefresh.h"
 #import "DevOpenLogManager.h"
+#import "DMLoginAction.h"
 
 @interface OpenDoorListViewController () <AVAudioPlayerDelegate>
 
@@ -66,6 +67,13 @@
 -(void)refreshTableView
 {
     __weak typeof(self) weakSelf = self;
+    
+//    NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:@"loginUserAcount"];
+//
+//    NSString *account = dic[@"account"];
+//    NSString *password = dic[@"password"];
+//    [DMLoginAction loginWithUsername:account andPwd:password withWebView:nil andScriptMessage:nil];
+    
     int ret = [LibDevModel scanDevice:300];
     if (ret == SUCCESS) {
         [LibDevModel onScanOver:^(NSMutableDictionary *devDict) {

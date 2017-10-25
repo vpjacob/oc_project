@@ -1,0 +1,94 @@
+body {
+	font-family: "微软雅黑";
+	background-color: #fff;
+}
+img {
+	display: block;
+}
+input {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border: none;
+	text-align: right;
+}
+.businessList{
+	margin-top: 2.22rem;
+}
+.same{
+	width:100%;
+	height: 4.5rem;
+	border-bottom:1px solid #ddd;
+	border-top: 1px solid transparent;
+}
+.businessList .collectNo{
+	width:13.7rem;
+	height: 6.35rem;
+	margin: 3rem auto;
+}
+.same .samaBox{
+	width:96%;
+	height: 3.2rem;
+/* 	border:1px solid red; */
+	margin: 0 auto;
+ 	margin-top:0.6rem; 
+}
+.same .samaBox img{
+	height: 3.2rem;
+	width: 4.2rem;
+	float: left;
+	border: 1px solid #ddd;
+}
+.same .samaBox .mid{
+	height: 3.2rem;
+	width:55.2%;
+	float: left;
+	/* border:1px solid red; */
+}
+.same .samaBox .mid div:nth-child(1){
+	width: 100%;
+	font-size: 0.75rem;
+	color: #282828;
+	text-overflow :ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+	margin-top: 0.7rem;
+	padding-left: 0.5rem;
+	/* border:1px solid red; */
+}
+.same .samaBox .mid div:nth-child(2){
+	width: 100%;
+	font-size: 0.6rem;
+	color: #797979;
+	padding-left: 0.5rem;
+/* 	border:1px solid red; */
+}
+.same .samaBox .right{
+	height: 3.2rem;
+	width:17%;
+	float: right;
+	/* border:1px solid red; */
+	font-size:0.6rem;
+	color: #e64340;
+	line-height: 3.2rem;
+	direction: rtl;
+	padding-right: 1%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

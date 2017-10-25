@@ -35,6 +35,12 @@
 			.bar {
 				z-index: 0;
 			}
+			.imgtop .eggList{
+				width:2.625rem;
+				height: 2.0rem;
+				float: left;
+				margin: 5px 5px;
+			}
 		</style>
 	</head>
 	<body>
@@ -64,12 +70,12 @@
 				<div class="content" style="background-color: #f0f0f0;">
 					<div class="content-block">
 						<div class="imgtop">
-							<div>
-								
+							<div>								
 								<div class="fanzt-egg" id="GoldEgg">
-								<span class="guize">砸蛋规则</span>
+								<img src="../../image/eggList/rankImg.png" alt="" class="eggList"/>
+								<span class="guize" style="float: right">砸蛋规则</span>
 									<div id='showGoldEgg' style="display:none">
-										<div class="fanzt-egg-img" data-flag="0" onClick="eggClick(this)  " id="jd">
+										<div class="fanzt-egg-img" data-flag="0" onClick="eggClick(this)" id="jd">
 											<img src="../../image/egg_1.png" id="egg" style="width: 50%;">
 										</div>
 										<div class="fanzt-chuizi" id="jcz"><img src="../../image/img-6.png">
@@ -83,6 +89,7 @@
 								</div>
 								
 								<div class="fanzt-egg" id="SilverEgg">
+								<img src="../../image/eggList/rankImg.png" alt="" class="eggList"/>
 								<span class="guize">砸蛋规则</span>
 								<div id='showSilverEgg' style="display:none">
 									<div class="fanzt-egg-img" data-flag="0" onClick="clickSilverEgg(this)" id="yd">

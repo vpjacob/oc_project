@@ -115,12 +115,15 @@ static DMHtmlListener *instance = nil;
 - (void)webView:(APIWebView *)webView didReceiveScriptMessage:(APIScriptMessage *)scriptMessage {
     
     if ([scriptMessage.name isEqualToString:@"loginAccount"]) {//登入系统，account&pwd
-        
         NSString *account = scriptMessage.userInfo[@"account"];
         NSString *password = scriptMessage.userInfo[@"pwd"];
+//        [[NSUserDefaults standardUserDefaults] setObject:@{@"account":account,
+//                                                           @"password":password
+//                                                           } forKey:@"loginUserAcount"];
+        
         [DMLoginAction loginWithUsername:account andPwd:password withWebView:webView andScriptMessage:scriptMessage];
         
-    }else if ([scriptMessage.name isEqualToString:@"update"]) {//登入系统，account&pwd
+    }else if ([scriptMessage.name isEqualToString:@"update"]) {//
         
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/cn/app/id1182914885?mt=8"]];
         
@@ -215,8 +218,8 @@ static DMHtmlListener *instance = nil;
     return YES;
 }
 
-- (void)nativeSendActionToH5:(NSString*)action{
-    [[APIEventCenter defaultCenter] sendEventWithName:action userInfo:nil];
+- (void)nativeSendActionToH5:(NSString*)action userInfo:(NSDictionary *)userInfo{
+    [[APIEventCenter defaultCenter] sendEventWithName:action userInfo:userInfo];
 }
 
 /*

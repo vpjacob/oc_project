@@ -144,12 +144,16 @@ input::-moz-input-placeholder{text-align: left;}
 	width: 1.125rem;
 	height: 1.125rem;
 }
-.weatherInfo .top img:nth-child(3){
+.swiper-slide .key{
 	float: right;
-	margin-top:0.5rem;
-	width: 1.1rem;
-	height:1.5rem;
-	display: none;
+    margin-top: 0.5rem;
+    width: 1.1rem;
+    height: 1.5rem;
+    display: none; 
+    position: relative;
+    z-index: 10000;
+    right: 5%;
+    top: -32%
 }
 .weatherInfo .mid{
 	height:22.5%;
@@ -433,6 +437,10 @@ input::-moz-input-placeholder{text-align: left;}
 	color:white;
 	position: relative;
     top: -1.1rem;
+    text-indent:5px;
+    text-overflow :ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
 }
 .food .samebox .new{
 	width: 100%;

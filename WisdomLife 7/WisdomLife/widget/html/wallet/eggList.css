@@ -1,0 +1,184 @@
+body {
+	font-family: "微软雅黑";
+	background-color: #fff;
+}
+img {
+	display: block;
+}
+input {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border: none;
+	text-align: right;
+}
+.bar{
+	background: rgba(0,0,0,0);
+}
+.bar:after {
+	background: rgba(0,0,0,0);
+}
+.box{
+	background-color: #fff;
+}
+.topBox{
+	width:100%;
+	height: 12.2rem;
+	background:-webkit-linear-gradient(top,#38ACFF 0,#1974FC 100%);
+}
+.topBox .ranking{
+	/* border:1px solid red; */
+	height: 7.5rem;
+	width: 100%;
+	position: relative;
+	top:3.85rem;
+	width: 92%;
+	margin: 0 auto;
+	/* margin-top: 2rem; */
+}
+.topBox .ranking .topRanking{
+	width: 33.333%;
+	/* border:1px solid yellow; */
+	float: left;
+	height: 100%;
+}
+.topBox  .topRanking .headTop{
+	width:1.75rem;
+	height: 1.45rem;
+	margin: 0 auto;
+}
+.topBox .ranking .topRanking .headimg{
+	width:3.3rem;
+	height:3.3rem;
+	border:3px solid rgba(255,255,255,0.2);
+	margin: 0 auto;
+	border-radius: 50%;
+	margin-top: -0.15rem;
+}
+.topBox .ranking .topRanking .headBg{
+	width:3rem;
+	height: 3rem;
+	margin: 0 auto;
+	border-radius: 50%;
+}
+.topBox .ranking .topRanking .headBot{
+	width:1.125rem;
+	height: 1.125rem;
+	margin: 0 auto;
+	margin-top: -0.5rem;
+}
+.topBox .ranking .name{
+	width: 4.2rem;
+	height: 1.1rem;
+	border-bottom:1px solid #4a95fd;
+	margin: 0 auto;
+	text-align: center;
+	color: white;
+	font-size: 0.75rem;
+	line-height: 1rem;
+	text-overflow :ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+}
+.topBox .topRanking .bottom{
+	height: 1rem;
+	width: 4.0rem;
+	/* border:1px solid red; */
+	margin: 0 auto;
+}
+.topBox .topRanking .bottom img{
+	width: 0.75rem;
+	height: 0.75rem;
+	float: left;
+	margin-top: 0.1rem;
+}
+.topBox .topRanking .bottom span{
+	float: left;
+	font-size: 0.6rem;
+	color: #ff8705;
+	margin-left: 0.25rem;
+	width:74%;
+	text-overflow :ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+}
+.botBox .same{
+	width:100%;
+	height:3rem;
+	border-bottom:1px solid #ddd;
+}
+.botBox .same .sameBox{
+	width:92%;
+	height: 100%;
+	/* border:1px solid red; */
+	margin: 0 auto;
+}
+.botBox .same .botRanking{
+	font-size: 0.75rem;
+	font-family: "汉王仿宋";
+	color: #ff8705;
+	line-height: 3rem;
+	float: left;
+}
+.botBox .same .sameBox .botDiv{
+	width: 2rem;
+	height: 2rem;
+	border-radius:50%;
+	/* border:1px solid red; */
+	float: left;
+	margin: 0.5rem 0 0 0.75rem;
+}
+.botBox .same .sameBox .botImg{
+	width: 2rem;
+	height: 2rem;
+	border-radius: 50%;
+}
+.botBox .same .sameBox .botName{
+	font-size: 0.7rem;
+	color: #282828;
+	/* font-weight: 700; */
+	line-height: 3rem;
+	margin-left: 0.75rem;
+	width:30%;
+	text-overflow :ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+	/* border:1px solid red; */
+}
+.botBox .same .sameBox .botGold{
+	width:1rem;
+	height: 1rem;
+	float: right;
+	margin-top: 1rem;
+	margin-right: 0.5rem;
+}
+.botBox .same .sameBox .sameLast{
+	font-size: 0.6rem;
+	color: #282828;
+	float: right;
+	line-height: 3rem;
+}
+.botBox .same .sameBox .sameCount{
+	font-size: 0.6rem;
+	color: #ff8705;
+	float: right;
+	line-height: 3rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

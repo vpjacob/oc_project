@@ -51,6 +51,13 @@ static NSString *imgUrlFront = @"http://www.ppke.cn";
 
     UIImage *image = [UIImage imageNamed:@"guanggao"];
     [SplashView showSplashView:5 defaultImage:image tapSplashImageBlock:^(NSString * urlStr) {
+        NSArray* array = [urlStr componentsSeparatedByString:@"+"];
+        NSString *skipNo = array[0];
+        NSString *skipUrl = array[1];
+        
+        if (skipUrl != nil && skipNo != nil) {
+                [[DMHtmlListener manager] nativeSendActionToH5:@"startAdvertisement" userInfo:@{@"skipNo":skipNo,@"skipUrl":skipUrl}];
+        }
         
     } splashViewDismissBlock:^(BOOL complete) {
         
@@ -68,7 +75,9 @@ static NSString *imgUrlFront = @"http://www.ppke.cn";
         NSArray *array = dic[@"data"];
         NSString *imgUrl = [imgUrlFront stringByAppendingString:array[0][@"imgUrl"]];
         NSString *skipUrl = array[0][@"skipUrl"];
-        [SplashView updateSplashData:imgUrl actUrl:skipUrl];
+        NSString *skipNo = array[0][@"skipNo"];
+        NSString *skipNO_skipUrl = [NSString stringWithFormat:@"%@+%@",skipNo,skipUrl];
+        [SplashView updateSplashData:imgUrl actUrl:skipNO_skipUrl];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"-------------失败");
@@ -97,15 +106,15 @@ static NSString *imgUrlFront = @"http://www.ppke.cn";
             [(UINavigationController *)self.window.rootViewController pushViewController:nextCtr animated:YES];
         }else if ([urlHost isEqualToString:@"red201"]){
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [[DMHtmlListener manager] nativeSendActionToH5:@"carRecoder"];
+                [[DMHtmlListener manager] nativeSendActionToH5:@"carRecoder" userInfo:nil];
             });
         }else if ([urlHost isEqualToString:@"red202"]){
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [[DMHtmlListener manager] nativeSendActionToH5:@"shopping"];
+                [[DMHtmlListener manager] nativeSendActionToH5:@"shopping" userInfo:nil];
             });
         }else if ([urlHost isEqualToString:@"red203"]){
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [[DMHtmlListener manager] nativeSendActionToH5:@"eggs"];
+                [[DMHtmlListener manager] nativeSendActionToH5:@"eggs" userInfo:nil];
             });
         }
     }

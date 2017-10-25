@@ -39,7 +39,7 @@
 				padding: 0;
 			}
 			.bar {
-				background-color: #0eaae3;
+				background-color: #fff;
 				position: relative;
 				padding-top: 7px;
 			}
@@ -359,16 +359,95 @@
 			.businessinformation .container{
 				padding: 0 0;
 			}
+			/* 分类展示 */
+			.secondul {
+				position: fixed;
+				background-color: #fff;
+				color: #fff;
+				width: 6.9rem;
+				z-index: 30001;
+				display: none;
+				right: 1%;
+				top:3.2rem;
+				border-radius: 3px;
+				font-size: 0.75rem;
+				color: #797979;
+				
+			}
+			.secondul .other {
+				/* text-align: center; */
+				height: 2.2rem;
+				line-height: 2.2rem;
+			}
+			div.first {
+				border-bottom: 1px solid #BBBBBB;
+				padding: 8px 8px;
+				text-align: center;
+				width: 5px;
+				height: 5px;
+				position: fixed;
+				z-index: 30001;
+				-webkit-transform: rotate(45deg);
+				transform: rotate(45deg);
+				top: 2.85rem;
+				right: 4.4%;
+				background-color: #fff;
+				border: none;
+				display: none;
+				
+			}
+			/* 蒙版 */
+			.black_box{
+				background:rgba(0,0,0,0.5);
+				position:fixed;
+				top:0;
+				left:0;
+				z-index:2000;
+				height:100%;
+				width:100%;
+				 display:none; 
+				overflow: hidden;
+			}
+			#gotoPay img{
+				width:0.875ren;
+				height: 1rem;
+				padding-left: 1rem;
+				padding-right: 0.75rem;
+				position: relative;
+				top:0.15rem;
+			}
+			#collect img{
+				width:0.875ren;
+				height: 0.875rem;
+				padding-left: 1rem;
+				padding-right: 0.75rem;
+				position: relative;
+				top:0.15rem;
+			}
 		</style>
 	</head>
 	<body>
 		<!-- 你的html代码 -->
 		<header class="bar bar-nav" id="title">
-			<a id="Back" class="iconfont icon-xiangzuo1 pull-left" style="font-size:20px;color:#FFFFFF;position:absolute;top:8px;"></a>
-			<!--<a class="iconfont icon-wodefankui pull-right" style="font-size:20px;color:#FFFFFF;position:absolute;top:8px;right: 10px" ></a>-->
-			
-			<div style="text-align: center; color: white;overflow: hidden; text-overflow: ellipsis;white-space: nowrap;margin-left:15px;margin-top:3px" id="name"></div>
+			<a class="icon iconfont pull-left" id="Back" style="margin: -7px 0 0 -7px">
+				<img src="../image/shezhi/goback.png" alt="" style="width: 1.1rem;height: 1.1rem;"/>
+			</a>
+			<div style="text-align: center; font-size: 0.85rem;width:87%;color:#282828;overflow: hidden; text-overflow: ellipsis;white-space: nowrap;margin-left:15px;margin-top:3px" id="name">小客</div>
+			<a class="icon iconfont pull-right" id="fastPay" style="margin-top: -1.7rem">
+				<img src="../image/shezhi/dot.png" alt="" style="width: 1.1rem;height: 1.1rem;"/>
+			</a>
 		</header>
+		<div class="first"></div>
+		<ul class="secondul" id="showTypes">
+				
+				<li class="other" style="border-bottom:1px solid #ddd;" id="gotoPay">
+					<img src="img/icon_h.png" alt="" />快速补单
+				</li>
+				<li class="other" id="collect">
+					<img src="img/icon_p.png" alt="" />收藏
+				</li>
+			</ul>
+		<div class="black_box"></div>	
 		<div class="container">
 			<div class="container-box">
 				<div class="container-header">
@@ -401,7 +480,7 @@
 			<div class="cl"></div>
 		</div>
 		<div class="businessinformation">
-			<div class="information-title">
+			<div class="information-title" id="test">
 				商家信息
 			</div>
 			<div class="showbus">

@@ -280,6 +280,9 @@ apiready = function() {
 								if (data[i].status == 2) {//认证中
 									ren = '<div class="last">' + '<div class="last_left">' + '<img src="../../../image/renw.png" alt="" />' + '<span>认证中</span>' + '</div>' + '<div class="last_right">' + '</div>' + '</div>'
 								}
+								if (data[i].status == 4) {//去缴费
+									ren = '<div class="last">' + '<div class="last_left pay" id="'+data[i].id+'" data="'+data[i].communityName+'" datas="'+data[i].estateId+'">' + '<img src="../../../image/renw.png" alt="" />' + '<span>去缴费</span>' + '</div>' + '<div class="last_right">' + '</div>' + '</div>'
+								}
 								return ren;
 							}
 
@@ -325,7 +328,27 @@ apiready = function() {
 								}
 							});
 						}); 
-
+						$('.same').on('click', '.pay', function() {
+							var tenementId=$(this).attr('id');
+							var communityName=$(this).attr('data');
+							var estateId=$(this).attr('datas');
+							api.openWin({
+								name : 'myPay',
+								url : 'myPay.html',
+								slidBackEnabled : true,
+								animation : {
+									type : "push", //动画类型（详见动画类型常量）
+									subType : "from_right", //动画子类型（详见动画子类型常量）
+									duration : 300 //动画过渡时间，默认300毫秒
+								},
+								pageParam : {
+									id : tenementId,
+									communityName:communityName,
+									estateId:estateId
+								}
+							});
+							
+						}); 
 						
 					}
 				} else {

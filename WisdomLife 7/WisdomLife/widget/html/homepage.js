@@ -47,25 +47,43 @@ apiready = function() {
 		sync : true,
 		key : 'userNo'
 	});
-	//下拉
-//	api.setRefreshHeaderInfo({
-//		loadingImg : '../image/mainbus.jpg',
-//		bgColor : '#ccc',
-//		textColor : '#fff',
-//		textDown : '下拉刷新...',
-//		textUp : '松开刷新...',
-//		showTime : false
-//	}, function(ret, err) {
-//		if(ret){
-//			location.reload();
-//			api.refreshHeaderLoadDone();
-//		}else{
-//			api.toast({
-//	            msg:err
-//          });
-//		}
-//		
-//	}); 
+	//下拉刷新
+	api.setRefreshHeaderInfo({
+		loadingImg : '../image/mainbus.jpg',
+		bgColor : '#ccc',
+		textColor : '#fff',
+		textDown : '下拉刷新...',
+		textUp : '松开刷新...',
+		showTime : false
+	}, function(ret, err) {
+		if(ret){
+			location.reload();
+			//清空当前的城市名字
+			api.setPrefs({
+				key : 'cityname',
+				value : ''
+			});
+			api.refreshHeaderLoadDone();
+		}else{
+			api.toast({
+	            msg:err
+            });
+		}
+		
+	}); 
+	//地址
+	$(document).on('click', '#location', function() {
+		api.openWin({
+			name : 'add_city',
+			url : 'home/add_city.html',
+			slidBackEnabled : true,
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			}
+		});
+	});
 	isHaveEgg(urId);
 	//检查是否为新人
 	checkIsNewUser();
@@ -631,6 +649,28 @@ apiready = function() {
 					duration : 300 //动画过渡时间，默认300毫秒
 				}
 			});
+		} else if(String(skipurl) == "222222") {
+			api.openWin({//金蛋商城列表
+				name : 'eggstore',
+				url : '../shangjia/eggstore/eggMain.html',
+				slidBackEnabled : true,
+				animation : {
+					type : "push", //动画类型（详见动画类型常量）
+					subType : "from_right", //动画子类型（详见动画子类型常量）
+					duration : 300 //动画过渡时间，默认300毫秒
+				}
+			});
+		} else if(String(skipurl) == "333333") {
+			api.openWin({//积分商城列表
+				name : 'integralStore',
+				url : '../shangjia/integralStore/eggMain.html',
+				slidBackEnabled : true,
+				animation : {
+					type : "push", //动画类型（详见动画类型常量）
+					subType : "from_right", //动画子类型（详见动画子类型常量）
+					duration : 300 //动画过渡时间，默认300毫秒
+				}
+			});	
 		}else if(skipNo=="" || String(skipNo)=="null" || String(skipNo)=="undefined"){
 			api.confirm({
 				title : '提示',
@@ -679,6 +719,28 @@ apiready = function() {
 					duration : 300 //动画过渡时间，默认300毫秒
 				}
 			});
+		} else if(String(skipurl) == "222222") {
+			api.openWin({//金蛋商城列表
+				name : 'integralStore',
+				url : '../shangjia/eggstore/eggMain.html',
+				slidBackEnabled : true,
+				animation : {
+					type : "push", //动画类型（详见动画类型常量）
+					subType : "from_right", //动画子类型（详见动画子类型常量）
+					duration : 300 //动画过渡时间，默认300毫秒
+				}
+			});
+		} else if(String(skipurl) == "333333") {
+			api.openWin({//积分商城列表
+				name : 'integralStore',
+				url : '../shangjia/integralStore/eggMain.html',
+				slidBackEnabled : true,
+				animation : {
+					type : "push", //动画类型（详见动画类型常量）
+					subType : "from_right", //动画子类型（详见动画子类型常量）
+					duration : 300 //动画过渡时间，默认300毫秒
+				}
+			});		
 		}else if(skipNo=="" || String(skipNo)=="null" || String(skipNo)=="undefined"){
 			api.confirm({
 				title : '提示',
@@ -727,6 +789,28 @@ apiready = function() {
 					duration : 300 //动画过渡时间，默认300毫秒
 				}
 			});
+		} else if(String(skipurl) == "222222") {
+			api.openWin({//金蛋商城列表
+				name : 'busList',
+				url : '../shangjia/eggstore/eggMain.html',
+				slidBackEnabled : true,
+				animation : {
+					type : "push", //动画类型（详见动画类型常量）
+					subType : "from_right", //动画子类型（详见动画子类型常量）
+					duration : 300 //动画过渡时间，默认300毫秒
+				}
+			});
+		} else if(String(skipurl) == "333333") {
+			api.openWin({//积分商城列表
+				name : 'busList',
+				url : '../shangjia/integralStore/eggMain.html',
+				slidBackEnabled : true,
+				animation : {
+					type : "push", //动画类型（详见动画类型常量）
+					subType : "from_right", //动画子类型（详见动画子类型常量）
+					duration : 300 //动画过渡时间，默认300毫秒
+				}
+			});		
 		}else if(skipNo=="" || String(skipNo)=="null" || String(skipNo)=="undefined"){
 			api.confirm({
 				title : '提示',
@@ -776,6 +860,28 @@ apiready = function() {
 					duration : 300 //动画过渡时间，默认300毫秒
 				}
 			});
+		} else if(String(skipurl) == "222222") {
+			api.openWin({//金蛋商城列表
+				name : 'busList',
+				url : '../shangjia/eggstore/eggMain.html',
+				slidBackEnabled : true,
+				animation : {
+					type : "push", //动画类型（详见动画类型常量）
+					subType : "from_right", //动画子类型（详见动画子类型常量）
+					duration : 300 //动画过渡时间，默认300毫秒
+				}
+			});
+		} else if(String(skipurl) == "333333") {
+			api.openWin({//积分商城列表
+				name : 'busList',
+				url : '../shangjia/integralStore/eggMain.html',
+				slidBackEnabled : true,
+				animation : {
+					type : "push", //动画类型（详见动画类型常量）
+					subType : "from_right", //动画子类型（详见动画子类型常量）
+					duration : 300 //动画过渡时间，默认300毫秒
+				}
+			});		
 		}else if(skipNo=="" || String(skipNo)=="null" || String(skipNo)=="undefined"){
 			api.confirm({
 				title : '提示',
@@ -824,6 +930,28 @@ apiready = function() {
 					duration : 300 //动画过渡时间，默认300毫秒
 				}
 			});
+		} else if(String(skipurl) == "222222") {
+			api.openWin({//金蛋商城列表
+				name : 'busList',
+				url : '../shangjia/eggstore/eggMain.html',
+				slidBackEnabled : true,
+				animation : {
+					type : "push", //动画类型（详见动画类型常量）
+					subType : "from_right", //动画子类型（详见动画子类型常量）
+					duration : 300 //动画过渡时间，默认300毫秒
+				}
+			});
+		} else if(String(skipurl) == "333333") {
+			api.openWin({//积分商城列表
+				name : 'busList',
+				url : '../shangjia/integralStore/eggMain.html',
+				slidBackEnabled : true,
+				animation : {
+					type : "push", //动画类型（详见动画类型常量）
+					subType : "from_right", //动画子类型（详见动画子类型常量）
+					duration : 300 //动画过渡时间，默认300毫秒
+				}
+			});		
 		}else if(skipNo=="" || String(skipNo)=="null" || String(skipNo)=="undefined"){
 			api.confirm({
 				title : '提示',
@@ -942,8 +1070,8 @@ function setUserKeyInfos() {
  * 从地图中加载位置
  */
 function loadLocationFormMap(remind) {
-	var lat;
-	var lon;
+//	var lat;
+//	var lon;
 	var Url;
 	cityname = api.getPrefs({
 		sync : true,
@@ -1008,6 +1136,7 @@ function loadLocationFormMap(remind) {
 										value : lat
 									});
 									$("#location").html(cityname);
+									getCurrentWeatherAndForecast(lon, lat);
 								}
 							}
 						} else {
@@ -1282,7 +1411,6 @@ function getCurrentWeatherAndForecast(lon, lat) {
 //天气详情
 $(".weatherInfo").click(function(){
 	 futureWeather(lon,lat);
-	 
 });
 $(".close").click(function(){
 	$(".weatherSec").hide();
@@ -1793,8 +1921,6 @@ function selectNewsList() {
  * @param {Object} th 点击对象
  */
 function selectMoreNews(th) {
-
-	
 	var typeid = $api.attr(th, 'abbr');
 	api.openWin({
 		name : 'news',

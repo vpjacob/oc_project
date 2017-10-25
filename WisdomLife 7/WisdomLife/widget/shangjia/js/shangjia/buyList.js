@@ -16,6 +16,16 @@ apiready = function() {
 		$api.css(secondul, 'margin-top:1.0rem;');
 		$api.css(first, 'margin-top:1.0rem;');
 		$api.css(cc, 'margin-top:3.1rem;');
+		//处理ios端fexed不生效问题
+		$("#searchval").focus(function(){
+			$("#title").css({
+			"position":"absolute",
+			"top":"0px"
+			});
+		});
+		$("#searchval").blur(function(){
+			$("#title").css("position","fixed");
+		});
 	};
 	var indexid = api.pageParam.indexid;
 	if(indexid==true){
