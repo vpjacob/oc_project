@@ -9,7 +9,6 @@ var userInfo = {};
 //用户的钥匙
 var userkeyinfo = {};
 
-
 //用户信息
 var userInfo1 = {
 	"hasRegist" : false,
@@ -339,7 +338,7 @@ apiready = function() {
                          };
                          
                          });
-    
+
 
 	//输出Log，Log将显示在APICloud Studio控制台
 	var header = $api.byId('header');
@@ -563,69 +562,6 @@ function initUserInfoAndUserKeyInfo() {
 	});
 
 }
-
-
-function queryGoodOrMerchantByNo(skipNo){
-    api.showProgress({});
-    AjaxUtil.exeScript({
-                       script : "mobile.center.homepage.homepage",
-                       needTrascation : true,
-                       funName : "queryGoodOrMerchantByNo",
-                       form : {
-                       skipNo: skipNo
-                       },
-                       success : function(data) {
-                       api.hideProgress();
-                       console.log("获取商家或商品Id" + $api.jsonToStr(data));
-                       if (data.formDataset.checked == 'true') {
-                       //走商家
-                       if(data.formDataset.skipType=="1"){
-                       api.openWin({//商家详情界面
-                                   name : 'business-man-list',
-                                   url : 'sjDetail/business-man-list.html',
-                                   slidBackEnabled : true,
-                                   animation : {
-                                   type : "push", //动画类型（详见动画类型常量）
-                                   subType : "from_right", //动画子类型（详见动画子类型常量）
-                                   duration : 300 //动画过渡时间，默认300毫秒
-                                   },
-                                   pageParam : {
-                                   id : data.formDataset.skipId,
-                                   companytype : data.formDataset.skipId
-                                   }
-                                   });
-                       
-                       }else if(data.formDataset.skipType=="2"){
-                       api.openWin({//详情界面
-                                   name : 'buyListInfo',
-                                   url : 'shangjia/html/buyListInfo.html',
-                                   slidBackEnabled : true,
-                                   animation : {
-                                   type : "push", //动画类型（详见动画类型常量）
-                                   subType : "from_right", //动画子类型（详见动画子类型常量）
-                                   duration : 300 //动画过渡时间，默认300毫秒
-                                   },
-                                   pageParam : {
-                                   id : data.formDataset.skipId
-                                   }
-                                   });
-                       
-                       }
-                       
-                       } else {
-                       
-                       }
-                       },
-                       error : function(xhr, type) {
-                       api.hideProgress();
-                       api.toast({
-                                 msg:'您的网络不给力啊，检查下是否连接上网络了！'
-                                 });
-                       }
-                       });
-}
-
-
 
 function getUserInfo() {		
 	var hasRegist = api.getPrefs({

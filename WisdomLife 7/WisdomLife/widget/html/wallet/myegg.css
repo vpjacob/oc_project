@@ -445,3 +445,13 @@ li.first {
     width:41%;
     height: 7.5%;
 }
+
+.Personal_title .detailUl .inactiveGold{
+	height:80px;
+	font-size:16px;
+}
+.Personal_title .detailUl .inactiveSliver{
+	height:80px;
+	font-size: 16px;
+	display: none;
+}

@@ -117,6 +117,17 @@
 						<div class="Personal_title">
 								<span class="special span1">金蛋</span><span class="span2">银蛋</span>
 								<div class="clearfix"></div>
+								
+								<ul class="detailUl" style="border: 1px solid #f0f0f0">
+									<li class="item-content  inactiveGold">
+										<div>待激活金蛋</div>
+										<span id="freezeGold">0颗</span>
+									</li>
+									<li class="item-content inactiveSliver">
+										<div>待激活银蛋</div>
+										<span id="freezeSliver">0颗</span>
+									</li>
+								</ul>
 							</div>
 							<ul class="detailUl" id="ul_tab1">
 								<!--<li class="item-content"><div class="item-inner"><div class="item-title">2017-52-25</div><div class="item-mid"><img src="../../image/yin.png" alt="" class="img1"/><span class="span1">1000</span></div><div class="item-last"><img src="../../image/jinbi.png" alt="" class="img2"/><span class="span2">258.235</span></div></div></li>-->
@@ -230,32 +241,24 @@
 	$(".Personal_title .span2").click(function(){
 //	银蛋记录的展示
 		silverReacd();
-		//isHaveSilverEgg();
 		$(this).addClass("special").prev().removeClass("special");
 		$("#GoldEgg").hide();
 		$("#SilverEgg").show();
 		$("#ul_tab1").hide();
 		$("#ul_tab2").show();
-//		$("#SEgg").attr("src", "../../image/egg3.png");
-//		$("#jinhua").hide();
-//		$("#egg").hide();
-//		$("#GoldEgg b").hide();
-//		$(".Personal_centent").hide().eq(1).show();
+		
+		$(".inactiveGold").css("display","none");
+		$(".inactiveSliver").css("display","flex");
 	})
 	$(".Personal_title .span1").click(function(){
 		$(this).addClass("special").next().removeClass("special");
-//		$(".Personal_centent").hide().eq(1).show();
 		$("#GoldEgg").show();
 		$("#SilverEgg").hide();
 		$("#ul_tab2").hide();
 		$("#ul_tab1").show();
-//		$("#yinhua").hide();
-//		$("#jinhua").show();
-//		$("#jinhua").show();
-//		$("#egg").show();
-//		$("#yinhua").hide();
-//		$("#egg").show();		
-//		$("#SilverEgg b").hide();
+		
+		$(".inactiveGold").css("display","flex");
+		$(".inactiveSliver").css("display","none");
 	})
 		
 	</script>

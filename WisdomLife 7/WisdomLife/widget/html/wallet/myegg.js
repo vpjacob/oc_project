@@ -271,8 +271,13 @@ function reacd() {
 		success : function(data) {
 			var listInfo = data.formDataset.recordList;
 			var list = eval(listInfo);
-			console.log('list.length' + list.length);
+			console.log('金蛋记录' + $api.jsonToStr(data));
 			if (data.formDataset.checked == 'true') {
+				if(data.formDataset.gold_freeze_auto=="" || String(data.formDataset.gold_freeze_auto)=="undefined" || String(data.formDataset.gold_freeze_auto)=="null"){
+					$("#freezeGold").html("0颗");
+				}else{
+					$("#freezeGold").html(data.formDataset.gold_freeze_auto+"颗");
+				}
 				$('#ul_tab1 ').empty();
 				for (var i = 0; i < list.length; i++) {
 					var nowli = '<li class="item-content"><div class="item-inner"><div class="item-title">' + list[i].beat_time + '</div><div class="item-mid">' + '<img src="../../image/jin.png" alt="" class="img1"/><span  class="span1">' + list[i].egg_count + '</span></div><div class="item-last"><img src="../../image/jinbi.png" alt="" class="img2"/>' + '<span class="span2">' + list[i].beat_money + '</span></div></div></li>';
@@ -556,11 +561,18 @@ function silverReacd() {
 			userNo : urId
 		},
 		success : function(data) {
+			console.log('银蛋记录' + $api.jsonToStr(data));
 			var listInfo = data.formDataset.recordList;
 			var list = eval(listInfo);
 			console.log('list.length' + list.length);
 
 			if (data.formDataset.checked == 'true') {
+				
+				if(data.formDataset.silver_freeze_auto=="" || String(data.formDataset.silver_freeze_auto)=="undefined" || String(data.formDataset.silver_freeze_auto)=="null"){
+					$("#freezeSliver").html("0颗");
+				}else{
+					$("#freezeSliver").html(data.formDataset.silver_freeze_auto+"颗");
+				}
 				if (list.length == 0) {
 					return false;
 				} else {

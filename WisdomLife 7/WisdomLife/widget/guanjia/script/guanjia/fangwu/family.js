@@ -124,8 +124,11 @@ apiready = function() {
 							}, function(ret, err) {
 								var index = ret.buttonIndex;
 								if (index == 1) {
-									$(this).parent().remove();
-									deleteMemebrInfo(delInfoId);
+//									$(this).parent().remove();
+//									deleteMemebrInfo(delInfoId);
+									api.toast({
+	                                    msg:'删除该成员请联系物业'
+                                    });
 								}
 							});
 

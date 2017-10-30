@@ -10,17 +10,21 @@
 		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
 		<link rel="stylesheet" href="../../css/sm-extend.min.css">
 		<link rel="stylesheet" href="eggList.css"/>
+		<link rel="stylesheet" href="pullToRefresh.css"/>
 		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
 		<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+		<script type="text/javascript" src="iscroll.js"></script>
+		<script type="text/javascript" src="pullToRefresh.js"></script>
 	</head>
 	<body>
 		<header class="bar bar-nav" id="title" style="background:rgab(0,0,0,0)">
 			<a class="icon iconfont pull-left" onclick="goBack()">
 				 <img src="../../image/eggList/back.png" alt="" style="width: 1.1rem;height: 1.1rem;"/> 
 			</a>
-			<h1 class="title" style="font-size: 0.85rem;color:#fff">单颗金蛋排行榜 </h1>
+			<h1 class="title" style="font-size: 0.85rem;color:#fff">砸蛋排行榜 </h1>
 		</header>
-		<div class="box">
+		<div class="box" id="wrapper">
+			<ul>
 			<div class="topBox">
 				<div class="ranking">
 					<div class="topRanking">
@@ -77,13 +81,9 @@
 					</div>
 				</div>-->
 			</div>
+			<img src="../../image/eggList/footImg.png" alt="" class="footImg" id="adver"/>
+			</ul>
 		</div>
-		
-		
-		
-		
-		
-		
 		 <script type="text/javascript" src="../../script/jquery-1.10.2.js"></script>
 		<script type="text/javascript" src="../../script/api.js"></script>
 		<script type="text/javascript" src="../../script/common.js"></script>

@@ -316,7 +316,10 @@
     bottom: 31.5%;
     left: 30%;
 }
-
+.integral{
+	position: absolute;
+	right: 4%;
+}
 
 
 

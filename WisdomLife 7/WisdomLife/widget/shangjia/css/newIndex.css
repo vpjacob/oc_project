@@ -44,7 +44,7 @@ input::-moz-input-placeholder{text-align: left;}
 #nearby{
 	position: relative;
 	top:-1.5rem;
-	left:4%;
+	left:3%;
 	height:1.25rem;
 	width:3.0rem;
 	text-align:center;
@@ -58,7 +58,7 @@ input::-moz-input-placeholder{text-align: left;}
 	text-overflow :ellipsis;
 	white-space:nowrap;
 	overflow:hidden;
-	width:33px;
+	width:45px;
 	float: left;
 }
 #nearby img{

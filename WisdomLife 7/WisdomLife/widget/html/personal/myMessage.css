@@ -57,13 +57,13 @@ table { border-collapse: collapse; border-spacing: 0; }
 	 border-bottom:solid 2px #0eaae3; 
 }
 .same{
-	height: 81px;
+	/* height: 81px; */
 	border-bottom:1px solid #d3d3d3;
 	width: 100%;
 	background-color: white;
 }
 .same .sameBox{
-	height: 80px;
+	/* height: 80px; */
 	/* border:1px solid red; */
 	width: 94%;
 	margin:0 auto;
@@ -71,13 +71,16 @@ table { border-collapse: collapse; border-spacing: 0; }
 }
 .same .sameBox .top{
 	padding-top:5px;
-	height: 50px;
+	/* height: 50px; */
 /* 	border:1px solid red; */
 	width: 100%;
 	font-size:14px;
 	color:#797979;
 }
-
+.same .sameBox .bottom{
+	height:1.5rem;
+	padding-top:0.25rem;
+}
 .same .sameBox .bottom span:nth-child(1){
 	float: right;
 	font-size: 13px;

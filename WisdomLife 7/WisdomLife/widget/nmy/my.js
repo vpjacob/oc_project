@@ -33,6 +33,8 @@ apiready = function() {
 	function init(){
 		getUesrInfo(memberid);
 		count(urId);
+		//调用可用积分
+		queryAllAccountInfo(urId);
 	}
 	init();
 	$('#name').html('用户id：' + urId);
@@ -233,7 +235,7 @@ apiready = function() {
 					console.log($api.jsonToStr(list));
 					$("#dotleft").html(list.gold_egg_count);
 					$("#dotmidd").html(list.silver_egg_count);
-					$("#dotright").html(list.may_buyback);
+					$("#dotright").html("可用金币:"+list.may_buyback+"枚");
 				} else {
 					api.toast({
 	                    msg:data.formDataset.errorMsg
@@ -242,6 +244,30 @@ apiready = function() {
 			}
 		});
 	};
+	
+	
+	function queryAllAccountInfo(urId) {
+		AjaxUtil.exeScript({
+			script : "mobile.accountdetail.accountdetail",
+			needTrascation : true,
+			funName : "queryAllAccountInfo",
+			form : {
+				userNo : urId
+			},
+			success : function(data) {
+				console.log("可用积分"+$api.jsonToStr(data));
+				var listInfo = data.formDataset;
+				var list = $api.jsonToStr(data.formDataset);
+				if (data.formDataset.checked == 'true') {
+					data.formDataset.integral_balance  == 0 ? $('#usableIntegral').html(0) : $('#usableIntegral').html(data.formDataset.integral_balance);
+				} else {
+					api.toast({
+	                    msg:data.formDataset.errorMsg
+                    });
+				}
+			}
+		});
+	}
 	
 //扫一扫支付跳转
 $('#payMoney').click(function() {
@@ -475,7 +501,7 @@ $('#payMoney').click(function() {
 			}
 		})
 	});
-	//物流跳转
+	//兑换记录
 	$('#eggDh').click(function() {
 		api.openWin({
 			name : 'payRecord',
@@ -514,6 +540,7 @@ $('#payMoney').click(function() {
 			}
 		});
 	});
+	//我的收藏
 	$("#more").click(function(){
 		api.openWin({
 			name : 'payRecord',

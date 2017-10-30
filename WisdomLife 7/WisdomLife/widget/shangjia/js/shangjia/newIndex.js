@@ -11,6 +11,7 @@ apiready = function() {
 		var cc = $api.dom('.title_div');
 		$api.css(cc, 'margin-top:0.8rem;');
 	};
+	
 //	var UILoading = api.require('UILoading');
 //	UILoading.flower({
 //		center : {
@@ -80,7 +81,6 @@ apiready = function() {
 //			id : id
 //		}); 
 //	}); 
-	
 //	function init(){
 //		$("#showCity").html(cityName);
 		//加载轮播
@@ -413,7 +413,23 @@ apiready = function() {
 	});
 	//获取距离
 	function getDistance(typeId, city) {
-		map = api.require('bMap');
+//		map = api.require('bMap');
+//		map.getLocation({
+//			accuracy : '10m',
+//			autoStop : true,
+//			filter : 1
+//		}, function(ret, err) {
+//			if (ret.status) {
+//				lon = ret.lon;
+//				lat = ret.lat;
+				businessList(1, typeId, city);
+//			} else {
+//			}
+//		});
+	}
+//	getDistance("", "");
+	function getCityName(typeId,city) {
+		var map = api.require('bMap');
 		map.getLocation({
 			accuracy : '10m',
 			autoStop : true,
@@ -422,13 +438,21 @@ apiready = function() {
 			if (ret.status) {
 				lon = ret.lon;
 				lat = ret.lat;
+				var point = new BMap.Point(lon, lat);
+				var geoc = new BMap.Geocoder();
+				geoc.getLocation(point, function(rs) {
+					var addComp = rs.addressComponents;
+					var address = addComp.city
+					$("#showCity").html(address);
+					city=address;
+				});
 				businessList(1, typeId, city);
 			} else {
 			}
 		});
 
 	}
-	getDistance("", "");
+	getCityName("","");
 
 	//附近商家列表
 	function businessList(pages, typeId, city) {
