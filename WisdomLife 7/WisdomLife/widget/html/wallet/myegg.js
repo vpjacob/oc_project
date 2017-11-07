@@ -274,8 +274,17 @@ function reacd() {
 			console.log('金蛋记录' + $api.jsonToStr(data));
 			if (data.formDataset.checked == 'true') {
 				if(data.formDataset.gold_freeze_auto=="" || String(data.formDataset.gold_freeze_auto)=="undefined" || String(data.formDataset.gold_freeze_auto)=="null"){
-					$("#freezeGold").html("0颗");
+					$("#freezeGold").html("0颗");//待激活
+				}else if(data.formDataset.gold_egg_count =="" || String(data.formDataset.gold_egg_count )=="undefined" || String(data.formDataset.gold_egg_count )=="null"){
+					$("#commonEgg").html("0颗");//普通金蛋
+				}else if(data.formDataset.selected_egg  =="" || String(data.formDataset.selected_egg  )=="undefined" || String(data.formDataset.selected_egg  )=="null"){
+					$("#goodEgg").html("0颗");//优选金蛋
+				}else if(data.formDataset.change_egg   =="" || String(data.formDataset.change_egg   )=="undefined" || String(data.formDataset.change_egg   )=="null"){
+					$("#exchangeEgg").html("0颗");//兑换金蛋
 				}else{
+					$("#commonEgg").html(data.formDataset.gold_egg_count+"颗");
+					$("#goodEgg").html(data.formDataset.selected_egg +"颗");
+					$("#exchangeEgg").html(data.formDataset.change_egg +"颗");
 					$("#freezeGold").html(data.formDataset.gold_freeze_auto+"颗");
 				}
 				$('#ul_tab1 ').empty();

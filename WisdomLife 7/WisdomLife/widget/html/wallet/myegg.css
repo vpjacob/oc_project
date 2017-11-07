@@ -449,6 +449,24 @@ li.first {
 .Personal_title .detailUl .inactiveGold{
 	height:80px;
 	font-size:16px;
+	width: 100%;
+	margin: 0 auto;
+}
+.Personal_title .detailUl .inactiveGold div{
+	width:25%;
+	float:left;
+	height:60px;
+	border-right:1px solid #ddd;
+	margin-top: 10px;
+	padding: 0;
+}
+.Personal_title .detailUl .inactiveGold div:nth-child(4){
+	border-right:none;
+}
+.Personal_title .detailUl .inactiveGold  span{
+	width: 100%;
+	height: 1.5rem;
+	line-height: 1.5rem;
 }
 .Personal_title .detailUl .inactiveSliver{
 	height:80px;

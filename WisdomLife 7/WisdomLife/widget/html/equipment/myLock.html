@@ -61,9 +61,40 @@
 		$("#goback").click(function() {
 			goback();
 		});
-		function goback() {
-			api.closeWin();
-		}
-	}	
+		//长按获取图片信息
+		var FNScanner = api.require('FNScanner');
+		var browser = api.require('webBrowser');
+		api.addEventListener({
+				name : 'longpress'
+			}, function(ret, err) {
+				FNScanner.decodeImg({
+					path : 'widget://image/myLockImg.png'
+				}, function(ret, err) {
+					if (ret.status) {
+					var retAddress=ret.content;
+						api.confirm({
+							title : '提示',
+							msg : '您即将跳转到' + ret.content,
+							buttons : ['确定', '取消']
+								}, function(ret, err) {
+									var index = ret.buttonIndex;
+									if (index == 1) {
+										browser.open({
+										    url: retAddress
+										});
+									}
+								})
+								console.log(JSON.stringify(ret));
+						// alert(ret.content);
+					} else {
+						console.log(JSON.stringify(err));
+					}
+				});
+			});
+			function goback() {
+				api.closeWin();
+			}
+
+			}
 	</script>
 </html>

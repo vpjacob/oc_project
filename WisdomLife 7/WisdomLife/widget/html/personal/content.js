@@ -13,8 +13,9 @@ apiready = function() {
 	var header = $api.byId('header');
 	if (api.systemType == 'ios') {
 		var cc = $api.dom('.content');
-		$api.css(header, 'margin-top:20px;');
-		$api.css(cc, 'margin-top:20px;');
+		$api.css(header, 'padding-top:1rem;');
+		$api.css(header, 'height:3.2rem;');
+		$api.css(cc, 'margin-top:1rem;');
 	} else {
 		var tel = $api.byId('tel');
 		$api.css(tel, 'padding-right:25px;');
@@ -63,11 +64,69 @@ apiready = function() {
 		$("#women").css("display", "none");
 	});
 	$('#sexman').click(function() {//选择男
-		changesex('男');
+		AjaxUtil.exeScript({
+			script : "synchrodata.memeber.memeber",
+			needTrascation : true,
+			funName : "getUserNo",
+			success : function(data) {
+				if (data.formDataset.checked == 'true') {
+					if (data.formDataset.userNo != '' && data.formDataset.userNo != null && data.formDataset.userNo != "undefinded") {
+						userNoNew = data.formDataset.userNo;
+						var params = {};
+						params.userNo = urId;
+						params.gender = '0';
+						$.ajax({
+							url : shopPath + "/member/register/modifyMemberGender",
+							type : "GET",
+							data : params,
+							cache : false,
+							dataType : 'jsonp',
+							scriptCharset : 'utf-8',
+							jsonp : 'callback',
+							jsonpCallback : "successCallback",
+							crossDomain : true,
+							success : function(data) {
+								changesex('男');
+							}
+						});
+					}
+				}
+			}
+		}); 
+//		changesex('男');
 		$("#women").css("display", "none");
 	});
 	$('#sexwoman').click(function() {//选择女
-		changesex('女');
+		AjaxUtil.exeScript({
+			script : "synchrodata.memeber.memeber",
+			needTrascation : true,
+			funName : "getUserNo",
+			success : function(data) {
+				if (data.formDataset.checked == 'true') {
+					if (data.formDataset.userNo != '' && data.formDataset.userNo != null && data.formDataset.userNo != "undefinded") {
+						userNoNew = data.formDataset.userNo;
+						var params = {};
+						params.userNo = urId;
+						params.gender = '1';
+						$.ajax({
+							url : shopPath + "/member/register/modifyMemberGender",
+							type : "GET",
+							data : params,
+							cache : false,
+							dataType : 'jsonp',
+							scriptCharset : 'utf-8',
+							jsonp : 'callback',
+							jsonpCallback : "successCallback",
+							crossDomain : true,
+							success : function(data) {
+								changesex('女');
+							}
+						});
+					}
+				}
+			}
+		}); 
+//		changesex('女');
 		$("#women").css("display", "none");
 	});
 
@@ -187,10 +246,7 @@ function oldPwd(urId){
 			alert('您的姓名不可更改,如果想要更改请联系管理员!');
 		}
 	}); 
-
-
-
-	
+//	修改用户名接口
 	$('#name').click(function() {
 		api.openWin({
 			name : 'changename',
@@ -208,25 +264,7 @@ function oldPwd(urId){
 			}
 		});
 	});
-
-//	$('#realname').click(function() {
-//		api.openWin({
-//			name : 'changename',
-//			url : 'change_realname.html',
-//			reload : true,
-//			pageParam : {
-//				memberid : memberid,
-//				name : name
-//			},
-//			slidBackEnabled : true,
-//			animation : {
-//				type : "push", //动画类型（详见动画类型常量）
-//				subType : "from_right", //动画子类型（详见动画子类型常量）
-//				duration : 300 //动画过渡时间，默认300毫秒
-//			}
-//		});
-//	});
-//手机号暂时禁用
+	//更改手机号码
 	$('#tel_li').click(function() {
 		api.openWin({
 			name : 'changenumber',

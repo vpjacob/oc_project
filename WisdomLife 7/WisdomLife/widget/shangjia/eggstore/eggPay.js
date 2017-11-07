@@ -69,7 +69,7 @@ apiready = function() {
 			success : function(data) {
 				console.log($api.jsonToStr(data));
 				if (data.formDataset.checked == 'true') {
-					$("#residueMoney").html($api.strToJson(data.formDataset.account).gold_egg_count+"颗");
+					$("#residueMoney").html(($api.strToJson(data.formDataset.account).gold_egg_count+$api.strToJson(data.formDataset.account).change_egg)+"颗");
 				} else {
 					api.toast({
 						msg : data.formDataset.errorMsg

@@ -78,11 +78,49 @@ apiready = function() {
 			alert("请您阅读并同意小客智慧生活注册服务协议");
 			return false;
 		}else {
-			registerExe(telphone, pwd, '8888', phoneId, registrationId, name,idcard,sex);					
+//			registerExe(telphone, pwd, '8888', phoneId, registrationId, name,idcard,sex);
+			AjaxUtil.exeScript({
+				script : "synchrodata.memeber.memeber",
+				needTrascation : true,
+				funName : "getUserNo",
+				success : function(data) {
+					if (data.formDataset.checked == 'true') {
+						if (data.formDataset.userNo != '' && data.formDataset.userNo != null && data.formDataset.userNo != "undefinded") {
+							userNoNew = data.formDataset.userNo;
+							var params = {};
+							//params.XX必须与Spring Mvc controller中的参数名称一致
+							//否则在controller中使用@RequestParam绑定
+							params.userNo = data.formDataset.userNo;
+							params.userName = data.formDataset.userNo;
+							params.sex = $("#sex").val();
+							params.userIdcard = idcard;
+							params.password = $("#pwd").val();
+							params.phone = telphone;
+							var userNoNew = data.formDataset.userNo;
+
+							$.ajax({
+								url : shopPath + "/member/register/fromxkMember",
+								type : "GET",
+								data : params,
+								cache : false,
+								dataType : 'jsonp',
+								scriptCharset : 'utf-8',
+								jsonp : 'callback',
+								jsonpCallback : "successCallback",
+								crossDomain : true,
+								success : function(data) {
+									registerExe(telphone, pwd, '8888', phoneId, registrationId, name, idcard, sex, userNoNew);
+								}
+							});
+						}
+					}
+				}
+			}); 
+					
 		}
 	}
 	//智慧生活注册
-	function registerExe(telphone, pwd, recommendedPersonId, phoneId, registrationId, userName,idcard,sex) {
+	function registerExe(telphone, pwd, recommendedPersonId, phoneId, registrationId, userName,idcard,sex,userNoNew) {
 		api.showProgress({
 			style : 'default',
 			animationType : 'fade',
@@ -93,7 +131,7 @@ apiready = function() {
 		AjaxUtil.exeScript({
 			script : "login.login", //need to do
 			needTrascation : false,
-			funName : "registAccount",
+			funName : "registAccountNew",
 			form : {
 				telphone : telphone,
 				pwd : pwd,
@@ -102,7 +140,8 @@ apiready = function() {
 				registrationid : registrationId,
 				userName : userName,
 				idcard:idcard,
-				sex:sex
+				sex:sex,
+				userNo:userNoNew
 			},
 			success : function(data) {
 				console.log($api.jsonToStr(data));
@@ -247,7 +286,7 @@ apiready = function() {
 				}
 			}
 		});
-	}
+	};
 
 	////加入圈子
 	function joinIn(userId, username) {

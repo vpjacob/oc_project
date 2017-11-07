@@ -311,12 +311,12 @@ apiready = function() {
 			}); 
 			return false;
 		};
-		if($("#zfb").prop("checked")==false && $("#xk").prop("checked")==false){
-			api.alert({
-				msg : "请选择支付方式"
-			}); 
-			return false;	
-		};
+//		if($("#zfb").prop("checked")==false && $("#xk").prop("checked")==false){
+//			api.alert({
+//				msg : "请选择支付方式"
+//			}); 
+//			return false;	
+//		};
 		if($("#userName").html()==""){
 			 api.alert({
 				msg : "亲，请去添加地址"
@@ -430,7 +430,7 @@ apiready = function() {
 		};
 
 		//走支付宝支付
-		if ($("#zfb").prop("checked") == true) {
+//		if ($("#zfb").prop("checked") == true) {
 			AjaxUtil.exeScript({
 				script : "mobile.center.pay.pay",
 				needTrascation : true,
@@ -463,7 +463,7 @@ apiready = function() {
 						};
 						$.ajax({
 							type : 'POST',
-							url : rootUrls + '/xk/buyPrefOrderInfo .do',
+							url : rootUrls + '/xk/buyPrefOrderInfo.do',
 							data : JSON.stringify(data),
 							dataType : "json",
 							contentType : 'application/json;charset=utf-8',
@@ -557,7 +557,7 @@ apiready = function() {
 					});
 				}
 			}); 
-		}
+//		}
 
 	});
 	

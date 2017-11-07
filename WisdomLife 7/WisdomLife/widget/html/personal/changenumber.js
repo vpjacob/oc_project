@@ -157,7 +157,7 @@ apiready = function() {
 			$('#vaildCode').val('');
 		}
 	});
-	$(document).on('touchstart', '.buttong#next', function() {
+	$(document).on('touchstart', '.buttong', function() {
 		$(this).css({
 			"background-color" : "#fff",
 			"color" : "#1fb8f0",
@@ -186,36 +186,67 @@ apiready = function() {
 	$('#sub').click(function() {
 		if ($('#vCode').val() == code) {
 			AjaxUtil.exeScript({
-				script : "managers.home.person",
-				needTrascation : false,
-				funName : "updatememberinfo",
-				form : {
-					headurl : "",
-					nick : "",
-					sex : "",
-					birthday : "",
-					address : "",
-					telphone : telphone,
-					pwd : "",
-					memberid : memberid,
-					idCard:""
-				},
-				success : function(data) {
-					api.hideProgress();
-					if (data.execStatus == 'true') {
-						api.setPrefs({
-							key : 'telphone',
-							value : telphone
+			script : "synchrodata.memeber.memeber",
+			needTrascation : true,
+			funName : "getUserNo",
+			success : function(data) {
+				if (data.formDataset.checked == 'true') {
+					if (data.formDataset.userNo != '' && data.formDataset.userNo != null && data.formDataset.userNo != "undefinded") {
+						userNoNew = data.formDataset.userNo;
+						var params = {};
+						params.userNo = urId;
+						params.phone = telphone;
+						$.ajax({
+							url : shopPath + "/member/register/modifyMemberPhone",
+							type : "GET",
+							data : params,
+							cache : false,
+							dataType : 'jsonp',
+							scriptCharset : 'utf-8',
+							jsonp : 'callback',
+							jsonpCallback : "successCallback",
+							crossDomain : true,
+							success : function(data) {
+							//之前函数
+								AjaxUtil.exeScript({
+									script : "managers.home.person",
+									needTrascation : false,
+									funName : "updatememberinfo",
+									form : {
+										headurl : "",
+										nick : "",
+										sex : "",
+										birthday : "",
+										address : "",
+										telphone : telphone,
+										pwd : "",
+										memberid : memberid,
+										idCard:""
+									},
+									success : function(data) {
+										api.hideProgress();
+										if (data.execStatus == 'true') {
+											api.setPrefs({
+												key : 'telphone',
+												value : telphone
+											});
+											api.execScript({//刷新person界面数据
+												name : 'content',
+												script : 'refresh();'
+											});
+											closePage();
+										}
+					
+									}
+								});
+								
+							}
 						});
-						api.execScript({//刷新person界面数据
-							name : 'content',
-							script : 'refresh();'
-						});
-						closePage();
 					}
-
 				}
-			});
+			}
+		}); 
+			
 		} else {
 		var text = $('#num').val();
 		if (text == null || text == "") {

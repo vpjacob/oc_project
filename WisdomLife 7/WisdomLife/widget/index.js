@@ -252,12 +252,8 @@ apiready = function() {
                          
                          });
 
-	hasLogon = api.getPrefs({
-	    sync:true,
-	    key:'hasLogon'
-    });
 
-    //实现广告开屏跳转
+//实现广告开屏跳转
     api.addEventListener({
                          name : 'startAdvertisement'
                          }, function(ret, err) {
@@ -338,6 +334,12 @@ apiready = function() {
                          };
                          
                          });
+    
+
+	hasLogon = api.getPrefs({
+	    sync:true,
+	    key:'hasLogon'
+    });
 
 
 	//输出Log，Log将显示在APICloud Studio控制台

@@ -33,7 +33,37 @@ apiready = function() {
 				text : '先喝杯茶...',
 				modal : false
 			});
-			findPassword();
+			AjaxUtil.exeScript({
+			script : "synchrodata.memeber.memeber",
+			needTrascation : true,
+			funName : "getUserNo",
+			success : function(data) {			
+				if (data.formDataset.checked == 'true') {
+					if (data.formDataset.userNo != '' && data.formDataset.userNo != null && data.formDataset.userNo != "undefinded") {
+						userNoNew = data.formDataset.userNo;
+						var params = {};
+						params.mobile = telphone;
+						params.password  = $("#pwd").val();
+						$.ajax({
+							url : shopPath + "/member/register/forgetMemberPassword",
+							type : "GET",
+							data : params,
+							cache : false,
+							dataType : 'jsonp',
+							scriptCharset : 'utf-8',
+							jsonp : 'callback',
+							jsonpCallback : "successCallback",
+							crossDomain : true,
+							success : function(data) {
+								findPassword();
+							}
+						});
+					}
+				}
+				
+			}
+		}); 
+//		findPassword();
 		} else if (pwd == "" || vaildCode == "") {
 			api.alert({
 				msg : '请输入密码!'

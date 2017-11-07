@@ -120,30 +120,64 @@ apiready = function() {
 			});
 		} else {
 			AjaxUtil.exeScript({
-				script : "managers.home.person",
-				needTrascation : false,
-				funName : "updatapwd",
-				form : {
-					fid : memberid,
-					pwd : $.md5($('#oldpwd').val()),
-					newpwd : $.md5($('#num').val()),
-					tel : $('#username').val()
-				},
-				success : function(data) {
-					api.hideProgress();
-					if (data.execStatus == 'true') {
-						if (data.formDataset.checked == 'true') {//旧密码输入正确
-							api.closeWin();
-						} else {
-							api.alert({
-								msg : '您的旧密码输入错误'
-							}, function(ret, err) {
-								//coding...
-							});
-						}
+			script : "synchrodata.memeber.memeber",
+			needTrascation : true,
+			funName : "getUserNo",
+			success : function(data) {
+				if (data.formDataset.checked == 'true') {
+					if (data.formDataset.userNo != '' && data.formDataset.userNo != null && data.formDataset.userNo != "undefinded") {
+						userNoNew = data.formDataset.userNo;
+						var params = {};
+						params.userNo = urId;
+						params.password  =$('#num').val();
+						$.ajax({
+							url : shopPath + "/member/register/modifyMemberPassword",
+							type : "GET",
+							data : params,
+							cache : false,
+							dataType : 'jsonp',
+							scriptCharset : 'utf-8',
+							jsonp : 'callback',
+							jsonpCallback : "successCallback",
+							crossDomain : true,
+							success : function(data) {
+							
+								AjaxUtil.exeScript({
+									script : "managers.home.person",
+									needTrascation : false,
+									funName : "updatapwd",
+									form : {
+										fid : memberid,
+										pwd : $.md5($('#oldpwd').val()),
+										newpwd : $.md5($('#num').val()),
+										tel : $('#username').val()
+									},
+									success : function(data) {
+										api.hideProgress();
+										if (data.execStatus == 'true') {
+											if (data.formDataset.checked == 'true') {//旧密码输入正确
+												api.closeWin();
+											} else {
+												api.alert({
+													msg : '您的旧密码输入错误'
+												}, function(ret, err) {
+													//coding...
+												});
+											}
+										}
+									}
+								});
+								
+							}
+						});
 					}
 				}
-			});
+			}
+		});
+		
+			
+			
+			
 		}
 		//      $(".tips").fadeIn(500).delay("fast").fadeOut(500);
 	});
@@ -170,6 +204,7 @@ apiready = function() {
 					type : 1
 				},
 				success : function(data) {
+					console.log($api.jsonToStr(data));
 					api.hideProgress();
 					if (data.execStatus == 'true') {
 						code = data.formDataset.code;
