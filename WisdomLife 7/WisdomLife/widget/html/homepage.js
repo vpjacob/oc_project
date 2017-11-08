@@ -647,7 +647,10 @@ apiready = function() {
 					type : "push", //动画类型（详见动画类型常量）
 					subType : "from_right", //动画子类型（详见动画子类型常量）
 					duration : 300 //动画过渡时间，默认300毫秒
-				}
+				},
+				pageParam : {
+		          prefShop : true
+		        },
 			});
 		} else if(String(skipurl) == "222222") {
 			api.openWin({//金蛋商城列表
@@ -717,7 +720,10 @@ apiready = function() {
 					type : "push", //动画类型（详见动画类型常量）
 					subType : "from_right", //动画子类型（详见动画子类型常量）
 					duration : 300 //动画过渡时间，默认300毫秒
-				}
+				},
+				pageParam : {
+		          prefShop : true
+		        },
 			});
 		} else if(String(skipurl) == "222222") {
 			api.openWin({//金蛋商城列表
@@ -787,7 +793,10 @@ apiready = function() {
 					type : "push", //动画类型（详见动画类型常量）
 					subType : "from_right", //动画子类型（详见动画子类型常量）
 					duration : 300 //动画过渡时间，默认300毫秒
-				}
+				},
+				pageParam : {
+		          prefShop : true
+		        },
 			});
 		} else if(String(skipurl) == "222222") {
 			api.openWin({//金蛋商城列表
@@ -858,7 +867,10 @@ apiready = function() {
 					type : "push", //动画类型（详见动画类型常量）
 					subType : "from_right", //动画子类型（详见动画子类型常量）
 					duration : 300 //动画过渡时间，默认300毫秒
-				}
+				},
+				pageParam : {
+		          prefShop : true
+		        },
 			});
 		} else if(String(skipurl) == "222222") {
 			api.openWin({//金蛋商城列表
@@ -928,7 +940,10 @@ apiready = function() {
 					type : "push", //动画类型（详见动画类型常量）
 					subType : "from_right", //动画子类型（详见动画子类型常量）
 					duration : 300 //动画过渡时间，默认300毫秒
-				}
+				},
+				pageParam : {
+		          prefShop : true
+		        },
 			});
 		} else if(String(skipurl) == "222222") {
 			api.openWin({//金蛋商城列表

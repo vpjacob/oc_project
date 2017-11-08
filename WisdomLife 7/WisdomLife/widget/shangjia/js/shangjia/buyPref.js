@@ -430,135 +430,161 @@ apiready = function() {
 		};
 
 		//走支付宝支付
+			
+//		alert(defaultFlag);
+		AjaxUtil.exeScript({
+			script : "mobile.business.business",
+			needTrascation : false,
+			funName : "isRepeat",
+			form : {
+				userNo : urId,
+				produceId:$("#productId").attr("data"),
+				number:$("#amout").html()
+			},
+			success : function(data) {
+				console.log($api.jsonToStr(data));
+				if (data.formDataset.checked == 'true') {
 //		if ($("#zfb").prop("checked") == true) {
-			AjaxUtil.exeScript({
-				script : "mobile.center.pay.pay",
-				needTrascation : true,
-				funName : "insertTempAndGetDealNo",
-				form : {
-					userNo : urId,
-					productId : $("#productId").attr("data"),
-					userName : $("#userName").html(),
-					userPhone : $("#userPhone").html(),
-					userAddress : $("#address").val(),
-					goodName : ($("#content").html()).split(" ")[0],
-					num : $("#amout").html(),
-					postage : $("#freight").html().split("+")[1],
-					price : price,
-					remark : " ",
-					goodModel : goodMod,
-					merchantNo : "B000001",
-					merchantName : "北京小客网络科技有限公司",
-					mount : countAll,
-					type : "1"
-				},
-				success : function(formset) {
-					if (formset.execStatus == "true") {
-						var dealNo = formset.formDataset.dealNo;
-						var data = {
-							"subject" : "北京小客网络科技有限公司",
-							"body" : "小客智慧生活支付",
-							"amount" : countAll,
-							"tradeNO" : dealNo
-						};
-						$.ajax({
-							type : 'POST',
-							url : rootUrls + '/xk/buyPrefOrderInfo.do',
-							data : JSON.stringify(data),
-							dataType : "json",
-							contentType : 'application/json;charset=utf-8',
-							success : function(data) {
-								console.log($api.jsonToStr(data));
-								if (data.state == '1') {
-									var iaf = api.require('aliPay');
-									iaf.payOrder({
-										orderInfo : data.data
-									}, function(ret, err) {
-										if (ret.code == '9000') {
-											//消息推送
-											AjaxUtil.exeScript({
-												script : "managers.pushMessage.msg", //推送消息
-												needTrascation : false,
-												funName : "pushmsg",
-												form : {
-													userNo : 'V000007',
-													msg : "【小客商品】订单号【" + dealNo + "】,商品名称【" + ($("#content").html()).split(" ")[0] + "】",
-													type : 1
-												},
-												success : function(data) {
-													console.log($api.jsonToStr(data));
-												}
-											});
-											AjaxUtil.exeScript({
-												script : "managers.pushMessage.msg", //推送消息
-												needTrascation : false,
-												funName : "pushmsg",
-												form : {
-													userNo : "V000011",
-													msg : "【小客商品】订单号【" + dealNo + "】,商品名称【" + ($("#content").html()).split(" ")[0] + "】",
-													type : 1
-												},
-												success : function(data) {
-													console.log($api.jsonToStr(data));
-												}
-											});
-											AjaxUtil.exeScript({
-												script : "managers.pushMessage.msg", //推送消息
-												needTrascation : false,
-												funName : "pushmsg",
-												form : {
-													userNo : urId,
-													msg : "【小客商品】订单号【" + dealNo + "】,商品名称【" + ($("#content").html()).split(" ")[0] + "】",
-													type : 1
-												},
-												success : function(data) {
-													console.log($api.jsonToStr(data));
-												}
-											});
-
-											api.alert({
-												msg : "支付成功！"
-											});
-											api.closeWin();
-											api.execScript({//刷新商品详情页
-												name : 'buyListInfo',
-												script : 'refresh();'
-											});
-										} else if (ret.code == '6001') {
-											api.toast({
-												msg : "支付已取消"
-											});
-
-										} else {
-											api.alert({
-												title : '支付结果',
-												msg : ret.code,
-												buttons : ['确定']
-											});
-										}
+				AjaxUtil.exeScript({
+					script : "mobile.center.pay.pay",
+					needTrascation : true,
+					funName : "insertTempAndGetDealNo",
+					form : {
+						userNo : urId,
+						productId : $("#productId").attr("data"),
+						userName : $("#userName").html(),
+						userPhone : $("#userPhone").html(),
+						userAddress : $("#address").val(),
+						goodName : ($("#content").html()).split(" ")[0],
+						num : $("#amout").html(),
+						postage : $("#freight").html().split("+")[1],
+						price : price,
+						remark : " ",
+						goodModel : goodMod,
+						merchantNo : "B000001",
+						merchantName : "北京小客网络科技有限公司",
+						mount : countAll,
+						type : "1"
+					},
+					success : function(formset) {
+						if (formset.execStatus == "true") {
+							var dealNo = formset.formDataset.dealNo;
+							var data = {
+								"subject" : "北京小客网络科技有限公司",
+								"body" : "小客智慧生活支付",
+								"amount" : countAll,
+								"tradeNO" : dealNo
+							};
+							$.ajax({
+								type : 'POST',
+								url : rootUrls + '/xk/buyPrefOrderInfo.do',
+								data : JSON.stringify(data),
+								dataType : "json",
+								contentType : 'application/json;charset=utf-8',
+								success : function(data) {
+									console.log($api.jsonToStr(data));
+									if (data.state == '1') {
+										var iaf = api.require('aliPay');
+										iaf.payOrder({
+											orderInfo : data.data
+										}, function(ret, err) {
+											if (ret.code == '9000') {
+												//消息推送
+												AjaxUtil.exeScript({
+													script : "managers.pushMessage.msg", //推送消息
+													needTrascation : false,
+													funName : "pushmsg",
+													form : {
+														userNo : 'V000007',
+														msg : "【小客商品】订单号【" + dealNo + "】,商品名称【" + ($("#content").html()).split(" ")[0] + "】",
+														type : 1
+													},
+													success : function(data) {
+														console.log($api.jsonToStr(data));
+													}
+												});
+												AjaxUtil.exeScript({
+													script : "managers.pushMessage.msg", //推送消息
+													needTrascation : false,
+													funName : "pushmsg",
+													form : {
+														userNo : "V000011",
+														msg : "【小客商品】订单号【" + dealNo + "】,商品名称【" + ($("#content").html()).split(" ")[0] + "】",
+														type : 1
+													},
+													success : function(data) {
+														console.log($api.jsonToStr(data));
+													}
+												});
+												AjaxUtil.exeScript({
+													script : "managers.pushMessage.msg", //推送消息
+													needTrascation : false,
+													funName : "pushmsg",
+													form : {
+														userNo : urId,
+														msg : "【小客商品】订单号【" + dealNo + "】,商品名称【" + ($("#content").html()).split(" ")[0] + "】",
+														type : 1
+													},
+													success : function(data) {
+														console.log($api.jsonToStr(data));
+													}
+												});
+	
+												api.alert({
+													msg : "支付成功！"
+												});
+												api.closeWin();
+												api.execScript({//刷新商品详情页
+													name : 'buyListInfo',
+													script : 'refresh();'
+												});
+											} else if (ret.code == '6001') {
+												api.toast({
+													msg : "支付已取消"
+												});
+	
+											} else {
+												api.alert({
+													title : '支付结果',
+													msg : ret.code,
+													buttons : ['确定']
+												});
+											}
+										});
+									}
+								},
+								error : function(XMLHttpRequest, textStatus, errorThrown) {
+									api.toast({
+										msg : "您的网络是否已经连接上了，请检查一下！"
 									});
 								}
-							},
-							error : function(XMLHttpRequest, textStatus, errorThrown) {
-								api.toast({
-									msg : "您的网络是否已经连接上了，请检查一下！"
-								});
-							}
-						}); 
-					} else {
+							}); 
+						} else {
+							api.toast({
+								msg : "操作失败，请联系管理员！"
+							});
+						}
+					},
+					error : function(XMLHttpRequest, textStatus, errorThrown) {
 						api.toast({
-							msg : "操作失败，请联系管理员！"
+							msg : "您的网络是否已经连接上了，请检查一下！"
 						});
 					}
-				},
-				error : function(XMLHttpRequest, textStatus, errorThrown) {
-					api.toast({
-						msg : "您的网络是否已经连接上了，请检查一下！"
-					});
-				}
-			}); 
+				}); 
 //		}
-
+			
+			} else {
+				alert(data.formDataset.errorMsg);
+			}
+		},
+		error : function() {
+			api.alert({
+				msg : "您的网络是否已经连接上了，请检查一下！"
+			});
+		}
+	});
+		
+		
 	});
 	
 	//添加收货地址	

@@ -67,6 +67,19 @@ apiready = function() {
 				duration : 300 //动画过渡时间，默认300毫秒
 			}
 		});
+	});
+	//跳转金蛋兑换商城
+	$('#goGoldShop').click(function(){
+		api.openWin({
+			name : 'eggList',
+			url : '../../shangjia/eggstore/eggMain.html',
+			reload : true,
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			}
+		});
 	})
 
 	//返回刷新

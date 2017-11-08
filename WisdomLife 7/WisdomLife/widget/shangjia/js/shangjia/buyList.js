@@ -28,11 +28,40 @@ apiready = function() {
 		});
 	};
 	var indexid = api.pageParam.indexid;
+	var prefShop = api.pageParam.prefShop;//主页传来进行优选商品展示
 	if(indexid==true){
 		$("#Back").hide();
 		if (api.systemType == 'ios'){
 			$api.css(submit, 'top:0.8rem');
 		}
+	}
+	if(String(prefShop)=="true"){
+		$(".top span:eq(0)").removeClass();
+		$(".top span:eq(2)").addClass("special");
+		page = 1;
+		queryProductList(page,"","","","",1000);
+		api.addEventListener({
+			name : 'scrolltobottom'
+		}, function(ret, err) {
+			if (parseInt(page) <= parseInt(pageCount)) {
+				page++;
+				queryProductList(page,"","","","",1000);
+			} else {
+				page = parseInt(pageCount) + 1;
+			}
+		});
+	}else{
+		queryProductList(page,"","","","","");
+		api.addEventListener({
+			name : 'scrolltobottom'
+		}, function(ret, err) {
+			if (parseInt(page) <= parseInt(pageCount)) {
+				page++;
+				queryProductList(page,"","","","","");
+			} else {
+				page = parseInt(pageCount) + 1;
+			}
+		});
 	}
 	//查找所有商品分类
 	function queryProductTypeList() {
@@ -141,18 +170,18 @@ apiready = function() {
 		});
 	}
 
-	queryProductList(page,"","","","","");
+//	queryProductList(page,"","","","","");
 //全部商品的下拉加载
-	api.addEventListener({
-		name : 'scrolltobottom'
-	}, function(ret, err) {
-		if (parseInt(page) <= parseInt(pageCount)) {
-			page++;
-			queryProductList(page,"","","","","");
-		} else {
-			page = parseInt(pageCount) + 1;
-		}
-	});
+//	api.addEventListener({
+//		name : 'scrolltobottom'
+//	}, function(ret, err) {
+//		if (parseInt(page) <= parseInt(pageCount)) {
+//			page++;
+//			queryProductList(page,"","","","","");
+//		} else {
+//			page = parseInt(pageCount) + 1;
+//		}
+//	});
 	
 	//点击相应的图跳转到相应的详情页
 		$("#showListAll").on('click', 'img', function() {

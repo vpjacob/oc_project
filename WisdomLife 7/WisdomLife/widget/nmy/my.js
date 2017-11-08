@@ -347,7 +347,7 @@ $('#payMoney').click(function() {
 	$('#myegg').click(function() {
 		api.openWin({
 			name : 'myegg',
-			url : '../html/wallet/myegg.html',
+			url : '../stealEgg/html/myegg.html',
 			reload : true,
 			slidBackEnabled : true,
 			animation : {
@@ -607,6 +607,20 @@ $('#payMoney').click(function() {
 		});
 
 	});
+	
+	//好友管理
+//	$("#addressBook").bind("click", function() {
+//		api.openWin({//打开意见反馈
+//			name : 'feedback',
+//			url : '../friendManage/html/addressBook.html',
+//			slidBackEnabled : true,
+//			animation : {
+//				type : "push", //动画类型（详见动画类型常量）
+//				subType : "from_right", //动画子类型（详见动画子类型常量）
+//				duration : 300 //动画过渡时间，默认300毫秒
+//			}
+//		});
+//	});
 	//调用图片
 	function queryMyCenterCarousel() {
 		AjaxUtil.exeScript({
@@ -756,7 +770,10 @@ $('#payMoney').click(function() {
 					type : "push", //动画类型（详见动画类型常量）
 					subType : "from_right", //动画子类型（详见动画子类型常量）
 					duration : 300 //动画过渡时间，默认300毫秒
-				}
+				},
+				pageParam : {
+		          prefShop : true
+		        },
 			});
 		} else if(String(skipurl) == "222222") {
 			api.openWin({//金蛋商城列表
