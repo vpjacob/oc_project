@@ -258,7 +258,7 @@
 - (UIImageView *)markImg
 {
     if (!_markImg) {
-        _markImg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 64, kDeviceWidth, jjSCREENH(150))];
+        _markImg = [[UIImageView alloc] initWithFrame:CGRectMake(0, kNavBarHeight, kDeviceWidth, jjSCREENH(150))];
         _markImg.image = [UIImage imageNamed:@"banner3"];
     }
     return _markImg;

@@ -152,6 +152,10 @@ apiready = function() {
 					    name: 'entranceGuardInfo',
 					    script: 'funcGoto('+JSON.stringify(result)+')'
 					});
+				api.execScript({
+					    name: 'buyPref',
+					    script: 'funcGoto('+JSON.stringify(result)+')'
+					});	
 					api.closeWin({
 					});
 				} else {

@@ -108,7 +108,14 @@ apiready = function() {
 //					if(list.price_discount=="" ||list.price_discount==null || list.price_discount==undefined){
 						$("#price").html(list.price_discount+'积分');
 						$("#busTotal").html(list.price_discount+'积分');
-						$("#countAll").html(list.price_discount+'积分');
+						
+						if(list.price_discount>=2000){
+							$("#countAll").html(list.price_discount+'积分');
+							$("#freight").html(0.00+'积分');
+						}else{
+							$("#countAll").html(list.price_discount+100+'积分');
+							$("#freight").html(100.00+'积分');
+						}
 						showPrice=list.price_discount;
 						//获取默认地址
 						 queryDefaultAddress(urId);
@@ -254,7 +261,12 @@ apiready = function() {
 			$("#amout").html(amout);
 			var numAdd=(parseInt(amout) * showPrice).toFixed(2);
 			$("#busTotal").html(numAdd+"积分");
-			$('#countAll').html(numAdd+"积分");
+			if(numAdd>=2000){
+				$('#countAll').html(numAdd+'积分');
+				$('#freight').html(0+'积分');
+			}else{
+				$('#countAll').html((Number(numAdd)+Number(($("#freight").html()).split("积分")[0])).toFixed(2)+'积分');
+			}
 		}
 	});
 	$('#numSub').click(function() {
@@ -264,7 +276,13 @@ apiready = function() {
 			$("#amout").html(amout);
 			var numSub=(parseInt(amout) * showPrice).toFixed(2);
 			$("#busTotal").html(numSub+"积分");
-			$('#countAll').html(numSub+"积分");
+			if(numSub<2000){
+				$('#freight').html(100+'积分');
+				$('#countAll').html((Number(numSub)+Number(($("#freight").html()).split("积分")[0])).toFixed(2)+'积分');
+			}else{
+				$('#countAll').html(numSub+'积分');
+				$('#freight').html(0+'积分');
+			}
 		}
 	});
 	//提交支付调用支付宝接口

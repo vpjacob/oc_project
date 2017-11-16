@@ -347,7 +347,7 @@ $('#payMoney').click(function() {
 	$('#myegg').click(function() {
 		api.openWin({
 			name : 'myegg',
-			url : '../stealEgg/html/myegg.html',
+			url : '../html/wallet/myegg.html',
 			reload : true,
 			slidBackEnabled : true,
 			animation : {
@@ -368,14 +368,14 @@ $('#payMoney').click(function() {
 			needTrascation : true,
 			funName : "queryBuyBackIsOpen",
 			form : {
-				
+				userNo : urId
 			},
 			success : function(data) {
 				console.log("查询回购开关是否开启"+$api.jsonToStr(data));
 				if (data.formDataset.checked == 'true') {
-					if(data.formDataset.isOpen == 1 ){
+					if(String(data.formDataset.isOpen) == "1" ){
 						checkIsMayBuyBack();
-					}else if(data.formDataset.isOpen == 0){
+					}else if(String(data.formDataset.isOpen) == "0"){
 						api.openWin({
 							name : 'buyback',
 							url : '../html/wallet/buyback.html',
@@ -387,6 +387,10 @@ $('#payMoney').click(function() {
 								duration : 300 //动画过渡时间，默认300毫秒
 							}
 						});
+					}else if(String(data.formDataset.isOpen) == "3"){
+						api.alert({
+	                        msg:data.formDataset.errorMsg
+                        });
 					}
 				} else {
 					console.log(data.formDataset.errorMsg);

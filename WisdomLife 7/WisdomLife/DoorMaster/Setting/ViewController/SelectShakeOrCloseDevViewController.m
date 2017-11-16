@@ -40,7 +40,6 @@
 -(UIView *)getTableHeadView
 {
     
-    
     UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kDeviceWidth, 70)];
     
     UIView *lineV = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kDeviceWidth, 0.5)];

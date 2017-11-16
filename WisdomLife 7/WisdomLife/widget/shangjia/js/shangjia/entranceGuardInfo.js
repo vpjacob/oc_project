@@ -28,7 +28,7 @@ apiready = function() {
 	    key:'userNo'
     });
     queryProductDeatilAndModelType();
-    queryDefaultAddress(urId);
+//  queryDefaultAddress(urId);
 	oldPwd(urId);
 	queryUserAccountByUserNo(urId);
 	var fanxiBox = $(".businesses input:checkbox");
@@ -127,6 +127,7 @@ apiready = function() {
 //							queryModelByModelType(lists[i].id,goodNum);
 					}
 					$("#modelList").prepend(nowList);
+					queryDefaultAddress(urId);
 				    for(var j=0;j<lists.length;j++){
 					   queryModelByModelType(lists[j].id,goodNum,lists[j].id);
 					}
@@ -311,7 +312,7 @@ apiready = function() {
 			}); 
 			return false;
 		};
-		if($("#zfb").prop("checked")==false && $("#xk").prop("checked")==false){
+		if($("#zfb").prop("checked")==false && $("#xk").prop("checked")==false &&  $("#wxPay").prop("checked")==false){
 			api.alert({
 				msg : "请选择支付方式"
 			}); 
@@ -334,6 +335,86 @@ apiready = function() {
 				return false;
 			}
 		}
+		//微信支付
+		if ($("#wxPay").prop("checked") == true) {
+			AjaxUtil.exeScript({
+				script : "mobile.center.pay.pay",
+				needTrascation : true,
+				funName : "insertTempAndGetDealNo",
+				form : {
+					userNo : urId,
+					productId : $("#productId").attr("data"),
+					userName : $("#userName").html(),
+					userPhone : $("#userPhone").html(),
+					userAddress : $("#address").val(),
+					goodName : ($("#content").html()).split(" ")[0],
+					num : $("#amout").html(),
+					postage : $("#freight").html().split("+")[1],
+					price : price,
+					remark : " ",
+					goodModel : goodMod,
+					merchantNo : "B000001",
+					merchantName : "北京小客网络科技有限公司",
+					mount : countAll,
+					type : "1"
+				},
+				success : function(formset) {
+					if (formset.execStatus == "true") {
+						var dealNo = formset.formDataset.dealNo;
+						var data = {
+								"totalAmount" :countAll,
+								"description" : ($("#content").html()).split(" ")[0],
+								"dealNo":dealNo
+							}
+						$.ajax({
+							type : 'POST',
+							url : 'http://lzqinga.oicp.net:13387/pay/wxBuyGetSign.do',
+							data : JSON.stringify(data),
+							dataType : "json",
+							contentType : 'application/json;charset=utf-8',
+							success : function(result) {
+								console.log($api.jsonToStr(result));
+									var wxPay = api.require('wxPay');
+									wxPay.payOrder({
+										    apiKey: result.data.appid,
+										    mchId: "1488789472",
+										    nonceStr: result.data.noncestr,
+										    timeStamp: result.data.timestamp,
+										    sign: result.data.paySign,
+										    orderId: result.data.prepayid
+										}, function(ret, err) {
+										    if (ret.status) {
+										        alert("支付成功");
+										        api.closeWin();
+										    } else {
+										        if(err.code=='-2'){
+										        	api.toast({
+															msg : "支付已取消"
+														});
+										        };
+										    }
+										});
+							},
+							error : function(XMLHttpRequest, textStatus, errorThrown) {
+								console.log("错误输出信息：" + XMLHttpRequest.status + "###" + XMLHttpRequest.readyState + "###" + textStatus);
+								api.toast({
+									msg : "您的网络是否已经连接上了，请检查一下！"
+								});
+							}
+						});
+					} else {
+						api.toast({
+							msg : "操作失败，请联系管理员！"
+						});
+					}
+				},
+				error : function(XMLHttpRequest, textStatus, errorThrown) {
+					api.toast({
+						msg : "您的网络是否已经连接上了，请检查一下！"
+					});
+				}
+			});
+		};
 		
 		//走金币支付		
 		if ($("#xk").prop("checked") == true) {

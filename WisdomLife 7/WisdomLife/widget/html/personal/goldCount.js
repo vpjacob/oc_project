@@ -83,6 +83,34 @@ apiready = function() {
 			}
 		});
 	});
+	//积分兑换记录
+	$('#goChangeIntegral').click(function() {
+		api.openWin({
+			name : 'eggDh',
+			url : 'eggDh.html',
+			reload : true,
+			slidBackEnabled : true,
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			},
+		});
+	});
+	//金蛋兑换记录
+	$('#goChangeEgg').click(function() {
+		api.openWin({
+			name : 'eggDh',
+			url : 'eggDh.html',
+			reload : true,
+			slidBackEnabled : true,
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			}
+		});
+	});
 function record(urId) {
 	AjaxUtil.exeScript({
 		script : "mobile.accountdetail.accountdetail",
@@ -107,6 +135,11 @@ function record(urId) {
 					data.formDataset.goldUselessCount==null?$('#deadG').html(0.00):$('#deadG').html(data.formDataset.goldUselessCount);
 					data.formDataset.silverUselessCount==null?$('#deadY').html(0.00):$('#deadY').html(data.formDataset.silverUselessCount);
 					data.formDataset.payGoldCoinAmount==null?$('#payCount').html(0.00):$('#payCount').html(data.formDataset.payGoldCoinAmount);
+					
+					data.formDataset.alreadyPayIntegralAmount  ==null?$('#changeIntegral').html(0.00):$('#changeIntegral').html(data.formDataset.alreadyPayIntegralAmount);
+					data.formDataset.alreadyPayGoldAmount ==null?$('#changeEgg').html(0.00):$('#changeEgg').html(data.formDataset.alreadyPayGoldAmount);
+					data.formDataset.mayUserGoldEggCount ==null?$('#readyEgg').html(0.00):$('#readyEgg').html(data.formDataset.mayUserGoldEggCount);
+					data.formDataset.alreadySelectedEgg  ==null?$('#optimizationEgg').html(0.00):$('#optimizationEgg').html(data.formDataset.alreadySelectedEgg );
 			} else {
 				alert(data.formDataset.errorMsg);
 			}

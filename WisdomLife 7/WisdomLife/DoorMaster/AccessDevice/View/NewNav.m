@@ -32,7 +32,7 @@
         [self addSubview:_escBtn];
         
         _exitBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _exitBtn.frame = CGRectMake(kDeviceWidth - 64, 0, 64, 64);
+        _exitBtn.frame = CGRectMake(kDeviceWidth - 64, kNavBarHeight - 64, 64, 64);
         [_exitBtn setImage:[UIImage scaleImage:[UIImage imageNamed:@"退出"] toSize:CGSizeMake(20, 20)] forState:UIControlStateNormal];
         _exitBtn.imageEdgeInsets = UIEdgeInsetsMake(20, 0, 0, 0);
         _exitBtn.hidden = YES;
