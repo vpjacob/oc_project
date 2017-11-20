@@ -28,10 +28,11 @@
 #import "KNBVideoPlayerController.h"
 #import "JJVersionCodeController.h"
 #import "JFCityViewControllers.h"
+#import "WXApi.h"
 
 static DMHtmlListener *instance = nil;
 
-@interface DMHtmlListener ()<APIWebViewDelegate, APIModuleMethodDelegate, APIScriptMessageDelegate>
+@interface DMHtmlListener ()<APIWebViewDelegate, APIModuleMethodDelegate, APIScriptMessageDelegate,WXApiDelegate>
 
 @property (nonatomic, strong) APIWidgetContainer *windowContainer;
 @property(nonatomic,strong)KNBVideoPlayerController *playVC;
@@ -122,6 +123,20 @@ static DMHtmlListener *instance = nil;
 //                                                           } forKey:@"loginUserAcount"];
         
         [DMLoginAction loginWithUsername:account andPwd:password withWebView:webView andScriptMessage:scriptMessage];
+        
+    }else if ([scriptMessage.name isEqualToString:@"wxpay"]) {//
+        
+        PayReq *pay = [[PayReq alloc] init];
+        
+        pay.partnerId = @"1488789472";
+        pay.nonceStr = scriptMessage.userInfo[@"nonceStr"];
+        NSString *tmstr = scriptMessage.userInfo[@"timeStamp"];
+        pay.timeStamp = (UInt32) tmstr.longLongValue;
+        pay.sign = scriptMessage.userInfo[@"paySign"];
+        pay.prepayId = scriptMessage.userInfo[@"prepayId"];
+        pay.package = @"Sign=WXPay";
+        
+        [WXApi sendReq:pay];
         
     }else if ([scriptMessage.name isEqualToString:@"update"]) {//
         

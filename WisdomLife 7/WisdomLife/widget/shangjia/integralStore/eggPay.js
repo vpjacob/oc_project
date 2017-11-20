@@ -391,6 +391,7 @@ apiready = function() {
 								api.toast({
 									msg : "操作失败，请联系管理员！"
 								});
+								api.hideProgress();
 							}
 						},
 						error : function(XMLHttpRequest, textStatus, errorThrown) {

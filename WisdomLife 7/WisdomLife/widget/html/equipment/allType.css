@@ -61,3 +61,44 @@ li{
 .icon-danlieliebiao{
    margin-left:5px;
 }
+.topImg{
+	width:100%;
+}
+.boxList{
+	height: 4.4rem;
+	width:100%;
+	background-color:white;
+}
+.boxList .listSame{
+	width: 33.333%;
+	float: left;
+	height: 4.4rem;
+	border-right:1px solid #ddd;
+}
+.boxList .listSame:nth-child(3){
+	border:none;
+}
+.boxList .listSame .listSameImg{
+	width:1.4rem;
+	height: 1.4rem;
+	margin: 0 auto;
+	margin-top: 1.0rem;
+}
+.boxList .listSame span{
+	margin-top: 0.5rem;
+	width:100%;
+	text-align:center;
+	font-size: 0.65rem;
+	color:#4d4d4d;
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -337,6 +337,9 @@ apiready = function() {
 		}
 		//微信支付
 		if ($("#wxPay").prop("checked") == true) {
+			api.showProgress({
+						text:'支付中...'
+                    });
 			AjaxUtil.exeScript({
 				script : "mobile.center.pay.pay",
 				needTrascation : true,
@@ -368,50 +371,77 @@ apiready = function() {
 							}
 						$.ajax({
 							type : 'POST',
-							url : 'http://lzqinga.oicp.net:13387/pay/wxBuyGetSign.do',
+							url : rootUrls+'/pay/wxBuyGetSign.do',
 							data : JSON.stringify(data),
 							dataType : "json",
 							contentType : 'application/json;charset=utf-8',
 							success : function(result) {
-								console.log($api.jsonToStr(result));
-									var wxPay = api.require('wxPay');
-									wxPay.payOrder({
-										    apiKey: result.data.appid,
-										    mchId: "1488789472",
-										    nonceStr: result.data.noncestr,
-										    timeStamp: result.data.timestamp,
-										    sign: result.data.paySign,
-										    orderId: result.data.prepayid
-										}, function(ret, err) {
-										    if (ret.status) {
-										        alert("支付成功");
-										        api.closeWin();
-										    } else {
-										        if(err.code=='-2'){
-										        	api.toast({
-															msg : "支付已取消"
-														});
-										        };
-										    }
-										});
+//                                console.log($api.jsonToStr(result));
+                               if (api.systemType == 'ios'){
+									api.accessNative({
+										name : 'wxpay',
+										extra : {
+											apiKey : result.data.appid,
+											mchId : "1488789472",
+											nonceStr : result.data.noncestr,
+											timeStamp : result.data.timestamp,
+											paySign : result.data.paySign,
+											prepayId : result.data.prepayid
+										}
+									}, function(ret, err) {
+										if (ret) {
+
+										} else {
+
+										}
+									});
+									api.hideProgress(); 
+
+                               }else{
+                                   var wxPay = api.require('wxPay');
+                                   wxPay.payOrder({
+                                           apiKey: result.data.appid,
+                                           mchId: "1488789472",
+                                           nonceStr: result.data.noncestr,
+                                           timeStamp: result.data.timestamp,
+                                           sign: result.data.paySign,
+                                           orderId: result.data.prepayid
+                                       }, function(ret, err) {
+                                           if (ret.status) {
+                                               alert("支付成功");
+                                               api.closeWin();
+                                           } else {
+                                               if(err.code=='-2'){
+                                                   api.toast({
+                                                           msg : "支付已取消"
+                                                       });
+                                                   api.hideProgress();    
+                                               };
+                                           }
+                                       });
+                               }
+                               
 							},
 							error : function(XMLHttpRequest, textStatus, errorThrown) {
 								console.log("错误输出信息：" + XMLHttpRequest.status + "###" + XMLHttpRequest.readyState + "###" + textStatus);
 								api.toast({
 									msg : "您的网络是否已经连接上了，请检查一下！"
 								});
+								api.hideProgress();
 							}
 						});
 					} else {
 						api.toast({
 							msg : "操作失败，请联系管理员！"
 						});
+						api.hideProgress();	
 					}
 				},
 				error : function(XMLHttpRequest, textStatus, errorThrown) {
 					api.toast({
 						msg : "您的网络是否已经连接上了，请检查一下！"
 					});
+				api.hideProgress();	
 				}
 			});
 		};
@@ -512,6 +542,9 @@ apiready = function() {
 
 		//走支付宝支付
 		if ($("#zfb").prop("checked") == true) {
+			api.showProgress({
+						text:'支付中...'
+                    });
 			AjaxUtil.exeScript({
 				script : "mobile.center.pay.pay",
 				needTrascation : true,
@@ -609,13 +642,14 @@ apiready = function() {
 											api.toast({
 												msg : "支付已取消"
 											});
-
+											api.hideProgress();
 										} else {
 											api.alert({
 												title : '支付结果',
 												msg : ret.code,
 												buttons : ['确定']
 											});
+											api.hideProgress();
 										}
 									});
 								}
@@ -624,18 +658,21 @@ apiready = function() {
 								api.toast({
 									msg : "您的网络是否已经连接上了，请检查一下！"
 								});
+								api.hideProgress();
 							}
 						}); 
 					} else {
 						api.toast({
 							msg : "操作失败，请联系管理员！"
 						});
+						api.hideProgress();
 					}
 				},
 				error : function(XMLHttpRequest, textStatus, errorThrown) {
 					api.toast({
 						msg : "您的网络是否已经连接上了，请检查一下！"
 					});
+					api.hideProgress();
 				}
 			}); 
 		}

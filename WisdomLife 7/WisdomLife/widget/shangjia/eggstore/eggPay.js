@@ -407,6 +407,7 @@ apiready = function() {
 											setTimeout(function() {
 												api.closeWin()
 											}, 500);
+											api.hideProgress();
 										}
 									},
 									error : function(XMLHttpRequest, textStatus, errorThrown) {
@@ -414,18 +415,21 @@ apiready = function() {
 										api.toast({
 											msg : "您的网络是否已经连接上了，请检查一下！"
 										});
+										api.hideProgress();
 									}
 								}); 
 							} else {
 								api.toast({
 									msg : "操作失败，请联系管理员！"
 								});
+								api.hideProgress();
 							}
 						},
 						error : function(XMLHttpRequest, textStatus, errorThrown) {
 							api.toast({
 								msg : "您的网络是否已经连接上了，请检查一下！"
 							});
+							api.hideProgress();
 						}
 					}); 
 					api.hideProgress();

@@ -62,6 +62,7 @@
 		D65023631F145EE000464540 /* LCQrcodeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D65023621F145EE000464540 /* LCQrcodeUtil.m */; };
 		D65023641F145EE000464540 /* LCQrcodeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D65023621F145EE000464540 /* LCQrcodeUtil.m */; };
 		D65023651F145EE000464540 /* LCQrcodeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D65023621F145EE000464540 /* LCQrcodeUtil.m */; };
+		D6568C2A1FBD5CB1004A0CFA /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6568C271FBD5CB1004A0CFA /* libWeChatSDK.a */; };
 		D66254781F7252F100261C9E /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D662546C1F7252F100261C9E /* AFHTTPSessionManager.m */; };
 		D66254791F7252F100261C9E /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D662546F1F7252F100261C9E /* AFNetworkReachabilityManager.m */; };
 		D662547A1F7252F100261C9E /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = D66254711F7252F100261C9E /* AFSecurityPolicy.m */; };
@@ -449,6 +450,9 @@
 		D650235C1F145E7F00464540 /* JJScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJScanViewController.m; sourceTree = "<group>"; };
 		D65023611F145EE000464540 /* LCQRCodeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LCQRCodeUtil.h; path = ../Utils/LCQRCodeUtil.h; sourceTree = "<group>"; };
 		D65023621F145EE000464540 /* LCQrcodeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LCQrcodeUtil.m; path = ../Utils/LCQrcodeUtil.m; sourceTree = "<group>"; };
+		D6568C271FBD5CB1004A0CFA /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		D6568C281FBD5CB1004A0CFA /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		D6568C291FBD5CB1004A0CFA /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		D662546B1F7252F100261C9E /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		D662546C1F7252F100261C9E /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		D662546D1F7252F100261C9E /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -1048,6 +1052,7 @@
 				D6B09D361F95D510008019B8 /* BaiduMapAPI_Base.framework in Frameworks */,
 				D6B09D3E1F95D510008019B8 /* chatBox.a in Frameworks */,
 				D6B09D691F95D510008019B8 /* photoBrowser.a in Frameworks */,
+				D6568C2A1FBD5CB1004A0CFA /* libWeChatSDK.a in Frameworks */,
 				D6B09D411F95D510008019B8 /* FNScanner.a in Frameworks */,
 				D6B09D4B1F95D510008019B8 /* libBluetooth4.a in Frameworks */,
 				225F8A6F1EBD7DC6000822DB /* libz.tbd in Frameworks */,
@@ -1255,6 +1260,9 @@
 		D65023601F145ED900464540 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				D6568C271FBD5CB1004A0CFA /* libWeChatSDK.a */,
+				D6568C291FBD5CB1004A0CFA /* WXApi.h */,
+				D6568C281FBD5CB1004A0CFA /* WXApiObject.h */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -2776,6 +2784,7 @@
 					"$(PROJECT_DIR)/WisdomLife/lib/Modules",
 					"$(PROJECT_DIR)/WisdomLife/DoorMaster/Common/Lib",
 					"$(PROJECT_DIR)/WisdomLife",
+					"$(PROJECT_DIR)/WisdomLife/Utils",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoke.wizdomlife;
@@ -2814,6 +2823,7 @@
 					"$(PROJECT_DIR)/WisdomLife/lib/Modules",
 					"$(PROJECT_DIR)/WisdomLife/DoorMaster/Common/Lib",
 					"$(PROJECT_DIR)/WisdomLife",
+					"$(PROJECT_DIR)/WisdomLife/Utils",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoke.wizdomlife;

@@ -1,0 +1,29 @@
+body {
+	font-family: "微软雅黑";
+	background-color: #f1f1f1;
+}
+img {
+	display: block;
+}
+input {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border: none;
+	text-align: right;
+}
+.headerClass{
+	background:#fff;
+	border-bottom: 1px solid #d3d3d3;	
+}
+.headerImg{
+	width: 1.1rem;
+	height: 1.1rem;
+}
+.headerTitle{
+	font-size: 0.85rem;
+	color:#282828
+}
+.box{
+	margin-top: 2.22rem;
+}

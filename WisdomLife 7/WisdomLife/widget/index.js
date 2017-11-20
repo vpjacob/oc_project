@@ -91,8 +91,26 @@ apiready = function() {
 					var appServerAndroid =	list.android_version;
 					//ios端更新
 					if (api.systemType == 'ios') {
-//						alert("appServerIos"+appServerIos+"appServerIosUrl"+list.ios_url+"updateTime"+list.update_time+"description"+list.description);
-						if (appServerIos > appLocation) {
+						var iosVersionFlag=""
+						function toNum(a){
+					        var a=a.toString();
+					        var c=a.split('.');
+					        var num_place=["","0","00","000","0000"],r=num_place.reverse();
+					        for (var i=0;i<c.length;i++){
+					            var len=c[i].length;
+					            c[i]=r[len]+c[i];
+					        }
+					        var res= c.join('');
+					        return res;
+					    }
+					    function cpr_version(a,b){
+					        var _a=toNum(a),_b=toNum(b);
+					        if(_a>_b){
+					        	iosVersionFlag="true";
+					        }
+					    }
+					    cpr_version(appServerIos,appLocation);
+						if (iosVersionFlag=="true") {
 							api.confirm({
 								title : '提示',
 								msg : '下载新的版本',
@@ -126,8 +144,26 @@ apiready = function() {
 					};
 					//Android更新
 					if (api.systemType == 'android') {
-//						alert("appServerAndroid"+appServerAndroid+"appServerAndroidUrl"+list.android_url+"updateTime"+list.update_time+"description"+list.description);
-						if (appServerAndroid > appLocation) {
+						var androidVersionFlag=""
+						function toNum(a){
+					        var a=a.toString();
+					        var c=a.split('.');
+					        var num_place=["","0","00","000","0000"],r=num_place.reverse();
+					        for (var i=0;i<c.length;i++){
+					            var len=c[i].length;
+					            c[i]=r[len]+c[i];
+					        }
+					        var res= c.join('');
+					        return res;
+					    }
+					    function cpr_version(a,b){
+					        var _a=toNum(a),_b=toNum(b);
+					        if(_a>_b){
+					        	androidVersionFlag="true";
+					        }
+					    }
+					    cpr_version(appServerAndroid,appLocation);
+						if (androidVersionFlag=="true") {
 							api.confirm({
 								title : '提示',
 								msg : '更新版本吗？',
@@ -253,7 +289,7 @@ apiready = function() {
                          });
 
 
-//实现广告开屏跳转
+    //实现广告开屏跳转
     api.addEventListener({
                          name : 'startAdvertisement'
                          }, function(ret, err) {
@@ -337,7 +373,8 @@ apiready = function() {
                          };
                          
                          });
-    
+
+
 
 	hasLogon = api.getPrefs({
 	    sync:true,

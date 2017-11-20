@@ -20,6 +20,23 @@ apiready = function() {
 	    key:'userNo'
     });
     getDetail(urId,99,page);
+    api.setRefreshHeaderInfo({
+		loadingImg : '../../image/mainbus.jpg',
+		bgColor : '#ccc',
+		textColor : '#fff',
+		textDown : '下拉刷新...',
+		textUp : '松开刷新...',
+		showTime : false
+	}, function(ret, err) {
+		if(ret){
+			location.reload();
+		}else{
+			api.toast({
+	            msg:err
+            });
+		}
+		
+	});
 	//Android返回键的监听
 	api.addEventListener({
 		name : 'keyback'

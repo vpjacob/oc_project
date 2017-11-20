@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
 		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
-		<title>全部设备</title>
+		<title>我的设备</title>
 		<link rel="stylesheet" type="text/css" href="../../css/api.css" />
 		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
 		<link rel="stylesheet" href="../../css/sm-extend.min.css">
@@ -14,6 +14,7 @@
 		<script type='text/javascript' src='../../script/sm-extend.min.js' charset='utf-8'></script>
 		<link rel="stylesheet" type="text/css" href="../../css/all.css">
 		<link rel="stylesheet" type="text/css" href="../../css/base.css">
+		<link rel="stylesheet" type="text/css" href="../../css/common.css">
 		<link rel="stylesheet" type="text/css" href="allType.css">
 		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css"/>
 		<link rel="stylesheet" type="text/css" href="../../equipmenticon/iconfont.css">
@@ -31,72 +32,34 @@
 		</style>
 	</head>
 	<body>
-		<div class="page-group">
-			<div class="page">
-				<header class="bar bar-nav my-head" id="header">
-					<a class="icon pull-left" id="back"><i  class="iconfont icon-xiangzuo1" style="font-size: 28px;color: #999"></i></a>
-					<h1 class="title">全部设备</h1>
-					<a id="regist" class='top-bar-right'>
-					    <i  class="iconfont icon-zengjia" style="font-size: 28px;color: #999"></i>
-					</a>
-				</header>
-				<div class="content">
-				    
-					<div class="text">
-					<i  class="iconfont icon-danlieliebiao" style="color: #999"></i>
-						我的设备
-					</div>
-					<div class="list-block media-list">
-						<ul>
-							<li id="recorde">
-								<div class="item-content">
-									<div class="item-media">
-									     <img src="../../image/shebei.png" style='width: 2.2rem;'>
-									</div>
-									<div class="item-inner">
-										<div class="item-title-row">
-											<div class="item-title">
-												小客行车记录仪
-											</div>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li id="myroom">
-								<div class="item-content">
-									<div class="item-media">
-									     <img src="../../image/shebei.png" style='width: 2.2rem;'>
-									</div>
-									<div class="item-inner">
-										<div class="item-title-row">
-											<div class="item-title">
-												智能门禁
-											</div>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li id="myLock">
-								<div class="item-content">
-									<div class="item-media">
-									     <img src="../../image/shebei.png" style='width: 2.2rem;'>
-									</div>
-									<div class="item-inner">
-										<div class="item-title-row">
-											<div class="item-title">
-												智能门锁
-											</div>
-										</div>
-									</div>
-								</div>
-							</li>
-						</ul>
-					</div>
+		<header class="bar bar-nav headerClass" id="title">
+			<a class="icon iconfont pull-left" onclick="goBack()">
+				<img src="../../image/shezhi/goback.png" alt="" class="headerImg"/>
+			</a>
+			<h1 class="title headerTitle">我的设备</h1>
+			<a class="icon iconfont pull-right" id="regist">
+				<img src="../../image/shezhi/add.png" alt="" class="headerImg"/>
+			</a>
+		</header>
+		<div class="box">
+			<img src="../../image/equipment/allTypeImg.png" alt="" class="topImg"/>
+			<div class="boxList">
+				<div class="listSame" id="recorde">
+					<img src="../../image/equipment/jly.png" alt="" class="listSameImg"/>
+					<span>行车记录仪</span>
+				</div>
+				<div class="listSame" id="myroom">
+					<img src="../../image/equipment/mj.png" alt="" class="listSameImg"/>
+					<span>智能门禁</span>
+				</div>
+				<div class="listSame" id="myLock">
+					<img src="../../image/equipment/ms.png" alt="" class="listSameImg"/>
+					<span>智能门锁</span>
 				</div>
 			</div>
 		</div>
 	</body>
 	<script type="text/javascript" src="../../script/api.js"></script>
-	<script type="text/javascript" src="allType.js"></script>
 	<script type="text/javascript" src="../../script/common.js"></script>
+	<script type="text/javascript" src="allType.js"></script>
 </html>

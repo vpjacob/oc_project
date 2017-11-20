@@ -14,6 +14,9 @@
 #import "OpenDoorListViewController.h"
 #import "DoorListViewController.h"
 #import <StoreKit/StoreKit.h>
+#import "WXApi.h"
+#import "MBProgressHUD.h"
+
 
 //static NSString *postUrl = @"http://192.168.1.199:9020/xk/appStartImg.do";
 //static NSString *imgUrlFront = @"http://192.168.1.199:8080";
@@ -21,7 +24,7 @@
 static NSString *postUrl = @"http://xk.ppke.cn:9030/xk/appStartImg.do";
 static NSString *imgUrlFront = @"http://www.ppke.cn";
 
-@interface AppDelegate ()
+@interface AppDelegate ()<WXApiDelegate>
 
 @end
 
@@ -43,7 +46,7 @@ static NSString *imgUrlFront = @"http://www.ppke.cn";
     
     [self thridDTouchInit];
     [self advertisementInit];
-
+    [WXApi registerApp:@"wx467a7db3832c23fd"];
     return YES;
 }
 
@@ -117,8 +120,46 @@ static NSString *imgUrlFront = @"http://www.ppke.cn";
                 [[DMHtmlListener manager] nativeSendActionToH5:@"eggs" userInfo:nil];
             });
         }
+        return  YES;
     }
-    return  YES;
+    return [WXApi handleOpenURL:url delegate:self];
+}
+
+-(void) onReq:(BaseReq*)req{
+    
+}
+
+-(void) onResp:(BaseResp*)resp{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.window animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    
+    hud.margin = 15.f;
+    hud.yOffset = 00.f;
+    hud.removeFromSuperViewOnHide = YES;
+    [hud hide:YES afterDelay:4];
+    
+    switch (resp.errCode) {
+        case WXSuccess:
+        hud.labelText = @"成功";
+        break;
+        case WXErrCodeCommon:
+        hud.labelText = @"普通错误";
+        break;
+        case WXErrCodeUserCancel:
+        hud.labelText = @"点击了取消";
+        break;
+        case WXErrCodeSentFail:
+        hud.labelText = @"发送失败";
+        break;
+        case WXErrCodeAuthDeny:
+        hud.labelText = @"授权失败";
+        break;
+        case WXErrCodeUnsupport:
+        hud.labelText = @"微信不支持";
+        break;
+        default:
+        break;
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
