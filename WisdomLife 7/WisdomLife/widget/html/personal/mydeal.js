@@ -7,7 +7,12 @@ var pageDealCount = 1;
 apiready = function() {
 	var header = $api.byId('title');
 	if (api.systemType == 'ios') {
-		$api.css(header, 'margin-top:20px;');
+		
+        if (api.screenHeight == 2436){
+            $api.css(header, 'margin-top:44px;');
+        }else{
+            $api.css(header, 'margin-top:20px;');
+        }
 	};
 	
 	urId = api.getPrefs({
@@ -93,7 +98,7 @@ apiready = function() {
 									+'</div>'
 									+'<div class="user" style="height:3.25rem;">'
 									+'<div class="same">'
-									+'<span>'+data[i].goodName+'&nbsp'+ data[i].goodModel+'</span>'
+									+'<span class="goodClass">'+data[i].goodName+'&nbsp'+ data[i].goodModel+'</span>'
 									+'<span>¥'+ data[i].price +'</span>'
 									+'</div>'
 									+'</div>'

@@ -386,21 +386,38 @@ apiready = function() {
 	var header = $api.byId('header');
 	//适配iOS7+，Android4.4+状态栏沉浸式效果，详见config文档statusBarAppearance字段
 	$api.fixStatusBar(header);
+    footerH=50;
 	//动态计算header的高度，因iOS7+和Android4.4+上支持沉浸式效果，
 	//因此header的实际高度可能为css样式中声明的44px加上设备状态栏高度
 	//其中，IOS状态栏高度为20px，Android为25px
-	systemType = api.systemType;
-	if (systemType == 'ios') {
-		headerH = 20;
-	} else {
-		headerH = 0;
-	}
+    systemType = api.systemType;
+    if (systemType == 'ios') {
+        headerH = 20;
+        //        $api.fixTabBar($api.byId('footer'));
+        var screenHeight = api.screenHeight;
+        if(screenHeight == 2436){
+            //            headerH = 20;
+            $api.css($api.byId('footer'), 'padding-bottom:83px;');
+            frameH = api.winHeight - headerH - footerH-34;
+            
+        }else{
+            headerH = 20;
+            //             $api.css($api.byId('footer'), 'padding-bottom:249px;');
+            frameH = api.winHeight - headerH - footerH;
+        }
+        
+    } else {
+        headerH = 0;
+        frameH = api.winHeight - headerH - footerH;
+    }
+    
+    
 	//footer高度为css样式中声明的30px
 //	footerH = $("#footer").css("height").split("px")[0];
-	footerH=50;
+//    footerH=50;
 //	alert($("#footer").css("height").split("px")[0]);
 	//frame的高度为当前window高度减去header和footer的高
-	frameH = api.winHeight - headerH - footerH;
+//    frameH = api.winHeight - headerH - footerH;
 
 	api.setPrefs({
 		key : 'headerH',

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>详细资料</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+		<meta name="format-detection" content="telephone=no">  
+		<meta http-equiv="x-rim-auto-match" content="none">  
+		<link rel="stylesheet" type="text/css" href="../../css/api.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<link rel="stylesheet" href="../../css/sm-extend.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
+		<link rel="stylesheet" type="text/css" href="../../css/common.css">
+		<link rel="stylesheet" href="../css/listFriendInfo.css"/>
+	</head>
+	<body>
+		<header class="bar bar-nav headerClass" id="title">
+			<a class="icon iconfont pull-left" onclick="goBack()">
+				<img src="../../image/shezhi/goback.png" alt="" class="headerImg"/>
+			</a>
+			<a class="icon iconfont pull-right" id="blacklist">
+				<img src="../../image/shezhi/dot.png" alt="" class="headerImg"/>
+			</a>
+			<h1 class="title headerTitle" >详细信息</h1>
+		</header>	
+		<!-- 加载蒙版 -->
+		<div class="first"></div>
+		<ul class="secondul" id="showTypes">
+				<!--<li class="other" id="goToFriend">
+					<img src="../../image/friendManage/blackPerson.png" alt="" />
+					<span>加入黑名单</span>
+				</li>-->
+				<li class="other" id="deleteFriend">
+					<img src="../../image/friendManage/delete.png" alt="" /> 
+					<span>删除</span>
+				</li>
+			</ul>
+		<div class="black_box"></div>	
+		<!-- 主体部分 -->
+		<div class="box">
+			<div class="boxTop">
+				<div class="topContent">
+					<div class="boxTopImg">
+						<img src="../../image/friendManage/holderImg.png" alt="" id="headImg"/>
+					</div>
+					<span class="topMid">小客</span>
+					<img src="../../image/friendManage/sexMan.png" alt="" class="sex"/>
+					<span class="topLast">ID:V000000</span>
+				</div>
+			</div>
+			<div class="boxBot">
+				<div class="same">
+					<span>所在城市</span>
+					<span id="cityName">北京市</span>
+				</div>
+				<div class="same">
+					<span>手机号码</span>
+					<span id="tel">18888888888</span>
+				</div>
+				<div class="same">
+					<span>真实姓名</span>
+					<span id="realName">小客</span>
+				</div>
+				<div class="same">
+					<span>出生日期</span>
+					<span id="birDate">2000-01-01</span>
+				</div>
+				<div class="same">
+					<span>注册日期</span>
+					<span id="registeDate">2000-01-01</span>
+				</div>
+			</div>
+			 <button class="buttonNo" id="isBackground">
+				<img src="../../image/friendManage/grayEgg.png" alt="" id="isSteal"/> 偷金蛋
+			</button> 
+			
+			<!-- <div class="last">
+				您的好友已经添加到黑名单
+			</div> -->
+		</div>
+		</div> <script type="text/javascript" src="../../script/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="../../script/api.js"></script>
+		<script type="text/javascript" src="../../script/common.js"></script>
+		<script type="text/javascript" src="../js/listFriendInfo.js"></script>
+		<script>
+			function refresh() {
+				location.reload();
+			}
+		</script>
+	</body>
+</html>
+</html>

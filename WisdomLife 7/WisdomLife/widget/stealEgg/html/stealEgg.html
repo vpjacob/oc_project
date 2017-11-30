@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<title>TA的金蛋</title>
+		<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<link rel="stylesheet" href="../../css/sm-extend.min.css">
+		<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/sm-extend.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../../script/zepto_fx.js' charset='utf-8'></script>
+		<link rel="stylesheet" type="text/css" href="../../css/all.css">
+		<link rel="stylesheet" type="text/css" href="../../css/common.css">
+		<link rel="stylesheet" type="text/css" href="../../css/base.css">
+		<link rel="stylesheet" type="text/css" href="../css/stealEgg.css">
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
+		<link rel="stylesheet" type="text/css" href="../../css/person/iconfont.css">
+	</head>
+	<body>
+		<div class="page-group">
+			<!-- 你的html代码 -->
+			<div class="page">
+				<header class="bar bar-nav headerClass" id="title">
+					<a class="icon iconfont pull-left" onclick="goBack()">
+						<img src="../../image/shezhi/goback.png" alt="" class="headerImg"/>
+					</a>
+					<h1 class="title headerTitle">TA的金蛋</h1>
+					<a class="icon iconfont pull-right">
+						<span class="guize">砸金蛋规则</span>
+					</a>
+				</header>
+				<div class="content">
+					<div class="content-block">
+						<div class="imgtop">
+							<div> 
+								<div class="imgTopMid"></div>
+								<div class="topLeft">
+									<div class="topLeftImg">
+										<img src="../../image/stealEgg/defaultImg.png" alt="" id="headImage"/>
+									</div>
+								</div>
+								<div class="fanzt-egg" id="GoldEgg">
+									<div id='showGoldEgg' style="display:none">
+										<div class="fanzt-egg-img" data-flag="0" onClick="eggClick(this)" id="jd">
+											<img src="../../image/egg_1.png" id="egg" style="width: 50%;">
+										</div>
+										<div class="fanzt-chuizi" id="jcz"><img src="../../image/img-6.png">
+										</div>
+										<div class="fanzt-hua" id="jinhua"><img src="../../image/img-4.png"  style="width: 50%;">
+										</div>
+										<div class="fanzt-message" id="GoldEggB">
+											<b></b>
+										</div>
+									</div>
+								</div>
+								<div class="fanzt-egg" id="SilverEgg">
+									<div id='showSilverEgg' style="display:none">
+										<div class="fanzt-egg-img" data-flag="0" onClick="clickSilverEgg(this)" id="yd">
+											<img src="../../image/egg3.png" id="SEgg" style="width: 50%;">
+										</div>
+										<div class="fanzt-chuizi" id="ycz"><img src="../../image/img-6.png">
+										</div>
+										<div class="fanzt-hua" id="yinhua"><img src="../../image/img-4.png"  style="width: 50%;">
+										</div>
+										<div class="fanzt-message" id="SilverEggB">
+											<b></b>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="box">
+							<div class="boxTop">
+								<div class="topFirst">
+									<span>TA的最新动态</span>
+								</div>
+								<div class="boxSec" id="hisStealList">
+								<img src="../../image/stealEgg/hoderimg.png" alt="" class="hoderimg"/>
+									<!--<div class="same">
+										<div class="date">
+											10-10
+										</div>
+										<img src="../../image/stealEgg/theTop.png" alt="" class="theTop"/>
+										<div class="context">
+											<img src="../../image/stealEgg/dot.png" alt="" class="dot"/>
+											<span class="name">小客</span>
+											<span class="spanSame">砸出</span>
+											<span class="gold">15.000</span>
+											<span class="spanSame">枚金币</span>
+											<span class="time">21:00</span>
+										</div>
+											<img src="../../image/stealEgg/border.png" alt="" class="border"/>
+									</div>-->
+									<!--<div class="same">
+										<div class="date">
+											1-03
+										</div>
+										<img src="../../image/stealEgg/border.png" alt="" class="theTop"/>
+										<div class="context">
+											<img src="../../image/stealEgg/dot.png" alt="" class="dot"/>
+											<span class="name">小客</span>
+											<span class="spanSame">砸出</span>
+											<span class="gold">15.000</span>
+											<span class="spanSame">枚金币</span>
+											<span class="time">21:00</span>
+										</div>
+											<img src="../../image/stealEgg/border.png" alt="" class="border"/>
+										<div class="context">
+											<img src="../../image/stealEgg/dot.png" alt="" class="dot"/>
+											<span class="name">小客</span>
+											<span class="spanSame">砸出</span>
+											<span class="gold">15.000</span>
+											<span class="spanSame">枚金币</span>
+											<span class="time">21:00</span>
+										</div>
+											<img src="../../image/stealEgg/border.png" alt="" class="border"/>
+									</div>-->
+									<!--<div class="lastBox">
+										<span class="noMore">没有更多了</span>
+									</div>-->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<div class="showBox" id="showBox" style="display: none">
+			<div class="showDiv">
+				<span id="smashCount" class="moneyStyle"></span>
+				<span class="closeTan"></span>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../script/api.js"></script>
+	<script type="text/javascript" src="../../script/common.js"></script>
+	<script type="text/javascript" src="../js/stealEgg.js"></script>
+	<script>
+		$("#choose").on('click', function() {
+			var top = $(this).children().hasClass('icon-top');
+			if (top) {
+				$(".secondul").show();
+				$(this).children().removeClass('icon-top').addClass('icon-down');
+			} else {
+				$(".secondul").hide();
+				$(this).children().removeClass('icon-down').addClass('icon-top');
+			}
+		});
+		$(".Personal_title .span2").click(function() {
+			//	银蛋记录的展示
+			silverReacd();
+			$(this).addClass("special").prev().removeClass("special");
+			$("#GoldEgg").hide();
+			$("#SilverEgg").show();
+			$(".inactiveGold").css("display", "none");
+			$(".inactiveSliver").css("display", "flex");
+		})
+		$(".Personal_title .span1").click(function() {
+			$(this).addClass("special").next().removeClass("special");
+			$("#GoldEgg").show();
+			$("#SilverEgg").hide();
+			$(".inactiveGold").css("display", "flex");
+			$(".inactiveSliver").css("display", "none");
+		})
+	</script>
+</html>

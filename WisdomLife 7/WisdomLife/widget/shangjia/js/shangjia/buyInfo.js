@@ -5,7 +5,12 @@ var urId;
 apiready = function() {
 	var header = $api.byId('header');
 	if (api.systemType == 'ios') {
-		$api.css(header, 'margin-top:22px;');
+		
+        if (api.screenHeight == 2436){
+            $api.css(header, 'margin-top:44px;');
+        }else{
+            $api.css(header, 'margin-top:22px;');
+        }
 	};
 
 	$("#back").bind("click", function() {

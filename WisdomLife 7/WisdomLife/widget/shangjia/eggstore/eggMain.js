@@ -6,21 +6,40 @@ apiready = function() {
 	var submit = $api.dom('.title_div');
 	var top = $api.dom('.top');
 	var cc = $api.dom('.box');
+    
 	if (api.systemType == 'ios') {
-		$api.css(header, 'height:5.6rem');
-		$api.css(Back, 'top:1.25rem');
-		$api.css(top, 'top:3.3rem');
-		$api.css(submit, 'top:1.3rem');
-		$api.css(cc, 'margin-top:3.1rem;');
-		$("#searchval").focus(function(){
-			$("#title").css({
-			"position":"absolute",
-			"top":"0px"
-			});
-		});
-		$("#searchval").blur(function(){
-			$("#title").css("position","fixed");
-		});
+		
+        if (api.screenHeight == 2436){
+            $api.css(header, 'height:5.6rem');
+            $api.css(Back, 'top:1.75rem');
+            $api.css(top, 'top:3.8rem');
+            $api.css(submit, 'top:1.8rem');
+            $api.css(cc, 'margin-top:3.6rem;');
+            $("#searchval").focus(function(){
+                                  $("#title").css({
+                                                  "position":"absolute",
+                                                  "top":"0px"
+                                                  });
+                                  });
+            $("#searchval").blur(function(){
+                                 $("#title").css("position","fixed");
+                                 });
+        }else{
+            $api.css(header, 'height:5.6rem');
+            $api.css(Back, 'top:1.25rem');
+            $api.css(top, 'top:3.3rem');
+            $api.css(submit, 'top:1.3rem');
+            $api.css(cc, 'margin-top:3.1rem;');
+            $("#searchval").focus(function(){
+                                  $("#title").css({
+                                                  "position":"absolute",
+                                                  "top":"0px"
+                                                  });
+                                  });
+            $("#searchval").blur(function(){
+                                 $("#title").css("position","fixed");
+                                 });
+        }
 	};
 	
 	//查找所有金蛋商品

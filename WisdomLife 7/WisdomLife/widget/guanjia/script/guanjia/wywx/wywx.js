@@ -4,7 +4,12 @@ var pageCount = 1;
 apiready = function() {
 	var header = $api.byId('title');
 	if (api.systemType == 'ios') {
-		$api.css(header, 'margin-top:20px;');
+		
+        if (api.screenHeight == 2436){
+            $api.css(header, 'margin-top:44px;');
+        }else{
+            $api.css(header, 'margin-top:20px;');
+        }
 	}
 	// 获取维修类型
 	queryMaintainType();

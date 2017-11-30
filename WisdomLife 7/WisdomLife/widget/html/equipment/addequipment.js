@@ -11,8 +11,14 @@ apiready = function() {
 	var header = $api.byId('header');
 	if (api.systemType == 'ios') {
 		var cc = $api.dom('.main');
-		$api.css(header, 'margin-top:20px;');
-		$api.css(cc, 'margin-top:80px;');
+		
+        if (api.screenHeight == 2436){
+            $api.css(header, 'margin-top:44px;');
+            $api.css(cc, 'margin-top:100px;');
+        }else{
+            $api.css(header, 'margin-top:20px;');
+            $api.css(cc, 'margin-top:80px;');
+        }
 	}
 
 	$("#back").bind("click", function() {

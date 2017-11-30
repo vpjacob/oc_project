@@ -24,8 +24,14 @@ apiready = function() {
 	    key:'userNo'
     });
 	if (api.systemType == 'ios') {
-		$api.css(header, 'padding-top:1rem;');
-		$api.css(header, 'height:3.2rem;');
+		
+        if (api.screenHeight == 2436){
+            $api.css(header, 'padding-top:1.5rem;');
+            $api.css(header, 'height:3.7rem;');
+        }else{
+            $api.css(header, 'padding-top:1rem;');
+            $api.css(header, 'height:3.2rem;');
+        }
 	}else{
 		$api.css(first, 'top:1.85rem');
 		$api.css(secondul, 'top:2.2rem');

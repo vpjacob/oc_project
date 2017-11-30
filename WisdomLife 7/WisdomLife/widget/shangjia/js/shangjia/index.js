@@ -10,7 +10,12 @@ var id;
 apiready = function() {
 	if (api.systemType == 'ios') {
 		var cc = $api.dom('.xiaobiao');
-		$api.css(cc, 'margin-top:0px;');
+		
+        if (api.screenHeight == 2436){
+            $api.css(cc, 'margin-top:22px;');
+        }else{
+            $api.css(cc, 'margin-top:0px;');
+        }
 	}
 	urId = api.getPrefs({
 	    sync:true,

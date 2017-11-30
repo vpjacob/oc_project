@@ -1,0 +1,128 @@
+body {
+	font-family: "微软雅黑";
+	background-color: #f1f1f1;
+}
+img {
+	display: block;
+}
+input {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border: none;
+	text-align: right;
+}
+
+.box{
+	margin-top: 2.22rem;
+}
+.boxTop{
+	width:100%;
+	height: 4.3rem;
+	background: white;
+	margin-top:2.72rem;
+	border-top:1px solid #ddd;
+	border-bottom:1px solid #ddd;
+}
+.boxTop .topContent{
+	width: 92%;
+	height: 3.1rem;
+	 /* border:1px solid red; */ 
+	margin: 0 auto;
+	margin-top: 0.6rem;
+}
+.boxTop .topContent .boxTopImg{
+	width: 3.1rem;
+	height: 3.1rem;
+	border-radius:50%;
+/* 	border:1px solid red; */
+	float: left;
+}
+.boxTop .topContent .boxTopImg img{
+	width: 3.1rem;
+	height: 3.1rem;
+	border-radius:50%;
+}
+.boxTop .topContent .topMid{
+	margin-left: 0.75rem;
+	font-size: 0.75rem;
+	color: #282828;
+	margin-top: 0.6rem;
+}
+.boxTop .topContent .sex{
+	display: inline;
+	width: 0.75rem;
+	height: 0.75rem;
+	position: relative;
+	top:0.15rem;
+	left:0.05rem;
+}
+.boxTop .topContent .topLast{
+	display: block;
+	font-size: 0.7rem;
+	color: rgb(121,121,121);
+	margin-left: 3.9rem;
+}
+
+.boxBot{
+	height: 4.4rem;
+	border-top:1px solid #ddd;
+	border-bottom:1px solid #ddd;
+	background: white;
+	margin-top: 1rem;
+}
+.boxBot .same{
+	width:96%;
+	height: 2.2rem;
+	margin-left:4%;
+	/* border:1px solid red; */
+}
+.boxBot .same:nth-child(1){
+	border-bottom: 1px solid #ddd;
+}
+.boxBot .same span{
+	margin-top: 0.5rem;
+}
+.boxBot .same span:nth-child(1){
+	font-size: 0.75rem;
+	color: rgb(40,40,40);
+	
+}
+.boxBot .same span:nth-child(2){
+	font-size: 0.7rem;
+	color: rgb(121,121,121);
+	margin-left: 0.5rem;	
+}
+.button{
+	width: 89.4%;
+	height: 2rem;
+	margin: 1rem auto;
+	border:none;
+	text-align: center;
+	line-height: 2rem;
+	font-size: 0.9rem;
+}
+.button .refuse{
+	width: 42%;
+	height: 2rem;
+	border:1px solid #ddd;
+	background: white;
+	float: left;
+	color: rgb(121,121,121);
+	border-radius: 0.25rem;
+}
+.button .accept{
+	width: 42%;
+	color:#fff;
+	height: 2rem;
+	border-radius: 0.25rem;
+	background: -webkit-linear-gradient(left,#89DAF5 0,#789AFB 100%);
+	border:1px solid #ddd;
+	float: right;
+}
+
+
+
+
+
+

@@ -12,8 +12,14 @@ apiready = function() {
 	var header = $api.byId('title');
 	var miancss = $api.dom('.deal');
 	if (api.systemType == 'ios') {
-		$api.css(header, 'margin-top:22px;');
-		$api.css(miancss, 'margin-top:1.5rem;');
+		
+        if (api.screenHeight == 2436){
+            $api.css(header, 'margin-top:44px;');
+            $api.css(miancss, 'margin-top:2.0rem;');
+        }else{
+            $api.css(header, 'margin-top:22px;');
+            $api.css(miancss, 'margin-top:1.5rem;');
+        }
 	};
 	function businessList(pages, typeId){
 		if ( typeof (cityName) == "undefined" || cityName == "") {

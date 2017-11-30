@@ -14,9 +14,16 @@ apiready = function() {
 	var topPing = $api.byId('topPing');
 	var top = $api.dom('.top')
 	if (api.systemType == 'ios') {
-		$api.css(header, 'margin-top:20px;');
-		$api.css(top, 'margin-top:20px;');
-		$api.css(topPing, 'margin-top:66px;');
+		
+        if (api.screenHeight == 2436){
+            $api.css(header, 'margin-top:44px;');
+            $api.css(top, 'margin-top:44px;');
+            $api.css(topPing, 'margin-top:88px;');
+        }else{
+            $api.css(header, 'margin-top:20px;');
+            $api.css(top, 'margin-top:20px;');
+            $api.css(topPing, 'margin-top:66px;');
+        }
 	}
 	//取消回转
 	$("#cancel").on('click', function() {

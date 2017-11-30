@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<title>砸蛋规则</title>
+		<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<link rel="stylesheet" href="../../css/sm-extend.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
+		<link rel="stylesheet" type="text/css" href="../../css/person/iconfont.css"> 
+		<link rel="stylesheet" type="text/css" href="../../css/common.css">
+		<!-- <link rel="stylesheet" type="text/css" href="zadange.css"> -->
+		<style>
+			a { text-decoration: none;}
+			a:hover { text-decoration: none; }
+			#goShop{
+				width: 43%;
+			    height: 80px;
+			    border: 1px solid transparent;
+			    position: absolute;
+			    bottom: 6%;
+			    left: 29%;
+			}
+			.boxImg{
+				width: 100%;
+				overflow: auto;
+				 margin-top: 44px; 
+			}
+			.boxEgg{
+				overflow:auto;
+				height: 100%;
+				position: relative;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="bar bar-nav headerClass" id="title">
+			<a class="icon iconfont pull-left" id="back">
+				<img src="../../image/shezhi/goback.png" alt="" class="headerImg"/>
+			</a>
+			<h1 class="title headerTitle">活动规则</h1>
+		</header>
+		<div class="boxEgg">
+			<img src="../image/eggGz.jpg" class="boxImg"/>
+			<div id="goShop"></div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../script/api.js"></script>
+	<script type="text/javascript" src="../../script/common.js"></script>
+	<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+	<script type="text/javascript" src="../../script/jquery.js"></script>
+	<script>
+		apiready = function() {
+		var header = $api.byId('title');
+		if (api.systemType == 'ios') {
+			$api.css(header, 'padding-top:1.1rem;');
+			$api.css(header, 'height:3.2rem;');
+			$api.css($api.dom('.boxEgg'), 'margin-top:1.1rem;');
+		};
+			
+			$("#back").on('click', function() {
+				api.closeWin();
+			});
+			$("#goShop").click(function(){
+				api.openWin({//商城列表
+				name : 'busList',
+				url : 'buyList.html',
+				slidBackEnabled : true,
+				animation : {
+					type : "push", //动画类型（详见动画类型常量）  
+					subType : "from_right", //动画子类型（详见动画子类型常量）
+					duration : 300 //动画过渡时间，默认300毫秒
+				},
+				pageParam : {
+		          prefShopGz : false
+		        },
+			});
+//				api.closeWin();
+			})
+		}
+	</script>
+</html>

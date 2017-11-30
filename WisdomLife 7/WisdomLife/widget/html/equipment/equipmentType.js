@@ -4,8 +4,14 @@ apiready = function() {
 	var header = $api.byId('header');
 	var content = $api.dom('.content');
 	if (api.systemType == 'ios') {
-		$api.css(header, 'margin-top:20px;');
-		$api.css(content, 'margin-top:20px;');
+		
+        if (api.screenHeight == 2436){
+            $api.css(header, 'margin-top:44px;');
+            $api.css(content, 'margin-top:44px;');
+        }else{
+            $api.css(header, 'margin-top:20px;');
+            $api.css(content, 'margin-top:20px;');
+        }
 	}
 	memberid = api.getPrefs({
 		sync : true,

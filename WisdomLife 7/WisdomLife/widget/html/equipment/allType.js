@@ -3,9 +3,17 @@ apiready = function() {
 	var header = $api.byId('title');
 	var miancss = $api.dom('.box');
 	if (api.systemType == 'ios') {
-		$api.css(header, 'padding-top:1.0rem;');
-		$api.css(header, 'height:3.2rem;');
-		$api.css(miancss, 'margin-top:3.2rem;');
+        if (api.screenHeight == 2436){
+            $api.css(header, 'padding-top:1.6rem;');
+            $api.css(header, 'height:3.8rem;');
+            $api.css(miancss, 'margin-top:3.8rem;');
+
+        }else{
+            $api.css(header, 'padding-top:1.0rem;');
+            $api.css(header, 'height:3.2rem;');
+            $api.css(miancss, 'margin-top:3.2rem;');
+
+        }
 	};
 	memberid = api.getPrefs({
 		sync : true,

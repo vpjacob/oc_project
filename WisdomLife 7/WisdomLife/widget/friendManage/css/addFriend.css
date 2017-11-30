@@ -1,0 +1,182 @@
+body {
+	font-family: "微软雅黑";
+	background-color: #f1f1f1;
+}
+img {
+	display: block;
+}
+input {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border: none;
+	text-align: right;
+}
+/* 加载蒙版 */
+.black_box{
+	background:rgba(0,0,0,0.5);
+	position:fixed;
+	top:0;
+	left:0;
+	z-index:2000;
+	height:100%;
+	width:100%;
+	display:none;    
+	overflow: hidden;
+}
+.black_box .blackContent{
+	height:21.8rem;
+	width:92%;
+	margin:0 auto;
+	 border:1px solid transparent; 
+	margin-top: 26%;
+	border-radius:0.5rem;
+	background: white;
+}
+.blackContent .blackTop{
+	width: 100%;
+	height: 3.1rem;
+	margin-top:1.2rem;
+	/* border:1px solid red; */
+}
+.blackContent .blackTop img{
+	width:3.1rem;
+	height: 3.1rem;
+	margin-left:6.4%;
+	display: inline;
+	border-radius: 50%;
+}
+.blackContent .blackTop span{
+	margin-left: 0.5rem;
+	font-size: 0.75rem;
+	color: #282828;
+	position: relative;
+	top:-1.1rem;
+}
+.blackContent .blackMid{
+	width:100%; 
+	height: 13.4rem;
+	margin-top:1.1rem;
+	/* border:1px solid red; */
+}
+.blackContent .blackMid img{
+	width:13.4rem;
+	height: 13.4rem;
+	margin: 0 auto;
+}
+.blackContent .blackLast{
+	width:100%;
+	margin-top:1.2rem;
+	text-align: center;
+	font-size: 0.6rem;
+	color: #999;
+}
+
+/* 主体部分 */
+.box{
+	margin-top: 2.22rem;
+}
+.box .top{
+	width: 100%;
+	height: 2.95rem;
+	border:1px solid transparent;
+}
+.top .title_div{
+	background-color: white;
+	width:92%;
+	height: 1.5rem;
+	border-radius: 0.25rem;
+	position: relative;
+	margin:0 auto;
+	margin-top:0.7rem;
+	border:1px solid #ddd;
+}
+.top .title_div img{
+	width:0.9rem;
+	height:0.9rem;
+	display:inline;
+	position: absolute;
+	top:0.3rem;
+	left:0.6rem;
+}
+.top .title_div input{
+	display:inline;
+	position: relative;
+	 top:0.05rem; 
+	left:2.0rem;
+	font-size:0.75rem;
+	width:80%;
+	height: 1rem;
+	padding-left: 0.1rem;
+}
+.mid{
+	height: 8rem;
+	border-top:1px solid #DDDDDD;
+	border-bottom:1px solid #DDDDDD;
+	background: white;
+}
+.mid .midTop{
+	width: 100%;
+	height: 4.8rem;
+	margin-top:1.25rem;
+	/* border:1px solid red; */
+}
+.mid .midTop img{
+	height: 4.8rem;
+	width: 4.8rem;
+	margin: 0 auto;
+}
+.mid .midBot{
+	width: 100%;
+	height:1rem;
+	text-align: center;
+	font-size: 0.6rem;
+	color: rgb(153,153,153);
+	margin-top:0.25rem; 
+}
+.last{
+	width:100%;
+	height: 2.75rem;
+	background: white;
+	margin-top: 0.75rem;
+	border-top:1px solid #ddd;
+	border-bottom:1px solid #ddd;
+}
+.last img{
+	width:2rem;
+	height: 2rem;
+	margin-top: 0.375rem;
+	margin-left:4%;
+	display: inline;
+	float: left;
+}
+.last span{
+	float:left;
+	
+}
+.last div:nth-child(2){
+	font-size: 0.75rem;
+	position:relative;
+	left:0.6rem;
+	top:0.4rem;
+	display: inline;
+}
+.last div:nth-child(3){
+	position:relative;
+	left:0.6rem;
+	font-size: 0.6rem;
+	top:0.3rem;
+	width:61%;
+	color: rgb(153,153,153);
+}
+
+
+
+
+
+
+
+
+
+
+

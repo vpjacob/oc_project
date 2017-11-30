@@ -13,9 +13,16 @@ apiready = function() {
 	var header = $api.byId('header');
 	if (api.systemType == 'ios') {
 		var cc = $api.dom('.content');
-		$api.css(header, 'padding-top:1rem;');
-		$api.css(header, 'height:3.2rem;');
-		$api.css(cc, 'margin-top:1rem;');
+		
+        if (api.screenHeight == 2436){
+            $api.css(header, 'padding-top:1.5rem;');
+            $api.css(header, 'height:3.7rem;');
+            $api.css(cc, 'margin-top:1.5rem;');
+        }else{
+            $api.css(header, 'padding-top:1rem;');
+            $api.css(header, 'height:3.2rem;');
+            $api.css(cc, 'margin-top:1rem;');
+        }
 	} else {
 		var tel = $api.byId('tel');
 		$api.css(tel, 'padding-right:25px;');

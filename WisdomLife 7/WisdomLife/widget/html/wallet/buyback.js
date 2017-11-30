@@ -250,12 +250,18 @@ apiready = function() {
 	//		}
 	//	});
 
-	var header = $api.byId('header');
-	if (api.systemType == 'ios') {
-		var content = $api.dom('.content');
-		$api.css(header, 'margin-top:20px;');
-		$api.css(content, 'margin-top:20px;');
-	}
+    var header = $api.byId('header');
+    if (api.systemType == 'ios') {
+        var screenHeight = api.screenHeight;
+        var content = $api.dom('.content');
+        if(screenHeight == (2436)){
+            $api.css(content, 'margin-top:44px;');
+            $api.css(header, 'margin-top:44px;');
+        }else{
+            $api.css(content, 'margin-top:20px;');
+            $api.css(header, 'margin-top:20px;');
+        }
+    }
 
 	$("#back").bind("click", function() {
 		api.closeWin();

@@ -128,7 +128,12 @@ function getCityList() {
 	var hh = 0;
 	var UICityList = api.require('UICityList');
 	if (api.systemType == 'ios') {
-		hh = 20;
+		
+        if (api.screenHeight == 2436){
+            hh = 44;
+        }else{
+            hh = 20;
+        }
 	}
 	UICityList.open({
 		rect : {

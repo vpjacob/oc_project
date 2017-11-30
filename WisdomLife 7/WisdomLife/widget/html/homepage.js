@@ -15,12 +15,16 @@ var msgnum = 0;
 apiready = function() {
 	bMap = api.require('bMap');
 	var cc = $api.dom('.address');
-	if (api.systemType == 'ios') {
-		$api.css(cc, 'margin-top:0.8rem;');
-	};
 	systemType = api.systemType;
 	if (systemType == 'ios') {
-		headerH = 20;
+		
+        if (api.screenHeight == 2436){
+            headerH = 44;
+            $api.css(cc, 'margin-top:1.5rem;');
+        }else{
+            headerH = 20;
+            $api.css(cc, 'margin-top:0.8rem;');
+        }
 	} else {
 		headerH = 0;
 	}

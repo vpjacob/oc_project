@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>通讯录</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+		<link rel="stylesheet" type="text/css" href="../../css/api.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<link rel="stylesheet" href="../../css/sm-extend.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
+		<link rel="stylesheet" type="text/css" href="../../css/common.css">
+		<link rel="stylesheet" href="../css/addressBook.css"/>
+	</head>
+	<body>
+		<header class="bar bar-nav headerClass" id="title">
+			<a class="icon iconfont pull-left" onclick="goBack()">
+				<img src="../../image/shezhi/goback.png" alt="" class="headerImg"/>
+			</a>
+			<a class="icon iconfont pull-right" id="addFriend">
+				<img src="../../image/shezhi/addFriend.png" alt="" class="headerImg"/>
+			</a>
+			<h1 class="title headerTitle">通讯录</h1>
+		</header>
+		<!-- 加载蒙版 -->
+		<div class="first"></div>
+		<ul class="secondul" id="showTypes">
+				<li class="other" id="goToFriend">
+					<img src="../../image/friendManage/addList.png" alt="" />
+					<span>添加朋友</span>
+				</li>
+				<li class="other" style="border-top:1px solid #ddd" id="scan">
+					<img src="../../image/friendManage/scan.png" alt="" /> 
+					<span>扫一扫</span>
+				</li>
+			</ul>
+		<div class="black_box"></div>	
+		<!-- 主体部分 -->
+		<div class="box">
+			<div class="boxTop">
+				<div class="topContent">
+					<div class="boxTopImg">
+						<img src="../../image/friendManage/addFriend.png" alt=""/>
+					</div>
+					<span class="topMid">好友申请</span>
+					<span class="topRight">0</span>
+				</div>
+			</div>
+			<!-- 好友部分 -->
+			<div class="boxBot" id="list">
+				<!--<div class="same">
+					<div class="boxBotTop">
+						A
+					</div>
+					<div class="boxBotLast">
+						<div class="boxBotContent">
+							<div class="boxBotImg">
+								<img src="../../image/friendManage/boxBotImg.png" alt=""/>
+							</div>
+							<div class="botMid">小客</div>
+							<div class="botLast">真实姓名：小客</div>
+						</div>
+					</div>
+				</div>-->
+			</div>
+		</div>
+		</div> 
+		<script type="text/javascript" src="../../script/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="../js/communication.js"></script>
+		<script type="text/javascript" src="../../script/api.js"></script>
+		<script type="text/javascript" src="../../script/common.js"></script>
+		<script type="text/javascript" src="../js/addressBook.js"></script>
+		<script>
+			function refresh() {
+				location.reload();
+			}
+		</script>
+	</body>
+</html>
+</html>

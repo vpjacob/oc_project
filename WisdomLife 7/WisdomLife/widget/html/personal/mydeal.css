@@ -123,3 +123,9 @@ textarea{
 	border-bottom:1px solid #efefef;
 	background-color:#ffffff;
 }
+.box .bottom .user .goodClass{
+	width:83%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

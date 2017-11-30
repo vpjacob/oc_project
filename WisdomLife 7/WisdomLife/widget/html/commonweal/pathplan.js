@@ -23,12 +23,20 @@ apiready = function() {
 	systemType = api.systemType;
 	if (systemType == "ios") {
 		var content = $api.dom('.content');
-		$api.css(header, 'margin-top:20px;');
-		$api.css(content, 'margin-top:20px;');
 		appBundle = "baidumap";
-		$('.map').height(top1 - top2 - 20);
-		y = top2 + 20;
-		h = top1 - top2 - $('.detail').height() - 20;
+        if (api.screenHeight == 2436){
+            $api.css(header, 'margin-top:44px;');
+            $api.css(content, 'margin-top:44px;');
+            $('.map').height(top1 - top2 - 20);
+            y = top2 + 20;
+            h = top1 - top2 - $('.detail').height() - 20;
+        }else{
+            $api.css(header, 'margin-top:20px;');
+            $api.css(content, 'margin-top:20px;');
+            $('.map').height(top1 - top2 - 20);
+            y = top2 + 20;
+            h = top1 - top2 - $('.detail').height() - 20;
+        }
 	} else {
 		appBundle = 'com.baidu.BaiduMap';
 		$('.map').height(top1 - top2);

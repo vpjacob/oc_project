@@ -8,14 +8,31 @@ apiready = function() {
 	var cc = $api.dom('.box');
 	var first = $api.dom('.first');
 	var secondul = $api.dom('.secondul');
-	if (api.systemType == 'ios') {
-		$api.css(header, 'height:5.6rem');
-		$api.css(Back, 'top:1.25rem');
-		$api.css(top, 'top:3.3rem');
-		$api.css(submit, 'top:1.3rem');
-		$api.css(secondul, 'margin-top:1.0rem;');
-		$api.css(first, 'margin-top:1.0rem;');
-		$api.css(cc, 'margin-top:3.1rem;');
+	var boxTop=($(".top").height()+$(".swiper-container").height());
+	$(".box").css("top",boxTop);
+	$("div.first").css("top",$(".top").height()/3+$(".swiper-container").height()+$("#title").height());
+	
+    if (api.systemType == 'ios') {
+	$("div.first").css("top",$(".swiper-container").height()+$("#title").height());
+        
+        if (api.screenHeight == 2436){
+            $api.css(header, 'height:5.1rem');
+            $api.css(Back, 'top:1.75rem');
+            //        $api.css(top, 'top:3.3rem');
+            $api.css(submit, 'top:3.8rem');
+            $api.css(secondul, 'margin-top:1.8rem;');
+            $api.css(first, 'margin-top:1.0rem;');
+            $api.css($api.dom('.swiper-container'), 'margin-top:3.0rem;');
+        }else{
+            $api.css(header, 'height:5.6rem');
+            $api.css(Back, 'top:0.75rem');
+            //        $api.css(top, 'top:3.3rem');
+            $api.css(submit, 'top:0.8rem');
+            $api.css(secondul, 'margin-top:1.0rem;');
+            $api.css(first, 'margin-top:1.0rem;');
+            $api.css($api.dom('.swiper-container'), 'margin-top:2.5rem;');
+        }
+        
 		//处理ios端fexed不生效问题
 		$("#searchval").focus(function(){
 			$("#title").css({
@@ -29,17 +46,23 @@ apiready = function() {
 	};
 	var indexid = api.pageParam.indexid;
 	var prefShop = api.pageParam.prefShop;//主页传来进行优选商品展示
+	var prefShopGz = api.pageParam.prefShopGz;//主页传来进行优选商品展示
 	if(indexid==true){
 		$("#Back").hide();
 		if (api.systemType == 'ios'){
-			$api.css(submit, 'top:0.8rem');
+			
+            if (api.screenHeight == 2436){
+                $api.css(submit, 'top:1.5rem');
+            }else{
+                $api.css(submit, 'top:0.8rem');
+            }
 		}
 	}
-	if(String(prefShop)=="true"){
-		$(".top span:eq(0)").removeClass();
-		$(".top span:eq(2)").addClass("special");
+	if(String(prefShop)=="true" || String(prefShopGz)=="true"){
 		page = 1;
 		queryProductList(page,"","","","",1000);
+		$(".top span:eq(0)").removeClass();
+		$(".top span:eq(2)").addClass("special");
 		api.addEventListener({
 			name : 'scrolltobottom'
 		}, function(ret, err) {
@@ -142,7 +165,7 @@ apiready = function() {
 								flag="";
 							}
 						
-							nowli += '<div class="same">' + '<img src="' + rootUrl + list[i].img_url + '" alt="" id="'+list[i].id+'"/>' + '<div class="busname">' + list[i].name + '</div>' + '<div class="busprice">' + '<span class="symbol">¥</span><span class="nowPrice">' + price + '</span><s class="initprice" style="display:'+flag+'">¥' + list[i].price + '</s>' + '</div>' + '<span class="busperson">' + list[i].buy_count + '人已购买</span>' + '</div>'
+							nowli += '<div class="same">' + '<img data-original="' + rootUrl + list[i].img_url + '" alt="" id="'+list[i].id+'"/>' + '<div class="busname">' + list[i].name + '</div>' + '<div class="busprice">' + '<span class="symbol">¥</span><span class="nowPrice">' + price + '</span><s class="initprice" style="display:'+flag+'">¥' + list[i].price + '</s>' + '</div>' + '<span class="busperson">' + list[i].buy_count + '人已购买</span>' + '</div>'
 						}
 
 					};
@@ -152,6 +175,9 @@ apiready = function() {
 					} else {
 						$('#showListAll').append(nowli);
 					}
+					$(".box img").lazyload({
+						threshold : 200
+					}); 
 
 					pageCount = data.formDataset.count > 10 ? Math.ceil(data.formDataset.count / 10) : 1;
 					console.log("返回的:pageCount=" + pageCount);
@@ -213,6 +239,32 @@ apiready = function() {
 				pageParam : {
 					id : $(this).attr("id")
 				}
+			});
+		});
+		//跳转到优选活动规则
+		$("#optimizationGz").click(function() {
+			api.openWin({//详情界面
+				name : 'optimizationGz',
+				url : 'optimizationGz.html',
+				slidBackEnabled : true,
+				animation : {
+					type : "push", //动画类型（详见动画类型常量）
+					subType : "from_right", //动画子类型（详见动画子类型常量）
+					duration : 300 //动画过渡时间，默认300毫秒
+				},
+			});
+		});
+		//跳转到优选活动规则
+		$("#eggGz").click(function() {
+			api.openWin({//详情界面
+				name : 'eggGz',
+				url : 'eggGz.html',
+				slidBackEnabled : true,
+				animation : {
+					type : "push", //动画类型（详见动画类型常量）
+					subType : "from_right", //动画子类型（详见动画子类型常量）
+					duration : 300 //动画过渡时间，默认300毫秒
+				},
 			});
 		});
 //搜索关键字  待测

@@ -7,7 +7,14 @@ apiready = function() {
 		var aa = $api.dom('.justify');
 //		$api.css(cc, 'line-height:3.2rem');
 //		$api.css(cc, 'height:2.45rem');
-		$api.css(cc, ' top: 0.45rem');
+		
+        
+        if (api.screenHeight == 2436){
+            $api.css(cc, ' top: 1.45rem');
+        }else{
+            $api.css(cc, ' top: 0.45rem');
+        }
+        
 		$api.css(bb, ' top: 2.2rem');
 		$api.css(aa, ' top: 2.2rem');
 	};
@@ -16,13 +23,30 @@ apiready = function() {
 		key : 'userNo'
 	});
 	systemType = api.systemType;
+    footerH=50;
 	if (systemType == 'ios') {
-		headerH = 20;
+        headerH = 20;
+        var screenHeight = api.screenHeight;
+        
+        if(screenHeight == (2436)){
+            headerH = 80;
+            $api.css($api.byId('footer'), 'padding-bottom:83px;');
+            frameH = api.winHeight - headerH - footerH-34;
+        }else{
+            headerH = 20;
+            frameH = api.winHeight - headerH - footerH;
+        }
 	} else {
 		headerH = 0;
 	}
-	footerH=50;
-	frameH = api.winHeight - headerH - footerH;
+    
+	
+    
+        
+    } else {
+        headerH = 0;
+        frameH = api.winHeight - headerH - footerH;
+    }
 	/**
 	 * 获取memberid，并获取个人的相关信息
 	 */
@@ -343,11 +367,25 @@ $('#payMoney').click(function() {
 			}
 		});
 	});
+	
 	//我的金蛋   
+//	$('#myegg').click(function() {
+//		api.openWin({
+//			name : 'myegg',
+//			url : '../html/wallet/myegg.html',
+//			reload : true,
+//			slidBackEnabled : true,
+//			animation : {
+//				type : "push", //动画类型（详见动画类型常量）
+//				subType : "from_right", //动画子类型（详见动画子类型常量）
+//				duration : 300 //动画过渡时间，默认300毫秒
+//			}
+//		});
+//	});
 	$('#myegg').click(function() {
 		api.openWin({
 			name : 'myegg',
-			url : '../html/wallet/myegg.html',
+			url : '../stealEgg/html/myegg.html',
 			reload : true,
 			slidBackEnabled : true,
 			animation : {
@@ -613,18 +651,18 @@ $('#payMoney').click(function() {
 	});
 	
 	//好友管理
-//	$("#addressBook").bind("click", function() {
-//		api.openWin({//打开意见反馈
-//			name : 'feedback',
-//			url : '../friendManage/html/addressBook.html',
-//			slidBackEnabled : true,
-//			animation : {
-//				type : "push", //动画类型（详见动画类型常量）
-//				subType : "from_right", //动画子类型（详见动画子类型常量）
-//				duration : 300 //动画过渡时间，默认300毫秒
-//			}
-//		});
-//	});
+	$("#addressBook").bind("click", function() {
+		api.openWin({
+			name : 'addressBook',
+			url : '../friendManage/html/addressBook.html',
+			slidBackEnabled : true,
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			}
+		});
+	});
 	//调用图片
 	function queryMyCenterCarousel() {
 		AjaxUtil.exeScript({

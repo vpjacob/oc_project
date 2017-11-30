@@ -14,8 +14,14 @@ apiready = function() {
 	var header = $api.byId('header');
 	var miancss = $api.byId('miancss');
 	if (api.systemType == 'ios') {
-		$api.css(header, 'margin-top:22px;');
-		$api.css(miancss, 'height:82%');
+		
+        if (api.screenHeight == 2436){
+            $api.css(header, 'margin-top:44px;');
+            $api.css(miancss, 'height:78%');
+        }else{
+            $api.css(header, 'margin-top:22px;');
+            $api.css(miancss, 'height:82%');
+        }
 	};
 	var busid = api.pageParam.id;
 	var surplusCount = api.pageParam.surplusCount;//库存剩余量
@@ -399,6 +405,7 @@ apiready = function() {
 
                                }else{
                                    var wxPay = api.require('wxPay');
+                                   api.hideProgress(); 
                                    wxPay.payOrder({
                                            apiKey: result.data.appid,
                                            mchId: "1488789472",
@@ -415,7 +422,6 @@ apiready = function() {
                                                    api.toast({
                                                            msg : "支付已取消"
                                                        });
-                                                   api.hideProgress();    
                                                };
                                            }
                                        });

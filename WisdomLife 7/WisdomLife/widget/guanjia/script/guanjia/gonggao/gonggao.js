@@ -5,7 +5,12 @@ apiready = function() {
 	//查看详情
 	var header = $api.byId('title');
 	if (api.systemType == 'ios') {
-		$api.css(header, 'margin-top:20px;');
+		
+        if (api.screenHeight == 2436){
+            $api.css(header, 'margin-top:44px;');
+        }else{
+            $api.css(header, 'margin-top:20px;');
+        }
 	}
 	
 	urId = api.getPrefs({

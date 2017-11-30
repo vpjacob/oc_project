@@ -8,9 +8,16 @@ apiready = function() {
     });
 	var header = $api.byId('header');
 	if (api.systemType == 'ios') {
-		var cc = $api.dom('.content');
-		$api.css(header, 'margin-top:20px;');
-		$api.css(cc, 'margin-top:20px;');
+		
+        if (api.screenHeight == 2436){
+            var cc = $api.dom('.content');
+            $api.css(header, 'margin-top:44px;');
+            $api.css(cc, 'margin-top:44px;');
+        }else{
+            var cc = $api.dom('.content');
+            $api.css(header, 'margin-top:20px;');
+            $api.css(cc, 'margin-top:20px;');
+        }
 	}
 
 	$("#back").bind("click", function() {

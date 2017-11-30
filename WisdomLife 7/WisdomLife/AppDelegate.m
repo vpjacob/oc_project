@@ -23,7 +23,7 @@
 
 static NSString *postUrl = @"http://xk.ppke.cn:9030/xk/appStartImg.do";
 static NSString *imgUrlFront = @"http://www.ppke.cn";
-
+//ca-app-pub-9554187975714748~4522907099
 @interface AppDelegate ()<WXApiDelegate>
 
 @end

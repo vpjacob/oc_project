@@ -69,7 +69,12 @@ apiready = function() {
 	//其中，IOS状态栏高度为20px，Android为25px
 	systemType = api.systemType;
 	if (systemType == 'ios') {
-		headerH = 20;
+		
+        if (api.screenHeight == 2436){
+            headerH = 44;
+        }else{
+            headerH = 20;
+        }
 	} else {
 		headerH = 0;
 	}

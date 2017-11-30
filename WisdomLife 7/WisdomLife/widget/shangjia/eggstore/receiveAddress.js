@@ -6,7 +6,12 @@ apiready = function() {
 	var addressId = api.pageParam.id;
 	var busid = api.pageParam.id;
 	if (api.systemType == 'ios') {
-		$api.css(header, 'margin-top:1.1rem;');
+		
+        if (api.screenHeight == 2436){
+            $api.css(header, 'margin-top:1.6rem;');
+        }else{
+            $api.css(header, 'margin-top:1.1rem;');
+        }
 	};
 	urId = api.getPrefs({
 	    sync:true,

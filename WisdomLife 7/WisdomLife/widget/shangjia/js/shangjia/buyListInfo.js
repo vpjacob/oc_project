@@ -6,11 +6,20 @@ apiready = function() {
 	var header = $api.byId('header');
 	var cc = $api.dom('.iosBox');
 	if (api.systemType == 'ios') {
-		$api.css(back, 'margin-top:22px;');
-		$api.css(titleName, 'margin-top:22px;');
-		$api.css(share, 'margin-top:22px;');
-		$api.css(cc, 'margin-top:3.3rem;');
-		$api.css(header, 'height:3.3rem');
+		
+        if (api.screenHeight == 2436){
+            $api.css(back, 'margin-top:44px;');
+            $api.css(titleName, 'margin-top:44px;');
+            $api.css(share, 'margin-top:44px;');
+            $api.css(cc, 'margin-top:3.8rem;');
+            $api.css(header, 'height:3.8rem');
+        }else{
+            $api.css(back, 'margin-top:22px;');
+            $api.css(titleName, 'margin-top:22px;');
+            $api.css(share, 'margin-top:22px;');
+            $api.css(cc, 'margin-top:3.3rem;');
+            $api.css(header, 'height:3.3rem');
+        }
 	};
 	
 	var busid = api.pageParam.id;
@@ -86,7 +95,8 @@ function queryProductDeatilById() {
 					$("#description").html(list.description);
 					$("#toBuy").attr("data",list.good_no);
 					$("#toBuy").attr("datas",list.surplus_count);
-					$("#mainImg").attr("src",rootUrl+($api.strToJson(data.formDataset.detail).name));
+//					$("#mainImg").attr("src",rootUrl+($api.strToJson(data.formDataset.detail).name));
+					$("#mainImg").html($api.strToJson(data.formDataset.detail).name);
 					api.hideProgress();
 					for(var i=0;i<listImg.length;i++){
 						nowlist+='<div class="swiper-slide"><img src="'+rootUrl+listImg[i].name+'"></div>'

@@ -5,8 +5,14 @@ apiready = function() {
 	var header = $api.byId('closePage');
 	var closeR = $api.byId('closeR');
 	if (api.systemType == 'ios') {
-		$api.css(closePage, 'padding: .8rem .1rem;');
-		$api.css(closeR, 'padding-top: 0.65rem;');
+		
+        if (api.screenHeight == 2436){
+            $api.css(closePage, 'padding: .8rem .1rem;');
+            $api.css(closeR, 'padding-top: 1.2rem;');
+        }else{
+            $api.css(closePage, 'padding: .8rem .1rem;');
+            $api.css(closeR, 'padding-top: 0.65rem;');
+        }
 	};
 	$("#registerButton").on('click', function() {
 		var verifyCode = $("#vaildCode").val();

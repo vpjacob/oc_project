@@ -9,7 +9,12 @@ var id="";
 apiready = function() {
 	if (api.systemType == 'ios') {
 		var cc = $api.dom('.title_div');
-		$api.css(cc, 'margin-top:0.8rem;');
+		
+        if (api.screenHeight == 2436){
+            $api.css(cc, 'margin-top:1.3rem;');
+        }else{
+            $api.css(cc, 'margin-top:0.8rem;');
+        }
 	};
 	
 //	var UILoading = api.require('UILoading');
@@ -533,7 +538,7 @@ apiready = function() {
 							var nowli='<div class="bussame" id="' + list[i].fid + '" data="' + list[i].industry_name + '">'
 									+'<div class="buscontent">'	
 									+'<div class="left">'
-									+'<img src="' + rootUrl + list[i].shopurl + '" alt="" />'
+									+'<img data-original="' + rootUrl + list[i].shopurl + '" alt="" />'
 									+'</div>'
 									+'<div class="rightTop">'+list[i].companyname+'</div>'
 									+'<div class="stare">'+starLenght(starlen)+'</div>'
@@ -543,6 +548,9 @@ apiready = function() {
 									+'</div>'
 							$('#tab1').append(nowli);
 						};
+						    $("#tab1 img").lazyload({
+							    threshold : 200
+							});
 					}
 
 					pageCount = data.formDataset.count > 10 ? Math.ceil(data.formDataset.count / 10) : 1;

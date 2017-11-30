@@ -8,8 +8,14 @@ var browser = api.require('webBrowser');
 	var header = $api.byId('title');
 	var miancss = $api.dom('.businessList');
 	if (api.systemType == 'ios') {
-		$api.css(header, 'margin-top:1.1rem;');
-		$api.css(miancss, 'margin-top:3.3rem;');
+		
+        if (api.screenHeight == 2436){
+            $api.css(header, 'margin-top:1.6rem;');
+            $api.css(miancss, 'margin-top:3.8rem;');
+        }else{
+            $api.css(header, 'margin-top:1.1rem;');
+            $api.css(miancss, 'margin-top:3.3rem;');
+        }
 	};
 	urId = api.getPrefs({
 		sync : true,

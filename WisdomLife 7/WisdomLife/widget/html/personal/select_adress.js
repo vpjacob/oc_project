@@ -3,8 +3,14 @@ apiready = function() {
 	var header = $api.byId('header');
 	if (api.systemType == 'ios') {
 		var cc = $api.dom('.text');
-		$api.css(header, 'margin-top:20px;');
-		$api.css(cc, 'margin-top:4.2rem;');
+		
+        if (api.screenHeight == 2436){
+            $api.css(header, 'margin-top:44px;');
+            $api.css(cc, 'margin-top:4.7rem;');
+        }else{
+            $api.css(header, 'margin-top:20px;');
+            $api.css(cc, 'margin-top:4.2rem;');
+        }
 	}
 	//获取用户id
 	 memberid = api.pageParam.memberid;

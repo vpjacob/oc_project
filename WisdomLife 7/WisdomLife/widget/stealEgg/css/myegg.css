@@ -1,0 +1,429 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements ½á¹¹ÔªËØ */
+dl, dt, dd, ul, ol, li, /* list elements ÁÐ±íÔªËØ */
+pre, /* text formatting elements ÎÄ±¾¸ñÊ½ÔªËØ */
+form, fieldset, legend, button, input, textarea, /* form elements ±íµ¥ÔªËØ */
+th, td, /* table elements ±í¸ñÔªËØ */
+img/* img elements Í¼Æ¬ÔªËØ */ {
+	border: medium none;
+	margin: 0;
+	padding: 0;
+}
+/** ÉèÖÃÄ¬ÈÏ×ÖÌå **/
+body, input, p {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	font-family: 'Microsoft YaHei';
+}
+/*h1, h2, h3, h4, h5, h6 { font-size: 100%; }*/
+/*em{font-style:normal;}*/
+/** ÖØÖÃÁÐ±íÔªËØ **/
+ul, ol {
+	list-style: none;
+}
+/** ÖØÖÃ³¬Á´½ÓÔªËØ **/
+a {
+	text-decoration: none;
+	color: #000;
+}
+a:hover {
+	text-decoration: underline;
+	color: #3363a7;
+}
+/** ÖØÖÃÍ¼Æ¬ÔªËØ **/
+img {
+	border: 0px;
+}
+/** ÖØÖÃ±í¸ñÔªËØ **/
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.item-inner label {
+	width: 32%;
+}
+label {
+	font-size: 14px;
+	color: #000;
+}
+body, html {
+	height: 100%;
+	font-size: 0.65 rem;
+	font-family: '微软雅黑';
+	background-color: #fff;
+	position: relative;
+}=
+.clear {
+	height: 0px;
+	line-height: 0px;
+	font-size: 0px;
+	clear: both;
+}
+
+.imgtop {
+	text-align: center;
+	width: 100%;
+	height: 200px;
+ 	background: url("../../image/bgcLast.jpg") no-repeat center; 
+	background-size: cover;
+/* 	background-color: rgba(0,0,0,0.5); */
+}
+
+.imgbottom, .imgbottom img {
+	width: 100%;
+}
+
+.content-block {
+	margin: 0;
+	padding: 0;
+}
+
+.imgbottom p {
+	text-align: center;
+}
+.imgtop > div {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.4);
+	color: #fff;
+	overflow: hidden;
+}
+
+.bar {
+	position: relative;
+}
+
+.bar {
+	position: relative;
+	overflow: hidden;
+}
+
+
+.guize {
+	font-size: 0.75rem;
+	color: #282828;
+	
+}
+
+.fanzt-egg {
+	margin: 0px;
+	padding: 0px;
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.fanzt-egg .fanzt-egg-img {
+	position: absolute;
+	z-index: 9990;
+}
+
+.fanzt-egg .fanzt-chuizi {
+	position: absolute;
+	z-index: 9991;
+	display: none;
+	-webkit-transform: rotate(5deg);
+	-moz-transform: rotate(5deg);
+	-o-transform: rotate(5deg);
+	transform: rotate(5deg);
+}
+
+.fanzt-egg .fanzt-hua {
+	position: absolute;
+	z-index: 9991;
+	display: none;
+	-webkit-transition:  : all 0.8s ease;
+	-moz-transition:  : all 0.8s ease;
+	-o-transition:  : all 0.8s ease;
+	transition: all 0.8s ease;
+}
+
+.fanzt-egg .fanzt-message {
+	position: absolute;
+	z-index: 9995;
+	display: none;
+	width: 140px;
+	padding: 10px;
+	color: #fff;
+	text-align: center;
+	-webkit-transition:  : all 0.8s ease;
+	-moz-transition:  : all 0.8s ease;
+	-o-transition:  : all 0.8s ease;
+	transition: all 0.8s ease;
+}
+
+.showBox{
+	background:rgba(0,0,0,0.5);
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:20000;
+	height:100%;
+	width:100%;
+}
+
+.showBox .showDiv{
+	position:absolute;
+	width:100%;
+	z-index:20001;
+  	height:100%;  
+	background:url("../../image/eggbg3.png") no-repeat center; 
+	background-size: 100% 100%;
+}
+.showBox .showDiv .moneyStyle{
+	position: absolute;
+	font-size:1.25rem;
+    top: 44.5%;
+    width:100%;
+    text-align:center;
+    font-family:"微软雅黑";
+    font-weight:700;
+     background-image: -webkit-gradient(linear, left top, left  bottom, from(rgba(255, 163, 2, 1)), to(rgba(255,255, 0, 1)));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.showBox .showDiv .closeTan{
+	position: absolute;
+    top: 71.5%;
+    left:30%;
+    width:41%;
+    height: 7.5%;
+}
+.imgtop .topLeft{
+ 	width:1.9rem; 
+ 	height: 1.9rem; 
+	margin-top:0.25rem;
+	margin-right: -1px;
+	/* border: 1px solid red; */  
+	background:#fff;
+	float: right;
+	border-radius: 50% 0 0 50%;
+	position: relative;
+	z-index: 10000;
+}
+.imgtop .topLeft .topLeftImg{
+	width:1.5rem;
+	height: 1.5rem;
+	 /* border:1px solid #38ADFF; */ 
+	float: right;
+	margin-top: 0.18rem;
+	
+}
+.imgtop .topLeft .topLeftImg img{
+	width:1.5rem;
+	border-radius: 50%;
+	height: 1.5rem;
+}
+.imgtop .imgTopMid{
+	width:0.75rem; 
+ 	height: 1.9rem; 
+ 	background:#fff;
+ 	float: right;
+ 	margin-top:0.25rem;
+}
+.box{
+	margin-top: 0;
+}
+.boxTop{
+	margin-top: 0.5rem;
+	/* height: 9rem; */
+	width:100%; 
+	/* border:1px solid red; */
+	background: #fff;
+}
+.boxTop .topFirst{
+	height: 2.2rem;
+	width:100%;
+	border-bottom:1px solid #ddd;
+}
+.boxTop .topFirst span:nth-child(1){
+	font-size: 0.75rem;
+	float: left;
+	margin-left: 4%;
+	color: #38adff;
+	line-height: 2.2rem;
+	font-weight: 700;
+}
+.boxTop .topFirst span:nth-child(2){
+	font-size: 0.6rem;
+	float: right;
+	margin-right: 4%;
+	color: #38adff;
+	line-height: 2.2rem;
+}
+.boxTop .boxSec{
+	width:100%;
+/* 	height: 5.6rem; */
+	/* border:1px solid red; */
+	margin-top: 0.75rem;
+} 
+.boxTop .boxSec .boxTopSame{
+	height: 1.4rem;
+	width: 92%;
+	margin:0 auto;
+	/* border: 1px solid red; */
+}
+.boxTop .boxSec .boxTopSame span{
+	color:#28828;
+	float: left;
+	line-height: 1.3rem;
+}
+.boxTop .boxSec .boxTopSame span:nth-child(1){
+	font-size: 0.7rem;
+	font-weight: 700;
+	
+}
+.boxTop .boxSec .boxTopSame span:nth-child(2){
+	font-size: 0.6rem;
+	margin-left: 0.5rem;
+}
+.boxTop .boxSec .boxTopSame span:nth-child(3){
+	font-size: 0.6rem;
+	color: #ff8705;
+}
+.boxTop .boxSec .boxTopSame span:nth-child(4){
+	font-size: 0.6rem;
+}
+.boxTop .boxSec .boxTopSame span:nth-child(5){
+	font-size: 0.6rem;
+	float: right;
+	color:#797979;
+}
+
+.boxBot{
+	width:100%;
+	background: #fff;
+	margin-top: 0.5rem;
+	/* height: 1rem; */
+}
+.boxBot .topFirst{
+	height: 2.2rem;
+	width:100%;
+	border-bottom:1px solid #ddd;
+}
+.boxBot .topFirst span:nth-child(1){
+	font-size: 0.75rem;
+	float: left;
+	margin-left: 4%;
+	color: #38adff;
+	line-height: 2.2rem;
+	font-weight: 700;
+}
+.boxBot .topFirst span:nth-child(2){
+	font-size: 0.6rem;
+	float: right;
+	margin-right: 4%;
+	color: #38adff;
+	line-height: 2.2rem;
+}
+.boxBot .botSec .boxBotSame{
+	height: 3rem;
+	width:100%;
+	border:1px solid transparent;
+}
+.boxBot .botSec .boxBotSame .main{
+	width: 89.33%;
+	height: 2.5rem;
+	border:1px solid transparent;
+	border-bottom:1px solid #ddd;
+	margin-left: 10.6%;
+	margin-top: 0.5rem;
+	position: relative;
+}
+.boxBot .botSec .boxBotSame .mainImg{
+	width:2rem;
+	height: 2rem;
+	/* border:1px solid red; */
+	border-radius:50%;
+	float:left;
+}
+.boxBot .botSec .boxBotSame .nickName{
+	color:#282828;
+	font-size: 0.7rem;
+	float:left;
+	margin-left: 0.625rem;
+}
+.boxBot .botSec .boxBotSame .realName{
+	font-size:0.6rem;
+	float:left;
+	color: #999;
+	display: block;
+	position: absolute;
+	left: 2.6rem;
+	top:1rem; 
+}
+.boxBot .botSec .boxBotSame .last{
+	float:right;
+	color: #282828;
+	font-size:0.6rem;
+	line-height: 2rem;
+	margin-right: 4%;
+}
+.boxBot .botSec .boxBotSame .mid{
+	float:right;
+	color: #ff8705;
+	font-size:0.6rem;
+	line-height: 2rem;
+}
+.boxBot .botSec .boxBotSame .botGold{
+	width:1rem;
+	height: 1rem;
+	float: right;
+	margin-top: 0.5rem;
+	margin-right: 0.5rem;
+}
+.boxBotSame .topImg{
+	width:1rem;
+	height: 0.8rem;
+	float:left;
+    margin-top: 1.0rem;
+    margin-left: 4%;
+}
+.eggCount{
+	width:100%;
+	height: 2.2rem;
+	/* border:1px solid red; */
+	float:left;
+	position: absolute;
+	top:155px;
+	background:-webkit-linear-gradient(left,#6BD3F7 0,#5481FE 100%);
+	opacity:0.8;
+}
+.eggCount div{
+	width:25%;
+	height: 1.6rem;
+	float: left;
+	margin-top:0.3rem;
+	
+}
+.eggCount span{
+	color: white;
+	display: block;
+	height: 0.7rem;
+	text-align: center;
+}
+.eggCount span:nth-child(1){
+	font-size: 0.7rem;
+	margin-top: -0.2rem;
+}
+.eggCount span:nth-child(2){
+	font-size: 0.65rem;
+	margin-top: 0.2rem;
+}
+.eggCount .left{
+	border-right:1px solid #ddd;
+} 
+.hoderimg{
+	width:100%;
+	display:none;
+}
+
+
+
+
+
+
+
+
+
+

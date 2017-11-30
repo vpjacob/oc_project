@@ -3,8 +3,14 @@ apiready = function() {
 	var header = $api.byId('title');
 	var contentB = $api.dom('.content-block')
 	if (api.systemType == 'ios') {
-		$api.css(header, 'margin-top:20px;');
-		$api.css(contentB, 'margin-top:20px;');
+		
+        if (api.screenHeight == 2436){
+            $api.css(header, 'margin-top:44px;');
+            $api.css(contentB, 'margin-top:44px;');
+        }else{
+            $api.css(header, 'margin-top:20px;');
+            $api.css(contentB, 'margin-top:20px;');
+        }
 	};
 	urId = api.getPrefs({
 	    sync:true,
@@ -40,16 +46,16 @@ apiready = function() {
 	//我的订单
 	$('#myrecord').click(function() {
 		api.openWin({
-			name : 'myrecord',
-			url : '../html/wallet/myrecord.html',
-			reload : true,
-			slidBackEnabled : true,
-			animation : {
-				type : "push", //动画类型（详见动画类型常量）
-				subType : "from_right", //动画子类型（详见动画子类型常量）
-				duration : 300 //动画过渡时间，默认300毫秒
-			}
-		});
+            name : 'myrecord',
+                url : '../html/wallet/myrecord.html',
+                reload : true,
+                slidBackEnabled : true,
+                animation : {
+                type : "push", //动画类型（详见动画类型常量）
+                    subType : "from_right", //动画子类型（详见动画子类型常量）
+                    duration : 300 //动画过渡时间，默认300毫秒
+            }
+        });
 	});
 	//我的金蛋   
 	$('#myegg').click(function() {

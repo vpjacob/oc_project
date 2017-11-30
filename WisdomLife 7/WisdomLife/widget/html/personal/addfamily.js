@@ -4,8 +4,14 @@ apiready = function() {
 	if(api.systemType=='ios')
 	{	  
 	    var cc=$api.dom('.toproof');
-		$api.css(header,'margin-top:20px;');
-		$api.css(cc,'margin-top:20px;');		
+		
+        if (api.screenHeight == 2436){
+            $api.css(header,'margin-top:44px;');
+            $api.css(cc,'margin-top:44px;');
+        }else{
+            $api.css(header,'margin-top:20px;');
+            $api.css(cc,'margin-top:20px;');
+        }
 	}
 	var roomid = api.pageParam.roomid;
 	familyInfo = "<div class='familyform'><ul><li><div class='approve3'><img src='\"[headurl]\"'/>" + "</div><h5>\"[name]\"</h5><div class='approve4'><img src='../../image/temp/yirenzheng_03.png'/></div></li></ul></div>";

@@ -2,8 +2,14 @@ apiready = function() {
 	var header = $api.byId('header');
 	if (api.systemType == 'ios') {
 		var cc = $api.dom('.paddingTwo');
-		$api.css(header, 'margin-top:20px;');
-		$api.css(cc, 'margin-top:74px;');
+		
+        if (api.screenHeight == 2436){
+            $api.css(header, 'margin-top:44px;');
+            $api.css(cc, 'margin-top:96px;');
+        }else{
+            $api.css(header, 'margin-top:20px;');
+            $api.css(cc, 'margin-top:74px;');
+        }
 	}
 	bankLoad();
 //	$("#submit").bind("click", function() {

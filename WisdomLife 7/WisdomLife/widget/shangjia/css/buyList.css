@@ -48,7 +48,18 @@ input::-moz-input-placeholder{text-align: left;}
 	height: 17px;
 	padding-left: 0.1rem;
 }
-
+.swiper-container{
+/* 	height: 8.0rem; */
+	background:white;
+	margin-top: 2.2rem;
+	padding-bottom: 0;
+	width:106%;
+	margin-left: -3%;
+	z-index: 10000;
+}
+.swiper-container img{
+	width:100%;
+}
 .box{
 	margin-top: 2.2rem;
 	overflow: hidden;
@@ -62,9 +73,7 @@ input::-moz-input-placeholder{text-align: left;}
 	background:#FFFFFF;
 	height: 2.3rem;
 	position: relative;
-	top:2.2rem;
 	left:-3%;
-	
 }
 .bar .top .topSame{
 	height: 2.2rem;
@@ -135,7 +144,7 @@ input::-moz-input-placeholder{text-align: left;}
 	width: 4.0rem;
 	z-index: 30001;
 	display: none;
-	right: 1%;
+	right: 18%;
 	top:4.2rem;
 	border-radius: 3px;
 	font-size: 0.65rem;
@@ -145,7 +154,6 @@ input::-moz-input-placeholder{text-align: left;}
 	
 }
 .secondul .other {
-	
 	text-align: center;
 	height: 1.5rem;
 	line-height: 1.5rem
@@ -161,8 +169,8 @@ div.first {
 	z-index: 30001;
 	-webkit-transform: rotate(45deg);
 	transform: rotate(45deg);
-	top: 3.85rem;
-	right: 8.4%;
+	/* top: 33%; */
+	right: 16.4%;
 	background-color: #fff;
 	border: none;
 	display: none;

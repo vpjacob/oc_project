@@ -65,9 +65,16 @@ apiready = function() {
 	if (api.systemType == 'ios') {
 		var cc = $api.dom('.content');
 		var dd = $api.dom('.referChange');
-		$api.css(header, 'margin-top:1rem;');
-		$api.css(cc, 'margin-top:1rem;');
-		$api.css(dd, 'margin-top:3.2rem;');
+		
+        if (api.screenHeight == 2436){
+            $api.css(header, 'margin-top:1.5rem;');
+            $api.css(cc, 'margin-top:1.5rem;');
+            $api.css(dd, 'margin-top:3.7rem;');
+        }else{
+            $api.css(header, 'margin-top:1rem;');
+            $api.css(cc, 'margin-top:1rem;');
+            $api.css(dd, 'margin-top:3.2rem;');
+        }
 	}
 	//监听页面的长按事件
 	api.addEventListener({

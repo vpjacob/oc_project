@@ -13,7 +13,12 @@ apiready = function() {
 	giftRecord();
 	var closePage = $api.byId('title');
 	if (api.systemType == 'ios') {
-		$api.css(closePage, 'margin-top:1.1rem');
+		
+        if (api.screenHeight == 2436){
+            $api.css(closePage, 'margin-top:1.6rem');
+        }else{
+            $api.css(closePage, 'margin-top:1.1rem');
+        }
 	};
 	
     var scanner = api.require('scanner');
