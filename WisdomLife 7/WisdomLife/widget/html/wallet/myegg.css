@@ -474,3 +474,10 @@ li.first {
 	font-size: 0.75rem;
 	display: none;
 }
+.shareWx{
+	width:5.0rem;
+	height: 6.25rem;
+	position: absolute;
+	right: 2.93%;
+	bottom:1.375rem;
+}

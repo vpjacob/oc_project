@@ -15,6 +15,10 @@ body{
 	margin-bottom:2px;
 	padding:0 .5rem
 }
+.content .list select{
+	height: 58px;
+	line-height: 58px;
+}
 .content .list span{
 	float:left;
 	width:100px;

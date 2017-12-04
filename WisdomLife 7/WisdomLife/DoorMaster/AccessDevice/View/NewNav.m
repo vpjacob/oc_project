@@ -17,7 +17,12 @@
         self.frame = CGRectMake(0, 0, kDeviceWidth, kNavBarHeight);
         self.backgroundColor = [UIColor clearColor];
         
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake((kDeviceWidth-kCurrentWidth(150))/2, kCurrentWidth(15), kCurrentWidth(150), 44)];
+        UILabel *label;
+        if (kDeviceHeight == 812.0){
+            label = [[UILabel alloc] initWithFrame:CGRectMake((kDeviceWidth-kCurrentWidth(150))/2, kCurrentWidth(15) + 15, kCurrentWidth(150), 44)];
+        }else{
+            label = [[UILabel alloc] initWithFrame:CGRectMake((kDeviceWidth-kCurrentWidth(150))/2, kCurrentWidth(15), kCurrentWidth(150), 44)];
+        }
         label.textColor = kBlackColor;
         label.text = title;
         label.font = [UIFont systemFontOfSize:15];
@@ -26,7 +31,11 @@
         [self addSubview:label];
         
         _escBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _escBtn.frame = CGRectMake(0, 0, 64, 64);
+        if (kDeviceHeight == 812.0){
+            _escBtn.frame = CGRectMake(0, 15, 64, 64);
+        }else{
+            _escBtn.frame = CGRectMake(0, 0, 64, 64);
+        }
         [_escBtn setImage:[UIImage scaleImage:[UIImage imageNamed:@"关闭"] toSize:CGSizeMake(20, 20)] forState:UIControlStateNormal];
         _escBtn.imageEdgeInsets = UIEdgeInsetsMake(20, 0, 0, 0);
         [self addSubview:_escBtn];

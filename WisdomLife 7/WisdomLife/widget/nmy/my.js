@@ -23,30 +23,24 @@ apiready = function() {
 		key : 'userNo'
 	});
 	systemType = api.systemType;
-    footerH=50;
 	if (systemType == 'ios') {
-        headerH = 20;
+        
         var screenHeight = api.screenHeight;
         
         if(screenHeight == (2436)){
             headerH = 80;
-            $api.css($api.byId('footer'), 'padding-bottom:83px;');
-            frameH = api.winHeight - headerH - footerH-34;
+            footerH=80;
         }else{
             headerH = 20;
-            frameH = api.winHeight - headerH - footerH;
+            footerH=50;
         }
 	} else {
 		headerH = 0;
+        footerH=50;
 	}
     
 	
-    
-        
-    } else {
-        headerH = 0;
-        frameH = api.winHeight - headerH - footerH;
-    }
+	frameH = api.winHeight - headerH - footerH;
 	/**
 	 * 获取memberid，并获取个人的相关信息
 	 */
@@ -369,32 +363,32 @@ $('#payMoney').click(function() {
 	});
 	
 	//我的金蛋   
-//	$('#myegg').click(function() {
-//		api.openWin({
-//			name : 'myegg',
-//			url : '../html/wallet/myegg.html',
-//			reload : true,
-//			slidBackEnabled : true,
-//			animation : {
-//				type : "push", //动画类型（详见动画类型常量）
-//				subType : "from_right", //动画子类型（详见动画子类型常量）
-//				duration : 300 //动画过渡时间，默认300毫秒
-//			}
-//		});
-//	});
-	$('#myegg').click(function() {
-		api.openWin({
-			name : 'myegg',
-			url : '../stealEgg/html/myegg.html',
-			reload : true,
-			slidBackEnabled : true,
-			animation : {
-				type : "push", //动画类型（详见动画类型常量）
-				subType : "from_right", //动画子类型（详见动画子类型常量）
-				duration : 300 //动画过渡时间，默认300毫秒
-			}
-		});
-	});
+    $('#myegg').click(function() {
+        api.openWin({
+            name : 'myegg',
+            url : '../html/wallet/myegg.html',
+            reload : true,
+            slidBackEnabled : true,
+            animation : {
+                type : "push", //动画类型（详见动画类型常量）
+                subType : "from_right", //动画子类型（详见动画子类型常量）
+                duration : 300 //动画过渡时间，默认300毫秒
+            }
+        });
+    });
+//    $('#myegg').click(function() {
+//        api.openWin({
+//            name : 'myegg',
+//            url : '../stealEgg/html/myegg.html',
+//            reload : true,
+//            slidBackEnabled : true,
+//            animation : {
+//                type : "push", //动画类型（详见动画类型常量）
+//                subType : "from_right", //动画子类型（详见动画子类型常量）
+//                duration : 300 //动画过渡时间，默认300毫秒
+//            }
+//        });
+//    });
 	//回购
 	$('#buyback').click(function() {
 		checkBuyback();
@@ -534,7 +528,7 @@ $('#payMoney').click(function() {
 	$('#myDeal').click(function() {
 		api.openWin({
 			name : 'payRecord',
-			url : '../html/personal/mydeal.html',
+            url : '../html/personal/mydeal.html',
 			slidBackEnabled : true,
 			animation : {
 				type : "push", //动画类型（详见动画类型常量）

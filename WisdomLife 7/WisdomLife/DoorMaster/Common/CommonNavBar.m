@@ -31,7 +31,11 @@
 {
     self.titleLbl.text = title;
     CGSize size = [self.titleLbl.text sizeWithFont:kSystem(17) maxSize:CGSizeMake(kDeviceWidth, kNavBarHeight)];
-    self.titleLbl.frame = CGRectMake((kDeviceWidth-size.width)/2,(44-size.height)/2+20 , size.width, size.height);
+    if (kDeviceHeight == 812.0){
+        self.titleLbl.frame = CGRectMake((kDeviceWidth-size.width)/2,(44-size.height)/2+44 , size.width, size.height);
+    }else{
+        self.titleLbl.frame = CGRectMake((kDeviceWidth-size.width)/2,(44-size.height)/2+20 , size.width, size.height);
+    }
     [self addSubview:self.titleLbl];
 }
 
@@ -48,7 +52,11 @@
 {
     if (!_backBtn) {
         _backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _backBtn.frame = CGRectMake(12, 24, 30, 36);
+        if (kDeviceHeight == 812.0){
+            _backBtn.frame = CGRectMake(12, 48, 30, 36);
+        }else{
+            _backBtn.frame = CGRectMake(12, 24, 30, 36);
+        }
         [_backBtn setImage:[UIImage imageNamed:@"nav_back"] forState:UIControlStateNormal];
     }
     return _backBtn;

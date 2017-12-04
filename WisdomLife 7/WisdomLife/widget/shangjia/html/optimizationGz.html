@@ -20,8 +20,13 @@
 			    height: 80px;
 			    border: 1px solid transparent;
 			    position: absolute;
-			    bottom: 0.5rem;
+			    top: 87%;
 			    left: 29%;
+			}
+			.boxImg{
+				width: 100%;
+				overflow: auto;
+				margin-top: 44px;
 			}
 		</style>
 	</head>
@@ -33,7 +38,7 @@
 			<h1 class="title headerTitle">活动规则</h1>
 		</header>
 		<div style="overflow:auto;height: 100%;position: relative">
-			<img src="../image/optimizationGz.jpg" style="width: 100%;overflow: auto;margin-top: 44px;"/>
+			<img src="../image/optimizationGz.jpg" class="boxImg"/>
 			<div id="goShop"></div>
 		</div>
 	</body>
@@ -42,6 +47,7 @@
 	<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
 	<script type="text/javascript" src="../../script/jquery.js"></script>
 	<script>
+		$("#goShop").css("top",$(".boxImg").height()*0.875);
 		apiready = function() {
 		var header = $api.byId('title');
 		if (api.systemType == 'ios') {
@@ -56,6 +62,7 @@
 				name : 'busList',
 				url : 'buyList.html',
 				slidBackEnabled : true,
+				reload:true,
 				animation : {
 					type : "push", //动画类型（详见动画类型常量）
 					subType : "from_right", //动画子类型（详见动画子类型常量）

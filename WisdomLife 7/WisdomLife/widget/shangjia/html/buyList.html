@@ -23,10 +23,10 @@
 		<a onclick="goBack()" class="iconfont icon-xiangzuo1 pull-left" style="font-size:0.95rem;color:#0EAAE3;position:absolute;top:0.35rem;" id="Back"></a>
 		<div class="swiper-container">
 	        <div class="swiper-wrapper">
-	        	 <div class="swiper-slide"><img src="../image/banner1.jpg" id="optimizationGz"></div>        
-	        	 <div class="swiper-slide"><img src="../image/banner2.jpg" id="eggGz"></div>                      
+	        	 <div class="swiper-slide" id="eggGz"><img src="../image/banner2.jpg"></div>                      
+	        	 <div class="swiper-slide" id="optimizationGz"><img src="../image/banner1.jpg"></div>        
 	        </div>
-	        <div class="swiper-pagination" style="position: absolute;bottom:0"></div>
+	        <!--<div class="swiper-pagination" style="position: absolute;bottom:0"></div>-->
   	    </div>
 		<div class="top">
 			<div class="topSame"><span data="2" class="special">全部</span></div>
@@ -118,15 +118,15 @@
 	<script type="text/javascript" src="../js/swiper.js"></script>
 	<script type="text/javascript" src="../js/shangjia/buyList.js"></script>
 	<script>
-		var swiper = new Swiper('.swiper-container', {
-			pagination : '.swiper-pagination',
-			paginationClickable : true,
-			spaceBetween : 3,
-			centeredSlides : true,
-			autoplayDisableOnInteraction : false,
-			autoplay : 2500,
-			loop : true,
-		});
+//		var swiper = new Swiper('.swiper-container', {
+//			pagination : '.swiper-pagination',
+//			paginationClickable : true,
+//			spaceBetween : 3,
+//			centeredSlides : true,
+//			autoplayDisableOnInteraction : false,
+//			autoplay : 2500,
+//			loop : true,
+//		});
 	</script>
 </script>
 </body>

@@ -1,6 +1,9 @@
 var page = 1;
 var pageCount = 1;
 apiready = function() {
+	var indexid = api.pageParam.indexid;
+	var prefShop = api.pageParam.prefShop;//主页传来进行优选商品展示
+	var prefShopGz = api.pageParam.prefShopGz;//规则页传来进行优选商品展示
 	var header = $api.byId('title');
 	var Back = $api.byId('Back');
 	var submit = $api.dom('.title_div');
@@ -44,9 +47,7 @@ apiready = function() {
 			$("#title").css("position","fixed");
 		});
 	};
-	var indexid = api.pageParam.indexid;
-	var prefShop = api.pageParam.prefShop;//主页传来进行优选商品展示
-	var prefShopGz = api.pageParam.prefShopGz;//主页传来进行优选商品展示
+	
 	if(indexid==true){
 		$("#Back").hide();
 		if (api.systemType == 'ios'){
@@ -59,6 +60,8 @@ apiready = function() {
 		}
 	}
 	if(String(prefShop)=="true" || String(prefShopGz)=="true"){
+		$("#optimizationGz").show();
+		$("#eggGz").hide();
 		page = 1;
 		queryProductList(page,"","","","",1000);
 		$(".top span:eq(0)").removeClass();
@@ -74,6 +77,8 @@ apiready = function() {
 			}
 		});
 	}else{
+		$("#optimizationGz").hide();
+		$("#eggGz").show();
 		queryProductList(page,"","","","","");
 		api.addEventListener({
 			name : 'scrolltobottom'
@@ -320,6 +325,8 @@ $("#submit").on("submit",function(){
 				if ($(this).attr("data") == 2) {
 					$('#showListAll').empty();
 					$('#isPref').empty();
+					$("#optimizationGz").hide();
+					$("#eggGz").show();
 					page = 1
 					queryProductList(page,"","","","","");
 					api.addEventListener({
@@ -355,6 +362,8 @@ $("#submit").on("submit",function(){
 				if ($(this).attr("data") == 3) {
 					$('#showListAll').empty();
 					$('#isPref').empty();
+					$("#optimizationGz").show();
+					$("#eggGz").hide();
 					page = 1;
 					queryProductList(page,"","","","",1000);
 					api.addEventListener({

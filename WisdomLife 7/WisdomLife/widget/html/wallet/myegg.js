@@ -6,6 +6,7 @@ var page3 = true;
 var pageNum1 = 1;
 var pageNum2 = 1;
 var pageNum3 = 1;
+var clickMoney ="";
 var userInfo = {
 };
 //var nowli = '<li class="delete"><div class="detailone"><span class="detailLeft">消费日期：</span><span class="detailRight">\"[lastDay]\"</span></div>'
@@ -103,7 +104,39 @@ apiready = function() {
 		sync : true,
 		key : 'open'
 	});
+	$(".shareWx").bind("click", function() {
+		var wx = api.require('wx');
+		var wxUrl=""
+		wx.isInstalled(function(ret, err) {
+			if (ret.installed) {
+				$('#showBox').hide();
+//				wxUrl=rootUrl + "/jsp/recommendmobile?userNo=" + urId + "&userType=1";
+				wxUrl=rootUrl+"/jsp/manager/mobile/shareWeiXin?userNo=" + urId + "&money="+clickMoney+"";
+				wx.shareWebpage({
+					apiKey : '',
+					scene : 'session',
+					title : '购物送金蛋，金蛋砸不停',
+					description : '来小客商城购物，天天砸金蛋',
+					thumb : 'widget://image/shareWx.jpg',
+					contentUrl :wxUrl,
+//					userName : 'A6921550712789',
+//					path : '',
+				}, function(ret, err) {
+					console.log($api.jsonToStr(ret))
+					if (ret.status) {
+						alert('分享成功');
+					} else {
+						alert(err.code);
+					}
+				});
+			} else {
+				api.alert({
+					msg : "当前设备未安装微信客户端"
+				});
+			}
+		});
 
+	});
 	console.log('校验是否打开：  ' + open);
 	//	if (open == '1') {//今日已经打开过金蛋
 	//		$("#egg").attr("src", "../../image/egg_2.png");
@@ -270,6 +303,7 @@ function test() {
 				//           alert("获取的金额:"+data.formDataset.money);
 				$('#showBox').css('display','');
 				$('#smashCount').html(data.formDataset.money+'枚金币');
+				clickMoney=data.formDataset.money;
 				reacd();
 			} else {
 				alert(data.formDataset.errorMsg);

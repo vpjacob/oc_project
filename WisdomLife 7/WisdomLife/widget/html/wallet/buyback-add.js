@@ -4,7 +4,8 @@ apiready = function() {
 	if (api.systemType == 'ios') {
 		
         if (api.screenHeight == 2436){
-            $api.css(header, 'margin-top:44px;');
+            $api.css(header, 'margin-top:33px;');
+            $api.css($api.dom('.content'), 'margin-top:33px;');
         }else{
             $api.css(header, 'margin-top:20px;');
         }

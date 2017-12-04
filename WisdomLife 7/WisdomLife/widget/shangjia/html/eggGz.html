@@ -52,6 +52,8 @@
 	<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
 	<script type="text/javascript" src="../../script/jquery.js"></script>
 	<script>
+//		alert($(".boxImg").height());
+		$("#goShop").css("top",$(".boxImg").height()*0.8);
 		apiready = function() {
 		var header = $api.byId('title');
 		if (api.systemType == 'ios') {
@@ -68,6 +70,7 @@
 				name : 'busList',
 				url : 'buyList.html',
 				slidBackEnabled : true,
+				reload:true,
 				animation : {
 					type : "push", //动画类型（详见动画类型常量）  
 					subType : "from_right", //动画子类型（详见动画子类型常量）
