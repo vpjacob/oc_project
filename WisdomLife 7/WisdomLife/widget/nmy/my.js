@@ -528,7 +528,7 @@ $('#payMoney').click(function() {
 	$('#myDeal').click(function() {
 		api.openWin({
 			name : 'payRecord',
-            url : '../html/personal/mydeal.html',
+			url : '../html/commonweal/pathplan.html',
 			slidBackEnabled : true,
 			animation : {
 				type : "push", //动画类型（详见动画类型常量）
