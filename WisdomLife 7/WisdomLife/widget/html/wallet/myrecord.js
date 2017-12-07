@@ -116,7 +116,7 @@ apiready = function() {
 				pageNo : page
 			},
 			success : function(data) {
-
+				console.log($api.jsonToStr(data));
 				api.hideProgress();
 				var list = data.datasources[0].rows;
 
@@ -133,6 +133,7 @@ apiready = function() {
 						}
 					} else {
 						for (var i = 0; i < list.length; i++) {
+						var businessType="";
 						var	nowli = '<div class="box">' 
 									+ '<div class="bottom">' 
 										+ '<div class="user">' 
@@ -150,11 +151,16 @@ apiready = function() {
 						}else{
 							nowli = nowli + list[i].source_come;
 						}
+						if(String(list[i].source_come)=="购买金蛋"){
+							businessType="服务费";
+						}else{
+							businessType="交易总额";
+						}
 							nowli = nowli + '</span></div>' 
 										+ '</div>' ;
 						  nowli = nowli + '<div class="user">' 
 											+ '<div class="same">' 
-												+ '<span>交易总额：</span>' + '<span style="color:#ff6c00">' + list[i].deal_amount + '</span>' 
+												+ '<span>'+businessType+'：</span>' + '<span style="color:#ff6c00">' + list[i].deal_amount + '</span>' 
 											+ '</div>' 
 										+ '</div>' 
 										+ '<div class="user">' 

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>购买金蛋</title>
+		<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/sm-extend.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="buyEgg.css" />
+	</head>
+	<body style="overflow: auto">
+		<header class="bar bar-nav headerClass" id="title">
+			<a class="icon iconfont pull-left" onclick="goBack()">
+				<img src="../../image/shezhi/goback.png" alt="" class="headerImg"/>
+			</a>
+			<h1 class="title headerTitle">购买金蛋</h1>
+		</header>
+		<div class="box">
+			<img src="../../image/buyEgg.jpg" alt="" class="buyEggImg"/>
+			<div class="main">
+				<div class="amount sameHeight">
+					<span class="sameLeft">金蛋数量</span>
+					<div class="chooseAmountChange">
+						<div id="numSub">-</div>
+						<div id="amout">1</div>
+						<div id="numAdd">+</div>
+					</div>
+				</div>
+				<div class="price sameHeight">
+					<span class="sameLeft">
+						单价
+					</span>
+					<span class="sameRight">
+						75元/枚
+					</span>
+				</div>
+				<div class="count sameHeight">
+					<span class="sameLeft">
+						合计
+					</span>
+					<span class="sameRight" id="countAll">
+						75元
+					</span>
+				</div>
+			</div>
+			<div class="businessPay payTop">
+				<div class="businesses">
+					<img src="../../shangjia/image/address/wxPay.png" />
+					<span>微信</span>
+					<input type="checkbox"  id="wxPay"/>
+				</div>
+			</div>
+			<div class="businessPay payBot">
+				<div class="businesses">
+					<img src="../../shangjia/image/address/pay.png" />
+					<span>支付宝</span>
+					<input type="checkbox"  id="zfb"/>
+				</div>
+			</div>
+			<div class="goPay" id="goBuyEgg">
+				立即支付
+			</div>
+			<div class="notice">
+				<img src="../../image/buyEggNotice.png" alt="" class="noticeImg"/>
+				<div class="noticeBox">
+					<p>1.75元购买价值150元的金蛋(金蛋为小客代金券)。</p>
+					<p>2.购买的金蛋会在次日产生。</p>
+					<p>3.金蛋在小客商城金蛋兑换专区可直接兑换商品，也可以每天登录小客app砸金蛋获得金币，金币可以在小客合作商家和小客线上商城进行兑换不同商品。</p>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../script/api.js"></script>
+	<script type="text/javascript" src="../../script/common.js"></script>
+	<script type="text/javascript" src="../../script/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="buyEgg.js"></script>
+</html>

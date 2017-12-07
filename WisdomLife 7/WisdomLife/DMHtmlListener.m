@@ -29,6 +29,8 @@
 #import "JJVersionCodeController.h"
 #import "JFCityViewControllers.h"
 #import "WXApi.h"
+#import "JJShareToContactViewController.h"
+
 
 static DMHtmlListener *instance = nil;
 
@@ -146,6 +148,11 @@ static DMHtmlListener *instance = nil;
         
         OpenDoorListViewController *nextCtr = [[OpenDoorListViewController alloc] init];
         [self.windowContainer pushViewController:nextCtr animated:YES];
+        
+    }else if([scriptMessage.name isEqualToString:@"shareToContact"]) {//shareToContact
+        
+        JJShareToContactViewController *vc = [[JJShareToContactViewController alloc] init];
+        [self.windowContainer pushViewController:vc animated:YES];
         
     }else if([scriptMessage.name isEqualToString:@"DoorVideoList"]) {//门口视频
         

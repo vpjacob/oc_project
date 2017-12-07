@@ -8,11 +8,11 @@ apiready = function() {
 	var header = $api.byId('title');
 	if (api.systemType == 'ios') {
         if (api.screenHeight == 2436){
-            $api.css(header, 'margin-top:44px;');
-            $api.css($api.dom('.step'),'margin-top:142px;');
+            $api.css(header, 'margin-top:2.2rem;');
+            $api.css($api.dom('.box'),'margin-top:4.4rem;');
         }else{
-            $api.css(header, 'margin-top:20px;');
-            $api.css($api.dom('.step'),'margin-top:120px;');
+            $api.css(header, 'margin-top:1rem;');
+            $api.css($api.dom('.box'),'margin-top:3.2rem;');
         }
 	}
 	//获取用户信息
@@ -28,10 +28,7 @@ apiready = function() {
 	    sync:true,
 	    key:'telphone'
     });
-	merchantName=api.pageParam.name;
-	merchantNo=api.pageParam.id;
-	$("#merchantName").html(merchantName);
-	$("#merchantID").html("ID:" + merchantNo); 
+//	merchantName=api.pageParam.name;
 	var fanxiBox = $(".businesses input:checkbox");
 	fanxiBox.click(function () {
        if(this.checked || this.checked=='checked'){
@@ -39,64 +36,54 @@ apiready = function() {
            $(this).prop("checked", true);
          }
     });
+    //数量的增加与减少
+	$('#numAdd').click(function() {
+		var amout = $("#amout").html();
+		if (parseInt(amout) < 9999) {
+			amout = parseInt(amout) + 1;
+			$("#amout").html(amout);
+			var numAdd=parseInt(amout) * 75;
+			$('#countAll').html(Number(numAdd)+'元');
+		}
+	});
+	$('#numSub').click(function() {
+		var amout = $("#amout").html();
+		if (parseInt(amout) > 1) {
+			amout = parseInt(amout) - 1;
+			$("#amout").html(amout);
+			var numSub=parseInt(amout) * 75;
+			$('#countAll').html(Number(numSub)+'元');
+		}
+	});
 	//提交支付调用支付宝接口
-	$('#apply').click(function() {
-
+	$('#goBuyEgg').click(function() {
+		var countAll=Number($("#countAll").html().split("元")[0]);
 		if (userNo == 'userNo' || userNo == null) {
 			api.alert({
 				msg : "您是否登录了？请先去登录吧！"
 			});
 			return false;
 		}
-		if (merchantNo == '' || merchantNo == null || merchantNo == 'undefined') {
-			api.alert({
-				msg : "没有获取到商家信息，要不刷新一下试试？"
-			});
-			return false;
-		};
 		if($("#zfb").prop("checked")==false &&  $("#wxPay").prop("checked")==false){
 			api.alert({
 				msg : "请选择支付方式"
 			}); 
 			return false;	
 		};
-		var amount = $("#payMoney").val();
-		if (amount <= 0) {
-			api.alert({
-				msg : "您的金额输对了吗？"
-			});
-			return false;
-		};
-		if(!/^[0-9]+.?[0-9]*$/.test(amount)){
-			api.alert({
-				msg : "非金额格式，请重新检查一下！"
-			});
-			return false;
-		}
-		var str = amount.split(".");
-		if(str.length>=2){
-			if (amount.split(".")[1].length > 1) {
-				api.alert({
-					msg : "金额最低精度为角，不能为分！"
-				});
-				return false;
-			}
-		}
-		
 		//微信支付
 		if ($("#wxPay").prop("checked") == true) {
 			var wxPay = api.require('wxPay');
 			AjaxUtil.exeScript({
 				script : "mobile.center.pay.pay",
 				needTrascation : true,
-				funName : "fastEnterBill",
+				funName : "buyEggInsertTemp",
 				form : {
 					userNo : userNo,
 					userName : nickname,
 					userPhone : telphone,
-					merchantNo : merchantNo,
-					merchantName : merchantName,
-					mount : $("#payMoney").val(),
+					mount : countAll,
+					merchantNo : "B000001",
+					merchantName : "北京小客网络科技有限公司",
 					type : 1
 				},
 				success : function(formset) {
@@ -104,18 +91,18 @@ apiready = function() {
 					if (formset.execStatus == "true") {
 						var dealNo = formset.formDataset.dealNo;
 						var data = {
-								"totalAmount" : $("#payMoney").val(),
-								"description" :  merchantName,
+								"totalAmount" : countAll,
+								"description" : "小客智慧生活-购买金蛋",
 								"dealNo":dealNo
 							}
 						$.ajax({
 							type : 'POST',
-							url : rootUrls+'/pay/wxFastPayGetSign.do',
+							url : rootUrls +'/pay/wxBuyEggGetSign.do',
 							data : JSON.stringify(data),
 							dataType : "json",
 							contentType : 'application/json;charset=utf-8',
 							success : function(result) {
-//                                console.log($api.jsonToStr(result));
+                                  console.log($api.jsonToStr(result));
                                if (api.systemType == 'ios'){
 									api.accessNative({
 										name : 'wxpay',
@@ -182,35 +169,34 @@ apiready = function() {
 				}
 			});
 		};
-		
-		//走支付宝支付
 			//或去订单号及临时数据	
 		if ($("#zfb").prop("checked") == true) {	
 			AjaxUtil.exeScript({
 				script : "mobile.center.pay.pay",
 				needTrascation : true,
-				funName : "fastEnterBill",
+				funName : "buyEggInsertTemp",
 				form : {
 					userNo : userNo,
 					userName : nickname,
 					userPhone : telphone,
-					merchantNo : merchantNo,
-					merchantName : merchantName,
-					mount : $("#payMoney").val(),
+					mount :countAll,
+					merchantNo : "B000001",
+					merchantName : "北京小客网络科技有限公司",
 					type : 1
 				},
 				success : function(formset) {
+					console.log($api.jsonToStr(formset));
 					if (formset.execStatus == "true") {
 						var dealNo = formset.formDataset.dealNo;
 						var data = {
-							"subject" : merchantName,
-							"body" : "小客智慧生活支付",
-							"amount" : amount,
+							"subject" : "北京小客网络科技有限公司",
+							"body" : "小客智慧生活-购买金蛋",
+							"amount" : countAll,
 							"tradeNO" : dealNo
 						};
 						$.ajax({
 							type : 'POST',
-							url : rootUrls + '/xk/fastPayOrderInfo.do',
+							url : rootUrls +'/xk/buyEggGetSign.do',
 							data : JSON.stringify(data),
 							dataType : "json",
 							contentType : 'application/json;charset=utf-8',
@@ -230,7 +216,7 @@ apiready = function() {
 												funName : "pushmsg",
 												form : {
 													userNo : userNo,
-													msg : "您有一笔消费,消费总计为"+amount+"元",
+													msg : "您有一笔消费,消费总计为"+countAll+"元",
 													type : 1
 												},
 												success : function(data) {

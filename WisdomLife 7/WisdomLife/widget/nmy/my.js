@@ -7,14 +7,11 @@ apiready = function() {
 		var aa = $api.dom('.justify');
 //		$api.css(cc, 'line-height:3.2rem');
 //		$api.css(cc, 'height:2.45rem');
-		
-        
-        if (api.screenHeight == 2436){
+     if (api.screenHeight == 2436){
             $api.css(cc, ' top: 1.45rem');
         }else{
             $api.css(cc, ' top: 0.45rem');
         }
-        
 		$api.css(bb, ' top: 2.2rem');
 		$api.css(aa, ' top: 2.2rem');
 	};
@@ -24,22 +21,11 @@ apiready = function() {
 	});
 	systemType = api.systemType;
 	if (systemType == 'ios') {
-        
-        var screenHeight = api.screenHeight;
-        
-        if(screenHeight == (2436)){
-            headerH = 80;
-            footerH=80;
-        }else{
-            headerH = 20;
-            footerH=50;
-        }
+		headerH = 20;
 	} else {
 		headerH = 0;
-        footerH=50;
 	}
-    
-	
+	footerH=50;
 	frameH = api.winHeight - headerH - footerH;
 	/**
 	 * 获取memberid，并获取个人的相关信息
@@ -389,6 +375,40 @@ $('#payMoney').click(function() {
 //            }
 //        });
 //    });
+    
+    //shareToContact
+    $('#shareToContact').click(function() {
+                               api.accessNative({
+                                                name : 'shareToContact',
+                                                extra : {
+                                                
+                                                }
+                                                }, function(ret, err) {
+                                                if (ret) {
+                                                // alert(JSON.stringify(ret));
+                                                } else {
+                                                //  alert(JSON.stringify(err));
+                                                }
+                                                });
+                               
+                      });
+    
+    
+    
+	//金蛋购买
+	$('#buyEgg').click(function() {
+		api.openWin({
+			name : 'buyEgg',
+			url : '../html/wallet/buyEgg.html',
+			reload : true,
+			slidBackEnabled : true,
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			}
+		});
+	});
 	//回购
 	$('#buyback').click(function() {
 		checkBuyback();
@@ -528,7 +548,7 @@ $('#payMoney').click(function() {
 	$('#myDeal').click(function() {
 		api.openWin({
 			name : 'payRecord',
-			url : '../html/commonweal/pathplan.html',
+			url : '../html/personal/mydeal.html',
 			slidBackEnabled : true,
 			animation : {
 				type : "push", //动画类型（详见动画类型常量）
@@ -645,18 +665,18 @@ $('#payMoney').click(function() {
 	});
 	
 	//好友管理
-	$("#addressBook").bind("click", function() {
-		api.openWin({
-			name : 'addressBook',
-			url : '../friendManage/html/addressBook.html',
-			slidBackEnabled : true,
-			animation : {
-				type : "push", //动画类型（详见动画类型常量）
-				subType : "from_right", //动画子类型（详见动画子类型常量）
-				duration : 300 //动画过渡时间，默认300毫秒
-			}
-		});
-	});
+//	$("#addressBook").bind("click", function() {
+//		api.openWin({
+//			name : 'addressBook',
+//			url : '../friendManage/html/addressBook.html',
+//			slidBackEnabled : true,
+//			animation : {
+//				type : "push", //动画类型（详见动画类型常量）
+//				subType : "from_right", //动画子类型（详见动画子类型常量）
+//				duration : 300 //动画过渡时间，默认300毫秒
+//			}
+//		});
+//	});
 	//调用图片
 	function queryMyCenterCarousel() {
 		AjaxUtil.exeScript({

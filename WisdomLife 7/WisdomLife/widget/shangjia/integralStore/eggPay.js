@@ -28,7 +28,6 @@ apiready = function() {
 	$("#back").bind("click", function() {
 		api.closeWin();
 	});
-
 	urId = api.getPrefs({
 	    sync:true,
 	    key:'userNo'
@@ -351,7 +350,7 @@ apiready = function() {
 							userName : $("#userName").html(),
 							userPhone : $("#userPhone").html(),
 							userAddress : $("#address").val(),
-							goodName : ($("#content").html()).split(" ")[0],
+							goodName : $("#content").html(),
 							num : $("#amout").html(),
 							price : price,
 							remark : " ",

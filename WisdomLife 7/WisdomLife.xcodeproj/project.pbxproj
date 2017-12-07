@@ -51,6 +51,7 @@
 		225F8BF91EBDB532000822DB /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225F8BF81EBDB532000822DB /* VideoToolbox.framework */; };
 		225F8BFB1EBDB545000822DB /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225F8BFA1EBDB545000822DB /* UserNotifications.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		22E508C11EE82ADD004A3525 /* PushKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E508C01EE82ADD004A3525 /* PushKit.framework */; };
+		D616A2381FD8CD59004492EB /* JJShareToContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D616A2371FD8CD59004492EB /* JJShareToContactViewController.m */; };
 		D61C8E181F5FDD5300DB4470 /* widget in Resources */ = {isa = PBXBuildFile; fileRef = D61C8E171F5FDD5300DB4470 /* widget */; };
 		D6471C181F6F8C63003C8AEA /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6471C171F6F8C63003C8AEA /* NotificationCenter.framework */; };
 		D6471C1C1F6F8C63003C8AEA /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6471C1B1F6F8C63003C8AEA /* TodayViewController.m */; };
@@ -439,6 +440,8 @@
 		225F8BFC1EBDB5A9000822DB /* libnetwork.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libnetwork.tbd; path = usr/lib/libnetwork.tbd; sourceTree = SDKROOT; };
 		22E508C01EE82ADD004A3525 /* PushKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PushKit.framework; path = System/Library/Frameworks/PushKit.framework; sourceTree = SDKROOT; };
 		22E50A8D1EE83AE0004A3525 /* SDPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPrefixHeader.pch; sourceTree = "<group>"; };
+		D616A2361FD8CD59004492EB /* JJShareToContactViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJShareToContactViewController.h; sourceTree = "<group>"; };
+		D616A2371FD8CD59004492EB /* JJShareToContactViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJShareToContactViewController.m; sourceTree = "<group>"; };
 		D61C8E171F5FDD5300DB4470 /* widget */ = {isa = PBXFileReference; lastKnownFileType = folder; path = widget; sourceTree = "<group>"; };
 		D6471C161F6F8C63003C8AEA /* WisdomLifeToday.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WisdomLifeToday.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6471C171F6F8C63003C8AEA /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -1253,6 +1256,8 @@
 				D69480881F4459010077BCB5 /* JJVersionCodeController.h */,
 				D69480891F4459010077BCB5 /* JJVersionCodeController.m */,
 				D694808A1F4459010077BCB5 /* JJVersionCodeController.xib */,
+				D616A2361FD8CD59004492EB /* JJShareToContactViewController.h */,
+				D616A2371FD8CD59004492EB /* JJShareToContactViewController.m */,
 			);
 			path = tools;
 			sourceTree = "<group>";
@@ -2563,6 +2568,7 @@
 				D6F9532C1EFCA2C200683812 /* NSObject+MJProperty.m in Sources */,
 				D6F9532D1EFCA2C200683812 /* NSString+MJExtension.m in Sources */,
 				D6F953001EFCA2C200683812 /* NSString+Addition.m in Sources */,
+				D616A2381FD8CD59004492EB /* JJShareToContactViewController.m in Sources */,
 				D6F953631EFCA2C200683812 /* SharkMotionManager.m in Sources */,
 				D6815E7A1F21AC6B0047F382 /* KNBVideoPlayerView.m in Sources */,
 				D6F9532F1EFCA2C200683812 /* MJRefreshBackFooter.m in Sources */,

@@ -14,7 +14,6 @@ apiready = function() {
 	var header = $api.byId('header');
 	var miancss = $api.byId('miancss');
 	if (api.systemType == 'ios') {
-		
         if (api.screenHeight == 2436){
             $api.css(header, 'margin-top:44px;');
             $api.css(miancss, 'height:78%');
@@ -356,7 +355,7 @@ apiready = function() {
 					userName : $("#userName").html(),
 					userPhone : $("#userPhone").html(),
 					userAddress : $("#address").val(),
-					goodName : ($("#content").html()).split(" ")[0],
+					goodName : $("#content").html(),
 					num : $("#amout").html(),
 					postage : $("#freight").html().split("+")[1],
 					price : price,
@@ -372,7 +371,7 @@ apiready = function() {
 						var dealNo = formset.formDataset.dealNo;
 						var data = {
 								"totalAmount" :countAll,
-								"description" : ($("#content").html()).split(" ")[0],
+								"description" : $("#content").html(),
 								"dealNo":dealNo
 							}
 						$.ajax({
@@ -471,7 +470,7 @@ apiready = function() {
 							userName : $("#userName").html(),
 							userPhone : $("#userPhone").html(),
 							userAddress : $("#address").val(),
-							goodName : ($("#content").html()).split(" ")[0],
+							goodName : $("#content").html(),
 							num : $("#amout").html(),
 							postage : $("#freight").html().split("+")[1],
 							price : price,
@@ -561,7 +560,7 @@ apiready = function() {
 					userName : $("#userName").html(),
 					userPhone : $("#userPhone").html(),
 					userAddress : $("#address").val(),
-					goodName : ($("#content").html()).split(" ")[0],
+					goodName : $("#content").html(),
 					num : $("#amout").html(),
 					postage : $("#freight").html().split("+")[1],
 					price : price,
@@ -602,7 +601,7 @@ apiready = function() {
 												funName : "pushmsg",
 												form : {
 													userNo : 'V000007',
-													msg : "【小客商品】订单号【" + dealNo + "】,商品名称【" + ($("#content").html()).split(" ")[0] + "】",
+													msg : "【小客商品】订单号【" + dealNo + "】,商品名称【" + $("#content").html() + "】",
 													type : 1
 												},
 												success : function(data) {
@@ -615,7 +614,7 @@ apiready = function() {
 												funName : "pushmsg",
 												form : {
 													userNo : "V000011",
-													msg : "【小客商品】订单号【" + dealNo + "】,商品名称【" + ($("#content").html()).split(" ")[0] + "】",
+													msg : "【小客商品】订单号【" + dealNo + "】,商品名称【" + $("#content").html() + "】",
 													type : 1
 												},
 												success : function(data) {
@@ -628,7 +627,7 @@ apiready = function() {
 												funName : "pushmsg",
 												form : {
 													userNo : urId,
-													msg : "【小客商品】订单号【" + dealNo + "】,商品名称【" + ($("#content").html()).split(" ")[0] + "】",
+													msg : "【小客商品】订单号【" + dealNo + "】,商品名称【" + $("#content").html() + "】",
 													type : 1
 												},
 												success : function(data) {
