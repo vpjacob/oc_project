@@ -42,7 +42,7 @@ apiready = function() {
 		queryAllAccountInfo(urId);
 	}
 	init();
-	$('#name').html('用户id：' + urId);
+	$('#name').html('id:' + urId);
 	//获取用户个人信息和推送状态
 	function getUesrInfo(memberid) {
 		AjaxUtil.exeScript({
@@ -65,20 +65,47 @@ apiready = function() {
 							"userNo" : urId
 						},
 						success : function(data) {
-							console.log($api.jsonToStr(data));
+							console.log('用户信息'+$api.jsonToStr(data));
 							if (data.execStatus == 'true' && data.datasources[0].rows.length > 0) {
 								var result = data.datasources[0].rows[0];
 								if (result.head_image == null || result.head_image=="" ||  result.head_image=="undefined") {
-									$('#headurl').attr('src', "images/my-header.png");
+									$('#headurl').attr('src', "images/myHold.jpg");
 								} else {
 									$('#headurl').attr('src', rootUrl + result.head_image);
-								}
+								};
 								if (result.sexname == null || result.sexname=="" ||  result.sexname=="undefined") {
 									$('#sex').attr('src', "images/my-man.png");
 								} else if(result.sexname=="男"){
 									$('#sex').attr('src', "images/my-man.png");
 								} else if(result.sexname=="女"){
 									$('#sex').attr('src', "images/mu-girl.png");
+								};
+//								if (result.nickname == null || result.nickname=="" ||  result.nickname=="undefined") {
+//									$('#name').html('小客');
+//								}else{
+//									$('#name').html(result.nickname);
+//								};
+								if(result.my_level==0){
+									$("#lv").attr("src","images/lv0.png");
+									$("#lv").show();
+								}else if(result.my_level==1){
+									$("#lv").attr("src","images/lv1.png");
+									$("#lv").show();
+								}else if(result.my_level==2){
+									$("#lv").attr("src","images/lv2.png");
+									$("#lv").show();
+								}else if(result.my_level==3){
+									$("#lv").attr("src","images/lv3.png");
+									$("#lv").show();
+								}else if(result.my_level==4){
+									$("#lv").attr("src","images/lv4.png");
+									$("#lv").show();
+								}else if(result.my_level==5){
+									$("#lv").attr("src","images/lv5.png");
+									$("#lv").show();
+								}else if(result.my_level==6){
+									$("#lv").attr("src","images/lv6.png");
+									$("#lv").show();
 								}
 							} else {
 								api.toast({
@@ -240,7 +267,7 @@ apiready = function() {
 					console.log($api.jsonToStr(list));
 					$("#dotleft").html(list.gold_egg_count);
 					$("#dotmidd").html(list.silver_egg_count);
-					$("#dotright").html("可用金币:"+list.may_buyback+"枚");
+					$("#dotright").html(list.may_buyback);
 				} else {
 					api.toast({
 	                    msg:data.formDataset.errorMsg
@@ -348,7 +375,20 @@ $('#payMoney').click(function() {
 			}
 		});
 	});
-	
+//会员规则跳转
+$('#lv').click(function() {
+		api.openWin({
+			name : 'vipGz',
+			url : 'vipGz.html',
+			reload : true,
+			slidBackEnabled : true,
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			}
+		});
+	});
     //shareToContact
 	$('#shareToContact').click(function() {
 			api.accessNative({
@@ -366,23 +406,10 @@ $('#payMoney').click(function() {
 
 		});
 	//我的金蛋   
-	$('#myegg').click(function() {
-		api.openWin({
-			name : 'myegg',
-			url : '../html/wallet/myegg.html',
-			reload : true,
-			slidBackEnabled : true,
-			animation : {
-				type : "push", //动画类型（详见动画类型常量）
-				subType : "from_right", //动画子类型（详见动画子类型常量）
-				duration : 300 //动画过渡时间，默认300毫秒
-			}
-		});
-	});
 //	$('#myegg').click(function() {
 //		api.openWin({
 //			name : 'myegg',
-//			url : '../stealEgg/html/myegg.html',
+//			url : '../html/wallet/myegg.html',
 //			reload : true,
 //			slidBackEnabled : true,
 //			animation : {
@@ -392,6 +419,19 @@ $('#payMoney').click(function() {
 //			}
 //		});
 //	});
+	$('#myegg').click(function() {
+		api.openWin({
+			name : 'myegg',
+			url : '../stealEgg/html/myegg.html',
+			reload : true,
+			slidBackEnabled : true,
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			}
+		});
+	});
 	//金蛋购买
 	$('#buyEgg').click(function() {
 		api.openWin({
@@ -662,213 +702,18 @@ $('#payMoney').click(function() {
 	});
 	
 	//好友管理
-//	$("#addressBook").bind("click", function() {
-//		api.openWin({
-//			name : 'addressBook',
-//			url : '../friendManage/html/addressBook.html',
-//			slidBackEnabled : true,
-//			animation : {
-//				type : "push", //动画类型（详见动画类型常量）
-//				subType : "from_right", //动画子类型（详见动画子类型常量）
-//				duration : 300 //动画过渡时间，默认300毫秒
-//			}
-//		});
-//	});
-	//调用图片
-	function queryMyCenterCarousel() {
-		AjaxUtil.exeScript({
-			script : "mobile.center.homepage.homepage",
-			needTrascation : true,
-			funName : "queryMyCenterCarousel",
-			form : {},
-			success : function(data) {
-				console.log($api.jsonToStr(data));
-				if (data.formDataset.checked == 'true') {
-					var placeTwoList=$api.strToJson(data.formDataset.carouselList);
-					for(var i=0;i<placeTwoList.length;i++){
-						if(String(placeTwoList[i].place_no)=="1"){
-							$("#firTopLef").attr("src",''+rootUrl+placeTwoList[i].img_url+'');
-							$("#firTopLef").attr("data",''+placeTwoList[i].skip_no+'');
-							$("#firTopLef").attr("datas",''+placeTwoList[i].skip_url+'');
-//							$("#firTopLef").siblings().html(placeTwoList[i].title);
-						};
-						if(String(placeTwoList[i].place_no)=="2"){
-							$("#firTopMid").attr("src",''+rootUrl+placeTwoList[i].img_url+'');
-							$("#firTopMid").attr("data",''+placeTwoList[i].skip_no+'');
-							$("#firTopMid").attr("datas",''+placeTwoList[i].skip_url+'');
-							$("#firTopMid").siblings().html(placeTwoList[i].title);
-						};
-						if(String(placeTwoList[i].place_no)=="3"){
-							$("#firTopRig").attr("src",''+rootUrl+placeTwoList[i].img_url+'');
-							$("#firTopRig").attr("data",''+placeTwoList[i].skip_no+'');
-							$("#firTopRig").attr("datas",''+placeTwoList[i].skip_url+'');
-							$("#firTopRig").siblings().html(placeTwoList[i].title);
-						};
-					};
-				} else {
-//					alert(data.formDataset.errorMsg);
-				}
+	$("#addressBook").bind("click", function() {
+		api.openWin({
+			name : 'addressBook',
+			url : '../friendManage/html/addressBook.html',
+			slidBackEnabled : true,
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
 			}
 		});
-	};
-	queryMyCenterCarousel();
-	//获取商品id
-	var browser = api.require('webBrowser');
-	function queryGoodOrMerchantByNo(skipNo){
-		api.showProgress({});
-		AjaxUtil.exeScript({
-			script : "mobile.center.homepage.homepage",
-			needTrascation : true,
-			funName : "queryGoodOrMerchantByNo",
-			form : {
-				skipNo: skipNo
-			},
-			success : function(data) {
-				api.hideProgress();
-				console.log("获取商家或商品Id" + $api.jsonToStr(data));
-				if (data.formDataset.checked == 'true') {
-					//走商家
-					if(data.formDataset.skipType=="1"){
-						api.openWin({//商家详情界面
-							name : 'business-man-list',
-							url : '../sjDetail/business-man-list.html',
-							slidBackEnabled : true,
-							animation : {
-								type : "push", //动画类型（详见动画类型常量）
-								subType : "from_right", //动画子类型（详见动画子类型常量）
-								duration : 300 //动画过渡时间，默认300毫秒
-							},
-							pageParam : {
-								id : data.formDataset.skipId,
-								companytype : data.formDataset.skipId
-							}
-						});
-										
-					}else if(data.formDataset.skipType=="2"){
-						api.openWin({//详情界面
-							name : 'buyListInfo',
-							url : '../shangjia/html/buyListInfo.html',
-							slidBackEnabled : true,
-							animation : {
-								type : "push", //动画类型（详见动画类型常量）
-								subType : "from_right", //动画子类型（详见动画子类型常量）
-								duration : 300 //动画过渡时间，默认300毫秒
-							},
-							pageParam : {
-								id : data.formDataset.skipId
-							}
-						});
-					
-					}
-				
-				} else {
-					
-				}
-			},
-			error : function(xhr, type) {
-				api.hideProgress();
-				api.toast({
-	                msg:'您的网络不给力啊，检查下是否连接上网络了！'
-                });
-			}
-		});
-	};
-	//第一部分
-//	$("#firstImgBox").on("click","img",function(){
-//		var skipNo=$(this).attr("data");
-//		var skipurl=$(this).attr("datas");
-////		alert(skipurl);
-//		if(skipNo=="" || String(skipNo)=="null" || String(skipNo)=="undefined"){
-//			api.confirm({
-//				title : '提示',
-//				msg : '您即将跳转到' + skipurl,
-//				buttons : ['确定', '取消']
-//			}, function(ret, err) {
-//				var index = ret.buttonIndex;
-//				if (index == 1) {
-//					browser.open({
-//						url : skipurl
-//					});
-//				}
-//			})
-//		}else if(skipurl=="" || String(skipurl)=="null" || String(skipurl)=="undefined"){
-//			//获取商品或商家id
-//			queryGoodOrMerchantByNo(skipNo);
-//		};
-//	});
-	$("#firstImgBox").on("click","img",function(){
-		var skipNo=$(this).attr("data");
-		var skipurl=$(this).attr("datas");
-		console.log("**********"+skipNo+"**"+skipurl);
-		if (String(skipurl) == "000000") {
-			api.openFrame({//商家列表
-				name : 'commonProvider',
-				url : '../shangjia/html/newIndex.html',
-				bounces : false,
-				reload : true,
-				rect : {
-					x : 0,
-					y : 0,
-					w : 'auto',
-					h : frameH + headerH,
-				}
-			});
-
-		} else if(String(skipurl) == "111111") {
-			api.openWin({//商城列表
-				name : 'busList',
-				url : '../shangjia/html/buyList.html',
-				slidBackEnabled : true,
-				animation : {
-					type : "push", //动画类型（详见动画类型常量）
-					subType : "from_right", //动画子类型（详见动画子类型常量）
-					duration : 300 //动画过渡时间，默认300毫秒
-				},
-				pageParam : {
-		          prefShop : true
-		        },
-			});
-		} else if(String(skipurl) == "222222") {
-			api.openWin({//金蛋商城列表
-				name : 'integralStore',
-				url : '../shangjia/eggstore/eggMain.html',
-				slidBackEnabled : true,
-				animation : {
-					type : "push", //动画类型（详见动画类型常量）
-					subType : "from_right", //动画子类型（详见动画子类型常量）
-					duration : 300 //动画过渡时间，默认300毫秒
-				}
-			});
-		} else if(String(skipurl) == "333333") {
-			api.openWin({//积分商城列表
-				name : 'integralStore',
-				url : '../shangjia/integralStore/eggMain.html',
-				slidBackEnabled : true,
-				animation : {
-					type : "push", //动画类型（详见动画类型常量）
-					subType : "from_right", //动画子类型（详见动画子类型常量）
-					duration : 300 //动画过渡时间，默认300毫秒
-				}
-			});		
-		}else if(skipNo=="" || String(skipNo)=="null" || String(skipNo)=="undefined"){
-			api.confirm({
-				title : '提示',
-				msg : '您即将跳转到' + skipurl,
-				buttons : ['确定', '取消']
-			}, function(ret, err) {
-				var index = ret.buttonIndex;
-				if (index == 1) {
-					browser.open({
-						url : skipurl
-					});
-				}
-			})
-		}else if(skipurl=="" || String(skipurl)=="null" || String(skipurl)=="undefined"){
-			//获取商品或商家id
-			queryGoodOrMerchantByNo(skipNo);
-		};
 	});
-	
 };
 
 //跳转消息列表

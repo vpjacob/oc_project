@@ -368,7 +368,7 @@ apiready = function() {
 	$('#mainEgg').click(function() {
 		api.openWin({
 			name : 'myegg',
-			url : 'wallet/myegg.html',
+			url : '../stealEgg/html/myegg.html',
 			reload : true,
 			slidBackEnabled : true,
 			animation : {

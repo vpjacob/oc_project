@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<title>会员规则</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../css/sm.min.css">
+		<link rel="stylesheet" href="../css/sm-extend.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/iconfont.css">
+		<link rel="stylesheet" type="text/css" href="../css/person/iconfont.css"> 
+		<link rel="stylesheet" type="text/css" href="../css/common.css">
+		<style>
+			a { text-decoration: none;}
+			a:hover { text-decoration: none; }
+			#recommend{
+				width: 11%;
+			    height: 1.6rem;
+			    border: 1px solid transparent;
+			    position: absolute;
+			    /* top: 36%; */
+			    left: 71%;
+			}
+			.boxImg{
+				width: 100%;
+				overflow: auto;
+				/* margin-top: 44px; */
+			}
+			.headerClass{
+				background:rgba(0,0,0,0);
+				border-bottom: none;	
+			}
+			.bar:after{
+				background: none;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="bar bar-nav headerClass" id="title">
+			<a class="icon iconfont pull-left" id="back">
+				<img src="../image/shezhi/back.png" alt="" class="headerImg"/>
+			</a>
+		</header>
+		<div style="overflow:hidden;height: 100%;position: relative">
+			<img src="images/vipGz.png" class="boxImg"/>
+			<div id="recommend"></div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/common.js"></script>
+	<script type='text/javascript' src='../script/zepto.min.js' charset='utf-8'></script>
+	<script type="text/javascript" src="../script/jquery.js"></script>
+	<script>
+		$("#recommend").css("top",$(".boxImg").height()*0.36);
+		apiready = function() {
+		urId = api.getPrefs({
+			sync : true,
+			key : 'userNo'
+		});
+		var header = $api.byId('title');
+		if (api.systemType == 'ios') {
+			$api.css(header, 'padding-top:1.1rem;');
+			$api.css(header, 'height:3.2rem;');
+		};
+			$("#back").on('click', function() {
+				api.closeWin();
+			});
+		$('#recommend').click(function() {
+			//拼接服务器地址端口、执行方法、传递参数
+			var address = rootUrl + "/jsp/recommendmobile?userNo=" + urId + "&userType=1";
+			//请求二维码模块
+			var scanner = api.require('scanner');
+			scanner.encode({
+				string : address,
+				save : {
+					imgPath : 'fs://',
+					imgName : 'referUser.png'
+				}
+			}, function(ret, err) {
+				if (ret.status) {
+					api.openWin({
+						name : 'myReferer',
+						url : '../html/personal/myReferer.html',
+						pageParam : {
+							imgpath : ret.savePath
+						},
+						slidBackEnabled : true,
+						animation : {
+							type : "push", //动画类型（详见动画类型常量）
+							subType : "from_right", //动画子类型（详见动画子类型常量）
+							duration : 300 //动画过渡时间，默认300毫秒
+						}
+	
+					});
+				} else {
+					api.alert({
+						msg : JSON.stringify(err)
+					}, function(ret, err) {
+						//coding...
+					});
+				}
+			});
+		});
+		}
+	</script>
+</html>

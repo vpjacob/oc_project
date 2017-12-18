@@ -908,7 +908,7 @@ function openCenterPage(show) {
       //已经登陆的情况下
       api.openFrame({
         name : 'room',
-        url : 'nmy/my.html',
+        url : 'nmy/mine.html',
         bounces : false,
         rect : {
           x : 0,

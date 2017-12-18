@@ -15,7 +15,6 @@ apiready = function() {
     });
     isHaveEgg();
 	reacd();	
-//	isHaveSilverEgg();
 	
 	//弹出中奖结果  确认按钮关闭
 	$('.closeTan').click(function(){
@@ -92,8 +91,8 @@ apiready = function() {
 		name : 'keyback'
 	}, function(ret, err) {
 		api.execScript({//刷新我的界面金币总数的数据
-				name : 'my-qianbao',
-//				frameName : 'room',
+				name : 'root',
+				frameName : 'room',
 				script : 'refresh();'
 			});
 			api.execScript({//从主页回来进行刷新
@@ -538,203 +537,6 @@ function noEgg(obj) {
 						"background-size":"cover;"});
 }
 
-//没有银蛋方法
-//function nosilveregg(obj) {
-//	$("#SEgg").remove();
-//	$(".fanzt-chuizi").hide();
-//	$(".fanzt-message").show(200);
-//	$($api.dom('#yd')).attr("data-flag", "1");
-//	$(".imgtop").css({"background":"url('../../image/bgcLast.jpg') no-repeat center",
-//						"width":"100%;",
-//						"height":"200px;",
-//						"text-align:":"center;",
-//						"background-size":"cover;"});
-//}
-
-//检验是否有银蛋
-//function isHaveSilverEgg(obj) {
-//	AjaxUtil.exeScript({
-//		script : "mobile.myegg.myegg",
-//		needTrascation : true,
-//		funName : "checkIsHaveSilverEgg",
-//		form : {
-//			userNo : urId
-//		},
-//		success : function(data) {
-//			console.log("输出：" + $api.jsonToStr(data));
-//			if (data.formDataset.checked == 'true') {
-//				if (data.formDataset.isHaveEgg == 'true') {
-//					IsBeatSilverEgg(obj);
-//				} else {
-//					nosilveregg();
-//				}
-//			} else {
-//				alert(data.formDataset.errorMsg);
-//			}
-//			
-//		}
-//	});
-//}
-
-//function IsBeatSilverEgg(obj) {
-//	AjaxUtil.exeScript({
-//		script : "mobile.myegg.myegg",
-//		needTrascation : true,
-//		funName : "checkIsBeatSilverEgg",
-//		form : {
-//			userNo : urId
-//		},
-//		success : function(data) {
-//			console.log("输出：isMayBeat" + $api.jsonToStr(data));
-//			if (data.formDataset.checked == 'true') {
-//				if (data.formDataset.isMayBeat == 'true') {
-//				$('#showSilverEgg').show();
-//				} else {
-//					nosilveregg();
-//				}
-//			} else {
-//				alert(data.formDataset.errorMsg);
-//			}
-//		}
-//	});
-//}
-
-//function clickSilverEgg(obj) {
-//if (sflag) {
-//		sflag = false;
-//	if ($(obj).attr("data-flag") == "0") {
-//		$("#ycz").show();
-//			var ctop = $("#ycz").position().top - 20;
-//			var cleft = $("#ycz").position().left + 30;
-//		setTimeout(function() {
-//				beatSilverEggMoney();
-//			}, 1300)
-//		//1.锤子抬起的动作
-//		$("#ycz").animate({
-//			"top" : ctop + "px",
-//			"left" : cleft + "px"
-//		}, 1000, function() {
-//			//2.锤子抬起达到最顶点的动作
-//			$("#ycz").css({
-//				"-webkit-transform" : "rotate(80deg)",
-//				"-moz-transform" : "rotate(80deg)",
-//				"-o-transform" : "rotate(80deg)",
-//				"transform" : "rotate(80deg)",
-//				"-webkit-transition" : "all 0.8s ease",
-//				"-moz-transition" : "all 0.8s ease",
-//				"-o-transition" : "all 0.8s ease",
-//				"transition" : "all 0.8s ease"
-//			});
-//			//3.锤子落下的动作
-//			$("#ycz").animate({
-//				"top" : (ctop + 25) + "px",
-//				"left" : (cleft - 50) + "px"
-//			}, 300, function() {
-//				api.startPlay({
-//					path : 'widget://res/gold.mp3'
-//				}, function(ret, err) {
-//					if (ret) {
-//						//						alert('播放完成');
-//					} else {
-//						alert(JSON.stringify(err));
-//					}
-//				});
-//				//4.锤子落下到达最低点
-//				$("#ycz").css({
-//					"-webkit-transform" : "rotate(5deg)",
-//					"-moz-transform" : "rotate(5deg)",
-//					"-o-transform" : "rotate(5deg)",
-//					"transform" : "rotate(5deg)",
-//					"-webkit-transition" : "all 0.1s ease",
-//					"-moz-transition" : "all 0.1s ease",
-//					"-o-transition" : "all 0.1s ease",
-//					"transition" : "all 0.1s ease"
-//				});
-//				//5.金蛋破碎
-//				$("#SEgg").attr("src", "../../image/egg4.png");
-//				$("#ycz").hide();
-//				//6.金花溅出
-//				$("#yinhua").show(200);
-//				//7.中奖结果
-//				$(".fanzt-message").show(200);
-//				//8.程序处理
-//				$(obj).attr("data-flag", "1");
-//				//已砸的状态
-//				api.setPrefs({
-//					key : 'open',
-//					value : '1'
-//				});
-//				//				addLi();
-//			});
-//		});
-//	  }
-//	}
-//}
-
-//砸银蛋的金额方法
-//function beatSilverEggMoney() {
-//	AjaxUtil.exeScript({
-//		script : "mobile.myegg.myegg",
-//		needTrascation : true,
-//		funName : "beatSilverEgg",
-//		form : {
-//			userNo : urId
-//		},
-//		success : function(data) {
-//			if (data.formDataset.checked == 'true') {
-//				$('#showBox').css('display','');
-//				$('#smashCount').html(data.formDataset.money+'枚金币');
-//				silverReacd();
-//			} else {
-//				alert(data.formDataset.errorMsg);
-//			}
-//		}
-//	});
-//}
-
-//银蛋记录
-//function silverReacd() {
-//	AjaxUtil.exeScript({
-//		script : "mobile.myegg.myegg",
-//		needTrascation : true,
-//		funName : "queryBeatSilverEggRecord",
-//		form : {
-//			userNo : urId
-//		},
-//		success : function(data) {
-//			console.log('银蛋记录' + $api.jsonToStr(data));
-//			var listInfo = data.formDataset.recordList;
-//			var list = eval(listInfo);
-//			console.log('list.length' + list.length);
-//
-//			if (data.formDataset.checked == 'true') {
-//				if(data.formDataset.silver_freeze_auto=="" || String(data.formDataset.silver_freeze_auto)=="undefined" || String(data.formDataset.silver_freeze_auto)=="null"){
-//					$("#freezeSliver").html("0颗");
-//				}else{
-//					$("#freezeSliver").html(data.formDataset.silver_freeze_auto+"颗");
-//				}
-//				if (list.length == 0) {
-//					return false;
-//				} else {
-//					$('#ul_tab2').empty();
-//					for (var i = 0; i < list.length; i++) {
-//						var nowli = '<li class="item-content"><div class="item-inner"><div class="item-title">' + list[i].beat_time + '</div><div class="item-mid">' + '<img src="../../image/yin.png" alt="" class="img1"/><span class="span1">' + list[i].egg_count + '</span></div><div class="item-last"><img src="../../image/jinbi.png" alt="" class="img2"/>' + '<span class="span2">' + list[i].beat_money + '</span></div></div></li>';
-//						//     			var nowli = '<span>'+list[i].create_time +'</span><span>'+list[i].beat_money+'</span>'
-//						$('#ul_tab2').append(nowli);
-//
-//					}
-//				}
-//			} else {
-//				alert(data.formDataset.errorMsg);
-//			}
-//		}
-//	});
-//}
-
-//function addLi() {
-//	$('#ul_tab1').append(nowli);
-//}
-
 //跳转到砸金蛋规则页面
 $('.guize').click(function() {
 		api.openWin({
@@ -772,5 +574,15 @@ function wh() {
 
 }
 function goBack() {
+	api.execScript({//刷新我的界面金币总数的数据
+		name : 'root',
+		frameName : 'room',
+		script : 'refresh();'
+	}); 
+	api.execScript({//从主页回来进行刷新
+		name : 'root',
+		script : 'openmain();'
+	});
 	api.closeWin({});
+	
 }

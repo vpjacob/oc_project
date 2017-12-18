@@ -39,6 +39,11 @@ apiready = function() {
 					var accont = data.formDataset.dynamicList;	
 					var arr=$api.strToJson(accont);
 //					var arr=list;
+					if(accont=='' || String(accont)=="undefined" || String(accont)=="null" || String(accont)=="{}"){
+						api.toast({
+	                        msg:'您暂无好友动态'
+                        });
+					}else{
 					var map = {};
 			        var dest = [];
 			        //按时间顺序进行分类
@@ -99,6 +104,7 @@ apiready = function() {
 						outModel = outModel+'</div>';
 						$("#dynamicList").append(outModel);								
 //						pageCount = data.formDataset.count > 10 ? Math.ceil(data.formDataset.count / 10) : 1;
+					}
 					}
 				} else {
 					alert(data.formDataset.errorMsg);

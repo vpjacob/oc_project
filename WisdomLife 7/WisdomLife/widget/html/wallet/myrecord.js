@@ -152,15 +152,15 @@ apiready = function() {
 							nowli = nowli + list[i].source_come;
 						}
 						if(String(list[i].source_come)=="购买金蛋"){
-							businessType="服务费";
+							businessType=list[i].service_fee;
 						}else{
-							businessType="交易总额";
+							businessType=list[i].deal_amount;
 						}
 							nowli = nowli + '</span></div>' 
 										+ '</div>' ;
 						  nowli = nowli + '<div class="user">' 
 											+ '<div class="same">' 
-												+ '<span>'+businessType+'：</span>' + '<span style="color:#ff6c00">' + list[i].deal_amount + '</span>' 
+												+ '<span>交易总额：</span>' + '<span style="color:#ff6c00">' + businessType+ '</span>' 
 											+ '</div>' 
 										+ '</div>' 
 										+ '<div class="user">' 

@@ -132,7 +132,7 @@
             return ;
         }else{
             self.msgVC = [[MFMessageComposeViewController alloc] init];
-            self.msgVC.body = @"点击链接就可以下载~小客,好用的物业软件。  https://itunes.apple.com/cn/app/id1182914885?mt=8";
+            self.msgVC.body = @"点击链接就可以下载~小客,好用的物业软件。  http://www.ppke.cn:9030/download/download.do";
             self.msgVC.recipients = @[phoneNumber];
             self.msgVC.messageComposeDelegate = self;
             [self presentViewController:self.msgVC animated:YES completion:nil];

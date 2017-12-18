@@ -148,6 +148,9 @@ apiready = function() {
 			        //按时间顺序进行分类
 			        if(String(arr.length)=="undefined" || String(arr.length)=="null" || String(arr.length)=="0"){
 						$(".hoderimg").show();
+						api.toast({
+	                        msg:data.formDataset.errorMsg
+                        });
 					}else{
 			        for(var i = 0; i < arr.length; i++){
 			            var ai = arr[i];
@@ -326,82 +329,6 @@ function stealFriendEgg() {
 		}
 	});
 }
-
-
-
-//检验是否有蛋
-//function isHaveEgg(obj) {
-//	AjaxUtil.exeScript({
-//		script : "mobile.myegg.myegg",
-//		needTrascation : true,
-//		funName : "checkIsHaveGoldEgg",
-//		form : {
-//			userNo : urId
-//		},
-//		success : function(data) {
-//			console.log("输出：" + $api.jsonToStr(data));
-//			if (data.formDataset.checked == 'true') {
-//				if (data.formDataset.isHaveEgg == 'true') {
-//					isBeat(obj);
-//				} else {
-//					//alert("您已经没了金蛋可砸啦！")
-//					noEgg();
-//				}
-//
-//			} else {
-//				alert(data.formDataset.errorMsg);
-//			}
-//		}
-//	});
-//}
-
-//检验是否可砸
-//function isBeat(obj) {
-//	AjaxUtil.exeScript({
-//		script : "mobile.myegg.myegg",
-//		needTrascation : true,
-//		funName : "checkIsBeatGoldEgg",
-//		form : {
-//			userNo : urId
-//		},
-//		success : function(data) {
-//			//    	console.log("输出："+$api.jsonToStr(data));
-//			if (data.formDataset.checked == 'true') {
-//				if (data.formDataset.isBeat == 'true') {
-//					console.log("进来了")
-////					eggClick(obj);
-//				$(".imgtop").css({"background":"url('../../image/bgcGold.jpg') no-repeat center",
-//						"width":"100%;",
-//						"height":"200px;",
-//						"text-align:":"center;",
-//						"background-size":"cover;"});
-//				$('#showGoldEgg').show();
-//				} else {
-//					//     			alert("今天已砸金蛋")
-//					noEgg();
-//				}
-//
-//			} else {
-//				alert(data.formDataset.errorMsg);
-//			}
-//		}
-//	});
-//}
-
-//没有金蛋方法
-//function noEgg(obj) {
-//	$("#egg").remove();
-//	$(".fanzt-chuizi").hide();
-//
-//	$(".fanzt-message").show(200);
-//	$($api.dom('#jd')).attr("data-flag", "1");
-//	$(".imgtop").css({"background":"url('../../image/bgcLast.jpg') no-repeat center",
-//						"width":"100%;",
-//						"height":"200px;",
-//						"text-align:":"center;",
-//						"background-size":"cover;"});
-//}
-
 
 //跳转到砸金蛋规则页面
 $('.guize').click(function() {

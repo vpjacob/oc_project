@@ -7,13 +7,41 @@ var merchantNo="";
 apiready = function() {
 	var header = $api.byId('title');
 	if (api.systemType == 'ios') {
+		document.body.addEventListener('touchstart', function () { });//兼容ios点击buttonactive不生效
         if (api.screenHeight == 2436){
             $api.css(header, 'margin-top:2.2rem;');
-            $api.css($api.dom('.box'),'margin-top:4.4rem;');
+//          $api.css($api.dom('.box'),'margin-top:4.4rem;');
         }else{
-            $api.css(header, 'margin-top:1rem;');
-            $api.css($api.dom('.box'),'margin-top:3.2rem;');
+            $api.css(header, 'margin-top:0.5rem;');
         }
+	}else{
+            $api.css($api.dom('.main'),'top:43%;');
+            $('body').height($('body')[0].clientHeight);
+		//处理安卓端的软键盘收起时的相应数量及价钱
+		var winHeight = $(window).height();   //获取当前页面高度
+		$(window).resize(function(){
+		   var thisHeight=$(this).height();
+		    if(winHeight - thisHeight >50){
+		         //当软键盘弹出，在这里面操作
+		    }else{
+		        var amoutVal=$("#amout").val();
+				if(amoutVal== "" || String(amoutVal)=="null" || String(amoutVal)=="undefined" || amoutVal==1){
+					$("#amout").val(2);
+					$("#amout").css("width","50px");
+					$('#countAll').html(Number(150)+'元');
+				}else{
+					 var reg = /^[1-9]\d*$/;
+					 if(!reg.test(amoutVal)){
+					 	$("#amout").val(2);
+					 	alert("只能输入正整数");
+					 	$("#amout").css("width","50px");
+					 }else{		 
+						$('#countAll').html(Number(75*amoutVal)+'元');
+					 }
+				}
+		
+		    }
+		});
 	}
 	//获取用户信息
 	userNo = api.getPrefs({
@@ -36,27 +64,72 @@ apiready = function() {
            $(this).prop("checked", true);
          }
     });
+    //处理输入框动态宽度和最大长度提示
+	$('#amout').bind('input propertychange', function() {
+		var $this = $(this);
+		var text_length = $this.val().length;
+		if (text_length >= 6) {
+			api.toast({
+	            msg:'最多输入六位数哦，亲'
+            });
+			return false;
+		} else {
+			var current_width = parseInt(text_length) * 16+34;
+			$this.css("width", current_width + "px");
+		}
+	}); 
+	$('#amout').blur(function(){
+		var amoutVal=$(this).val();
+		if(amoutVal== "" || String(amoutVal)=="null" || String(amoutVal)=="undefined" || amoutVal==1){
+			$("#amout").val(2);
+			$("#amout").css("width","50px");
+			$('#countAll').html(Number(150)+'元');
+		}else{
+			 var reg = /^[1-9]\d*$/;
+			 if(!reg.test(amoutVal)){
+			 	$("#amout").val(2);
+			 	alert("只能输入正整数");
+			 	$("#amout").css("width","50px");
+			 }else{		 
+				$('#countAll').html(Number(75*amoutVal)+'元');
+			 }
+		}
+	});
+
     //数量的增加与减少
 	$('#numAdd').click(function() {
-		var amout = $("#amout").html();
-		if (parseInt(amout) < 9999) {
+		var amout = $("#amout").val();
+		if (parseInt(amout) < 999999) {
 			amout = parseInt(amout) + 1;
-			$("#amout").html(amout);
+			$("#amout").val(amout);
 			var numAdd=parseInt(amout) * 75;
 			$('#countAll').html(Number(numAdd)+'元');
+			
+			var text_length = $("#amout").val().length;
+			var current_width = parseInt(text_length) * 16+34;
+			$("#amout").css("width", current_width + "px");
 		}
 	});
 	$('#numSub').click(function() {
-		var amout = $("#amout").html();
-		if (parseInt(amout) > 1) {
+		var amout = $("#amout").val();
+		if (parseInt(amout) > 2) {
 			amout = parseInt(amout) - 1;
-			$("#amout").html(amout);
+			$("#amout").val(amout);
 			var numSub=parseInt(amout) * 75;
 			$('#countAll').html(Number(numSub)+'元');
+			
+			var text_length = $("#amout").val().length;
+			var current_width = parseInt(text_length) * 16+34;
+			$("#amout").css("width", current_width + "px");
+		}else{
+			api.toast({
+	            msg:'亲，不能再减了！'
+            });
 		}
 	});
 	//提交支付调用支付宝接口
 	$('#goBuyEgg').click(function() {
+//		$("#goBuyEgg").css("background","#2097fb");
 		var countAll=Number($("#countAll").html().split("元")[0]);
 		if (userNo == 'userNo' || userNo == null) {
 			api.alert({

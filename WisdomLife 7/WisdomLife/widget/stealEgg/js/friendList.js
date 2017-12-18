@@ -19,7 +19,22 @@ apiready = function() {
 		sync : true,
 		key : 'userNo'
 	});
-	
+	//点击好友列表进行跳转
+	$(".botSec").on("click",".boxBotSame",function(){
+		api.openWin({
+				name : 'stealEgg',
+				url : 'stealEgg.html',
+				reload : true,
+				animation : {
+					type : "push", //动画类型（详见动画类型常量）
+					subType : "from_right", //动画子类型（详见动画子类型常量）
+					duration : 300 //动画过渡时间，默认300毫秒
+				},
+				pageParam : {
+					otherId:$(this).attr("datas")
+				}
+			});
+	})	
 	//加载好友列表和昨日砸蛋情况
 	function friendEggList() {
 		api.showProgress({});
@@ -38,6 +53,11 @@ apiready = function() {
 					var accont = data.formDataset.friendEggList;	
 					var list=$api.strToJson(accont);
 					var model="";
+					if(accont=='' || String(accont)=="undefined" || String(accont)=="null" || String(accont)=="{}"){
+						api.toast({
+	                        msg:'您暂无好友，赶快添加好友去吧'
+                        });
+					}else{
 					for(var i=0;i<list.length;i++){
 						var nickName="";
                       	var eggMoney="";
@@ -74,7 +94,7 @@ apiready = function() {
                       		}else{
                       			rankImg='<div class="topImg">'+(i+1)+'</div>';
                       		}
-						model+='<div class="boxBotSame" data="'+list[i].steal_gold_status+'">'
+						model+='<div class="boxBotSame" data="'+list[i].steal_gold_status+'" datas="'+list[i].friend_no+'">'
 							+''+rankImg+''
 							+'<div class="main">'
 							+'<img src="'+headImage+'" alt="" class="mainImg"/>'			
@@ -87,6 +107,7 @@ apiready = function() {
 							+'</div>'	
 						$("#friendEggList").append(model);								
 					}	
+					}
 				} else {
 					alert(data.formDataset.errorMsg);
 				}

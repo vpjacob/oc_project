@@ -144,8 +144,15 @@ apiready = function() {
 				api.hideProgress();
 				if (data.formDataset.checked == 'true') {
 					myfriendList = data.formDataset.friendList;	
-					var str= sortPY(myfriendList);
-					createLi(str);
+					if(myfriendList=='' || String(myfriendList)=="undefined" || String(myfriendList)=="null" || String(myfriendList)=="{}"){
+						api.toast({
+	                        msg:'您暂无好友，赶快添加好友去吧'
+                        });
+					}else{
+						var str= sortPY(myfriendList);
+						createLi(str);
+					}
+					
 				} else {
 					alert(data.formDataset.errorMsg);
 				}

@@ -15,19 +15,17 @@
 	<body style="overflow: auto">
 		<header class="bar bar-nav headerClass" id="title">
 			<a class="icon iconfont pull-left" onclick="goBack()">
-				<img src="../../image/shezhi/goback.png" alt="" class="headerImg"/>
+				<img src="../../image/goback.png" alt="" class="headerImg"/>
 			</a>
-			<h1 class="title headerTitle">购买金蛋</h1>
 		</header>
 		<div class="box">
-			<img src="../../image/buyEgg.jpg" alt="" class="buyEggImg"/>
 			<div class="main">
 				<div class="amount sameHeight">
 					<span class="sameLeft">金蛋数量</span>
 					<div class="chooseAmountChange">
-						<div id="numSub">-</div>
-						<div id="amout">1</div>
-						<div id="numAdd">+</div>
+						<div id="numSub"  class="numSub"></div>
+						<input id="amout"  value="2" type="number" oninput="if(value.length>6)value=value.slice(0,6)" ></input>
+						<div id="numAdd" class="numAdd"></div>
 					</div>
 				</div>
 				<div class="price sameHeight">
@@ -43,34 +41,27 @@
 						合计
 					</span>
 					<span class="sameRight" id="countAll">
-						75元
+						150元
 					</span>
 				</div>
-			</div>
+			<!--</div>-->
 			<div class="businessPay payTop">
 				<div class="businesses">
 					<img src="../../shangjia/image/address/wxPay.png" />
-					<span>微信</span>
+					<span>微信支付</span>
 					<input type="checkbox"  id="wxPay"/>
 				</div>
 			</div>
 			<div class="businessPay payBot">
 				<div class="businesses">
 					<img src="../../shangjia/image/address/pay.png" />
-					<span>支付宝</span>
+					<span>支付宝支付</span>
 					<input type="checkbox"  id="zfb"/>
 				</div>
 			</div>
 			<div class="goPay" id="goBuyEgg">
 				立即支付
 			</div>
-			<div class="notice">
-				<img src="../../image/buyEggNotice.png" alt="" class="noticeImg"/>
-				<div class="noticeBox">
-					<p>1.75元购买价值150元的金蛋(金蛋为小客代金券)。</p>
-					<p>2.购买的金蛋会在次日产生。</p>
-					<p>3.金蛋在小客商城金蛋兑换专区可直接兑换商品，也可以每天登录小客app砸金蛋获得金币，金币可以在小客合作商家和小客线上商城进行兑换不同商品。</p>
-				</div>
 			</div>
 		</div>
 	</body>

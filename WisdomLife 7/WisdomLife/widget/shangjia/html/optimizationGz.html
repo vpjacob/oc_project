@@ -26,7 +26,14 @@
 			.boxImg{
 				width: 100%;
 				overflow: auto;
-				margin-top: 44px;
+				/* margin-top: 44px; */
+			}
+			.headerClass{
+				background:rgba(0,0,0,0);
+				border-bottom: none;	
+			}
+			.bar:after{
+				background: none;
 			}
 		</style>
 	</head>
@@ -35,9 +42,8 @@
 			<a class="icon iconfont pull-left" id="back">
 				<img src="../../image/shezhi/goback.png" alt="" class="headerImg"/>
 			</a>
-			<h1 class="title headerTitle">活动规则</h1>
 		</header>
-		<div style="overflow:auto;height: 100%;position: relative">
+		<div style="overflow:hidden;height: 100%;position: relative">
 			<img src="../image/optimizationGz.jpg" class="boxImg"/>
 			<div id="goShop"></div>
 		</div>
@@ -47,8 +53,8 @@
 	<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
 	<script type="text/javascript" src="../../script/jquery.js"></script>
 	<script>
+		$("#goShop").css("top",$(".boxImg").height()*0.8);
 		apiready = function() {
-		$("#goShop").css("top",$(".boxImg").height()*0.875);
 		var header = $api.byId('title');
 		if (api.systemType == 'ios') {
 			$api.css(header, 'padding-top:1.1rem;');
