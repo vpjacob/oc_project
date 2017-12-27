@@ -25,7 +25,7 @@ static NSString *postUrl = @"http://xk.ppke.cn:9030/xk/appStartImg.do";
 static NSString *imgUrlFront = @"http://www.ppke.cn";
 //ca-app-pub-9554187975714748~4522907099
 @interface AppDelegate ()<WXApiDelegate>
-
+@property (nonatomic, strong)NSString *iosMsg;
 @end
 
 @implementation AppDelegate
@@ -47,9 +47,14 @@ static NSString *imgUrlFront = @"http://www.ppke.cn";
     [self thridDTouchInit];
     [self advertisementInit];
     [WXApi registerApp:@"wx467a7db3832c23fd"];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(SaveWXPayMsg:) name:@"WXPayMsg" object:nil];
+    
     return YES;
 }
+- (void)SaveWXPayMsg:(NSNotification *)noti{
+    self.iosMsg = noti.userInfo[@"iosMsg"];
 
+}
 - (void)advertisementInit{
 
     UIImage *image = [UIImage imageNamed:@"guanggao"];
@@ -129,9 +134,47 @@ static NSString *imgUrlFront = @"http://www.ppke.cn";
     
 }
 
+
 -(void) onResp:(BaseResp*)resp{
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.window animated:YES];
     hud.mode = MBProgressHUDModeText;
+    
+    NSDictionary *dic = @{
+                          @"msg":self.iosMsg
+                          };
+    
+   
+    
+    if ([resp isKindOfClass:[PayResp class]]) {
+        hud.margin = 15.f;
+        hud.yOffset = 00.f;
+        hud.removeFromSuperViewOnHide = YES;
+        [hud hide:YES afterDelay:4];
+        DLog(@"%@",self.iosMsg);
+        switch (resp.errCode) {
+            case WXSuccess:
+                hud.labelText = @"支付成功";
+                [[DMHtmlListener manager] nativeSendActionToH5:@"requestPushAction" userInfo:dic];
+                break;
+            case WXErrCodeCommon:
+                hud.labelText = @"支付普通错误";
+                break;
+            case WXErrCodeUserCancel:
+                hud.labelText = @"支付点击了取消";
+                break;
+            case WXErrCodeSentFail:
+                hud.labelText = @"支付发送失败";
+                break;
+            case WXErrCodeAuthDeny:
+                hud.labelText = @"支付授权失败";
+                break;
+            case WXErrCodeUnsupport:
+                hud.labelText = @"支付微信不支持";
+                break;
+            default:
+                break;
+        }
+    }else{
     
     hud.margin = 15.f;
     hud.yOffset = 00.f;
@@ -159,6 +202,7 @@ static NSString *imgUrlFront = @"http://www.ppke.cn";
         break;
         default:
         break;
+    }
     }
 }
 

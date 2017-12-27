@@ -414,6 +414,19 @@ apiready = function() {
 												api.closeWin()
 											}, 500);
 											api.hideProgress();
+											AjaxUtil.exeScript({
+												script : "managers.pushMessage.msg", //推送消息
+												needTrascation : false,
+												funName : "pushmsg",
+												form : {
+													userNo : 'V812820',
+													msg : "【小客商品】订单号【" + dealNo + "】,商品名称【" + $("#content").html() + "】",
+													type : 1
+												},
+												success : function(data) {
+													console.log($api.jsonToStr(data));
+												}
+											});
 										}
 									},
 									error : function(XMLHttpRequest, textStatus, errorThrown) {

@@ -16,18 +16,18 @@ apiready = function() {
     }
 	var header = $api.byId('header');
 	if (api.systemType == 'ios') {
+		document.body.addEventListener('touchstart', function () { });//兼容ios点击buttonactive不生效
 		var cc = $api.dom('.content');
-        isIos=true;
-        if (api.screenHeight == 2436){
-            
-            $api.css(header, 'margin-top:44px;');
-            $api.css(cc, 'margin-top:44px;');
-            
-        }else{
-            $api.css(header, 'margin-top:20px;');
-            $api.css(cc, 'margin-top:20px;');
-            
-        }
+		if (api.screenHeight == 2436){
+			$api.css(header, 'padding-top:2.2rem;');
+			$api.css(header, 'height:4.2rem;');
+			$api.css(cc, 'margin-top:2.2rem;');
+		}else{
+			$api.css(header, 'padding-top:1rem;');
+			$api.css(header, 'height:3.2rem;');
+			$api.css(cc, 'margin-top:1rem;');
+		}
+		isIos=true;
 	}
 	var telphone = api.getPrefs({
 		sync : true,
@@ -114,24 +114,6 @@ apiready = function() {
 		initUserInfoAndUserKeyInfo();
 	});
 	
-    //版本信息
-    $('#version').click(function() {
-                       
-                        api.accessNative({
-                                         name : 'showVersionCode',
-                                         extra : {
-                                         
-                                         }
-                                         }, function(ret, err) {
-                                         if (ret) {
-                                         //                                    alert(JSON.stringify(ret));
-                                         } else {
-                                         //                                    alert(JSON.stringify(err));
-                                         }
-                                         });
-                        
-                       });
-	
 	$("#getmark").bind("click", function() {//去评分
 		var browser = api.require('webBrowser');
 		if (isIos) {
@@ -153,9 +135,7 @@ apiready = function() {
 				}
 			});
 		}
-
 	});
-	
 	//修改密码
 	$('#changePwd').click(function() {
 		api.openWin({
@@ -176,8 +156,8 @@ apiready = function() {
 	
 	$("#aboutus").bind("click", function() {
 		api.openWin({//打开关于我们
-			name : 'aboutus',
-			url : '../personal/aboutus.html',
+			name : 'aboutAll',
+			url : 'aboutAll.html',
 			slidBackEnabled : true,
 			animation : {
 				type : "push", //动画类型（详见动画类型常量）
@@ -186,6 +166,7 @@ apiready = function() {
 			}
 		});
 	});
+
 
 	$(document).on('click', '#shareAll', function() {
 		$('#photo').show();
@@ -284,7 +265,7 @@ function showPro() {
 function xiaoxi() {
 	api.openWin({//打开意见反馈
 		name : 'xiaoxi',
-		url : '../home/xiaoxi.html',
+		url : '../personal/myMessage.html',
 		slidBackEnabled : true,
 		pageParam : {
 			memberid : memberid

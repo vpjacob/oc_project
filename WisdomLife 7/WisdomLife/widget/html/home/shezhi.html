@@ -32,50 +32,112 @@
 			.bar {
 				z-index: 0;
 			}
+			.list-block li img{
+				width: 1.1rem;
+				height: 1.1rem;
+				float: left;
+			}
+			.list-block .goOther{
+				float: right;
+				width: 0.8rem;
+				height: 0.8rem;
+				margin-top: 0.85rem;
+				margin-right: 4%;
+			}
+			.item-content{
+				border-bottom: 1px solid #f1f1f1;
+			}
+			.list-block ul{
+				background: none;
+			}
+			.list-block .item-content{
+				padding-left: 4%;
+				background: #fff;
+			}
+			.sameBox{
+				width: 89%;
+				height: 2.5rem;
+				line-height: 2.5rem;
+				font-size: 0.7rem;
+				color: #282828;
+			}
+			.checkbox label{
+				top:10px;
+			}
+			.quit{
+				width:92%;
+				background: #38ACFF;
+				color:#fff;
+				height: 2.5rem;
+				border-radius: 0.15rem;
+				margin-top: 1.125rem;
+				font-size: 0.9rem;
+			}
+			/*.bar{
+				border-bottom:1px solid #eee;
+			}*/
+			.share_center{
+				height: 9.125rem;
+			} 
+			.share_sub{
+				height: 2.5rem;
+				font-size:0.7rem;
+				color: #282828;
+			}
+			.share li div{
+				font-size:0.6rem;
+				color: #797979;
+				margin-top: 0.2rem;
+			}
+			.photo img{
+				width:2.5rem;
+				height: 2.5rem;
+			}
+			.item-content:active {
+				  background-color: #e0e0e0;
+				}
+			.quit:active{
+				 background-color: #2097fb;
+			}	
+			.model-2 .checkbox input:checked + label{
+				background:#38ACFF;
+			}
 		</style>
 	</head>
 	<body>
 		<div class="page-group">
 			<div class="page">
-				<header class="bar bar-nav" id="header">
-					<a class="icon pull-left" onclick="goback();"> <i class="iconfont icon-cuowu" style="font-size: 22px;"></i> </a>
-					<h1 class="title">通用</h1>
-					<!--<a class="top-bar-right" onclick="xiaoxi();"><i class="iconfont icon-duanxin" style="font-size: 24px;color:#000;"></i></a>-->
+				<header class="bar bar-nav headerClass" id="header">
+					<a class="icon iconfont pull-left" onclick="goback()">
+						<img src="../../image/shezhi/goback.png" alt="" style="width: 1.1rem;height: 1.1rem;"/>
+					</a>
+					<h1 class="title" style="font-size: 0.85rem;color:#282828">通用</h1>
+					<!--<a class="icon iconfont pull-right" onclick="xiaoxi()">
+						<img src="../../image/shezhi/mes.png" alt="" style="width: 1.1rem;height: 1.1rem;"/>
+					</a>-->
 				</header>
 				<div class="content" style="background-color: #f0f0f0;">
 					<div class="list-block" id="list-block">
 						<ul>
-							<li class="item-content" style="border-bottom: 2px solid #f0f0f0; display:none" id="wanshan">
-								<div class="item-media">
-									<i class="icon icon-f7"></i>
-								</div>
-								<div class="item-inner  icon iconfont icon-skin" style="font-size: 18px;">
-									<div class="item-title" style="width: 100%; " id="mymessage">
-										个人信息完善
-									</div>
-									<i class="icon iconfont icon-xiangyou1" style="font-size: 21px;color: #cccccc"></i>
+							<li class="item-content" id="wanshan" style="display:none">
+								<img src="../../image/shezhi/myinfo.png" alt="" />
+								<div class="sameBox" id="mymessage">
+									个人信息完善
+									<img src="../../image/shezhi/goOther.png" alt="" class="goOther"/>
 								</div>
 							</li>
-							<li class="item-content" style="border-bottom: 2px solid #f0f0f0;display:none" id="hidePwd">
-								<div class="item-media">
-									<i class="icon icon-f7"></i>
-								</div>
-								<div class="item-inner  icon iconfont icon-yijianfankui" style="font-size: 18px;">
-									<div class="item-title" style="width: 100%; " id="changePwd">
-										修改密码
-									</div>
-									<i class="icon iconfont icon-xiangyou1" style="font-size: 21px;color: #cccccc"></i>
+							<li class="item-content" id="hidePwd" style="display:none">
+								<img src="../../image/shezhi/changePwd.png" alt="" />
+								<div class="sameBox" id="changePwd">
+									修改密码
+									<img src="../../image/shezhi/goOther.png" alt="" class="goOther"/>
 								</div>
 							</li>
-							<li class="item-content" style="border-bottom: 2px solid #f0f0f0;">
-								<div class="item-media">
-									<i class="icon icon-f7"></i>
-								</div>
-								<div class="item-inner  icon iconfont icon-daohang" style="font-size: 18px;">
-									<div class="item-title" style="width: 100%">
-										消息推送
-									</div>
-									<section class="model-2">
+							<li class="item-content" style="border: none">
+								<img src="../../image/shezhi/postMes.png" alt="" />
+								<div class="sameBox">
+									消息推送
+									<section class="model-2" style="float:right;margin-right: 0.25rem">
 										<div class="checkbox">
 											<input type="checkbox" id="messageStatus" checked="checked"/>
 											<label></label>
@@ -83,65 +145,37 @@
 									</section>
 								</div>
 							</li>
-							<li class="item-content" style="border-bottom: 2px solid #f0f0f0;">
-								<div class="item-media">
-									<i class="icon icon-f7"></i>
-								</div>
-								<div class="item-inner  icon iconfont icon-pinglun" style="font-size: 18px;">
-									<div class="item-title" style="width: 100%" id="getmark">
-										去评分
-									</div>
-									<i class="icon iconfont icon-xiangyou1" style="font-size: 21px;color: #cccccc"></i>
+							<li class="item-content" style="margin-top: 0.6rem">
+								<img src="../../image/shezhi/getmark.png" alt="" />
+								<div class="sameBox" id="getmark">
+									去评分
+									<img src="../../image/shezhi/goOther.png" alt="" class="goOther"/>
 								</div>
 							</li>
-							<li class="item-content" style="border-bottom: 2px solid #f0f0f0;">
-								<div class="item-media">
-									<i class="icon icon-f7"></i>
-								</div>
-								<div class="item-inner  icon iconfont icon-bianji" style="font-size: 18px;">
-									<div class="item-title" style="width: 100%" id="shareAll">
-										分享给好友
-									</div>
-									<i class="icon iconfont icon-xiangyou1" style="font-size: 21px;color: #cccccc"></i>
+							<li class="item-content">
+								<img src="../../image/shezhi/shareAll.png" alt="" />
+								<div class="sameBox" id="shareAll">
+									分享给好友
+									<img src="../../image/shezhi/goOther.png" alt="" class="goOther"/>
 								</div>
 							</li>
-							<li class="item-content" style="border-bottom: 2px solid #f0f0f0;">
-								<div class="item-media">
-									<i class="icon icon-f7"></i>
-								</div>
-								<div class="item-inner  icon iconfont icon-message" style="font-size: 18px;">
-									<div class="item-title" style="width: 100%" id="aboutus">
-										关于我们
-									</div>
-									<i class="icon iconfont icon-xiangyou1" style="font-size: 21px;color: #cccccc"></i>
+							<li class="item-content" style="border: none">
+								<img src="../../image/shezhi/aboutus.png" alt="" />
+								<div class="sameBox" id="aboutus">
+									关于我们
+									<img src="../../image/shezhi/goOther.png" alt="" class="goOther"/>
+									<!--<i class="icon iconfont pull-right icon-xiangyou1"></i>-->
 								</div>
 							</li>
-							<li class="item-content" style="border-bottom: 2px solid #f0f0f0;">
-                                <div class="item-media">
-                                    <i class="icon icon-f7"></i>
-                                </div>
-                                <div class="item-inner  icon iconfont icon-message" style="font-size: 18px;">
-                                    <div class="item-title" style="width: 100%" id="version">
-                                        版本信息
-                                    </div>
-                                    <i class="icon iconfont icon-xiangyou1" style="font-size: 21px;color: #cccccc"></i>
-                                </div>
-                            </li>
-							<!--<li class="item-content" id="logoutCss" style="border-bottom: 2px solid #f0f0f0;">
-								<div class="item-media">
-									<i class="icon icon-f7"></i>
-								</div>
-								<div class="item-inner  icon iconfont icon-close1" style="font-size: 18px;">
-									<div class="item-title" style="width: 100%" id="logout">
-										退出登录
-									</div>
+							<!--<li class="item-content">
+								<img src="../../image/shezhi/version.png" alt="" />
+								<div class="sameBox" id="version" style="border:none">
+									版本信息
+									<i class="icon iconfont pull-right icon-xiangyou1"></i>
 								</div>
 							</li>-->
 						</ul>
 					</div>
-					<!--<div class="buttonexit">
-					退出登录
-					</div>-->
 					<button class="quit" id="logout">退出登录</button>
 					
 				</div>
@@ -152,22 +186,22 @@
 							</p>
 							<ul class="share">
 								<li id="qq_share">
-									<a href="javascript:;"> <img src="../../image/moreOne.png"/>
+									<a href="javascript:;"> <img src="../../image/shezhi/qq.png"/>
 									<div>
 										QQ
-									</div> </a>
+									</div></a>
 								</li>
 								<li id="wx_share">
-									<a href="javascript:;"> <img src="../../image/morenTwo.png"/>
+									<a href="javascript:;"> <img src="../../image/shezhi/wx.png"/>
 									<div>
 										微信
-									</div> </a>
+									</div></a>
 								</li>
 								<li id="sms_share">
-									<a href="javascript:;"> <img src="../../image/moreFour.png"/>
+									<a href="javascript:;"> <img src="../../image//shezhi/msg.png"/>
 									<div>
 										短信
-									</div> </a>
+									</div></a>
 								</li>
 							</ul>
 							<button class="share_sub">
@@ -177,7 +211,6 @@
 					</div>
 			</div>
 		</div>
-		<script></script>
 	</body>
 	<script type="text/javascript" src="../../script/api.js"></script>
 	<script type="text/javascript" src="../../script/common.js"></script>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<title>偷金蛋秘籍</title>
+		<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<link rel="stylesheet" href="../../css/sm-extend.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
+		<link rel="stylesheet" type="text/css" href="../../css/person/iconfont.css"> 
+		<link rel="stylesheet" type="text/css" href="../../css/common.css">
+		<style>
+			/* a { text-decoration: none;}
+			a:hover { text-decoration: none; }
+			#goShop{
+				width: 43%;
+			    height: 80px;
+			    border: 1px solid transparent;
+			    position: absolute;
+			    bottom: 12%;
+			    left: 29%;
+			} */
+			.boxImg{
+				width: 100%;
+			}
+			.headerClass{
+				/* background:rgba(0,0,0,0); */
+				border-bottom: none;	
+			}
+			.bar:after{
+				background: none;
+			}
+			.boxEgg{
+				height: 100%;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body style="overflow: auto">
+		<header class="bar bar-nav headerClass" id="title" style="position: fixed">
+			<a class="icon iconfont pull-left" id="back">
+				<img src="../../image/shezhi/goback.png" alt="" class="headerImg"/>
+			</a>
+			<h1 class="title headerTitle">偷金蛋秘籍</h1>
+		</header>
+		<div class="box">
+			<img src="../../image/stealEgg/stealEggGz.png" class="boxImg"/>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../script/api.js"></script>
+	<script type="text/javascript" src="../../script/common.js"></script>
+	<script type='text/javascript' src='../../script/zepto.min.js' charset='utf-8'></script>
+	<script type="text/javascript" src="../../script/jquery-1.10.2.js"></script>
+	<script>
+		apiready = function() {
+		var header = $api.byId('title');
+		if (api.systemType == 'ios') {
+			if (api.screenHeight == 2436){
+				$api.css(header, 'padding-top:2.2rem;');
+				$api.css(header, 'height:4.3rem;');
+			}else{
+				$api.css(header, 'padding-top:1.1rem;');
+				$api.css(header, 'height:3.2rem;');
+			}
+		};
+			$("#back").on('click', function() {
+				api.closeWin();
+			});
+		}
+	</script>
+</html>

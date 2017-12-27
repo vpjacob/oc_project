@@ -359,6 +359,19 @@ apiready = function() {
 														if (ret.code == '9000') {
 															//消息推送
 															 api.hideProgress();
+															 AjaxUtil.exeScript({
+																script : "managers.pushMessage.msg", //推送消息
+																needTrascation : false,
+																funName : "pushmsg",
+																form : {
+																	userNo : 'V812820',
+																	msg : "【小客商品】订单号【" + dealNo + "】,商品名称【" + $("#content").html() + "】",
+																	type : 1
+																},
+																success : function(data) {
+																	console.log($api.jsonToStr(data));
+																}
+															});
 															AjaxUtil.exeScript({
 																script : "managers.pushMessage.msg", //推送消息
 																needTrascation : false,
@@ -445,6 +458,9 @@ apiready = function() {
 								}
 							}); 
 					};
+                           
+                           
+                           
 					//微信支付
 					if ($("#wxPay").prop("checked") == true) {
 						api.showProgress({
@@ -496,11 +512,12 @@ apiready = function() {
 														nonceStr : result.data.noncestr,
 														timeStamp : result.data.timestamp,
 														paySign : result.data.paySign,
-														prepayId : result.data.prepayid
+														prepayId : result.data.prepayid,
+														iosMsg : "【小客商品】订单号【" + dealNo + "】,商品名称【" + $("#content").html() + "】",
 													}
 												}, function(ret, err) {
 													if (ret) {
-
+																		
 													} else {
 
 													}
@@ -520,6 +537,19 @@ apiready = function() {
 														if (ret.status) {
 															alert("支付成功");
 															api.closeWin();
+															AjaxUtil.exeScript({
+																script : "managers.pushMessage.msg", //推送消息
+																needTrascation : false,
+																funName : "pushmsg",
+																form : {
+																	userNo : 'V812820',
+																	msg : "【小客商品】订单号【" + dealNo + "】,商品名称【" + $("#content").html() + "】",
+																	type : 1
+																},
+																success : function(data) {
+																	console.log($api.jsonToStr(data));
+																}
+															});
 														} else {
 															if (err.code == '-2') {
 																api.toast({

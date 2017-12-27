@@ -93,7 +93,7 @@ apiready = function() {
 							var model='<div class="context">'
 								+'<img src="../../image/stealEgg/dot.png" alt="" class="dot"/>'
 								+'<span class="name">'+nickName+'</span>'
-								+'<span class="spanSame">砸出</span>'
+								+'<span class="spanSame">偷了</span>'
 								+'<span class="gold">'+eggMoney+'</span>'
 								+'<span class="spanSame">枚金币</span>'
 								+'<span class="time">'+(list[i].create_time).split(" ")[1]+'</span>'

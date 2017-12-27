@@ -40,6 +40,8 @@ apiready = function() {
 		count(urId);
 		//调用可用积分
 		queryAllAccountInfo(urId);
+		//进入我的主页查看是否有未读消息 
+		checkIsHaveMsg(urId);
 	}
 	init();
 	$('#name').html('id:' + urId);
@@ -122,7 +124,34 @@ apiready = function() {
 			}
 		})
 	}
-
+	//进入我的主页查看是否有未读消息
+	function checkIsHaveMsg(urId) {
+//		api.showProgress({});
+		AjaxUtil.exeScript({
+			script : "mobile.center.message.message",
+			needTrascation : true,
+			funName : "checkIsHaveMsg",
+			form : {
+				userNo : urId
+			},
+			success : function(data) {
+				console.log('进入我的主页查看是否有未读消息'+$api.jsonToStr(data));
+				if (data.formDataset.checked == 'true') {
+					var account = data.formDataset.isHave;
+//					alert(account);
+					if(String(account)=='1'){
+						$("#message").attr("src","images/hasMessage.png");
+					}else if(String(account)=='0'){
+						$("#message").attr("src","images/mineMessage.png");
+					}
+				} else {
+					api.toast({
+	                    msg:data.formDataset.errorMsg
+                    });
+				}
+			}
+		});
+	};
 	//更换头像
 	$(".pic").click(function() {
 		$("#photo").css("display", "block");

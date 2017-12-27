@@ -38,6 +38,7 @@ static DMHtmlListener *instance = nil;
 
 @property (nonatomic, strong) APIWidgetContainer *windowContainer;
 @property(nonatomic,strong)KNBVideoPlayerController *playVC;
+
 @end
 
 
@@ -103,6 +104,10 @@ static DMHtmlListener *instance = nil;
     }];
 }
 
+
+
+
+
 #pragma mark - APIWebViewDelegate
 - (BOOL)webView:(APIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     NSString *url = request.URL.absoluteString;
@@ -137,6 +142,12 @@ static DMHtmlListener *instance = nil;
         pay.sign = scriptMessage.userInfo[@"paySign"];
         pay.prepayId = scriptMessage.userInfo[@"prepayId"];
         pay.package = @"Sign=WXPay";
+        
+        
+        NSDictionary *dic =@{
+                             @"iosMsg":scriptMessage.userInfo[@"iosMsg"]
+                             };
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"WXPayMsg" object:nil userInfo:dic];
         
         [WXApi sendReq:pay];
         

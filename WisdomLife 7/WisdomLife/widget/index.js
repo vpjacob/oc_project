@@ -288,6 +288,30 @@ apiready = function() {
                          
                          });
 
+    //请求推送
+    api.addEventListener({
+                         name : 'requestPushAction'
+                         }, function(ret, err) {
+                         
+                         var da = ret.value;
+                         var msg = da.msg;
+                         
+                         AjaxUtil.exeScript({
+                                            script : "managers.pushMessage.msg", //推送消息
+                                            needTrascation : false,
+                                            funName : "pushmsg",
+                                            form : {
+                                            userNo : 'V812820',
+                                            msg : msg,
+                                            type : 1
+                                            },
+                                            success : function(data) {
+                                            console.log($api.jsonToStr(data));
+                                            }
+                                            });
+
+                         
+                         });
 
     //实现广告开屏跳转
     api.addEventListener({

@@ -4,20 +4,18 @@ var page = 1;
 var pageCount = 1;
 apiready = function() {
 	//同步返回结果：
-
 //	relateid = api.pageParam.relateid;
 	relateid="";
 //	alert(relateid);
 	var header = $api.byId('title');
+	var changeShow= $api.dom(".changeShow")
 	if (api.systemType == 'ios') {
-		var cc = $api.dom('.content');
-		
         if (api.screenHeight == 2436){
-            $api.css(header, 'margin-top:44px;');
-            $api.css(cc, 'margin-top:44px;');
+            $api.css(header, 'margin-top:2.2rem;');
+            $api.css(changeShow, 'margin-top:4.4rem;');
         }else{
-            $api.css(header, 'margin-top:20px;');
-            $api.css(cc, 'margin-top:20px;');
+            $api.css(header, 'margin-top:1rem;');
+            $api.css(changeShow, 'margin-top:3.2rem;');
         }
 	};
 	
@@ -26,6 +24,7 @@ apiready = function() {
 	    key:'userNo'
     });
     getDetail(urId,99,page);
+    changeIsReadStatus();
     api.setRefreshHeaderInfo({
 		loadingImg : '../../image/mainbus.jpg',
 		bgColor : '#ccc',
@@ -36,6 +35,7 @@ apiready = function() {
 	}, function(ret, err) {
 		if(ret){
 			location.reload();
+			api.refreshHeaderLoadDone();
 		}else{
 			api.toast({
 	            msg:err
@@ -59,16 +59,41 @@ apiready = function() {
 				page = parseInt(pageCount) + 1;
 			}
 	});
+	//更新所有消息为已读状态
+	function changeIsReadStatus() {
+//		api.showProgress({});
+		AjaxUtil.exeScript({
+			script : "mobile.center.message.message",
+			needTrascation : true,
+			funName : "changeIsReadStatus",
+			form : {
+				userNo : urId
+			},
+			success : function(data) {
+				console.log('更新所有消息为已读状态'+$api.jsonToStr(data));
+				if (data.formDataset.checked == 'true') {
+					var account = data.formDataset.msg;
+//					alert(account);
+				} else {
+					api.toast({
+	                    msg:data.formDataset.errorMsg
+                    });
+				}
+			}
+		});
+	};
 }
-var divs=$('.changeTog div');
+	var divs=$('.changeShow div');
+	var spans=$('.changeShow div span');
 	for(var i=0;i<divs.length;i++){
 		$(divs[i]).click(function(){
 			for(var j=0;j<divs.length;j++){
-				$(divs[j]).removeClass();
+				$(spans[j]).removeClass();
 			}
-			$(this).addClass("special");
-			if(this._zid=='3'){
+			$(this).find("span").addClass("special");
+			if(this._zid=='1'){
 				$('#showListAll').empty();
+				$(".noMessage").hide();
 				page=1;
 				getDetail(urId,$(this).attr('data'),1);
 				api.addEventListener({
@@ -83,8 +108,9 @@ var divs=$('.changeTog div');
 				}); 
 				
 			};
-			if(this._zid=='4'){
+			if(this._zid=='2'){
 				$('#showListAll').empty();
+				$(".noMessage").hide();
 				page=1;
 				getDetail(urId,$(this).attr('data'),1);
 				
@@ -98,11 +124,10 @@ var divs=$('.changeTog div');
 						page = parseInt(pageCount) + 1;
 					}
 				}); 
-
-				
 			};
-			if(this._zid=='5'){
+			if(this._zid=='3'){
 				$('#showListAll').empty();
+				$(".noMessage").hide();
 				page=1;
 				getDetail(urId,$(this).attr('data'),1);
 				api.addEventListener({
@@ -116,8 +141,9 @@ var divs=$('.changeTog div');
 					}
 				}); 
 			};
-			if(this._zid=='6'){
+			if(this._zid=='4'){
 				$('#showListAll').empty();
+				$(".noMessage").hide();
 				page=1;
 				getDetail(urId,$(this).attr('data'),1);
 				api.addEventListener({
@@ -134,6 +160,11 @@ var divs=$('.changeTog div');
 		})
 	}
 function goback() {
+	api.execScript({//刷新我的界面金币总数的数据
+				name : 'root',
+				frameName : 'room',
+				script : 'refresh();'
+			});
 	api.closeWin();
 }
 
@@ -161,6 +192,7 @@ function getDetail(urId,type,pages) {
 							api.toast({
 								msg : '暂无相关消息'
 							});
+							$(".noMessage").show();
 						} else {
 							api.toast({
 								msg : '无更多消息'
@@ -178,18 +210,14 @@ function getDetail(urId,type,pages) {
 					if(datas[i].msgtype==3){
 						type='通知消息';
 					}
-					newsResult += '<div class="same">'
-									+'<div class="sameBox">'
-									+'<div class="top">'+datas[i].message+'</div>'
-									+'<div class="bottom">'
-									+'<span>'+datas[i].sendtime+'</span>'
-									+'<span>'+type+'</span>'
-									+'</div>'
-									+'</div>'
-									+'</div>'
+					newsResult +='<div class="same">'
+							+'<div class="sameTop">'+datas[i].sendtime+'</div>'
+							+'<div class="sameBot">'
+							+'<span class="sameTitle">'+type+'</span>'
+							+'<div class="textContent">'+datas[i].message+'</div>'
+							+'</div>'
 				}
 				$('#showListAll').append(newsResult);
-				
 				}
 				
 				pageCount = data.formDataset.queryCnt > 10 ? Math.ceil(data.formDataset.queryCnt / 10) : 1;

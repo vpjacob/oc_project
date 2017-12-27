@@ -142,7 +142,7 @@ apiready = function() {
 	                      			eggMoney=list[i].beat_money;
 	                      		};
 	                      		if(list[i].type=="2"){
-	                      			typeFlag='<span>从</span><span>'+nickName+'</span><span>砸得</span>'
+	                      			typeFlag='<span>从</span><span>'+nickName+'</span><span>偷了</span>'
 	                      			typeImg='<img src="../../image/stealEgg/clickegg.png" alt="" class="personImg"/>'
 	                      		}else if(list[i].type=="1"){
 	                      			typeFlag='<span>砸金蛋</span>'

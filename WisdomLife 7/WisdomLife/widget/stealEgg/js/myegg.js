@@ -8,6 +8,7 @@ var templeft;
 //控制刷新方法的触发
 var isRefresh = true;
 var urId;
+var clickMoney="";
 apiready = function() {
 	urId = api.getPrefs({
 	    sync:true,
@@ -43,6 +44,19 @@ apiready = function() {
 			}
 		});
 	});
+	//金蛋排行榜
+	$('.eggList').click(function(){
+		api.openWin({
+			name : 'eggList',
+			url : '../../html/wallet/eggList.html',
+			reload : true,
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			}
+		});
+	});
 	//跳转到更多动态页面
 	$(".moreDynamic").click(function(){
 		api.openWin({
@@ -55,7 +69,20 @@ apiready = function() {
 				duration : 300 //动画过渡时间，默认300毫秒
 			}
 		});
-	})
+	});
+	//跳转到偷金蛋秘籍页面
+	$(".cheats").click(function(){
+		api.openWin({
+			name : 'stealEggGe',
+			url : 'stealEggGe.html',
+			reload : true,
+			animation : {
+				type : "push", //动画类型（详见动画类型常量）
+				subType : "from_right", //动画子类型（详见动画子类型常量）
+				duration : 300 //动画过渡时间，默认300毫秒
+			}
+		});
+	});
 //跳转到更多好友
 	$("#moreFriend").click(function(){
 		api.openWin({
@@ -177,7 +204,7 @@ apiready = function() {
 	                      		};
 							model+='<div class="boxTopSame">'
 									+'<span>'+nickName+'</span>'
-									+'<span>砸出</span>'			
+									+'<span>偷了</span>'			
 									+'<span>'+eggMoney+'</span>'		
 									+'<span>枚金币</span>'		
 									+'<span>'+list[i].create_time+'</span>'		
@@ -318,7 +345,40 @@ apiready = function() {
 		});
 	};
 	myEggRecordMyInfo();
-	
+	//分享给微信
+	$(".shareWx").bind("click", function() {
+		var wx = api.require('wx');
+		var wxUrl=""
+		wx.isInstalled(function(ret, err) {
+			if (ret.installed) {
+				$('#showBox').hide();
+//				wxUrl=rootUrl + "/jsp/recommendmobile?userNo=" + urId + "&userType=1";
+				wxUrl=rootUrl+"/jsp/manager/mobile/shareWeiXin?userNo=" + urId + "&money="+clickMoney+"";
+				wx.shareWebpage({
+					apiKey : '',
+					scene : 'session',
+					title : '购物送金蛋，金蛋砸不停',
+					description : '来小客商城购物，天天砸金蛋',
+					thumb : 'widget://image/shareWx.jpg',
+					contentUrl :wxUrl,
+//					userName : 'A6921550712789',
+//					path : '',
+				}, function(ret, err) {
+					console.log($api.jsonToStr(ret))
+					if (ret.status) {
+						alert('分享成功');
+					} else {
+						alert(err.code);
+					}
+				});
+			} else {
+				api.alert({
+					msg : "当前设备未安装微信客户端"
+				});
+			}
+		});
+
+	});
 }
 function refresh() {
 	location.reload();
@@ -418,6 +478,7 @@ function test() {
 			if (data.formDataset.checked == 'true') {
 				$('#showBox').css('display','');
 				$('#smashCount').html(data.formDataset.money+'枚金币');
+				clickMoney=data.formDataset.money;
 				reacd();
 			} else {
 				alert(data.formDataset.errorMsg);
