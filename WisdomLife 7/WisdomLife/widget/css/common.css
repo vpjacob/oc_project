@@ -1,5 +1,5 @@
 body {
-	font-family: "微软雅黑";
+	font-family: "Microsoft YaHei",Arial,Helvetica,sans-serif;
 	background-color: #f1f1f1;
 }
 img {
@@ -10,7 +10,6 @@ input {
 	padding: 0;
 	outline: none;
 	border: none;
-	text-align: right;
 }
 .headerClass{
 	background:#fff;
@@ -30,6 +29,10 @@ input {
 .borderNo{
 	border:none !important;
 }
+.bgcWhite{
+	background-color: white;
+}
+/* 条状框及点击效果 */
 .itemSame{
 	width: 100%;
 	height: 2.5rem;
@@ -54,5 +57,32 @@ input {
 .itemSame:active {
 	background-color: #e0e0e0;
 }
+/* input框 */
+.itemSameInput{
+	font-size: 0.7rem; 
+}
+/* 提交按钮 */
+.itemButton{
+	width:92%;
+	background: #38ACFF;
+	color:#fff;
+	height: 2.5rem;
+	border-radius: 0.15rem;
+	font-size: 0.9rem;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 2.5rem;
+	margin-top: 1.125rem;
+}
+.itemButton:active {
+	background-color: #2097fb;
+}
+
+
+
+
+
+
+
 
 

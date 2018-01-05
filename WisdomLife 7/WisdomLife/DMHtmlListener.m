@@ -134,7 +134,7 @@ static DMHtmlListener *instance = nil;
     }else if ([scriptMessage.name isEqualToString:@"wxpay"]) {//
         
         PayReq *pay = [[PayReq alloc] init];
-        
+        DLog(@"%@",scriptMessage.userInfo);
         pay.partnerId = @"1488789472";
         pay.nonceStr = scriptMessage.userInfo[@"nonceStr"];
         NSString *tmstr = scriptMessage.userInfo[@"timeStamp"];

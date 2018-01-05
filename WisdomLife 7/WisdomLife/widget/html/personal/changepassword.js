@@ -1,20 +1,23 @@
 var memberid;
 var code;
-$.init();
 var wait = 60;
 var text;
 var urId = '';
 apiready = function() {
 	var header = $api.byId('header');
 	if (api.systemType == 'ios') {
-		var cc = $api.dom('.content');
-		
+		var cc = $api.dom('.box');
+		var dd =$api.dom('.itemSameContent input');
         if (api.screenHeight == 2436){
-            $api.css(header, 'margin-top:44px;');
-            $api.css(cc, 'margin-top:44px;');
+            $api.css(cc, 'margin-top:4.9rem;');
+            $api.css(header, 'padding-top:2.2rem;');
+			$api.css(header, 'height:4.4rem;');
         }else{
-            $api.css(header, 'margin-top:20px;');
-            $api.css(cc, 'margin-top:20px;');
+            $api.css(cc, 'margin-top:3.7rem;');
+            $api.css(header, 'padding-top:1rem;');
+			$api.css(header, 'height:3.2rem;');
+			$(".itemSameContent input").css("height","1.0rem");
+			$(".itemSameContent input").css("line-height","1.0rem");
         }
 	}
 	urId = api.getPrefs({
@@ -43,12 +46,7 @@ apiready = function() {
 			}
 		});
 	}
-
-	var HEIGHT = $('body').height();
-	$(window).resize(function() {
-		$('.page').height(HEIGHT);
-	});
-	$(document).on('touchend', ' .buttong', function() {
+	$(document).on('touchend', '#next', function() {
 		if ($('#vaildCode').val() == '') {
 			api.alert({
 				msg : '您输入的验证码不能为空'
@@ -57,16 +55,9 @@ apiready = function() {
 			});
 			$('#vaildCode').val('');
 		} else if ($('#vaildCode').val() == code) {
-			$(this).css({
-				"background-color" : "#1fb8f0",
-				"color" : "#fff"
-			});
 			$(".paddingOne").hide();
-			$("#next").hide();
 			$('.paddingTwo').show();
-			$(".sub").show();
-			$(".step span").eq(0).removeClass("focusBlue").addClass('focusGray');
-			$(".step span").eq(1).removeClass("focusGray").addClass('focusBlue');
+			$('.changeStep').html("2/2");
 		} else {
 			api.alert({
 				msg : '您输入的验证码不正确，请重新输入'
@@ -76,24 +67,21 @@ apiready = function() {
 			$('#vaildCode').val('');
 		}
 	});
-	$(document).on('touchstart', '.buttong', function() {
-		$(this).css({
-			"background-color" : "#fff",
-			"color" : "#1fb8f0",
-			"border" : "2px solid #0fb8f3"
-		});
-	});
 
 	function settime(o) {
 		if (wait == 0) {
 			o.removeAttribute("disabled");
-			o.value = "获取验证码";
-			o.style.background = "#1fb8f0";
+			o.innerHTML = "获取验证码";
+			o.style.background = "#fff";
+			o.style.color = "#38ACFF";
+			o.style.border = "1px solid #38ACFF";
 			wait = 60;
 		} else {
 			o.setAttribute("disabled", true);
-			o.value = "重新发送(" + wait + ")";
-			o.style.background = "#fff";
+			o.innerHTML = "重新发送(" + wait + ")";
+			o.style.background = "#e0e0e0";
+			o.style.color = "#fff";
+			o.style.border = "none";
 			wait--;
 			setTimeout(function() {
 				settime(o);
@@ -102,7 +90,7 @@ apiready = function() {
 	}
 
 
-	$(document).on('click', '.sub', function() {
+	$(document).on('click', '#sub', function() {
 		var reg = /^[0-9a-zA-Z]+$/
 		var str = $('#num').val();
 		var str2 = $('#vCode').val();
@@ -147,7 +135,6 @@ apiready = function() {
 							jsonpCallback : "successCallback",
 							crossDomain : true,
 							success : function(data) {
-							
 								AjaxUtil.exeScript({
 									script : "managers.home.person",
 									needTrascation : false,
@@ -160,6 +147,7 @@ apiready = function() {
 									},
 									success : function(data) {
 										api.hideProgress();
+										console.log($api.jsonToStr(data));
 										if (data.execStatus == 'true') {
 											if (data.formDataset.checked == 'true') {//旧密码输入正确
 												api.closeWin();
@@ -180,12 +168,7 @@ apiready = function() {
 				}
 			}
 		});
-		
-			
-			
-			
 		}
-		//      $(".tips").fadeIn(500).delay("fast").fadeOut(500);
 	});
 	//点击获取验证码按钮
 	$("#getCaptcha").click(function() {

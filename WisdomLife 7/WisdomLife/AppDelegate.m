@@ -139,13 +139,13 @@ static NSString *imgUrlFront = @"http://www.ppke.cn";
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.window animated:YES];
     hud.mode = MBProgressHUDModeText;
     
-    NSDictionary *dic = @{
-                          @"msg":self.iosMsg
-                          };
     
    
     
     if ([resp isKindOfClass:[PayResp class]]) {
+        NSDictionary *dic = @{
+                              @"msg":self.iosMsg
+                              };
         hud.margin = 15.f;
         hud.yOffset = 00.f;
         hud.removeFromSuperViewOnHide = YES;

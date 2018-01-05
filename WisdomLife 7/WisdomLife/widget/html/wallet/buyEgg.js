@@ -185,7 +185,8 @@ apiready = function() {
 											nonceStr : result.data.noncestr,
 											timeStamp : result.data.timestamp,
 											paySign : result.data.paySign,
-											prepayId : result.data.prepayid
+											prepayId : result.data.prepayid,
+                                                     iosMsg:"金蛋购买"
 										}
 									}, function(ret, err) {
 										if (ret) {

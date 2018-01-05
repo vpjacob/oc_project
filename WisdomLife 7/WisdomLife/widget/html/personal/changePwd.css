@@ -1,0 +1,38 @@
+.paddingOne,.paddingTwo{
+	margin-top: 2.7rem;
+}
+.paddingTwo{
+	 display: none; 
+}
+.changeStep{
+	margin-left: 55.27%;
+	line-height: 2.2rem;
+	font-size: 0.75rem;
+	color: #282828;
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+	color: #cbcbcb;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color: #cbcbcb;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color: #cbcbcb;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+	color: #cbcbcb;	
+}
+.itemSameContent input{
+	width: 45%;
+}
+.itemSameContent button{
+	height: 1.2rem;
+	font-size:0.6rem;
+	border:1px solid #38ACFF;
+	 padding: 0 5px 0 5px; 
+	color: #38ACFF;
+	float: right;
+	margin-right:4%;
+	margin-top: 0.7rem;
+	border-radius: 0.15rem;
+}

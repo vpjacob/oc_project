@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>订单详情</title>
+		<link rel="stylesheet" type="text/css" href="../../css/api.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
+		<link rel="stylesheet" href="../../css/sm-extend.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common.css">
+		<link rel="stylesheet" type="text/css" href="payDetail.css" />
+	</head>
+	<body>
+		<header class="bar bar-nav headerClass" id="title">
+			<a class="icon iconfont pull-left" onclick="goback()">
+				<img src="../../image/shezhi/goback.png" alt="" class="headerImg"/>
+			</a>
+			<h1 class="title headerTitle">订单详情</h1>
+		</header>
+		<div class="box">
+			<div class="topcolor">
+				<img src="../../image/topcolorImg.png" alt="" />
+				<span class="dealResult">交易成功</span>
+			</div>
+			<div class="addressInfo">
+				<span class="left">
+					<img src="../../image/address.png" alt="" />
+				</span>
+				<span class="right">
+					<span class="name">收货人 : 小客</span>
+					<span class="tel">18888888888</span>
+					<div  class="test_box" >收货地址:暂无</div>
+				</span>
+			</div>
+			<div class="showSame">
+				<div class="sameTitle">
+					<img src="../../image/orderIcon.png" alt="" />
+					<span class="sameName">暂无</span>
+					<img src="../../image/orderGo.png" alt="" />
+					<span class="sameStatus">已完成</span>
+				</div>
+				<div id="goodsId">
+					<!--<div class="sameContent">
+						<div class="sameContentBox">
+							<img src="../../image/shareWx.jpg" alt="" id="goodsImg"/>
+							<div class="commodityName">商品信息暂无</div>
+							<span class="modle" id="norm">规格  : 暂无</span>
+							<span class="modle" id="amount">数量  : 0</span>  
+						</div>
+					</div>-->
+				</div>
+				<div class="wlInfo">
+					<div class="sameItem">
+						<span>配送方式 :</span>
+						<span id="deliveryType">暂无</span>
+					</div>
+					<div class="sameItem">
+						<span>物流单号 :</span>
+						<span id="deliveryDeal">12252542824582852</span>
+					</div>
+					<div class="sameItem">
+						<span>运费 :</span>
+						<span id="freightType">免运费</span>
+					</div>
+					<div class="sameItem">
+						<span>实付款(含运费) :</span>
+						<span id="payCost">¥ 00.00</span>
+					</div>
+				</div>
+				<div class="orderInfo">
+					<div class="sameItem">
+						<span>订单编号 :</span>
+						<span id="dealNum">12252542824582852</span>
+					</div>
+					<div class="sameItem">
+						<span>支付方式 :</span>
+						<span id="payType">线上支付</span>
+					</div>
+					<div class="sameItem">
+						<span>支付时间 :</span>
+						<span id="payTime">2018-07-12 12:12:00</span>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</div>	
+	</body>
+	<script type="text/javascript" src="../../script/api.js"></script>
+	<script type="text/javascript" src="../../script/common.js"></script>
+	<script type="text/javascript" src="../../script/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="payDetail.js"></script>
+</html>

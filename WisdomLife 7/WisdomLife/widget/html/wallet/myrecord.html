@@ -9,106 +9,55 @@
 		<link rel="stylesheet" type="text/css" href="../../css/sm.min.css">
 		<link rel="stylesheet" href="../../css/sm-extend.min.css">
 		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common.css">
 		<link rel="stylesheet" type="text/css" href="myrecord.css" />
-		<script type="text/javascript" src="../../script/jquery-1.10.2.js"></script>
-		<style></style>
 	</head>
-	<body>
-		<header class="bar bar-nav" style="position: relative; background-color:white" id="title">
-			<h1 class="title" style="background-color:white;border-bottom:1px solid #efefef;">我的订单</h1>
-			<a onclick="goBack()" class="iconfont icon-xiangzuo1 pull-left" style="font-size:20px;color:#0EAAE3;position:absolute;top:7px;"></a>
-		</header>
-	<div class="black_box"></div>
-		<div class="Personal_box">
-			<div class="Personal_title">
-				<span class="special span0 ">我的订单</span><span class="span1 ">交易记录</span>
-				<div class="clearfix"></div>
-			</div>
-			<div class="clearfix"></div>
-			<div class="Personal_centent" id="order">
-				<!--<div class="box">
-					<div class="bottom">
-						<div class="user">
-							<div class="same">
-								<span>商家名称：</span>
-								<span>北京麦当劳凯旋城</span>
-							</div>
-						</div>
-						<div class="user" style="height:100%;overflow: auto">
-							<div class="same">
-								<span>商品：</span>
-								<span style="line-height: 2.5rem">
-									麦辣鸡腿汉堡套餐：¥64<br>
-									麦辣鸡腿汉堡套餐：¥64<br>
-									麦辣鸡腿汉堡套餐：¥64<br>
-								</span>
-							</div>
-						</div>
-							<div class="commodity" >共2件商品,实付¥<a style="color:#ff6c00">128</a></div>
-						<div class="user">
-							<div class="same">
-								<span>交易总额：</span>
-								<span style="color:#ff6c00">128</span>
-							</div>
-						</div>
-						<div class="user">
-							<div class="same">
-								<span>订单号：</span>
-								<span>123123123123123123</span>
-							</div>
-						</div>
-						<div class="user">
-							<div class="same">
-								<span>创建时间：</span>
-								<span>2017</span>
-							</div>
-						</div>
-						<div class="user">
-							<div class="same">
-								<span>订单状态：</span>
-								<span>北京麦当劳凯旋城</span>
-							</div>
-						</div>
+	<body style="overflow: auto">
+		<header class="bar bar-nav headerClass" id="title">
+			<a class="icon iconfont pull-left" onclick="goback()">
+				<img src="../../image/shezhi/goback.png" alt="" class="headerImg"/>
+			</a>
+			<h1 class="title headerTitle">我的订单</h1>
+		</header>	
+		<div class="changeShow">
+			<div data="0"><span class="special">全部</span></div>
+			<div data="1"><span>待支付</span></div>
+			<div data="2"><span>待收货</span></div>
+			<div data="3"><span>已完成</span></div>
+			<div data="4"><span>已撤销</span></div>
+		</div>	
+		<div class="showList" id="showList">
+			<!--<div class="showSame">
+				<div class="sameTitle">
+					<img src="../../image/orderIcon.png" alt="" />
+					<span class="sameName">小客网络科技</span>
+					<img src="../../image/orderGo.png" alt="" />
+					<span class="sameStatus finished">已完成</span>
+				</div>
+				<div class="sameContent">
+					<div class="sameContentBox">
+						<img src="../../image/shareWx.jpg" alt="" />
+						<div class="commodityName">小客科技XK1000声波电动牙刷 商城给会员的600积分，积分用于兑换商品</div>
+						<span class="modle">规格  : 拉丝银</span> 
+						<span class="modle">数量  : 1</span>   
 					</div>
-				</div>-->
-			</div>
-			<div class="Personal_centent" id="deal">
-				<!--<div class="box">
-					<div class="bottom">
-						<div class="user">
-							<div class="same">
-								<span>商家名称：</span>
-								<span>北京麦当劳凯旋城</span>
-							</div>
-						</div>
-						<div class="user">
-							<div class="same">
-								<span>交易总额：</span>
-								<span style="color:#ff6c00">128</span>
-							</div>
-						</div>
-						<div class="user">
-							<div class="same">
-								<span>订单号：</span>
-								<span>123123123123123123</span>
-							</div>
-						</div>
-						<div class="user">
-							<div class="same">
-								<span>平台确认时间：</span>
-								<span>2017-10-10 01:10:20</span>
-							</div>
-						</div>
-						<div class="user">
-							<div class="same">
-								<span class="other">查看物流</span>
-							</div>
-						</div>
-					</div>
-				</div>-->
-			</div>
+				</div>
+				<div class="detail">
+					<span class="dealSource">小客商品</span>
+					<span class="dealNum dealCount">¥8000.00</span>
+					<span class="dealNum marginNo">合计:</span>
+					<span class="dealNum">共计1件商品</span>
+				</div>
+				<div class="orderDeal">
+ 					<span class="moreDeal">再来一单</span>
+ 					<span class="dealDeal">删除订单</span>
+ 				</div>  
+			</div>-->
+		</div>
+	</div>	
 	</body>
 	<script type="text/javascript" src="../../script/api.js"></script>
 	<script type="text/javascript" src="../../script/common.js"></script>
+	<script type="text/javascript" src="../../script/jquery-1.10.2.js"></script>
 	<script type="text/javascript" src="myrecord.js"></script>
 </html>
